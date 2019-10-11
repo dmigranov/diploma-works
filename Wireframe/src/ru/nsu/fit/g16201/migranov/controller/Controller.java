@@ -217,104 +217,6 @@ public class Controller {
         });
     }
 
-    public int loadFile(File file) {
-        currentRotateFigure = -1;
-        isDrawingFirstTime = true;
-        int figureCount;
-        currentFigureIndex = 0;
-        try(BufferedReader br = new BufferedReader(new FileReader(file)))
-        {
-            String[] substrings;
-
-            substrings = readLineAndSplit(br);
-            n = Integer.parseInt(substrings[0]);
-            m = Integer.parseInt(substrings[1]);
-            k = Integer.parseInt(substrings[2]);
-            if(m <= 0 || n <= 0 || k <= 0)
-                throw new IOException("Wrong m, n, or k");
-            a = Double.parseDouble(substrings[3]);
-            b = Double.parseDouble(substrings[4]);
-            if(!(b > a && a >= 0 && 1 >= b))
-                throw new IOException("Wrong a or b");
-            c = Double.parseDouble(substrings[5]);
-            d = Double.parseDouble(substrings[6]);
-            if(!(d > c && c >= 0 && 2*Math.PI >= d))
-                throw new IOException("Wrong c or d");
-            if(d >= 6.28)
-                d = 2*Math.PI;
-
-            axes[0] = new Matrix(4, 1, 0, 0, 0, 1);
-            axes[1] = new Matrix(4, 1, 100, 0, 0, 1);
-            axes[2] = new Matrix(4, 1, 0, 100, 0, 1);
-            axes[3] = new Matrix(4, 1, 0, 0, 100, 1);
-
-            substrings = readLineAndSplit(br);
-            zn = Double.parseDouble(substrings[0]);
-            zf = Double.parseDouble(substrings[1]);
-            sw = Double.parseDouble(substrings[2]);
-            sh = Double.parseDouble(substrings[3]);
-            if(!(zn > 0 && zf > zn && sw > 0 && sh > 0))
-                throw new IOException("Wrong clipping");
-
-            projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
-            sceneRotateMatrix = read3x3MatrixByRow(br);
-
-            substrings = readLineAndSplit(br);
-            backgroundColor = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
-            wireframePanel.setBackgroundColor(backgroundColor);
-            substrings = readLineAndSplit(br);
-            figureCount = Integer.parseInt(substrings[0]);
-            figures = new ArrayList<>();
-
-            for (int i = 0; i < figureCount; i++)
-            {
-                substrings = readLineAndSplit(br);
-                Color color = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
-
-                substrings = readLineAndSplit(br);
-                Point3D center = new Point3D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]), Double.parseDouble(substrings[2]));
-
-                Matrix rotateMatrix = read3x3MatrixByRow(br);
-
-                substrings = readLineAndSplit(br);
-                int splinePointCount = Integer.parseInt(substrings[0]);
-                if(splinePointCount < 4)
-                    throw new IOException("Not enough spline points");
-                List<Point2D> splinePoints = new ArrayList<>();
-                for(int j = 0; j < splinePointCount; j++)
-                {
-                    substrings = readLineAndSplit(br);
-                    Point2D splinePoint = new Point2D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]));
-                    splinePoints.add(splinePoint);
-                }
-                Figure figure  = new Figure(center, color, rotateMatrix, splinePoints);
-                figures.add(figure);
-                figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
-            }
-        }
-        catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
-        {
-            return -1;
-        }
-
-        xm = new ArrayList<>(figureCount);
-        ym = new ArrayList<>(figureCount);
-        scale = new ArrayList<>(figureCount);
-
-        for (int i = 0; i < figureCount; i++) {
-            scale.add(1.1);
-            xm.add(null);
-            ym.add(null);
-        }
-
-        currentFigure = figures.get(0);
-        calculateSplineArea();
-        drawSplineLine();
-        drawFigures();
-
-        return figureCount;
-    }
-
     public void drawFigures() {
         double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
 
@@ -911,6 +813,159 @@ public class Controller {
     }
 
     public int load3DFile(File file) {
+        isDrawingFirstTime = true;
+
+        try(BufferedReader br = new BufferedReader(new FileReader(file)))
+        {
+            String[] substrings;
+
+            axes[0] = new Matrix(4, 1, 0, 0, 0, 1);
+            axes[1] = new Matrix(4, 1, 100, 0, 0, 1);
+            axes[2] = new Matrix(4, 1, 0, 100, 0, 1);
+            axes[3] = new Matrix(4, 1, 0, 0, 100, 1);
+
+            substrings = readLineAndSplit(br);
+            zn = Double.parseDouble(substrings[0]);
+            zf = Double.parseDouble(substrings[1]);
+            sw = Double.parseDouble(substrings[2]);
+            sh = Double.parseDouble(substrings[3]);
+            if(!(zn > 0 && zf > zn && sw > 0 && sh > 0))
+                throw new IOException("Wrong clipping");
+            projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
+
+            sceneRotateMatrix = read3x3MatrixByRow(br);
+
+            substrings = readLineAndSplit(br);
+            backgroundColor = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
+            wireframePanel.setBackgroundColor(backgroundColor);
+
+
+            substrings = readLineAndSplit(br);
+            Color color = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
+
+            substrings = readLineAndSplit(br);
+            Point3D center = new Point3D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]), Double.parseDouble(substrings[2]));
+
+            Matrix rotateMatrix = read3x3MatrixByRow(br);
+
+            substrings = readLineAndSplit(br);
+            int Ni = Integer.parseInt(substrings[0]), Nj = Integer.parseInt(substrings[1]);
+            if(Ni < 4 || Nj < 4)
+                throw new IOException("Not enough spline points");
+            List<Point2D> splinePoints = new ArrayList<>();
+            for(int j = 0; j < splinePointCount; j++)
+            {
+                substrings = readLineAndSplit(br);
+                Point2D splinePoint = new Point2D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]));
+                splinePoints.add(splinePoint);
+            }
+            Figure figure  = new Figure(center, color, rotateMatrix, splinePoints);
+            figures.add(figure);
+            figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
+        }
+        catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
+        {
+            return -1;
+        }
+
         return 0;
+    }
+
+    public int loadFile(File file) {
+        currentRotateFigure = -1;
+        isDrawingFirstTime = true;
+        int figureCount;
+        currentFigureIndex = 0;
+        try(BufferedReader br = new BufferedReader(new FileReader(file)))
+        {
+            String[] substrings;
+
+            substrings = readLineAndSplit(br);
+            n = Integer.parseInt(substrings[0]);
+            m = Integer.parseInt(substrings[1]);
+            k = Integer.parseInt(substrings[2]);
+            if(m <= 0 || n <= 0 || k <= 0)
+                throw new IOException("Wrong m, n, or k");
+            a = Double.parseDouble(substrings[3]);
+            b = Double.parseDouble(substrings[4]);
+            if(!(b > a && a >= 0 && 1 >= b))
+                throw new IOException("Wrong a or b");
+            c = Double.parseDouble(substrings[5]);
+            d = Double.parseDouble(substrings[6]);
+            if(!(d > c && c >= 0 && 2*Math.PI >= d))
+                throw new IOException("Wrong c or d");
+            if(d >= 6.28)
+                d = 2*Math.PI;
+
+            axes[0] = new Matrix(4, 1, 0, 0, 0, 1);
+            axes[1] = new Matrix(4, 1, 100, 0, 0, 1);
+            axes[2] = new Matrix(4, 1, 0, 100, 0, 1);
+            axes[3] = new Matrix(4, 1, 0, 0, 100, 1);
+
+            substrings = readLineAndSplit(br);
+            zn = Double.parseDouble(substrings[0]);
+            zf = Double.parseDouble(substrings[1]);
+            sw = Double.parseDouble(substrings[2]);
+            sh = Double.parseDouble(substrings[3]);
+            if(!(zn > 0 && zf > zn && sw > 0 && sh > 0))
+                throw new IOException("Wrong clipping");
+
+            projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
+            sceneRotateMatrix = read3x3MatrixByRow(br);
+
+            substrings = readLineAndSplit(br);
+            backgroundColor = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
+            wireframePanel.setBackgroundColor(backgroundColor);
+            substrings = readLineAndSplit(br);
+            figureCount = Integer.parseInt(substrings[0]);
+            figures = new ArrayList<>();
+
+            for (int i = 0; i < figureCount; i++)
+            {
+                substrings = readLineAndSplit(br);
+                Color color = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
+
+                substrings = readLineAndSplit(br);
+                Point3D center = new Point3D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]), Double.parseDouble(substrings[2]));
+
+                Matrix rotateMatrix = read3x3MatrixByRow(br);
+
+                substrings = readLineAndSplit(br);
+                int splinePointCount = Integer.parseInt(substrings[0]);
+                if(splinePointCount < 4)
+                    throw new IOException("Not enough spline points");
+                List<Point2D> splinePoints = new ArrayList<>();
+                for(int j = 0; j < splinePointCount; j++)
+                {
+                    substrings = readLineAndSplit(br);
+                    Point2D splinePoint = new Point2D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]));
+                    splinePoints.add(splinePoint);
+                }
+                Figure figure  = new Figure(center, color, rotateMatrix, splinePoints);
+                figures.add(figure);
+                figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
+            }
+        }
+        catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
+        {
+            return -1;
+        }
+
+        xm = new ArrayList<>(figureCount);
+        ym = new ArrayList<>(figureCount);
+        scale = new ArrayList<>(figureCount);
+
+        for (int i = 0; i < figureCount; i++) {
+            scale.add(1.1);
+            xm.add(null);
+            ym.add(null);
+        }
+
+        currentFigure = figures.get(0);
+        calculateSplineArea();
+        drawSplineLine();
+        drawFigures();
+
+        return figureCount;
     }
 }

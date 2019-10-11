@@ -29,8 +29,7 @@ public class WireframeFrame extends MainFrame {
     private WireframePanel wireframePanel;
 
     private JTextField aField, bField, cField, dField, nField, mField, kField, aSplineField, bSplineField, swField, shField, znField, zfField, backgroundColorFields[], figureColorFields[], centerFields[];
-    private JButton confirmButton, addFigureButton;
-    //private int figureCount;
+    private JButton confirmButton;
     private boolean fileIsLoaded = false;
 
     private ButtonGroup group;
@@ -66,9 +65,6 @@ public class WireframeFrame extends MainFrame {
         statusPanel.setLayout(new BoxLayout(statusPanel, BoxLayout.X_AXIS));
         statusPanel.add(statusLabel);
         add(statusPanel, BorderLayout.SOUTH);
-
-        /*File file = new File("examply9.txt");
-        loadFile(file);*/
 
         setMinimumSize(new Dimension(800, 600));
         setLocationRelativeTo(null);
@@ -122,34 +118,6 @@ public class WireframeFrame extends MainFrame {
         JPanel commonPanel = new JPanel();
         tabbedPane.add("Common", commonPanel);
 
-        /*createSplineConfigurationPanel();
-        if(panelSize == null)
-            panelSize = splineConfigurationPanel.getPreferredSize();
-        for(int i = 0; i < figureCount; i++) {
-            JPanel panel = new JPanel();
-            panel.setPreferredSize(panelSize);
-            tabbedPane.add("Figure " + (i + 1), panel);
-        }
-        tabbedPane.addChangeListener(e -> {
-            //0 - common
-            int selected = tabbedPane.getSelectedIndex();
-            if(selected != 0) {
-                JPanel panel = ((JPanel)tabbedPane.getSelectedComponent());
-                panel.add(splineConfigurationPanel);
-                panel.revalidate();
-                controller.setCurrentFigure(selected - 1);
-                Color color = controller.getCurrentColor();
-                figureColorFields[0].setText(color.getRed() + "");
-                figureColorFields[1].setText(color.getGreen() + "");
-                figureColorFields[2].setText(color.getBlue() + "");
-
-                Point3D center = controller.getCurrentCenter();
-                centerFields[0].setText(center.x + "");
-                centerFields[1].setText(center.y + "");
-                centerFields[2].setText(center.z + "");
-            }
-        });*/
-
         create3DSplineConfigurationPanel();
         tabbedPane.add("3D Spline Config Panel", spline3DConfigurationPanel);
 
@@ -192,21 +160,6 @@ public class WireframeFrame extends MainFrame {
         commonPanel.add(mnkPanel);
         commonPanel.add(clippingPanel);
         commonPanel.add(colorPanel);
-
-        /*addFigureButton = new JButton("Add a new figure");
-
-        addFigureButton.addActionListener(e -> {
-            controller.addFigure();
-            figureCount++;
-            JPanel panel = new JPanel();
-            panel.setPreferredSize(panelSize);
-            tabbedPane.add("Figure " + figureCount, panel);
-            try {
-                createFigureChoiceMenu();
-            } catch (NoSuchMethodException e1) {
-                e1.printStackTrace();
-            }
-        });*/
 
         confirmButton = new JButton("Confirm");
         confirmButton.addActionListener(e -> {
@@ -284,7 +237,7 @@ public class WireframeFrame extends MainFrame {
         addMenuAndToolBarButton("File/Save as", "Save figures as", KeyEvent.VK_S, "download.png", "onSave", true);
 
         addSubMenu("Options", KeyEvent.VK_O);
-        addMenuAndToolBarButton("Options/Configuration", "Configure splines", KeyEvent.VK_S, "settings.png", "onConfigureSplines", false);
+        addMenuAndToolBarButton("Options/Configuration", "Configure splines", KeyEvent.VK_S, "settings.png", "onConfigureSplines", true);
 
         addSubMenu("Help", KeyEvent.VK_H);
         addMenuAndToolBarButton("Help/About", "Shows program version and copyright information", KeyEvent.VK_A, "book.png", "onAbout", false);
@@ -447,10 +400,6 @@ public class WireframeFrame extends MainFrame {
         int key = KeyEvent.VK_A;
         group = new ButtonGroup();
         addRadioButtonMenuAndToolBarButton("Rotation/World", "Choose what to rotate", key++,"rotate.png", group, "onRotateChoose", true, false, false);
-        /*for (int i = 0; i < figureCount; i++)
-        {
-            addRadioButtonMenuAndToolBarButton("Rotation/Figure " + (i+1), "Choose what to rotate", key++,"rotate.png", group, "onRotateChoose", false, false, false);
-        }*/
     }
 
     private void updateFields() {
@@ -530,22 +479,6 @@ public class WireframeFrame extends MainFrame {
         centerPanel.add(new LabelTextField("Cy: ", centerFields[1], new NegativeFloatTextFieldKeyListener()));
         centerPanel.add(new LabelTextField("Cz: ", centerFields[2], new NegativeFloatTextFieldKeyListener()));
         inputButtonPanel.add(centerPanel);
-
-        /*JButton deleteFigureButton = new JButton("Delete this figure");
-        deleteFigureButton.addActionListener(e -> {
-            int selected = tabbedPane.getSelectedIndex();
-            controller.deleteFigure(selected - 1);
-            figureCount--;
-            tabbedPane.remove(selected);
-            try {
-                createFigureChoiceMenu();
-            } catch (NoSuchMethodException e1) {
-                e1.printStackTrace();
-            }
-        });
-
-
-        inputButtonPanel.add(deleteFigureButton);*/
     }
 
 
