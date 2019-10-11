@@ -663,6 +663,13 @@ public class Controller {
             String[] substrings;
 
             substrings = readLineAndSplit(br);
+            n = Integer.parseInt(substrings[0]);
+            m = Integer.parseInt(substrings[1]);
+            k = Integer.parseInt(substrings[2]);
+            if(m <= 0 || n <= 0 || k <= 0)
+                throw new IOException("Wrong m, n, or k");
+
+            substrings = readLineAndSplit(br);
             zn = Double.parseDouble(substrings[0]);
             zf = Double.parseDouble(substrings[1]);
             sw = Double.parseDouble(substrings[2]);
@@ -812,8 +819,15 @@ public class Controller {
     private String[] readLineAndSplit(BufferedReader br) throws IOException
     {
         String line;
-        line = br.readLine();
-        line = line.substring(0, line.indexOf('/') != -1 ? line.indexOf('/') : line.length());
-        return line.split("\\s+");
+        String[] substrings;
+        do {
+            line = br.readLine();
+            if(line == null)
+                return null;
+            line = line.substring(0, line.indexOf('/') != -1 ? line.indexOf('/') : line.length());
+            substrings = line.split("\\s+");
+        }
+        while(substrings.length == 0 || "".equals(substrings[0]));
+        return substrings;
     }
 }
