@@ -23,18 +23,17 @@ public class WireframeFrame extends MainFrame {
     private Controller controller;
 
     private SplinePanel splinePanel;
-    private JPanel splineConfigurationPanel, mainPanel;
+    private JPanel splineConfigurationPanel, spline3DConfigurationPanel, mainPanel;
     private JTabbedPane tabbedPane;
 
     private WireframePanel wireframePanel;
 
     private JTextField aField, bField, cField, dField, nField, mField, kField, aSplineField, bSplineField, swField, shField, znField, zfField, backgroundColorFields[], figureColorFields[], centerFields[];
     private JButton confirmButton, addFigureButton;
-    private int figureCount;
+    //private int figureCount;
     private boolean fileIsLoaded = false;
 
     private ButtonGroup group;
-    private Dimension panelSize = null;
 
     public static void main(String[] args) throws Exception {
         new WireframeFrame();
@@ -55,6 +54,8 @@ public class WireframeFrame extends MainFrame {
         mainPanel.add(wireframePanel);
         controller = new Controller(splinePanel, wireframePanel);
         addMenus();
+        createCommonConfigurationPanel();
+
 
         add(mainPanel);
 
@@ -120,7 +121,8 @@ public class WireframeFrame extends MainFrame {
         });     //без этого были странные белые полоски под вкладками https://stackoverflow.com/questions/5183687/java-remove-margin-padding-on-a-jtabbedpane
         JPanel commonPanel = new JPanel();
         tabbedPane.add("Common", commonPanel);
-        createSplineConfigurationPanel();
+
+        /*createSplineConfigurationPanel();
         if(panelSize == null)
             panelSize = splineConfigurationPanel.getPreferredSize();
         for(int i = 0; i < figureCount; i++) {
@@ -146,7 +148,10 @@ public class WireframeFrame extends MainFrame {
                 centerFields[1].setText(center.y + "");
                 centerFields[2].setText(center.z + "");
             }
-        });
+        });*/
+
+        create3DSplineConfigurationPanel();
+        tabbedPane.add("3D Spline Config Panel", spline3DConfigurationPanel);
 
         commonPanel.setLayout(new BoxLayout(commonPanel, BoxLayout.Y_AXIS));
 
@@ -188,7 +193,7 @@ public class WireframeFrame extends MainFrame {
         commonPanel.add(clippingPanel);
         commonPanel.add(colorPanel);
 
-        addFigureButton = new JButton("Add a new figure");
+        /*addFigureButton = new JButton("Add a new figure");
 
         addFigureButton.addActionListener(e -> {
             controller.addFigure();
@@ -201,7 +206,7 @@ public class WireframeFrame extends MainFrame {
             } catch (NoSuchMethodException e1) {
                 e1.printStackTrace();
             }
-        });
+        });*/
 
         confirmButton = new JButton("Confirm");
         confirmButton.addActionListener(e -> {
@@ -268,16 +273,18 @@ public class WireframeFrame extends MainFrame {
         confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 
+    private void create3DSplineConfigurationPanel() {
+        spline3DConfigurationPanel = new JPanel();
+    }
+
     private void addMenus() throws NoSuchMethodException {
         addSubMenu("File", KeyEvent.VK_F);
         addMenuAndToolBarButton("File/Open 3D Spline file", "Open a 3D Spline file", KeyEvent.VK_T, "upload-1.png", "onOpen3D", false);
 
         addMenuAndToolBarButton("File/Save as", "Save figures as", KeyEvent.VK_S, "download.png", "onSave", true);
 
-
-
         addSubMenu("Options", KeyEvent.VK_O);
-        addMenuAndToolBarButton("Options/Configuration", "Configure splines", KeyEvent.VK_S, "settings.png", "onConfigureSplines", true);
+        addMenuAndToolBarButton("Options/Configuration", "Configure splines", KeyEvent.VK_S, "settings.png", "onConfigureSplines", false);
 
         addSubMenu("Help", KeyEvent.VK_H);
         addMenuAndToolBarButton("Help/About", "Shows program version and copyright information", KeyEvent.VK_A, "book.png", "onAbout", false);
@@ -440,10 +447,10 @@ public class WireframeFrame extends MainFrame {
         int key = KeyEvent.VK_A;
         group = new ButtonGroup();
         addRadioButtonMenuAndToolBarButton("Rotation/World", "Choose what to rotate", key++,"rotate.png", group, "onRotateChoose", true, false, false);
-        for (int i = 0; i < figureCount; i++)
+        /*for (int i = 0; i < figureCount; i++)
         {
             addRadioButtonMenuAndToolBarButton("Rotation/Figure " + (i+1), "Choose what to rotate", key++,"rotate.png", group, "onRotateChoose", false, false, false);
-        }
+        }*/
     }
 
     private void updateFields() {
@@ -524,7 +531,7 @@ public class WireframeFrame extends MainFrame {
         centerPanel.add(new LabelTextField("Cz: ", centerFields[2], new NegativeFloatTextFieldKeyListener()));
         inputButtonPanel.add(centerPanel);
 
-        JButton deleteFigureButton = new JButton("Delete this figure");
+        /*JButton deleteFigureButton = new JButton("Delete this figure");
         deleteFigureButton.addActionListener(e -> {
             int selected = tabbedPane.getSelectedIndex();
             controller.deleteFigure(selected - 1);
@@ -538,7 +545,7 @@ public class WireframeFrame extends MainFrame {
         });
 
 
-        inputButtonPanel.add(deleteFigureButton);
+        inputButtonPanel.add(deleteFigureButton);*/
     }
 
 
@@ -555,7 +562,6 @@ public class WireframeFrame extends MainFrame {
             int r = controller.load3DFile(file);
             if(r > 0)
             {
-                createCommonConfigurationPanel();
                 for (AbstractButton b : deactivatedButtons)
                 {
                     b.setEnabled(true);
@@ -595,10 +601,9 @@ public class WireframeFrame extends MainFrame {
 
     public void onConfigureSplines()
     {
-        updateFields();
+        //updateFields();
 
-        //JOptionPane.showOptionDialog(this, configurationPanel, "Configuration", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
-        JOptionPane.showOptionDialog(this, tabbedPane, "Configuration", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, new Object[]{confirmButton, addFigureButton}, confirmButton);
+        JOptionPane.showOptionDialog(this, tabbedPane, "Configuration", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, new Object[]{confirmButton}, confirmButton);
     }
 
     public void onRotateChoose()
