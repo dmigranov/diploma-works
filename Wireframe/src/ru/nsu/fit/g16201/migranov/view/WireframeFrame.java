@@ -203,8 +203,6 @@ public class WireframeFrame extends MainFrame {
             }
         });
 
-        //commonPanel.add(addFigureButton);
-
         confirmButton = new JButton("Confirm");
         confirmButton.addActionListener(e -> {
             try
@@ -272,8 +270,11 @@ public class WireframeFrame extends MainFrame {
 
     private void addMenus() throws NoSuchMethodException {
         addSubMenu("File", KeyEvent.VK_F);
-        addMenuAndToolBarButton("File/Open", "Open a file", KeyEvent.VK_O, "upload-1.png", "onOpen", false);
+        addMenuAndToolBarButton("File/Open 3D Spline file", "Open a 3D Spline file", KeyEvent.VK_T, "upload-1.png", "onOpen3D", false);
+
         addMenuAndToolBarButton("File/Save as", "Save figures as", KeyEvent.VK_S, "download.png", "onSave", true);
+
+
 
         addSubMenu("Options", KeyEvent.VK_O);
         addMenuAndToolBarButton("Options/Configuration", "Configure splines", KeyEvent.VK_S, "settings.png", "onConfigureSplines", true);
@@ -540,20 +541,20 @@ public class WireframeFrame extends MainFrame {
         inputButtonPanel.add(deleteFigureButton);
     }
 
-    public void onOpen() throws NoSuchMethodException
+
+    public void onOpen3D() throws NoSuchMethodException
     {
-        File file = getOpenFileName("txt", "A function description file");
-        loadFile(file);
+        File file = getOpenFileName("txt", "A 3D Spline description file");
+        load3DFile(file);
     }
 
-    private void loadFile(File file) throws NoSuchMethodException
+    private void load3DFile(File file) throws NoSuchMethodException
     {
         if(file != null) {
             setTitle(file.getName() + " | Denis Migranov, 16201");
-            int r = controller.loadFile(file);
+            int r = controller.load3DFile(file);
             if(r > 0)
             {
-                figureCount = r;
                 createCommonConfigurationPanel();
                 for (AbstractButton b : deactivatedButtons)
                 {

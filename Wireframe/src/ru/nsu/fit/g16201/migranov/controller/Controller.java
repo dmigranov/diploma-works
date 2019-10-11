@@ -909,4 +909,8 @@ public class Controller {
     public Point3D getCurrentCenter() {
         return figures.get(currentFigureIndex).getCenter();
     }
+
+    public int load3DFile(File file) {
+        return 0;
+    }
 }
