@@ -853,7 +853,7 @@ public class Controller {
             if(Ni < 4 || Nj < 4)
                 throw new IOException("Not enough spline points");
             List<Point2D> splinePoints = new ArrayList<>();
-            for(int j = 0; j < splinePointCount; j++)
+            for(int j = 0; j < Ni; j++)
             {
                 substrings = readLineAndSplit(br);
                 Point2D splinePoint = new Point2D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]));
