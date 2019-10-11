@@ -436,9 +436,9 @@ public class Controller {
                     Matrix nmp = Matrix.multiply(resultMatrix, mp);
                     Point3D np = new Point3D(nmp.get(0, 0), nmp.get(1, 0), nmp.get(2, 0));
                     double w = nmp.get(3, 0);
-                    //System.out.println(np. x + " " + np. y + " " + np. z + " " + w );
-                    //if(np.x >= -1 && np.x <= 1 && np.y >= -1 && np.y <= 1)
-                    if(np.z/w >= 0 && np.z/w <= 1)
+
+                    //РИСУЕМ ВСЁ
+                    //if(np.z/w >= 0 && np.z/w <= 1)
                     {
                         int x = (int)((np.x/w + 1)/2*wireframePanel.getCanvasWidth());
                         int y = (int)((np.y/w + 1)/2*wireframePanel.getCanvasHeight());
@@ -454,11 +454,6 @@ public class Controller {
                             wireframePanel.drawLine(uPrev[j].x, uPrev[j].y, x, y, color);
                         }
                         uPrev[j] = new Point(x, y);
-                    }
-                    else
-                    {
-                        vPrev = null; //?
-                        uPrev[j] = null;
                     }
                 }
             }
