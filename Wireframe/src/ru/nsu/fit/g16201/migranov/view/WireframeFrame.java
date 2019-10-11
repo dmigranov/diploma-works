@@ -27,7 +27,7 @@ public class WireframeFrame extends MainFrame {
 
     private WireframePanel wireframePanel;
 
-    private JTextField aField, bField, cField, dField, nField, mField, kField, aSplineField, bSplineField, swField, shField, znField, zfField, backgroundColorFields[], figureColorFields[], centerFields[];
+    private JTextField nField, mField, kField, swField, shField, znField, zfField, backgroundColorFields[], figureColorFields[], centerFields[];
     private JButton confirmButton;
     private boolean fileIsLoaded = false;
 
@@ -121,10 +121,6 @@ public class WireframeFrame extends MainFrame {
 
         commonPanel.setLayout(new BoxLayout(commonPanel, BoxLayout.Y_AXIS));
 
-        aField = new JTextField();
-        bField = new JTextField();
-        cField = new JTextField();
-        dField = new JTextField();
         nField = new JTextField();
         mField = new JTextField();
         kField = new JTextField();
@@ -141,10 +137,7 @@ public class WireframeFrame extends MainFrame {
             backgroundColorFields[i] = new JTextField();
             colorPanel.add(new LabelTextField(colorTextFieldDescriptions[i], backgroundColorFields[i], new IntegerTextFieldKeyListener()));
         }
-        abcdPanel.add(new LabelTextField("a: ", aField, new FloatTextFieldKeyListener()));
-        abcdPanel.add(new LabelTextField("b: ", bField, new FloatTextFieldKeyListener()));
-        abcdPanel.add(new LabelTextField("c: ", cField, new FloatTextFieldKeyListener()));
-        abcdPanel.add(new LabelTextField("d: ", dField, new FloatTextFieldKeyListener()));
+
         mnkPanel.add(new LabelTextField("n: ", nField, new IntegerTextFieldKeyListener()));
         mnkPanel.add(new LabelTextField("m: ", mField, new IntegerTextFieldKeyListener()));
         mnkPanel.add(new LabelTextField("k: ", kField, new IntegerTextFieldKeyListener()));
@@ -164,15 +157,11 @@ public class WireframeFrame extends MainFrame {
             try
             {
                 if(tabbedPane.getSelectedIndex() == 0) {
-                    double a, b, c, d, zf, zn, sw, sh;
+                    double zf, zn, sw, sh;
                     int n, m, k, cR, cG, cB;
                     n = Integer.parseInt(nField.getText());
                     k = Integer.parseInt(kField.getText());
                     m = Integer.parseInt(mField.getText());
-                    a = Double.parseDouble(aField.getText());
-                    b = Double.parseDouble(bField.getText());
-                    c = Double.parseDouble(cField.getText());
-                    d = Double.parseDouble(dField.getText());
                     sw = Double.parseDouble(swField.getText());
                     sh = Double.parseDouble(shField.getText());
                     zf = Double.parseDouble(zfField.getText());
@@ -183,21 +172,18 @@ public class WireframeFrame extends MainFrame {
 
                     if(m <= 0 || n <= 0 || k <= 0)
                         throw new NumberFormatException("Wrong m, n, or k");
-                    if (!(b > a && a >= 0 && 1 >= b))
-                        throw new NumberFormatException("Wrong a or b");
-                    if (!(d > c && c >= 0 && 2 * Math.PI >= d))
-                        throw new NumberFormatException("Wrong c or d");
+
                     if(!(zn > 0 && zf > zn && sw > 0 && sh > 0))
                         throw new NumberFormatException("Wrong clipping");
                     if(cR < 0 || cR > 255 || cG < 0 || cG > 255 || cB < 0 || cB > 255)
                         throw new NumberFormatException("Wrong color");
 
-                    controller.setConstants(n, m, k, a, b, c, d, sw, sh, zn, zf, new Color(cR, cG, cB));
+                    controller.setConstants(n, m, k, sw, sh, zn, zf, new Color(cR, cG, cB));
                     resize();
                 }
-                else
+                else    //вторая таба
                 {
-                    double a, b, cx, cy, cz;
+                    /*double a, b, cx, cy, cz;
                     int cR, cG, cB;
                     a = Double.parseDouble(aSplineField.getText());
                     b = Double.parseDouble(bSplineField.getText());
@@ -213,6 +199,8 @@ public class WireframeFrame extends MainFrame {
                     if(cR < 0 || cR > 255 || cG < 0 || cG > 255 || cB < 0 || cB > 255)
                         throw new NumberFormatException("Wrong color");
                     controller.setABColorCenter(a, b, new Color(cR, cG, cB), new Point3D(cx, cy, cz));
+                    */
+
                 }
                 updateFields();
             }
@@ -401,12 +389,6 @@ public class WireframeFrame extends MainFrame {
     }
 
     private void updateFields() {
-        aField.setText(controller.getA() + "");
-        aSplineField.setText(controller.getA() + "");
-        bField.setText(controller.getB() + "");
-        bSplineField.setText(controller.getB() + "");
-        cField.setText(controller.getC() + "");
-        dField.setText(controller.getD() + "");
         nField.setText(controller.getN() + "");
         mField.setText(controller.getM() + "");
         kField.setText(controller.getK() + "");
@@ -464,15 +446,14 @@ public class WireframeFrame extends MainFrame {
     {
         JPanel aboutPanel = new JPanel();
         aboutPanel.setLayout(new BoxLayout(aboutPanel, BoxLayout.Y_AXIS));
-        aboutPanel.add(new JLabel("Made as a part of NSU Computer Graphics course"));
-        aboutPanel.add(new JLabel("Denis Migranov, group 16201, 2019"));
+        aboutPanel.add(new JLabel("Denis Migranov, Novosibirsk State University, group 16201, 2019"));
         aboutPanel.add(new JLabel("Icons used are from www.flaticon.com/packs/multimedia-collection and icons8.com"));
-        JOptionPane.showMessageDialog(this, aboutPanel, "About FIT_16201_Migranov_Wireframe", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, aboutPanel, "GeoWireFold", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void onConfigureSplines()
     {
-        //updateFields();
+        updateFields();
 
         JOptionPane.showOptionDialog(this, tabbedPane, "Configuration", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, new Object[]{confirmButton}, confirmButton);
     }

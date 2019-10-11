@@ -24,7 +24,7 @@ public class Controller {
     private int n;
     private int m;
     private int k;
-    private double a, b, c, d;
+
     private double zn;
     private double zf;
     private double sw;
@@ -533,22 +533,6 @@ public class Controller {
         }
     }
 
-    public double getA() {
-        return a;
-    }
-
-    public double getB() {
-        return b;
-    }
-
-    public double getC() {
-        return c;
-    }
-
-    public double getD() {
-        return d;
-    }
-
     public int getN() {
         return n;
     }
@@ -561,20 +545,13 @@ public class Controller {
         return k;
     }
 
-    public void setConstants(int n, int m, int k, double a, double b, double c, double d, double sw, double sh, double zn, double zf, Color color) {
+    public void setConstants(int n, int m, int k, double sw, double sh, double zn, double zf, Color color) {
         this.n = n;
         this.m = m;
         this.k = k;
 
 
         figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
-
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        if(d >= 6.28)
-            d = 2*Math.PI;
-        this.d = d;
 
         this.sw = sw;
         this.sh = sh;
@@ -623,25 +600,6 @@ public class Controller {
 
     public Color getCurrentColor() {
         return figure.getColor();
-    }
-
-    public void setAB(double a, double b) {
-        this.a = a;
-        this.b = b;
-
-        drawSplineLine();
-        drawFigures();
-    }
-
-    public void setABColorCenter(double a, double b, Color color, Point3D center) {
-        this.a = a;
-        this.b = b;
-
-        figure.setColor(color);
-        figure.setCenter(center);
-
-        drawSplineLine();
-        drawFigures();
     }
 
     public Point3D getCurrentCenter() {
