@@ -23,7 +23,7 @@ public class WireframeFrame extends MainFrame {
     private Controller controller;
 
     private SplinePanel splinePanel;
-    private JPanel splineConfigurationPanel, spline3DConfigurationPanel, mainPanel;
+    private JPanel spline3DConfigurationPanel, mainPanel;
     private JTabbedPane tabbedPane;
 
     private WireframePanel wireframePanel;
@@ -421,66 +421,6 @@ public class WireframeFrame extends MainFrame {
         backgroundColorFields[1].setText(color.getGreen() + "");
         backgroundColorFields[2].setText(color.getBlue() + "");
     }
-
-    private void createSplineConfigurationPanel()
-    {
-        splineConfigurationPanel = new JPanel();   //tabs...
-        splineConfigurationPanel.add(splinePanel);
-        JPanel inputPanel = new JPanel(), inputButtonPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(7, 2, 3, 5));
-        inputButtonPanel.setLayout(new BoxLayout(inputButtonPanel, BoxLayout.Y_AXIS));
-        inputButtonPanel.add(inputPanel);
-
-        splineConfigurationPanel.add(inputButtonPanel);
-        JButton zoomInButton = new JButton("Zoom in");
-        JButton zoomOutButton = new JButton("Zoom out");
-        zoomInButton.addActionListener(e -> controller.changeScale(-0.2));
-        zoomOutButton.addActionListener(e -> controller.changeScale(0.2));
-        JButton addFirstPointButton = new JButton("Add new point in the beginning");
-        addFirstPointButton.addActionListener(e -> {controller.addSplinePoint(0); controller.drawFigures();});
-        JButton addLastPointButton = new JButton("Add new point in the end");
-        addLastPointButton.addActionListener(e -> {controller.addSplinePoint(controller.getSplinePointsCount()); controller.drawFigures();});
-        JButton deleteFirstPointButton = new JButton("Delete the point in the beginning");
-        deleteFirstPointButton.addActionListener(e -> {controller.deleteSplinePoint(0); controller.drawFigures();});
-        JButton deleteLastPointButton = new JButton("Delete the point in the end");
-        deleteLastPointButton.addActionListener(e -> {controller.deleteSplinePoint(controller.getSplinePointsCount() - 1); controller.drawFigures();});
-
-        aSplineField = new JTextField();
-        bSplineField = new JTextField();
-        figureColorFields = new JTextField[3];
-        centerFields = new JTextField[3];
-        aSplineField.addKeyListener(new FloatTextFieldKeyListener());
-        bSplineField.addKeyListener(new FloatTextFieldKeyListener());
-
-        inputPanel.add(new JLabel("a: "));
-        inputPanel.add(aSplineField);
-        inputPanel.add(new JLabel("b: "));
-        inputPanel.add(bSplineField);
-        inputPanel.add(addFirstPointButton);
-        inputPanel.add(addLastPointButton);
-        inputPanel.add(deleteFirstPointButton);
-        inputPanel.add(deleteLastPointButton);
-        inputPanel.add(zoomInButton);
-        inputPanel.add(zoomOutButton);
-
-        for(int i = 0; i < 3; i++)
-        {
-            figureColorFields[i] = new JTextField();
-            centerFields[i] = new JTextField();
-        }
-        JPanel colorPanel = new JPanel();
-        colorPanel.add(new LabelTextField("R: ", figureColorFields[0], new IntegerTextFieldKeyListener()));
-        colorPanel.add(new LabelTextField("G: ", figureColorFields[1], new IntegerTextFieldKeyListener()));
-        colorPanel.add(new LabelTextField("B: ", figureColorFields[2], new IntegerTextFieldKeyListener()));
-        inputButtonPanel.add(colorPanel);
-
-        JPanel centerPanel = new JPanel();
-        centerPanel.add(new LabelTextField("Cx: ", centerFields[0], new NegativeFloatTextFieldKeyListener()));
-        centerPanel.add(new LabelTextField("Cy: ", centerFields[1], new NegativeFloatTextFieldKeyListener()));
-        centerPanel.add(new LabelTextField("Cz: ", centerFields[2], new NegativeFloatTextFieldKeyListener()));
-        inputButtonPanel.add(centerPanel);
-    }
-
 
     public void onOpen3D() throws NoSuchMethodException
     {

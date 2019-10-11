@@ -423,7 +423,7 @@ public class Controller {
         return length;
     }
 
-    private void drawSplinePoints(List<Point2D> splinePoints) {
+    /*private void drawSplinePoints(List<Point2D> splinePoints) {
         screenSplinePoints.clear();
         for(Point2D p : splinePoints)
         {
@@ -431,9 +431,9 @@ public class Controller {
             splinePanel.drawSplinePoint(uv.x, uv.y);
             screenSplinePoints.add(uv);   //может куда-то ещё ложить номер, чтобы легко найти
         }
-    }
+    }*/
 
-    private Point getUV(double x, double y) {
+    /*private Point getUV(double x, double y) {
         //width = height!
         int u, v;
         double xm = this.xm.get(currentFigureIndex)*scale.get(currentFigureIndex);
@@ -450,9 +450,9 @@ public class Controller {
         }
 
         return new Point(u, v);
-    }
+    }*/
 
-    private Point2D getXY(int u, int v)
+    /*private Point2D getXY(int u, int v)
     {
         double x, y;
         double xm = this.xm.get(currentFigureIndex)*scale.get(currentFigureIndex);  //чтобы оставалось пространство по бокам
@@ -470,11 +470,11 @@ public class Controller {
         }
         //при одинаковых width И height случай xm = ym входит
         return new Point2D(x, y);
-    }
+    }*/
 
-    private Point getUV(Point2D p) {
+    /*private Point getUV(Point2D p) {
         return getUV(p.x, p.y);
-    }
+    }*/
 
     //возвращает матрицу 4x4
     private Matrix read3x3MatrixByRow(BufferedReader br) throws IOException {
@@ -514,7 +514,7 @@ public class Controller {
     }*/
 
     public void saveFile(File file) {
-        try(PrintWriter pw = new PrintWriter(file)) {
+        /*try(PrintWriter pw = new PrintWriter(file)) {
             pw.println(n + " " + m + " " + k + " " + a + " " + b + " " + c + " " + d);
             pw.println(zn + " " + zf + " " + sw + " " + sh);
 
@@ -545,6 +545,8 @@ public class Controller {
         catch(IOException e)
         {
         }
+
+        */ //todo
     }
 
     //4 строку и столбец - выбрасываем
@@ -591,8 +593,8 @@ public class Controller {
         this.m = m;
         this.k = k;
 
-        for(Figure figure : figures)
-            figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
+
+        currentFigure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
 
         this.a = a;
         this.b = b;
@@ -760,7 +762,7 @@ public class Controller {
         currentRotateFigure = -1;
         isDrawingFirstTime = true;
         int figureCount;
-        currentFigureIndex = 0;
+        //currentFigureIndex = 0;
         try(BufferedReader br = new BufferedReader(new FileReader(file)))
         {
             String[] substrings;
