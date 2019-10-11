@@ -4,7 +4,6 @@ import ru.nsu.fit.g16201.migranov.model.Figure;
 import ru.nsu.fit.g16201.migranov.model.Matrix;
 import ru.nsu.fit.g16201.migranov.model.Point2D;
 import ru.nsu.fit.g16201.migranov.model.Point3D;
-import ru.nsu.fit.g16201.migranov.view.SplinePanel;
 import ru.nsu.fit.g16201.migranov.view.WireframePanel;
 
 import java.awt.*;
@@ -12,7 +11,6 @@ import java.awt.event.*;
 import java.io.*;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Controller {
     private static Matrix splineMatrix = Matrix.multiplyByScalar(1.0/6, new Matrix(4, 4, -1, 3, -3, 1, 3, -6, 3, 0, -3, 0, 3, 0, 1, 4, 1, 0));
