@@ -40,7 +40,7 @@ public class Controller {
     private Matrix cameraMatrix;
     private Matrix projectionMatrix;
 
-    private Figure currentFigure = null;
+    private Figure figure = null;
 
     private List<Point> screenSplinePoints = new ArrayList<>();  //нужен только один, при смене текущего менять; нумерация такой же, как в текущем списке точек модели
     private boolean pointIsGrabbed = false, startedMoving = false;
@@ -130,7 +130,6 @@ public class Controller {
         double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
 
         wireframePanel.clear();
-        Figure figure = currentFigure;
         Point3D[][] splinePoints = figure.getSplinePoints();
         if(splinePoints.length < 4)
             return;     //todo: exception?
@@ -315,7 +314,6 @@ public class Controller {
     private void calculateSplineArea() {
         double xMin = Double.MAX_VALUE, xMax = -Double.MAX_VALUE, yMin = Double.MAX_VALUE, yMax = -Double.MAX_VALUE;
 
-        Figure figure = currentFigure;
         Point3D[][] splinePoints = figure.getSplinePoints();
 
         /*for(Point2D p : splinePoints)
@@ -339,7 +337,6 @@ public class Controller {
 
         splinePanel.clear();
         //T - вектор строка t^3 t^2 t 1, t [0,1]
-        Figure figure = currentFigure;
 
         /*
         List<Point2D> splinePoints = figure.getSplinePoints();
@@ -589,7 +586,7 @@ public class Controller {
         this.k = k;
 
 
-        currentFigure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
+        figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
 
         this.a = a;
         this.b = b;
@@ -644,7 +641,7 @@ public class Controller {
 
 
     public Color getCurrentColor() {
-        return currentFigure.getColor();
+        return figure.getColor();
     }
 
     public void setAB(double a, double b) {
@@ -659,15 +656,15 @@ public class Controller {
         this.a = a;
         this.b = b;
 
-        currentFigure.setColor(color);
-        currentFigure.setCenter(center);
+        figure.setColor(color);
+        figure.setCenter(center);
 
         drawSplineLine();
         drawFigures();
     }
 
     public Point3D getCurrentCenter() {
-        return currentFigure.getCenter();
+        return figure.getCenter();
     }
 
     public int load3DFile(File file) {
@@ -718,8 +715,7 @@ public class Controller {
                 Point2D splinePoint = new Point2D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]));
                 splinePoints.add(splinePoint);*/
             }
-            Figure figure  = new Figure(center, color, rotateMatrix, splinePoints);
-            currentFigure = figure;
+            figure  = new Figure(center, color, rotateMatrix, splinePoints);
             figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
