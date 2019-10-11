@@ -22,7 +22,6 @@ public class WireframeFrame extends MainFrame {
 
     private Controller controller;
 
-    private SplinePanel splinePanel;
     private JPanel spline3DConfigurationPanel, mainPanel;
     private JTabbedPane tabbedPane;
 
@@ -49,9 +48,8 @@ public class WireframeFrame extends MainFrame {
             }
         });
         wireframePanel = new WireframePanel();
-        splinePanel = new SplinePanel(501, 501);
         mainPanel.add(wireframePanel);
-        controller = new Controller(splinePanel, wireframePanel);
+        controller = new Controller(wireframePanel);
         addMenus();
         createCommonConfigurationPanel();
 

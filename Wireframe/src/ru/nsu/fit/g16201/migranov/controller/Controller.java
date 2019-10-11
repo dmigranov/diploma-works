@@ -17,7 +17,6 @@ import java.util.Random;
 public class Controller {
     private static Matrix splineMatrix = Matrix.multiplyByScalar(1.0/6, new Matrix(4, 4, -1, 3, -3, 1, 3, -6, 3, 0, -3, 0, 3, 0, 1, 4, 1, 0));
 
-    private SplinePanel splinePanel;
     private WireframePanel wireframePanel;
 
     private Point3D eye = new Point3D(-10, 0, 0);
@@ -53,8 +52,7 @@ public class Controller {
 
     private double xAllAngle = 0, yAllAngle = 0;
 
-    public Controller(SplinePanel splinePanel, WireframePanel wireframePanel) {
-        this.splinePanel = splinePanel;
+    public Controller(WireframePanel wireframePanel) {
         this.wireframePanel = wireframePanel;
 
         cameraMatrix = Matrix.getViewMatrixNew(eye, ref, up);  //c 153
@@ -325,13 +323,13 @@ public class Controller {
 
     private void drawSplineLine() {
 
-        width = splinePanel.getPreferredSize().width;
+        /*width = splinePanel.getPreferredSize().width;
         height = splinePanel.getPreferredSize().height;
 
         splinePanel.clear();
         //T - вектор строка t^3 t^2 t 1, t [0,1]
 
-        /*
+
         List<Point2D> splinePoints = figure.getSplinePoints();
 
         drawSplinePoints(splinePoints);
@@ -372,11 +370,11 @@ public class Controller {
                 xPrev = x;
                 yPrev = y;
             }
-        }*/
+        }
 
-        //todo: исправить. Расчёты полезные, но надо 3d
+        //todo: Расчёты полезные, но надо 3d
 
-        splinePanel.repaint();
+        splinePanel.repaint();*/
     }
 
     private double calculateLength(List<Point2D> splinePoints)
