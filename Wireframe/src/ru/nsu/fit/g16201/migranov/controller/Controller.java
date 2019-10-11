@@ -20,11 +20,6 @@ public class Controller {
     private SplinePanel splinePanel;
     private WireframePanel wireframePanel;
 
-    //private Double[] xm, ym;
-    //private double[] scale;
-    private List<Double> xm, ym;
-    private List<Double> scale;
-
     private Point3D eye = new Point3D(-10, 0, 0);
     private Point3D ref = new Point3D(10, 0, 0);
     private Point3D up = new Point3D(0, 1, 0);
@@ -615,20 +610,6 @@ public class Controller {
         drawFigures();
     }
 
-    public void changeScale(double ds) {
-        if(scale.get(currentFigureIndex) + ds > 0)
-            scale.set(currentFigureIndex, scale.get(currentFigureIndex) + ds);
-        drawSplineLine();
-    }
-
-    public void setCurrentFigure(int index) {
-        //масштаб при изначальной загрузке такой, чтобы всё было красиво вписано (он не одинаковый для разных вкладок!)
-        currentFigureIndex = index;
-        currentFigure = figures.get(index);
-        calculateSplineArea();
-        drawSplineLine();
-    }
-
     public double getSw() {
         return sw;
     }
@@ -661,19 +642,9 @@ public class Controller {
         return backgroundColor;
     }
 
-    public void deleteFigure(int i) {
-        if(figures.size() > 0) {
-            figures.remove(i);
-            xm.remove(i);
-            ym.remove(i);
-            scale.remove(i);
-            isDrawingFirstTime = true;
-            drawFigures();
-        }
-    }
 
     public Color getCurrentColor() {
-        return figures.get(currentFigureIndex).getColor();
+        return currentFigure.getColor();
     }
 
     public void setAB(double a, double b) {
@@ -688,15 +659,15 @@ public class Controller {
         this.a = a;
         this.b = b;
 
-        figures.get(currentFigureIndex).setColor(color);
-        figures.get(currentFigureIndex).setCenter(center);
+        currentFigure.setColor(color);
+        currentFigure.setCenter(center);
 
         drawSplineLine();
         drawFigures();
     }
 
     public Point3D getCurrentCenter() {
-        return figures.get(currentFigureIndex).getCenter();
+        return currentFigure.getCenter();
     }
 
     public int load3DFile(File file) {
@@ -739,15 +710,16 @@ public class Controller {
             int Ni = Integer.parseInt(substrings[0]), Nj = Integer.parseInt(substrings[1]), Ti = Integer.parseInt(substrings[2]), Tj = Integer.parseInt(substrings[3]);
             if(Ni < 4 || Nj < 4)
                 throw new IOException("Not enough spline points");
-            List<Point2D> splinePoints = new ArrayList<>();
+            Point3D[][] splinePoints = new Point3D[Ni][Nj];
             for(int i = 0; i < Ni; i++)
             {
-                substrings = readLineAndSplit(br);
+                //for(int j = 0; j < Nj; j++)
+                /*substrings = readLineAndSplit(br);
                 Point2D splinePoint = new Point2D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]));
-                splinePoints.add(splinePoint);
+                splinePoints.add(splinePoint);*/
             }
             Figure figure  = new Figure(center, color, rotateMatrix, splinePoints);
-            figures.add(figure);
+            currentFigure = figure;
             figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
@@ -758,7 +730,7 @@ public class Controller {
         return 0;
     }
 
-    public int loadFile(File file) {
+    /*public int loadFile(File file) {
         currentRotateFigure = -1;
         isDrawingFirstTime = true;
         int figureCount;
@@ -854,5 +826,5 @@ public class Controller {
         drawFigures();
 
         return figureCount;
-    }
+    }*/
 }
