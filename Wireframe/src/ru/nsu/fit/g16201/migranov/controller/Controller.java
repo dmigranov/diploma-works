@@ -285,8 +285,6 @@ public class Controller {
             axeColor>>=8;
         }
 
-        
-
         Matrix axeCenter = Matrix.multiply(projViewBoxRot, axes[0]);
         axeCenter = Matrix.multiplyByScalar(1/axeCenter.get(3, 0), axeCenter);
         int cx = (int)((axeCenter.get(0, 0) + 1)/2*wireframePanel.getCanvasWidth());
@@ -477,14 +475,6 @@ public class Controller {
         }
         matrix.setRow(3, new double[] {0, 0, 0, 1});
         return matrix;
-    }
-
-    private String[] readLineAndSplit(BufferedReader br) throws IOException
-    {
-        String line;
-        line = br.readLine();
-        line = line.substring(0, line.indexOf('/') != -1 ? line.indexOf('/') : line.length());
-        return line.split("\\s+");
     }
 
     /*public void addSplinePoint(int index) {
@@ -703,12 +693,14 @@ public class Controller {
             Point3D[][] splinePoints = new Point3D[Ni][Nj];
             for(int i = 0; i < Ni; i++)
             {
-                //for(int j = 0; j < Nj; j++)
-                /*substrings = readLineAndSplit(br);
-                Point2D splinePoint = new Point2D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]));
-                splinePoints.add(splinePoint);*/
+                for(int j = 0; j < Nj; j++)
+                {
+                    substrings = readLineAndSplit(br);
+                    Point3D splinePoint = new Point3D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]), Double.parseDouble(substrings[2]));
+                    splinePoints[i][j] = splinePoint;
+                }
             }
-            figure  = new Figure(center, color, rotateMatrix, splinePoints);
+            figure = new Figure(center, color, rotateMatrix, splinePoints);
             figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
@@ -816,4 +808,12 @@ public class Controller {
 
         return figureCount;
     }*/
+
+    private String[] readLineAndSplit(BufferedReader br) throws IOException
+    {
+        String line;
+        line = br.readLine();
+        line = line.substring(0, line.indexOf('/') != -1 ? line.indexOf('/') : line.length());
+        return line.split("\\s+");
+    }
 }
