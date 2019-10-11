@@ -43,8 +43,6 @@ public class Controller {
     private Figure figure = null;
 
     private List<Point> screenSplinePoints = new ArrayList<>();  //нужен только один, при смене текущего менять; нумерация такой же, как в текущем списке точек модели
-    private boolean pointIsGrabbed = false, startedMoving = false;
-    private int grabbedPointIndex;
 
     private Integer prevX = null, prevY = null;
 
@@ -60,7 +58,6 @@ public class Controller {
         this.wireframePanel = wireframePanel;
 
         cameraMatrix = Matrix.getViewMatrixNew(eye, ref, up);  //c 153
-        //cameraMatrix = new Matrix(4, 4, 0, 0, -1, 0, 0, 1, 0, 0, 1, 0, 0, 10, 0, 0, 0, 1);
 
         wireframePanel.addMouseWheelListener(e -> {
             int count = e.getWheelRotation();
