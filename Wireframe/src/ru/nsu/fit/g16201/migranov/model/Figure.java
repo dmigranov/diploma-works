@@ -11,11 +11,11 @@ public class Figure {
     private Point3D[][] modelPoints;
 
     private double length;
-    private List<Point2D> splinePoints;
+    private Point3D[][] splinePoints;
 
     private Matrix[] axes = new Matrix[4];
 
-    public Figure(Point3D center, Color color, Matrix rotateMatrix, List<Point2D> splinePoints) {
+    public Figure(Point3D center, Color color, Matrix rotateMatrix, Point3D[][] splinePoints) {
         this.center = center;
         this.color = color;
         this.rotateMatrix = rotateMatrix;
@@ -27,7 +27,7 @@ public class Figure {
         axes[3] = new Matrix(4, 1, center.x, center.y, center.z + 50, 1);
     }
 
-    public List<Point2D> getSplinePoints() {
+    public Point3D[][] getSplinePoints() {
         return splinePoints;
     }
 

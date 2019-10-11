@@ -576,7 +576,7 @@ public class Controller {
         return line.split("\\s+");
     }
 
-    public void addSplinePoint(int index) {
+    /*public void addSplinePoint(int index) {
         currentFigure.getSplinePoints().add(index, new Point2D(0, 0));
         drawSplineLine();
     }
@@ -590,7 +590,7 @@ public class Controller {
 
     public int getSplinePointsCount() {
         return currentFigure.getSplinePoints().size();
-    }
+    }*/
 
     public void saveFile(File file) {
         try(PrintWriter pw = new PrintWriter(file)) {
@@ -612,8 +612,8 @@ public class Controller {
 
                 write3x3MatrixByRow(pw, figure.getRotateMatrix());
 
-                List<Point2D> splinePoints = figure.getSplinePoints();
-                pw.println(splinePoints.size());
+                Point3D[][] splinePoints = figure.getSplinePoints();
+                pw.println(splinePoints.length + " " + splinePoints[0].length + "0 0");
 
                 for(Point2D p : splinePoints)
                 {
@@ -749,42 +749,6 @@ public class Controller {
         }
     }
 
-    public void addFigure() {
-        Random random = new Random();
-        if(figures.size() == 0) {
-            Figure figure = new Figure(new Point3D(0, 0, 0), new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)), new Matrix(4,4, 1, 0, 0, 0, 0, 1,0,0,0,0,1,0,0,0,0,1), new ArrayList<Point2D>());
-            figures.add(figure);
-            figure.setModelPoints(new Point3D[n * k + 1][m * k + 1]);
-            figure.getSplinePoints().add(new Point2D(1, 1));
-            figure.getSplinePoints().add(new Point2D(1, -1));
-            figure.getSplinePoints().add(new Point2D(-1, 1));
-            figure.getSplinePoints().add(new Point2D(-1, -1));
-        }
-        else
-        {
-            Figure oldFigure = figures.get(figures.size() - 1);
-            Point3D oldFigureCenter = oldFigure.getCenter();
-
-            List<Point2D> newSplinePoints = new ArrayList<>();
-            for(Point2D p : oldFigure.getSplinePoints())
-            {
-                Point2D n = new Point2D(p.x, p.y);
-                newSplinePoints.add(p);
-            }
-            Figure figure = new Figure(new Point3D(oldFigureCenter.x + oldFigureCenter.x, oldFigureCenter.y, oldFigureCenter.z), new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)), new Matrix(4,4, 1, 0, 0, 0, 0, 1,0,0,0,0,1,0,0,0,0,1), newSplinePoints);
-            figures.add(figure);
-            figure.setModelPoints(new Point3D[n * k + 1][m * k + 1]);
-        }
-
-        xm.add(null);
-        ym.add(null);
-        scale.add(1.1);
-
-        isDrawingFirstTime = true;
-
-        drawFigures();
-    }
-
     public Color getCurrentColor() {
         return figures.get(currentFigureIndex).getColor();
     }
@@ -849,11 +813,11 @@ public class Controller {
             Matrix rotateMatrix = read3x3MatrixByRow(br);
 
             substrings = readLineAndSplit(br);
-            int Ni = Integer.parseInt(substrings[0]), Nj = Integer.parseInt(substrings[1]);
+            int Ni = Integer.parseInt(substrings[0]), Nj = Integer.parseInt(substrings[1]), Ti = Integer.parseInt(substrings[2]), Tj = Integer.parseInt(substrings[3]);
             if(Ni < 4 || Nj < 4)
                 throw new IOException("Not enough spline points");
             List<Point2D> splinePoints = new ArrayList<>();
-            for(int j = 0; j < Ni; j++)
+            for(int i = 0; i < Ni; i++)
             {
                 substrings = readLineAndSplit(br);
                 Point2D splinePoint = new Point2D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]));
