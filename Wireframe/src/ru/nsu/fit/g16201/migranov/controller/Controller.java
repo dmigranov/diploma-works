@@ -712,6 +712,10 @@ public class Controller {
             return -1;
         }
 
+        calculateSplineArea();  //todo?
+        drawSplineLine();
+        drawFigures();
+
         return 0;
     }
 

@@ -433,7 +433,7 @@ public class WireframeFrame extends MainFrame {
         if(file != null) {
             setTitle(file.getName() + " | Denis Migranov, 16201");
             int r = controller.load3DFile(file);
-            if(r > 0)
+            if(r == 0)
             {
                 for (AbstractButton b : deactivatedButtons)
                 {
