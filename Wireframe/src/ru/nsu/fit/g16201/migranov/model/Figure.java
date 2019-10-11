@@ -13,18 +13,11 @@ public class Figure {
     private double length;
     private Point3D[][] splinePoints;
 
-    private Matrix[] axes = new Matrix[4];
-
     public Figure(Point3D center, Color color, Matrix rotateMatrix, Point3D[][] splinePoints) {
         this.center = center;
         this.color = color;
         this.rotateMatrix = rotateMatrix;
         this.splinePoints = splinePoints;
-
-        axes[0] = new Matrix(4, 1, center.x, center.y, center.z, 1);
-        axes[1] = new Matrix(4, 1, center.x + 50, center.y, center.z, 1);
-        axes[2] = new Matrix(4, 1, center.x, center.y + 50, center.z, 1);
-        axes[3] = new Matrix(4, 1, center.x, center.y, center.z + 50, 1);
     }
 
     public Point3D[][] getSplinePoints() {
@@ -69,13 +62,5 @@ public class Figure {
 
     public void setLength(double length) {
         this.length = length;
-    }
-
-    public Matrix[] getAxes() {
-        return axes;
-    }
-
-    public void setAxes(Matrix[] axes) {
-        this.axes = axes;
     }
 }

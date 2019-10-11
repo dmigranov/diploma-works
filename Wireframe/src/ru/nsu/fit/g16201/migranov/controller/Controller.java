@@ -55,8 +55,6 @@ public class Controller {
 
     private double xAllAngle = 0, yAllAngle = 0;
 
-    private Matrix[] axes = new Matrix[4];
-
     public Controller(SplinePanel splinePanel, WireframePanel wireframePanel) {
         this.splinePanel = splinePanel;
         this.wireframePanel = wireframePanel;
@@ -673,11 +671,6 @@ public class Controller {
         try(BufferedReader br = new BufferedReader(new FileReader(file)))
         {
             String[] substrings;
-
-            axes[0] = new Matrix(4, 1, 0, 0, 0, 1);
-            axes[1] = new Matrix(4, 1, 100, 0, 0, 1);
-            axes[2] = new Matrix(4, 1, 0, 100, 0, 1);
-            axes[3] = new Matrix(4, 1, 0, 0, 100, 1);
 
             substrings = readLineAndSplit(br);
             zn = Double.parseDouble(substrings[0]);
