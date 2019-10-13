@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,22 +26,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="150" column="45" selection-start-line="150" selection-start-column="45" selection-end-line="150" selection-end-column="45" />
+            <state relative-caret-position="20">
+              <caret line="138" column="27" lean-forward="true" selection-start-line="138" selection-start-column="27" selection-end-line="138" selection-end-column="27" />
               <folding>
-                <element signature="e#27357#27358#0" expanded="true" />
-                <element signature="e#27406#27407#0" expanded="true" />
-                <element signature="e#27455#27456#0" expanded="true" />
-                <element signature="e#28061#28062#0" expanded="true" />
-                <element signature="e#28125#28126#0" expanded="true" />
-                <element signature="e#28179#28180#0" expanded="true" />
-                <element signature="e#28243#28244#0" expanded="true" />
-                <element signature="e#28331#28332#0" expanded="true" />
-                <element signature="e#28385#28386#0" expanded="true" />
-                <element signature="e#28439#28440#0" expanded="true" />
-                <element signature="e#28518#28519#0" expanded="true" />
-                <element signature="e#28596#28597#0" expanded="true" />
-                <element signature="e#28678#28679#0" expanded="true" />
+                <element signature="e#18030#18031#0" expanded="true" />
+                <element signature="e#18079#18080#0" expanded="true" />
+                <element signature="e#18128#18129#0" expanded="true" />
+                <element signature="e#18734#18735#0" expanded="true" />
+                <element signature="e#18798#18799#0" expanded="true" />
+                <element signature="e#18852#18853#0" expanded="true" />
+                <element signature="e#18916#18917#0" expanded="true" />
+                <element signature="e#19004#19005#0" expanded="true" />
+                <element signature="e#19058#19059#0" expanded="true" />
+                <element signature="e#19112#19113#0" expanded="true" />
+                <element signature="e#19191#19192#0" expanded="true" />
+                <element signature="e#19269#19270#0" expanded="true" />
+                <element signature="e#19351#19352#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -52,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-251">
               <caret column="5" selection-start-column="4" selection-end-column="5" />
             </state>
           </provider>
@@ -105,7 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>coun</find>
       <find>figureCount</find>
       <find>aFiel</find>
       <find>onConfigureSplines</find>
@@ -135,6 +132,7 @@
       <find>splineMa</find>
       <find>Ni</find>
       <find>bas</find>
+      <find>translateMatrix</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -333,14 +331,7 @@
       <workItem from="1570791124231" duration="10098000" />
       <workItem from="1570803337657" duration="347000" />
       <workItem from="1570962973560" duration="69000" />
-      <workItem from="1570964165365" duration="7397000" />
-    </task>
-    <task id="LOCAL-00005" summary="some axes">
-      <created>1556032569196</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1556032569196</updated>
+      <workItem from="1570964165365" duration="7667000" />
     </task>
     <task id="LOCAL-00006" summary="AXES!">
       <created>1556032791471</created>
@@ -678,11 +669,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570971593979</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="it draws something! but not what i want...">
+      <created>1570972582539</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1570972582539</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62250000" />
+    <option name="totallyTimeSpent" value="62520000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -768,7 +766,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deleting old stuff. that sucks." />
     <MESSAGE value="deleted some" />
     <MESSAGE value="well, at the very least it builds now.&#10;Deleted many old stuff, commented some of it" />
     <MESSAGE value="gonna delete axes" />
@@ -793,7 +790,8 @@
     <MESSAGE value="calculateSplineFunction done" />
     <MESSAGE value="increment" />
     <MESSAGE value="better incr (+k)" />
-    <option name="LAST_COMMIT_MESSAGE" value="better incr (+k)" />
+    <MESSAGE value="it draws something! but not what i want..." />
+    <option name="LAST_COMMIT_MESSAGE" value="it draws something! but not what i want..." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -908,29 +906,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="-251">
           <caret column="5" selection-start-column="4" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="150" column="45" selection-start-line="150" selection-start-column="45" selection-end-line="150" selection-end-column="45" />
+        <state relative-caret-position="20">
+          <caret line="138" column="27" lean-forward="true" selection-start-line="138" selection-start-column="27" selection-end-line="138" selection-end-column="27" />
           <folding>
-            <element signature="e#27357#27358#0" expanded="true" />
-            <element signature="e#27406#27407#0" expanded="true" />
-            <element signature="e#27455#27456#0" expanded="true" />
-            <element signature="e#28061#28062#0" expanded="true" />
-            <element signature="e#28125#28126#0" expanded="true" />
-            <element signature="e#28179#28180#0" expanded="true" />
-            <element signature="e#28243#28244#0" expanded="true" />
-            <element signature="e#28331#28332#0" expanded="true" />
-            <element signature="e#28385#28386#0" expanded="true" />
-            <element signature="e#28439#28440#0" expanded="true" />
-            <element signature="e#28518#28519#0" expanded="true" />
-            <element signature="e#28596#28597#0" expanded="true" />
-            <element signature="e#28678#28679#0" expanded="true" />
+            <element signature="e#18030#18031#0" expanded="true" />
+            <element signature="e#18079#18080#0" expanded="true" />
+            <element signature="e#18128#18129#0" expanded="true" />
+            <element signature="e#18734#18735#0" expanded="true" />
+            <element signature="e#18798#18799#0" expanded="true" />
+            <element signature="e#18852#18853#0" expanded="true" />
+            <element signature="e#18916#18917#0" expanded="true" />
+            <element signature="e#19004#19005#0" expanded="true" />
+            <element signature="e#19058#19059#0" expanded="true" />
+            <element signature="e#19112#19113#0" expanded="true" />
+            <element signature="e#19191#19192#0" expanded="true" />
+            <element signature="e#19269#19270#0" expanded="true" />
+            <element signature="e#19351#19352#0" expanded="true" />
           </folding>
         </state>
       </provider>
