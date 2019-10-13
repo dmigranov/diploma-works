@@ -148,6 +148,7 @@ public class Controller {
 
             }
         }
+        return 0;
     }
     public void drawFigures() {
         double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
@@ -682,9 +683,11 @@ public class Controller {
             Nj = Integer.parseInt(substrings[1]);
             Ti = Integer.parseInt(substrings[2]);
             Tj = Integer.parseInt(substrings[3]);
-            if(Ni < 4 || Nj < 4)
-                throw new IOException("Not enough spline points");
-            Point3D[][] splinePoints = new Point3D[Ni][Nj];
+
+            /*if(Ni < 4 || Nj < 4)
+                throw new IOException("Not enough spline points");*/ //todo: ввести условия
+
+            Point3D[][] splinePoints = new Point3D[Ni + 1][Nj + 1];
             for(int i = 0; i <= Ni; i++)
             {
                 for(int j = 0; j <= Nj; j++)
