@@ -26,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="156" column="34" selection-start-line="156" selection-start-column="34" selection-end-line="156" selection-end-column="34" />
+            <state relative-caret-position="35">
+              <caret line="142" column="18" selection-start-line="142" selection-start-column="18" selection-end-line="142" selection-end-column="18" />
               <folding>
                 <element signature="e#23225#23226#0" expanded="true" />
                 <element signature="e#23274#23275#0" expanded="true" />
@@ -331,14 +331,7 @@
       <workItem from="1570791124231" duration="10098000" />
       <workItem from="1570803337657" duration="347000" />
       <workItem from="1570962973560" duration="69000" />
-      <workItem from="1570964165365" duration="5672000" />
-    </task>
-    <task id="LOCAL-00001" summary="moved from another repo">
-      <created>1556030501818</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1556030501818</updated>
+      <workItem from="1570964165365" duration="5685000" />
     </task>
     <task id="LOCAL-00002" summary="started doing axes">
       <created>1556030928041</created>
@@ -676,11 +669,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570970464181</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="calculateSplineFunction done">
+      <created>1570970759350</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1570970759350</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60525000" />
+    <option name="totallyTimeSpent" value="60538000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -766,7 +766,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dd" />
     <MESSAGE value="3d file modif" />
     <MESSAGE value="load 3d" />
     <MESSAGE value="deleting old stuff. that sucks." />
@@ -791,7 +790,8 @@
     <MESSAGE value="some base" />
     <MESSAGE value="based" />
     <MESSAGE value="basis done" />
-    <option name="LAST_COMMIT_MESSAGE" value="basis done" />
+    <MESSAGE value="calculateSplineFunction done" />
+    <option name="LAST_COMMIT_MESSAGE" value="calculateSplineFunction done" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -913,8 +913,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="156" column="34" selection-start-line="156" selection-start-column="34" selection-end-line="156" selection-end-column="34" />
+        <state relative-caret-position="35">
+          <caret line="142" column="18" selection-start-line="142" selection-start-column="18" selection-end-line="142" selection-end-column="18" />
           <folding>
             <element signature="e#23225#23226#0" expanded="true" />
             <element signature="e#23274#23275#0" expanded="true" />

@@ -140,7 +140,7 @@ public class Controller {
     }
 
 
-    public double calculateSplineFunction(double u, double v, Point3D[][] splinePoints)
+    public Point3D calculateSplineFunction(double u, double v, Point3D[][] splinePoints)
     {
         //Pij - array of control points (spline points)
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
