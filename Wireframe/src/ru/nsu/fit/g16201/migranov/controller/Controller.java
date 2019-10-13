@@ -49,6 +49,8 @@ public class Controller {
 
     private double xAllAngle = 0, yAllAngle = 0;
 
+    private int[] knotsI, knotsJ;
+
     public Controller(WireframePanel wireframePanel) {
         this.wireframePanel = wireframePanel;
 
@@ -705,6 +707,8 @@ public class Controller {
             figure = new Figure(center, color, rotateMatrix, splinePoints);
 
             figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
+
+            calculateKnots();
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
         {
@@ -716,6 +720,30 @@ public class Controller {
         drawFigure();
 
         return 0;
+    }
+
+    private void calculateKnots() {
+        knotsI = new int[Ni +  Ti + 1];
+        for(int i = 0; i < knotsI.length; i++)
+        {
+            if(i < Ti)
+                knotsI[i] = 0;
+            else if (Ti <= i && i <= Ni)
+                knotsI[i] = i - Ti + 1;
+            else //i > n
+                knotsI[i] = Ni - Ti + 1;
+        }
+
+        knotsJ = new int[Nj +  Tj + 1];
+        for(int j = 0; j < knotsJ.length; j++)
+        {
+            if(j < Tj)
+                knotsJ[j] = 0;
+            else if (Tj <= j && j <= Nj)
+                knotsJ[j] = j - Tj + 1;
+            else //j > n
+                knotsJ[j] = Nj - Tj + 1;
+        }
     }
 
     private String[] readLineAndSplit(BufferedReader br) throws IOException
