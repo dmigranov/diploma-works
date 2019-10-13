@@ -138,18 +138,23 @@ public class Controller {
     }
 
 
-    public double calculateSplineFunction(double u, double v)
+    public double calculateSplineFunction(double u, double v, Point3D[][] splinePoints)
     {
         //Pij - array of control points (spline points)
-        double Puv = 0;
-        for (int i = 0; i < Ni; i++) {
-            for(int j = 0; j < Nj; j++)
+        double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
+        for (int i = 0; i <= Ni; i++) {
+            for(int j = 0; j <= Nj; j++)
             {
-
+                Px += splinePoints[i][j].x;
             }
         }
         return 0;
     }
+    public double calculateSplineBasisFunction()
+    {
+        return 0;
+    }
+
     public void drawFigures() {
         double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
 
@@ -698,6 +703,7 @@ public class Controller {
                 }
             }
             figure = new Figure(center, color, rotateMatrix, splinePoints);
+
             figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
