@@ -156,6 +156,7 @@ public class Controller {
     ///k - index (i, j), t - Ti/Tj, u - knot points, v - coordinate (u/v)
     public double calculateSplineBasisFunction(int k, int t, int[] u, double v)    //aka Blending Function akd N
     {
+        //http://paulbourke.net/geometry/spline/
         //чем больше степень Ti/Tj - тем боолее гладкая кривая
         double val;
 
@@ -168,7 +169,15 @@ public class Controller {
         }
         else
         {
-
+            if ((u[k+t-1] == u[k]) && (u[k+t] == u[k+1]))
+                val = 0;
+            else if (u[k+t-1] == u[k])
+                val = (u[k+t] - v) / (u[k+t] - u[k+1]) * calculateSplineBasisFunction(k+1,t-1,u,v);
+            else if (u[k+t] == u[k+1])
+                val = (v - u[k]) / (u[k+t-1] - u[k]) * calculateSplineBasisFunction(k,t-1,u,v);
+            else
+                val = (v - u[k]) / (u[k+t-1] - u[k]) * calculateSplineBasisFunction(k,t-1,u,v) +
+                        (u[k+t] - v) / (u[k+t] - u[k+1]) * calculateSplineBasisFunction(k+1,t-1,u,v);
         }
 
         return val;
