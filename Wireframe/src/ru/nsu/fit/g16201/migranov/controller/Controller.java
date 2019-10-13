@@ -145,12 +145,16 @@ public class Controller {
         //Pij - array of control points (spline points)
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
         for (int i = 0; i <= Ni; i++) {
+            double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
             for(int j = 0; j <= Nj; j++)
             {
-                Px += splinePoints[i][j].x;
+                double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
+                Px += splinePoints[i][j].x * bi * bj;
+                Py += splinePoints[i][j].y * bi * bj;
+                Pz += splinePoints[i][j].z * bi * bj;
             }
         }
-        return 0;
+        return new Point3D(Px, Py, Pz);
     }
 
     ///k - index (i, j), t - Ti/Tj, u - knot points, v - coordinate (u/v)
