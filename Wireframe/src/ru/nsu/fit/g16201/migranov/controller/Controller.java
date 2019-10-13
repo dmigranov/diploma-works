@@ -152,8 +152,14 @@ public class Controller {
         }
         return 0;
     }
-    public double calculateSplineBasisFunction()
+
+    ///k - index (i, j), t - Ti/Tj, u - coordinate (u/v)
+    public double calculateSplineBasisFunction(int k, int t, double u)    //aka Blending Function akd N
     {
+        //чем больше степень Ti/Tj - тем боолее гладкая кривая
+        double val;
+
+
         return 0;
     }
 
@@ -691,6 +697,7 @@ public class Controller {
             Ti = Integer.parseInt(substrings[2]);
             Tj = Integer.parseInt(substrings[3]);
 
+            //ti, tj - degree
             /*if(Ni < 4 || Nj < 4)
                 throw new IOException("Not enough spline points");*/ //todo: ввести условия
 
