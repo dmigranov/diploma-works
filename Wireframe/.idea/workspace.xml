@@ -26,22 +26,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="142" column="18" selection-start-line="142" selection-start-column="18" selection-end-line="142" selection-end-column="18" />
+            <state relative-caret-position="235">
+              <caret line="131" column="54" selection-start-line="131" selection-start-column="54" selection-end-line="131" selection-end-column="54" />
               <folding>
-                <element signature="e#23225#23226#0" expanded="true" />
-                <element signature="e#23274#23275#0" expanded="true" />
-                <element signature="e#23323#23324#0" expanded="true" />
-                <element signature="e#23929#23930#0" expanded="true" />
-                <element signature="e#23993#23994#0" expanded="true" />
-                <element signature="e#24047#24048#0" expanded="true" />
-                <element signature="e#24111#24112#0" expanded="true" />
-                <element signature="e#24199#24200#0" expanded="true" />
-                <element signature="e#24253#24254#0" expanded="true" />
-                <element signature="e#24307#24308#0" expanded="true" />
-                <element signature="e#24386#24387#0" expanded="true" />
-                <element signature="e#24464#24465#0" expanded="true" />
-                <element signature="e#24546#24547#0" expanded="true" />
+                <element signature="e#23390#23391#0" expanded="true" />
+                <element signature="e#23439#23440#0" expanded="true" />
+                <element signature="e#23488#23489#0" expanded="true" />
+                <element signature="e#24094#24095#0" expanded="true" />
+                <element signature="e#24158#24159#0" expanded="true" />
+                <element signature="e#24212#24213#0" expanded="true" />
+                <element signature="e#24276#24277#0" expanded="true" />
+                <element signature="e#24364#24365#0" expanded="true" />
+                <element signature="e#24418#24419#0" expanded="true" />
+                <element signature="e#24472#24473#0" expanded="true" />
+                <element signature="e#24551#24552#0" expanded="true" />
+                <element signature="e#24629#24630#0" expanded="true" />
+                <element signature="e#24711#24712#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="300">
               <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
             </state>
           </provider>
@@ -331,14 +331,7 @@
       <workItem from="1570791124231" duration="10098000" />
       <workItem from="1570803337657" duration="347000" />
       <workItem from="1570962973560" duration="69000" />
-      <workItem from="1570964165365" duration="5685000" />
-    </task>
-    <task id="LOCAL-00002" summary="started doing axes">
-      <created>1556030928041</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1556030928041</updated>
+      <workItem from="1570964165365" duration="6231000" />
     </task>
     <task id="LOCAL-00003" summary="one result matrix">
       <created>1556031489427</created>
@@ -676,11 +669,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570970759350</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="calculateSplineFunction done">
+      <created>1570970777342</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1570970777342</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60538000" />
+    <option name="totallyTimeSpent" value="61084000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -906,29 +906,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="300">
           <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="142" column="18" selection-start-line="142" selection-start-column="18" selection-end-line="142" selection-end-column="18" />
+        <state relative-caret-position="235">
+          <caret line="131" column="54" selection-start-line="131" selection-start-column="54" selection-end-line="131" selection-end-column="54" />
           <folding>
-            <element signature="e#23225#23226#0" expanded="true" />
-            <element signature="e#23274#23275#0" expanded="true" />
-            <element signature="e#23323#23324#0" expanded="true" />
-            <element signature="e#23929#23930#0" expanded="true" />
-            <element signature="e#23993#23994#0" expanded="true" />
-            <element signature="e#24047#24048#0" expanded="true" />
-            <element signature="e#24111#24112#0" expanded="true" />
-            <element signature="e#24199#24200#0" expanded="true" />
-            <element signature="e#24253#24254#0" expanded="true" />
-            <element signature="e#24307#24308#0" expanded="true" />
-            <element signature="e#24386#24387#0" expanded="true" />
-            <element signature="e#24464#24465#0" expanded="true" />
-            <element signature="e#24546#24547#0" expanded="true" />
+            <element signature="e#23390#23391#0" expanded="true" />
+            <element signature="e#23439#23440#0" expanded="true" />
+            <element signature="e#23488#23489#0" expanded="true" />
+            <element signature="e#24094#24095#0" expanded="true" />
+            <element signature="e#24158#24159#0" expanded="true" />
+            <element signature="e#24212#24213#0" expanded="true" />
+            <element signature="e#24276#24277#0" expanded="true" />
+            <element signature="e#24364#24365#0" expanded="true" />
+            <element signature="e#24418#24419#0" expanded="true" />
+            <element signature="e#24472#24473#0" expanded="true" />
+            <element signature="e#24551#24552#0" expanded="true" />
+            <element signature="e#24629#24630#0" expanded="true" />
+            <element signature="e#24711#24712#0" expanded="true" />
           </folding>
         </state>
       </provider>

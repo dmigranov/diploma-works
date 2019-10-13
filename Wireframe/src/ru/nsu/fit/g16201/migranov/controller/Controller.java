@@ -124,8 +124,14 @@ public class Controller {
 
         wireframePanel.clear();
         Point3D[][] splinePoints = figure.getSplinePoints();
-        if(splinePoints.length < 4)
-            return;
+
+
+
+        /* Step size along the curve */
+        double incrementI = (Ni - Ti + 2) / ((double)n - 1);
+        double incrementJ = (Nj - Tj + 2) / ((double)m - 1);
+
+        //n и m - это фактически разрешение
 
         /*for (int i = 1; i < Ni - 2; i++) {
             for(int j = 1; j < Nj - 2; j++)
