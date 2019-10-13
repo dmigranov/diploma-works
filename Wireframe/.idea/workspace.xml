@@ -26,24 +26,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="748" column="28" selection-start-line="748" selection-start-column="28" selection-end-line="748" selection-end-column="28" />
+            <state relative-caret-position="291">
+              <caret line="170" column="12" selection-start-line="170" selection-start-column="12" selection-end-line="170" selection-end-column="12" />
               <folding>
-                <element signature="e#5032#5033#0" expanded="true" />
-                <element signature="e#5055#5056#0" expanded="true" />
-                <element signature="e#21905#21906#0" expanded="true" />
-                <element signature="e#21954#21955#0" expanded="true" />
-                <element signature="e#22003#22004#0" expanded="true" />
-                <element signature="e#22609#22610#0" expanded="true" />
-                <element signature="e#22673#22674#0" expanded="true" />
-                <element signature="e#22727#22728#0" expanded="true" />
-                <element signature="e#22791#22792#0" expanded="true" />
-                <element signature="e#22879#22880#0" expanded="true" />
-                <element signature="e#22933#22934#0" expanded="true" />
-                <element signature="e#22987#22988#0" expanded="true" />
-                <element signature="e#23066#23067#0" expanded="true" />
-                <element signature="e#23144#23145#0" expanded="true" />
-                <element signature="e#23226#23227#0" expanded="true" />
+                <element signature="e#22326#22327#0" expanded="true" />
+                <element signature="e#22375#22376#0" expanded="true" />
+                <element signature="e#22424#22425#0" expanded="true" />
+                <element signature="e#23030#23031#0" expanded="true" />
+                <element signature="e#23094#23095#0" expanded="true" />
+                <element signature="e#23148#23149#0" expanded="true" />
+                <element signature="e#23212#23213#0" expanded="true" />
+                <element signature="e#23300#23301#0" expanded="true" />
+                <element signature="e#23354#23355#0" expanded="true" />
+                <element signature="e#23408#23409#0" expanded="true" />
+                <element signature="e#23487#23488#0" expanded="true" />
+                <element signature="e#23565#23566#0" expanded="true" />
+                <element signature="e#23647#23648#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -105,7 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>open</find>
       <find>coun</find>
       <find>figureCount</find>
       <find>aFiel</find>
@@ -135,6 +132,7 @@
       <find>splinePoints</find>
       <find>splineMa</find>
       <find>Ni</find>
+      <find>bas</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -333,7 +331,7 @@
       <workItem from="1570791124231" duration="10098000" />
       <workItem from="1570803337657" duration="347000" />
       <workItem from="1570962973560" duration="69000" />
-      <workItem from="1570964165365" duration="4131000" />
+      <workItem from="1570964165365" duration="5155000" />
     </task>
     <task id="LOCAL-00001" summary="moved from another repo">
       <created>1556030501818</created>
@@ -650,11 +648,25 @@
       <option name="project" value="LOCAL" />
       <updated>1570968249373</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="calculate knots done">
+      <created>1570969194135</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1570969194135</updated>
+    </task>
+    <task id="LOCAL-00047" summary="some base">
+      <created>1570970142378</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1570970142378</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58984000" />
+    <option name="totallyTimeSpent" value="60008000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -740,8 +752,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deleted 2d file loading.&#10;gonna delete figure count and stuff" />
-    <MESSAGE value="started deleting old multiple figures stuff to replace it with ONE figure" />
     <MESSAGE value="removed more of the mult. fig. stuff" />
     <MESSAGE value="open 3d file?" />
     <MESSAGE value="dd" />
@@ -765,7 +775,9 @@
     <MESSAGE value="fdffdfdf" />
     <MESSAGE value="2d spline?" />
     <MESSAGE value="basis started" />
-    <option name="LAST_COMMIT_MESSAGE" value="basis started" />
+    <MESSAGE value="calculate knots done" />
+    <MESSAGE value="some base" />
+    <option name="LAST_COMMIT_MESSAGE" value="some base" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -887,24 +899,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="748" column="28" selection-start-line="748" selection-start-column="28" selection-end-line="748" selection-end-column="28" />
+        <state relative-caret-position="291">
+          <caret line="170" column="12" selection-start-line="170" selection-start-column="12" selection-end-line="170" selection-end-column="12" />
           <folding>
-            <element signature="e#5032#5033#0" expanded="true" />
-            <element signature="e#5055#5056#0" expanded="true" />
-            <element signature="e#21905#21906#0" expanded="true" />
-            <element signature="e#21954#21955#0" expanded="true" />
-            <element signature="e#22003#22004#0" expanded="true" />
-            <element signature="e#22609#22610#0" expanded="true" />
-            <element signature="e#22673#22674#0" expanded="true" />
-            <element signature="e#22727#22728#0" expanded="true" />
-            <element signature="e#22791#22792#0" expanded="true" />
-            <element signature="e#22879#22880#0" expanded="true" />
-            <element signature="e#22933#22934#0" expanded="true" />
-            <element signature="e#22987#22988#0" expanded="true" />
-            <element signature="e#23066#23067#0" expanded="true" />
-            <element signature="e#23144#23145#0" expanded="true" />
-            <element signature="e#23226#23227#0" expanded="true" />
+            <element signature="e#22326#22327#0" expanded="true" />
+            <element signature="e#22375#22376#0" expanded="true" />
+            <element signature="e#22424#22425#0" expanded="true" />
+            <element signature="e#23030#23031#0" expanded="true" />
+            <element signature="e#23094#23095#0" expanded="true" />
+            <element signature="e#23148#23149#0" expanded="true" />
+            <element signature="e#23212#23213#0" expanded="true" />
+            <element signature="e#23300#23301#0" expanded="true" />
+            <element signature="e#23354#23355#0" expanded="true" />
+            <element signature="e#23408#23409#0" expanded="true" />
+            <element signature="e#23487#23488#0" expanded="true" />
+            <element signature="e#23565#23566#0" expanded="true" />
+            <element signature="e#23647#23648#0" expanded="true" />
           </folding>
         </state>
       </provider>

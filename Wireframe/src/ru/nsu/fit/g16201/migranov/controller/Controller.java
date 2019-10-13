@@ -153,14 +153,25 @@ public class Controller {
         return 0;
     }
 
-    ///k - index (i, j), t - Ti/Tj, u - coordinate (u/v)
-    public double calculateSplineBasisFunction(int k, int t, double u)    //aka Blending Function akd N
+    ///k - index (i, j), t - Ti/Tj, u - knot points, v - coordinate (u/v)
+    public double calculateSplineBasisFunction(int k, int t, int[] u, double v)    //aka Blending Function akd N
     {
         //чем больше степень Ti/Tj - тем боолее гладкая кривая
         double val;
 
+        if(t == 1)
+        {
+            if ((u[k] <= v) && (v < u[k+1]))
+                val = 1;
+            else
+                val = 0;
+        }
+        else
+        {
 
-        return 0;
+        }
+
+        return val;
     }
 
     public void drawFigures() {
