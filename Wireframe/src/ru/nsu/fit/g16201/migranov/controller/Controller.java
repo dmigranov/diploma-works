@@ -142,7 +142,7 @@ public class Controller {
             for(int j = 0; j <= m * k; j++)  //<=?
             {
                 Point3D Puv = calculateSplineFunction(u, v, splinePoints);
-                System.out.print(Puv.x + " " + Puv.y + " " + Puv.z + "      ");
+                //System.out.print(Puv.x + " " + Puv.y + " " + Puv.z + "      ");
                 v += incrementV;
 
                 double x = Puv.x, y = Puv.y, z = Puv.z;
@@ -161,8 +161,7 @@ public class Controller {
                 if (nz > maxZ) maxZ = nz;
 
             }
-            System.out.println();
-
+            //System.out.println();
             u += incrementU;
         }
 

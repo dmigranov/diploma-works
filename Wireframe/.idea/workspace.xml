@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/example3d.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
@@ -18,41 +19,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-378">
-              <caret line="99" column="32" lean-forward="true" selection-start-line="99" selection-start-column="32" selection-end-line="99" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="658" column="39" selection-start-line="658" selection-start-column="39" selection-end-line="658" selection-end-column="39" />
-              <folding>
-                <element signature="e#18033#18034#0" expanded="true" />
-                <element signature="e#18082#18083#0" expanded="true" />
-                <element signature="e#18131#18132#0" expanded="true" />
-                <element signature="e#18737#18738#0" expanded="true" />
-                <element signature="e#18801#18802#0" expanded="true" />
-                <element signature="e#18855#18856#0" expanded="true" />
-                <element signature="e#18919#18920#0" expanded="true" />
-                <element signature="e#19007#19008#0" expanded="true" />
-                <element signature="e#19061#19062#0" expanded="true" />
-                <element signature="e#19115#19116#0" expanded="true" />
-                <element signature="e#19194#19195#0" expanded="true" />
-                <element signature="e#19272#19273#0" expanded="true" />
-                <element signature="e#19354#19355#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="131">
+              <caret line="214" column="7" selection-start-line="214" selection-start-column="7" selection-end-line="214" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt">
+        <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            <state relative-caret-position="631">
+              <caret line="163" column="35" selection-start-line="163" selection-start-column="35" selection-end-line="163" selection-end-column="35" />
+              <folding>
+                <element signature="e#18036#18037#0" expanded="true" />
+                <element signature="e#18085#18086#0" expanded="true" />
+                <element signature="e#18134#18135#0" expanded="true" />
+                <element signature="e#18740#18741#0" expanded="true" />
+                <element signature="e#18804#18805#0" expanded="true" />
+                <element signature="e#18858#18859#0" expanded="true" />
+                <element signature="e#18922#18923#0" expanded="true" />
+                <element signature="e#19010#19011#0" expanded="true" />
+                <element signature="e#19064#19065#0" expanded="true" />
+                <element signature="e#19118#19119#0" expanded="true" />
+                <element signature="e#19197#19198#0" expanded="true" />
+                <element signature="e#19275#19276#0" expanded="true" />
+                <element signature="e#19357#19358#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/example3d.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -104,8 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>figureCount</find>
-      <find>aFiel</find>
       <find>onConfigureSplines</find>
       <find>confirmB</find>
       <find>createCommonConfigurationPanel</find>
@@ -134,6 +133,8 @@
       <find>bas</find>
       <find>translateMatrix</find>
       <find>drawFigures</find>
+      <find>knot</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -153,6 +154,7 @@
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" />
         <option value="$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt" />
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/example3d.txt" />
       </list>
     </option>
   </component>
@@ -251,7 +253,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -260,15 +262,15 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ru.nsu.fit.g16201.migranov.view" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Диплом\MY CODE\Wireframe" />
       <recent name="D:\Диплом\MY CODE\Wireframe\src\FIT_16201_Migranov_Wireframe_Data" />
       <recent name="D:\Диплом\MY CODE\Wireframe\out2\production\Wireframe" />
       <recent name="D:\Code\CG\Wireframe\src\FIT_16201_Migranov_Wireframe_Data" />
       <recent name="D:\Code\CG\Wireframe" />
-      <recent name="D:\Code\CG\Wireframe\out" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.nsu.fit.g16201.migranov.view" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -332,14 +334,7 @@
       <workItem from="1570791124231" duration="10098000" />
       <workItem from="1570803337657" duration="347000" />
       <workItem from="1570962973560" duration="69000" />
-      <workItem from="1570964165365" duration="8835000" />
-    </task>
-    <task id="LOCAL-00007" summary="funny mnk but wrong">
-      <created>1556033246046</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1556033246046</updated>
+      <workItem from="1570964165365" duration="9239000" />
     </task>
     <task id="LOCAL-00008" summary="mnk done">
       <created>1556033332670</created>
@@ -677,11 +672,18 @@
       <option name="project" value="LOCAL" />
       <updated>1570972818595</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="исправил глупейшую ошиибку в функции knot, из-за которых с определенных индексов все тупо занулялось">
+      <created>1570974000861</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1570974000861</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63688000" />
+    <option name="totallyTimeSpent" value="64092000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -767,7 +769,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="well, at the very least it builds now.&#10;Deleted many old stuff, commented some of it" />
     <MESSAGE value="gonna delete axes" />
     <MESSAGE value="deleted axes" />
     <MESSAGE value="some file reading" />
@@ -792,14 +793,15 @@
     <MESSAGE value="better incr (+k)" />
     <MESSAGE value="it draws something! but not what i want..." />
     <MESSAGE value="вообще не так плозо, но странные артефакты" />
-    <option name="LAST_COMMIT_MESSAGE" value="вообще не так плозо, но странные артефакты" />
+    <MESSAGE value="исправил глупейшую ошиибку в функции knot, из-за которых с определенных индексов все тупо занулялось" />
+    <option name="LAST_COMMIT_MESSAGE" value="исправил глупейшую ошиибку в функции knot, из-за которых с определенных индексов все тупо занулялось" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java</url>
-          <line>245</line>
+          <line>244</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
@@ -912,37 +914,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-378">
-          <caret line="99" column="32" lean-forward="true" selection-start-line="99" selection-start-column="32" selection-end-line="99" selection-end-column="32" />
+        <state relative-caret-position="131">
+          <caret line="214" column="7" selection-start-line="214" selection-start-column="7" selection-end-line="214" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="658" column="39" selection-start-line="658" selection-start-column="39" selection-end-line="658" selection-end-column="39" />
+        <state relative-caret-position="631">
+          <caret line="163" column="35" selection-start-line="163" selection-start-column="35" selection-end-line="163" selection-end-column="35" />
           <folding>
-            <element signature="e#18033#18034#0" expanded="true" />
-            <element signature="e#18082#18083#0" expanded="true" />
-            <element signature="e#18131#18132#0" expanded="true" />
-            <element signature="e#18737#18738#0" expanded="true" />
-            <element signature="e#18801#18802#0" expanded="true" />
-            <element signature="e#18855#18856#0" expanded="true" />
-            <element signature="e#18919#18920#0" expanded="true" />
-            <element signature="e#19007#19008#0" expanded="true" />
-            <element signature="e#19061#19062#0" expanded="true" />
-            <element signature="e#19115#19116#0" expanded="true" />
-            <element signature="e#19194#19195#0" expanded="true" />
-            <element signature="e#19272#19273#0" expanded="true" />
-            <element signature="e#19354#19355#0" expanded="true" />
+            <element signature="e#18036#18037#0" expanded="true" />
+            <element signature="e#18085#18086#0" expanded="true" />
+            <element signature="e#18134#18135#0" expanded="true" />
+            <element signature="e#18740#18741#0" expanded="true" />
+            <element signature="e#18804#18805#0" expanded="true" />
+            <element signature="e#18858#18859#0" expanded="true" />
+            <element signature="e#18922#18923#0" expanded="true" />
+            <element signature="e#19010#19011#0" expanded="true" />
+            <element signature="e#19064#19065#0" expanded="true" />
+            <element signature="e#19118#19119#0" expanded="true" />
+            <element signature="e#19197#19198#0" expanded="true" />
+            <element signature="e#19275#19276#0" expanded="true" />
+            <element signature="e#19357#19358#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example3d.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
