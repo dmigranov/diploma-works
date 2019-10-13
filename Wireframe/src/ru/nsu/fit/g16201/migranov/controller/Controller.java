@@ -45,7 +45,6 @@ public class Controller {
     private int width, height;
 
     private boolean isDrawingFirstTime = true;
-    private int currentRotateFigure;
 
     private double xAllAngle = 0, yAllAngle = 0;
 
@@ -79,7 +78,8 @@ public class Controller {
                     double xAngle = 0.01 * dx;
                     double yAngle = 0.01 * dy;
 
-                    if(currentRotateFigure < 0) {
+                    //if(currentRotateFigure < 0)
+                    {
                         xAllAngle+=xAngle;
                         yAllAngle+=yAngle;
                         Matrix xRot = Matrix.getYRotateMatrix(xAngle);
@@ -89,10 +89,7 @@ public class Controller {
                         //Matrix cxyr = Matrix.multiply(Matrix.getViewTranslationMatrix(eye, ref, up), xyr);
                         sceneRotateMatrix = xyr;
                     }
-                    else
-                    {
-                        ;
-                    }
+
                     drawFigure();
                 }
                 prevX = x;
@@ -361,16 +358,6 @@ public class Controller {
         return length;
     }
 
-    /*private void drawSplinePoints(List<Point2D> splinePoints) {
-        screenSplinePoints.clear();
-        for(Point2D p : splinePoints)
-        {
-            Point uv = getUV(p);
-            splinePanel.drawSplinePoint(uv.x, uv.y);
-            screenSplinePoints.add(uv);   //может куда-то ещё ложить номер, чтобы легко найти
-        }
-    }*/
-
     /*private Point getUV(double x, double y) {
         //width = height!
         int u, v;
@@ -426,22 +413,6 @@ public class Controller {
         matrix.setRow(3, new double[] {0, 0, 0, 1});
         return matrix;
     }
-
-    /*public void addSplinePoint(int index) {
-        currentFigure.getSplinePoints().add(index, new Point2D(0, 0));
-        drawSplineLine();
-    }
-
-    public void deleteSplinePoint(int index) {
-        if(index >= currentFigure.getSplinePoints().size() || index < 0)
-            return;
-        currentFigure.getSplinePoints().remove(index);
-        drawSplineLine();
-    }
-
-    public int getSplinePointsCount() {
-        return currentFigure.getSplinePoints().size();
-    }*/
 
     public void saveFile(File file) {
         /*try(PrintWriter pw = new PrintWriter(file)) {
@@ -538,9 +509,6 @@ public class Controller {
         this.sh = sh;
     }
 
-    public void setCurrentRotateFigure(int i) {
-        currentRotateFigure = i;
-    }
 
     public double getZf() {
         return zf;

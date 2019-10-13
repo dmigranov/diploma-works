@@ -379,14 +379,6 @@ public class WireframeFrame extends MainFrame {
         }
     }
 
-    private void createFigureChoiceMenu() throws NoSuchMethodException {
-        if(menuBar.getMenuCount() > 3)
-            menuBar.remove(3);
-        addSubMenu("Rotation", KeyEvent.VK_F);
-        int key = KeyEvent.VK_A;
-        group = new ButtonGroup();
-        addRadioButtonMenuAndToolBarButton("Rotation/World", "Choose what to rotate", key++,"rotate.png", group, "onRotateChoose", true, false, false);
-    }
 
     private void updateFields() {
         nField.setText(controller.getN() + "");
@@ -420,7 +412,6 @@ public class WireframeFrame extends MainFrame {
                     b.setEnabled(true);
                 }
                 fileIsLoaded = true;
-                createFigureChoiceMenu();
                 wireframePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 resize();
             }
@@ -456,17 +447,5 @@ public class WireframeFrame extends MainFrame {
         updateFields();
 
         JOptionPane.showOptionDialog(this, tabbedPane, "Configuration", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, new Object[]{confirmButton}, confirmButton);
-    }
-
-    public void onRotateChoose()
-    {
-        int i = 0;
-        for(Enumeration<AbstractButton> buttons = group.getElements(); buttons.hasMoreElements(); i++)
-        {
-            AbstractButton button = buttons.nextElement();
-            if(button.isSelected())
-                break;
-        }
-        controller.setCurrentRotateFigure(i-1);
     }
 }
