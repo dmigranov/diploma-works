@@ -1,6 +1,10 @@
 package ru.nsu.fit.g16201.migranov.model;
 
+import java.awt.*;
 import java.util.Arrays;
+
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
 
 public class Matrix {
     private double[] data;
@@ -30,24 +34,24 @@ public class Matrix {
     public static Matrix getTranslationMatrix(Point3D where) {
         return new Matrix(4, 4,
                 1, 0, 0, where.x,
-                        0, 1, 0, where.y,
-                        0, 0, 1, where.z,
-                        0, 0, 0, 1);
+                0, 1, 0, where.y,
+                0, 0, 1, where.z,
+                0, 0, 0, 1);
     }
 
-    public static Matrix getViewMatrix(Point3D eye, Point3D ref, Point3D up) {
+    /*public static Matrix getViewMatrix(Point3D eye, Point3D ref, Point3D up) {
         Point3D w = new Point3D(eye.x - ref.x, eye.y - ref.y, eye.z - ref.z).normalize();
         //Point3D w = new Point3D(ref.x - eye.x, ref.y - eye.y, ref.z - eye.z).normalize();
         Point3D rr = Point3D.getVectorProduct(up, w);
         Point3D u = rr.normalize();
         Point3D v = Point3D.getVectorProduct(w, u);
 
-        /*return new Matrix(4, 4,
+        return new Matrix(4, 4,
                 u.x, u.y, u.z, -u.x*eye.x,
                         v.x, v.y, v.z, -u.y*eye.y,
                         w.x, w.y, w.z, -u.z*eye.z,
                         0, 0, 0, 1
-        );*/
+        );
 
         return new Matrix(4, 4,
                 u.x, u.y, u.z, -(u.x*eye.x + u.y*eye.y + u.z* eye.z),
@@ -55,7 +59,9 @@ public class Matrix {
                 w.x, w.y, w.z, -(w.x*eye.x + w.y*eye.y + w.z* eye.z),
                 0, 0, 0, 1
         );
-    }
+    }*/
+
+
 
     //в левосторонней ск вроде верно
     public static Matrix getViewMatrixNew(Point3D eye, Point3D ref, Point3D up) {
@@ -72,10 +78,24 @@ public class Matrix {
         );
     }
 
+    /*public static Matrix getViewMatrixInverse(Point3D eye, Point3D ref, Point3D up) {
+        Point3D z = new Point3D(ref.x - eye.x, ref.y - eye.y, ref.z - eye.z).normalize();
 
-    public static Matrix getViewTranslationMatrix(Point3D eye, Point3D ref, Point3D up) {
+        Point3D x = Point3D.getVectorProduct(up, z).normalize();
+        Point3D y = Point3D.getVectorProduct(z, x);
+
+        return new Matrix(4, 4,
+                x.x, x.y, x.z, -(x.x*eye.x + x.y*eye.y + x.z* eye.z),
+                y.x, y.y, y.z, -(y.x*eye.x + y.y*eye.y + y.z* eye.z),
+                z.x, z.y, z.z, -(z.x*eye.x + z.y*eye.y + z.z* eye.z),
+                0, 0, 0, 1
+        );
+    }*/
+
+
+    /*public static Matrix getViewTranslationMatrix(Point3D eye, Point3D ref, Point3D up) {
         return Matrix.transpose(getViewMatrix(eye, ref, up));
-    }
+    }*/
 
     private static Matrix transpose(Matrix a) {
         Matrix b = new Matrix(a.cols, a.rows);
@@ -105,32 +125,41 @@ public class Matrix {
     public static Matrix getProjectionMatrix(double sw, double sh, double zf, double zn) {
         return new Matrix(4, 4,
                 2/sw*zn, 0, 0, 0,
-                        0, 2/sh*zn, 0, 0,
-                        0, 0, zf/(zf - zn), -zn*zf/(zf - zn),
-                        0, 0, 1, 0);      //проекц
+                0, 2/sh*zn, 0, 0,
+                0, 0, zf/(zf - zn), -zn*zf/(zf - zn),
+                0, 0, 1, 0);      //проекц
 
     }
 
     public static Matrix getXRotateMatrix(double angle) {
         return new Matrix(4, 4,
                 1, 0, 0, 0,
-                        0, Math.cos(angle), -Math.sin(angle), 0,
-                        0, Math.sin(angle), Math.cos(angle), 0,
-                        0, 0, 0, 1);
+                0, cos(angle), -sin(angle), 0,
+                0, sin(angle), cos(angle), 0,
+                0, 0, 0, 1);
+    }
+
+    public static Matrix getRotateMatrix(double angle, Point3D axe) {
+        double x = axe.x, y= axe.y, z = axe.z;
+        return new Matrix(4, 4,
+                cos(angle) + (1 - cos(angle))*x*x, (1 - cos(angle))*x*y - z * sin(angle), (1 - cos(angle))*x*z + y * sin(angle), 0,
+                (1 - cos(angle))*x*y + z * sin(angle), cos(angle) + (1 - cos(angle))*y*y, (1 - cos(angle))*y*z - x * sin(angle), 0,
+                (1 - cos(angle))*x*z - y * sin(angle), (1 - cos(angle))*z*y + x * sin(angle), cos(angle) + (1 - cos(angle)) *z*z, 0,
+                0, 0, 0, 1);
     }
 
     public static Matrix getYRotateMatrix(double angle) {
         return new Matrix(4, 4,
-                Math.cos(angle), 0, Math.sin(angle), 0,
-                        0, 1, 0, 0,
-                        -Math.sin(angle), 0, Math.cos(angle), 0,
-                        0, 0, 0, 1);
+                cos(angle), 0, sin(angle), 0,
+                0, 1, 0, 0,
+                -sin(angle), 0, cos(angle), 0,
+                0, 0, 0, 1);
     }
 
     public static Matrix getZRotateMatrix(double angle) {
         return new Matrix(4, 4,
-                Math.cos(angle), -Math.sin(angle), 0, 0,
-                Math.sin(angle), Math.cos(angle), 0, 0,
+                cos(angle), -sin(angle), 0, 0,
+                sin(angle), cos(angle), 0, 0,
                 0, 0, 1, 0,
                 0, 0, 0, 1);
     }
@@ -194,8 +223,45 @@ public class Matrix {
         return data[row * cols + col];
     }
 
-    public static Matrix getVector4(double x, double y, double z)
+    public static Matrix getVector4(Point3D p)
     {
-        return new Matrix(4, 1, x, y, z, 1);
+        return new Matrix(4, 1, p.x, p.y, p.z, 1);
+    }
+
+    public Point3D getPoint() {
+        return new Point3D(data[0], data[1], data[2]);
+    }
+
+    public Matrix get3x3Submatrix()
+    {
+        Matrix r = new Matrix(3, 3);
+        for(int i = 0; i < 3; i++)
+            for(int j = 0; j < 3; j++)
+            {
+                r.set(i, j, get(i, j)) ;
+            }
+        return r;
+    }
+    public Matrix get4x4MatrixWithout4RowCol()
+    {
+        Matrix r = new Matrix(4, 4);
+        for(int i = 0; i < 4; i++)
+            for(int j = 0; j < 4; j++)
+            {
+                if(i != 3 && j != 3)
+                    r.set(i, j, get(i, j)) ;
+                else
+                    r.set(i, j, 0) ;
+            }
+        return r;
+    }
+
+    public Point3D applyMatrix(Point3D point)
+    {
+        Matrix pointMatrix = new Matrix(4, 1, point.x, point.y, point.z, 1);
+        Matrix resultPointMatrix = Matrix.multiply(this, pointMatrix);
+        //double w = resultPointMatrix.get(3, 0);
+        //resultPointMatrix = Matrix.multiplyByScalar(w, resultPointMatrix)
+        return resultPointMatrix.getPoint();
     }
 }

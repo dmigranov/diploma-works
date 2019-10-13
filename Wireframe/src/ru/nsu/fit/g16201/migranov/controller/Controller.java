@@ -58,9 +58,63 @@ public class Controller {
         wireframePanel.addMouseWheelListener(e -> {
             int count = e.getWheelRotation();
 
-            if(zn - 0.1*count < zf && zn - 0.1*count > 0) {
-                zn -= 0.1 * count;
+            if(e.isControlDown())
+            {
+                //todo: не похволять сильно крутить
+                double dz = -count * 1;
+                Point3D forward = Point3D.add(ref, Point3D.getNegative(eye));
+                forward = forward.normalize();
+                //ref = Point3D.add(ref, Point3D.multiplyByScalar(dz, forward));
+                Point3D oldEye = eye;
+                eye = Point3D.add(eye, Point3D.multiplyByScalar(dz, forward));
+                cameraMatrix = Matrix.getViewMatrixNew(eye, ref, up);  //матрица получается аналогичная
+                Matrix tr = Matrix.getTranslationMatrix(new Point3D(0, 0, -dz));
+                //viewMatrix = Matrix.multiply(tr, viewMatrix);
+                drawFigure();
+            }
+            else
+            {
+                double c;
+
+                c = 1 - count*0.01;
+                zn*=c;
+
                 projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
+                drawFigure();
+            }
+        });
+
+        wireframePanel.setFocusable(true);
+        wireframePanel.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+
+                double dx = 0, dy = 0, dz = 0;
+                int key = e.getKeyCode();
+                if (key == KeyEvent.VK_LEFT)
+                    dx = 0.1;
+                else if (key == KeyEvent.VK_RIGHT)
+                    dx = -0.1;
+                else if (key == KeyEvent.VK_UP)
+                    dy = 0.1;
+                else if (key == KeyEvent.VK_DOWN)
+                    dy = -0.1;
+
+                Matrix tr = Matrix.getTranslationMatrix(new Point3D(dx, dy, dz));
+
+                Point3D z = new Point3D(-(ref.x - eye.x), -(ref.y - eye.y), -(ref.z - eye.z)).normalize();
+                Point3D x = Point3D.getVectorProduct(up, z).normalize();
+                Point3D y = Point3D.getVectorProduct(z, x);
+
+                ref = Point3D.add(ref, Point3D.multiplyByScalar(dz, z));
+                eye = Point3D.add(eye, Point3D.multiplyByScalar(dz, z));
+                ref = Point3D.add(ref, Point3D.multiplyByScalar(-dy, y));
+                eye = Point3D.add(eye, Point3D.multiplyByScalar(-dy, y));
+                ref = Point3D.add(ref, Point3D.multiplyByScalar(dx, x));
+                eye = Point3D.add(eye, Point3D.multiplyByScalar(dx, x));
+                //viewMatrix = Matrix.getViewMatrixNew(eye, ref, up);
+                cameraMatrix = Matrix.multiply(tr, cameraMatrix);
                 drawFigure();
             }
         });
@@ -78,17 +132,25 @@ public class Controller {
                     double xAngle = 0.01 * dx;
                     double yAngle = 0.01 * dy;
 
-                    //if(currentRotateFigure < 0)
-                    {
-                        xAllAngle+=xAngle;
-                        yAllAngle+=yAngle;
+
+                        Matrix rot = figure.getRotateMatrix();
                         Matrix xRot = Matrix.getYRotateMatrix(xAngle);
                         Matrix yRot = Matrix.getZRotateMatrix(-yAngle);
-                        Matrix xr = Matrix.multiply(xRot, sceneRotateMatrix);
+                        Matrix xr = Matrix.multiply(xRot, rot);
                         Matrix xyr = Matrix.multiply(yRot, xr);
-                        //Matrix cxyr = Matrix.multiply(Matrix.getViewTranslationMatrix(eye, ref, up), xyr);
-                        sceneRotateMatrix = xyr;
-                    }
+                        figure.setRotateMatrix(xyr);
+
+                        /*Matrix xy = Matrix.multiply(yRot, xRot);
+                        //надо взять обратную к scenerotate матрицу и умножить на xy?
+
+                        Matrix xSceneInverse = Matrix.getYRotateMatrix(-xAllAngle);
+                        Matrix ySceneInverse = Matrix.getZRotateMatrix(yAllAngle);
+                        Matrix sceneInverse = Matrix.multiply(xSceneInverse, ySceneInverse);
+
+                        Matrix rotAdd = Matrix.multiply(sceneInverse, xy);
+                        Matrix res = Matrix.multiply(rotAdd, sceneRotateMatrix);
+                        res = Matrix.multiply(sceneRotateMatrix, res);
+                        figures.get(currentRotateFigure).setRotateMatrix(res);*/
 
                     drawFigure();
                 }
@@ -97,19 +159,19 @@ public class Controller {
             }
         });
 
-        wireframePanel.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                super.keyPressed(e);
-            }
-        });
-
         wireframePanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
+
                 prevX = null;
                 prevY = null;
+            }
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                wireframePanel.requestFocusInWindow();
             }
         });
 
@@ -138,11 +200,13 @@ public class Controller {
             double v = 0;
             for(int j = 0; j <= m * k; j++)  //<=?
             {
+                if(j == m*k)
+                    System.out.print("");
                 Point3D Puv = calculateSplineFunction(u, v, splinePoints);
                 //System.out.print(Puv.x + " " + Puv.y + " " + Puv.z + "      ");
                 v += incrementV;
 
-                double x = Puv.x, y = Puv.y, z = Puv.z;
+                double x = Puv.x, y = -Puv.z, z = Puv.y;
 
                 Matrix p = new Matrix(4, 1, x, y, z, 1);
 
@@ -162,6 +226,9 @@ public class Controller {
             u += incrementU;
         }
 
+        //todo:
+        //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
+        //|knotsJ| = Nj + Kj + 1
 
         //считаю только один раз, при запуске, чтобы при перемещении точек одной фигуры остальные остальные фигуры оставались на местах
         if(isDrawingFirstTime) {
@@ -197,9 +264,6 @@ public class Controller {
                 Matrix nmp = Matrix.multiply(resultMatrix, mp);
                 Point3D np = new Point3D(nmp.get(0, 0), nmp.get(1, 0), nmp.get(2, 0));
                 double w = nmp.get(3, 0);
-
-                //РИСУЕМ ВСЁ
-                //if(np.z/w >= 0 && np.z/w <= 1)
                 {
                     int x = (int)((np.x/w + 1)/2*wireframePanel.getCanvasWidth());
                     int y = (int)((np.y/w + 1)/2*wireframePanel.getCanvasHeight());
@@ -219,7 +283,6 @@ public class Controller {
             }
         }
 
-
         wireframePanel.repaint();
     }
 
@@ -238,8 +301,7 @@ public class Controller {
                 Pz += splinePoints[i][j].z * bi * bj;
             }
         }
-        if(Py == 7.999999999999998)
-            System.out.print("");
+
         return new Point3D(Px, Py, Pz);
     }
 
@@ -252,7 +314,8 @@ public class Controller {
 
         if(t == 1)
         {
-            if ((u[k] <= v) && (v < u[k+1]))
+            //if ((u[k] <= v) && (v < u[k+1]))
+            if((u[k] <= v) && (v < u[k+1]))
                 val = 1;
             else
                 val = 0;
@@ -327,35 +390,6 @@ public class Controller {
         //todo: Расчёты полезные, но надо 3d
 
         splinePanel.repaint();*/
-    }
-
-    private double calculateLength(List<Point2D> splinePoints)
-    {
-        Double xPrev = null, yPrev = null;
-        double length = 0;
-        for(int i = 1; i < splinePoints.size() - 2; i++)
-        {
-            Matrix Gx = new Matrix(4, 1, splinePoints.get(i - 1).x, splinePoints.get(i).x, splinePoints.get(i + 1).x, splinePoints.get(i + 2).x);
-            Matrix Gy = new Matrix(4, 1, splinePoints.get(i - 1).y, splinePoints.get(i).y, splinePoints.get(i + 1).y, splinePoints.get(i + 2).y);
-            for(double t = 0; t <= 1; t+=0.01)
-            {
-                Matrix T = new Matrix(1, 4, t*t*t, t*t, t, 1);
-                Matrix TM = Matrix.multiply(T, splineMatrix);
-
-                Matrix X = Matrix.multiply(TM, Gx);
-                Matrix Y = Matrix.multiply(TM, Gy);
-
-                double x = X.get(0, 0), y = Y.get(0, 0);
-
-                if(xPrev != null) {
-
-                    length += Math.sqrt(Math.pow(xPrev - x, 2) + Math.pow(yPrev - y, 2));
-                }
-                xPrev = x;
-                yPrev = y;
-            }
-        }
-        return length;
     }
 
     /*private Point getUV(double x, double y) {
