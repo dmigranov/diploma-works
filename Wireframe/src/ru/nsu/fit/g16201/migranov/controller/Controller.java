@@ -128,21 +128,107 @@ public class Controller {
 
 
         /* Step size along the curve */
-        double incrementI = (double)(Ni - Ti + 2) / n / k;
-        double incrementJ = (double)(Nj - Tj + 2) / m / k;
+        double incrementU = (double)(Ni - Ti + 2) / n / k;
+        double incrementV = (double)(Nj - Tj + 2) / m / k;
 
         //n и m - это фактически разрешение
 
-        /*for (int i = 1; i < Ni - 2; i++) {
-            for(int j = 1; j < Nj - 2; j++)
+
+        Point3D[][] modelPoints = figure.getModelPoints();
+        Matrix translateMatrix = Matrix.getTranslationMatrix(figure.getCenter());
+        Matrix rtm = Matrix.multiply(translateMatrix, figure.getRotateMatrix());
+
+        double u = 0;
+        for(int i = 0; i <= n * k; i++)  //<=?
+        {
+            double v = 0;
+            for(int j = 0; j <= m * k; j++)  //<=?
             {
-                Matrix Gx = new Matrix(4, 1, splinePoints[i-1].x, splinePoints.get(i).x, splinePoints.get(i + 1).x, splinePoints.get(i + 2).x);
-                Matrix Gy = new Matrix(4, 1, splinePoints.get(i - 1).y, splinePoints.get(i).y, splinePoints.get(i + 1).y, splinePoints.get(i + 2).y);
+                Point3D Puv = calculateSplineFunction(u, v, splinePoints);
+                //System.out.print(Puv.x + " " + Puv.y + " " + Puv.z + "      ");
+                v += incrementV;
+
+                double x = Puv.x, y = Puv.y, z = Puv.z;
+
+                Matrix p = new Matrix(4, 1, x, y, z, 1);
+
+                Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+                double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
+                //modelPoints[i][j] = new Point3D(nx, ny, nz);
+                modelPoints[i][j] = new Point3D(x, y, z);
+
+                if (nx < minX) minX = nx;
+                if (nx > maxX) maxX = nx;
+                if (ny < minY) minY = ny;
+                if (ny > maxY) maxY = ny;
+                if (nz < minZ) minZ = nz;
+                if (nz > maxZ) maxZ = nz;
 
             }
-        }*/
+            //System.out.println();
+
+            u += incrementU;
+        }
 
 
+        //считаю только один раз, при запуске, чтобы при перемещении точек одной фигуры остальные остальные фигуры оставались на местах
+        if(isDrawingFirstTime) {
+            double maxDim = Math.max(Math.max(maxX - minX, maxY - minY), maxZ - minZ);          //nx = 2 * (x - minX)/(maxx- minx) - 1 и для других - но так не сохр пропорции; поэтому делю на одно и то же
+            isDrawingFirstTime = false;
+
+            Matrix boxTranslateMatrix = new Matrix(4, 4, 1, 0, 0, -minX,
+                    0, 1, 0, -minY,
+                    0, 0, 1, -minZ,
+                    0, 0, 0, 1);
+            //Matrix boxScaleMatrix = new Matrix(4, 4, 2/maxDim, 0, 0, -1, 0, 2/maxDim, 0, -1, 0, 0, 2/maxDim, -1, 0, 0, 0, 1);  //это несимметрично относительно отн нуля
+            Matrix boxScaleMatrix = new Matrix(4, 4, 2 / maxDim, 0, 0, -(maxX - minX) / maxDim,
+                    0, 2 / maxDim, 0, -(maxY - minY) / maxDim,
+                    0, 0, 2 / maxDim, -(maxZ - minZ) / maxDim,
+                    0, 0, 0, 1);
+            boxMatrix = Matrix.multiply(boxScaleMatrix, boxTranslateMatrix);
+        }
+
+        Matrix projView = Matrix.multiply(projectionMatrix, cameraMatrix);
+        Matrix projViewBox = Matrix.multiply(projView, boxMatrix);
+        Matrix projViewBoxRot = Matrix.multiply(projViewBox, sceneRotateMatrix);
+
+        Matrix resultMatrix = Matrix.multiply(projViewBoxRot, rtm);
+
+        Color color = figure.getColor();
+        Point[] uPrev = new Point[m*k+1];   //m*k
+        for (int i = 0; i <= n*k; i++) {
+            Point vPrev = null;
+
+            for (int j = 0; j <= m * k; j++) {
+                Point3D p = modelPoints[i][j];
+                Matrix mp = new Matrix(4, 1, p.x, p.y, p.z, 1);
+                Matrix nmp = Matrix.multiply(resultMatrix, mp);
+                Point3D np = new Point3D(nmp.get(0, 0), nmp.get(1, 0), nmp.get(2, 0));
+                double w = nmp.get(3, 0);
+
+                //РИСУЕМ ВСЁ
+                //if(np.z/w >= 0 && np.z/w <= 1)
+                {
+                    int x = (int)((np.x/w + 1)/2*wireframePanel.getCanvasWidth());
+                    int y = (int)((np.y/w + 1)/2*wireframePanel.getCanvasHeight());
+
+                    if(vPrev != null && i % k == 0)
+                    {
+                        wireframePanel.drawLine(vPrev.x, vPrev.y, x, y, color);
+                    }
+                    vPrev = new Point(x, y);
+
+                    if(uPrev[j] != null && j % k == 0)
+                    {
+                        wireframePanel.drawLine(uPrev[j].x, uPrev[j].y, x, y, color);
+                    }
+                    uPrev[j] = new Point(x, y);
+                }
+            }
+        }
+
+
+        wireframePanel.repaint();
     }
 
 
@@ -752,8 +838,6 @@ public class Controller {
             return -1;
         }
 
-        calculateSplineArea();  //todo?
-        drawSplineLine();
         drawFigure();
 
         return 0;
