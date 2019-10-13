@@ -142,7 +142,7 @@ public class Controller {
             for(int j = 0; j <= m * k; j++)  //<=?
             {
                 Point3D Puv = calculateSplineFunction(u, v, splinePoints);
-                //System.out.print(Puv.x + " " + Puv.y + " " + Puv.z + "      ");
+                System.out.print(Puv.x + " " + Puv.y + " " + Puv.z + "      ");
                 v += incrementV;
 
                 double x = Puv.x, y = Puv.y, z = Puv.z;
@@ -151,7 +151,6 @@ public class Controller {
 
                 Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
                 double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
-                //modelPoints[i][j] = new Point3D(nx, ny, nz);
                 modelPoints[i][j] = new Point3D(x, y, z);
 
                 if (nx < minX) minX = nx;
@@ -162,7 +161,7 @@ public class Controller {
                 if (nz > maxZ) maxZ = nz;
 
             }
-            //System.out.println();
+            System.out.println();
 
             u += incrementU;
         }
@@ -243,6 +242,8 @@ public class Controller {
                 Pz += splinePoints[i][j].z * bi * bj;
             }
         }
+        if(Py == 7.999999999999998)
+            System.out.print("");
         return new Point3D(Px, Py, Pz);
     }
 
@@ -644,7 +645,7 @@ public class Controller {
             else if (Ti <= i && i <= Ni)
                 knotsI[i] = i - Ti + 1;
             else //i > n
-                knotsI[i] = Ni - Ti + 1;
+                knotsI[i] = Ni - Ti + 2;
         }
 
         knotsJ = new int[Nj +  Tj + 1];
@@ -655,7 +656,7 @@ public class Controller {
             else if (Tj <= j && j <= Nj)
                 knotsJ[j] = j - Tj + 1;
             else //j > n
-                knotsJ[j] = Nj - Tj + 1;
+                knotsJ[j] = Nj - Tj + 2;
         }
     }
 
