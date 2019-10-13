@@ -38,8 +38,7 @@ public class Controller {
     private Matrix projectionMatrix;
 
     private Figure figure = null;
-
-    private List<Point> screenSplinePoints = new ArrayList<>();  //нужен только один, при смене текущего менять; нумерация такой же, как в текущем списке точек модели
+    private int Ni, Nj, Ti, Tj;
 
     private Integer prevX = null, prevY = null;
 
@@ -119,9 +118,37 @@ public class Controller {
 
     public void drawFigure()
     {
+        double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
+
+        wireframePanel.clear();
+        Point3D[][] splinePoints = figure.getSplinePoints();
+        if(splinePoints.length < 4)
+            return;
+
+        /*for (int i = 1; i < Ni - 2; i++) {
+            for(int j = 1; j < Nj - 2; j++)
+            {
+                Matrix Gx = new Matrix(4, 1, splinePoints[i-1].x, splinePoints.get(i).x, splinePoints.get(i + 1).x, splinePoints.get(i + 2).x);
+                Matrix Gy = new Matrix(4, 1, splinePoints.get(i - 1).y, splinePoints.get(i).y, splinePoints.get(i + 1).y, splinePoints.get(i + 2).y);
+
+            }
+        }*/
+
 
     }
 
+
+    public double calculateSplineFunction(double u, double v)
+    {
+        //Pij - array of control points (spline points)
+        double Puv = 0;
+        for (int i = 0; i < Ni; i++) {
+            for(int j = 0; j < Nj; j++)
+            {
+
+            }
+        }
+    }
     public void drawFigures() {
         double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
 
@@ -129,6 +156,9 @@ public class Controller {
         Point3D[][] splinePoints = figure.getSplinePoints();
         if(splinePoints.length < 4)
             return;     //todo: exception?
+
+
+        //матрица splineMatrix - это по сути эквивалетно П Ni(t), i = 0..4 для некоторых фикс. Ti Tj
 
         /*
         double length = calculateLength(splinePoints), tempLength = 0;
@@ -648,13 +678,16 @@ public class Controller {
             Matrix rotateMatrix = read3x3MatrixByRow(br);
 
             substrings = readLineAndSplit(br);
-            int Ni = Integer.parseInt(substrings[0]), Nj = Integer.parseInt(substrings[1]), Ti = Integer.parseInt(substrings[2]), Tj = Integer.parseInt(substrings[3]);
+            Ni = Integer.parseInt(substrings[0]);
+            Nj = Integer.parseInt(substrings[1]);
+            Ti = Integer.parseInt(substrings[2]);
+            Tj = Integer.parseInt(substrings[3]);
             if(Ni < 4 || Nj < 4)
                 throw new IOException("Not enough spline points");
             Point3D[][] splinePoints = new Point3D[Ni][Nj];
-            for(int i = 0; i < Ni; i++)
+            for(int i = 0; i <= Ni; i++)
             {
-                for(int j = 0; j < Nj; j++)
+                for(int j = 0; j <= Nj; j++)
                 {
                     substrings = readLineAndSplit(br);
                     Point3D splinePoint = new Point3D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]), Double.parseDouble(substrings[2]));
