@@ -128,8 +128,8 @@ public class Controller {
 
 
         /* Step size along the curve */
-        double incrementI = (Ni - Ti + 2) / ((double)n - 1);
-        double incrementJ = (Nj - Tj + 2) / ((double)m - 1);
+        double incrementI = (double)(Ni - Ti + 2) / n / k;
+        double incrementJ = (double)(Nj - Tj + 2) / m / k;
 
         //n и m - это фактически разрешение
 
