@@ -2,54 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FIT_16201_Migranov_Wireframe_Data/Wirframe config.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FIT_16201_Migranov_Wireframe_Data/examplу10.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FIT_16201_Migranov_Wireframe_Data/examplу9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/FIT_16201_Migranov_Wireframe_Data/examplу10.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/FIT_16201_Migranov_Wireframe_Data/examplу9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/examplу9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/About.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/Exit.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/XOR.bmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/XOR.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/absorption.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/blur.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/book.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/bw.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/cancel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/clear.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/copy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/download-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/download.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/edge1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/edge2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/edit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/emboss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/emission.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/floyd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/folder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/gamma.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/grid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/gridpoint.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/line.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/logout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/negative.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/next-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/next.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/order.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/reload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/render.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/rotate.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/sharp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/shuffle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/upload-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/upload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/watercolor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/zoom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -63,54 +18,54 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3700">
-              <caret line="203" column="16" selection-start-line="203" selection-start-column="16" selection-end-line="203" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="602" column="5" selection-start-line="602" selection-start-column="5" selection-end-line="602" selection-end-column="5" />
-              <folding>
-                <element signature="e#20587#20588#0" expanded="true" />
-                <element signature="e#20611#20612#0" expanded="true" />
-                <element signature="e#20636#20637#0" expanded="true" />
-                <element signature="e#20660#20661#0" expanded="true" />
-                <element signature="e#20685#20686#0" expanded="true" />
-                <element signature="e#20709#20710#0" expanded="true" />
-                <element signature="e#21291#21292#0" expanded="true" />
-                <element signature="e#21316#21317#0" expanded="true" />
-                <element signature="e#21352#21353#0" expanded="true" />
-                <element signature="e#21380#21381#0" expanded="true" />
-                <element signature="e#21409#21410#0" expanded="true" />
-                <element signature="e#21434#21435#0" expanded="true" />
-                <element signature="e#21470#21471#0" expanded="true" />
-                <element signature="e#21498#21499#0" expanded="true" />
-                <element signature="e#21547#21548#0" expanded="true" />
-                <element signature="e#21586#21587#0" expanded="true" />
-                <element signature="e#21615#21616#0" expanded="true" />
-                <element signature="e#21640#21641#0" expanded="true" />
-                <element signature="e#21669#21670#0" expanded="true" />
-                <element signature="e#21694#21695#0" expanded="true" />
-                <element signature="e#21735#21736#0" expanded="true" />
-                <element signature="e#21773#21774#0" expanded="true" />
-                <element signature="e#21812#21813#0" expanded="true" />
-                <element signature="e#21852#21853#0" expanded="true" />
-                <element signature="e#21893#21894#0" expanded="true" />
-                <element signature="e#21934#21935#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="131">
+              <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3775">
+              <caret line="305" selection-start-line="305" selection-end-line="305" />
+              <folding>
+                <element signature="e#20638#20639#0" expanded="true" />
+                <element signature="e#20662#20663#0" expanded="true" />
+                <element signature="e#20687#20688#0" expanded="true" />
+                <element signature="e#20711#20712#0" expanded="true" />
+                <element signature="e#20736#20737#0" expanded="true" />
+                <element signature="e#20760#20761#0" expanded="true" />
+                <element signature="e#21341#21342#0" expanded="true" />
+                <element signature="e#21366#21367#0" expanded="true" />
+                <element signature="e#21402#21403#0" expanded="true" />
+                <element signature="e#21430#21431#0" expanded="true" />
+                <element signature="e#21459#21460#0" expanded="true" />
+                <element signature="e#21484#21485#0" expanded="true" />
+                <element signature="e#21520#21521#0" expanded="true" />
+                <element signature="e#21548#21549#0" expanded="true" />
+                <element signature="e#21597#21598#0" expanded="true" />
+                <element signature="e#21636#21637#0" expanded="true" />
+                <element signature="e#21665#21666#0" expanded="true" />
+                <element signature="e#21690#21691#0" expanded="true" />
+                <element signature="e#21719#21720#0" expanded="true" />
+                <element signature="e#21744#21745#0" expanded="true" />
+                <element signature="e#21785#21786#0" expanded="true" />
+                <element signature="e#21823#21824#0" expanded="true" />
+                <element signature="e#21861#21862#0" expanded="true" />
+                <element signature="e#21901#21902#0" expanded="true" />
+                <element signature="e#21942#21943#0" expanded="true" />
+                <element signature="e#21983#21984#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+            <state relative-caret-position="80">
+              <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -171,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>n * k</find>
       <find>settin</find>
       <find>onConf</find>
       <find>save</find>
@@ -201,6 +155,7 @@
       <find>about</find>
       <find>aField</find>
       <find>splinepa</find>
+      <find>drawFigures</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -217,9 +172,9 @@
         <option value="$PROJECT_DIR$/out2/production/Wireframe/example3d.txt" />
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Figure.java" />
         <option value="$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt" />
-        <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
-        <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" />
+        <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -240,7 +195,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -309,6 +263,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -397,7 +352,9 @@
       <workItem from="1569841202632" duration="550000" />
       <workItem from="1570610949874" duration="79000" />
       <workItem from="1570791124231" duration="10098000" />
-      <workItem from="1570803337657" duration="61000" />
+      <workItem from="1570803337657" duration="347000" />
+      <workItem from="1570962973560" duration="69000" />
+      <workItem from="1570964165365" duration="610000" />
     </task>
     <task id="LOCAL-00001" summary="moved from another repo">
       <created>1556030501818</created>
@@ -672,11 +629,25 @@
       <option name="project" value="LOCAL" />
       <updated>1570803100591</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="gitignore">
+      <created>1570803435057</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1570803435057</updated>
+    </task>
+    <task id="LOCAL-00041" summary="deleted old load file. enough for today">
+      <created>1570803661654</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1570803661654</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54498000" />
+    <option name="totallyTimeSpent" value="55463000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -691,14 +662,14 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24161074" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24832214" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48657718" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48590603" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4966443" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -706,8 +677,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51543623" side_tool="true" visible="true" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.48456377" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51409394" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.48322147" weight="0.3286119" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49597314" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -762,8 +733,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="rot/..." />
-    <MESSAGE value="ok" />
     <MESSAGE value="wireframe matrx" />
     <MESSAGE value="damn" />
     <MESSAGE value="но теперь левая система координат?" />
@@ -787,19 +756,9 @@
     <MESSAGE value="deleted splinepanel" />
     <MESSAGE value="deleted spline panel class itself" />
     <MESSAGE value="deleted ABCD. still much work to do" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted ABCD. still much work to do" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java</url>
-          <line>635</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="gitignore" />
+    <MESSAGE value="deleted old load file. enough for today" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted old load file. enough for today" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -870,10 +829,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/SplinePanel.java" />
-    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3700">
-          <caret line="203" column="16" selection-start-line="203" selection-start-column="16" selection-end-line="203" selection-end-column="16" />
+        <state relative-caret-position="80">
+          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -912,45 +871,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="602" column="5" selection-start-line="602" selection-start-column="5" selection-end-line="602" selection-end-column="5" />
-          <folding>
-            <element signature="e#20587#20588#0" expanded="true" />
-            <element signature="e#20611#20612#0" expanded="true" />
-            <element signature="e#20636#20637#0" expanded="true" />
-            <element signature="e#20660#20661#0" expanded="true" />
-            <element signature="e#20685#20686#0" expanded="true" />
-            <element signature="e#20709#20710#0" expanded="true" />
-            <element signature="e#21291#21292#0" expanded="true" />
-            <element signature="e#21316#21317#0" expanded="true" />
-            <element signature="e#21352#21353#0" expanded="true" />
-            <element signature="e#21380#21381#0" expanded="true" />
-            <element signature="e#21409#21410#0" expanded="true" />
-            <element signature="e#21434#21435#0" expanded="true" />
-            <element signature="e#21470#21471#0" expanded="true" />
-            <element signature="e#21498#21499#0" expanded="true" />
-            <element signature="e#21547#21548#0" expanded="true" />
-            <element signature="e#21586#21587#0" expanded="true" />
-            <element signature="e#21615#21616#0" expanded="true" />
-            <element signature="e#21640#21641#0" expanded="true" />
-            <element signature="e#21669#21670#0" expanded="true" />
-            <element signature="e#21694#21695#0" expanded="true" />
-            <element signature="e#21735#21736#0" expanded="true" />
-            <element signature="e#21773#21774#0" expanded="true" />
-            <element signature="e#21812#21813#0" expanded="true" />
-            <element signature="e#21852#21853#0" expanded="true" />
-            <element signature="e#21893#21894#0" expanded="true" />
-            <element signature="e#21934#21935#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="131">
+          <caret line="99" column="29" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+        <state relative-caret-position="3775">
+          <caret line="305" selection-start-line="305" selection-end-line="305" />
+          <folding>
+            <element signature="e#20638#20639#0" expanded="true" />
+            <element signature="e#20662#20663#0" expanded="true" />
+            <element signature="e#20687#20688#0" expanded="true" />
+            <element signature="e#20711#20712#0" expanded="true" />
+            <element signature="e#20736#20737#0" expanded="true" />
+            <element signature="e#20760#20761#0" expanded="true" />
+            <element signature="e#21341#21342#0" expanded="true" />
+            <element signature="e#21366#21367#0" expanded="true" />
+            <element signature="e#21402#21403#0" expanded="true" />
+            <element signature="e#21430#21431#0" expanded="true" />
+            <element signature="e#21459#21460#0" expanded="true" />
+            <element signature="e#21484#21485#0" expanded="true" />
+            <element signature="e#21520#21521#0" expanded="true" />
+            <element signature="e#21548#21549#0" expanded="true" />
+            <element signature="e#21597#21598#0" expanded="true" />
+            <element signature="e#21636#21637#0" expanded="true" />
+            <element signature="e#21665#21666#0" expanded="true" />
+            <element signature="e#21690#21691#0" expanded="true" />
+            <element signature="e#21719#21720#0" expanded="true" />
+            <element signature="e#21744#21745#0" expanded="true" />
+            <element signature="e#21785#21786#0" expanded="true" />
+            <element signature="e#21823#21824#0" expanded="true" />
+            <element signature="e#21861#21862#0" expanded="true" />
+            <element signature="e#21901#21902#0" expanded="true" />
+            <element signature="e#21942#21943#0" expanded="true" />
+            <element signature="e#21983#21984#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

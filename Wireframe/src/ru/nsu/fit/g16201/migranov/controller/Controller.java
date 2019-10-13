@@ -61,7 +61,7 @@ public class Controller {
             if(zn - 0.1*count < zf && zn - 0.1*count > 0) {
                 zn -= 0.1 * count;
                 projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
-                drawFigures();
+                drawFigure();
             }
         });
 
@@ -92,7 +92,7 @@ public class Controller {
                     {
                         ;
                     }
-                    drawFigures();
+                    drawFigure();
                 }
                 prevX = x;
                 prevY = y;
@@ -114,6 +114,11 @@ public class Controller {
                 prevY = null;
             }
         });
+
+    }
+
+    public void drawFigure()
+    {
 
     }
 
@@ -218,7 +223,7 @@ public class Controller {
         Matrix projViewBoxRot = Matrix.multiply(projViewBox, sceneRotateMatrix);
 
 
-        
+
         Matrix translateMatrix = Matrix.getTranslationMatrix(figure.getCenter());
         Matrix rtm = Matrix.multiply(translateMatrix, figure.getRotateMatrix());
 
@@ -562,7 +567,7 @@ public class Controller {
         wireframePanel.setBackgroundColor(backgroundColor);
 
         drawSplineLine();
-        drawFigures();
+        drawFigure();
     }
 
     public double getSw() {
@@ -666,7 +671,7 @@ public class Controller {
 
         calculateSplineArea();  //todo?
         drawSplineLine();
-        drawFigures();
+        drawFigure();
 
         return 0;
     }

@@ -97,7 +97,7 @@ public class WireframeFrame extends MainFrame {
             }
         }
         wireframePanel.setPreferredSize(new Dimension((int)Math.round(nwidth) - 20, (int)Math.round(nheight) - 20));
-        controller.drawFigures();
+        controller.drawFigure();
         mainPanel.revalidate();
     }
 
