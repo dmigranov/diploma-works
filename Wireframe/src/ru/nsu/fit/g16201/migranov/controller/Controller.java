@@ -195,22 +195,15 @@ public class Controller {
         Matrix rtm = Matrix.multiply(translateMatrix, figure.getRotateMatrix());
 
         double u = 0;
-        for(int i = 0; i <= n * k; i++)  //<=?
+        for(int i = 0; i < n * k; i++)  //<=?
         {
             double v = 0;
-            for(int j = 0; j <= m * k; j++)  //<=?
+            for(int j = 0; j < m * k; j++)  //<=?
             {
                 if(j == m*k)
                     System.out.print("");
-                Point3D Puv;
-                if(i != n * k && j != m* k)
-                    Puv = calculateSplineFunction(u, v, splinePoints);
-                else if (i == n * k && j != m * k)
-                    Puv = calculateSplineFunctionEdgeI(u, v, splinePoints);
-                else if (i != n * k && j == m * k)
-                    ;
-                else    //i = n*k j = m*k
-                    ;
+                Point3D Puv = calculateSplineFunction(u, v, splinePoints);
+
                 //System.out.print(Puv.x + " " + Puv.y + " " + Puv.z + "      ");
                 v += incrementV;
 
@@ -233,6 +226,32 @@ public class Controller {
             //System.out.println();
             u += incrementU;
         }
+
+        u = 0;
+        for(int i = 0; i < n * k; i++)  //<=?
+        {
+            Point3D Puv = calculateSplineFunctionEdgeV(u, splinePoints);
+
+            double x = Puv.x, y = -Puv.z, z = Puv.y;
+
+            Matrix p = new Matrix(4, 1, x, y, z, 1);
+
+            Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+            double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
+            modelPoints[i][m*k] = new Point3D(x, y, z);
+
+            if (nx < minX) minX = nx;
+            if (nx > maxX) maxX = nx;
+            if (ny < minY) minY = ny;
+            if (ny > maxY) maxY = ny;
+            if (nz < minZ) minZ = nz;
+            if (nz > maxZ) maxZ = nz;
+
+            u += incrementU;
+        }
+
+
+
 
         //todo:
         //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
@@ -295,19 +314,16 @@ public class Controller {
         wireframePanel.repaint();
     }
 
-    private Point3D calculateSplineFunctionEdgeI(double u, double v, Point3D[][] splinePoints) {
+    private Point3D calculateSplineFunctionEdgeV(double u, Point3D[][] splinePoints) {
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
         for (int i = 0; i <= Ni; i++) {
             double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
-            for(int j = 0; j <= Nj; j++)
-            {
-                double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
-                Px += splinePoints[i][j].x * bi * bj;
-                Py += splinePoints[i][j].y * bi * bj;
-                Pz += splinePoints[i][j].z * bi * bj;
-            }
-        }
 
+            Px += splinePoints[i][Nj].x * bi;
+            Py += splinePoints[i][Nj].y * bi;
+            Pz += splinePoints[i][Nj].z * bi;
+
+        }
         return new Point3D(Px, Py, Pz);
     }
 
