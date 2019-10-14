@@ -250,8 +250,30 @@ public class Controller {
             u += incrementU;
         }
 
+        double v = 0;
+        for(int j = 0; j < m * k; j++)
+        {
+            Point3D Puv = calculateSplineFunctionEdgeU(v, splinePoints);
 
+            double x = Puv.x, y = -Puv.z, z = Puv.y;
 
+            Matrix p = new Matrix(4, 1, x, y, z, 1);
+
+            Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+            double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
+            modelPoints[n*k][j] = new Point3D(x, y, z);
+
+            if (nx < minX) minX = nx;
+            if (nx > maxX) maxX = nx;
+            if (ny < minY) minY = ny;
+            if (ny > maxY) maxY = ny;
+            if (nz < minZ) minZ = nz;
+            if (nz > maxZ) maxZ = nz;
+
+            u += incrementU;
+        }
+
+        modelPoints[n*k][m*k] = splinePoints[Ni][Nj];
 
         //todo:
         //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
@@ -312,6 +334,19 @@ public class Controller {
         }
 
         wireframePanel.repaint();
+    }
+
+    private Point3D calculateSplineFunctionEdgeU(double v, Point3D[][] splinePoints) {
+        double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
+        for (int j = 0; j <= Nj; j++) {
+            double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
+
+            Px += splinePoints[Ni][j].x * bj;
+            Py += splinePoints[Ni][j].y * bj;
+            Pz += splinePoints[Ni][j].z * bj;
+
+        }
+        return new Point3D(Px, Py, Pz);
     }
 
     private Point3D calculateSplineFunctionEdgeV(double u, Point3D[][] splinePoints) {
