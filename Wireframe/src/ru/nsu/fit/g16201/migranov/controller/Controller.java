@@ -128,29 +128,14 @@ public class Controller {
                 if(prevX != null) {
                     int dx = x - prevX;
                     int dy = y - prevY;
-
                     double xAngle = 0.01 * dx;
                     double yAngle = 0.01 * dy;
-
-
-                        Matrix rot = figure.getRotateMatrix();
-                        Matrix xRot = Matrix.getYRotateMatrix(xAngle);
-                        Matrix yRot = Matrix.getZRotateMatrix(-yAngle);
-                        Matrix xr = Matrix.multiply(xRot, rot);
-                        Matrix xyr = Matrix.multiply(yRot, xr);
-                        figure.setRotateMatrix(xyr);
-
-                        /*Matrix xy = Matrix.multiply(yRot, xRot);
-                        //надо взять обратную к scenerotate матрицу и умножить на xy?
-
-                        Matrix xSceneInverse = Matrix.getYRotateMatrix(-xAllAngle);
-                        Matrix ySceneInverse = Matrix.getZRotateMatrix(yAllAngle);
-                        Matrix sceneInverse = Matrix.multiply(xSceneInverse, ySceneInverse);
-
-                        Matrix rotAdd = Matrix.multiply(sceneInverse, xy);
-                        Matrix res = Matrix.multiply(rotAdd, sceneRotateMatrix);
-                        res = Matrix.multiply(sceneRotateMatrix, res);
-                        figures.get(currentRotateFigure).setRotateMatrix(res);*/
+                    Matrix rot = figure.getRotateMatrix();
+                    Matrix xRot = Matrix.getYRotateMatrix(xAngle);
+                    Matrix yRot = Matrix.getZRotateMatrix(-yAngle);
+                    Matrix xr = Matrix.multiply(xRot, rot);
+                    Matrix xyr = Matrix.multiply(yRot, xr);
+                    figure.setRotateMatrix(xyr);
 
                     drawFigure();
                 }
@@ -177,10 +162,10 @@ public class Controller {
 
     }
 
+    private double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
+
     public void drawFigure()
     {
-        double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
-
         wireframePanel.clear();
         Point3D[][] splinePoints = figure.getSplinePoints();
 
@@ -188,7 +173,7 @@ public class Controller {
         double incrementU = (double)(Ni - Ti + 2) / n / k;
         double incrementV = (double)(Nj - Tj + 2) / m / k;
 
-        //n и m - это фактически разрешение
+        //n*k и m*k - это фактически разрешение
 
         Point3D[][] modelPoints = figure.getModelPoints();
         Matrix translateMatrix = Matrix.getTranslationMatrix(figure.getCenter());
@@ -210,15 +195,9 @@ public class Controller {
                 double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
                 modelPoints[i][j] = new Point3D(x, y, z);
 
-                if (nx < minX) minX = nx;
-                if (nx > maxX) maxX = nx;
-                if (ny < minY) minY = ny;
-                if (ny > maxY) maxY = ny;
-                if (nz < minZ) minZ = nz;
-                if (nz > maxZ) maxZ = nz;
-
+                if(isDrawingFirstTime)
+                    reevaluateMinMax(nx, ny, nz);
             }
-            //System.out.println();
             u += incrementU;
         }
 
@@ -233,12 +212,8 @@ public class Controller {
             double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
             modelPoints[i][m*k] = new Point3D(x, y, z);
 
-            if (nx < minX) minX = nx;
-            if (nx > maxX) maxX = nx;
-            if (ny < minY) minY = ny;
-            if (ny > maxY) maxY = ny;
-            if (nz < minZ) minZ = nz;
-            if (nz > maxZ) maxZ = nz;
+            if(isDrawingFirstTime)
+                reevaluateMinMax(nx, ny, nz);
 
             u += incrementU;
         }
@@ -254,12 +229,8 @@ public class Controller {
             double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
             modelPoints[n*k][j] = new Point3D(x, y, z);
 
-            if (nx < minX) minX = nx;
-            if (nx > maxX) maxX = nx;
-            if (ny < minY) minY = ny;
-            if (ny > maxY) maxY = ny;
-            if (nz < minZ) minZ = nz;
-            if (nz > maxZ) maxZ = nz;
+            if(isDrawingFirstTime)
+                reevaluateMinMax(nx, ny, nz);
 
             v += incrementV;
         }
@@ -271,18 +242,14 @@ public class Controller {
             Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
             double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
             modelPoints[n * k][m * k] = new Point3D(x, y, z);
-            if (nx < minX) minX = nx;
-            if (nx > maxX) maxX = nx;
-            if (ny < minY) minY = ny;
-            if (ny > maxY) maxY = ny;
-            if (nz < minZ) minZ = nz;
-            if (nz > maxZ) maxZ = nz;
+
+            if(isDrawingFirstTime)
+                reevaluateMinMax(nx, ny, nz);
         }
 
-        //todo:
         //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
         //|knotsJ| = Nj + Kj + 1
-        //кроме того, там сравнивается 3.003 < 3?
+        //todo: сделал, но разоабраться получше!
 
         //считаю только один раз, при запуске, чтобы при перемещении точек одной фигуры остальные остальные фигуры оставались на местах
         if(isDrawingFirstTime) {
@@ -293,7 +260,6 @@ public class Controller {
                     0, 1, 0, -minY,
                     0, 0, 1, -minZ,
                     0, 0, 0, 1);
-            //Matrix boxScaleMatrix = new Matrix(4, 4, 2/maxDim, 0, 0, -1, 0, 2/maxDim, 0, -1, 0, 0, 2/maxDim, -1, 0, 0, 0, 1);  //это несимметрично относительно отн нуля
             Matrix boxScaleMatrix = new Matrix(4, 4, 2 / maxDim, 0, 0, -(maxX - minX) / maxDim,
                     0, 2 / maxDim, 0, -(maxY - minY) / maxDim,
                     0, 0, 2 / maxDim, -(maxZ - minZ) / maxDim,
@@ -338,6 +304,15 @@ public class Controller {
         }
 
         wireframePanel.repaint();
+    }
+
+    private void reevaluateMinMax(double nx, double ny, double nz) {
+        if (nx < minX) minX = nx;
+        if (nx > maxX) maxX = nx;
+        if (ny < minY) minY = ny;
+        if (ny > maxY) maxY = ny;
+        if (nz < minZ) minZ = nz;
+        if (nz > maxZ) maxZ = nz;
     }
 
     private Point3D calculateSplineFunctionEdgeU(double v, Point3D[][] splinePoints) {
@@ -394,7 +369,7 @@ public class Controller {
 
         if(t == 1)
         {
-            if ((u[k] <= v) && (v < u[k+1]))    //todo?
+            if ((u[k] <= v) && (v < u[k+1]))
                 val = 1;
             else
                 val = 0;
