@@ -202,7 +202,15 @@ public class Controller {
             {
                 if(j == m*k)
                     System.out.print("");
-                Point3D Puv = calculateSplineFunction(u, v, splinePoints);
+                Point3D Puv;
+                if(i != n * k && j != m* k)
+                    Puv = calculateSplineFunction(u, v, splinePoints);
+                else if (i == n * k && j != m * k)
+                    Puv = calculateSplineFunctionEdgeI(u, v, splinePoints);
+                else if (i != n * k && j == m * k)
+                    ;
+                else    //i = n*k j = m*k
+                    ;
                 //System.out.print(Puv.x + " " + Puv.y + " " + Puv.z + "      ");
                 v += incrementV;
 
@@ -285,6 +293,22 @@ public class Controller {
         }
 
         wireframePanel.repaint();
+    }
+
+    private Point3D calculateSplineFunctionEdgeI(double u, double v, Point3D[][] splinePoints) {
+        double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
+        for (int i = 0; i <= Ni; i++) {
+            double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
+            for(int j = 0; j <= Nj; j++)
+            {
+                double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
+                Px += splinePoints[i][j].x * bi * bj;
+                Py += splinePoints[i][j].y * bi * bj;
+                Pz += splinePoints[i][j].z * bi * bj;
+            }
+        }
+
+        return new Point3D(Px, Py, Pz);
     }
 
 
