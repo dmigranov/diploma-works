@@ -270,7 +270,7 @@ public class Controller {
             if (nz < minZ) minZ = nz;
             if (nz > maxZ) maxZ = nz;
 
-            u += incrementU;
+            v += incrementV;
         }
 
         modelPoints[n*k][m*k] = splinePoints[Ni][Nj];
@@ -411,105 +411,6 @@ public class Controller {
         return val;
     }
 
-    private void drawSplineLine() {
-
-        /*width = splinePanel.getPreferredSize().width;
-        height = splinePanel.getPreferredSize().height;
-
-        splinePanel.clear();
-        //T - вектор строка t^3 t^2 t 1, t [0,1]
-
-
-        List<Point2D> splinePoints = figure.getSplinePoints();
-
-        drawSplinePoints(splinePoints);
-
-        double length = calculateLength(splinePoints);
-        Double xPrev = null, yPrev = null;
-        Point uv, uvPrev = null;
-        double tempLength = 0;
-
-        for(int i = 1; i < splinePoints.size() - 2; i++)
-        {
-            Matrix Gx = new Matrix(4, 1, splinePoints.get(i - 1).x, splinePoints.get(i).x, splinePoints.get(i + 1).x, splinePoints.get(i + 2).x);
-            Matrix Gy = new Matrix(4, 1, splinePoints.get(i - 1).y, splinePoints.get(i).y, splinePoints.get(i + 1).y, splinePoints.get(i + 2).y);
-            for(double t = 0; t <= 1; t+=0.005)
-            {
-                Matrix T = new Matrix(1, 4, t*t*t, t*t, t, 1);
-                Matrix TM = Matrix.multiply(T, splineMatrix);
-                Matrix X = Matrix.multiply(TM, Gx);
-                Matrix Y = Matrix.multiply(TM, Gy);
-                double x = X.get(0, 0), y = Y.get(0, 0);
-
-                uv = getUV(x, y);
-                if(uvPrev != null) {
-                    if(tempLength > b)
-                    {
-                        splinePanel.drawLine(uvPrev.x, uvPrev.y, uv.x, uv.y, Color.RED);
-                        uvPrev = uv;
-                        continue;   //нет нужды уже прибавлять
-                    }
-                    tempLength += Math.sqrt(Math.pow(xPrev - x, 2) + Math.pow(yPrev - y, 2))/length;
-                    //if(tempLength >= a && tempLength <= b)
-                    if(tempLength >= a)
-                        splinePanel.drawLine(uvPrev.x, uvPrev.y, uv.x, uv.y);
-                    else
-                        splinePanel.drawLine(uvPrev.x, uvPrev.y, uv.x, uv.y, Color.RED);
-                }
-                uvPrev = uv;
-                xPrev = x;
-                yPrev = y;
-            }
-        }
-
-        //todo: Расчёты полезные, но надо 3d
-
-        splinePanel.repaint();*/
-    }
-
-    /*private Point getUV(double x, double y) {
-        //width = height!
-        int u, v;
-        double xm = this.xm.get(currentFigureIndex)*scale.get(currentFigureIndex);
-        double ym = this.ym.get(currentFigureIndex)*scale.get(currentFigureIndex);
-        if(xm > ym)
-        {
-            u = (int)((x + xm)/2/xm * width);
-            v = (int)((-y + ym)/2/xm * height + (height - ym*width/xm)/2);  //от 0 до h' < height - непраивльно (смотри картнку) - надо сдвинуть вниз
-        }
-        else
-        {
-            v = (int)((-y + ym)/2/ym * height);
-            u = (int)((x + xm)/2/ym * width + (width - xm*height/ym)/2);  //от 0 до h' < height - непраивльно (смотри картнку) - надо сдвинуть вниз
-        }
-
-        return new Point(u, v);
-    }*/
-
-    /*private Point2D getXY(int u, int v)
-    {
-        double x, y;
-        double xm = this.xm.get(currentFigureIndex)*scale.get(currentFigureIndex);  //чтобы оставалось пространство по бокам
-        double ym = this.ym.get(currentFigureIndex)*scale.get(currentFigureIndex);
-
-        if(xm > ym)
-        {
-            x = xm*(2.0*u/width - 1);
-            y = -2*xm*v/height - ym*width/height + xm + ym;
-        }
-        else
-        {
-            y = -ym*(2.0*v/height - 1);
-            x = (xm*height + 2*ym*u)/width - xm - ym;
-        }
-        //при одинаковых width И height случай xm = ym входит
-        return new Point2D(x, y);
-    }*/
-
-    /*private Point getUV(Point2D p) {
-        return getUV(p.x, p.y);
-    }*/
-
     //возвращает матрицу 4x4
     private Matrix read3x3MatrixByRow(BufferedReader br) throws IOException {
         String[] substrings;
@@ -598,7 +499,6 @@ public class Controller {
         this.backgroundColor = color;
         wireframePanel.setBackgroundColor(backgroundColor);
 
-        drawSplineLine();
         drawFigure();
     }
 
