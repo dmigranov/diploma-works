@@ -200,17 +200,12 @@ public class Controller {
             double v = 0;
             for(int j = 0; j < m * k; j++)  //<=?
             {
-                if(j == m*k)
-                    System.out.print("");
                 Point3D Puv = calculateSplineFunction(u, v, splinePoints);
 
-                //System.out.print(Puv.x + " " + Puv.y + " " + Puv.z + "      ");
                 v += incrementV;
 
                 double x = Puv.x, y = -Puv.z, z = Puv.y;
-
                 Matrix p = new Matrix(4, 1, x, y, z, 1);
-
                 Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
                 double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
                 modelPoints[i][j] = new Point3D(x, y, z);
@@ -233,9 +228,7 @@ public class Controller {
             Point3D Puv = calculateSplineFunctionEdgeV(u, splinePoints);
 
             double x = Puv.x, y = -Puv.z, z = Puv.y;
-
             Matrix p = new Matrix(4, 1, x, y, z, 1);
-
             Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
             double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
             modelPoints[i][m*k] = new Point3D(x, y, z);
@@ -256,9 +249,7 @@ public class Controller {
             Point3D Puv = calculateSplineFunctionEdgeU(v, splinePoints);
 
             double x = Puv.x, y = -Puv.z, z = Puv.y;
-
             Matrix p = new Matrix(4, 1, x, y, z, 1);
-
             Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
             double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
             modelPoints[n*k][j] = new Point3D(x, y, z);
@@ -273,7 +264,20 @@ public class Controller {
             v += incrementV;
         }
 
-        modelPoints[n*k][m*k] = splinePoints[Ni][Nj];
+        {
+            Point3D Puv = splinePoints[Ni][Nj];
+            double x = Puv.x, y = -Puv.z, z = Puv.y;
+            Matrix p = new Matrix(4, 1, x, y, z, 1);
+            Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+            double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
+            modelPoints[n * k][m * k] = new Point3D(x, y, z);
+            if (nx < minX) minX = nx;
+            if (nx > maxX) maxX = nx;
+            if (ny < minY) minY = ny;
+            if (ny > maxY) maxY = ny;
+            if (nz < minZ) minZ = nz;
+            if (nz > maxZ) maxZ = nz;
+        }
 
         //todo:
         //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
