@@ -49,8 +49,6 @@ public class Controller {
 
     private int[] knotsI, knotsJ;
 
-
-    private Figure figure = null;
     //фигура
     private Color figureColor;
     private Matrix figureRotateMatrix;
@@ -137,12 +135,12 @@ public class Controller {
                     int dy = y - prevY;
                     double xAngle = 0.01 * dx;
                     double yAngle = 0.01 * dy;
-                    Matrix rot = figure.getRotateMatrix();
+                    Matrix rot = figureRotateMatrix;
                     Matrix xRot = Matrix.getYRotateMatrix(xAngle);
                     Matrix yRot = Matrix.getZRotateMatrix(-yAngle);
                     Matrix xr = Matrix.multiply(xRot, rot);
                     Matrix xyr = Matrix.multiply(yRot, xr);
-                    figure.setRotateMatrix(xyr);
+                    figureRotateMatrix = xyr;
 
                     drawFigure();
                 }
@@ -174,15 +172,13 @@ public class Controller {
     public void drawFigure()
     {
         wireframePanel.clear();
-        Point3D[][] splinePoints = figure.getSplinePoints();
 
         /* Step size along the curve */
         double incrementU = (double)(Ni - Ti + 2) / n / k;
         double incrementV = (double)(Nj - Tj + 2) / m / k;
 
         //n*k и m*k - это фактически разрешение
-        Point3D[][] modelPoints = figure.getModelPoints();
-        Matrix rtm = figure.getRotateMatrix();
+        Matrix rtm = figureRotateMatrix;
         if(isDrawingFirstTime)
         {
 
@@ -261,7 +257,6 @@ public class Controller {
 
             //считаю только один раз, при запуске, чтобы при перемещении точек одной фигуры остальные остальные фигуры оставались на местах
 
-            figure.setModelPoints(modelPoints);
             double maxDim = Math.max(Math.max(maxX - minX, maxY - minY), maxZ - minZ);          //nx = 2 * (x - minX)/(maxx- minx) - 1 и для других - но так не сохр пропорции; поэтому делю на одно и то же
             isDrawingFirstTime = false;
 
@@ -282,7 +277,7 @@ public class Controller {
 
         Matrix resultMatrix = Matrix.multiply(projViewBoxRot, rtm);
 
-        Color color = figure.getColor();
+        Color color = figureColor;
         Point[] uPrev = new Point[m*k+1];   //m*k
         for (int i = 0; i <= n*k; i++) {
             Point vPrev = null;
@@ -477,7 +472,7 @@ public class Controller {
         this.k = k;
 
 
-        figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
+        modelPoints = new Point3D[n*k + 1][m*k + 1];
 
         this.sw = sw;
         this.sh = sh;
