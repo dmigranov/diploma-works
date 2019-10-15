@@ -37,7 +37,6 @@ public class Controller {
     private Matrix cameraMatrix;
     private Matrix projectionMatrix;
 
-    private Figure figure = null;
     private int Ni, Nj, Ti, Tj;
 
     private Integer prevX = null, prevY = null;
@@ -49,6 +48,12 @@ public class Controller {
     private double xAllAngle = 0, yAllAngle = 0;
 
     private int[] knotsI, knotsJ;
+
+    //фигура
+    private Color figureColor;
+    private Matrix figureRotateMatrix;
+    private Point3D[][] splinePoints;
+    private Point3D[][] modelPoints;
 
     public Controller(WireframePanel wireframePanel) {
         this.wireframePanel = wireframePanel;
@@ -130,12 +135,12 @@ public class Controller {
                     int dy = y - prevY;
                     double xAngle = 0.01 * dx;
                     double yAngle = 0.01 * dy;
-                    Matrix rot = figure.getRotateMatrix();
+                    Matrix rot = figureRotateMatrix;
                     Matrix xRot = Matrix.getYRotateMatrix(xAngle);
                     Matrix yRot = Matrix.getZRotateMatrix(-yAngle);
                     Matrix xr = Matrix.multiply(xRot, rot);
                     Matrix xyr = Matrix.multiply(yRot, xr);
-                    figure.setRotateMatrix(xyr);
+                    figureRotateMatrix = xyr;
 
                     drawFigure();
                 }
@@ -167,17 +172,17 @@ public class Controller {
     public void drawFigure()
     {
         wireframePanel.clear();
-        Point3D[][] splinePoints = figure.getSplinePoints();
 
         /* Step size along the curve */
         double incrementU = (double)(Ni - Ti + 2) / n / k;
         double incrementV = (double)(Nj - Tj + 2) / m / k;
 
         //n*k и m*k - это фактически разрешение
-        Point3D[][] modelPoints = figure.getModelPoints();
-        Matrix rtm = figure.getRotateMatrix();
+        Matrix rtm = figureRotateMatrix;
         if(isDrawingFirstTime)
         {
+
+            //todo вынести дальнейшее в отдельынй метод, возможно как-то скомбинировать три кейса чтоб было красиво
             double u = 0;
             for(int i = 0; i < n * k; i++)  //<=?
             {
@@ -252,7 +257,6 @@ public class Controller {
 
             //считаю только один раз, при запуске, чтобы при перемещении точек одной фигуры остальные остальные фигуры оставались на местах
 
-            figure.setModelPoints(modelPoints);
             double maxDim = Math.max(Math.max(maxX - minX, maxY - minY), maxZ - minZ);          //nx = 2 * (x - minX)/(maxx- minx) - 1 и для других - но так не сохр пропорции; поэтому делю на одно и то же
             isDrawingFirstTime = false;
 
@@ -273,7 +277,7 @@ public class Controller {
 
         Matrix resultMatrix = Matrix.multiply(projViewBoxRot, rtm);
 
-        Color color = figure.getColor();
+        Color color = figureColor;
         Point[] uPrev = new Point[m*k+1];   //m*k
         for (int i = 0; i <= n*k; i++) {
             Point vPrev = null;
@@ -468,7 +472,7 @@ public class Controller {
         this.k = k;
 
 
-        figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
+        modelPoints = new Point3D[n*k + 1][m*k + 1];
 
         this.sw = sw;
         this.sh = sh;
@@ -540,13 +544,13 @@ public class Controller {
             wireframePanel.setBackgroundColor(backgroundColor);
 
             substrings = readLineAndSplit(br);
-            Color color = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
+            figureColor = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
 
             //substrings = readLineAndSplit(br);
             //Point3D center = new Point3D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]), Double.parseDouble(substrings[2]));
             //в центре нет смысла, так как всё равно всё центрируется, это имело смысл в случае многих фигур
 
-            Matrix rotateMatrix = read3x3MatrixByRow(br);
+            figureRotateMatrix = read3x3MatrixByRow(br);
 
             substrings = readLineAndSplit(br);
             Ni = Integer.parseInt(substrings[0]);
@@ -558,7 +562,7 @@ public class Controller {
             /*if(Ni < 4 || Nj < 4)
                 throw new IOException("Not enough spline points");*/ //todo: ввести условия
 
-            Point3D[][] splinePoints = new Point3D[Ni + 1][Nj + 1];
+            splinePoints = new Point3D[Ni + 1][Nj + 1];
             for(int i = 0; i <= Ni; i++)
             {
                 for(int j = 0; j <= Nj; j++)
@@ -568,9 +572,8 @@ public class Controller {
                     splinePoints[i][j] = splinePoint;
                 }
             }
-            figure = new Figure(color, rotateMatrix, splinePoints);
-
-            figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
+            //figure = new Figure(color, rotateMatrix, splinePoints);
+            modelPoints = new Point3D[n*k + 1][m*k + 1];
 
             calculateKnots();
         }
