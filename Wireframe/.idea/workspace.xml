@@ -4,6 +4,7 @@
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Figure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Figure.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,19 +27,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-278">
-              <caret line="181" column="115" selection-start-line="181" selection-start-column="115" selection-end-line="181" selection-end-column="115" />
+            <state relative-caret-position="142">
+              <caret line="580" column="55" selection-start-line="580" selection-start-column="55" selection-end-line="580" selection-end-column="55" />
               <folding>
-                <element signature="e#17424#17425#0" expanded="true" />
-                <element signature="e#17473#17474#0" expanded="true" />
-                <element signature="e#17522#17523#0" expanded="true" />
-                <element signature="e#18102#18103#0" expanded="true" />
-                <element signature="e#18166#18167#0" expanded="true" />
-                <element signature="e#18220#18221#0" expanded="true" />
-                <element signature="e#18284#18285#0" expanded="true" />
-                <element signature="e#18339#18340#0" expanded="true" />
-                <element signature="e#18393#18394#0" expanded="true" />
-                <element signature="e#18472#18473#0" expanded="true" />
+                <element signature="e#17572#17573#0" expanded="true" />
+                <element signature="e#17621#17622#0" expanded="true" />
+                <element signature="e#17670#17671#0" expanded="true" />
+                <element signature="e#18250#18251#0" expanded="true" />
+                <element signature="e#18314#18315#0" expanded="true" />
+                <element signature="e#18368#18369#0" expanded="true" />
+                <element signature="e#18432#18433#0" expanded="true" />
+                <element signature="e#18487#18488#0" expanded="true" />
+                <element signature="e#18541#18542#0" expanded="true" />
+                <element signature="e#18620#18621#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Figure.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="110">
+              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
               <folding>
                 <element signature="e#585#586#0" expanded="true" />
                 <element signature="e#620#621#0" expanded="true" />
@@ -86,7 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>/*</find>
       <find>loaf</find>
       <find>spline</find>
       <find>load3d</find>
@@ -116,6 +116,7 @@
       <find>drawS</find>
       <find>camera</find>
       <find>sceneRotateMatrix</find>
+      <find>кщефеу</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -317,14 +318,7 @@
       <workItem from="1570962973560" duration="69000" />
       <workItem from="1570964165365" duration="11853000" />
       <workItem from="1571056882113" duration="5762000" />
-      <workItem from="1571143740896" duration="1335000" />
-    </task>
-    <task id="LOCAL-00023" summary="removed more of the mult. fig. stuff">
-      <created>1570795123881</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1570795123881</updated>
+      <workItem from="1571143740896" duration="1628000" />
     </task>
     <task id="LOCAL-00024" summary="open 3d file?">
       <created>1570795900452</created>
@@ -662,11 +656,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571153423807</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="todo: удаление класса Figure">
+      <created>1571153630321</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1571153630321</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73803000" />
+    <option name="totallyTimeSpent" value="74096000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -697,8 +698,8 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5053691" side_tool="true" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.48255032" visible="true" weight="0.20963173" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49463087" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.48255032" weight="0.20963173" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.49463087" visible="true" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -752,7 +753,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="calculate knots done" />
     <MESSAGE value="some base" />
     <MESSAGE value="based" />
     <MESSAGE value="basis done" />
@@ -777,7 +777,8 @@
     <MESSAGE value="much quicker now because now i don't recalculate model points each time" />
     <MESSAGE value="gonna delete translation (new center) of the digure" />
     <MESSAGE value="Удалил центр. В дальнейшем надо бы избавиться от класса Figure вообще" />
-    <option name="LAST_COMMIT_MESSAGE" value="Удалил центр. В дальнейшем надо бы избавиться от класса Figure вообще" />
+    <MESSAGE value="todo: удаление класса Figure" />
+    <option name="LAST_COMMIT_MESSAGE" value="todo: удаление класса Figure" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -883,17 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Figure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="e#585#586#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -908,21 +898,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Figure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="e#585#586#0" expanded="true" />
+            <element signature="e#620#621#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-278">
-          <caret line="181" column="115" selection-start-line="181" selection-start-column="115" selection-end-line="181" selection-end-column="115" />
+        <state relative-caret-position="142">
+          <caret line="580" column="55" selection-start-line="580" selection-start-column="55" selection-end-line="580" selection-end-column="55" />
           <folding>
-            <element signature="e#17424#17425#0" expanded="true" />
-            <element signature="e#17473#17474#0" expanded="true" />
-            <element signature="e#17522#17523#0" expanded="true" />
-            <element signature="e#18102#18103#0" expanded="true" />
-            <element signature="e#18166#18167#0" expanded="true" />
-            <element signature="e#18220#18221#0" expanded="true" />
-            <element signature="e#18284#18285#0" expanded="true" />
-            <element signature="e#18339#18340#0" expanded="true" />
-            <element signature="e#18393#18394#0" expanded="true" />
-            <element signature="e#18472#18473#0" expanded="true" />
+            <element signature="e#17572#17573#0" expanded="true" />
+            <element signature="e#17621#17622#0" expanded="true" />
+            <element signature="e#17670#17671#0" expanded="true" />
+            <element signature="e#18250#18251#0" expanded="true" />
+            <element signature="e#18314#18315#0" expanded="true" />
+            <element signature="e#18368#18369#0" expanded="true" />
+            <element signature="e#18432#18433#0" expanded="true" />
+            <element signature="e#18487#18488#0" expanded="true" />
+            <element signature="e#18541#18542#0" expanded="true" />
+            <element signature="e#18620#18621#0" expanded="true" />
           </folding>
         </state>
       </provider>

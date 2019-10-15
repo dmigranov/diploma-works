@@ -37,7 +37,6 @@ public class Controller {
     private Matrix cameraMatrix;
     private Matrix projectionMatrix;
 
-    private Figure figure = null;
     private int Ni, Nj, Ti, Tj;
 
     private Integer prevX = null, prevY = null;
@@ -49,6 +48,14 @@ public class Controller {
     private double xAllAngle = 0, yAllAngle = 0;
 
     private int[] knotsI, knotsJ;
+
+
+    private Figure figure = null;
+    //фигура
+    private Color figureColor;
+    private Matrix figureRotateMatrix;
+    private Point3D[][] splinePoints;
+    private Point3D[][] modelPoints;
 
     public Controller(WireframePanel wireframePanel) {
         this.wireframePanel = wireframePanel;
@@ -542,13 +549,13 @@ public class Controller {
             wireframePanel.setBackgroundColor(backgroundColor);
 
             substrings = readLineAndSplit(br);
-            Color color = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
+            figureColor = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
 
             //substrings = readLineAndSplit(br);
             //Point3D center = new Point3D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]), Double.parseDouble(substrings[2]));
             //в центре нет смысла, так как всё равно всё центрируется, это имело смысл в случае многих фигур
 
-            Matrix rotateMatrix = read3x3MatrixByRow(br);
+            figureRotateMatrix = read3x3MatrixByRow(br);
 
             substrings = readLineAndSplit(br);
             Ni = Integer.parseInt(substrings[0]);
@@ -560,7 +567,7 @@ public class Controller {
             /*if(Ni < 4 || Nj < 4)
                 throw new IOException("Not enough spline points");*/ //todo: ввести условия
 
-            Point3D[][] splinePoints = new Point3D[Ni + 1][Nj + 1];
+            splinePoints = new Point3D[Ni + 1][Nj + 1];
             for(int i = 0; i <= Ni; i++)
             {
                 for(int j = 0; j <= Nj; j++)
@@ -570,9 +577,8 @@ public class Controller {
                     splinePoints[i][j] = splinePoint;
                 }
             }
-            figure = new Figure(color, rotateMatrix, splinePoints);
-
-            figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
+            //figure = new Figure(color, rotateMatrix, splinePoints);
+            modelPoints = new Point3D[n*k + 1][m*k + 1];
 
             calculateKnots();
         }

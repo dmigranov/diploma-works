@@ -30,7 +30,6 @@ public class Figure {
         this.color = color;
     }
 
-
     public Matrix getRotateMatrix() {
         return rotateMatrix;
     }
