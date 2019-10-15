@@ -1,16 +1,12 @@
 package ru.nsu.fit.g16201.migranov.controller;
 
-import ru.nsu.fit.g16201.migranov.model.Figure;
 import ru.nsu.fit.g16201.migranov.model.Matrix;
-import ru.nsu.fit.g16201.migranov.model.Point2D;
 import ru.nsu.fit.g16201.migranov.model.Point3D;
 import ru.nsu.fit.g16201.migranov.view.WireframePanel;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
-import java.util.List;
-import java.util.ArrayList;
 
 public class Controller {
     private static Matrix splineMatrix = Matrix.multiplyByScalar(1.0/6, new Matrix(4, 4, -1, 3, -3, 1, 3, -6, 3, 0, -3, 0, 3, 0, 1, 4, 1, 0));
@@ -65,7 +61,7 @@ public class Controller {
 
             if(e.isControlDown())
             {
-                //todo: не похволять сильно крутить
+                //todo: не похволять сильно зумить
                 double dz = -count * 1;
                 Point3D forward = Point3D.add(ref, Point3D.getNegative(eye));
                 forward = forward.normalize();
@@ -80,10 +76,8 @@ public class Controller {
             else
             {
                 double c;
-
                 c = 1 - count*0.01;
                 zn*=c;
-
                 projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
                 drawFigure();
             }
@@ -327,7 +321,6 @@ public class Controller {
             Px += splinePoints[Ni][j].x * bj;
             Py += splinePoints[Ni][j].y * bj;
             Pz += splinePoints[Ni][j].z * bj;
-
         }
         return new Point3D(Px, Py, Pz);
     }
@@ -346,7 +339,7 @@ public class Controller {
     }
 
 
-    public Point3D calculateSplineFunction(double u, double v, Point3D[][] splinePoints)
+    private Point3D calculateSplineFunction(double u, double v, Point3D[][] splinePoints)
     {
         //Pij - array of control points (spline points)
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
@@ -365,7 +358,7 @@ public class Controller {
     }
 
     ///k - index (i, j), t - Ti/Tj, u - knot points, v - coordinate (u/v)
-    public double calculateSplineBasisFunction(int k, int t, int[] u, double v)    //aka Blending Function akd N
+    private double calculateSplineBasisFunction(int k, int t, int[] u, double v)    //aka Blending Function akd N
     {
         //http://paulbourke.net/geometry/spline/
         //чем больше степень Ti/Tj - тем боолее гладкая кривая
