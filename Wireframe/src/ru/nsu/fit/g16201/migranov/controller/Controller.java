@@ -253,18 +253,19 @@ public class Controller {
 
             //считаю только один раз, при запуске, чтобы при перемещении точек одной фигуры остальные остальные фигуры оставались на местах
 
-                double maxDim = Math.max(Math.max(maxX - minX, maxY - minY), maxZ - minZ);          //nx = 2 * (x - minX)/(maxx- minx) - 1 и для других - но так не сохр пропорции; поэтому делю на одно и то же
-                isDrawingFirstTime = false;
+            figure.setModelPoints(modelPoints);
+            double maxDim = Math.max(Math.max(maxX - minX, maxY - minY), maxZ - minZ);          //nx = 2 * (x - minX)/(maxx- minx) - 1 и для других - но так не сохр пропорции; поэтому делю на одно и то же
+            isDrawingFirstTime = false;
 
-                Matrix boxTranslateMatrix = new Matrix(4, 4, 1, 0, 0, -minX,
+            Matrix boxTranslateMatrix = new Matrix(4, 4, 1, 0, 0, -minX,
                         0, 1, 0, -minY,
                         0, 0, 1, -minZ,
                         0, 0, 0, 1);
-                Matrix boxScaleMatrix = new Matrix(4, 4, 2 / maxDim, 0, 0, -(maxX - minX) / maxDim,
+            Matrix boxScaleMatrix = new Matrix(4, 4, 2 / maxDim, 0, 0, -(maxX - minX) / maxDim,
                         0, 2 / maxDim, 0, -(maxY - minY) / maxDim,
                         0, 0, 2 / maxDim, -(maxZ - minZ) / maxDim,
                         0, 0, 0, 1);
-                boxMatrix = Matrix.multiply(boxScaleMatrix, boxTranslateMatrix);
+            boxMatrix = Matrix.multiply(boxScaleMatrix, boxTranslateMatrix);
         }
 
         Matrix projView = Matrix.multiply(projectionMatrix, cameraMatrix);
