@@ -174,97 +174,97 @@ public class Controller {
         double incrementV = (double)(Nj - Tj + 2) / m / k;
 
         //n*k и m*k - это фактически разрешение
-
         Point3D[][] modelPoints = figure.getModelPoints();
         Matrix translateMatrix = Matrix.getTranslationMatrix(figure.getCenter());
         Matrix rtm = Matrix.multiply(translateMatrix, figure.getRotateMatrix());
-
-        double u = 0;
-        for(int i = 0; i < n * k; i++)  //<=?
+        if(isDrawingFirstTime)
         {
-            double v = 0;
-            for(int j = 0; j < m * k; j++)  //<=?
+            double u = 0;
+            for(int i = 0; i < n * k; i++)  //<=?
             {
-                Point3D Puv = calculateSplineFunction(u, v, splinePoints);
+                double v = 0;
+                for(int j = 0; j < m * k; j++)  //<=?
+                {
+                    Point3D Puv = calculateSplineFunction(u, v, splinePoints);
 
-                v += incrementV;
+                    v += incrementV;
+
+                    double x = Puv.x, y = -Puv.z, z = Puv.y;
+                    Matrix p = new Matrix(4, 1, x, y, z, 1);
+                    Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+                    double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
+                    modelPoints[i][j] = new Point3D(x, y, z);
+
+                    if(isDrawingFirstTime)
+                        reevaluateMinMax(nx, ny, nz);
+                }
+                u += incrementU;
+            }
+
+            u = 0;
+            for(int i = 0; i < n * k; i++)  //<=?
+            {
+                Point3D Puv = calculateSplineFunctionEdgeV(u, splinePoints);
 
                 double x = Puv.x, y = -Puv.z, z = Puv.y;
                 Matrix p = new Matrix(4, 1, x, y, z, 1);
                 Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
                 double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
-                modelPoints[i][j] = new Point3D(x, y, z);
+                modelPoints[i][m*k] = new Point3D(x, y, z);
+
+                if(isDrawingFirstTime)
+                    reevaluateMinMax(nx, ny, nz);
+
+                u += incrementU;
+            }
+
+            double v = 0;
+            for(int j = 0; j < m * k; j++)
+            {
+                Point3D Puv = calculateSplineFunctionEdgeU(v, splinePoints);
+
+                double x = Puv.x, y = -Puv.z, z = Puv.y;
+                Matrix p = new Matrix(4, 1, x, y, z, 1);
+                Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+                double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
+                modelPoints[n*k][j] = new Point3D(x, y, z);
+
+                if(isDrawingFirstTime)
+                    reevaluateMinMax(nx, ny, nz);
+
+                v += incrementV;
+            }
+
+            {
+                Point3D Puv = splinePoints[Ni][Nj];
+                double x = Puv.x, y = -Puv.z, z = Puv.y;
+                Matrix p = new Matrix(4, 1, x, y, z, 1);
+                Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+                double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
+                modelPoints[n * k][m * k] = new Point3D(x, y, z);
 
                 if(isDrawingFirstTime)
                     reevaluateMinMax(nx, ny, nz);
             }
-            u += incrementU;
-        }
 
-        u = 0;
-        for(int i = 0; i < n * k; i++)  //<=?
-        {
-            Point3D Puv = calculateSplineFunctionEdgeV(u, splinePoints);
+            //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
+            //|knotsJ| = Nj + Kj + 1
+            //todo: сделал, но разоабраться получше!
 
-            double x = Puv.x, y = -Puv.z, z = Puv.y;
-            Matrix p = new Matrix(4, 1, x, y, z, 1);
-            Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
-            double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
-            modelPoints[i][m*k] = new Point3D(x, y, z);
+            //считаю только один раз, при запуске, чтобы при перемещении точек одной фигуры остальные остальные фигуры оставались на местах
 
-            if(isDrawingFirstTime)
-                reevaluateMinMax(nx, ny, nz);
+                double maxDim = Math.max(Math.max(maxX - minX, maxY - minY), maxZ - minZ);          //nx = 2 * (x - minX)/(maxx- minx) - 1 и для других - но так не сохр пропорции; поэтому делю на одно и то же
+                isDrawingFirstTime = false;
 
-            u += incrementU;
-        }
-
-        double v = 0;
-        for(int j = 0; j < m * k; j++)
-        {
-            Point3D Puv = calculateSplineFunctionEdgeU(v, splinePoints);
-
-            double x = Puv.x, y = -Puv.z, z = Puv.y;
-            Matrix p = new Matrix(4, 1, x, y, z, 1);
-            Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
-            double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
-            modelPoints[n*k][j] = new Point3D(x, y, z);
-
-            if(isDrawingFirstTime)
-                reevaluateMinMax(nx, ny, nz);
-
-            v += incrementV;
-        }
-
-        {
-            Point3D Puv = splinePoints[Ni][Nj];
-            double x = Puv.x, y = -Puv.z, z = Puv.y;
-            Matrix p = new Matrix(4, 1, x, y, z, 1);
-            Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
-            double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
-            modelPoints[n * k][m * k] = new Point3D(x, y, z);
-
-            if(isDrawingFirstTime)
-                reevaluateMinMax(nx, ny, nz);
-        }
-
-        //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
-        //|knotsJ| = Nj + Kj + 1
-        //todo: сделал, но разоабраться получше!
-
-        //считаю только один раз, при запуске, чтобы при перемещении точек одной фигуры остальные остальные фигуры оставались на местах
-        if(isDrawingFirstTime) {
-            double maxDim = Math.max(Math.max(maxX - minX, maxY - minY), maxZ - minZ);          //nx = 2 * (x - minX)/(maxx- minx) - 1 и для других - но так не сохр пропорции; поэтому делю на одно и то же
-            isDrawingFirstTime = false;
-
-            Matrix boxTranslateMatrix = new Matrix(4, 4, 1, 0, 0, -minX,
-                    0, 1, 0, -minY,
-                    0, 0, 1, -minZ,
-                    0, 0, 0, 1);
-            Matrix boxScaleMatrix = new Matrix(4, 4, 2 / maxDim, 0, 0, -(maxX - minX) / maxDim,
-                    0, 2 / maxDim, 0, -(maxY - minY) / maxDim,
-                    0, 0, 2 / maxDim, -(maxZ - minZ) / maxDim,
-                    0, 0, 0, 1);
-            boxMatrix = Matrix.multiply(boxScaleMatrix, boxTranslateMatrix);
+                Matrix boxTranslateMatrix = new Matrix(4, 4, 1, 0, 0, -minX,
+                        0, 1, 0, -minY,
+                        0, 0, 1, -minZ,
+                        0, 0, 0, 1);
+                Matrix boxScaleMatrix = new Matrix(4, 4, 2 / maxDim, 0, 0, -(maxX - minX) / maxDim,
+                        0, 2 / maxDim, 0, -(maxY - minY) / maxDim,
+                        0, 0, 2 / maxDim, -(maxZ - minZ) / maxDim,
+                        0, 0, 0, 1);
+                boxMatrix = Matrix.multiply(boxScaleMatrix, boxTranslateMatrix);
         }
 
         Matrix projView = Matrix.multiply(projectionMatrix, cameraMatrix);
