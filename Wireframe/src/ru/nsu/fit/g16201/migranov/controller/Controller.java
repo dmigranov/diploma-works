@@ -178,6 +178,8 @@ public class Controller {
         Matrix rtm = figure.getRotateMatrix();
         if(isDrawingFirstTime)
         {
+
+            //todo вынести дальнейшее в отдельынй метод, возможно как-то скомбинировать три кейса чтоб было красиво
             double u = 0;
             for(int i = 0; i < n * k; i++)  //<=?
             {
