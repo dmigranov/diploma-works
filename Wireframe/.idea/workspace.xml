@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
+    <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="gonna delete translation (new center) of the digure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example3d.txt" beforeDir="false" afterPath="$PROJECT_DIR$/example3d.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +23,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
@@ -46,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/example3d.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+            <state relative-caret-position="160">
+              <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -145,8 +145,8 @@
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" />
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Point3D.java" />
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Matrix.java" />
-        <option value="$PROJECT_DIR$/example3d.txt" />
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/example3d.txt" />
       </list>
     </option>
   </component>
@@ -328,14 +328,7 @@
       <workItem from="1570962973560" duration="69000" />
       <workItem from="1570964165365" duration="11853000" />
       <workItem from="1571056882113" duration="5762000" />
-      <workItem from="1571143740896" duration="826000" />
-    </task>
-    <task id="LOCAL-00020" summary="но теперь левая система координат?">
-      <created>1556810312816</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1556810312816</updated>
+      <workItem from="1571143740896" duration="948000" />
     </task>
     <task id="LOCAL-00021" summary="удалил невидимость при далеких и близких расст - это не нужно. теперь видно всегда">
       <created>1570791734613</created>
@@ -673,11 +666,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571153006053</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="much quicker now because now i don't recalculate model points each time">
+      <created>1571153106881</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1571153106881</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73294000" />
+    <option name="totallyTimeSpent" value="73416000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -763,8 +763,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fdffdfdf" />
-    <MESSAGE value="2d spline?" />
     <MESSAGE value="basis started" />
     <MESSAGE value="calculate knots done" />
     <MESSAGE value="some base" />
@@ -788,7 +786,9 @@
     <MESSAGE value="проверил, всё круто, хоть и чутка медленно при больших T и K" />
     <MESSAGE value="b spline wireframe DONE" />
     <MESSAGE value="some stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="some stuff" />
+    <MESSAGE value="much quicker now because now i don't recalculate model points each time" />
+    <MESSAGE value="gonna delete translation (new center) of the digure" />
+    <option name="LAST_COMMIT_MESSAGE" value="gonna delete translation (new center) of the digure" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -912,13 +912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example3d.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="6" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -937,6 +930,13 @@
             <element signature="e#18537#18538#0" expanded="true" />
             <element signature="e#18619#18620#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example3d.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>
