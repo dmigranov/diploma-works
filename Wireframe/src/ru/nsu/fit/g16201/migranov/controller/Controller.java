@@ -175,8 +175,7 @@ public class Controller {
 
         //n*k и m*k - это фактически разрешение
         Point3D[][] modelPoints = figure.getModelPoints();
-        Matrix translateMatrix = Matrix.getTranslationMatrix(figure.getCenter());
-        Matrix rtm = Matrix.multiply(translateMatrix, figure.getRotateMatrix());
+        Matrix rtm = figure.getRotateMatrix();
         if(isDrawingFirstTime)
         {
             double u = 0;
@@ -511,14 +510,6 @@ public class Controller {
         return backgroundColor;
     }
 
-    public Color getCurrentColor() {
-        return figure.getColor();
-    }
-
-    public Point3D getCurrentCenter() {
-        return figure.getCenter();
-    }
-
     public int load3DFile(File file) {
         isDrawingFirstTime = true;
 
@@ -551,8 +542,9 @@ public class Controller {
             substrings = readLineAndSplit(br);
             Color color = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
 
-            substrings = readLineAndSplit(br);
-            Point3D center = new Point3D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]), Double.parseDouble(substrings[2]));
+            //substrings = readLineAndSplit(br);
+            //Point3D center = new Point3D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]), Double.parseDouble(substrings[2]));
+            //в центре нет смысла, так как всё равно всё центрируется, это имело смысл в случае многих фигур
 
             Matrix rotateMatrix = read3x3MatrixByRow(br);
 
@@ -576,7 +568,7 @@ public class Controller {
                     splinePoints[i][j] = splinePoint;
                 }
             }
-            figure = new Figure(center, color, rotateMatrix, splinePoints);
+            figure = new Figure(color, rotateMatrix, splinePoints);
 
             figure.setModelPoints(new Point3D[n*k + 1][m*k + 1]);
 

@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Figure {
     private Color color;
-    private Point3D center;
     private Matrix rotateMatrix;
 
     private Point3D[][] modelPoints;
@@ -13,8 +12,7 @@ public class Figure {
     private double length;
     private Point3D[][] splinePoints;
 
-    public Figure(Point3D center, Color color, Matrix rotateMatrix, Point3D[][] splinePoints) {
-        this.center = center;
+    public Figure(Color color, Matrix rotateMatrix, Point3D[][] splinePoints) {
         this.color = color;
         this.rotateMatrix = rotateMatrix;
         this.splinePoints = splinePoints;
@@ -32,13 +30,6 @@ public class Figure {
         this.color = color;
     }
 
-    public Point3D getCenter() {
-        return center;
-    }
-
-    public void setCenter(Point3D center) {
-        this.center = center;
-    }
 
     public Matrix getRotateMatrix() {
         return rotateMatrix;
