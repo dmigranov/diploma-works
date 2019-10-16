@@ -15,24 +15,29 @@ All B-spline basis functions are supposed to have their domain on [u0, um]!!!!!
 To define B-spline basis functions, we need one more parameter, the degree of these basis functions, t.
 The i-th B-spline basis function of degree y, written as Ni,t(u), is defined recursively.
 Its properties are:
-    *   Ni,t(u) is a degree t polynomial in u
+    *   Ni,t(u) is a degree t-1 polynomial in u
+        В оригинале статьи было degree t polynomial, но у них рекурсия идет до Ni,0, а не Ni,1 как у меня!!!
     *   For all i, p and u, Ni,p(u) is non-negative
     *   Ni,t(u) is a non-zero polynomial on [ui,ui+t+1)  (ui - knots)
-    *   On any span [ui, ui+1), at most t+1 degree t basis functions are non-zero,
-        namely: Ni-t,t(u), Ni-t+1,t(u), Ni-t+2,t(u), ..., and Ni,t(u)
-    *   If the number of knots is m+1, the degree of the basis functions is p, and the number of degree t basis functions is n+1
-        (число базисных функций степени t равно n+1), then m = n + t + 1
-
+    *   If the number of knots is m, the degree of the basis functions is p, and the number of degree t basis functions is n+1
+        (число базисных функций степени t равно n+1), then m = n+k+1 (в оригинале по другому, но опять же, у них немного другое опр-ие базисных функций)
 
 B-spline curve involves:
     1) a set of n+1 control points                  (в нашем случае (Ni + 1)x(Nj + 1)
-    2) a knot vector of m+1 knots                   (так же)
-    3) a degree p.                                  (две степени Ti и Tj)
+    2) a knot vector of m knots                     (так же)
+    3) a degree (order) p.                          (две степени Ti и Tj)
+    На самом деле наш многочлен будет степени p-1 при таком определнии, как у нас!
 Note that n, m and p must satisfy m = n + p + 1
-More precisely, if we want to define a B-spline curve of degree p with n + 1 control points,
-we have to supply n + p + 2 knots u0, u1, ..., un+p+1.
-On the other hand, if a knot vector of m + 1 knots and n + 1 control points are given, the degree of the B-spline curve is p = m - n - 1.
+
 The point on the curve that corresponds to a knot ui, C(ui), is referred to as a knot point.
+
+A spline of order t is a piecewise polynomial function of degree t − 1
+
+!!! When the knots are distinct, the first n − 1 derivatives of the polynomial pieces are continuous across each knot.
+When r knots are coincident, then only the first n − r derivatives of the spline are continuous across that knot.
+
+Свойства кривой порядка t:
+Degree t-1 and Ct-2 continuity over range of n+1 control points (но только если все узлы разные)
 
 В трёхмерном случае имеем набор Ni+1 строк и Nj+1 столбцов контрольных точек pij, 0 <= i <= Ni; 0 <= j <= Nj;
 Ti, Tj - это степени (degrees). Это степени многочлена N по соответсвующим направлениям
@@ -43,8 +48,6 @@ There are a number of possible options for the knot positions, for example a uni
 
 2 <= Ti <= Ni + 1 (можно и 1, это будет просто график контрольных точек)
 
-
-Я понял! Сейчас у нас фактически вместо степени она же, но на единицу меньше! То есть пишем 2, а на самом деле линейная (1)!
  */
 
 
