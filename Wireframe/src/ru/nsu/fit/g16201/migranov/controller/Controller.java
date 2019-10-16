@@ -358,7 +358,12 @@ public class Controller {
     }
 
     ///k - index (i, j), t - Ti/Tj, u - knot points, v - coordinate (u/v)
-    private double calculateSplineBasisFunction(int k, int t, int[] u, double v)    //aka Blending Function akd N
+    //Ni,t(u) is a degree t polynomial in u
+    //For all i, p and u, Ni,p(u) is non-negative
+    //Ni,t(u) is a non-zero polynomial on [ui,ui+t+1)  (ui - knots)
+    //On any span [ui, ui+1), at most t+1 degree t basis functions are non-zero, namely: Ni-t,t(u), Ni-t+1,t(u), Ni-t+2,t(u), ..., and Ni,t(u)
+    //If the number of knots is m+1, the degree of the basis functions is p, and the number of degree p basis functions is n+1 (число базисных функций степени p равно n+1), then m = n + p + 1
+    private double calculateSplineBasisFunction(int k, int t, int[] u, double v)    //aka Blending Function akd Ni,p
     {
         //http://paulbourke.net/geometry/spline/
         //чем больше степень Ti/Tj - тем боолее гладкая кривая
@@ -580,6 +585,11 @@ public class Controller {
         return 0;
     }
 
+    //имеем набор Ni+1 строк и Nj+1 столбцов контрольных точек pij, 0 <= i <= Ni; 0 <= j <= Nj;
+    //Ti, Tj - это степени (degrees). Это степени многочлена по соответсвующим направлениям
+    //The continuity of the surface in each parametric direction is k-2, l-2 respectively
+    //uk are known as break points, where they occur on the curve are known as knots.
+    // //There are a number of possible options for the knot positions, for example a uniform spacing where uk = k.
     private void calculateKnots() {
         knotsI = new int[Ni +  Ti + 1];
         for(int i = 0; i < knotsI.length; i++)
