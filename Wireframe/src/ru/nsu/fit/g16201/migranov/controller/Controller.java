@@ -570,11 +570,6 @@ public class Controller {
         this.sh = sh;
     }
 
-
-    public double getZf() {
-        return zf;
-    }
-
     public double getZn() {
         return zn;
     }

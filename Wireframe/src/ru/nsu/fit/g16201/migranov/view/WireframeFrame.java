@@ -27,7 +27,7 @@ public class WireframeFrame extends MainFrame {
 
     private WireframePanel wireframePanel;
 
-    private JTextField nField, mField, kField, swField, shField, znField, zfField, backgroundColorFields[], figureColorFields[], centerFields[];
+    private JTextField nField, mField, kField, swField, shField, znField, backgroundColorFields[], figureColorFields[], centerFields[];
     private JButton confirmButton;
     private boolean fileIsLoaded = false;
 
@@ -124,7 +124,6 @@ public class WireframeFrame extends MainFrame {
         kField = new JTextField();
         swField = new JTextField();
         shField = new JTextField();
-        zfField = new JTextField();
         znField = new JTextField();
         backgroundColorFields = new JTextField[3];
         String colorTextFieldDescriptions[] = new String[] {"Background R:", "Background G:", "Background B:"};
@@ -141,7 +140,6 @@ public class WireframeFrame extends MainFrame {
         mnkPanel.add(new LabelTextField("k: ", kField, new IntegerTextFieldKeyListener()));
         clippingPanel.add(new LabelTextField("sw: ", swField, new FloatTextFieldKeyListener()));
         clippingPanel.add(new LabelTextField("sh: ", shField, new FloatTextFieldKeyListener()));
-        clippingPanel.add(new LabelTextField("Zfar: ", zfField, new FloatTextFieldKeyListener()));;
         clippingPanel.add(new LabelTextField("Znear: ", znField, new FloatTextFieldKeyListener()));
 
         commonPanel.add(Box.createVerticalStrut(20));
@@ -162,7 +160,6 @@ public class WireframeFrame extends MainFrame {
                     m = Integer.parseInt(mField.getText());
                     sw = Double.parseDouble(swField.getText());
                     sh = Double.parseDouble(shField.getText());
-                    zf = Double.parseDouble(zfField.getText());
                     zn = Double.parseDouble(znField.getText());
                     cR = Integer.parseInt(backgroundColorFields[0].getText());
                     cG = Integer.parseInt(backgroundColorFields[1].getText());
@@ -171,12 +168,12 @@ public class WireframeFrame extends MainFrame {
                     if(m <= 0 || n <= 0 || k <= 0)
                         throw new NumberFormatException("Wrong m, n, or k");
 
-                    if(!(zn > 0 && zf > zn && sw > 0 && sh > 0))
+                    if(!(zn > 0 && sw > 0 && sh > 0))
                         throw new NumberFormatException("Wrong clipping");
                     if(cR < 0 || cR > 255 || cG < 0 || cG > 255 || cB < 0 || cB > 255)
                         throw new NumberFormatException("Wrong color");
 
-                    controller.setConstants(n, m, k, sw, sh, zn, zf, new Color(cR, cG, cB));
+                    controller.setConstants(n, m, k, sw, sh, zn, zn + 100, new Color(cR, cG, cB));
                     resize();
                 }
                 else    //вторая таба
@@ -382,7 +379,6 @@ public class WireframeFrame extends MainFrame {
         nField.setText(controller.getN() + "");
         mField.setText(controller.getM() + "");
         kField.setText(controller.getK() + "");
-        zfField.setText(controller.getZf() + "");
         znField.setText(controller.getZn() + "");
         shField.setText(controller.getSh() + "");
         swField.setText(controller.getSw() + "");
