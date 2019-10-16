@@ -275,6 +275,7 @@ public class Controller {
         }
 
         /*{
+
             Point3D P0 = calculateSplineFunction(0, 0, splinePoints);
             Point3D Pu = calculateSplineFunction(uMax*0.9, 0, splinePoints);
             Point3D Pv = calculateSplineFunction(0, vMax*0.9, splinePoints);
