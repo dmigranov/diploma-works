@@ -6,6 +6,7 @@ import ru.nsu.fit.g16201.migranov.view.frametemplate.MainFrame;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import javax.swing.colorchooser.AbstractColorChooserPanel;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import java.awt.*;
 import java.awt.event.*;
@@ -27,7 +28,8 @@ public class WireframeFrame extends MainFrame {
 
     private WireframePanel wireframePanel;
 
-    private JTextField nField, mField, kField, swField, shField, znField, backgroundColorFields[], figureColorFields[];
+    private JTextField nField, mField, kField, swField, shField, znField;
+    JColorChooser backgroundColorChooser;
     private JButton confirmButton;
     private boolean fileIsLoaded = false;
 
@@ -122,16 +124,8 @@ public class WireframeFrame extends MainFrame {
         swField = new JTextField();
         shField = new JTextField();
         znField = new JTextField();
-        backgroundColorFields = new JTextField[3];
-        String colorTextFieldDescriptions[] = new String[] {"Background R:", "Background G:", "Background B:"};
 
-        JPanel mnkPanel = new JPanel(new GridLayout(1, 3)), clippingPanel = new JPanel(new GridLayout(1, 4)), colorPanel = new JPanel(new GridLayout(1, 3));
-
-        for(int i = 0; i < 3; i++) {
-            backgroundColorFields[i] = new JTextField();
-            colorPanel.add(new LabelTextField(colorTextFieldDescriptions[i], backgroundColorFields[i], new IntegerTextFieldKeyListener()));
-        }
-
+        JPanel mnkPanel = new JPanel(new GridLayout(1, 3)), clippingPanel = new JPanel(new GridLayout(1, 4));
         nField = new JTextField();
         mField = new JTextField();
         kField = new JTextField();
@@ -142,10 +136,20 @@ public class WireframeFrame extends MainFrame {
         clippingPanel.add(new LabelTextField("sh: ", shField, new FloatTextFieldKeyListener()));
         clippingPanel.add(new LabelTextField("Znear: ", znField, new FloatTextFieldKeyListener()));
 
+        backgroundColorChooser = new JColorChooser();
+        {
+            AbstractColorChooserPanel[] panels = backgroundColorChooser.getChooserPanels();
+            for (AbstractColorChooserPanel p : panels)
+                if (!p.getDisplayName().equals("RGB"))
+                    backgroundColorChooser.removeChooserPanel(p);
+            backgroundColorChooser.setPreviewPanel(new JPanel());
+            backgroundColorChooser.setColor(controller.getBackgroundColor());
+            commonPanel.add(backgroundColorChooser);
+        }
+
         commonPanel.add(Box.createVerticalStrut(20));
         spline3DConfigurationPanel.add(mnkPanel);
         commonPanel.add(clippingPanel);
-        commonPanel.add(colorPanel);
 
         confirmButton = new JButton("Confirm");
         confirmButton.addActionListener(e -> {
@@ -158,16 +162,10 @@ public class WireframeFrame extends MainFrame {
                     sw = Double.parseDouble(swField.getText());
                     sh = Double.parseDouble(shField.getText());
                     zn = Double.parseDouble(znField.getText());
-                    cR = Integer.parseInt(backgroundColorFields[0].getText());
-                    cG = Integer.parseInt(backgroundColorFields[1].getText());
-                    cB = Integer.parseInt(backgroundColorFields[2].getText());
 
                     if(!(zn > 0 && sw > 0 && sh > 0))
                         throw new NumberFormatException("Wrong clipping");
-                    if(cR < 0 || cR > 255 || cG < 0 || cG > 255 || cB < 0 || cB > 255)
-                        throw new NumberFormatException("Wrong color");
-
-                    controller.setCommonConstants(sw, sh, zn, zn + 100, new Color(cR, cG, cB));
+                    controller.setCommonConstants(sw, sh, zn, zn + 100, backgroundColorChooser.getColor());
                     resize();
                 }
                 else    //вторая таба
@@ -382,9 +380,7 @@ public class WireframeFrame extends MainFrame {
         shField.setText(controller.getSh() + "");
         swField.setText(controller.getSw() + "");
         Color color = controller.getBackgroundColor();
-        backgroundColorFields[0].setText(color.getRed() + "");
-        backgroundColorFields[1].setText(color.getGreen() + "");
-        backgroundColorFields[2].setText(color.getBlue() + "");
+        backgroundColorChooser.setColor(color);
     }
 
     public void onOpen3D() throws NoSuchMethodException
