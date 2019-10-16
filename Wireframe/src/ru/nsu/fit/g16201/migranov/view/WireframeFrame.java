@@ -120,6 +120,7 @@ public class WireframeFrame extends MainFrame {
         tabbedPane.add("3D Spline Config Panel", spline3DConfigurationPanel);
 
         commonPanel.setLayout(new BoxLayout(commonPanel, BoxLayout.Y_AXIS));
+        spline3DConfigurationPanel.setLayout(new BoxLayout(spline3DConfigurationPanel, BoxLayout.Y_AXIS));
 
         swField = new JTextField();
         shField = new JTextField();

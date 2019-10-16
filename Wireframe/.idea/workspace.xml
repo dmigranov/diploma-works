@@ -17,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="176" column="49" selection-start-line="176" selection-start-column="49" selection-end-line="176" selection-end-column="49" />
+            <state relative-caret-position="238">
+              <caret line="122" column="85" selection-start-line="122" selection-start-column="85" selection-end-line="122" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -26,8 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="674" column="5" selection-start-line="674" selection-start-column="5" selection-end-line="674" selection-end-column="5" />
+            <state relative-caret-position="255">
+              <caret line="678" column="27" selection-start-line="678" selection-start-column="27" selection-end-line="678" selection-end-column="27" />
               <folding>
                 <element signature="e#0#23409#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -41,6 +41,8 @@
                 <element signature="e#20409#20410#0" expanded="true" />
                 <element signature="e#20463#20464#0" expanded="true" />
                 <element signature="e#20542#20543#0" expanded="true" />
+                <element signature="e#24839#24840#0" expanded="true" />
+                <element signature="e#24872#24873#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,7 +77,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Ni</find>
       <find>bas</find>
       <find>translateMatrix</find>
       <find>drawFigures</find>
@@ -102,9 +103,10 @@
       <find>zfar</find>
       <find>spline3DConfigurationPanel</find>
       <find>confirm</find>
-      <find>setC</find>
       <find>center</find>
       <find>tabbe</find>
+      <find>setC</find>
+      <find>create</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -310,21 +312,7 @@
       <workItem from="1570964165365" duration="11853000" />
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
-      <workItem from="1571215176911" duration="10035000" />
-    </task>
-    <task id="LOCAL-00046" summary="calculate knots done">
-      <created>1570969194135</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1570969194135</updated>
-    </task>
-    <task id="LOCAL-00047" summary="some base">
-      <created>1570970142378</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1570970142378</updated>
+      <workItem from="1571215176911" duration="10774000" />
     </task>
     <task id="LOCAL-00048" summary="based">
       <created>1570970242980</created>
@@ -655,11 +643,25 @@
       <option name="project" value="LOCAL" />
       <updated>1571226970223</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="more interface">
+      <created>1571227257506</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1571227257506</updated>
+    </task>
+    <task id="LOCAL-00096" summary="added color choosing for figure">
+      <created>1571227806252</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1571227806252</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84797000" />
+    <option name="totallyTimeSpent" value="85536000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -681,7 +683,7 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48255032" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4805369" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49597314" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -689,8 +691,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.52348995" side_tool="true" visible="true" weight="0.17705382" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.47651008" visible="true" weight="0.17705382" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51946306" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.47516778" weight="0.17705382" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49395972" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -746,8 +748,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="проверил, всё круто, хоть и чутка медленно при больших T и K" />
-    <MESSAGE value="b spline wireframe DONE" />
     <MESSAGE value="some stuff" />
     <MESSAGE value="much quicker now because now i don't recalculate model points each time" />
     <MESSAGE value="gonna delete translation (new center) of the digure" />
@@ -771,7 +771,9 @@
     <MESSAGE value="начал менять интерфейс" />
     <MESSAGE value="gonna add color chooser" />
     <MESSAGE value="added color chooser for background" />
-    <option name="LAST_COMMIT_MESSAGE" value="added color chooser for background" />
+    <MESSAGE value="more interface" />
+    <MESSAGE value="added color choosing for figure" />
+    <option name="LAST_COMMIT_MESSAGE" value="added color choosing for figure" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/out2/production/FIT_16201_Migranov_Wireframe_Data/example4.txt" />
@@ -899,8 +901,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="674" column="5" selection-start-line="674" selection-start-column="5" selection-end-line="674" selection-end-column="5" />
+        <state relative-caret-position="255">
+          <caret line="678" column="27" selection-start-line="678" selection-start-column="27" selection-end-line="678" selection-end-column="27" />
           <folding>
             <element signature="e#0#23409#0" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -914,14 +916,16 @@
             <element signature="e#20409#20410#0" expanded="true" />
             <element signature="e#20463#20464#0" expanded="true" />
             <element signature="e#20542#20543#0" expanded="true" />
+            <element signature="e#24839#24840#0" expanded="true" />
+            <element signature="e#24872#24873#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="176" column="49" selection-start-line="176" selection-start-column="49" selection-end-line="176" selection-end-column="49" />
+        <state relative-caret-position="238">
+          <caret line="122" column="85" selection-start-line="122" selection-start-column="85" selection-end-line="122" selection-end-column="85" />
         </state>
       </provider>
     </entry>
