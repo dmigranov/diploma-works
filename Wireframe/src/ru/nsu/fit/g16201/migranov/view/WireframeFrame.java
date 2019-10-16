@@ -11,6 +11,7 @@ import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
@@ -166,7 +167,7 @@ public class WireframeFrame extends MainFrame {
 
         spline3DConfigurationPanel.add(mnkPanel);
         spline3DConfigurationPanel.add(TijPanel);
-        //        spline3DConfigurationPanel.add(new JLabel("Ti & Tj are orders of spline basis functions; the smoothness of surface depends on Ni, Ti, Nj, Tj (dependency is given by knot points)"));
+        //spline3DConfigurationPanel.add(new JLabel("Ti & Tj are orders of spline basis functions; the smoothness of surface depends on Ni, Ti, Nj, Tj (dependency is given by knot points)"));
         spline3DConfigurationPanel.add(figureColorChooser);
 
         confirmButton = new JButton("Confirm");
@@ -182,15 +183,18 @@ public class WireframeFrame extends MainFrame {
                 if(!(zn > 0 && sw > 0 && sh > 0))
                     throw new NumberFormatException("Wrong clipping");
 
-                int n, m, k;
+                int n, m, k, Ti, Tj;
                 n = Integer.parseInt(nField.getText());
                 k = Integer.parseInt(kField.getText());
                 m = Integer.parseInt(mField.getText());
-
+                Ti = Integer.parseInt(TiField.getText());
+                Tj = Integer.parseInt(TjField.getText());
+                if(2 > Ti || 2 > Tj || Ti > controller.getNi() + 1 || Tj > controller.getNj() + 1)
+                    throw new NumberFormatException("Wrong Ti or Tj, 2 <= Ti <= Ni + 1 ");
                 if(m <= 0 || n <= 0 || k <= 0)
                     throw new NumberFormatException("Wrong m, n, or k");
 
-                controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor());
+                controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj);
                 resize();
 
                 /*double a, b, cx, cy, cz;
@@ -394,6 +398,8 @@ public class WireframeFrame extends MainFrame {
         znField.setText(controller.getZn() + "");
         shField.setText(controller.getSh() + "");
         swField.setText(controller.getSw() + "");
+        TiField.setText(controller.getTi() + "");
+        TjField.setText(controller.getTj() + "");
         backgroundColorChooser.setColor(controller.getBackgroundColor());
         figureColorChooser.setColor(controller.getFigureColor());
 

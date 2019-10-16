@@ -655,7 +655,7 @@ public class Controller {
         drawFigure();
     }
 
-    public void setConstants(int n, int m, int k, double sw, double sh, double zn, double zf, Color backgroundColor, Color figureColor) {
+    public void setConstants(int n, int m, int k, double sw, double sh, double zn, double zf, Color backgroundColor, Color figureColor, int ti, int tj) {
         this.n = n;
         this.m = m;
         this.k = k;
@@ -671,11 +671,31 @@ public class Controller {
         this.figureColor = figureColor;
         wireframePanel.setBackgroundColor(backgroundColor);
 
+        Ti = ti;
+        Tj = tj;
+        calculateKnots();
+
         needsToBeRedrawn = true;
         drawFigure();
     }
 
     public Color getFigureColor() {
         return figureColor;
+    }
+
+    public int getTi() {
+        return Ti;
+    }
+
+    public int getTj() {
+        return Tj;
+    }
+
+    public int getNi() {
+        return Ni;
+    }
+
+    public int getNj() {
+        return Nj;
     }
 }
