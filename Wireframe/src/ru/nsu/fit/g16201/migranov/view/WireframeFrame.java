@@ -29,7 +29,7 @@ public class WireframeFrame extends MainFrame {
     private WireframePanel wireframePanel;
 
     private JTextField nField, mField, kField, swField, shField, znField;
-    JColorChooser backgroundColorChooser;
+    private JColorChooser backgroundColorChooser, figureColorChooser;
     private JButton confirmButton;
     private boolean fileIsLoaded = false;
 
@@ -137,6 +137,7 @@ public class WireframeFrame extends MainFrame {
         clippingPanel.add(new LabelTextField("Znear: ", znField, new FloatTextFieldKeyListener()));
 
         backgroundColorChooser = new JColorChooser();
+        figureColorChooser = new JColorChooser();
         {
             AbstractColorChooserPanel[] panels = backgroundColorChooser.getChooserPanels();
             for (AbstractColorChooserPanel p : panels)
@@ -146,7 +147,15 @@ public class WireframeFrame extends MainFrame {
             backgroundColorChooser.setColor(controller.getBackgroundColor());
             commonPanel.add(backgroundColorChooser);
         }
-
+        {
+            AbstractColorChooserPanel[] panels = figureColorChooser.getChooserPanels();
+            for (AbstractColorChooserPanel p : panels)
+                if (!p.getDisplayName().equals("RGB"))
+                    figureColorChooser.removeChooserPanel(p);
+            figureColorChooser.setPreviewPanel(new JPanel());
+            figureColorChooser.setColor(controller.getBackgroundColor());
+            spline3DConfigurationPanel.add(figureColorChooser);
+        }
         commonPanel.add(Box.createVerticalStrut(20));
         spline3DConfigurationPanel.add(mnkPanel);
         commonPanel.add(clippingPanel);
@@ -156,7 +165,6 @@ public class WireframeFrame extends MainFrame {
             try
             {
                 double zn, sw, sh;
-                int cR, cG, cB;
 
                 sw = Double.parseDouble(swField.getText());
                 sh = Double.parseDouble(shField.getText());
@@ -173,7 +181,7 @@ public class WireframeFrame extends MainFrame {
                 if(m <= 0 || n <= 0 || k <= 0)
                     throw new NumberFormatException("Wrong m, n, or k");
 
-                controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor());
+                controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor());
                 resize();
 
                 /*double a, b, cx, cy, cz;
@@ -377,8 +385,9 @@ public class WireframeFrame extends MainFrame {
         znField.setText(controller.getZn() + "");
         shField.setText(controller.getSh() + "");
         swField.setText(controller.getSw() + "");
-        Color color = controller.getBackgroundColor();
-        backgroundColorChooser.setColor(color);
+        backgroundColorChooser.setColor(controller.getBackgroundColor());
+        figureColorChooser.setColor(controller.getFigureColor());
+
     }
 
     public void onOpen3D() throws NoSuchMethodException

@@ -655,7 +655,7 @@ public class Controller {
         drawFigure();
     }
 
-    public void setConstants(int n, int m, int k, double sw, double sh, double zn, double zf, Color color) {
+    public void setConstants(int n, int m, int k, double sw, double sh, double zn, double zf, Color backgroundColor, Color figureColor) {
         this.n = n;
         this.m = m;
         this.k = k;
@@ -667,10 +667,15 @@ public class Controller {
         this.zn = zn;
         this.zf = zf;
         this.projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
-        this.backgroundColor = color;
+        this.backgroundColor = backgroundColor;
+        this.figureColor = figureColor;
         wireframePanel.setBackgroundColor(backgroundColor);
 
         needsToBeRedrawn = true;
         drawFigure();
+    }
+
+    public Color getFigureColor() {
+        return figureColor;
     }
 }
