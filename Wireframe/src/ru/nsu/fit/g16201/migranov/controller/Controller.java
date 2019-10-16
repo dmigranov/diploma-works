@@ -610,10 +610,6 @@ public class Controller {
             substrings = readLineAndSplit(br);
             figureColor = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
 
-            //substrings = readLineAndSplit(br);
-            //Point3D center = new Point3D(Double.parseDouble(substrings[0]), Double.parseDouble(substrings[1]), Double.parseDouble(substrings[2]));
-            //в центре нет смысла, так как всё равно всё центрируется, это имело смысл в случае многих фигур
-
             figureRotateMatrix = read3x3MatrixByRow(br);
 
             substrings = readLineAndSplit(br);
@@ -664,5 +660,17 @@ public class Controller {
         }
         while(substrings.length == 0 || "".equals(substrings[0]));
         return substrings;
+    }
+
+    public void setCommonConstants(double sw, double sh, double zn, double zf, Color color) {
+        this.sw = sw;
+        this.sh = sh;
+        this.zn = zn;
+        this.zf = zf;
+        this.projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
+        this.backgroundColor = color;
+        wireframePanel.setBackgroundColor(backgroundColor);
+
+        drawFigure();
     }
 }

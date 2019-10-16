@@ -22,7 +22,7 @@ public class WireframeFrame extends MainFrame {
 
     private Controller controller;
 
-    private JPanel spline3DConfigurationPanel, mainPanel;
+    private JPanel mainPanel;
     private JTabbedPane tabbedPane;
 
     private WireframePanel wireframePanel;
@@ -114,27 +114,27 @@ public class WireframeFrame extends MainFrame {
         JPanel commonPanel = new JPanel();
         tabbedPane.add("Common", commonPanel);
 
-        create3DSplineConfigurationPanel();
+        JPanel spline3DConfigurationPanel = new JPanel();
         tabbedPane.add("3D Spline Config Panel", spline3DConfigurationPanel);
 
         commonPanel.setLayout(new BoxLayout(commonPanel, BoxLayout.Y_AXIS));
 
-        nField = new JTextField();
-        mField = new JTextField();
-        kField = new JTextField();
         swField = new JTextField();
         shField = new JTextField();
         znField = new JTextField();
         backgroundColorFields = new JTextField[3];
         String colorTextFieldDescriptions[] = new String[] {"Background R:", "Background G:", "Background B:"};
 
-        JPanel abcdPanel = new JPanel(new GridLayout(1, 4)), mnkPanel = new JPanel(new GridLayout(1, 3)), clippingPanel = new JPanel(new GridLayout(1, 4)), colorPanel = new JPanel(new GridLayout(1, 3));
+        JPanel mnkPanel = new JPanel(new GridLayout(1, 3)), clippingPanel = new JPanel(new GridLayout(1, 4)), colorPanel = new JPanel(new GridLayout(1, 3));
 
         for(int i = 0; i < 3; i++) {
             backgroundColorFields[i] = new JTextField();
             colorPanel.add(new LabelTextField(colorTextFieldDescriptions[i], backgroundColorFields[i], new IntegerTextFieldKeyListener()));
         }
 
+        nField = new JTextField();
+        mField = new JTextField();
+        kField = new JTextField();
         mnkPanel.add(new LabelTextField("n: ", nField, new IntegerTextFieldKeyListener()));
         mnkPanel.add(new LabelTextField("m: ", mField, new IntegerTextFieldKeyListener()));
         mnkPanel.add(new LabelTextField("k: ", kField, new IntegerTextFieldKeyListener()));
@@ -143,8 +143,7 @@ public class WireframeFrame extends MainFrame {
         clippingPanel.add(new LabelTextField("Znear: ", znField, new FloatTextFieldKeyListener()));
 
         commonPanel.add(Box.createVerticalStrut(20));
-        commonPanel.add(abcdPanel);
-        commonPanel.add(mnkPanel);
+        spline3DConfigurationPanel.add(mnkPanel);
         commonPanel.add(clippingPanel);
         commonPanel.add(colorPanel);
 
@@ -153,11 +152,9 @@ public class WireframeFrame extends MainFrame {
             try
             {
                 if(tabbedPane.getSelectedIndex() == 0) {
-                    double zf, zn, sw, sh;
-                    int n, m, k, cR, cG, cB;
-                    n = Integer.parseInt(nField.getText());
-                    k = Integer.parseInt(kField.getText());
-                    m = Integer.parseInt(mField.getText());
+                    double zn, sw, sh;
+                    int cR, cG, cB;
+
                     sw = Double.parseDouble(swField.getText());
                     sh = Double.parseDouble(shField.getText());
                     zn = Double.parseDouble(znField.getText());
@@ -165,19 +162,24 @@ public class WireframeFrame extends MainFrame {
                     cG = Integer.parseInt(backgroundColorFields[1].getText());
                     cB = Integer.parseInt(backgroundColorFields[2].getText());
 
-                    if(m <= 0 || n <= 0 || k <= 0)
-                        throw new NumberFormatException("Wrong m, n, or k");
-
                     if(!(zn > 0 && sw > 0 && sh > 0))
                         throw new NumberFormatException("Wrong clipping");
                     if(cR < 0 || cR > 255 || cG < 0 || cG > 255 || cB < 0 || cB > 255)
                         throw new NumberFormatException("Wrong color");
 
-                    controller.setConstants(n, m, k, sw, sh, zn, zn + 100, new Color(cR, cG, cB));
+                    controller.setCommonConstants(sw, sh, zn, zn + 100, new Color(cR, cG, cB));
                     resize();
                 }
                 else    //вторая таба
                 {
+                    int n, m, k;
+                    n = Integer.parseInt(nField.getText());
+                    k = Integer.parseInt(kField.getText());
+                    m = Integer.parseInt(mField.getText());
+
+                    if(m <= 0 || n <= 0 || k <= 0)
+                        throw new NumberFormatException("Wrong m, n, or k");
+
                     /*double a, b, cx, cy, cz;
                     int cR, cG, cB;
                     a = Double.parseDouble(aSplineField.getText());
@@ -207,9 +209,6 @@ public class WireframeFrame extends MainFrame {
         confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 
-    private void create3DSplineConfigurationPanel() {
-        spline3DConfigurationPanel = new JPanel();
-    }
 
     private void addMenus() throws NoSuchMethodException {
         addSubMenu("File", KeyEvent.VK_F);
