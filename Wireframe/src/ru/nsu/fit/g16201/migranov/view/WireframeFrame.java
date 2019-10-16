@@ -155,48 +155,46 @@ public class WireframeFrame extends MainFrame {
         confirmButton.addActionListener(e -> {
             try
             {
-                if(tabbedPane.getSelectedIndex() == 0) {
-                    double zn, sw, sh;
-                    int cR, cG, cB;
+                double zn, sw, sh;
+                int cR, cG, cB;
 
-                    sw = Double.parseDouble(swField.getText());
-                    sh = Double.parseDouble(shField.getText());
-                    zn = Double.parseDouble(znField.getText());
+                sw = Double.parseDouble(swField.getText());
+                sh = Double.parseDouble(shField.getText());
+                zn = Double.parseDouble(znField.getText());
 
-                    if(!(zn > 0 && sw > 0 && sh > 0))
-                        throw new NumberFormatException("Wrong clipping");
-                    controller.setCommonConstants(sw, sh, zn, zn + 100, backgroundColorChooser.getColor());
-                    resize();
-                }
-                else    //вторая таба
-                {
-                    int n, m, k;
-                    n = Integer.parseInt(nField.getText());
-                    k = Integer.parseInt(kField.getText());
-                    m = Integer.parseInt(mField.getText());
+                if(!(zn > 0 && sw > 0 && sh > 0))
+                    throw new NumberFormatException("Wrong clipping");
 
-                    if(m <= 0 || n <= 0 || k <= 0)
-                        throw new NumberFormatException("Wrong m, n, or k");
+                int n, m, k;
+                n = Integer.parseInt(nField.getText());
+                k = Integer.parseInt(kField.getText());
+                m = Integer.parseInt(mField.getText());
 
-                    /*double a, b, cx, cy, cz;
-                    int cR, cG, cB;
-                    a = Double.parseDouble(aSplineField.getText());
-                    b = Double.parseDouble(bSplineField.getText());
-                    cR = Integer.parseInt(figureColorFields[0].getText());
-                    cG = Integer.parseInt(figureColorFields[1].getText());
-                    cB = Integer.parseInt(figureColorFields[2].getText());
+                if(m <= 0 || n <= 0 || k <= 0)
+                    throw new NumberFormatException("Wrong m, n, or k");
 
-                    cx = Double.parseDouble(centerFields[0].getText());
-                    cy = Double.parseDouble(centerFields[1].getText());
-                    cz = Double.parseDouble(centerFields[2].getText());
+                controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor());
+                resize();
+
+                /*double a, b, cx, cy, cz;
+                int cR, cG, cB;
+                a = Double.parseDouble(aSplineField.getText());
+                b = Double.parseDouble(bSplineField.getText());
+                cR = Integer.parseInt(figureColorFields[0].getText());
+                cG = Integer.parseInt(figureColorFields[1].getText());
+                cB = Integer.parseInt(figureColorFields[2].getText());
+
+                cx = Double.parseDouble(centerFields[0].getText());
+                cy = Double.parseDouble(centerFields[1].getText());
+                cz = Double.parseDouble(centerFields[2].getText());
 
 
-                    if(cR < 0 || cR > 255 || cG < 0 || cG > 255 || cB < 0 || cB > 255)
-                        throw new NumberFormatException("Wrong color");
-                    controller.setABColorCenter(a, b, new Color(cR, cG, cB), new Point3D(cx, cy, cz));
-                    */
+                if(cR < 0 || cR > 255 || cG < 0 || cG > 255 || cB < 0 || cB > 255)
+                    throw new NumberFormatException("Wrong color");
+                controller.setABColorCenter(a, b, new Color(cR, cG, cB), new Point3D(cx, cy, cz));
+                */
 
-                }
+
                 updateFields();
             }
             catch (NumberFormatException n)

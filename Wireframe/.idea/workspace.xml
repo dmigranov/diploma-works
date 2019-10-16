@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="208" column="52" selection-start-line="208" selection-start-column="46" selection-end-line="208" selection-end-column="52" />
+            <state relative-caret-position="100">
+              <caret line="176" column="49" selection-start-line="176" selection-start-column="49" selection-end-line="176" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -76,7 +75,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>splineMa</find>
       <find>Ni</find>
       <find>bas</find>
       <find>translateMatrix</find>
@@ -106,6 +104,7 @@
       <find>confirm</find>
       <find>setC</find>
       <find>center</find>
+      <find>tabbe</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -228,6 +227,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -310,21 +310,7 @@
       <workItem from="1570964165365" duration="11853000" />
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
-      <workItem from="1571215176911" duration="8936000" />
-    </task>
-    <task id="LOCAL-00044" summary="2d spline?">
-      <created>1570967934679</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1570967934679</updated>
-    </task>
-    <task id="LOCAL-00045" summary="basis started">
-      <created>1570968249373</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1570968249373</updated>
+      <workItem from="1571215176911" duration="10035000" />
     </task>
     <task id="LOCAL-00046" summary="calculate knots done">
       <created>1570969194135</created>
@@ -655,11 +641,25 @@
       <option name="project" value="LOCAL" />
       <updated>1571223861022</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="gonna add color chooser">
+      <created>1571224152408</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1571224152408</updated>
+    </task>
+    <task id="LOCAL-00094" summary="added color chooser for background">
+      <created>1571226970223</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1571226970223</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83698000" />
+    <option name="totallyTimeSpent" value="84797000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -681,7 +681,7 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48322147" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48255032" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49597314" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -689,8 +689,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5228188" side_tool="true" visible="true" weight="0.17705382" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.4771812" visible="true" weight="0.17705382" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.52348995" side_tool="true" visible="true" weight="0.17705382" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.47651008" visible="true" weight="0.17705382" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49395972" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -746,8 +746,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="теперь траблы только с самой крайней точкой" />
-    <MESSAGE value="исправил" />
     <MESSAGE value="проверил, всё круто, хоть и чутка медленно при больших T и K" />
     <MESSAGE value="b spline wireframe DONE" />
     <MESSAGE value="some stuff" />
@@ -771,7 +769,9 @@
     <MESSAGE value="gonna delete zfar" />
     <MESSAGE value="deleted zf field from interface" />
     <MESSAGE value="начал менять интерфейс" />
-    <option name="LAST_COMMIT_MESSAGE" value="начал менять интерфейс" />
+    <MESSAGE value="gonna add color chooser" />
+    <MESSAGE value="added color chooser for background" />
+    <option name="LAST_COMMIT_MESSAGE" value="added color chooser for background" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/out2/production/FIT_16201_Migranov_Wireframe_Data/example4.txt" />
@@ -920,8 +920,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="208" column="52" selection-start-line="208" selection-start-column="46" selection-end-line="208" selection-end-column="52" />
+        <state relative-caret-position="100">
+          <caret line="176" column="49" selection-start-line="176" selection-start-column="49" selection-end-line="176" selection-end-column="49" />
         </state>
       </provider>
     </entry>
