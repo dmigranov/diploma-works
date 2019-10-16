@@ -626,9 +626,10 @@ public class Controller {
             Ti = Integer.parseInt(substrings[2]);
             Tj = Integer.parseInt(substrings[3]);
 
-            //ti, tj - degree
-            /*if(Ni < 4 || Nj < 4)
-                throw new IOException("Not enough spline points");*/ //todo: ввести условия
+            if(Ni <= 0 || Nj <= 0)
+                throw new IOException("Wrong Ni or Nj");
+            if(2 > Ti || 2 > Tj || Ti > Ni + 1 || Tj > Nj + 1)
+                throw new IOException("Wrong Ti or Tj, 2 <= Ti <= Ni + 1 ");
 
             splinePoints = new Point3D[Ni + 1][Nj + 1];
             for(int i = 0; i <= Ni; i++)
@@ -640,7 +641,6 @@ public class Controller {
                     splinePoints[i][j] = splinePoint;
                 }
             }
-            //figure = new Figure(color, rotateMatrix, splinePoints);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
 
             calculateKnots();

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example3d.txt" beforeDir="false" afterPath="$PROJECT_DIR$/example3d.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,9 +27,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="39" column="96" selection-start-line="39" selection-start-column="96" selection-end-line="39" selection-end-column="96" />
+            <state relative-caret-position="142">
+              <caret line="631" column="73" selection-start-line="631" selection-start-column="73" selection-end-line="631" selection-end-column="73" />
               <folding>
+                <element signature="e#0#23409#0" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="e#5524#7011#0" expanded="true" />
                 <element signature="e#7010#7011#0" expanded="true" />
@@ -63,7 +65,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Matrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
+            <state relative-caret-position="434">
               <caret line="267" selection-start-line="267" selection-end-line="267" />
             </state>
           </provider>
@@ -82,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/example3d.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
-              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+              <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -98,7 +100,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>spline</find>
       <find>load3d</find>
       <find>splinep</find>
       <find>drawSplinePoints</find>
@@ -128,6 +129,7 @@
       <find>кщефеу</find>
       <find>knot</find>
       <find>//</find>
+      <find>load4</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -331,14 +333,7 @@
       <workItem from="1570964165365" duration="11853000" />
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
-      <workItem from="1571215176911" duration="3524000" />
-    </task>
-    <task id="LOCAL-00031" summary="gonna delete axes">
-      <created>1570801100205</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1570801100205</updated>
+      <workItem from="1571215176911" duration="3867000" />
     </task>
     <task id="LOCAL-00032" summary="deleted axes">
       <created>1570801162075</created>
@@ -676,11 +671,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571217982653</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="еще больше комментариев, было решено не менять определение рекурсивных функций. моё совпадает с таковым в английской википедии">
+      <created>1571218749046</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1571218749047</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78286000" />
+    <option name="totallyTimeSpent" value="78629000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -702,7 +704,7 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48590603" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48590603" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4966443" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -711,7 +713,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5053691" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.48255032" weight="0.14730878" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.48255032" visible="true" weight="0.14730878" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49463087" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -767,7 +769,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="better incr (+k)" />
     <MESSAGE value="it draws something! but not what i want..." />
     <MESSAGE value="вообще не так плозо, но странные артефакты" />
     <MESSAGE value="исправил глупейшую ошиибку в функции knot, из-за которых с определенных индексов все тупо занулялось" />
@@ -792,7 +793,8 @@
     <MESSAGE value="deleted figure file itself + some cleaning" />
     <MESSAGE value="добавил некоторые математические комментарии" />
     <MESSAGE value="ещё комментарии" />
-    <option name="LAST_COMMIT_MESSAGE" value="ещё комментарии" />
+    <MESSAGE value="еще больше комментариев, было решено не менять определение рекурсивных функций. моё совпадает с таковым в английской википедии" />
+    <option name="LAST_COMMIT_MESSAGE" value="еще больше комментариев, было решено не менять определение рекурсивных функций. моё совпадает с таковым в английской википедии" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -886,13 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Matrix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="267" selection-start-line="267" selection-end-line="267" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -907,13 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example3d.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -921,11 +909,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Matrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="267" selection-start-line="267" selection-end-line="267" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example3d.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="39" column="96" selection-start-line="39" selection-start-column="96" selection-end-line="39" selection-end-column="96" />
+        <state relative-caret-position="142">
+          <caret line="631" column="73" selection-start-line="631" selection-start-column="73" selection-end-line="631" selection-end-column="73" />
           <folding>
+            <element signature="e#0#23409#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#5524#7011#0" expanded="true" />
             <element signature="e#7010#7011#0" expanded="true" />
