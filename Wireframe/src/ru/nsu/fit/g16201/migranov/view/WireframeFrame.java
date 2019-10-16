@@ -28,7 +28,7 @@ public class WireframeFrame extends MainFrame {
 
     private WireframePanel wireframePanel;
 
-    private JTextField nField, mField, kField, swField, shField, znField;
+    private JTextField nField, mField, kField, swField, shField, znField, TiField, TjField;
     private JColorChooser backgroundColorChooser, figureColorChooser;
     private JButton confirmButton;
     private boolean fileIsLoaded = false;
@@ -121,21 +121,26 @@ public class WireframeFrame extends MainFrame {
 
         commonPanel.setLayout(new BoxLayout(commonPanel, BoxLayout.Y_AXIS));
         spline3DConfigurationPanel.setLayout(new BoxLayout(spline3DConfigurationPanel, BoxLayout.Y_AXIS));
+        JPanel mnkPanel = new JPanel(new GridLayout(1, 3)), clippingPanel = new JPanel(new GridLayout(1, 4)), TijPanel = new JPanel(new GridLayout(1, 2));
 
-        swField = new JTextField();
-        shField = new JTextField();
-        znField = new JTextField();
-
-        JPanel mnkPanel = new JPanel(new GridLayout(1, 3)), clippingPanel = new JPanel(new GridLayout(1, 4));
         nField = new JTextField();
         mField = new JTextField();
         kField = new JTextField();
         mnkPanel.add(new LabelTextField("n: ", nField, new IntegerTextFieldKeyListener()));
         mnkPanel.add(new LabelTextField("m: ", mField, new IntegerTextFieldKeyListener()));
         mnkPanel.add(new LabelTextField("k: ", kField, new IntegerTextFieldKeyListener()));
+
+        swField = new JTextField();
+        shField = new JTextField();
+        znField = new JTextField();
         clippingPanel.add(new LabelTextField("sw: ", swField, new FloatTextFieldKeyListener()));
         clippingPanel.add(new LabelTextField("sh: ", shField, new FloatTextFieldKeyListener()));
         clippingPanel.add(new LabelTextField("Znear: ", znField, new FloatTextFieldKeyListener()));
+
+        TiField = new JTextField();
+        TjField = new JTextField();
+        TijPanel.add(new LabelTextField("Ti: ", TiField, new IntegerTextFieldKeyListener()));
+        TijPanel.add(new LabelTextField("Tj: ", TjField, new IntegerTextFieldKeyListener()));
 
         backgroundColorChooser = new JColorChooser();
         figureColorChooser = new JColorChooser();
@@ -146,7 +151,6 @@ public class WireframeFrame extends MainFrame {
                     backgroundColorChooser.removeChooserPanel(p);
             backgroundColorChooser.setPreviewPanel(new JPanel());
             backgroundColorChooser.setColor(controller.getBackgroundColor());
-            commonPanel.add(backgroundColorChooser);
         }
         {
             AbstractColorChooserPanel[] panels = figureColorChooser.getChooserPanels();
@@ -155,11 +159,15 @@ public class WireframeFrame extends MainFrame {
                     figureColorChooser.removeChooserPanel(p);
             figureColorChooser.setPreviewPanel(new JPanel());
             figureColorChooser.setColor(controller.getBackgroundColor());
-            spline3DConfigurationPanel.add(figureColorChooser);
         }
         commonPanel.add(Box.createVerticalStrut(20));
-        spline3DConfigurationPanel.add(mnkPanel);
         commonPanel.add(clippingPanel);
+        commonPanel.add(backgroundColorChooser);
+
+        spline3DConfigurationPanel.add(mnkPanel);
+        spline3DConfigurationPanel.add(TijPanel);
+        //        spline3DConfigurationPanel.add(new JLabel("Ti & Tj are orders of spline basis functions; the smoothness of surface depends on Ni, Ti, Nj, Tj (dependency is given by knot points)"));
+        spline3DConfigurationPanel.add(figureColorChooser);
 
         confirmButton = new JButton("Confirm");
         confirmButton.addActionListener(e -> {
