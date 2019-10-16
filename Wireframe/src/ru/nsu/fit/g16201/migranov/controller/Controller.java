@@ -19,8 +19,6 @@ Its properties are:
         В оригинале статьи было degree t polynomial, но у них рекурсия идет до Ni,0, а не Ni,1 как у меня!!!
     *   For all i, p and u, Ni,p(u) is non-negative
     *   Ni,t(u) is a non-zero polynomial on [ui,ui+t+1)  (ui - knots)
-    *   If the number of knots is m, the degree of the basis functions is p, and the number of degree t basis functions is n+1
-        (число базисных функций степени t равно n+1), then m = n+k+1 (в оригинале по другому, но опять же, у них немного другое опр-ие базисных функций)
 
 B-spline curve involves:
     1) a set of n+1 control points                  (в нашем случае (Ni + 1)x(Nj + 1)
@@ -40,7 +38,7 @@ When r knots are coincident, then only the first n − r derivatives of the spli
 Degree t-1 and Ct-2 continuity over range of n+1 control points (но только если все узлы разные)
 
 В трёхмерном случае имеем набор Ni+1 строк и Nj+1 столбцов контрольных точек pij, 0 <= i <= Ni; 0 <= j <= Nj;
-Ti, Tj - это степени (degrees). Это степени многочлена N по соответсвующим направлениям
+Ti, Tj - это степени (degrees). Степени многочлена N по соответсвующим направлениям будут Ti - 1 и Tj - 1. Настоящие степени - это Ti - 1
 The continuity of the surface in each parametric direction is k-2, l-2 respectively
 uk are known as break points, where they occur on the curve are known as knots.
 There are a number of possible options for the knot positions, for example a uniform spacing where uk = k.
@@ -49,7 +47,6 @@ There are a number of possible options for the knot positions, for example a uni
 2 <= Ti <= Ni + 1 (можно и 1, это будет просто график контрольных точек)
 
  */
-
 
 package ru.nsu.fit.g16201.migranov.controller;
 
@@ -219,82 +216,13 @@ public class Controller {
         wireframePanel.clear();
 
         /* Step size along the curve */
-        double incrementU = (double)(Ni - Ti + 2) / n / k;
-        double incrementV = (double)(Nj - Tj + 2) / m / k;
-
         //n*k и m*k - это фактически разрешение
         Matrix rtm = figureRotateMatrix;
         if(isDrawingFirstTime)
         {
 
             //todo вынести дальнейшее в отдельынй метод, возможно как-то скомбинировать три кейса чтоб было красиво
-            double u = 0;
-            for(int i = 0; i < n * k; i++)  //<=?
-            {
-                double v = 0;
-                for(int j = 0; j < m * k; j++)  //<=?
-                {
-                    Point3D Puv = calculateSplineFunction(u, v, splinePoints);
-
-                    v += incrementV;
-
-                    double x = Puv.x, y = -Puv.z, z = Puv.y;
-                    Matrix p = new Matrix(4, 1, x, y, z, 1);
-                    Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
-                    double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
-                    modelPoints[i][j] = new Point3D(x, y, z);
-
-                    if(isDrawingFirstTime)
-                        reevaluateMinMax(nx, ny, nz);
-                }
-                u += incrementU;
-            }
-
-            u = 0;
-            for(int i = 0; i < n * k; i++)  //<=?
-            {
-                Point3D Puv = calculateSplineFunctionEdgeV(u, splinePoints);
-
-                double x = Puv.x, y = -Puv.z, z = Puv.y;
-                Matrix p = new Matrix(4, 1, x, y, z, 1);
-                Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
-                double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
-                modelPoints[i][m*k] = new Point3D(x, y, z);
-
-                if(isDrawingFirstTime)
-                    reevaluateMinMax(nx, ny, nz);
-
-                u += incrementU;
-            }
-
-            double v = 0;
-            for(int j = 0; j < m * k; j++)
-            {
-                Point3D Puv = calculateSplineFunctionEdgeU(v, splinePoints);
-
-                double x = Puv.x, y = -Puv.z, z = Puv.y;
-                Matrix p = new Matrix(4, 1, x, y, z, 1);
-                Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
-                double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
-                modelPoints[n*k][j] = new Point3D(x, y, z);
-
-                if(isDrawingFirstTime)
-                    reevaluateMinMax(nx, ny, nz);
-
-                v += incrementV;
-            }
-
-            {
-                Point3D Puv = splinePoints[Ni][Nj];
-                double x = Puv.x, y = -Puv.z, z = Puv.y;
-                Matrix p = new Matrix(4, 1, x, y, z, 1);
-                Matrix np = Matrix.multiply(rtm, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
-                double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
-                modelPoints[n * k][m * k] = new Point3D(x, y, z);
-
-                if(isDrawingFirstTime)
-                    reevaluateMinMax(nx, ny, nz);
-            }
+            findModelPoints();
 
             //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
             //|knotsJ| = Nj + Kj + 1
@@ -353,6 +281,75 @@ public class Controller {
         }
 
         wireframePanel.repaint();
+    }
+
+    private void findModelPoints() {
+        double incrementU = (double)(Ni - Ti + 2) / n / k;
+        double incrementV = (double)(Nj - Tj + 2) / m / k;
+
+        double u = 0;
+        for(int i = 0; i < n * k; i++)
+        {
+            double v = 0;
+            for(int j = 0; j < m * k; j++)
+            {
+                Point3D Puv = calculateSplineFunction(u, v, splinePoints);
+
+                v += incrementV;
+
+                double x = Puv.x, y = -Puv.z, z = Puv.y;
+                Matrix p = new Matrix(4, 1, x, y, z, 1);
+                Matrix np = Matrix.multiply(figureRotateMatrix, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+                double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
+                modelPoints[i][j] = new Point3D(x, y, z);
+
+                reevaluateMinMax(nx, ny, nz);
+            }
+            u += incrementU;
+        }
+
+        u = 0;
+        for(int i = 0; i < n * k; i++)  //<=?
+        {
+            Point3D Puv = calculateSplineFunctionEdgeV(u, splinePoints);
+
+            double x = Puv.x, y = -Puv.z, z = Puv.y;
+            Matrix p = new Matrix(4, 1, x, y, z, 1);
+            Matrix np = Matrix.multiply(figureRotateMatrix, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+            double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
+            modelPoints[i][m*k] = new Point3D(x, y, z);
+
+            reevaluateMinMax(nx, ny, nz);
+
+            u += incrementU;
+        }
+
+        double v = 0;
+        for(int j = 0; j < m * k; j++)
+        {
+            Point3D Puv = calculateSplineFunctionEdgeU(v, splinePoints);
+
+            double x = Puv.x, y = -Puv.z, z = Puv.y;
+            Matrix p = new Matrix(4, 1, x, y, z, 1);
+            Matrix np = Matrix.multiply(figureRotateMatrix, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+            double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
+            modelPoints[n*k][j] = new Point3D(x, y, z);
+
+            reevaluateMinMax(nx, ny, nz);
+
+            v += incrementV;
+        }
+
+        {
+            Point3D Puv = splinePoints[Ni][Nj];
+            double x = Puv.x, y = -Puv.z, z = Puv.y;
+            Matrix p = new Matrix(4, 1, x, y, z, 1);
+            Matrix np = Matrix.multiply(figureRotateMatrix, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+            double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
+            modelPoints[n * k][m * k] = new Point3D(x, y, z);
+
+            reevaluateMinMax(nx, ny, nz);
+        }
     }
 
     private void reevaluateMinMax(double nx, double ny, double nz) {

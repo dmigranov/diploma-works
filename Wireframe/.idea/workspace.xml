@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example3d.txt" beforeDir="false" afterPath="$PROJECT_DIR$/example3d.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,16 +26,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="631" column="73" selection-start-line="631" selection-start-column="73" selection-end-line="631" selection-end-column="73" />
+            <state relative-caret-position="134">
+              <caret line="349" column="58" selection-start-line="349" selection-start-column="58" selection-end-line="349" selection-end-column="58" />
               <folding>
                 <element signature="e#0#23409#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#5524#7011#0" expanded="true" />
-                <element signature="e#7010#7011#0" expanded="true" />
-                <element signature="e#7061#7964#0" expanded="true" />
-                <element signature="e#7963#7964#0" expanded="true" />
-                <element signature="e#5934#11943#0" />
+                <element signature="e#5631#7118#0" expanded="true" />
+                <element signature="e#7117#7118#0" expanded="true" />
+                <element signature="e#7168#8071#0" expanded="true" />
+                <element signature="e#8070#8071#0" expanded="true" />
+                <element signature="e#16024#17258#0" />
                 <element signature="e#17686#17687#0" expanded="true" />
                 <element signature="e#17710#17711#0" expanded="true" />
                 <element signature="e#17735#17736#0" expanded="true" />
@@ -100,8 +99,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>load3d</find>
-      <find>splinep</find>
       <find>drawSplinePoints</find>
       <find>getUV</find>
       <find>scale</find>
@@ -130,6 +127,8 @@
       <find>knot</find>
       <find>//</find>
       <find>load4</find>
+      <find>степен</find>
+      <find>rtm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -333,14 +332,7 @@
       <workItem from="1570964165365" duration="11853000" />
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
-      <workItem from="1571215176911" duration="3867000" />
-    </task>
-    <task id="LOCAL-00032" summary="deleted axes">
-      <created>1570801162075</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1570801162075</updated>
+      <workItem from="1571215176911" duration="4126000" />
     </task>
     <task id="LOCAL-00033" summary="some file reading">
       <created>1570801504361</created>
@@ -678,11 +670,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571218749047</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="задал требования на &quot;степени&quot;">
+      <created>1571219137283</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1571219137283</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78629000" />
+    <option name="totallyTimeSpent" value="78888000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -769,7 +768,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="it draws something! but not what i want..." />
     <MESSAGE value="вообще не так плозо, но странные артефакты" />
     <MESSAGE value="исправил глупейшую ошиибку в функции knot, из-за которых с определенных индексов все тупо занулялось" />
     <MESSAGE value="вё неплохо, но ломается видимо на приграничных значениях!" />
@@ -794,7 +792,8 @@
     <MESSAGE value="добавил некоторые математические комментарии" />
     <MESSAGE value="ещё комментарии" />
     <MESSAGE value="еще больше комментариев, было решено не менять определение рекурсивных функций. моё совпадает с таковым в английской википедии" />
-    <option name="LAST_COMMIT_MESSAGE" value="еще больше комментариев, было решено не менять определение рекурсивных функций. моё совпадает с таковым в английской википедии" />
+    <MESSAGE value="задал требования на &quot;степени&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="задал требования на &quot;степени&quot;" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -925,16 +924,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="631" column="73" selection-start-line="631" selection-start-column="73" selection-end-line="631" selection-end-column="73" />
+        <state relative-caret-position="134">
+          <caret line="349" column="58" selection-start-line="349" selection-start-column="58" selection-end-line="349" selection-end-column="58" />
           <folding>
             <element signature="e#0#23409#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#5524#7011#0" expanded="true" />
-            <element signature="e#7010#7011#0" expanded="true" />
-            <element signature="e#7061#7964#0" expanded="true" />
-            <element signature="e#7963#7964#0" expanded="true" />
-            <element signature="e#5934#11943#0" />
+            <element signature="e#5631#7118#0" expanded="true" />
+            <element signature="e#7117#7118#0" expanded="true" />
+            <element signature="e#7168#8071#0" expanded="true" />
+            <element signature="e#8070#8071#0" expanded="true" />
+            <element signature="e#16024#17258#0" />
             <element signature="e#17686#17687#0" expanded="true" />
             <element signature="e#17710#17711#0" expanded="true" />
             <element signature="e#17735#17736#0" expanded="true" />
