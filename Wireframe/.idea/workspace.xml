@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -16,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="175" column="73" selection-start-line="175" selection-start-column="73" selection-end-line="175" selection-end-column="73" />
+            <state relative-caret-position="167">
+              <caret line="208" column="52" selection-start-line="208" selection-start-column="46" selection-end-line="208" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -25,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="131" column="72" selection-start-line="131" selection-start-column="70" selection-end-line="131" selection-end-column="72" />
+            <state relative-caret-position="462">
+              <caret line="674" column="5" selection-start-line="674" selection-start-column="5" selection-end-line="674" selection-end-column="5" />
               <folding>
                 <element signature="e#0#23409#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -34,13 +36,12 @@
                 <element signature="e#20075#20076#0" expanded="true" />
                 <element signature="e#20124#20125#0" expanded="true" />
                 <element signature="e#20173#20174#0" expanded="true" />
-                <element signature="e#20776#20777#0" expanded="true" />
-                <element signature="e#20840#20841#0" expanded="true" />
-                <element signature="e#20894#20895#0" expanded="true" />
-                <element signature="e#20958#20959#0" expanded="true" />
-                <element signature="e#21013#21014#0" expanded="true" />
-                <element signature="e#21067#21068#0" expanded="true" />
-                <element signature="e#21146#21147#0" expanded="true" />
+                <element signature="e#20227#20228#0" expanded="true" />
+                <element signature="e#20291#20292#0" expanded="true" />
+                <element signature="e#20345#20346#0" expanded="true" />
+                <element signature="e#20409#20410#0" expanded="true" />
+                <element signature="e#20463#20464#0" expanded="true" />
+                <element signature="e#20542#20543#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,11 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>splinepan</find>
-      <find>about</find>
-      <find>aField</find>
-      <find>splinepa</find>
-      <find>splinePoints</find>
       <find>splineMa</find>
       <find>Ni</find>
       <find>bas</find>
@@ -103,8 +99,13 @@
       <find>ос</find>
       <find>loadF</find>
       <find>drawFi</find>
-      <find>zfar</find>
       <find>zf</find>
+      <find>nF</find>
+      <find>zfar</find>
+      <find>spline3DConfigurationPanel</find>
+      <find>confirm</find>
+      <find>setC</find>
+      <find>center</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -122,8 +123,8 @@
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Figure.java" />
         <option value="$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt" />
         <option value="$PROJECT_DIR$/example3d.txt" />
-        <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Matrix.java" />
+        <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" />
       </list>
     </option>
@@ -135,8 +136,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="990" />
+    <option name="x" value="765" />
+    <option name="y" value="70" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -308,21 +310,7 @@
       <workItem from="1570964165365" duration="11853000" />
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
-      <workItem from="1571215176911" duration="8004000" />
-    </task>
-    <task id="LOCAL-00042" summary="drawFigures -&gt; drawFigure">
-      <created>1570965577894</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1570965577894</updated>
-    </task>
-    <task id="LOCAL-00043" summary="fdffdfdf">
-      <created>1570967624279</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1570967624279</updated>
+      <workItem from="1571215176911" duration="8936000" />
     </task>
     <task id="LOCAL-00044" summary="2d spline?">
       <created>1570967934679</created>
@@ -653,11 +641,25 @@
       <option name="project" value="LOCAL" />
       <updated>1571223147167</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="deleted zf field from interface">
+      <created>1571223304612</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1571223304612</updated>
+    </task>
+    <task id="LOCAL-00092" summary="начал менять интерфейс">
+      <created>1571223861022</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1571223861022</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82766000" />
+    <option name="totallyTimeSpent" value="83698000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -679,7 +681,7 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4852349" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48322147" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49597314" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -687,9 +689,9 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5060403" side_tool="true" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.47919464" weight="0.17705382" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.49395972" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5228188" side_tool="true" visible="true" weight="0.17705382" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.4771812" visible="true" weight="0.17705382" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49395972" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -744,8 +746,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="something" />
-    <MESSAGE value="на одной грани все хорошо, на другой похуже, но лучше чем было" />
     <MESSAGE value="теперь траблы только с самой крайней точкой" />
     <MESSAGE value="исправил" />
     <MESSAGE value="проверил, всё круто, хоть и чутка медленно при больших T и K" />
@@ -769,7 +769,9 @@
     <MESSAGE value="УДАЛЕНИЕ ОСЕЙ В СЛЕД. КОММИТЕ" />
     <MESSAGE value="исправил баг с изменением n,m,k" />
     <MESSAGE value="gonna delete zfar" />
-    <option name="LAST_COMMIT_MESSAGE" value="gonna delete zfar" />
+    <MESSAGE value="deleted zf field from interface" />
+    <MESSAGE value="начал менять интерфейс" />
+    <option name="LAST_COMMIT_MESSAGE" value="начал менять интерфейс" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/out2/production/FIT_16201_Migranov_Wireframe_Data/example4.txt" />
@@ -897,8 +899,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="131" column="72" selection-start-line="131" selection-start-column="70" selection-end-line="131" selection-end-column="72" />
+        <state relative-caret-position="462">
+          <caret line="674" column="5" selection-start-line="674" selection-start-column="5" selection-end-line="674" selection-end-column="5" />
           <folding>
             <element signature="e#0#23409#0" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -906,21 +908,20 @@
             <element signature="e#20075#20076#0" expanded="true" />
             <element signature="e#20124#20125#0" expanded="true" />
             <element signature="e#20173#20174#0" expanded="true" />
-            <element signature="e#20776#20777#0" expanded="true" />
-            <element signature="e#20840#20841#0" expanded="true" />
-            <element signature="e#20894#20895#0" expanded="true" />
-            <element signature="e#20958#20959#0" expanded="true" />
-            <element signature="e#21013#21014#0" expanded="true" />
-            <element signature="e#21067#21068#0" expanded="true" />
-            <element signature="e#21146#21147#0" expanded="true" />
+            <element signature="e#20227#20228#0" expanded="true" />
+            <element signature="e#20291#20292#0" expanded="true" />
+            <element signature="e#20345#20346#0" expanded="true" />
+            <element signature="e#20409#20410#0" expanded="true" />
+            <element signature="e#20463#20464#0" expanded="true" />
+            <element signature="e#20542#20543#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="175" column="73" selection-start-line="175" selection-start-column="73" selection-end-line="175" selection-end-column="73" />
+        <state relative-caret-position="167">
+          <caret line="208" column="52" selection-start-line="208" selection-start-column="46" selection-end-line="208" selection-end-column="52" />
         </state>
       </provider>
     </entry>

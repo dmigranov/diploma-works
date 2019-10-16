@@ -27,7 +27,7 @@ public class WireframeFrame extends MainFrame {
 
     private WireframePanel wireframePanel;
 
-    private JTextField nField, mField, kField, swField, shField, znField, backgroundColorFields[], figureColorFields[], centerFields[];
+    private JTextField nField, mField, kField, swField, shField, znField, backgroundColorFields[], figureColorFields[];
     private JButton confirmButton;
     private boolean fileIsLoaded = false;
 

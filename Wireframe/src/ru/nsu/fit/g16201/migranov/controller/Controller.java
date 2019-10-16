@@ -535,25 +535,6 @@ public class Controller {
         return k;
     }
 
-    public void setConstants(int n, int m, int k, double sw, double sh, double zn, double zf, Color color) {
-        this.n = n;
-        this.m = m;
-        this.k = k;
-
-        modelPoints = new Point3D[n*k + 1][m*k + 1];
-
-        this.sw = sw;
-        this.sh = sh;
-        this.zn = zn;
-        this.zf = zf;
-        this.projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
-        this.backgroundColor = color;
-        wireframePanel.setBackgroundColor(backgroundColor);
-
-        needsToBeRedrawn = true;
-        drawFigure();
-    }
-
     public double getSw() {
         return sw;
     }
@@ -671,6 +652,25 @@ public class Controller {
         this.backgroundColor = color;
         wireframePanel.setBackgroundColor(backgroundColor);
 
+        drawFigure();
+    }
+
+    public void setConstants(int n, int m, int k, double sw, double sh, double zn, double zf, Color color) {
+        this.n = n;
+        this.m = m;
+        this.k = k;
+
+        modelPoints = new Point3D[n*k + 1][m*k + 1];
+
+        this.sw = sw;
+        this.sh = sh;
+        this.zn = zn;
+        this.zf = zf;
+        this.projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
+        this.backgroundColor = color;
+        wireframePanel.setBackgroundColor(backgroundColor);
+
+        needsToBeRedrawn = true;
         drawFigure();
     }
 }
