@@ -1,3 +1,30 @@
+/*
+
+Ni,t(u) is a degree t polynomial in u
+For all i, p and u, Ni,p(u) is non-negative
+Ni,t(u) is a non-zero polynomial on [ui,ui+t+1)  (ui - knots)
+On any span [ui, ui+1), at most t+1 degree t basis functions are non-zero,
+namely: Ni-t,t(u), Ni-t+1,t(u), Ni-t+2,t(u), ..., and Ni,t(u)
+If the number of knots is m+1, the degree of the basis functions is p, and the number of degree t basis functions is n+1
+(число базисных функций степени t равно n+1), then m = n + t + 1
+
+
+B-spline curve involves:
+    1) a set of n+1 control points                  (в нашем случае (Ni + 1)x(Nj + 1)
+    2) a knot vector of m+1 knots                   (так же)
+    3) a degree p.                                  (две степени Ti и Tj)
+Note that n, m and p must satisfy m = n + p + 1
+
+
+В трёхмерномс\ случае имеем набор Ni+1 строк и Nj+1 столбцов контрольных точек pij, 0 <= i <= Ni; 0 <= j <= Nj;
+Ti, Tj - это степени (degrees). Это степени многочлена по соответсвующим направлениям
+The continuity of the surface in each parametric direction is k-2, l-2 respectively
+uk are known as break points, where they occur on the curve are known as knots.
+There are a number of possible options for the knot positions, for example a uniform spacing where uk = k.
+
+ */
+
+
 package ru.nsu.fit.g16201.migranov.controller;
 
 import ru.nsu.fit.g16201.migranov.model.Matrix;
@@ -357,12 +384,7 @@ public class Controller {
         return new Point3D(Px, Py, Pz);
     }
 
-    ///k - index (i, j), t - Ti/Tj, u - knot points, v - coordinate (u/v)
-    //Ni,t(u) is a degree t polynomial in u
-    //For all i, p and u, Ni,p(u) is non-negative
-    //Ni,t(u) is a non-zero polynomial on [ui,ui+t+1)  (ui - knots)
-    //On any span [ui, ui+1), at most t+1 degree t basis functions are non-zero, namely: Ni-t,t(u), Ni-t+1,t(u), Ni-t+2,t(u), ..., and Ni,t(u)
-    //If the number of knots is m+1, the degree of the basis functions is p, and the number of degree p basis functions is n+1 (число базисных функций степени p равно n+1), then m = n + p + 1
+    //k - index (i, j), t - Ti/Tj, u - knot points, v - coordinate (u/v)
     private double calculateSplineBasisFunction(int k, int t, int[] u, double v)    //aka Blending Function akd Ni,p
     {
         //http://paulbourke.net/geometry/spline/
@@ -585,11 +607,7 @@ public class Controller {
         return 0;
     }
 
-    //имеем набор Ni+1 строк и Nj+1 столбцов контрольных точек pij, 0 <= i <= Ni; 0 <= j <= Nj;
-    //Ti, Tj - это степени (degrees). Это степени многочлена по соответсвующим направлениям
-    //The continuity of the surface in each parametric direction is k-2, l-2 respectively
-    //uk are known as break points, where they occur on the curve are known as knots.
-    // //There are a number of possible options for the knot positions, for example a uniform spacing where uk = k.
+
     private void calculateKnots() {
         knotsI = new int[Ni +  Ti + 1];
         for(int i = 0; i < knotsI.length; i++)

@@ -26,30 +26,34 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="364" column="171" selection-start-line="364" selection-start-column="171" selection-end-line="364" selection-end-column="171" />
+            <state relative-caret-position="280">
+              <caret line="14" column="73" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#17174#17175#0" expanded="true" />
-                <element signature="e#17198#17199#0" expanded="true" />
-                <element signature="e#17223#17224#0" expanded="true" />
-                <element signature="e#17247#17248#0" expanded="true" />
-                <element signature="e#17272#17273#0" expanded="true" />
-                <element signature="e#17296#17297#0" expanded="true" />
-                <element signature="e#17842#17843#0" expanded="true" />
-                <element signature="e#17867#17868#0" expanded="true" />
-                <element signature="e#17903#17904#0" expanded="true" />
-                <element signature="e#17931#17932#0" expanded="true" />
-                <element signature="e#17960#17961#0" expanded="true" />
-                <element signature="e#17985#17986#0" expanded="true" />
-                <element signature="e#18021#18022#0" expanded="true" />
-                <element signature="e#18049#18050#0" expanded="true" />
-                <element signature="e#18079#18080#0" expanded="true" />
-                <element signature="e#18104#18105#0" expanded="true" />
-                <element signature="e#18133#18134#0" expanded="true" />
-                <element signature="e#18158#18159#0" expanded="true" />
-                <element signature="e#18199#18200#0" expanded="true" />
-                <element signature="e#18237#18238#0" expanded="true" />
+                <element signature="e#3815#5302#0" expanded="true" />
+                <element signature="e#5301#5302#0" expanded="true" />
+                <element signature="e#5352#6255#0" expanded="true" />
+                <element signature="e#6254#6255#0" expanded="true" />
+                <element signature="e#17686#17687#0" expanded="true" />
+                <element signature="e#17710#17711#0" expanded="true" />
+                <element signature="e#17735#17736#0" expanded="true" />
+                <element signature="e#17759#17760#0" expanded="true" />
+                <element signature="e#17784#17785#0" expanded="true" />
+                <element signature="e#17808#17809#0" expanded="true" />
+                <element signature="e#18354#18355#0" expanded="true" />
+                <element signature="e#18379#18380#0" expanded="true" />
+                <element signature="e#18415#18416#0" expanded="true" />
+                <element signature="e#18443#18444#0" expanded="true" />
+                <element signature="e#18472#18473#0" expanded="true" />
+                <element signature="e#18497#18498#0" expanded="true" />
+                <element signature="e#18533#18534#0" expanded="true" />
+                <element signature="e#18561#18562#0" expanded="true" />
+                <element signature="e#18591#18592#0" expanded="true" />
+                <element signature="e#18616#18617#0" expanded="true" />
+                <element signature="e#18645#18646#0" expanded="true" />
+                <element signature="e#18670#18671#0" expanded="true" />
+                <element signature="e#18711#18712#0" expanded="true" />
+                <element signature="e#18749#18750#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -93,7 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>loaf</find>
       <find>spline</find>
       <find>load3d</find>
       <find>splinep</find>
@@ -123,6 +126,7 @@
       <find>sceneRotateMatrix</find>
       <find>кщефеу</find>
       <find>knot</find>
+      <find>//</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -326,21 +330,7 @@
       <workItem from="1570964165365" duration="11853000" />
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
-      <workItem from="1571215176911" duration="958000" />
-    </task>
-    <task id="LOCAL-00027" summary="load 3d">
-      <created>1570797393606</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1570797393606</updated>
-    </task>
-    <task id="LOCAL-00028" summary="deleting old stuff. that sucks.">
-      <created>1570797880626</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1570797880626</updated>
+      <workItem from="1571215176911" duration="1357000" />
     </task>
     <task id="LOCAL-00029" summary="deleted some">
       <created>1570800475513</created>
@@ -671,11 +661,25 @@
       <option name="project" value="LOCAL" />
       <updated>1571154485083</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="добавил некоторые математические комментарии">
+      <created>1571216162488</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1571216162490</updated>
+    </task>
+    <task id="LOCAL-00077" summary="добавил некоторые математические комментарии">
+      <created>1571216190749</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1571216190749</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75720000" />
+    <option name="totallyTimeSpent" value="76119000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -706,7 +710,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5053691" side_tool="true" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.48255032" visible="true" weight="0.10339943" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.48255032" visible="true" weight="0.14730878" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49463087" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -762,7 +766,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="calculateSplineFunction done" />
     <MESSAGE value="increment" />
     <MESSAGE value="better incr (+k)" />
     <MESSAGE value="it draws something! but not what i want..." />
@@ -787,7 +790,8 @@
     <MESSAGE value="started preps for del-ing figure class" />
     <MESSAGE value="deleted the Figure class, which is kinda unnecessary now that we have just one figure" />
     <MESSAGE value="deleted figure file itself + some cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted figure file itself + some cleaning" />
+    <MESSAGE value="добавил некоторые математические комментарии" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил некоторые математические комментарии" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -918,30 +922,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="364" column="171" selection-start-line="364" selection-start-column="171" selection-end-line="364" selection-end-column="171" />
+        <state relative-caret-position="280">
+          <caret line="14" column="73" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#17174#17175#0" expanded="true" />
-            <element signature="e#17198#17199#0" expanded="true" />
-            <element signature="e#17223#17224#0" expanded="true" />
-            <element signature="e#17247#17248#0" expanded="true" />
-            <element signature="e#17272#17273#0" expanded="true" />
-            <element signature="e#17296#17297#0" expanded="true" />
-            <element signature="e#17842#17843#0" expanded="true" />
-            <element signature="e#17867#17868#0" expanded="true" />
-            <element signature="e#17903#17904#0" expanded="true" />
-            <element signature="e#17931#17932#0" expanded="true" />
-            <element signature="e#17960#17961#0" expanded="true" />
-            <element signature="e#17985#17986#0" expanded="true" />
-            <element signature="e#18021#18022#0" expanded="true" />
-            <element signature="e#18049#18050#0" expanded="true" />
-            <element signature="e#18079#18080#0" expanded="true" />
-            <element signature="e#18104#18105#0" expanded="true" />
-            <element signature="e#18133#18134#0" expanded="true" />
-            <element signature="e#18158#18159#0" expanded="true" />
-            <element signature="e#18199#18200#0" expanded="true" />
-            <element signature="e#18237#18238#0" expanded="true" />
+            <element signature="e#3815#5302#0" expanded="true" />
+            <element signature="e#5301#5302#0" expanded="true" />
+            <element signature="e#5352#6255#0" expanded="true" />
+            <element signature="e#6254#6255#0" expanded="true" />
+            <element signature="e#17686#17687#0" expanded="true" />
+            <element signature="e#17710#17711#0" expanded="true" />
+            <element signature="e#17735#17736#0" expanded="true" />
+            <element signature="e#17759#17760#0" expanded="true" />
+            <element signature="e#17784#17785#0" expanded="true" />
+            <element signature="e#17808#17809#0" expanded="true" />
+            <element signature="e#18354#18355#0" expanded="true" />
+            <element signature="e#18379#18380#0" expanded="true" />
+            <element signature="e#18415#18416#0" expanded="true" />
+            <element signature="e#18443#18444#0" expanded="true" />
+            <element signature="e#18472#18473#0" expanded="true" />
+            <element signature="e#18497#18498#0" expanded="true" />
+            <element signature="e#18533#18534#0" expanded="true" />
+            <element signature="e#18561#18562#0" expanded="true" />
+            <element signature="e#18591#18592#0" expanded="true" />
+            <element signature="e#18616#18617#0" expanded="true" />
+            <element signature="e#18645#18646#0" expanded="true" />
+            <element signature="e#18670#18671#0" expanded="true" />
+            <element signature="e#18711#18712#0" expanded="true" />
+            <element signature="e#18749#18750#0" expanded="true" />
           </folding>
         </state>
       </provider>
