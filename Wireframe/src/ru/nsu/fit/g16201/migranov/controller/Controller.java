@@ -1,12 +1,27 @@
 /*
 
-Ni,t(u) is a degree t polynomial in u
-For all i, p and u, Ni,p(u) is non-negative
-Ni,t(u) is a non-zero polynomial on [ui,ui+t+1)  (ui - knots)
-On any span [ui, ui+1), at most t+1 degree t basis functions are non-zero,
-namely: Ni-t,t(u), Ni-t+1,t(u), Ni-t+2,t(u), ..., and Ni,t(u)
-If the number of knots is m+1, the degree of the basis functions is p, and the number of degree t basis functions is n+1
-(число базисных функций степени t равно n+1), then m = n + t + 1
+B-Spline functions: область распределения поделена на узлы
+
+KNOTS:
+Let U be a set of m + 1 non-decreasing numbers, u0 <= u2 <= u3 <= ... <= um.
+The ui's are called knots, the set U the knot vector, and the half-open interval [ui, ui+1) the i-th knot span.
+Note that since some ui's may be equal, some knot spans may not exist.
+If a knot ui appears k times (i.e., ui = ui+1 = ... = ui+k-1), where k > 1, ui is a multiple knot of multiplicity k, written as ui(k).
+Otherwise, if ui appears only once, it is a simple knot. If the knots are equally spaced (i.e., ui+1 - ui is a constant for 0 <= i <= m - 1), the knot vector or the knot sequence is said uniform; otherwise, it is non-uniform.
+
+The knots can be considered as division points that subdivide the interval [u0, um] into knot spans.
+All B-spline basis functions are supposed to have their domain on [u0, um]!!!!!
+
+To define B-spline basis functions, we need one more parameter, the degree of these basis functions, t.
+The i-th B-spline basis function of degree y, written as Ni,t(u), is defined recursively.
+Its properties are:
+    *   Ni,t(u) is a degree t polynomial in u
+    *   For all i, p and u, Ni,p(u) is non-negative
+    *   Ni,t(u) is a non-zero polynomial on [ui,ui+t+1)  (ui - knots)
+    *   On any span [ui, ui+1), at most t+1 degree t basis functions are non-zero,
+        namely: Ni-t,t(u), Ni-t+1,t(u), Ni-t+2,t(u), ..., and Ni,t(u)
+    *   If the number of knots is m+1, the degree of the basis functions is p, and the number of degree t basis functions is n+1
+        (число базисных функций степени t равно n+1), then m = n + t + 1
 
 
 B-spline curve involves:
@@ -14,14 +29,22 @@ B-spline curve involves:
     2) a knot vector of m+1 knots                   (так же)
     3) a degree p.                                  (две степени Ti и Tj)
 Note that n, m and p must satisfy m = n + p + 1
+More precisely, if we want to define a B-spline curve of degree p with n + 1 control points,
+we have to supply n + p + 2 knots u0, u1, ..., un+p+1.
+On the other hand, if a knot vector of m + 1 knots and n + 1 control points are given, the degree of the B-spline curve is p = m - n - 1.
+The point on the curve that corresponds to a knot ui, C(ui), is referred to as a knot point.
 
-
-В трёхмерномс\ случае имеем набор Ni+1 строк и Nj+1 столбцов контрольных точек pij, 0 <= i <= Ni; 0 <= j <= Nj;
-Ti, Tj - это степени (degrees). Это степени многочлена по соответсвующим направлениям
+В трёхмерном случае имеем набор Ni+1 строк и Nj+1 столбцов контрольных точек pij, 0 <= i <= Ni; 0 <= j <= Nj;
+Ti, Tj - это степени (degrees). Это степени многочлена N по соответсвующим направлениям
 The continuity of the surface in each parametric direction is k-2, l-2 respectively
 uk are known as break points, where they occur on the curve are known as knots.
 There are a number of possible options for the knot positions, for example a uniform spacing where uk = k.
+Мы используем более сложную расстановку узлов, главное чтобы ui <= u(i+1)
 
+2 <= Ti <= Ni + 1 (можно и 1, это будет просто график контрольных точек)
+
+
+Я понял! Сейчас у нас фактически вместо степени она же, но на единицу меньше! То есть пишем 2, а на самом деле линейная (1)!
  */
 
 
@@ -36,8 +59,6 @@ import java.awt.event.*;
 import java.io.*;
 
 public class Controller {
-    private static Matrix splineMatrix = Matrix.multiplyByScalar(1.0/6, new Matrix(4, 4, -1, 3, -3, 1, 3, -6, 3, 0, -3, 0, 3, 0, 1, 4, 1, 0));
-
     private WireframePanel wireframePanel;
 
     private Point3D eye = new Point3D(-10, 0, 0);
@@ -340,6 +361,30 @@ public class Controller {
         if (nz > maxZ) maxZ = nz;
     }
 
+    private void calculateKnots() {
+        knotsI = new int[Ni + Ti + 1];
+        for(int i = 0; i < knotsI.length; i++)
+        {
+            if(i < Ti)
+                knotsI[i] = 0;
+            else if (Ti <= i && i <= Ni)
+                knotsI[i] = i - Ti + 1;
+            else //i > n
+                knotsI[i] = Ni - Ti + 2;
+        }
+
+        knotsJ = new int[Nj + Tj + 1];
+        for(int j = 0; j < knotsJ.length; j++)
+        {
+            if(j < Tj)
+                knotsJ[j] = 0;
+            else if (Tj <= j && j <= Nj)
+                knotsJ[j] = j - Tj + 1;
+            else //j > n
+                knotsJ[j] = Nj - Tj + 2;
+        }
+    }
+
     private Point3D calculateSplineFunctionEdgeU(double v, Point3D[][] splinePoints) {
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
         for (int j = 0; j <= Nj; j++) {
@@ -605,31 +650,6 @@ public class Controller {
         drawFigure();
 
         return 0;
-    }
-
-
-    private void calculateKnots() {
-        knotsI = new int[Ni +  Ti + 1];
-        for(int i = 0; i < knotsI.length; i++)
-        {
-            if(i < Ti)
-                knotsI[i] = 0;
-            else if (Ti <= i && i <= Ni)
-                knotsI[i] = i - Ti + 1;
-            else //i > n
-                knotsI[i] = Ni - Ti + 2;
-        }
-
-        knotsJ = new int[Nj +  Tj + 1];
-        for(int j = 0; j < knotsJ.length; j++)
-        {
-            if(j < Tj)
-                knotsJ[j] = 0;
-            else if (Tj <= j && j <= Nj)
-                knotsJ[j] = j - Tj + 1;
-            else //j > n
-                knotsJ[j] = Nj - Tj + 2;
-        }
     }
 
     private String[] readLineAndSplit(BufferedReader br) throws IOException
