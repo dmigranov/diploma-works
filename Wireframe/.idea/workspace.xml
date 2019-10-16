@@ -26,16 +26,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="245" column="80" selection-start-line="245" selection-start-column="80" selection-end-line="245" selection-end-column="80" />
+            <state relative-caret-position="-143">
+              <caret line="328" column="16" selection-start-line="328" selection-start-column="16" selection-end-line="328" selection-end-column="16" />
               <folding>
                 <element signature="e#0#23409#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#5631#7118#0" expanded="true" />
-                <element signature="e#7117#7118#0" expanded="true" />
-                <element signature="e#7168#8071#0" expanded="true" />
-                <element signature="e#8070#8071#0" expanded="true" />
-                <element signature="e#16024#17258#0" />
+                <element signature="e#1485#5740#0" />
+                <element signature="e#1700#2757#0" />
                 <element signature="e#17686#17687#0" expanded="true" />
                 <element signature="e#17710#17711#0" expanded="true" />
                 <element signature="e#17735#17736#0" expanded="true" />
@@ -99,8 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>drawSplinePoints</find>
-      <find>getUV</find>
       <find>scale</find>
       <find>xm</find>
       <find>figure</find>
@@ -124,11 +119,13 @@
       <find>camera</find>
       <find>sceneRotateMatrix</find>
       <find>кщефеу</find>
-      <find>knot</find>
       <find>//</find>
       <find>load4</find>
       <find>степен</find>
       <find>rtm</find>
+      <find>област</find>
+      <find>drawA</find>
+      <find>knot</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -332,21 +329,7 @@
       <workItem from="1570964165365" duration="11853000" />
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
-      <workItem from="1571215176911" duration="4413000" />
-    </task>
-    <task id="LOCAL-00034" summary="3d spline point file can be read now!">
-      <created>1570801909810</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1570801909810</updated>
-    </task>
-    <task id="LOCAL-00035" summary="удалил лишнее">
-      <created>1570801970951</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1570801970951</updated>
+      <workItem from="1571215176911" duration="5364000" />
     </task>
     <task id="LOCAL-00036" summary="it runs and loads file ok">
       <created>1570802542338</created>
@@ -677,11 +660,25 @@
       <option name="project" value="LOCAL" />
       <updated>1571219370172</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="вынес нахождение точек поверхности в отдельный метод">
+      <created>1571219616028</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1571219616028</updated>
+    </task>
+    <task id="LOCAL-00084" summary="added uMax и vMax">
+      <created>1571220408534</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1571220408534</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79175000" />
+    <option name="totallyTimeSpent" value="80126000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -703,16 +700,16 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48590603" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48791945" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4966443" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986577" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5053691" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.48255032" weight="0.14730878" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51208055" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4818792" weight="0.17705382" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49463087" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -768,7 +765,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="исправил глупейшую ошиибку в функции knot, из-за которых с определенных индексов все тупо занулялось" />
     <MESSAGE value="вё неплохо, но ломается видимо на приграничных значениях!" />
     <MESSAGE value="deleted some old stuff" />
     <MESSAGE value="new controls!" />
@@ -793,7 +789,8 @@
     <MESSAGE value="еще больше комментариев, было решено не менять определение рекурсивных функций. моё совпадает с таковым в английской википедии" />
     <MESSAGE value="задал требования на &quot;степени&quot;" />
     <MESSAGE value="вынес нахождение точек поверхности в отдельный метод" />
-    <option name="LAST_COMMIT_MESSAGE" value="вынес нахождение точек поверхности в отдельный метод" />
+    <MESSAGE value="added uMax и vMax" />
+    <option name="LAST_COMMIT_MESSAGE" value="added uMax и vMax" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -924,16 +921,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="245" column="80" selection-start-line="245" selection-start-column="80" selection-end-line="245" selection-end-column="80" />
+        <state relative-caret-position="-143">
+          <caret line="328" column="16" selection-start-line="328" selection-start-column="16" selection-end-line="328" selection-end-column="16" />
           <folding>
             <element signature="e#0#23409#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#5631#7118#0" expanded="true" />
-            <element signature="e#7117#7118#0" expanded="true" />
-            <element signature="e#7168#8071#0" expanded="true" />
-            <element signature="e#8070#8071#0" expanded="true" />
-            <element signature="e#16024#17258#0" />
+            <element signature="e#1485#5740#0" />
+            <element signature="e#1700#2757#0" />
             <element signature="e#17686#17687#0" expanded="true" />
             <element signature="e#17710#17711#0" expanded="true" />
             <element signature="e#17735#17736#0" expanded="true" />

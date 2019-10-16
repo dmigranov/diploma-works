@@ -99,7 +99,8 @@ public class Controller {
     private Point3D[][] splinePoints;
     private Point3D[][] modelPoints;
 
-    double uMax, vMax; //todo: добавить uMin, vMin, если начинать не с нуля?!
+    double uMax, vMax, uMin, vMin;
+
 
     public Controller(WireframePanel wireframePanel) {
         this.wireframePanel = wireframePanel;
@@ -285,13 +286,13 @@ public class Controller {
 
 
     private void findModelPoints() {
-        double incrementU = (double)(Ni - Ti + 2) / n / k;
-        double incrementV = (double)(Nj - Tj + 2) / m / k;
+        double incrementU = (double)(uMax - uMin) / n / k;
+        double incrementV = (double)(vMax - vMin) / m / k;
 
-        double u = 0, v = 0;
+        double u = uMin, v = vMin;
         for(int i = 0; i < n * k; i++)
         {
-            v = 0;
+            v = vMin;
             for(int j = 0; j < m * k; j++)
             {
                 Point3D Puv = calculateSplineFunction(u, v, splinePoints);
@@ -309,7 +310,7 @@ public class Controller {
             u += incrementU;
         }
 
-        u = 0;
+        u = uMin;
         for(int i = 0; i < n * k; i++)  //<=?
         {
             Point3D Puv = calculateSplineFunctionEdgeV(u, splinePoints);
@@ -325,7 +326,7 @@ public class Controller {
             u += incrementU;
         }
 
-        v = 0;
+        v = vMin;
         for(int j = 0; j < m * k; j++)
         {
             Point3D Puv = calculateSplineFunctionEdgeU(v, splinePoints);
@@ -373,6 +374,7 @@ public class Controller {
             else //i > n
                 knotsI[i] = Ni - Ti + 2;
         }
+        uMin = knotsI[0];
         uMax = knotsI[Ni + Ti];
 
         knotsJ = new int[Nj + Tj + 1];
@@ -385,6 +387,7 @@ public class Controller {
             else //j > n
                 knotsJ[j] = Nj - Tj + 2;
         }
+        vMin = knotsJ[0];
         vMax = knotsJ[Nj + Tj];
     }
 
