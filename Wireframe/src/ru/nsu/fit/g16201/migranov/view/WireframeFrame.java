@@ -54,7 +54,6 @@ public class WireframeFrame extends MainFrame {
         addMenus();
         createCommonConfigurationPanel();
 
-
         add(mainPanel);
 
         JPanel statusPanel = new JPanel();
@@ -114,6 +113,7 @@ public class WireframeFrame extends MainFrame {
                 return borderInsets;
             }
         });     //без этого были странные белые полоски под вкладками https://stackoverflow.com/questions/5183687/java-remove-margin-padding-on-a-jtabbedpane
+
         JPanel commonPanel = new JPanel();
         tabbedPane.add("Common", commonPanel);
 
@@ -197,25 +197,6 @@ public class WireframeFrame extends MainFrame {
                 controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj);
                 resize();
 
-                /*double a, b, cx, cy, cz;
-                int cR, cG, cB;
-                a = Double.parseDouble(aSplineField.getText());
-                b = Double.parseDouble(bSplineField.getText());
-                cR = Integer.parseInt(figureColorFields[0].getText());
-                cG = Integer.parseInt(figureColorFields[1].getText());
-                cB = Integer.parseInt(figureColorFields[2].getText());
-
-                cx = Double.parseDouble(centerFields[0].getText());
-                cy = Double.parseDouble(centerFields[1].getText());
-                cz = Double.parseDouble(centerFields[2].getText());
-
-
-                if(cR < 0 || cR > 255 || cG < 0 || cG > 255 || cB < 0 || cB > 255)
-                    throw new NumberFormatException("Wrong color");
-                controller.setABColorCenter(a, b, new Color(cR, cG, cB), new Point3D(cx, cy, cz));
-                */
-
-
                 updateFields();
             }
             catch (NumberFormatException n)
@@ -234,7 +215,9 @@ public class WireframeFrame extends MainFrame {
         addMenuAndToolBarButton("File/Save as", "Save figures as", KeyEvent.VK_S, "download.png", "onSave", true);
 
         addSubMenu("Options", KeyEvent.VK_O);
-        addMenuAndToolBarButton("Options/Configuration", "Configure splines", KeyEvent.VK_S, "settings.png", "onConfigureSplines", true);
+        addMenuAndToolBarButton("Options/Configuration", "Configure splines and viewing properties", KeyEvent.VK_S, "settings.png", "onConfigureSplines", true);
+        addMenuAndToolBarButton("Options/Geodesics", "Configure geodesics", KeyEvent.VK_G, "settings.png", "onConfigureGeodesics", true);
+
 
         addSubMenu("Help", KeyEvent.VK_H);
         addMenuAndToolBarButton("Help/About", "Shows program version and copyright information", KeyEvent.VK_A, "book.png", "onAbout", false);
@@ -411,7 +394,14 @@ public class WireframeFrame extends MainFrame {
         load3DFile(file);
     }
 
-    private void load3DFile(File file) throws NoSuchMethodException
+    public void onConfigureGeodesics()
+    {
+        //выводить окно со списком геодезических.
+        //как задавать: начальная точка +...
+        //вектор? и потом по нему идти
+    }
+
+    private void load3DFile(File file)
     {
         if(file != null) {
             setTitle(file.getName() + " | Denis Migranov, 16201");
