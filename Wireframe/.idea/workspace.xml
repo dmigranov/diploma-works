@@ -26,33 +26,23 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-143">
-              <caret line="328" column="16" selection-start-line="328" selection-start-column="16" selection-end-line="328" selection-end-column="16" />
+            <state relative-caret-position="145">
+              <caret line="280" column="61" selection-start-line="280" selection-start-column="61" selection-end-line="280" selection-end-column="61" />
               <folding>
                 <element signature="e#0#23409#0" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="e#1485#5740#0" />
                 <element signature="e#1700#2757#0" />
-                <element signature="e#17686#17687#0" expanded="true" />
-                <element signature="e#17710#17711#0" expanded="true" />
-                <element signature="e#17735#17736#0" expanded="true" />
-                <element signature="e#17759#17760#0" expanded="true" />
-                <element signature="e#17784#17785#0" expanded="true" />
-                <element signature="e#17808#17809#0" expanded="true" />
-                <element signature="e#18354#18355#0" expanded="true" />
-                <element signature="e#18379#18380#0" expanded="true" />
-                <element signature="e#18415#18416#0" expanded="true" />
-                <element signature="e#18443#18444#0" expanded="true" />
-                <element signature="e#18472#18473#0" expanded="true" />
-                <element signature="e#18497#18498#0" expanded="true" />
-                <element signature="e#18533#18534#0" expanded="true" />
-                <element signature="e#18561#18562#0" expanded="true" />
-                <element signature="e#18591#18592#0" expanded="true" />
-                <element signature="e#18616#18617#0" expanded="true" />
-                <element signature="e#18645#18646#0" expanded="true" />
-                <element signature="e#18670#18671#0" expanded="true" />
-                <element signature="e#18711#18712#0" expanded="true" />
-                <element signature="e#18749#18750#0" expanded="true" />
+                <element signature="e#21508#21509#0" expanded="true" />
+                <element signature="e#21557#21558#0" expanded="true" />
+                <element signature="e#21606#21607#0" expanded="true" />
+                <element signature="e#22177#22178#0" expanded="true" />
+                <element signature="e#22241#22242#0" expanded="true" />
+                <element signature="e#22295#22296#0" expanded="true" />
+                <element signature="e#22359#22360#0" expanded="true" />
+                <element signature="e#22414#22415#0" expanded="true" />
+                <element signature="e#22468#22469#0" expanded="true" />
+                <element signature="e#22547#22548#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,8 +51,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Matrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="267" selection-start-line="267" selection-end-line="267" />
+            <state relative-caret-position="177">
+              <caret line="225" column="25" selection-start-line="225" selection-start-column="25" selection-end-line="225" selection-end-column="25" />
+              <folding>
+                <element signature="e#7198#7199#0" expanded="true" />
+                <element signature="e#7255#7256#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,7 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>scale</find>
       <find>xm</find>
       <find>figure</find>
       <find>currentFigure</find>
@@ -126,6 +119,7 @@
       <find>област</find>
       <find>drawA</find>
       <find>knot</find>
+      <find>оси</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -329,14 +323,7 @@
       <workItem from="1570964165365" duration="11853000" />
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
-      <workItem from="1571215176911" duration="5364000" />
-    </task>
-    <task id="LOCAL-00036" summary="it runs and loads file ok">
-      <created>1570802542338</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1570802542338</updated>
+      <workItem from="1571215176911" duration="6604000" />
     </task>
     <task id="LOCAL-00037" summary="deleted splinepanel">
       <created>1570802663584</created>
@@ -674,11 +661,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571220408534</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="added and used vmin, vmax">
+      <created>1571220585126</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1571220585126</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80126000" />
+    <option name="totallyTimeSpent" value="81366000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -700,16 +694,16 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48791945" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4966443" weight="0.39943343" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48657718" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49597314" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986577" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51208055" side_tool="true" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4818792" weight="0.17705382" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51342285" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.48120806" weight="0.17705382" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49463087" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -765,7 +759,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="вё неплохо, но ломается видимо на приграничных значениях!" />
     <MESSAGE value="deleted some old stuff" />
     <MESSAGE value="new controls!" />
     <MESSAGE value="enough for today" />
@@ -790,7 +783,8 @@
     <MESSAGE value="задал требования на &quot;степени&quot;" />
     <MESSAGE value="вынес нахождение точек поверхности в отдельный метод" />
     <MESSAGE value="added uMax и vMax" />
-    <option name="LAST_COMMIT_MESSAGE" value="added uMax и vMax" />
+    <MESSAGE value="added and used vmin, vmax" />
+    <option name="LAST_COMMIT_MESSAGE" value="added and used vmin, vmax" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -891,10 +885,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframePanel.java">
+    <entry file="file://$PROJECT_DIR$/example3d.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        <state relative-caret-position="280">
+          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -905,49 +899,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Matrix.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="267" selection-start-line="267" selection-end-line="267" />
+        <state relative-caret-position="292">
+          <caret line="60" column="5" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example3d.txt">
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="6" />
+        <state relative-caret-position="177">
+          <caret line="225" column="25" selection-start-line="225" selection-start-column="25" selection-end-line="225" selection-end-column="25" />
+          <folding>
+            <element signature="e#7198#7199#0" expanded="true" />
+            <element signature="e#7255#7256#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-143">
-          <caret line="328" column="16" selection-start-line="328" selection-start-column="16" selection-end-line="328" selection-end-column="16" />
+        <state relative-caret-position="145">
+          <caret line="280" column="61" selection-start-line="280" selection-start-column="61" selection-end-line="280" selection-end-column="61" />
           <folding>
             <element signature="e#0#23409#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#1485#5740#0" />
             <element signature="e#1700#2757#0" />
-            <element signature="e#17686#17687#0" expanded="true" />
-            <element signature="e#17710#17711#0" expanded="true" />
-            <element signature="e#17735#17736#0" expanded="true" />
-            <element signature="e#17759#17760#0" expanded="true" />
-            <element signature="e#17784#17785#0" expanded="true" />
-            <element signature="e#17808#17809#0" expanded="true" />
-            <element signature="e#18354#18355#0" expanded="true" />
-            <element signature="e#18379#18380#0" expanded="true" />
-            <element signature="e#18415#18416#0" expanded="true" />
-            <element signature="e#18443#18444#0" expanded="true" />
-            <element signature="e#18472#18473#0" expanded="true" />
-            <element signature="e#18497#18498#0" expanded="true" />
-            <element signature="e#18533#18534#0" expanded="true" />
-            <element signature="e#18561#18562#0" expanded="true" />
-            <element signature="e#18591#18592#0" expanded="true" />
-            <element signature="e#18616#18617#0" expanded="true" />
-            <element signature="e#18645#18646#0" expanded="true" />
-            <element signature="e#18670#18671#0" expanded="true" />
-            <element signature="e#18711#18712#0" expanded="true" />
-            <element signature="e#18749#18750#0" expanded="true" />
+            <element signature="e#21508#21509#0" expanded="true" />
+            <element signature="e#21557#21558#0" expanded="true" />
+            <element signature="e#21606#21607#0" expanded="true" />
+            <element signature="e#22177#22178#0" expanded="true" />
+            <element signature="e#22241#22242#0" expanded="true" />
+            <element signature="e#22295#22296#0" expanded="true" />
+            <element signature="e#22359#22360#0" expanded="true" />
+            <element signature="e#22414#22415#0" expanded="true" />
+            <element signature="e#22468#22469#0" expanded="true" />
+            <element signature="e#22547#22548#0" expanded="true" />
           </folding>
         </state>
       </provider>

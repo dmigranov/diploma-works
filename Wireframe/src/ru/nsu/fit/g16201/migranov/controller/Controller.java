@@ -274,12 +274,39 @@ public class Controller {
             }
         }
 
-        //оси
-        {
-            //центр - это P(0,0)
-            //ось абсцисс - это P(umax, o)
-            //umax = Ni - Ti + 2
-        }
+        /*{
+            Point3D P0 = calculateSplineFunction(0, 0, splinePoints);
+            Point3D Pu = calculateSplineFunction(uMax*0.9, 0, splinePoints);
+            Point3D Pv = calculateSplineFunction(0, vMax*0.9, splinePoints);
+
+            Matrix newCoordSystemMatrix = new Matrix(4, 4,
+            1, 0, 0, 0,
+                    0, 0, -1, 0,
+                    0, 1, 0, 0,
+                    0, 0, 0, 1);        // double x = Puv.x, y = -Puv.z, z = Puv.y;
+            Matrix P0M = Matrix.multiply(newCoordSystemMatrix, Matrix.getVector4(P0));
+            Matrix PuM = Matrix.multiply(newCoordSystemMatrix, Matrix.getVector4(Pu));
+            Matrix PvM = Matrix.multiply(newCoordSystemMatrix, Matrix.getVector4(Pv));
+
+            P0M = Matrix.multiply(resultMatrix, P0M);
+            P0M = Matrix.multiplyByScalar(1/P0M.get(3, 0), P0M);
+            int cx = (int)((P0M.get(0, 0) + 1)/2*wireframePanel.getCanvasWidth());
+            int cy = (int)((P0M.get(1, 0) + 1)/2*wireframePanel.getCanvasHeight());
+            Matrix[] axes = new Matrix[] {PuM, PvM};
+            int axeColor = 0x0000FF00;
+
+            for(int i = 0; i < 2; i++)
+            {
+                Matrix axePoint = Matrix.multiply(resultMatrix, axes[i]);
+                axePoint = Matrix.multiplyByScalar(1/axePoint.get(3, 0), axePoint);
+
+                int px = (int)((axePoint.get(0, 0) + 1)/2*wireframePanel.getCanvasWidth());
+                int py = (int)((axePoint.get(1, 0) + 1)/2*wireframePanel.getCanvasHeight());
+
+                wireframePanel.drawLine(cx, cy, px, py, new Color(axeColor));
+                axeColor>>=8;
+            }
+        }*/
 
         wireframePanel.repaint();
     }
