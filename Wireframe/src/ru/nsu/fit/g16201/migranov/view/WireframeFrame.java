@@ -31,8 +31,6 @@ public class WireframeFrame extends MainFrame {
     private JButton confirmButton;
     private boolean fileIsLoaded = false;
 
-    private ButtonGroup group;
-
     public static void main(String[] args) throws Exception {
         new WireframeFrame();
     }

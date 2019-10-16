@@ -87,7 +87,7 @@ public class Controller {
 
     private int width, height;
 
-    private boolean isDrawingFirstTime = true;
+    private boolean needsToBeRedrawn = true, isDrawingFirstTime = true;
 
     private double xAllAngle = 0, yAllAngle = 0;
 
@@ -219,7 +219,7 @@ public class Controller {
 
         /* Step size along the curve */
         //n*k и m*k - это фактически разрешение
-        if (isDrawingFirstTime) {
+        if (needsToBeRedrawn) {
             findModelPoints();
 
             //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
@@ -227,6 +227,7 @@ public class Controller {
             //todo: сделал, но разоабраться получше!
 
             double maxDim = Math.max(Math.max(maxX - minX, maxY - minY), maxZ - minZ);          //nx = 2 * (x - minX)/(maxx- minx) - 1 и для других - но так не сохр пропорции; поэтому делю на одно и то же
+            needsToBeRedrawn = false;
             isDrawingFirstTime = false;
 
             Matrix boxTranslateMatrix = new Matrix(4, 4, 1, 0, 0, -minX,
@@ -274,41 +275,6 @@ public class Controller {
             }
         }
 
-        /*{
-
-            Point3D P0 = calculateSplineFunction(0, 0, splinePoints);
-            Point3D Pu = calculateSplineFunction(uMax*0.9, 0, splinePoints);
-            Point3D Pv = calculateSplineFunction(0, vMax*0.9, splinePoints);
-
-            Matrix newCoordSystemMatrix = new Matrix(4, 4,
-            1, 0, 0, 0,
-                    0, 0, -1, 0,
-                    0, 1, 0, 0,
-                    0, 0, 0, 1);        // double x = Puv.x, y = -Puv.z, z = Puv.y;
-            Matrix P0M = Matrix.multiply(newCoordSystemMatrix, Matrix.getVector4(P0));
-            Matrix PuM = Matrix.multiply(newCoordSystemMatrix, Matrix.getVector4(Pu));
-            Matrix PvM = Matrix.multiply(newCoordSystemMatrix, Matrix.getVector4(Pv));
-
-            P0M = Matrix.multiply(resultMatrix, P0M);
-            P0M = Matrix.multiplyByScalar(1/P0M.get(3, 0), P0M);
-            int cx = (int)((P0M.get(0, 0) + 1)/2*wireframePanel.getCanvasWidth());
-            int cy = (int)((P0M.get(1, 0) + 1)/2*wireframePanel.getCanvasHeight());
-            Matrix[] axes = new Matrix[] {PuM, PvM};
-            int axeColor = 0x0000FF00;
-
-            for(int i = 0; i < 2; i++)
-            {
-                Matrix axePoint = Matrix.multiply(resultMatrix, axes[i]);
-                axePoint = Matrix.multiplyByScalar(1/axePoint.get(3, 0), axePoint);
-
-                int px = (int)((axePoint.get(0, 0) + 1)/2*wireframePanel.getCanvasWidth());
-                int py = (int)((axePoint.get(1, 0) + 1)/2*wireframePanel.getCanvasHeight());
-
-                wireframePanel.drawLine(cx, cy, px, py, new Color(axeColor));
-                axeColor>>=8;
-            }
-        }*/
-
         wireframePanel.repaint();
     }
 
@@ -333,7 +299,8 @@ public class Controller {
                 double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
                 modelPoints[i][j] = new Point3D(x, y, z);
 
-                reevaluateMinMax(nx, ny, nz);
+                if(isDrawingFirstTime)
+                    reevaluateMinMax(nx, ny, nz);
             }
             u += incrementU;
         }
@@ -349,7 +316,8 @@ public class Controller {
             double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
             modelPoints[i][m*k] = new Point3D(x, y, z);
 
-            reevaluateMinMax(nx, ny, nz);
+            if(isDrawingFirstTime)
+                reevaluateMinMax(nx, ny, nz);
 
             u += incrementU;
         }
@@ -365,7 +333,8 @@ public class Controller {
             double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
             modelPoints[n*k][j] = new Point3D(x, y, z);
 
-            reevaluateMinMax(nx, ny, nz);
+            if(isDrawingFirstTime)
+                reevaluateMinMax(nx, ny, nz);
 
             v += incrementV;
         }
@@ -378,7 +347,8 @@ public class Controller {
             double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
             modelPoints[n * k][m * k] = new Point3D(x, y, z);
 
-            reevaluateMinMax(nx, ny, nz);
+            if(isDrawingFirstTime)
+                reevaluateMinMax(nx, ny, nz);
         }
     }
 
@@ -570,7 +540,6 @@ public class Controller {
         this.m = m;
         this.k = k;
 
-
         modelPoints = new Point3D[n*k + 1][m*k + 1];
 
         this.sw = sw;
@@ -581,6 +550,7 @@ public class Controller {
         this.backgroundColor = color;
         wireframePanel.setBackgroundColor(backgroundColor);
 
+        needsToBeRedrawn = true;
         drawFigure();
     }
 
@@ -614,8 +584,8 @@ public class Controller {
     }
 
     public int load3DFile(File file) {
+        needsToBeRedrawn = true;
         isDrawingFirstTime = true;
-
         try(BufferedReader br = new BufferedReader(new FileReader(file)))
         {
             String[] substrings;

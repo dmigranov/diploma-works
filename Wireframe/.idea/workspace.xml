@@ -4,6 +4,7 @@
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+            <state relative-caret-position="-60">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -26,23 +27,24 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="280" column="61" selection-start-line="280" selection-start-column="61" selection-end-line="280" selection-end-column="61" />
+            <state relative-caret-position="-609">
+              <caret line="230" column="39" selection-start-line="230" selection-start-column="39" selection-end-line="230" selection-end-column="39" />
               <folding>
                 <element signature="e#0#23409#0" expanded="true" />
                 <element signature="imports" expanded="true" />
                 <element signature="e#1485#5740#0" />
                 <element signature="e#1700#2757#0" />
-                <element signature="e#21508#21509#0" expanded="true" />
-                <element signature="e#21557#21558#0" expanded="true" />
-                <element signature="e#21606#21607#0" expanded="true" />
-                <element signature="e#22177#22178#0" expanded="true" />
-                <element signature="e#22241#22242#0" expanded="true" />
-                <element signature="e#22295#22296#0" expanded="true" />
-                <element signature="e#22359#22360#0" expanded="true" />
-                <element signature="e#22414#22415#0" expanded="true" />
-                <element signature="e#22468#22469#0" expanded="true" />
-                <element signature="e#22547#22548#0" expanded="true" />
+                <element signature="e#13137#15468#0" />
+                <element signature="e#20075#20076#0" expanded="true" />
+                <element signature="e#20124#20125#0" expanded="true" />
+                <element signature="e#20173#20174#0" expanded="true" />
+                <element signature="e#20776#20777#0" expanded="true" />
+                <element signature="e#20840#20841#0" expanded="true" />
+                <element signature="e#20894#20895#0" expanded="true" />
+                <element signature="e#20958#20959#0" expanded="true" />
+                <element signature="e#21013#21014#0" expanded="true" />
+                <element signature="e#21067#21068#0" expanded="true" />
+                <element signature="e#21146#21147#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,8 +92,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>xm</find>
-      <find>figure</find>
       <find>currentFigure</find>
       <find>split</find>
       <find>axes</find>
@@ -120,6 +120,8 @@
       <find>drawA</find>
       <find>knot</find>
       <find>оси</find>
+      <find>ос</find>
+      <find>loadF</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -136,9 +138,9 @@
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Point3D.java" />
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Matrix.java" />
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Figure.java" />
-        <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" />
         <option value="$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data/example3d.txt" />
         <option value="$PROJECT_DIR$/example3d.txt" />
+        <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" />
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
       </list>
     </option>
@@ -323,28 +325,7 @@
       <workItem from="1570964165365" duration="11853000" />
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
-      <workItem from="1571215176911" duration="6604000" />
-    </task>
-    <task id="LOCAL-00037" summary="deleted splinepanel">
-      <created>1570802663584</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1570802663584</updated>
-    </task>
-    <task id="LOCAL-00038" summary="deleted spline panel class itself">
-      <created>1570802718167</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1570802718167</updated>
-    </task>
-    <task id="LOCAL-00039" summary="deleted ABCD. still much work to do">
-      <created>1570803100591</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1570803100591</updated>
+      <workItem from="1571215176911" duration="7415000" />
     </task>
     <task id="LOCAL-00040" summary="gitignore">
       <created>1570803435057</created>
@@ -668,11 +649,32 @@
       <option name="project" value="LOCAL" />
       <updated>1571220585126</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="типа сделал оси, но отказался, т.к это плохая идея. у нас u и v - это внутренни координаты поверхности, они не так просто проецируются на землю!">
+      <created>1571221903477</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1571221903477</updated>
+    </task>
+    <task id="LOCAL-00087" summary="УДАЛЕНИЕ ОСЕЙ В СЛЕД. КОММИТЕ">
+      <created>1571221983479</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1571221983479</updated>
+    </task>
+    <task id="LOCAL-00088" summary="УДАЛЕНИЕ ОСЕЙ В СЛЕД. КОММИТЕ">
+      <created>1571221997487</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1571221997487</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81366000" />
+    <option name="totallyTimeSpent" value="82177000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -694,7 +696,7 @@
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48657718" visible="true" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48590603" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49597314" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -702,8 +704,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51342285" side_tool="true" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.48120806" weight="0.17705382" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.51409394" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4805369" weight="0.17705382" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49463087" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -759,8 +761,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deleted some old stuff" />
-    <MESSAGE value="new controls!" />
     <MESSAGE value="enough for today" />
     <MESSAGE value="dfsfdsf" />
     <MESSAGE value="something" />
@@ -784,7 +784,9 @@
     <MESSAGE value="вынес нахождение точек поверхности в отдельный метод" />
     <MESSAGE value="added uMax и vMax" />
     <MESSAGE value="added and used vmin, vmax" />
-    <option name="LAST_COMMIT_MESSAGE" value="added and used vmin, vmax" />
+    <MESSAGE value="типа сделал оси, но отказался, т.к это плохая идея. у нас u и v - это внутренни координаты поверхности, они не так просто проецируются на землю!" />
+    <MESSAGE value="УДАЛЕНИЕ ОСЕЙ В СЛЕД. КОММИТЕ" />
+    <option name="LAST_COMMIT_MESSAGE" value="УДАЛЕНИЕ ОСЕЙ В СЛЕД. КОММИТЕ" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -892,13 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframePanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
@@ -917,25 +912,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="280" column="61" selection-start-line="280" selection-start-column="61" selection-end-line="280" selection-end-column="61" />
+        <state relative-caret-position="-609">
+          <caret line="230" column="39" selection-start-line="230" selection-start-column="39" selection-end-line="230" selection-end-column="39" />
           <folding>
             <element signature="e#0#23409#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#1485#5740#0" />
             <element signature="e#1700#2757#0" />
-            <element signature="e#21508#21509#0" expanded="true" />
-            <element signature="e#21557#21558#0" expanded="true" />
-            <element signature="e#21606#21607#0" expanded="true" />
-            <element signature="e#22177#22178#0" expanded="true" />
-            <element signature="e#22241#22242#0" expanded="true" />
-            <element signature="e#22295#22296#0" expanded="true" />
-            <element signature="e#22359#22360#0" expanded="true" />
-            <element signature="e#22414#22415#0" expanded="true" />
-            <element signature="e#22468#22469#0" expanded="true" />
-            <element signature="e#22547#22548#0" expanded="true" />
+            <element signature="e#13137#15468#0" />
+            <element signature="e#20075#20076#0" expanded="true" />
+            <element signature="e#20124#20125#0" expanded="true" />
+            <element signature="e#20173#20174#0" expanded="true" />
+            <element signature="e#20776#20777#0" expanded="true" />
+            <element signature="e#20840#20841#0" expanded="true" />
+            <element signature="e#20894#20895#0" expanded="true" />
+            <element signature="e#20958#20959#0" expanded="true" />
+            <element signature="e#21013#21014#0" expanded="true" />
+            <element signature="e#21067#21068#0" expanded="true" />
+            <element signature="e#21146#21147#0" expanded="true" />
           </folding>
         </state>
       </provider>
