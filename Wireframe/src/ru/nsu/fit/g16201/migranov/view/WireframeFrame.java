@@ -141,7 +141,7 @@ public class WireframeFrame extends MainFrame {
         mnkPanel.add(new LabelTextField("k: ", kField, new IntegerTextFieldKeyListener()));
         clippingPanel.add(new LabelTextField("sw: ", swField, new FloatTextFieldKeyListener()));
         clippingPanel.add(new LabelTextField("sh: ", shField, new FloatTextFieldKeyListener()));
-        clippingPanel.add(new LabelTextField("Zfar: ", zfField, new FloatTextFieldKeyListener()));
+        clippingPanel.add(new LabelTextField("Zfar: ", zfField, new FloatTextFieldKeyListener()));;
         clippingPanel.add(new LabelTextField("Znear: ", znField, new FloatTextFieldKeyListener()));
 
         commonPanel.add(Box.createVerticalStrut(20));
