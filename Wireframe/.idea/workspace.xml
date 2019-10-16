@@ -26,8 +26,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="349" column="58" selection-start-line="349" selection-start-column="58" selection-end-line="349" selection-end-column="58" />
+            <state relative-caret-position="171">
+              <caret line="245" column="80" selection-start-line="245" selection-start-column="80" selection-end-line="245" selection-end-column="80" />
               <folding>
                 <element signature="e#0#23409#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -332,14 +332,7 @@
       <workItem from="1570964165365" duration="11853000" />
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
-      <workItem from="1571215176911" duration="4126000" />
-    </task>
-    <task id="LOCAL-00033" summary="some file reading">
-      <created>1570801504361</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1570801504361</updated>
+      <workItem from="1571215176911" duration="4413000" />
     </task>
     <task id="LOCAL-00034" summary="3d spline point file can be read now!">
       <created>1570801909810</created>
@@ -677,11 +670,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571219137283</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="вынес нахождение точек поверхности в отдельный метод">
+      <created>1571219370172</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1571219370172</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78888000" />
+    <option name="totallyTimeSpent" value="79175000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -707,12 +707,12 @@
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4966443" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="TODO" order="6" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5053691" side_tool="true" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.48255032" visible="true" weight="0.14730878" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.48255032" weight="0.14730878" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49463087" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -768,7 +768,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="вообще не так плозо, но странные артефакты" />
     <MESSAGE value="исправил глупейшую ошиибку в функции knot, из-за которых с определенных индексов все тупо занулялось" />
     <MESSAGE value="вё неплохо, но ломается видимо на приграничных значениях!" />
     <MESSAGE value="deleted some old stuff" />
@@ -793,7 +792,8 @@
     <MESSAGE value="ещё комментарии" />
     <MESSAGE value="еще больше комментариев, было решено не менять определение рекурсивных функций. моё совпадает с таковым в английской википедии" />
     <MESSAGE value="задал требования на &quot;степени&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="задал требования на &quot;степени&quot;" />
+    <MESSAGE value="вынес нахождение точек поверхности в отдельный метод" />
+    <option name="LAST_COMMIT_MESSAGE" value="вынес нахождение точек поверхности в отдельный метод" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
@@ -924,8 +924,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="349" column="58" selection-start-line="349" selection-start-column="58" selection-end-line="349" selection-end-column="58" />
+        <state relative-caret-position="171">
+          <caret line="245" column="80" selection-start-line="245" selection-start-column="80" selection-end-line="245" selection-end-column="80" />
           <folding>
             <element signature="e#0#23409#0" expanded="true" />
             <element signature="imports" expanded="true" />

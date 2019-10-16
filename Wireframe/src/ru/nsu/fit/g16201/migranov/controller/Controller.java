@@ -217,18 +217,13 @@ public class Controller {
 
         /* Step size along the curve */
         //n*k и m*k - это фактически разрешение
-        Matrix rtm = figureRotateMatrix;
         if(isDrawingFirstTime)
         {
-
-            //todo вынести дальнейшее в отдельынй метод, возможно как-то скомбинировать три кейса чтоб было красиво
             findModelPoints();
 
             //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
             //|knotsJ| = Nj + Kj + 1
             //todo: сделал, но разоабраться получше!
-
-            //считаю только один раз, при запуске, чтобы при перемещении точек одной фигуры остальные остальные фигуры оставались на местах
 
             double maxDim = Math.max(Math.max(maxX - minX, maxY - minY), maxZ - minZ);          //nx = 2 * (x - minX)/(maxx- minx) - 1 и для других - но так не сохр пропорции; поэтому делю на одно и то же
             isDrawingFirstTime = false;
@@ -248,7 +243,7 @@ public class Controller {
         Matrix projViewBox = Matrix.multiply(projView, boxMatrix);
         Matrix projViewBoxRot = Matrix.multiply(projViewBox, sceneRotateMatrix);
 
-        Matrix resultMatrix = Matrix.multiply(projViewBoxRot, rtm);
+        Matrix resultMatrix = Matrix.multiply(projViewBoxRot, figureRotateMatrix);
 
         Color color = figureColor;
         Point[] uPrev = new Point[m*k+1];   //m*k
@@ -287,10 +282,10 @@ public class Controller {
         double incrementU = (double)(Ni - Ti + 2) / n / k;
         double incrementV = (double)(Nj - Tj + 2) / m / k;
 
-        double u = 0;
+        double u = 0, v = 0;
         for(int i = 0; i < n * k; i++)
         {
-            double v = 0;
+            v = 0;
             for(int j = 0; j < m * k; j++)
             {
                 Point3D Puv = calculateSplineFunction(u, v, splinePoints);
@@ -299,7 +294,7 @@ public class Controller {
 
                 double x = Puv.x, y = -Puv.z, z = Puv.y;
                 Matrix p = new Matrix(4, 1, x, y, z, 1);
-                Matrix np = Matrix.multiply(figureRotateMatrix, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+                Matrix np = Matrix.multiply(figureRotateMatrix, p);
                 double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
                 modelPoints[i][j] = new Point3D(x, y, z);
 
@@ -315,7 +310,7 @@ public class Controller {
 
             double x = Puv.x, y = -Puv.z, z = Puv.y;
             Matrix p = new Matrix(4, 1, x, y, z, 1);
-            Matrix np = Matrix.multiply(figureRotateMatrix, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+            Matrix np = Matrix.multiply(figureRotateMatrix, p);
             double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
             modelPoints[i][m*k] = new Point3D(x, y, z);
 
@@ -324,14 +319,14 @@ public class Controller {
             u += incrementU;
         }
 
-        double v = 0;
+        v = 0;
         for(int j = 0; j < m * k; j++)
         {
             Point3D Puv = calculateSplineFunctionEdgeU(v, splinePoints);
 
             double x = Puv.x, y = -Puv.z, z = Puv.y;
             Matrix p = new Matrix(4, 1, x, y, z, 1);
-            Matrix np = Matrix.multiply(figureRotateMatrix, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+            Matrix np = Matrix.multiply(figureRotateMatrix, p);
             double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
             modelPoints[n*k][j] = new Point3D(x, y, z);
 
@@ -344,7 +339,7 @@ public class Controller {
             Point3D Puv = splinePoints[Ni][Nj];
             double x = Puv.x, y = -Puv.z, z = Puv.y;
             Matrix p = new Matrix(4, 1, x, y, z, 1);
-            Matrix np = Matrix.multiply(figureRotateMatrix, p);                        //на самом деле произведение r и t имеет простой вид - можно упростить
+            Matrix np = Matrix.multiply(figureRotateMatrix, p);
             double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
             modelPoints[n * k][m * k] = new Point3D(x, y, z);
 
