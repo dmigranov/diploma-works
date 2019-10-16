@@ -99,6 +99,8 @@ public class Controller {
     private Point3D[][] splinePoints;
     private Point3D[][] modelPoints;
 
+    double uMax, vMax; //todo: добавить uMin, vMin, если начинать не с нуля?!
+
     public Controller(WireframePanel wireframePanel) {
         this.wireframePanel = wireframePanel;
 
@@ -109,7 +111,7 @@ public class Controller {
 
             if(e.isControlDown())
             {
-                //todo: не похволять сильно зумить
+                //todo: не позволять сильно зумить
                 double dz = -count * 1;
                 Point3D forward = Point3D.add(ref, Point3D.getNegative(eye));
                 forward = forward.normalize();
@@ -211,14 +213,12 @@ public class Controller {
 
     private double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
 
-    public void drawFigure()
-    {
+    public void drawFigure() {
         wireframePanel.clear();
 
         /* Step size along the curve */
         //n*k и m*k - это фактически разрешение
-        if(isDrawingFirstTime)
-        {
+        if (isDrawingFirstTime) {
             findModelPoints();
 
             //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
@@ -229,13 +229,13 @@ public class Controller {
             isDrawingFirstTime = false;
 
             Matrix boxTranslateMatrix = new Matrix(4, 4, 1, 0, 0, -minX,
-                        0, 1, 0, -minY,
-                        0, 0, 1, -minZ,
-                        0, 0, 0, 1);
+                    0, 1, 0, -minY,
+                    0, 0, 1, -minZ,
+                    0, 0, 0, 1);
             Matrix boxScaleMatrix = new Matrix(4, 4, 2 / maxDim, 0, 0, -(maxX - minX) / maxDim,
-                        0, 2 / maxDim, 0, -(maxY - minY) / maxDim,
-                        0, 0, 2 / maxDim, -(maxZ - minZ) / maxDim,
-                        0, 0, 0, 1);
+                    0, 2 / maxDim, 0, -(maxY - minY) / maxDim,
+                    0, 0, 2 / maxDim, -(maxZ - minZ) / maxDim,
+                    0, 0, 0, 1);
             boxMatrix = Matrix.multiply(boxScaleMatrix, boxTranslateMatrix);
         }
 
@@ -246,8 +246,8 @@ public class Controller {
         Matrix resultMatrix = Matrix.multiply(projViewBoxRot, figureRotateMatrix);
 
         Color color = figureColor;
-        Point[] uPrev = new Point[m*k+1];   //m*k
-        for (int i = 0; i <= n*k; i++) {
+        Point[] uPrev = new Point[m * k + 1];   //m*k
+        for (int i = 0; i <= n * k; i++) {
             Point vPrev = null;
 
             for (int j = 0; j <= m * k; j++) {
@@ -257,17 +257,15 @@ public class Controller {
                 Point3D np = new Point3D(nmp.get(0, 0), nmp.get(1, 0), nmp.get(2, 0));
                 double w = nmp.get(3, 0);
                 {
-                    int x = (int)((np.x/w + 1)/2*wireframePanel.getCanvasWidth());
-                    int y = (int)((np.y/w + 1)/2*wireframePanel.getCanvasHeight());
+                    int x = (int) ((np.x / w + 1) / 2 * wireframePanel.getCanvasWidth());
+                    int y = (int) ((np.y / w + 1) / 2 * wireframePanel.getCanvasHeight());
 
-                    if(vPrev != null && i % k == 0)
-                    {
+                    if (vPrev != null && i % k == 0) {
                         wireframePanel.drawLine(vPrev.x, vPrev.y, x, y, color);
                     }
                     vPrev = new Point(x, y);
 
-                    if(uPrev[j] != null && j % k == 0)
-                    {
+                    if (uPrev[j] != null && j % k == 0) {
                         wireframePanel.drawLine(uPrev[j].x, uPrev[j].y, x, y, color);
                     }
                     uPrev[j] = new Point(x, y);
@@ -275,8 +273,16 @@ public class Controller {
             }
         }
 
+        //оси
+        {
+            //центр - это P(0,0)
+            //ось абсцисс - это P(umax, o)
+            //umax = Ni - Ti + 2
+        }
+
         wireframePanel.repaint();
     }
+
 
     private void findModelPoints() {
         double incrementU = (double)(Ni - Ti + 2) / n / k;
@@ -367,6 +373,7 @@ public class Controller {
             else //i > n
                 knotsI[i] = Ni - Ti + 2;
         }
+        uMax = knotsI[Ni + Ti];
 
         knotsJ = new int[Nj + Tj + 1];
         for(int j = 0; j < knotsJ.length; j++)
@@ -378,6 +385,7 @@ public class Controller {
             else //j > n
                 knotsJ[j] = Nj - Tj + 2;
         }
+        vMax = knotsJ[Nj + Tj];
     }
 
     private Point3D calculateSplineFunctionEdgeU(double v, Point3D[][] splinePoints) {
@@ -467,7 +475,7 @@ public class Controller {
         return matrix;
     }
 
-    public void saveFile(File file) {
+    public void saveFile(File file) {  //todo
         /*try(PrintWriter pw = new PrintWriter(file)) {
             pw.println(n + " " + m + " " + k + " " + a + " " + b + " " + c + " " + d);
             pw.println(zn + " " + zf + " " + sw + " " + sh);
@@ -500,7 +508,7 @@ public class Controller {
         {
         }
 
-        */ //todo
+        */
     }
 
     //4 строку и столбец - выбрасываем
