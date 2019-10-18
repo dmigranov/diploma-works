@@ -5,7 +5,17 @@ import org.apache.commons.math3.analysis.differentiation.DerivativeStructure;
 public class GeodesicsCalculator {
     private Matrix calculateMetricTensor(double u0, double v0)
     {
-        return new Matrix(1, 1, 1);
+        double g11, g22, g12, g21;
+
+        double xu, xv, yu, yv, zu, zv;
+
+        //todo
+
+        g11 = xu*xu + yu*yu + zu*zu;
+        g12 = g21 = xu*xv + yu*yv + zu*zv;
+        g22 = xv*xv + yv*yv + zv*zv;
+
+        return new Matrix(2, 2, g11, g12, g21, g22);
     }
 
 }
