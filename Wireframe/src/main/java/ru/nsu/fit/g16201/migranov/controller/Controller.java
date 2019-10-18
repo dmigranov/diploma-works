@@ -225,6 +225,9 @@ public class Controller {
 
 
     private void findModelPoints() {
+        double uMin = splineCalculator.getUMin(), uMax = splineCalculator.getUMax();
+        double vMin = splineCalculator.getVMin(), vMax = splineCalculator.getVMax();
+
         double incrementU = (double)(uMax - uMin) / n / k;
         double incrementV = (double)(vMax - vMin) / m / k;
 
