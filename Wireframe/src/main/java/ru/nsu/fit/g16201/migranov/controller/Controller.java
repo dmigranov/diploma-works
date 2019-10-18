@@ -51,7 +51,6 @@ public class Controller {
 
     private double uMax, vMax, uMin, vMin;
 
-
     public Controller(WireframePanel wireframePanel) {
         this.wireframePanel = wireframePanel;
 
