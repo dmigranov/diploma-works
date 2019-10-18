@@ -212,7 +212,7 @@ public class WireframeFrame extends MainFrame {
         addMenuAndToolBarButton("File/Save as", "Save figures as", KeyEvent.VK_S, "download.png", "onSave", true);
 
         addSubMenu("Options", KeyEvent.VK_O);
-        addMenuAndToolBarButton("Options/Configuration", "Configure splines and viewing properties", KeyEvent.VK_S, "settings.png", "onConfigureSplines", true);
+        addMenuAndToolBarButton("Options/Configuration", "Configure splines and viewing properties", KeyEvent.VK_S, "settings.png", "onConfigure", true);
         addMenuAndToolBarButton("Options/Geodesics", "Configure geodesics", KeyEvent.VK_G, "settings.png", "onConfigureGeodesics", true);
 
 
@@ -332,4 +332,9 @@ public class WireframeFrame extends MainFrame {
         JOptionPane.showMessageDialog(this, aboutPanel, "GeoWireFold", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    public void onConfigure()
+    {
+        updateFields();
+        JOptionPane.showOptionDialog(this, tabbedPane, "Configuration", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, new Object[]{confirmButton}, confirmButton);
+    }
 }
