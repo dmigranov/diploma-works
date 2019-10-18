@@ -1,7 +1,6 @@
 package ru.nsu.fit.g16201.migranov.view;
 
 import ru.nsu.fit.g16201.migranov.controller.Controller;
-import ru.nsu.fit.g16201.migranov.model.Point3D;
 import ru.nsu.fit.g16201.migranov.view.frametemplate.MainFrame;
 
 import javax.swing.*;
@@ -11,11 +10,9 @@ import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.List;
 
 public class WireframeFrame extends MainFrame {
@@ -266,114 +263,6 @@ public class WireframeFrame extends MainFrame {
         }
     }
 
-    private void addCheckBoxMenuAndToolBarButton(String path, String tooltip, int mnemonic, String icon, String actionMethod, boolean state, boolean isDeactivated) throws NoSuchMethodException
-    {
-        MenuElement element = getParentMenuElement(path);
-        if(element == null)
-            throw new InvalidParameterException("Menu path not found: " + path);
-        String title = getMenuPathName(path);
-
-        JCheckBoxMenuItem item = new JCheckBoxMenuItem(title, state);
-
-        item.setMnemonic(mnemonic);
-        item.setToolTipText(tooltip);
-
-        item.addMouseListener(new StatusTitleListener(statusLabel));
-
-        final Method method = getClass().getMethod(actionMethod);
-        item.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                try {
-                    method.invoke(WireframeFrame.this);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
-        if(element instanceof JMenu)
-            ((JMenu)element).add(item);
-        else if(element instanceof JPopupMenu)
-            ((JPopupMenu)element).add(item);
-        else
-            throw new InvalidParameterException("Invalid menu path: " + path);
-
-        JToggleButton button = new JToggleButton();
-        if(icon != null)
-            button.setIcon(new ImageIcon(getClass().getResource("/"+icon), title));
-        button.setToolTipText(tooltip);
-        button.setModel(item.getModel());   //кнопки повторяют поведение меню, включая "зажатость"
-        toolBar.add(button);
-        button.addMouseListener(new StatusTitleListener(statusLabel));
-
-        if(isDeactivated)
-        {
-            item.setEnabled(false);
-            button.setEnabled(false);
-            deactivatedButtons.add(item);
-            deactivatedButtons.add(button);
-        }
-    }
-
-    private void addRadioButtonMenuAndToolBarButton(String path, String tooltip, int mnemonic, String icon, ButtonGroup group,  String actionMethod, boolean state, boolean isDeactivated, boolean areToolBarButtonsAdded) throws NoSuchMethodException
-    {
-        MenuElement element = getParentMenuElement(path);
-        if(element == null)
-            throw new InvalidParameterException("Menu path not found: " + path);
-        String title = getMenuPathName(path);
-
-        JRadioButtonMenuItem item = new JRadioButtonMenuItem(title, state);
-
-        item.setMnemonic(mnemonic);
-        item.setToolTipText(tooltip);
-
-        item.addMouseListener(new StatusTitleListener(statusLabel));
-
-        final Method method = getClass().getMethod(actionMethod);
-        item.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                try {
-                    method.invoke(WireframeFrame.this);
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
-
-        if(element instanceof JMenu)
-            ((JMenu)element).add(item);
-        else if(element instanceof JPopupMenu)
-            ((JPopupMenu)element).add(item);
-        else
-            throw new InvalidParameterException("Invalid menu path: " + path);
-
-        group.add(item);
-
-        if(areToolBarButtonsAdded) {
-            JToggleButton button = new JToggleButton(item.getIcon());
-
-            if (icon != null)
-                button.setIcon(new ImageIcon(getClass().getResource("/" + icon), title));
-            button.setToolTipText(item.getToolTipText());
-            button.setModel(item.getModel());   //кнопки повторяют поведение меню, включая "зажатость"
-            toolBar.add(button);
-            button.addMouseListener(new StatusTitleListener(statusLabel));
-            if(isDeactivated)
-            {
-                button.setEnabled(false);
-                deactivatedButtons.add(button);
-            }
-        }
-
-        if(isDeactivated)
-        {
-            item.setEnabled(false);
-            deactivatedButtons.add(item);
-        }
-    }
-
-
     private void updateFields() {
         nField.setText(controller.getN() + "");
         mField.setText(controller.getM() + "");
@@ -443,10 +332,4 @@ public class WireframeFrame extends MainFrame {
         JOptionPane.showMessageDialog(this, aboutPanel, "GeoWireFold", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public void onConfigureSplines()
-    {
-        updateFields();
-
-        JOptionPane.showOptionDialog(this, tabbedPane, "Configuration", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, new Object[]{confirmButton}, confirmButton);
-    }
 }
