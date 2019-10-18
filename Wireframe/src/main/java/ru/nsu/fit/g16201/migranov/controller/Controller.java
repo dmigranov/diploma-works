@@ -41,7 +41,7 @@ public class Controller {
 
     private double xAllAngle = 0, yAllAngle = 0;
 
-    private int[] knotsI, knotsJ;
+    private int[] knotsI, knotsJ;   //todo: double!
 
     //фигура
     private Color figureColor;
@@ -49,7 +49,7 @@ public class Controller {
     private Point3D[][] splinePoints;
     private Point3D[][] modelPoints;
 
-    double uMax, vMax, uMin, vMin;
+    private double uMax, vMax, uMin, vMin;
 
 
     public Controller(WireframePanel wireframePanel) {
