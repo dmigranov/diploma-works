@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="43" column="51" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+            <state relative-caret-position="-10482">
+              <caret line="51" column="42" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#20051#20052#0" expanded="true" />
@@ -73,6 +73,15 @@
                 <element signature="e#24916#24917#0" expanded="true" />
                 <element signature="e#24950#24951#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -115,7 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onrotat</find>
       <find>currentRotateFigure</find>
       <find>drawS</find>
       <find>camera</find>
@@ -145,6 +153,7 @@
       <find>setico</find>
       <find>onConfigureSplines</find>
       <find>onCon</find>
+      <find>spline</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,6 +179,7 @@
         <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" />
         <option value="$PROJECT_DIR$/example3d-2.txt" />
         <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" />
       </list>
     </option>
   </component>
@@ -247,6 +257,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="migranov" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="migranov" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
@@ -357,35 +376,7 @@
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
       <workItem from="1571215176911" duration="13032000" />
-      <workItem from="1571388523921" duration="3559000" />
-    </task>
-    <task id="LOCAL-00058" summary="deleted some old stuff">
-      <created>1570974589884</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1570974589884</updated>
-    </task>
-    <task id="LOCAL-00059" summary="new controls!">
-      <created>1570976690378</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1570976690378</updated>
-    </task>
-    <task id="LOCAL-00060" summary="enough for today">
-      <created>1570976958794</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1570976958794</updated>
-    </task>
-    <task id="LOCAL-00061" summary="dfsfdsf">
-      <created>1571063018118</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1571063018119</updated>
+      <workItem from="1571388523921" duration="4552000" />
     </task>
     <task id="LOCAL-00062" summary="something">
       <created>1571064467528</created>
@@ -702,11 +693,39 @@
       <option name="project" value="LOCAL" />
       <updated>1571392480990</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="gonna delete spline function from arguments">
+      <created>1571392617115</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1571392617115</updated>
+    </task>
+    <task id="LOCAL-00108" summary="gonna delete spline function from arguments">
+      <created>1571392664743</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1571392664743</updated>
+    </task>
+    <task id="LOCAL-00109" summary="deleted splinefunction parameter from calculateSplineFunction">
+      <created>1571392727610</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1571392727610</updated>
+    </task>
+    <task id="LOCAL-00110" summary="q">
+      <created>1571392822690</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1571392822690</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91353000" />
+    <option name="totallyTimeSpent" value="92346000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -721,7 +740,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -737,7 +756,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932885" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5261745" side_tool="true" weight="0.17705382" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.4738255" visible="true" weight="0.19121814" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4738255" visible="true" weight="0.19121814" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49395972" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -793,9 +812,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="еще больше комментариев, было решено не менять определение рекурсивных функций. моё совпадает с таковым в английской википедии" />
-    <MESSAGE value="задал требования на &quot;степени&quot;" />
-    <MESSAGE value="вынес нахождение точек поверхности в отдельный метод" />
     <MESSAGE value="added uMax и vMax" />
     <MESSAGE value="added and used vmin, vmax" />
     <MESSAGE value="типа сделал оси, но отказался, т.к это плохая идея. у нас u и v - это внутренни координаты поверхности, они не так просто проецируются на землю!" />
@@ -818,7 +834,10 @@
     <MESSAGE value="deleted old resources" />
     <MESSAGE value="удалил старое из вью" />
     <MESSAGE value="added new example 7*7" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new example 7*7" />
+    <MESSAGE value="gonna delete spline function from arguments" />
+    <MESSAGE value="deleted splinefunction parameter from calculateSplineFunction" />
+    <MESSAGE value="q" />
+    <option name="LAST_COMMIT_MESSAGE" value="q" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/out2/production/FIT_16201_Migranov_Wireframe_Data/example4.txt" />
@@ -980,8 +999,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="43" column="51" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+        <state relative-caret-position="-10482">
+          <caret line="51" column="42" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#20051#20052#0" expanded="true" />
@@ -1005,6 +1024,13 @@
             <element signature="e#24916#24917#0" expanded="true" />
             <element signature="e#24950#24951#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
         </state>
       </provider>
     </entry>
