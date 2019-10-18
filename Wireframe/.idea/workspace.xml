@@ -45,8 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5180">
-              <caret line="265" selection-start-line="265" selection-end-line="265" />
+            <state relative-caret-position="-660">
+              <caret column="46" lean-forward="true" selection-start-column="46" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#20051#20052#0" expanded="true" />
@@ -113,8 +113,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+            <state relative-caret-position="380">
+              <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#533#534#0" expanded="true" />
+                <element signature="e#589#590#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -312,41 +317,6 @@
               <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
-            <path>
-              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.apache.commons:commons-math3:3.6.1" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.apache.commons:commons-math3:3.6.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="commons-math3-3.6.1.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.apache.commons:commons-math3:3.6.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="commons-math3-3.6.1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="math3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.apache.commons:commons-math3:3.6.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="commons-math3-3.6.1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="math3" type="462c0819:PsiDirectoryNode" />
-              <item name="analysis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.apache.commons:commons-math3:3.6.1" type="70bed36:NamedLibraryElementNode" />
-              <item name="commons-math3-3.6.1.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="math3" type="462c0819:PsiDirectoryNode" />
-              <item name="analysis" type="462c0819:PsiDirectoryNode" />
-              <item name="differentiation" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -447,21 +417,7 @@
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
       <workItem from="1571215176911" duration="13032000" />
-      <workItem from="1571388523921" duration="9944000" />
-    </task>
-    <task id="LOCAL-00074" summary="deleted the Figure class, which is kinda unnecessary now that we have just one figure">
-      <created>1571154077087</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1571154077087</updated>
-    </task>
-    <task id="LOCAL-00075" summary="deleted figure file itself + some cleaning">
-      <created>1571154485083</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1571154485083</updated>
+      <workItem from="1571388523921" duration="11380000" />
     </task>
     <task id="LOCAL-00076" summary="добавил некоторые математические комментарии">
       <created>1571216162488</created>
@@ -792,11 +748,25 @@
       <option name="project" value="LOCAL" />
       <updated>1571407104893</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="gij start">
+      <created>1571407483002</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1571407483002</updated>
+    </task>
+    <task id="LOCAL-00124" summary="bad">
+      <created>1571412574990</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1571412574990</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97738000" />
+    <option name="totallyTimeSpent" value="99174000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -811,7 +781,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -827,7 +797,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49798658" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5288591" side_tool="true" visible="true" weight="0.19121814" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.47114095" visible="true" weight="0.19121814" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.47114095" visible="true" weight="0.19121814" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4919463" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -883,8 +853,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="исправил лэйаут калорчузера" />
-    <MESSAGE value="начал добавлять филды для Tij" />
     <MESSAGE value="added interface for changing Ti, Tj" />
     <MESSAGE value="done for today i guess" />
     <MESSAGE value="added maven" />
@@ -908,7 +876,9 @@
     <MESSAGE value="собрал калкулэйт сплайн ыункш в одну" />
     <MESSAGE value="удалил лишнее" />
     <MESSAGE value="maven added apache libreay" />
-    <option name="LAST_COMMIT_MESSAGE" value="maven added apache libreay" />
+    <MESSAGE value="gij start" />
+    <MESSAGE value="bad" />
+    <option name="LAST_COMMIT_MESSAGE" value="bad" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/out2/production/FIT_16201_Migranov_Wireframe_Data/example4.txt" />
@@ -1102,8 +1072,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5180">
-          <caret line="265" selection-start-line="265" selection-end-line="265" />
+        <state relative-caret-position="-660">
+          <caret column="46" lean-forward="true" selection-start-column="46" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#20051#20052#0" expanded="true" />
@@ -1132,8 +1102,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        <state relative-caret-position="380">
+          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#533#534#0" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
