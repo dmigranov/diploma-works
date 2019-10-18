@@ -522,9 +522,7 @@ public class Controller {
         this.figureColor = figureColor;
         wireframePanel.setBackgroundColor(backgroundColor);
 
-        Ti = ti;
-        Tj = tj;
-        calculateKnots();
+        splineCalculator.setDegrees(ti, tj);
 
         needsToBeRedrawn = true;
         drawFigure();
@@ -535,18 +533,18 @@ public class Controller {
     }
 
     public int getTi() {
-        return Ti;
+        return splineCalculator.getTi();
     }
 
     public int getTj() {
-        return Tj;
+        return splineCalculator.getTj();
     }
 
     public int getNi() {
-        return Ni;
+        return splineCalculator.getNi();
     }
 
     public int getNj() {
-        return Nj;
+        return splineCalculator.getNj();
     }
 }

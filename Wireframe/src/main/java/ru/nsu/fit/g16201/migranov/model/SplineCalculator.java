@@ -129,5 +129,29 @@ public class SplineCalculator {
     public double getVMax() {
         return vMax;
     }
+
+    public void setDegrees(int Ti, int Tj)
+    {
+        this.Ti = Ti;
+        this.Tj = Tj;
+        //todo: проверка (перенести из view?)
+        calculateKnots();
+    }
+
+    public int getTi() {
+        return Ti;
+    }
+
+    public int getTj() {
+        return Tj;
+    }
+
+    public int getNi() {
+        return Ni;
+    }
+
+    public int getNj() {
+        return Nj;
+    }
 }
 
