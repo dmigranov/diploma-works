@@ -228,16 +228,17 @@ public class Controller {
         double uMin = splineCalculator.getUMin(), uMax = splineCalculator.getUMax();
         double vMin = splineCalculator.getVMin(), vMax = splineCalculator.getVMax();
 
-        double incrementU = (double)(uMax - uMin) / n / k;
-        double incrementV = (double)(vMax - vMin) / m / k;
+        double incrementU = (uMax - uMin) / n / k;
+        double incrementV = (vMax - vMin) / m / k;
 
-        double u = uMin, v = vMin;
-        for(int i = 0; i < n * k; i++)
+        double u = uMin, v;
+
+        for(int i = 0; i <= n * k; i++)
         {
             v = vMin;
-            for(int j = 0; j < m * k; j++)
+            for(int j = 0; j <= m * k; j++)
             {
-                Point3D Puv = splineCalculator.calculateSplineFunction(u, v);;
+                Point3D Puv = splineCalculator.calculateSplineFunction(u, v, i == n * k, j == m * k);
 
                 v += incrementV;
 
@@ -252,52 +253,6 @@ public class Controller {
             }
             u += incrementU;
         }
-
-        u = uMin;
-        for(int i = 0; i < n * k; i++)
-        {
-            Point3D Puv = splineCalculator.calculateSplineFunctionEdgeV(u);
-
-            double x = Puv.x, y = -Puv.z, z = Puv.y;
-            Matrix p = new Matrix(4, 1, x, y, z, 1);
-            Matrix np = Matrix.multiply(figureRotateMatrix, p);
-            double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
-            modelPoints[i][m*k] = new Point3D(x, y, z);
-
-            if(isDrawingFirstTime)
-                reevaluateMinMax(nx, ny, nz);
-
-            u += incrementU;
-        }
-
-        v = vMin;
-        for(int j = 0; j < m * k; j++)
-        {
-            Point3D Puv = splineCalculator.calculateSplineFunctionEdgeU(v);
-
-            double x = Puv.x, y = -Puv.z, z = Puv.y;
-            Matrix p = new Matrix(4, 1, x, y, z, 1);
-            Matrix np = Matrix.multiply(figureRotateMatrix, p);
-            double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
-            modelPoints[n*k][j] = new Point3D(x, y, z);
-
-            if(isDrawingFirstTime)
-                reevaluateMinMax(nx, ny, nz);
-
-            v += incrementV;
-        }
-
-        {
-            Point3D Puv = splinePoints[splineCalculator.getNi()][splineCalculator.getNj()];
-            double x = Puv.x, y = -Puv.z, z = Puv.y;
-            Matrix p = new Matrix(4, 1, x, y, z, 1);
-            Matrix np = Matrix.multiply(figureRotateMatrix, p);
-            double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
-            modelPoints[n * k][m * k] = new Point3D(x, y, z);
-
-            if(isDrawingFirstTime)
-                reevaluateMinMax(nx, ny, nz);
-        }
     }
 
     private void reevaluateMinMax(double nx, double ny, double nz) {
@@ -308,8 +263,6 @@ public class Controller {
         if (nz < minZ) minZ = nz;
         if (nz > maxZ) maxZ = nz;
     }
-
-
 
     //возвращает матрицу 4x4
     private Matrix read3x3MatrixByRow(BufferedReader br) throws IOException {
