@@ -38,10 +38,6 @@ public class Controller {
 
     private boolean needsToBeRedrawn = true, isDrawingFirstTime = true;
 
-    private double xAllAngle = 0, yAllAngle = 0;
-
-    private int[] knotsI, knotsJ;   //todo: double!
-
     //фигура
     private Color figureColor;
     private Matrix figureRotateMatrix;
@@ -50,7 +46,6 @@ public class Controller {
 
     private SplineCalculator splineCalculator;
 
-    private double uMax, vMax, uMin, vMin;
 
     public Controller(WireframePanel wireframePanel) {
         this.wireframePanel = wireframePanel;

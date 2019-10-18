@@ -2,7 +2,13 @@ package ru.nsu.fit.g16201.migranov.model;
 
 public class SplineCalculator {
     private int Ni, Nj, Ti, Tj;
+
     private Point3D[][] splinePoints;
+
+    private double[] knotsI, knotsJ;   //todo: double!
+
+    private double uMax, vMax, uMin, vMin;
+
     public SplineCalculator(int Ni, int Nj, int Ti, int Tj, Point3D[][] splinePoints)
     {
         this.Ni = Ni;
@@ -10,10 +16,12 @@ public class SplineCalculator {
         this.Ti = Ti;
         this.Tj = Tj;
         this.splinePoints = splinePoints;
+
+        calculateKnots();
     }
 
     private void calculateKnots() {
-        knotsI = new int[Ni + Ti + 1];
+        knotsI = new double[Ni + Ti + 1];
         for(int i = 0; i < knotsI.length; i++)
         {
             if(i < Ti)
@@ -26,7 +34,7 @@ public class SplineCalculator {
         uMin = knotsI[0];
         uMax = knotsI[Ni + Ti];
 
-        knotsJ = new int[Nj + Tj + 1];
+        knotsJ = new double[Nj + Tj + 1];
         for(int j = 0; j < knotsJ.length; j++)
         {
             if(j < Tj)

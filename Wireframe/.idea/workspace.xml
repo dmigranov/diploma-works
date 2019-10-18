@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
+            <state relative-caret-position="300">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#20051#20052#0" expanded="true" />
@@ -66,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+            <state relative-caret-position="200">
+              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -167,8 +167,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" />
         <option value="$PROJECT_DIR$/example3d-2.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" />
       </list>
     </option>
   </component>
@@ -365,14 +365,7 @@
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
       <workItem from="1571215176911" duration="13032000" />
-      <workItem from="1571388523921" duration="4901000" />
-    </task>
-    <task id="LOCAL-00063" summary="на одной грани все хорошо, на другой похуже, но лучше чем было">
-      <created>1571065964699</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1571065964699</updated>
+      <workItem from="1571388523921" duration="5234000" />
     </task>
     <task id="LOCAL-00064" summary="теперь траблы только с самой крайней точкой">
       <created>1571066078119</created>
@@ -710,11 +703,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571397371609</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="еренос кода идёт">
+      <created>1571397813235</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1571397813235</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92695000" />
+    <option name="totallyTimeSpent" value="93028000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -801,7 +801,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added and used vmin, vmax" />
     <MESSAGE value="типа сделал оси, но отказался, т.к это плохая идея. у нас u и v - это внутренни координаты поверхности, они не так просто проецируются на землю!" />
     <MESSAGE value="УДАЛЕНИЕ ОСЕЙ В СЛЕД. КОММИТЕ" />
     <MESSAGE value="исправил баг с изменением n,m,k" />
@@ -826,7 +825,8 @@
     <MESSAGE value="deleted splinefunction parameter from calculateSplineFunction" />
     <MESSAGE value="q" />
     <MESSAGE value="new class for spline ops in model" />
-    <option name="LAST_COMMIT_MESSAGE" value="new class for spline ops in model" />
+    <MESSAGE value="еренос кода идёт" />
+    <option name="LAST_COMMIT_MESSAGE" value="еренос кода идёт" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/out2/production/FIT_16201_Migranov_Wireframe_Data/example4.txt" />
@@ -986,17 +986,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="67" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
+        <state relative-caret-position="300">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#20051#20052#0" expanded="true" />
@@ -1020,6 +1013,13 @@
             <element signature="e#24916#24917#0" expanded="true" />
             <element signature="e#24950#24951#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
         </state>
       </provider>
     </entry>
