@@ -51,7 +51,6 @@ public class Controller {
 
     private double uMax, vMax, uMin, vMin;
 
-
     public Controller(WireframePanel wireframePanel) {
         this.wireframePanel = wireframePanel;
 
@@ -239,7 +238,7 @@ public class Controller {
             v = vMin;
             for(int j = 0; j < m * k; j++)
             {
-                Point3D Puv = calculateSplineFunction(u, v, splinePoints);
+                Point3D Puv = calculateSplineFunction(u, v);;
 
                 v += incrementV;
 
@@ -256,9 +255,9 @@ public class Controller {
         }
 
         u = uMin;
-        for(int i = 0; i < n * k; i++)  //<=?
+        for(int i = 0; i < n * k; i++)
         {
-            Point3D Puv = calculateSplineFunctionEdgeV(u, splinePoints);
+            Point3D Puv = calculateSplineFunctionEdgeV(u);
 
             double x = Puv.x, y = -Puv.z, z = Puv.y;
             Matrix p = new Matrix(4, 1, x, y, z, 1);
@@ -275,7 +274,7 @@ public class Controller {
         v = vMin;
         for(int j = 0; j < m * k; j++)
         {
-            Point3D Puv = calculateSplineFunctionEdgeU(v, splinePoints);
+            Point3D Puv = calculateSplineFunctionEdgeU(v);
 
             double x = Puv.x, y = -Puv.z, z = Puv.y;
             Matrix p = new Matrix(4, 1, x, y, z, 1);
@@ -339,7 +338,7 @@ public class Controller {
         vMax = knotsJ[Nj + Tj];
     }
 
-    private Point3D calculateSplineFunctionEdgeU(double v, Point3D[][] splinePoints) {
+    private Point3D calculateSplineFunctionEdgeU(double v) {
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
         for (int j = 0; j <= Nj; j++) {
             double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
@@ -351,7 +350,7 @@ public class Controller {
         return new Point3D(Px, Py, Pz);
     }
 
-    private Point3D calculateSplineFunctionEdgeV(double u, Point3D[][] splinePoints) {
+    private Point3D calculateSplineFunctionEdgeV(double u) {
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
         for (int i = 0; i <= Ni; i++) {
             double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
@@ -365,7 +364,7 @@ public class Controller {
     }
 
 
-    private Point3D calculateSplineFunction(double u, double v, Point3D[][] splinePoints)
+    private Point3D calculateSplineFunction(double u, double v)
     {
         //Pij - array of control points (spline points)
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
