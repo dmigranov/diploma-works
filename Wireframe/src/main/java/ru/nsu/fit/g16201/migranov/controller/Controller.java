@@ -419,7 +419,7 @@ public class Controller {
 
             splineCalculator = new SplineCalculator(Ni, Nj, Ti, Tj, splinePoints);
             geodesicsCalculator = new GeodesicsCalculator(splineCalculator);
-            Matrix z = geodesicsCalculator.calculateMetricTensor(splineCalculator.getUMax()/2, splineCalculator.getVMax()/2);
+            Matrix z = geodesicsCalculator.calculateMetricTensor(splineCalculator.getUMax()/4, splineCalculator.getVMax()/4);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)

@@ -41,8 +41,8 @@ public class GeodesicsCalculator {
         DerivativeStructure [] drdv0 = drdv.value(v0drvs);
 
 
-        xu = drdu0[0].getValue(); yu = drdu0[1].getValue(); zu = drdu0[2].getValue();
-        xv = drdv0[0].getValue(); yv = drdv0[1].getValue(); zv = drdv0[2].getValue();
+        xu = drdu0[0].getPartialDerivative(1); yu = drdu0[1].getPartialDerivative(1); zu = drdu0[2].getPartialDerivative(1);
+        xv = drdv0[0].getPartialDerivative(1); yv = drdv0[1].getPartialDerivative(1); zv = drdv0[2].getPartialDerivative(1);
 
         g11 = xu*xu + yu*yu + zu*zu;
         g12 = g21 = xu*xv + yu*yv + zu*zv;
