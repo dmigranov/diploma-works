@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="290" column="56" lean-forward="true" selection-start-line="290" selection-start-column="56" selection-end-line="290" selection-end-column="56" />
+            <state relative-caret-position="940">
+              <caret line="313" column="91" lean-forward="true" selection-start-line="313" selection-start-column="26" selection-end-line="313" selection-end-column="91" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#20051#20052#0" expanded="true" />
@@ -66,28 +66,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="59" column="10" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
+            <state relative-caret-position="123">
+              <caret line="91" selection-start-line="91" selection-end-line="91" />
               <folding>
-                <element signature="e#4017#4018#0" expanded="true" />
-                <element signature="e#4044#4045#0" expanded="true" />
-                <element signature="e#4147#4148#0" expanded="true" />
-                <element signature="e#4174#4175#0" expanded="true" />
-                <element signature="e#4277#4278#0" expanded="true" />
-                <element signature="e#4304#4305#0" expanded="true" />
-                <element signature="e#4199#4200#0" expanded="true" />
-                <element signature="e#4226#4227#0" expanded="true" />
-                <element signature="e#4424#4425#0" expanded="true" />
-                <element signature="e#4449#4450#0" expanded="true" />
-                <element signature="e#4478#4479#0" expanded="true" />
-                <element signature="e#4503#4504#0" expanded="true" />
-                <element signature="e#4538#4539#0" expanded="true" />
-                <element signature="e#4563#4564#0" expanded="true" />
-                <element signature="e#4589#4590#0" expanded="true" />
-                <element signature="e#4614#4615#0" expanded="true" />
+                <element signature="e#5019#5020#0" expanded="true" />
+                <element signature="e#5077#5078#0" expanded="true" />
+                <element signature="e#5135#5136#0" expanded="true" />
+                <element signature="e#5193#5194#0" expanded="true" />
+                <element signature="e#5416#5417#0" expanded="true" />
+                <element signature="e#5467#5468#0" expanded="true" />
+                <element signature="e#5518#5519#0" expanded="true" />
+                <element signature="e#5569#5570#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -185,8 +177,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" />
         <option value="$PROJECT_DIR$/example3d-2.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" />
       </list>
     </option>
   </component>
@@ -383,21 +375,7 @@
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
       <workItem from="1571215176911" duration="13032000" />
-      <workItem from="1571388523921" duration="5758000" />
-    </task>
-    <task id="LOCAL-00067" summary="b spline wireframe DONE">
-      <created>1571067204067</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1571067204068</updated>
-    </task>
-    <task id="LOCAL-00068" summary="some stuff">
-      <created>1571153006053</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1571153006053</updated>
+      <workItem from="1571388523921" duration="6967000" />
     </task>
     <task id="LOCAL-00069" summary="much quicker now because now i don't recalculate model points each time">
       <created>1571153106881</created>
@@ -728,11 +706,25 @@
       <option name="project" value="LOCAL" />
       <updated>1571398421562</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="new class done первое приближение">
+      <created>1571398614792</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1571398614796</updated>
+    </task>
+    <task id="LOCAL-00117" summary="gonna  унифицировать вычисление точек на поверхности">
+      <created>1571398793110</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1571398793110</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93552000" />
+    <option name="totallyTimeSpent" value="94761000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -747,7 +739,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -763,7 +755,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932885" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5261745" side_tool="true" weight="0.17705382" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4738255" visible="true" weight="0.19121814" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="11" sideWeight="0.4738255" visible="true" weight="0.19121814" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49395972" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -819,8 +811,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="gonna delete zfar" />
-    <MESSAGE value="deleted zf field from interface" />
     <MESSAGE value="начал менять интерфейс" />
     <MESSAGE value="gonna add color chooser" />
     <MESSAGE value="added color chooser for background" />
@@ -844,7 +834,9 @@
     <MESSAGE value="more moved" />
     <MESSAGE value="u/v min/max moved" />
     <MESSAGE value="getters" />
-    <option name="LAST_COMMIT_MESSAGE" value="getters" />
+    <MESSAGE value="new class done первое приближение" />
+    <MESSAGE value="gonna  унифицировать вычисление точек на поверхности" />
+    <option name="LAST_COMMIT_MESSAGE" value="gonna  унифицировать вычисление точек на поверхности" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/out2/production/FIT_16201_Migranov_Wireframe_Data/example4.txt" />
@@ -1004,35 +996,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="59" column="10" selection-start-line="59" selection-start-column="10" selection-end-line="59" selection-end-column="10" />
-          <folding>
-            <element signature="e#4017#4018#0" expanded="true" />
-            <element signature="e#4044#4045#0" expanded="true" />
-            <element signature="e#4147#4148#0" expanded="true" />
-            <element signature="e#4174#4175#0" expanded="true" />
-            <element signature="e#4277#4278#0" expanded="true" />
-            <element signature="e#4304#4305#0" expanded="true" />
-            <element signature="e#4199#4200#0" expanded="true" />
-            <element signature="e#4226#4227#0" expanded="true" />
-            <element signature="e#4424#4425#0" expanded="true" />
-            <element signature="e#4449#4450#0" expanded="true" />
-            <element signature="e#4478#4479#0" expanded="true" />
-            <element signature="e#4503#4504#0" expanded="true" />
-            <element signature="e#4538#4539#0" expanded="true" />
-            <element signature="e#4563#4564#0" expanded="true" />
-            <element signature="e#4589#4590#0" expanded="true" />
-            <element signature="e#4614#4615#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="290" column="56" lean-forward="true" selection-start-line="290" selection-start-column="56" selection-end-line="290" selection-end-column="56" />
+        <state relative-caret-position="940">
+          <caret line="313" column="91" lean-forward="true" selection-start-line="313" selection-start-column="26" selection-end-line="313" selection-end-column="91" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#20051#20052#0" expanded="true" />
@@ -1055,6 +1022,23 @@
             <element signature="e#20542#20543#0" expanded="true" />
             <element signature="e#24916#24917#0" expanded="true" />
             <element signature="e#24950#24951#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
+          <folding>
+            <element signature="e#5019#5020#0" expanded="true" />
+            <element signature="e#5077#5078#0" expanded="true" />
+            <element signature="e#5135#5136#0" expanded="true" />
+            <element signature="e#5193#5194#0" expanded="true" />
+            <element signature="e#5416#5417#0" expanded="true" />
+            <element signature="e#5467#5468#0" expanded="true" />
+            <element signature="e#5518#5519#0" expanded="true" />
+            <element signature="e#5569#5570#0" expanded="true" />
           </folding>
         </state>
       </provider>

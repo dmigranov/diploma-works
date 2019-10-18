@@ -232,7 +232,30 @@ public class Controller {
         double incrementV = (vMax - vMin) / m / k;
 
         double u = uMin, v;
+
         for(int i = 0; i < n * k; i++)
+        {
+            v = vMin;
+            for(int j = 0; j < m * k; j++)
+            {
+                Point3D Puv = splineCalculator.calculateSplineFunction(u, v);
+
+                v += incrementV;
+
+                double x = Puv.x, y = -Puv.z, z = Puv.y;
+                Matrix p = new Matrix(4, 1, x, y, z, 1);
+                Matrix np = Matrix.multiply(figureRotateMatrix, p);
+                double nx = np.get(0, 0), ny = np.get(1, 0), nz = np.get(2, 0);
+                modelPoints[i][j] = new Point3D(x, y, z);
+
+                if(isDrawingFirstTime)
+                    reevaluateMinMax(nx, ny, nz);
+            }
+            u += incrementU;
+        }
+
+
+        /*for(int i = 0; i < n * k; i++)
         {
             v = vMin;
             for(int j = 0; j < m * k; j++)
@@ -297,7 +320,7 @@ public class Controller {
 
             if(isDrawingFirstTime)
                 reevaluateMinMax(nx, ny, nz);
-        }
+        }*/
     }
 
     private void reevaluateMinMax(double nx, double ny, double nz) {

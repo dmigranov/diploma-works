@@ -1,5 +1,7 @@
 package ru.nsu.fit.g16201.migranov.model;
 
+import static java.lang.Math.abs;
+
 public class SplineCalculator {
     private int Ni, Nj, Ti, Tj;
 
@@ -8,6 +10,7 @@ public class SplineCalculator {
     private double[] knotsI, knotsJ;   //todo: double!
 
     private double uMax, vMax, uMin, vMin;
+    private double eps = 1e-9;
 
     public SplineCalculator(int Ni, int Nj, int Ti, int Tj, Point3D[][] splinePoints) {
         this.Ni = Ni;
@@ -73,16 +76,44 @@ public class SplineCalculator {
 
     public Point3D calculateSplineFunction(double u, double v) {
         //Pij - array of control points (spline points)
+
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
-        for (int i = 0; i <= Ni; i++) {
-            double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
+        if(abs(u - uMax) <= eps && abs(v - vMax) <= eps)
+            return splinePoints[Ni][Nj];
+        else if (abs(u - uMax) > eps && abs(v - vMax) <= eps)
+        {
             for (int j = 0; j <= Nj; j++) {
                 double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
-                Px += splinePoints[i][j].x * bi * bj;
-                Py += splinePoints[i][j].y * bi * bj;
-                Pz += splinePoints[i][j].z * bi * bj;
+
+                Px += splinePoints[Ni][j].x * bj;
+                Py += splinePoints[Ni][j].y * bj;
+                Pz += splinePoints[Ni][j].z * bj;
             }
         }
+        else if (abs(u - uMax) <= eps && abs(v - vMax) > eps)
+        {
+            for (int i = 0; i <= Ni; i++) {
+                double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
+
+                Px += splinePoints[i][Nj].x * bi;
+                Py += splinePoints[i][Nj].y * bi;
+                Pz += splinePoints[i][Nj].z * bi;
+
+            }
+        }
+        else
+        {
+            for (int i = 0; i <= Ni; i++) {
+                double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
+                for (int j = 0; j <= Nj; j++) {
+                    double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
+                    Px += splinePoints[i][j].x * bi * bj;
+                    Py += splinePoints[i][j].y * bi * bj;
+                    Pz += splinePoints[i][j].z * bi * bj;
+                }
+            }
+        }
+
 
         return new Point3D(Px, Py, Pz);
     }
