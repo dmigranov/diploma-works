@@ -47,47 +47,6 @@ public class SplineCalculator {
         vMax = knotsJ[Nj + Tj];
     }
 
-    public Point3D calculateSplineFunctionEdgeU(double v) {
-        double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
-        for (int j = 0; j <= Nj; j++) {
-            double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
-
-            Px += splinePoints[Ni][j].x * bj;
-            Py += splinePoints[Ni][j].y * bj;
-            Pz += splinePoints[Ni][j].z * bj;
-        }
-        return new Point3D(Px, Py, Pz);
-    }
-
-    public Point3D calculateSplineFunctionEdgeV(double u) {
-        double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
-        for (int i = 0; i <= Ni; i++) {
-            double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
-
-            Px += splinePoints[i][Nj].x * bi;
-            Py += splinePoints[i][Nj].y * bi;
-            Pz += splinePoints[i][Nj].z * bi;
-
-        }
-        return new Point3D(Px, Py, Pz);
-    }
-
-    public Point3D calculateSplineFunction(double u, double v) {
-        double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
-
-        for (int i = 0; i <= Ni; i++) {
-            double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
-            for (int j = 0; j <= Nj; j++) {
-                double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
-                Px += splinePoints[i][j].x * bi * bj;
-                Py += splinePoints[i][j].y * bi * bj;
-                Pz += splinePoints[i][j].z * bi * bj;
-            }
-        }
-        return new Point3D(Px, Py, Pz);
-    }
-
-
     public Point3D calculateSplineFunction(double u, double v, boolean isUEdge, boolean isVEdge) {
         //Pij - array of control points (spline points)
 
@@ -104,7 +63,7 @@ public class SplineCalculator {
                 Pz += splinePoints[Ni][j].z * bj;
             }
         }
-        else if (isVEdge && !isUEdge)
+        else if (isVEdge /*&& !isUEdge*/)
         {
             for (int i = 0; i <= Ni; i++) {
                 double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
