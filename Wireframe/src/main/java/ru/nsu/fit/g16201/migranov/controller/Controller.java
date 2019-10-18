@@ -239,7 +239,7 @@ public class Controller {
             v = vMin;
             for(int j = 0; j < m * k; j++)
             {
-                Point3D Puv = calculateSplineFunction(u, v, splinePoints);
+                Point3D Puv = calculateSplineFunction(u, v, splinePoints);;
 
                 v += incrementV;
 
