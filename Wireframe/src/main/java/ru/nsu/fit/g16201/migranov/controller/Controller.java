@@ -237,7 +237,7 @@ public class Controller {
             v = vMin;
             for(int j = 0; j < m * k; j++)
             {
-                Point3D Puv = calculateSplineFunction(u, v);;
+                Point3D Puv = splineCalculator.calculateSplineFunction(u, v);;
 
                 v += incrementV;
 
@@ -256,7 +256,7 @@ public class Controller {
         u = uMin;
         for(int i = 0; i < n * k; i++)
         {
-            Point3D Puv = calculateSplineFunctionEdgeV(u);
+            Point3D Puv = splineCalculator.calculateSplineFunctionEdgeV(u);
 
             double x = Puv.x, y = -Puv.z, z = Puv.y;
             Matrix p = new Matrix(4, 1, x, y, z, 1);
@@ -273,7 +273,7 @@ public class Controller {
         v = vMin;
         for(int j = 0; j < m * k; j++)
         {
-            Point3D Puv = calculateSplineFunctionEdgeU(v);
+            Point3D Puv = splineCalculator.calculateSplineFunctionEdgeU(v);
 
             double x = Puv.x, y = -Puv.z, z = Puv.y;
             Matrix p = new Matrix(4, 1, x, y, z, 1);
@@ -288,7 +288,7 @@ public class Controller {
         }
 
         {
-            Point3D Puv = splinePoints[Ni][Nj];
+            Point3D Puv = splinePoints[splineCalculator.getNi()][splineCalculator.getNj()];
             double x = Puv.x, y = -Puv.z, z = Puv.y;
             Matrix p = new Matrix(4, 1, x, y, z, 1);
             Matrix np = Matrix.multiply(figureRotateMatrix, p);
@@ -466,8 +466,6 @@ public class Controller {
             splineCalculator = new SplineCalculator(Ni, Nj, Ti, Tj, splinePoints);
 
             modelPoints = new Point3D[n*k + 1][m*k + 1];
-
-            calculateKnots();
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
         {
