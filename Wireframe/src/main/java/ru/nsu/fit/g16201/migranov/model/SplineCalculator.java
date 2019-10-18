@@ -88,13 +88,13 @@ public class SplineCalculator {
     }
 
 
-    public Point3D calculateSplineFunctionNew(double u, double v, boolean isUEdge, boolean isVEdge) {
+    public Point3D calculateSplineFunction(double u, double v, boolean isUEdge, boolean isVEdge) {
         //Pij - array of control points (spline points)
 
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
         if(isUEdge && isVEdge)
             return splinePoints[Ni][Nj];
-        else if (!isUEdge && isVEdge)
+        else if (!isVEdge && isUEdge)
         {
             for (int j = 0; j <= Nj; j++) {
                 double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
@@ -104,7 +104,7 @@ public class SplineCalculator {
                 Pz += splinePoints[Ni][j].z * bj;
             }
         }
-        else if (isUEdge && !isVEdge)
+        else if (isVEdge && !isUEdge)
         {
             for (int i = 0; i <= Ni; i++) {
                 double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);

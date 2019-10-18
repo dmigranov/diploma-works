@@ -233,7 +233,7 @@ public class Controller {
 
         double u = uMin, v;
 
-        /*for(int i = 0; i <= n * k; i++)
+        for(int i = 0; i <= n * k; i++)
         {
             v = vMin;
             for(int j = 0; j <= m * k; j++)
@@ -252,10 +252,10 @@ public class Controller {
                     reevaluateMinMax(nx, ny, nz);
             }
             u += incrementU;
-        }*/
+        }
 
 
-        for(int i = 0; i < n * k; i++)
+        /*for(int i = 0; i < n * k; i++)
         {
             v = vMin;
             for(int j = 0; j < m * k; j++)
@@ -320,7 +320,7 @@ public class Controller {
 
             if(isDrawingFirstTime)
                 reevaluateMinMax(nx, ny, nz);
-        }
+        }*/
     }
 
     private void reevaluateMinMax(double nx, double ny, double nz) {
