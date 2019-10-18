@@ -2,6 +2,7 @@ package ru.nsu.fit.g16201.migranov.controller;
 
 import ru.nsu.fit.g16201.migranov.model.Matrix;
 import ru.nsu.fit.g16201.migranov.model.Point3D;
+import ru.nsu.fit.g16201.migranov.model.SplineCalculator;
 import ru.nsu.fit.g16201.migranov.view.WireframePanel;
 
 import java.awt.*;
@@ -31,8 +32,6 @@ public class Controller {
     private Matrix cameraMatrix;
     private Matrix projectionMatrix;
 
-    private int Ni, Nj, Ti, Tj;
-
     private Integer prevX = null, prevY = null;
 
     private int width, height;
@@ -48,6 +47,8 @@ public class Controller {
     private Matrix figureRotateMatrix;
     private Point3D[][] splinePoints;
     private Point3D[][] modelPoints;
+
+    private SplineCalculator splineCalculator;
 
     private double uMax, vMax, uMin, vMin;
 
@@ -310,107 +311,7 @@ public class Controller {
         if (nz > maxZ) maxZ = nz;
     }
 
-    private void calculateKnots() {
-        knotsI = new int[Ni + Ti + 1];
-        for(int i = 0; i < knotsI.length; i++)
-        {
-            if(i < Ti)
-                knotsI[i] = 0;
-            else if (Ti <= i && i <= Ni)
-                knotsI[i] = i - Ti + 1;
-            else //i > n
-                knotsI[i] = Ni - Ti + 2;
-        }
-        uMin = knotsI[0];
-        uMax = knotsI[Ni + Ti];
 
-        knotsJ = new int[Nj + Tj + 1];
-        for(int j = 0; j < knotsJ.length; j++)
-        {
-            if(j < Tj)
-                knotsJ[j] = 0;
-            else if (Tj <= j && j <= Nj)
-                knotsJ[j] = j - Tj + 1;
-            else //j > n
-                knotsJ[j] = Nj - Tj + 2;
-        }
-        vMin = knotsJ[0];
-        vMax = knotsJ[Nj + Tj];
-    }
-
-    private Point3D calculateSplineFunctionEdgeU(double v) {
-        double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
-        for (int j = 0; j <= Nj; j++) {
-            double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
-
-            Px += splinePoints[Ni][j].x * bj;
-            Py += splinePoints[Ni][j].y * bj;
-            Pz += splinePoints[Ni][j].z * bj;
-        }
-        return new Point3D(Px, Py, Pz);
-    }
-
-    private Point3D calculateSplineFunctionEdgeV(double u) {
-        double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
-        for (int i = 0; i <= Ni; i++) {
-            double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
-
-            Px += splinePoints[i][Nj].x * bi;
-            Py += splinePoints[i][Nj].y * bi;
-            Pz += splinePoints[i][Nj].z * bi;
-
-        }
-        return new Point3D(Px, Py, Pz);
-    }
-
-
-    private Point3D calculateSplineFunction(double u, double v)
-    {
-        //Pij - array of control points (spline points)
-        double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
-        for (int i = 0; i <= Ni; i++) {
-            double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
-            for(int j = 0; j <= Nj; j++)
-            {
-                double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
-                Px += splinePoints[i][j].x * bi * bj;
-                Py += splinePoints[i][j].y * bi * bj;
-                Pz += splinePoints[i][j].z * bi * bj;
-            }
-        }
-
-        return new Point3D(Px, Py, Pz);
-    }
-
-    //k - index (i, j), t - Ti/Tj, u - knot points, v - coordinate (u/v)
-    private double calculateSplineBasisFunction(int k, int t, int[] u, double v)    //aka Blending Function akd Ni,p
-    {
-        //http://paulbourke.net/geometry/spline/
-        //чем больше степень Ti/Tj - тем боолее гладкая кривая
-        double val;
-
-        if(t == 1)
-        {
-            if ((u[k] <= v) && (v < u[k+1]))
-                val = 1;
-            else
-                val = 0;
-        }
-        else
-        {
-            if ((u[k+t-1] == u[k]) && (u[k+t] == u[k+1]))
-                val = 0;
-            else if (u[k+t-1] == u[k])
-                val = (u[k+t] - v) / (u[k+t] - u[k+1]) * calculateSplineBasisFunction(k+1,t-1,u,v);
-            else if (u[k+t] == u[k+1])
-                val = (v - u[k]) / (u[k+t-1] - u[k]) * calculateSplineBasisFunction(k,t-1,u,v);
-            else
-                val = (v - u[k]) / (u[k+t-1] - u[k]) * calculateSplineBasisFunction(k,t-1,u,v) +
-                        (u[k+t] - v) / (u[k+t] - u[k+1]) * calculateSplineBasisFunction(k+1,t-1,u,v);
-        }
-
-        return val;
-    }
 
     //возвращает матрицу 4x4
     private Matrix read3x3MatrixByRow(BufferedReader br) throws IOException {
@@ -543,10 +444,10 @@ public class Controller {
             figureRotateMatrix = read3x3MatrixByRow(br);
 
             substrings = readLineAndSplit(br);
-            Ni = Integer.parseInt(substrings[0]);
-            Nj = Integer.parseInt(substrings[1]);
-            Ti = Integer.parseInt(substrings[2]);
-            Tj = Integer.parseInt(substrings[3]);
+            int Ni = Integer.parseInt(substrings[0]);
+            int Nj = Integer.parseInt(substrings[1]);
+            int Ti = Integer.parseInt(substrings[2]);
+            int Tj = Integer.parseInt(substrings[3]);
 
             if(Ni <= 0 || Nj <= 0)
                 throw new IOException("Wrong Ni or Nj");
@@ -563,6 +464,9 @@ public class Controller {
                     splinePoints[i][j] = splinePoint;
                 }
             }
+
+            splineCalculator = new SplineCalculator(Ni, Nj, Ti, Tj, splinePoints);
+
             modelPoints = new Point3D[n*k + 1][m*k + 1];
 
             calculateKnots();
