@@ -24,15 +24,28 @@ public class GeodesicsCalculator {
         //DerivativeStructure v = new DerivativeStructure(2, 1, 1, v0);  //an instance representing a variable v
 
         FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, 0.01);
-        UnivariateDifferentiableVectorFunction drdu = differentiator.differentiate(new UnivariateVectorFunction() {
-
-            @Override
-            public double[] value(double u) {
-                Point3D p;
-                p = splineCalculator.calculateSplineFunction(u, v0, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v0, splineCalculator.getVMax()));
-                return new double[] {p.x, p.y, p.z};
-            }
+        UnivariateDifferentiableVectorFunction drdu = differentiator.differentiate((UnivariateVectorFunction) u -> {
+            Point3D p;
+            p = splineCalculator.calculateSplineFunction(u, v0, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v0, splineCalculator.getVMax()));
+            return new double[] {p.x, p.y, p.z};
         });
+
+        UnivariateDifferentiableVectorFunction drdv = differentiator.differentiate((UnivariateVectorFunction) v -> {
+            Point3D p;
+            p = splineCalculator.calculateSplineFunction(u0, v, Precision.equals(u0, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));
+            return new double[] {p.x, p.y, p.z};
+        });
+
+        DerivativeStructure u0drvs = new DerivativeStructure(1, 1, 0, u0);
+        DerivativeStructure v0drvs = new DerivativeStructure(1, 1, 0, v0);
+
+
+        DerivativeStructure [] drdu0 = drdu.value(u0drvs);
+        DerivativeStructure [] drdv0 = drdv.value(v0drvs);
+
+
+        xu = drdu0[0].getValue(); yu = drdu0[1].getValue(); zu = drdu0[2].getValue();
+        xv = drdv0[0].getValue(); yv = drdv0[1].getValue(); zv = drdv0[2].getValue();
 
         g11 = xu*xu + yu*yu + zu*zu;
         g12 = g21 = xu*xv + yu*yv + zu*zv;
