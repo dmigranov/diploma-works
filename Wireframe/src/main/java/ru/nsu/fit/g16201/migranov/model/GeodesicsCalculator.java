@@ -9,7 +9,9 @@ public class GeodesicsCalculator {
 
         double xu, xv, yu, yv, zu, zv;
 
-        //todo
+        DerivativeStructure u = new DerivativeStructure(2, 1, 0, u0);  //an instance representing a variable u
+        DerivativeStructure v = new DerivativeStructure(2, 1, 1, v0);  //an instance representing a variable v
+
 
         g11 = xu*xu + yu*yu + zu*zu;
         g12 = g21 = xu*xv + yu*yv + zu*zv;
