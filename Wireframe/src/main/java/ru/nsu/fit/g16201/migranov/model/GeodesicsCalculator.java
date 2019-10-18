@@ -14,14 +14,11 @@ public class GeodesicsCalculator {
         this.splineCalculator = splineCalculator;
     }
 
-    private Matrix calculateMetricTensor(double u0, double v0)
+    public Matrix calculateMetricTensor(double u0, double v0)
     {
         double g11, g22, g12, g21;
 
         double xu, xv, yu, yv, zu, zv;
-
-        //DerivativeStructure u = new DerivativeStructure(2, 1, 0, u0);  //an instance representing a variable u
-        //DerivativeStructure v = new DerivativeStructure(2, 1, 1, v0);  //an instance representing a variable v
 
         FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, 0.01);
         UnivariateDifferentiableVectorFunction drdu = differentiator.differentiate((UnivariateVectorFunction) u -> {
@@ -36,7 +33,7 @@ public class GeodesicsCalculator {
             return new double[] {p.x, p.y, p.z};
         });
 
-        DerivativeStructure u0drvs = new DerivativeStructure(1, 1, 0, u0);
+        DerivativeStructure u0drvs = new DerivativeStructure(1, 1, 0, u0); //просто переменная с такимто значением
         DerivativeStructure v0drvs = new DerivativeStructure(1, 1, 0, v0);
 
 

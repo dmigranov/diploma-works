@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/example3d-4.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -45,8 +47,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-660">
-              <caret column="46" lean-forward="true" selection-start-column="46" selection-end-column="46" />
+            <state relative-caret-position="151">
+              <caret line="421" selection-start-line="421" selection-end-line="421" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#20051#20052#0" expanded="true" />
@@ -74,11 +76,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/example3d-4.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1300">
-              <caret line="65" column="40" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
+            <state relative-caret-position="285">
+              <caret line="132" selection-start-line="132" selection-end-line="132" />
               <folding>
                 <element signature="e#4022#4023#0" expanded="true" />
                 <element signature="e#4049#4050#0" expanded="true" />
@@ -86,7 +97,6 @@
                 <element signature="e#4107#4108#0" expanded="true" />
                 <element signature="e#4138#4139#0" expanded="true" />
                 <element signature="e#4165#4166#0" expanded="true" />
-                <element signature="e#4196#4197#0" expanded="true" />
                 <element signature="e#4223#4224#0" expanded="true" />
                 <element signature="e#4421#4422#0" expanded="true" />
                 <element signature="e#4446#4447#0" expanded="true" />
@@ -110,11 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+            <state relative-caret-position="285">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#533#534#0" expanded="true" />
@@ -144,7 +154,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>drawS</find>
       <find>camera</find>
       <find>sceneRotateMatrix</find>
       <find>кщефеу</find>
@@ -174,6 +183,7 @@
       <find>onCon</find>
       <find>spline</find>
       <find>uMax</find>
+      <find>load3</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -199,9 +209,10 @@
         <option value="$PROJECT_DIR$/example3d-2.txt" />
         <option value="$PROJECT_DIR$/example3d-3.txt" />
         <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/example3d-4.txt" />
       </list>
     </option>
   </component>
@@ -417,21 +428,7 @@
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
       <workItem from="1571215176911" duration="13032000" />
-      <workItem from="1571388523921" duration="11380000" />
-    </task>
-    <task id="LOCAL-00076" summary="добавил некоторые математические комментарии">
-      <created>1571216162488</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1571216162490</updated>
-    </task>
-    <task id="LOCAL-00077" summary="добавил некоторые математические комментарии">
-      <created>1571216190749</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1571216190749</updated>
+      <workItem from="1571388523921" duration="12169000" />
     </task>
     <task id="LOCAL-00078" summary="ещё комментарии">
       <created>1571216566735</created>
@@ -762,11 +759,25 @@
       <option name="project" value="LOCAL" />
       <updated>1571412574990</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="some diff">
+      <created>1571413075358</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1571413075358</updated>
+    </task>
+    <task id="LOCAL-00126" summary="gij done? have to check">
+      <created>1571413400547</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1571413400547</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99174000" />
+    <option name="totallyTimeSpent" value="99963000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -781,14 +792,14 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.47449663" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.47449663" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49597314" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -796,8 +807,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49798658" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5288591" side_tool="true" visible="true" weight="0.19121814" />
-      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.47114095" visible="true" weight="0.19121814" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5288591" side_tool="true" weight="0.19121814" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.47114095" weight="0.19121814" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4919463" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -853,8 +864,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added interface for changing Ti, Tj" />
-    <MESSAGE value="done for today i guess" />
     <MESSAGE value="added maven" />
     <MESSAGE value="maven" />
     <MESSAGE value="set icon now works" />
@@ -878,7 +887,27 @@
     <MESSAGE value="maven added apache libreay" />
     <MESSAGE value="gij start" />
     <MESSAGE value="bad" />
-    <option name="LAST_COMMIT_MESSAGE" value="bad" />
+    <MESSAGE value="some diff" />
+    <MESSAGE value="gij done? have to check" />
+    <option name="LAST_COMMIT_MESSAGE" value="gij done? have to check" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java</url>
+          <line>18</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java</url>
+          <line>421</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/out2/production/FIT_16201_Migranov_Wireframe_Data/example4.txt" />
@@ -1047,8 +1076,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1300">
-          <caret line="65" column="40" selection-start-line="65" selection-start-column="40" selection-end-line="65" selection-end-column="40" />
+        <state relative-caret-position="285">
+          <caret line="132" selection-start-line="132" selection-end-line="132" />
           <folding>
             <element signature="e#4022#4023#0" expanded="true" />
             <element signature="e#4049#4050#0" expanded="true" />
@@ -1056,7 +1085,6 @@
             <element signature="e#4107#4108#0" expanded="true" />
             <element signature="e#4138#4139#0" expanded="true" />
             <element signature="e#4165#4166#0" expanded="true" />
-            <element signature="e#4196#4197#0" expanded="true" />
             <element signature="e#4223#4224#0" expanded="true" />
             <element signature="e#4421#4422#0" expanded="true" />
             <element signature="e#4446#4447#0" expanded="true" />
@@ -1070,10 +1098,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#533#534#0" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-660">
-          <caret column="46" lean-forward="true" selection-start-column="46" selection-end-column="46" />
+        <state relative-caret-position="151">
+          <caret line="421" selection-start-line="421" selection-end-line="421" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#20051#20052#0" expanded="true" />
@@ -1100,15 +1140,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java">
+    <entry file="file://$PROJECT_DIR$/example3d-4.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#589#590#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="280">
+          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
         </state>
       </provider>
     </entry>
