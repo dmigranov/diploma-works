@@ -45,7 +45,7 @@ public class SplineCalculator {
         vMax = knotsJ[Nj + Tj];
     }
 
-    private Point3D calculateSplineFunctionEdgeU(double v) {
+    public Point3D calculateSplineFunctionEdgeU(double v) {
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
         for (int j = 0; j <= Nj; j++) {
             double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
@@ -57,7 +57,7 @@ public class SplineCalculator {
         return new Point3D(Px, Py, Pz);
     }
 
-    private Point3D calculateSplineFunctionEdgeV(double u) {
+    public Point3D calculateSplineFunctionEdgeV(double u) {
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
         for (int i = 0; i <= Ni; i++) {
             double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
@@ -71,7 +71,7 @@ public class SplineCalculator {
     }
 
 
-    private Point3D calculateSplineFunction(double u, double v) {
+    public Point3D calculateSplineFunction(double u, double v) {
         //Pij - array of control points (spline points)
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
         for (int i = 0; i <= Ni; i++) {
@@ -128,6 +128,30 @@ public class SplineCalculator {
 
     public double getVMax() {
         return vMax;
+    }
+
+    public void setDegrees(int Ti, int Tj)
+    {
+        this.Ti = Ti;
+        this.Tj = Tj;
+        //todo: проверка (перенести из view?)
+        calculateKnots();
+    }
+
+    public int getTi() {
+        return Ti;
+    }
+
+    public int getTj() {
+        return Tj;
+    }
+
+    public int getNi() {
+        return Ni;
+    }
+
+    public int getNj() {
+        return Nj;
     }
 }
 
