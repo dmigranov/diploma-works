@@ -13,4 +13,11 @@
         <maven.compiler.source>11</maven.compiler.source>
     </properties>
 
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
 </project>

@@ -2,9 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/About.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Exit.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/XOR.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/XOR.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/absorption.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/blur.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/book.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/bw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/cancel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/clear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/copy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/download-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/download.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edge1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edge2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/emboss.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/emission.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/floyd.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/folder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/gamma.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/grid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/gridpoint.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/line.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/negative.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/next-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/next.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/order.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/reload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/render.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/rotate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/settings.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sharp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/shuffle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/upload-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/upload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/watercolor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/zoom.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GeoWireFold.iml" beforeDir="false" afterPath="$PROJECT_DIR$/GeoWireFold.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,11 +55,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7540">
-              <caret line="400" column="38" selection-start-line="400" selection-start-column="38" selection-end-line="400" selection-end-column="38" />
+            <state relative-caret-position="262">
+              <caret line="253" column="66" selection-start-line="253" selection-start-column="66" selection-end-line="253" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -29,8 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="59" column="47" selection-start-line="59" selection-start-column="47" selection-end-line="59" selection-end-column="47" />
+            <state relative-caret-position="1182">
+              <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#20051#20052#0" expanded="true" />
@@ -58,11 +96,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -146,13 +193,25 @@
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/model/Matrix.java" />
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" />
         <option value="$PROJECT_DIR$/src/ru/nsu/fit/g16201/migranov/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/MatrixTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" />
       </list>
     </option>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="GeoWireFold" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="GeoWireFold" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
@@ -192,6 +251,21 @@
               <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
               <item name="out2" type="462c0819:PsiDirectoryNode" />
               <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="GeoWireFold" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="out2" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="GeoWireFold" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="out2" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
               <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -205,7 +279,87 @@
             <path>
               <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
               <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="out2" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="ru" type="462c0819:PsiDirectoryNode" />
+              <item name="nsu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="out2" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="ru" type="462c0819:PsiDirectoryNode" />
+              <item name="nsu" type="462c0819:PsiDirectoryNode" />
+              <item name="fit" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="out2" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="ru" type="462c0819:PsiDirectoryNode" />
+              <item name="nsu" type="462c0819:PsiDirectoryNode" />
+              <item name="fit" type="462c0819:PsiDirectoryNode" />
+              <item name="g16201" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="out2" type="462c0819:PsiDirectoryNode" />
+              <item name="production" type="462c0819:PsiDirectoryNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="ru" type="462c0819:PsiDirectoryNode" />
+              <item name="nsu" type="462c0819:PsiDirectoryNode" />
+              <item name="fit" type="462c0819:PsiDirectoryNode" />
+              <item name="g16201" type="462c0819:PsiDirectoryNode" />
+              <item name="migranov" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="FIT_16201_Migranov_Wireframe_Data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="migranov" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wireframe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wireframe" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="migranov" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -220,7 +374,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/FIT_16201_Migranov_Wireframe_Data" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -231,15 +385,15 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ru.nsu.fit.g16201.migranov.view" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Диплом\MY CODE\Wireframe\src\main" />
       <recent name="D:\Диплом\MY CODE\Wireframe\src\FIT_16201_Migranov_Wireframe_Data" />
       <recent name="D:\Диплом\MY CODE\Wireframe" />
       <recent name="D:\Диплом\MY CODE\Wireframe\out2\production\Wireframe" />
       <recent name="D:\Code\CG\Wireframe\src\FIT_16201_Migranov_Wireframe_Data" />
-      <recent name="D:\Code\CG\Wireframe" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.nsu.fit.g16201.migranov.view" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -307,14 +461,7 @@
       <workItem from="1571056882113" duration="5762000" />
       <workItem from="1571143740896" duration="2294000" />
       <workItem from="1571215176911" duration="13032000" />
-      <workItem from="1571388523921" duration="2302000" />
-    </task>
-    <task id="LOCAL-00053" summary="better incr (+k)">
-      <created>1570971593979</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1570971593979</updated>
+      <workItem from="1571388523921" duration="2844000" />
     </task>
     <task id="LOCAL-00054" summary="it draws something! but not what i want...">
       <created>1570972582539</created>
@@ -652,11 +799,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571391111298</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="maven">
+      <created>1571391469861</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1571391469861</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90096000" />
+    <option name="totallyTimeSpent" value="90638000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -671,14 +825,14 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14966443" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24362417" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932885" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4805369" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4805369" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49597314" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -688,7 +842,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932885" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5261745" side_tool="true" weight="0.17705382" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.4738255" weight="0.17705382" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" sideWeight="0.49395972" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49395972" weight="0.3286119" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -743,7 +897,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="started preps for del-ing figure class" />
     <MESSAGE value="deleted the Figure class, which is kinda unnecessary now that we have just one figure" />
     <MESSAGE value="deleted figure file itself + some cleaning" />
     <MESSAGE value="добавил некоторые математические комментарии" />
@@ -768,7 +921,8 @@
     <MESSAGE value="added interface for changing Ti, Tj" />
     <MESSAGE value="done for today i guess" />
     <MESSAGE value="added maven" />
-    <option name="LAST_COMMIT_MESSAGE" value="added maven" />
+    <MESSAGE value="maven" />
+    <option name="LAST_COMMIT_MESSAGE" value="maven" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/out2/production/FIT_16201_Migranov_Wireframe_Data/example4.txt" />
@@ -859,13 +1013,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/Point3D.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -890,21 +1037,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7540">
-          <caret line="400" column="38" selection-start-line="400" selection-start-column="38" selection-end-line="400" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example3d.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/MatrixTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
@@ -913,8 +1053,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="59" column="47" selection-start-line="59" selection-start-column="47" selection-end-line="59" selection-end-column="47" />
+        <state relative-caret-position="1182">
+          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#20051#20052#0" expanded="true" />
@@ -941,10 +1081,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/example3d.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="253" column="66" selection-start-line="253" selection-start-column="66" selection-end-line="253" selection-end-column="66" />
         </state>
       </provider>
     </entry>
