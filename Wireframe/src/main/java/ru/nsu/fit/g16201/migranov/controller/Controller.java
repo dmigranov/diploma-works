@@ -228,10 +228,10 @@ public class Controller {
         double uMin = splineCalculator.getUMin(), uMax = splineCalculator.getUMax();
         double vMin = splineCalculator.getVMin(), vMax = splineCalculator.getVMax();
 
-        double incrementU = (double)(uMax - uMin) / n / k;
-        double incrementV = (double)(vMax - vMin) / m / k;
+        double incrementU = (uMax - uMin) / n / k;
+        double incrementV = (vMax - vMin) / m / k;
 
-        double u = uMin, v = vMin;
+        double u = uMin, v;
         for(int i = 0; i < n * k; i++)
         {
             v = vMin;
