@@ -14,7 +14,7 @@ public class GeodesicsCalculator {
         this.splineCalculator = splineCalculator;
     }
 
-    public Matrix calculateMetricTensor(double u0, double v0)
+    public Matrix calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
     {
         double g11, g22, g12, g21;
 
@@ -36,10 +36,8 @@ public class GeodesicsCalculator {
         DerivativeStructure u0drvs = new DerivativeStructure(1, 1, 0, u0); //просто переменная с такимто значением
         DerivativeStructure v0drvs = new DerivativeStructure(1, 1, 0, v0);
 
-
         DerivativeStructure [] drdu0 = drdu.value(u0drvs);
         DerivativeStructure [] drdv0 = drdv.value(v0drvs);
-
 
         xu = drdu0[0].getPartialDerivative(1); yu = drdu0[1].getPartialDerivative(1); zu = drdu0[2].getPartialDerivative(1);
         xv = drdv0[0].getPartialDerivative(1); yv = drdv0[1].getPartialDerivative(1); zv = drdv0[2].getPartialDerivative(1);
@@ -49,6 +47,18 @@ public class GeodesicsCalculator {
         g22 = xv*xv + yv*yv + zv*zv;
 
         return new Matrix(2, 2, g11, g12, g21, g22);
+    }
+
+    public Matrix calculateContravariantMetricTensor(Matrix g)
+    {
+        //это будет просто обратная матрица к обычному (ковариантному) метрическому тензору
+        return new Matrix(1, 1, 1);
+
+    }
+
+    private double[] differentiateVectorFunction()
+    {
+
     }
 
 }
