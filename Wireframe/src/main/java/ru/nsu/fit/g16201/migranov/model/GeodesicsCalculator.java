@@ -46,12 +46,15 @@ public class GeodesicsCalculator {
 
     public Matrix calculateContravariantMetricTensor(Matrix g)
     {
-        //это будет просто обратная матрица к обычному (ковариантному) метрическому тензору
-        return new Matrix(1, 1, 1);
+        double g11 = g.get(0, 0), g12 = g.get(0,1), g22 = g.get(1, 1);  //symm
+        double det = g11*g22 - g12*g12;
 
+        //todo: а если не обратима?
+
+        return new Matrix(2, 2, g22/det, -g12/det, -g12/det, g11/det);
     }
 
-    //(u, v) -> (x, y, z)
+    //f: (u, v) |-> (x, y, z)
     private Point3D differentiateUnivariateVectorFunction(UnivariateVectorFunction f, double value)
     {
         UnivariateDifferentiableVectorFunction dvf = differentiator.differentiate(f);
@@ -62,5 +65,12 @@ public class GeodesicsCalculator {
         return new Point3D(dr[0].getPartialDerivative(1), dr[1].getPartialDerivative(1), dr[2].getPartialDerivative(1));
     }
 
+
+    //потом просто пожставить, чтобы не вычитывать каждый раз производные заново при вызове метода!
+    private double[][][] calculateChristoffelSymbol()
+    {
+
+        return null;
+    }
 
 }

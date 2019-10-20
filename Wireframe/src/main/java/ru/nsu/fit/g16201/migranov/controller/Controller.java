@@ -58,16 +58,18 @@ public class Controller {
 
             if(e.isControlDown())
             {
-                //todo: не позволять сильно зумить
-                double dz = -count * 1;
+                double dz = -count * 0.5;
                 Point3D forward = Point3D.add(ref, Point3D.getNegative(eye));
                 forward = forward.normalize();
                 //ref = Point3D.add(ref, Point3D.multiplyByScalar(dz, forward));
                 Point3D oldEye = eye;
                 eye = Point3D.add(eye, Point3D.multiplyByScalar(dz, forward));
+                if(eye.x >= -1)
+                {
+                    eye = oldEye;
+                    return;
+                }
                 cameraMatrix = Matrix.getViewMatrixNew(eye, ref, up);  //матрица получается аналогичная
-                Matrix tr = Matrix.getTranslationMatrix(new Point3D(0, 0, -dz));
-                //viewMatrix = Matrix.multiply(tr, viewMatrix);
                 drawFigure();
             }
             else
