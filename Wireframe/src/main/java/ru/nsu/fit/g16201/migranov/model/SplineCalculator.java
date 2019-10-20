@@ -7,7 +7,7 @@ public class SplineCalculator {
 
     private Point3D[][] splinePoints;
 
-    private double[] knotsI, knotsJ;   //todo: double!
+    private double[] knotsI, knotsJ;
 
     private double uMax, vMax, uMin, vMin;
 

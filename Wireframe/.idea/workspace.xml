@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="вынес производную в отдельный метод&#10;не совсем удобно, т.к по прежнему функция только типа одной переменной, приходится подставлять самому">
+    <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,40 +18,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>camera</find>
-      <find>sceneRotateMatrix</find>
-      <find>кщефеу</find>
-      <find>//</find>
-      <find>load4</find>
-      <find>степен</find>
-      <find>rtm</find>
-      <find>област</find>
-      <find>drawA</find>
-      <find>knot</find>
-      <find>оси</find>
-      <find>ос</find>
-      <find>loadF</find>
-      <find>drawFi</find>
-      <find>zf</find>
-      <find>nF</find>
-      <find>spline3DConfigurationPanel</find>
-      <find>confirm</find>
-      <find>center</find>
-      <find>tabbe</find>
-      <find>create</find>
-      <find>zfar</find>
-      <find>setC</find>
-      <find>basic</find>
-      <find>setico</find>
-      <find>onConfigureSplines</find>
-      <find>onCon</find>
-      <find>spline</find>
-      <find>uMax</find>
-      <find>load3</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -166,14 +132,7 @@
       <workItem from="1571388523921" duration="13403000" />
       <workItem from="1571416097862" duration="23000" />
       <workItem from="1571485715484" duration="1303000" />
-      <workItem from="1571564178309" duration="3915000" />
-    </task>
-    <task id="LOCAL-00082" summary="вынес нахождение точек поверхности в отдельный метод">
-      <created>1571219370172</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1571219370172</updated>
+      <workItem from="1571564178309" duration="5231000" />
     </task>
     <task id="LOCAL-00083" summary="вынес нахождение точек поверхности в отдельный метод">
       <created>1571219616028</created>
@@ -511,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571565752003</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="не позволяю приближать слишком сильно">
+      <created>1571568394051</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1571568394051</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,7 +511,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="удалил старое из вью" />
     <MESSAGE value="added new example 7*7" />
     <MESSAGE value="gonna delete spline function from arguments" />
     <MESSAGE value="deleted splinefunction parameter from calculateSplineFunction" />
@@ -570,7 +535,8 @@
     <MESSAGE value="ну вообще вроде он все правильно считает&#10;получается матрица&#10;400 0&#10;0 400, 400 = 20 * 20&#10;а мы из 0.1 отображаем в промежуток длины двадцать, то есть x = 20 * u + const" />
     <MESSAGE value="вынесу производную в отдельный метод" />
     <MESSAGE value="вынес производную в отдельный метод&#10;не совсем удобно, т.к по прежнему функция только типа одной переменной, приходится подставлять самому" />
-    <option name="LAST_COMMIT_MESSAGE" value="вынес производную в отдельный метод&#10;не совсем удобно, т.к по прежнему функция только типа одной переменной, приходится подставлять самому" />
+    <MESSAGE value="не позволяю приближать слишком сильно" />
+    <option name="LAST_COMMIT_MESSAGE" value="не позволяю приближать слишком сильно" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -23,6 +23,7 @@ public class WireframeFrame extends MainFrame {
 
     private JPanel mainPanel;
     private JTabbedPane tabbedPane;
+    private JPanel geodesicsPanel;
 
     private WireframePanel wireframePanel;
 
@@ -30,6 +31,7 @@ public class WireframeFrame extends MainFrame {
     private JColorChooser backgroundColorChooser, figureColorChooser;
     private JButton confirmButton;
     private boolean fileIsLoaded = false;
+    private JRadioButton uniformButton, nonUniformButton;
 
     public static void main(String[] args) throws Exception {
         new WireframeFrame();
@@ -50,6 +52,7 @@ public class WireframeFrame extends MainFrame {
         controller = new Controller(wireframePanel);
         addMenus();
         createCommonConfigurationPanel();
+        createGeodesicsConfigurationPanel();
 
         add(mainPanel);
 
@@ -64,6 +67,10 @@ public class WireframeFrame extends MainFrame {
         setMinimumSize(new Dimension(800, 600));
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    private void createGeodesicsConfigurationPanel() {
+        geodesicsPanel = new JPanel();
     }
 
     private void resize() {
@@ -167,6 +174,19 @@ public class WireframeFrame extends MainFrame {
         //spline3DConfigurationPanel.add(new JLabel("Ti & Tj are orders of spline basis functions; the smoothness of surface depends on Ni, Ti, Nj, Tj (dependency is given by knot points)"));
         spline3DConfigurationPanel.add(figureColorChooser);
 
+        JPanel radioPanel = new JPanel(new GridLayout(2, 1));
+        ButtonGroup group = new ButtonGroup();
+        uniformButton = new JRadioButton("Uniform knot vector");
+        nonUniformButton = new JRadioButton("Non-uniform knot vector");
+        group.add(uniformButton);
+        group.add(nonUniformButton);
+        radioPanel.add(uniformButton);
+        radioPanel.add(nonUniformButton);
+        nonUniformButton.setSelected(true);
+        radioPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Uniformity of knot vector"));
+        spline3DConfigurationPanel.add(radioPanel);
+        //todo: добавить поля для umin vmin / max и считывать их значение!
+
         confirmButton = new JButton("Confirm");
         confirmButton.addActionListener(e -> {
             try
@@ -208,8 +228,7 @@ public class WireframeFrame extends MainFrame {
     private void addMenus() throws NoSuchMethodException {
         addSubMenu("File", KeyEvent.VK_F);
         addMenuAndToolBarButton("File/Open 3D Spline file", "Open a 3D Spline file", KeyEvent.VK_T, "upload-1.png", "onOpen3D", false);
-
-        addMenuAndToolBarButton("File/Save as", "Save figures as", KeyEvent.VK_S, "download.png", "onSave", true);
+        //addMenuAndToolBarButton("File/Save as", "Save figures as", KeyEvent.VK_S, "download.png", "onSave", true);
 
         addSubMenu("Options", KeyEvent.VK_O);
         addMenuAndToolBarButton("Options/Configuration", "Configure splines and viewing properties", KeyEvent.VK_S, "settings.png", "onConfigure", true);
@@ -283,12 +302,7 @@ public class WireframeFrame extends MainFrame {
         load3DFile(file);
     }
 
-    public void onConfigureGeodesics()
-    {
-        //выводить окно со списком геодезических.
-        //как задавать: начальная точка +...
-        //вектор? и потом по нему идти
-    }
+
 
     private void load3DFile(File file)
     {
@@ -330,6 +344,19 @@ public class WireframeFrame extends MainFrame {
         aboutPanel.add(new JLabel("Denis Migranov, Novosibirsk State University, group 16201, 2019"));
         aboutPanel.add(new JLabel("Icons used are from www.flaticon.com/packs/multimedia-collection and icons8.com"));
         JOptionPane.showMessageDialog(this, aboutPanel, "GeoWireFold", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void onConfigureGeodesics()
+    {
+        //выводить окно со списком геодезических.
+        //как задавать: начальная точка +...
+        //вектор? и потом по нему идти
+        updateFields();
+        if(JOptionPane.showConfirmDialog(this, geodesicsPanel, "Options", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION)
+        {
+
+        }
+
     }
 
     public void onConfigure()
