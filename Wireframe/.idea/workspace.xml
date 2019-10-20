@@ -3,52 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/GeoWireFold/META-INF/GeoWireFold.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/FIT_16201_Migranov_Wireframe_Data/example3d.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/FIT_16201_Migranov_Wireframe_Data/examplу10.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/FIT_16201_Migranov_Wireframe_Data/examplу9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/examplу11.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/examplу9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/About.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/Exit.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/XOR.bmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/XOR.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/absorption.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/blur.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/book.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/bw.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/cancel.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/clear.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/copy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/download-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/download.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/edge1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/edge2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/edit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/emboss.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/emission.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/floyd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/folder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/gamma.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/grid.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/gridpoint.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/line.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/logout.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/negative.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/next-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/next.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/order.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/reload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/render.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/rotate.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/sharp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/shuffle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/upload-1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/upload.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/watercolor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2/production/Wireframe/ru/nsu/fit/g16201/migranov/view/resources/zoom.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -211,14 +165,7 @@
       <workItem from="1571388523921" duration="13403000" />
       <workItem from="1571416097862" duration="23000" />
       <workItem from="1571485715484" duration="1303000" />
-      <workItem from="1571564178309" duration="387000" />
-    </task>
-    <task id="LOCAL-00080" summary="еще больше комментариев, было решено не менять определение рекурсивных функций. моё совпадает с таковым в английской википедии">
-      <created>1571218749046</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1571218749047</updated>
+      <workItem from="1571564178309" duration="1511000" />
     </task>
     <task id="LOCAL-00081" summary="задал требования на &quot;степени&quot;">
       <created>1571219137283</created>
@@ -556,7 +503,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571414963196</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="вынесу производную в отдельный метод">
+      <created>1571564633208</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1571564633208</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TodoView">
@@ -599,7 +553,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="set icon now works" />
     <MESSAGE value="deleted old resources" />
     <MESSAGE value="удалил старое из вью" />
     <MESSAGE value="added new example 7*7" />
@@ -624,16 +577,12 @@
     <MESSAGE value="gij done? have to check" />
     <MESSAGE value="чёто неправильно считает производные..." />
     <MESSAGE value="ну вообще вроде он все правильно считает&#10;получается матрица&#10;400 0&#10;0 400, 400 = 20 * 20&#10;а мы из 0.1 отображаем в промежуток длины двадцать, то есть x = 20 * u + const" />
-    <option name="LAST_COMMIT_MESSAGE" value="ну вообще вроде он все правильно считает&#10;получается матрица&#10;400 0&#10;0 400, 400 = 20 * 20&#10;а мы из 0.1 отображаем в промежуток длины двадцать, то есть x = 20 * u + const" />
+    <MESSAGE value="вынесу производную в отдельный метод" />
+    <option name="LAST_COMMIT_MESSAGE" value="вынесу производную в отдельный метод" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java</url>
           <line>421</line>
@@ -641,7 +590,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java</url>
-          <line>44</line>
+          <line>39</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
