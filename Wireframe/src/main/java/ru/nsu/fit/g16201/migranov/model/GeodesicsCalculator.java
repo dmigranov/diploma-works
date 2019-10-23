@@ -65,7 +65,6 @@ public class GeodesicsCalculator {
         DerivativeStructure drvs = new DerivativeStructure(1, 1, 0, value); //просто переменная с такимто значением
 
         DerivativeStructure [] dr = dvf.value(drvs);
-        //return new Point3D(dr[0].getPartialDerivative(1), dr[1].getPartialDerivative(1), dr[2].getPartialDerivative(1));
         return Arrays.stream(dr).mapToDouble(derivativeStructure -> derivativeStructure.getPartialDerivative(1)).toArray();
     }
 
@@ -74,14 +73,26 @@ public class GeodesicsCalculator {
         UnivariateDifferentiableMatrixFunction dmf = differentiator.differentiate(f);
 
         DerivativeStructure drvs = new DerivativeStructure(1, 1, 0, value); //просто переменная с такимто значением
-
         DerivativeStructure [][] dr = dmf.value(drvs);
-        return null;
+        double[][] retArray = new double[dr.length][];
+
+        for(int i = 0; i < dr.length; i++)
+        {
+            int len = dr[i].length;
+            retArray[i] = new double[len];
+            for(int j = 0; j < len; j++)
+            {
+                retArray[i][j] = dr[i][j].getPartialDerivative(1);
+            }
+        }
+        return retArray;
     }
 
     //потом просто пожставить, чтобы не вычитывать каждый раз производные заново при вызове метода!
     private double[][][] calculateChristoffelSymbol()
     {
+        //в данном случае у нас x1 = u, x2 = v - внутренние координаты поверхности
+        //по ним будем дифференцировать gij
 
         return null;
     }

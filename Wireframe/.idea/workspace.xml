@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -135,14 +134,7 @@
       <workItem from="1571564178309" duration="5266000" />
       <workItem from="1571657320412" duration="638000" />
       <workItem from="1571662182772" duration="671000" />
-      <workItem from="1571835607307" duration="1426000" />
-    </task>
-    <task id="LOCAL-00085" summary="added and used vmin, vmax">
-      <created>1571220585126</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1571220585126</updated>
+      <workItem from="1571835607307" duration="1870000" />
     </task>
     <task id="LOCAL-00086" summary="типа сделал оси, но отказался, т.к это плохая идея. у нас u и v - это внутренни координаты поверхности, они не так просто проецируются на землю!">
       <created>1571221903477</created>
@@ -480,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571836052132</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="more unification">
+      <created>1571837150290</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1571837150290</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,8 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deleted splinefunction parameter from calculateSplineFunction" />
-    <MESSAGE value="q" />
     <MESSAGE value="new class for spline ops in model" />
     <MESSAGE value="еренос кода идёт" />
     <MESSAGE value="more moved" />
@@ -539,7 +536,9 @@
     <MESSAGE value="не позволяю приближать слишком сильно" />
     <MESSAGE value="something&#10;лучше почитаю" />
     <MESSAGE value="Matrix -&gt; double[][] inside GeoCalc for easier differentiation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Matrix -&gt; double[][] inside GeoCalc for easier differentiation" />
+    <MESSAGE value="more unification" />
+    <MESSAGE value="добавил дифференцирование матриц" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил дифференцирование матриц" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
