@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +49,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -132,14 +131,10 @@
       <workItem from="1571388523921" duration="13403000" />
       <workItem from="1571416097862" duration="23000" />
       <workItem from="1571485715484" duration="1303000" />
-      <workItem from="1571564178309" duration="5231000" />
-    </task>
-    <task id="LOCAL-00083" summary="вынес нахождение точек поверхности в отдельный метод">
-      <created>1571219616028</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1571219616028</updated>
+      <workItem from="1571564178309" duration="5266000" />
+      <workItem from="1571657320412" duration="638000" />
+      <workItem from="1571662182772" duration="671000" />
+      <workItem from="1571835607307" duration="414000" />
     </task>
     <task id="LOCAL-00084" summary="added uMax и vMax">
       <created>1571220408534</created>
@@ -477,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571568394051</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="something&#10;лучше почитаю">
+      <created>1571569686441</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1571569686441</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,7 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added new example 7*7" />
     <MESSAGE value="gonna delete spline function from arguments" />
     <MESSAGE value="deleted splinefunction parameter from calculateSplineFunction" />
     <MESSAGE value="q" />
@@ -536,7 +537,8 @@
     <MESSAGE value="вынесу производную в отдельный метод" />
     <MESSAGE value="вынес производную в отдельный метод&#10;не совсем удобно, т.к по прежнему функция только типа одной переменной, приходится подставлять самому" />
     <MESSAGE value="не позволяю приближать слишком сильно" />
-    <option name="LAST_COMMIT_MESSAGE" value="не позволяю приближать слишком сильно" />
+    <MESSAGE value="something&#10;лучше почитаю" />
+    <option name="LAST_COMMIT_MESSAGE" value="something&#10;лучше почитаю" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

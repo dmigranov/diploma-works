@@ -18,7 +18,7 @@ public class GeodesicsCalculator {
 
 
     private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, 0.01);
-    public Matrix calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
+    public double[][] calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
     {
         double g11, g22, g12, g21;
 
@@ -41,17 +41,17 @@ public class GeodesicsCalculator {
         g12 = g21 = xu*xv + yu*yv + zu*zv;
         g22 = xv*xv + yv*yv + zv*zv;
 
-        return new Matrix(2, 2, g11, g12, g21, g22);
+        return new double[][] {{g11, g12}, {g21, g22}};
     }
 
-    public Matrix calculateContravariantMetricTensor(Matrix g)
+    private double[][] calculateContravariantMetricTensor(double[][] g)
     {
-        double g11 = g.get(0, 0), g12 = g.get(0,1), g22 = g.get(1, 1);  //symm
+        double g11 = g[0][0], g12 = g[0][1], g22 = g[1][1];  //symm
         double det = g11*g22 - g12*g12;
 
         //todo: а если не обратима?
 
-        return new Matrix(2, 2, g22/det, -g12/det, -g12/det, g11/det);
+        return new double[][]{ {g22/det, -g12/det}, {-g12/det, g11/det}};
     }
 
     //f: (u, v) |-> (x, y, z)
