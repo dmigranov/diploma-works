@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -134,14 +135,7 @@
       <workItem from="1571564178309" duration="5266000" />
       <workItem from="1571657320412" duration="638000" />
       <workItem from="1571662182772" duration="671000" />
-      <workItem from="1571835607307" duration="414000" />
-    </task>
-    <task id="LOCAL-00084" summary="added uMax и vMax">
-      <created>1571220408534</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1571220408534</updated>
+      <workItem from="1571835607307" duration="1426000" />
     </task>
     <task id="LOCAL-00085" summary="added and used vmin, vmax">
       <created>1571220585126</created>
@@ -479,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571569686441</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Matrix -&gt; double[][] inside GeoCalc for easier differentiation">
+      <created>1571836052131</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1571836052132</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,7 +514,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="gonna delete spline function from arguments" />
     <MESSAGE value="deleted splinefunction parameter from calculateSplineFunction" />
     <MESSAGE value="q" />
     <MESSAGE value="new class for spline ops in model" />
@@ -538,7 +538,8 @@
     <MESSAGE value="вынес производную в отдельный метод&#10;не совсем удобно, т.к по прежнему функция только типа одной переменной, приходится подставлять самому" />
     <MESSAGE value="не позволяю приближать слишком сильно" />
     <MESSAGE value="something&#10;лучше почитаю" />
-    <option name="LAST_COMMIT_MESSAGE" value="something&#10;лучше почитаю" />
+    <MESSAGE value="Matrix -&gt; double[][] inside GeoCalc for easier differentiation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Matrix -&gt; double[][] inside GeoCalc for easier differentiation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -550,7 +551,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java</url>
-          <line>39</line>
+          <line>42</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
