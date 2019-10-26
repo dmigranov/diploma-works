@@ -10,6 +10,7 @@ import org.apache.commons.math3.util.Precision;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 
 public class GeodesicsCalculator {
     private SplineCalculator splineCalculator;
@@ -70,6 +71,42 @@ public class GeodesicsCalculator {
 
     private double[][] differentiateUnivariateMatrixFunction(UnivariateMatrixFunction f, double value)
     {
+        UnivariateDifferentiableMatrixFunction dmf = differentiator.differentiate(f);
+
+        DerivativeStructure drvs = new DerivativeStructure(1, 1, 0, value); //просто переменная с такимто значением
+        DerivativeStructure [][] dr = dmf.value(drvs);
+        double[][] retArray = new double[dr.length][];
+
+        for(int i = 0; i < dr.length; i++)
+        {
+            int len = dr[i].length;
+            retArray[i] = new double[len];
+            for(int j = 0; j < len; j++)
+            {
+                retArray[i][j] = dr[i][j].getPartialDerivative(1);
+            }
+        }
+        return retArray;
+    }
+
+    //double[] -> dounle[][]
+    private double[][] differentiatePolivariateMatrixFunction(Function<double[], double[][]> fPoli, int diffArgNumber, double[] values)
+    {
+        UnivariateMatrixFunction f = new UnivariateMatrixFunction() {
+            @Override
+            public double[][] value(double x) {
+                double[] fValues = new double[values.length + 1];
+                for(int i = 0 , j = 0; i < fValues.length; i++, j++)
+                    if(i != diffArgNumber)
+                        fValues[i] = values[i];
+                    else
+                    {
+                        fValues[i] = x;
+                    }
+                return fPoli.apply(fValues);
+            }
+        };
+
         UnivariateDifferentiableMatrixFunction dmf = differentiator.differentiate(f);
 
         DerivativeStructure drvs = new DerivativeStructure(1, 1, 0, value); //просто переменная с такимто значением
