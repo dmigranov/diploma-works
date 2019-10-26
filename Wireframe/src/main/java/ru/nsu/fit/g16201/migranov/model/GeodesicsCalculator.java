@@ -54,7 +54,6 @@ public class GeodesicsCalculator {
         double det = g11*g22 - g12*g12;
 
         //todo: а если не обратима? det = 0
-
         return new double[][]{ {g22/det, -g12/det}, {-g12/det, g11/det}};
     }
 
