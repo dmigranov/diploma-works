@@ -135,21 +135,7 @@
       <workItem from="1571657320412" duration="638000" />
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
-      <workItem from="1572090669394" duration="3548000" />
-    </task>
-    <task id="LOCAL-00092" summary="начал менять интерфейс">
-      <created>1571223861022</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1571223861022</updated>
-    </task>
-    <task id="LOCAL-00093" summary="gonna add color chooser">
-      <created>1571224152408</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1571224152408</updated>
+      <workItem from="1572090669394" duration="3729000" />
     </task>
     <task id="LOCAL-00094" summary="added color chooser for background">
       <created>1571226970223</created>
@@ -480,7 +466,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572095824751</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="polivariatevectorfun works">
+      <created>1572096302284</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1572096302284</updated>
+    </task>
+    <task id="LOCAL-00142" summary="удалил старые funcs">
+      <created>1572096347987</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1572096347987</updated>
+    </task>
+    <option name="localTasksCounter" value="143" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,8 +514,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new class done первое приближение" />
-    <MESSAGE value="gonna  унифицировать вычисление точек на поверхности" />
     <MESSAGE value="i don;t like the eps idea" />
     <MESSAGE value="added new example + some work" />
     <MESSAGE value="собрал калкулэйт сплайн ыункш в одну" />
@@ -539,18 +537,9 @@
     <MESSAGE value="added differentiatePolivariateVectorFunction" />
     <MESSAGE value="for -&gt; setAll" />
     <MESSAGE value="собираюсь изменить в основном коде univariate... на function" />
-    <option name="LAST_COMMIT_MESSAGE" value="собираюсь изменить в основном коде univariate... на function" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="polivariatevectorfun works" />
+    <MESSAGE value="удалил старые funcs" />
+    <option name="LAST_COMMIT_MESSAGE" value="удалил старые funcs" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">

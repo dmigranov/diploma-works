@@ -145,6 +145,12 @@ public class GeodesicsCalculator {
     {
         //в данном случае у нас x1 = u, x2 = v - внутренние координаты поверхности
         //по ним будем дифференцировать gij
+        double[][][] Cs = new double[2][2][2];
+        for(int i = 0; i < 2; i++)
+            for(int j = 0; j < 2; j++)
+                for(int k = 0; k < 2; k++)
+                    ;
+
 
         return null;
     }
