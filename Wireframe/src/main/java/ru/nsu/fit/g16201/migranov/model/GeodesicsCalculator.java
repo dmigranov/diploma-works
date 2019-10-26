@@ -28,7 +28,7 @@ public class GeodesicsCalculator {
 
         double xu, xv, yu, yv, zu, zv;
 
-        double[] drdu = differentiateUnivariateVectorFunction(u -> {
+        /*double[] drdu = differentiateUnivariateVectorFunction(u -> {
             Point3D p = splineCalculator.calculateSplineFunction(u, v0, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v0, splineCalculator.getVMax()));
             return new double[] {p.x, p.y, p.z};
         }, u0);
@@ -36,7 +36,20 @@ public class GeodesicsCalculator {
         double[] drdv = differentiateUnivariateVectorFunction(v -> {
             Point3D p = splineCalculator.calculateSplineFunction(u0, v, Precision.equals(u0, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));
             return new double[] {p.x, p.y, p.z};
-        }, v0);
+        }, v0);*/
+
+        Function<double[], double[]> func = new Function<double[], double[]>() {
+            @Override
+            public double[] apply(double[] vals) {
+                double u = vals[0], v = vals[1];
+                Point3D p = splineCalculator.calculateSplineFunction(u, v, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));
+                return new double[] {p.x, p.y, p.z};
+            }
+        };
+        double[] values = new double[] {u0, v0};
+
+        double[] drdu = differentiatePolivariateVectorFunction(func, 0, values);
+        double[] drdv = differentiatePolivariateVectorFunction(func, 1, values);
 
         xu = drdu[0]; yu = drdu[1]; zu = drdu[2];
         xv = drdv[0]; yv = drdv[1]; zv = drdv[2];

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -134,21 +135,7 @@
       <workItem from="1571657320412" duration="638000" />
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
-      <workItem from="1572090669394" duration="2902000" />
-    </task>
-    <task id="LOCAL-00090" summary="gonna delete zfar">
-      <created>1571223147167</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1571223147167</updated>
-    </task>
-    <task id="LOCAL-00091" summary="deleted zf field from interface">
-      <created>1571223304612</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1571223304612</updated>
+      <workItem from="1572090669394" duration="3548000" />
     </task>
     <task id="LOCAL-00092" summary="начал менять интерфейс">
       <created>1571223861022</created>
@@ -479,7 +466,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572095565196</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="for -&gt; setAll">
+      <created>1572095696081</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1572095696081</updated>
+    </task>
+    <task id="LOCAL-00140" summary="собираюсь изменить в основном коде univariate... на function">
+      <created>1572095824751</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1572095824751</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -513,8 +514,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="u/v min/max moved" />
-    <MESSAGE value="getters" />
     <MESSAGE value="new class done первое приближение" />
     <MESSAGE value="gonna  унифицировать вычисление точек на поверхности" />
     <MESSAGE value="i don;t like the eps idea" />
@@ -538,19 +537,16 @@
     <MESSAGE value="hmph" />
     <MESSAGE value="added differentiatePolivariateMatrixFunction с выбором по какому аргументу дифференцировать" />
     <MESSAGE value="added differentiatePolivariateVectorFunction" />
-    <option name="LAST_COMMIT_MESSAGE" value="added differentiatePolivariateVectorFunction" />
+    <MESSAGE value="for -&gt; setAll" />
+    <MESSAGE value="собираюсь изменить в основном коде univariate... на function" />
+    <option name="LAST_COMMIT_MESSAGE" value="собираюсь изменить в основном коде univariate... на function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java</url>
-          <line>423</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java</url>
-          <line>43</line>
+          <line>56</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
