@@ -69,6 +69,29 @@ public class GeodesicsCalculator {
         return Arrays.stream(dr).mapToDouble(derivativeStructure -> derivativeStructure.getPartialDerivative(1)).toArray();
     }
 
+    //double[] -> double[]
+    private double[] differentiatePolivariateVectorFunction(Function<double[], double[]> fPoli, int diffArgNumber, double[] values)
+    {
+        //todo: добавить все необходимые проверки на аргументы
+        UnivariateVectorFunction f = new UnivariateVectorFunction() {
+            @Override
+            public double[] value(double x) {
+                double[] fValues = new double[values.length];
+                for(int i = 0 ; i < fValues.length; i++)
+                    fValues[i] = i == diffArgNumber ? x : values[i];
+                return fPoli.apply(fValues);
+            }
+        };
+
+        UnivariateDifferentiableVectorFunction dvf = differentiator.differentiate(f);
+
+        DerivativeStructure drvs = new DerivativeStructure(1, 1, 0, values[diffArgNumber]); //просто переменная с такимто значением
+
+        DerivativeStructure [] dr = dvf.value(drvs);
+        return Arrays.stream(dr).mapToDouble(derivativeStructure -> derivativeStructure.getPartialDerivative(1)).toArray();
+
+    }
+
     private double[][] differentiateUnivariateMatrixFunction(UnivariateMatrixFunction f, double value)
     {
         UnivariateDifferentiableMatrixFunction dmf = differentiator.differentiate(f);
@@ -82,9 +105,7 @@ public class GeodesicsCalculator {
             int len = dr[i].length;
             retArray[i] = new double[len];
             for(int j = 0; j < len; j++)
-            {
                 retArray[i][j] = dr[i][j].getPartialDerivative(1);
-            }
         }
         return retArray;
     }
@@ -114,9 +135,7 @@ public class GeodesicsCalculator {
             int len = dr[i].length;
             retArray[i] = new double[len];
             for(int j = 0; j < len; j++)
-            {
                 retArray[i][j] = dr[i][j].getPartialDerivative(1);
-            }
         }
         return retArray;
     }
