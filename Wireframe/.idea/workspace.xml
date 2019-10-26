@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -135,14 +134,7 @@
       <workItem from="1571657320412" duration="638000" />
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
-      <workItem from="1572090669394" duration="2847000" />
-    </task>
-    <task id="LOCAL-00089" summary="исправил баг с изменением n,m,k">
-      <created>1571222645462</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1571222645462</updated>
+      <workItem from="1572090669394" duration="2902000" />
     </task>
     <task id="LOCAL-00090" summary="gonna delete zfar">
       <created>1571223147167</created>
@@ -480,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572095368984</updated>
     </task>
-    <option name="localTasksCounter" value="138" />
+    <task id="LOCAL-00138" summary="added differentiatePolivariateVectorFunction">
+      <created>1572095565196</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1572095565196</updated>
+    </task>
+    <option name="localTasksCounter" value="139" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +513,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="more moved" />
     <MESSAGE value="u/v min/max moved" />
     <MESSAGE value="getters" />
     <MESSAGE value="new class done первое приближение" />
@@ -539,7 +537,8 @@
     <MESSAGE value="добавил дифференцирование матриц" />
     <MESSAGE value="hmph" />
     <MESSAGE value="added differentiatePolivariateMatrixFunction с выбором по какому аргументу дифференцировать" />
-    <option name="LAST_COMMIT_MESSAGE" value="added differentiatePolivariateMatrixFunction с выбором по какому аргументу дифференцировать" />
+    <MESSAGE value="added differentiatePolivariateVectorFunction" />
+    <option name="LAST_COMMIT_MESSAGE" value="added differentiatePolivariateVectorFunction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

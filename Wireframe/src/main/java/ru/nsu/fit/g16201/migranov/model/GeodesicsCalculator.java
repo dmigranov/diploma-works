@@ -77,8 +77,7 @@ public class GeodesicsCalculator {
             @Override
             public double[] value(double x) {
                 double[] fValues = new double[values.length];
-                for(int i = 0 ; i < fValues.length; i++)
-                    fValues[i] = i == diffArgNumber ? x : values[i];
+                Arrays.setAll(fValues, i -> i == diffArgNumber ? x : values[i]);
                 return fPoli.apply(fValues);
             }
         };
@@ -118,8 +117,7 @@ public class GeodesicsCalculator {
             @Override
             public double[][] value(double x) {
                 double[] fValues = new double[values.length];
-                for(int i = 0 ; i < fValues.length; i++)
-                    fValues[i] = i == diffArgNumber ? x : values[i];
+                Arrays.setAll(fValues, i -> i == diffArgNumber ? x : values[i]);
                 return fPoli.apply(fValues);
             }
         };
