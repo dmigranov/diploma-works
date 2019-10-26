@@ -92,24 +92,20 @@ public class GeodesicsCalculator {
     //double[] -> dounle[][]
     private double[][] differentiatePolivariateMatrixFunction(Function<double[], double[][]> fPoli, int diffArgNumber, double[] values)
     {
+        //todo: добавить все необходимые проверки на аргументы
         UnivariateMatrixFunction f = new UnivariateMatrixFunction() {
             @Override
             public double[][] value(double x) {
-                double[] fValues = new double[values.length + 1];
-                for(int i = 0 , j = 0; i < fValues.length; i++, j++)
-                    if(i != diffArgNumber)
-                        fValues[i] = values[i];
-                    else
-                    {
-                        fValues[i] = x;
-                    }
+                double[] fValues = new double[values.length];
+                for(int i = 0 ; i < fValues.length; i++)
+                    fValues[i] = i == diffArgNumber ? x : values[i];
                 return fPoli.apply(fValues);
             }
         };
 
         UnivariateDifferentiableMatrixFunction dmf = differentiator.differentiate(f);
 
-        DerivativeStructure drvs = new DerivativeStructure(1, 1, 0, value); //просто переменная с такимто значением
+        DerivativeStructure drvs = new DerivativeStructure(1, 1, 0, values[diffArgNumber]); //просто переменная с такимто значением
         DerivativeStructure [][] dr = dmf.value(drvs);
         double[][] retArray = new double[dr.length][];
 

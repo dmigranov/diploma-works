@@ -135,14 +135,7 @@
       <workItem from="1571657320412" duration="638000" />
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
-      <workItem from="1572090669394" duration="2489000" />
-    </task>
-    <task id="LOCAL-00087" summary="УДАЛЕНИЕ ОСЕЙ В СЛЕД. КОММИТЕ">
-      <created>1571221983479</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1571221983479</updated>
+      <workItem from="1572090669394" duration="2642000" />
     </task>
     <task id="LOCAL-00088" summary="УДАЛЕНИЕ ОСЕЙ В СЛЕД. КОММИТЕ">
       <created>1571221997487</created>
@@ -480,7 +473,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571837497336</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="hmph">
+      <created>1572095239655</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1572095239656</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +514,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new class for spline ops in model" />
     <MESSAGE value="еренос кода идёт" />
     <MESSAGE value="more moved" />
     <MESSAGE value="u/v min/max moved" />
@@ -539,7 +538,8 @@
     <MESSAGE value="Matrix -&gt; double[][] inside GeoCalc for easier differentiation" />
     <MESSAGE value="more unification" />
     <MESSAGE value="добавил дифференцирование матриц" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил дифференцирование матриц" />
+    <MESSAGE value="hmph" />
+    <option name="LAST_COMMIT_MESSAGE" value="hmph" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
