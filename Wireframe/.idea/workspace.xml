@@ -136,14 +136,7 @@
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
       <workItem from="1572090669394" duration="4458000" />
-      <workItem from="1572164274004" duration="10534000" />
-    </task>
-    <task id="LOCAL-00109" summary="deleted splinefunction parameter from calculateSplineFunction">
-      <created>1571392727610</created>
-      <option name="number" value="00109" />
-      <option name="presentableId" value="LOCAL-00109" />
-      <option name="project" value="LOCAL" />
-      <updated>1571392727610</updated>
+      <workItem from="1572164274004" duration="11164000" />
     </task>
     <task id="LOCAL-00110" summary="q">
       <created>1571392822690</created>
@@ -481,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572181448900</updated>
     </task>
-    <option name="localTasksCounter" value="158" />
+    <task id="LOCAL-00158" summary="как бы это заметодить">
+      <created>1572181883123</created>
+      <option name="number" value="00158" />
+      <option name="presentableId" value="LOCAL-00158" />
+      <option name="project" value="LOCAL" />
+      <updated>1572181883123</updated>
+    </task>
+    <option name="localTasksCounter" value="159" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +515,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Matrix -&gt; double[][] inside GeoCalc for easier differentiation" />
     <MESSAGE value="more unification" />
     <MESSAGE value="добавил дифференцирование матриц" />
     <MESSAGE value="hmph" />
@@ -540,7 +539,8 @@
     <MESSAGE value="geo" />
     <MESSAGE value="some" />
     <MESSAGE value="some refaactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="some refaactor" />
+    <MESSAGE value="как бы это заметодить" />
+    <option name="LAST_COMMIT_MESSAGE" value="как бы это заметодить" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -549,6 +549,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java</url>
           <line>149</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java</url>
+          <line>424</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

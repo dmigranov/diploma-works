@@ -171,16 +171,23 @@ public class GeodesicsCalculator {
     }
 
     //u0_s и v0_s - это вектор из точки u0 v0
-    private double[] solveGeodesicsEquation(double u0, double v0, double u0_s, double v0_s, double t0, double step)
+    private double[] geodesicEquationStep(double u0, double v0, double u0_s, double v0_s, double t0, double step)
     {
         //кривая на двумерой поверхности задаётся одним парамаетром t
         //по сути внутри просто интегрируем, используя разные разностные операторы
         double[][][] Cs = calculateChristoffelSymbol(u0, v0);
         double[] state = new double[] {u0, v0, u0_s, v0_s};
-        ClassicalRungeKuttaIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-8);    //todo: singleStep? or no
+        ClassicalRungeKuttaIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-8);   //Это число ни на что не влияет, т.к. использую singleStep
         FirstOrderDifferentialEquations ode = new GeodesicsEquations(Cs);
         double[] newState = rg.singleStep(ode, t0, state, t0 + step);
         return newState;
+    }
+
+    public double[] calculateGeodesic(double uStart, double vStart, double uDir, double vDir)
+    {
+
+
+        return null;
     }
 
 }
