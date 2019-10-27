@@ -421,7 +421,7 @@ public class Controller {
 
             splineCalculator = new SplineCalculator(Ni, Nj, Ti, Tj, splinePoints);
             geodesicsCalculator = new GeodesicsCalculator(splineCalculator);
-            double[][][] z = geodesicsCalculator.calculateChristoffelSymbol(splineCalculator.getUMax()/2, splineCalculator.getVMax()/2);
+            double[][][] z = geodesicsCalculator.calculateChristoffelSymbol(splineCalculator.getUMax()/2.5, splineCalculator.getVMax()/2.5);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)

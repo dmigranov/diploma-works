@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/example3d-5.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,15 +52,15 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.nsu.fit.g16201.migranov.view" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Диплом\MY CODE\Wireframe" />
       <recent name="D:\Диплом\MY CODE\Wireframe\src\main" />
       <recent name="D:\Диплом\MY CODE\Wireframe\src\FIT_16201_Migranov_Wireframe_Data" />
       <recent name="D:\Диплом\MY CODE\Wireframe\out2\production\Wireframe" />
       <recent name="D:\Code\CG\Wireframe\src\FIT_16201_Migranov_Wireframe_Data" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ru.nsu.fit.g16201.migranov.view" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -137,14 +136,7 @@
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
       <workItem from="1572090669394" duration="4458000" />
-      <workItem from="1572164274004" duration="2527000" />
-    </task>
-    <task id="LOCAL-00098" summary="начал добавлять филды для Tij">
-      <created>1571228474306</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1571228474306</updated>
+      <workItem from="1572164274004" duration="2840000" />
     </task>
     <task id="LOCAL-00099" summary="added interface for changing Ti, Tj">
       <created>1571228975301</created>
@@ -482,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572165525587</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="считает но чёто не то, порядок странный">
+      <created>1572166828847</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1572166828847</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +515,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="maven added apache libreay" />
     <MESSAGE value="gij start" />
     <MESSAGE value="bad" />
     <MESSAGE value="some diff" />
@@ -541,67 +539,19 @@
     <MESSAGE value="gonna calculate christoffel symbols" />
     <MESSAGE value="some progress" />
     <MESSAGE value="gonna calc symbols" />
-    <option name="LAST_COMMIT_MESSAGE" value="gonna calc symbols" />
+    <MESSAGE value="считает но чёто не то, порядок странный" />
+    <option name="LAST_COMMIT_MESSAGE" value="считает но чёто не то, порядок странный" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java</url>
-          <line>172</line>
-          <option name="timeStamp" value="2" />
+          <line>152</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="evaluateExpression">
-      <expression>
-        <expression-string>u0drvs.getValue()</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>drdv.value(0.675645645654646)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>drdv.value(0.6756456456546)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>drdv.value(0.6756456456)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>drdv.value(0.67)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>drdv.value(0.75)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>drdv.value(0.5)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>drdv.value(.5)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>drdv.value(1)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
   </component>
   <component name="masterDetails">
     <states>
