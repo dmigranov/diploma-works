@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
+    <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="hmpj">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
@@ -137,14 +137,7 @@
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
       <workItem from="1572090669394" duration="4458000" />
-      <workItem from="1572164274004" duration="11921000" />
-    </task>
-    <task id="LOCAL-00111" summary="new class for spline ops in model">
-      <created>1571397371609</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1571397371609</updated>
+      <workItem from="1572164274004" duration="12715000" />
     </task>
     <task id="LOCAL-00112" summary="еренос кода идёт">
       <created>1571397813235</created>
@@ -482,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572182561581</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="hmpj">
+      <created>1572183295594</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1572183295595</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="добавил дифференцирование матриц" />
     <MESSAGE value="hmph" />
     <MESSAGE value="added differentiatePolivariateMatrixFunction с выбором по какому аргументу дифференцировать" />
     <MESSAGE value="added differentiatePolivariateVectorFunction" />
@@ -541,7 +540,8 @@
     <MESSAGE value="some refaactor" />
     <MESSAGE value="как бы это заметодить" />
     <MESSAGE value="qqqq" />
-    <option name="LAST_COMMIT_MESSAGE" value="qqqq" />
+    <MESSAGE value="hmpj" />
+    <option name="LAST_COMMIT_MESSAGE" value="hmpj" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -171,7 +171,7 @@ public class GeodesicsCalculator {
     }
 
     //u0_s и v0_s - это вектор из точки u0 v0
-    private double[] geodesicEquationStep(double[] state, double t0, double step)
+    public double[] geodesicEquationStep(double[] state, double t0, double step)
     {
         //кривая на двумерой поверхности задаётся одним парамаетром t
         //по сути внутри просто интегрируем, используя разные разностные операторы
@@ -184,15 +184,17 @@ public class GeodesicsCalculator {
 
     public Point3D[] calculateGeodesic(double uStart, double vStart, double uDir, double vDir)
     {
-        Point3D[] points = new Point3D[10];
+        //todo: не надо их каждый раз пересчитывать, сохранять в контроллере!
+        Point3D[] points = new Point3D[40];
         double[] state = new double[] {uStart, vStart, uDir, vDir}, newState;
-        double t = 0, step = 0.05;
-        for(int i = 0; i < 10; i++)
+        double t = 0, step = 0.5;
+        for(int i = 0; i < 40; i++)
         {
             newState = geodesicEquationStep(state, t, step);
-            double u = newState[0], v = newState[1];
+            double u = state[0], v = state[1];
             points[i] = splineCalculator.calculateSplineFunction(u, v, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));
             t += step;
+            state = newState;
         }
 
         return points;
