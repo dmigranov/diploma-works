@@ -7,7 +7,6 @@ import org.apache.commons.math3.analysis.differentiation.FiniteDifferencesDiffer
 import org.apache.commons.math3.analysis.differentiation.UnivariateDifferentiableMatrixFunction;
 import org.apache.commons.math3.analysis.differentiation.UnivariateDifferentiableVectorFunction;
 import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
-import org.apache.commons.math3.ode.FirstOrderIntegrator;
 import org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegrator;
 import org.apache.commons.math3.util.Precision;
 
@@ -23,23 +22,25 @@ public class GeodesicsCalculator {
     }
 
     private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, 0.01);
-    public double[][] calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
+
+    private Function<double[], double[][]> metricTensorFunction = values -> calculateMetricTensor(values[0], values[1]);
+    private Function<double[], double[]> splineFunction = new Function<>() {
+        @Override
+        public double[] apply(double[] values) {
+            double u = values[0], v = values[1];
+            Point3D p = splineCalculator.calculateSplineFunction(u, v, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));
+            return new double[]{p.x, p.y, p.z};
+        }
+    };
+
+    private double[][] calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
     {
         double g11, g22, g12, g21;
         double xu, xv, yu, yv, zu, zv;
 
-        Function<double[], double[]> func = new Function<double[], double[]>() {
-            @Override
-            public double[] apply(double[] vals) {
-                double u = vals[0], v = vals[1];
-                Point3D p = splineCalculator.calculateSplineFunction(u, v, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));
-                return new double[] {p.x, p.y, p.z};
-            }
-        };
         double[] values = new double[] {u0, v0};
-
-        double[] drdu = differentiatePolivariateVectorFunction(func, 0, values);
-        double[] drdv = differentiatePolivariateVectorFunction(func, 1, values);
+        double[] drdu = differentiatePolivariateVectorFunction(splineFunction, 0, values);
+        double[] drdv = differentiatePolivariateVectorFunction(splineFunction, 1, values);
 
         xu = drdu[0]; yu = drdu[1]; zu = drdu[2];
         xv = drdv[0]; yv = drdv[1]; zv = drdv[2];
@@ -145,18 +146,12 @@ public class GeodesicsCalculator {
 
     private double[][][] calculateChristoffelSymbol(double u0, double v0)
     {
-        Function<double[], double[][]> func = new Function<double[], double[][]>() {
-            @Override
-            public double[][] apply(double[] values) {
-                return calculateMetricTensor(values[0], values[1]);
-            }
-        };
 
         double[][][] Cs = new double[2][2][2];  //C[i][k][l] = Г ^i  kl
         double[] values = {u0, v0};
         double[][][] gDiff = new double[2][][];
         double[][] gContra = calculateContravariantMetricTensor(u0, v0);
-        Arrays.setAll(gDiff, i -> differentiatePolivariateMatrixFunction(func, i, values));
+        Arrays.setAll(gDiff, i -> differentiatePolivariateMatrixFunction(metricTensorFunction, i, values));
         //gDiff[i][j][k] = d gjk / dxi; в данном случае у нас x1 = u, x2 = v - внутренние координаты поверхности
 
         for(int i = 0; i < 2; i++) {
@@ -184,7 +179,7 @@ public class GeodesicsCalculator {
 
         ClassicalRungeKuttaIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-8);    //todo: singleStep? or no
         FirstOrderDifferentialEquations ode = new GeodesicsEquations(Cs);
-        rg.singleStep()
+        //rg.singleStep()
         return null;
     }
 
