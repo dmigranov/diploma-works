@@ -6,6 +6,9 @@ import org.apache.commons.math3.analysis.differentiation.DerivativeStructure;
 import org.apache.commons.math3.analysis.differentiation.FiniteDifferencesDifferentiator;
 import org.apache.commons.math3.analysis.differentiation.UnivariateDifferentiableMatrixFunction;
 import org.apache.commons.math3.analysis.differentiation.UnivariateDifferentiableVectorFunction;
+import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
+import org.apache.commons.math3.ode.FirstOrderIntegrator;
+import org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegrator;
 import org.apache.commons.math3.util.Precision;
 
 import java.util.Arrays;
@@ -173,10 +176,15 @@ public class GeodesicsCalculator {
         return Cs;
     }
 
-    private double[] solveGeodesicsEquation()
+    private double[] solveGeodesicsEquation(double u0, double v0)
     {
         //кривая на двумерой поверхности задаётся одним парамаетром t
-        //геодезич тоже
+        //по сути внутри просто интегрируем, используя разные разностные операторы
+        double[][][] Cs = calculateChristoffelSymbol(u0, v0)
+
+        FirstOrderIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-8);    //todo: singleStep?
+        FirstOrderDifferentialEquations ode = new GeodesicsEquations(Cs);
+
         return null;
     }
 

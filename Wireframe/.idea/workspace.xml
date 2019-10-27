@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsEquations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsEquations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,14 +136,7 @@
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
       <workItem from="1572090669394" duration="4458000" />
-      <workItem from="1572164274004" duration="6688000" />
-    </task>
-    <task id="LOCAL-00104" summary="deleted old resources">
-      <created>1571391977544</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1571391977544</updated>
+      <workItem from="1572164274004" duration="8508000" />
     </task>
     <task id="LOCAL-00105" summary="удалил старое из вью">
       <created>1571392084554</created>
@@ -481,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572174256772</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="found mistake">
+      <created>1572174344601</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1572174344602</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +515,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ну вообще вроде он все правильно считает&#10;получается матрица&#10;400 0&#10;0 400, 400 = 20 * 20&#10;а мы из 0.1 отображаем в промежуток длины двадцать, то есть x = 20 * u + const" />
     <MESSAGE value="вынесу производную в отдельный метод" />
     <MESSAGE value="вынес производную в отдельный метод&#10;не совсем удобно, т.к по прежнему функция только типа одной переменной, приходится подставлять самому" />
     <MESSAGE value="не позволяю приближать слишком сильно" />
@@ -540,14 +539,15 @@
     <MESSAGE value="перешел к FirstOrderDifferentialEquations, т.к можно перейти к системе первого порядка" />
     <MESSAGE value="w" />
     <MESSAGE value="computeDerivatives done?" />
-    <option name="LAST_COMMIT_MESSAGE" value="computeDerivatives done?" />
+    <MESSAGE value="found mistake" />
+    <option name="LAST_COMMIT_MESSAGE" value="found mistake" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java</url>
-          <line>152</line>
+          <line>155</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
