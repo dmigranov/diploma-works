@@ -175,15 +175,16 @@ public class GeodesicsCalculator {
         return Cs;
     }
 
-    private double[] solveGeodesicsEquation(double u0, double v0)
+    //state: {u0, v0, u0_s, v0_s}, где u0_s и v0_s - это вектор из точки u0 v0
+    private double[] solveGeodesicsEquation(double u0, double v0, double u0_s, double v0_s)
     {
         //кривая на двумерой поверхности задаётся одним парамаетром t
         //по сути внутри просто интегрируем, используя разные разностные операторы
         double[][][] Cs = calculateChristoffelSymbol(u0, v0);
 
-        FirstOrderIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-8);    //todo: singleStep?
+        ClassicalRungeKuttaIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-8);    //todo: singleStep? or no
         FirstOrderDifferentialEquations ode = new GeodesicsEquations(Cs);
-
+        rg.singleStep()
         return null;
     }
 

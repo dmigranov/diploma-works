@@ -136,21 +136,7 @@
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
       <workItem from="1572090669394" duration="4458000" />
-      <workItem from="1572164274004" duration="8508000" />
-    </task>
-    <task id="LOCAL-00105" summary="удалил старое из вью">
-      <created>1571392084554</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1571392084554</updated>
-    </task>
-    <task id="LOCAL-00106" summary="added new example 7*7">
-      <created>1571392480990</created>
-      <option name="number" value="00106" />
-      <option name="presentableId" value="LOCAL-00106" />
-      <option name="project" value="LOCAL" />
-      <updated>1571392480990</updated>
+      <workItem from="1572164274004" duration="9322000" />
     </task>
     <task id="LOCAL-00107" summary="gonna delete spline function from arguments">
       <created>1571392617115</created>
@@ -481,7 +467,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572174344602</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="sdffdf">
+      <created>1572178897240</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1572178897240</updated>
+    </task>
+    <task id="LOCAL-00155" summary="geo">
+      <created>1572178938530</created>
+      <option name="number" value="00155" />
+      <option name="presentableId" value="LOCAL-00155" />
+      <option name="project" value="LOCAL" />
+      <updated>1572178938530</updated>
+    </task>
+    <option name="localTasksCounter" value="156" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,8 +515,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="вынесу производную в отдельный метод" />
-    <MESSAGE value="вынес производную в отдельный метод&#10;не совсем удобно, т.к по прежнему функция только типа одной переменной, приходится подставлять самому" />
     <MESSAGE value="не позволяю приближать слишком сильно" />
     <MESSAGE value="something&#10;лучше почитаю" />
     <MESSAGE value="Matrix -&gt; double[][] inside GeoCalc for easier differentiation" />
@@ -540,14 +538,16 @@
     <MESSAGE value="w" />
     <MESSAGE value="computeDerivatives done?" />
     <MESSAGE value="found mistake" />
-    <option name="LAST_COMMIT_MESSAGE" value="found mistake" />
+    <MESSAGE value="sdffdf" />
+    <MESSAGE value="geo" />
+    <option name="LAST_COMMIT_MESSAGE" value="geo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java</url>
-          <line>155</line>
+          <line>154</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
