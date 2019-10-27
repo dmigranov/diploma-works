@@ -138,22 +138,24 @@ public class GeodesicsCalculator {
     }
 
     //потом просто пожставить, чтобы не вычитывать каждый раз производные заново при вызове метода!
-    private double[][][] calculateChristoffelSymbol()
+    public double[][][] calculateChristoffelSymbol(double u0, double v0)
     {
         //в данном случае у нас x1 = u, x2 = v - внутренние координаты поверхности
         //по ним будем дифференцировать gij
 
         Function<double[], double[][]> func = new Function<double[], double[][]>() {
             @Override
-            public double[][] apply(double[] doubles) {
-                return new double[0][];
+            public double[][] apply(double[] values) {
+                return calculateMetricTensor(values[0], values[1]);
             }
         };
 
         double[][][] Cs = new double[2][2][2];  //C[i][k][l] = Г ^i  kl
+        double[] values = {u0, v0};
         double[][][] gDiff = new double[2][][];
-
-        //gDiff[0] = differentiatePolivariateMatrixFunction();
+        Arrays.setAll(gDiff, i -> differentiatePolivariateMatrixFunction(func, i, values));
+        //gDiff[0] = differentiatePolivariateMatrixFunction(func, 0, values);
+        //gDiff[1] = differentiatePolivariateMatrixFunction(func, 1, values);
 
         for(int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {

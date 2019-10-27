@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -136,14 +137,7 @@
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
       <workItem from="1572090669394" duration="4458000" />
-      <workItem from="1572164274004" duration="300000" />
-    </task>
-    <task id="LOCAL-00095" summary="more interface">
-      <created>1571227257506</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1571227257506</updated>
+      <workItem from="1572164274004" duration="984000" />
     </task>
     <task id="LOCAL-00096" summary="added color choosing for figure">
       <created>1571227806252</created>
@@ -481,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572096460853</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="gonna calculate christoffel symbols">
+      <created>1572164631874</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1572164631876</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added new example + some work" />
     <MESSAGE value="собрал калкулэйт сплайн ыункш в одну" />
     <MESSAGE value="удалил лишнее" />
     <MESSAGE value="maven added apache libreay" />
@@ -540,7 +540,8 @@
     <MESSAGE value="polivariatevectorfun works" />
     <MESSAGE value="удалил старые funcs" />
     <MESSAGE value="started christoff symb" />
-    <option name="LAST_COMMIT_MESSAGE" value="started christoff symb" />
+    <MESSAGE value="gonna calculate christoffel symbols" />
+    <option name="LAST_COMMIT_MESSAGE" value="gonna calculate christoffel symbols" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
