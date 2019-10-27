@@ -140,9 +140,6 @@ public class GeodesicsCalculator {
     //потом просто пожставить, чтобы не вычитывать каждый раз производные заново при вызове метода!
     public double[][][] calculateChristoffelSymbol(double u0, double v0)
     {
-        //в данном случае у нас x1 = u, x2 = v - внутренние координаты поверхности
-        //по ним будем дифференцировать gij
-
         Function<double[], double[][]> func = new Function<double[], double[][]>() {
             @Override
             public double[][] apply(double[] values) {
@@ -154,8 +151,7 @@ public class GeodesicsCalculator {
         double[] values = {u0, v0};
         double[][][] gDiff = new double[2][][];
         Arrays.setAll(gDiff, i -> differentiatePolivariateMatrixFunction(func, i, values));
-        //gDiff[0] = differentiatePolivariateMatrixFunction(func, 0, values);
-        //gDiff[1] = differentiatePolivariateMatrixFunction(func, 1, values);
+        //gDiff[i][j][k] = d gjk / dxi; в данном случае у нас x1 = u, x2 = v - внутренние координаты поверхности
 
         for(int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
