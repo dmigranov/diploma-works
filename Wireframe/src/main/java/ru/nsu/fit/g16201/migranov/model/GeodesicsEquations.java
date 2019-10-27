@@ -6,7 +6,7 @@ import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
 
 public class GeodesicsEquations implements FirstOrderDifferentialEquations {
 
-    private double Cs[][][];
+    private double[][][] Cs;
 
     GeodesicsEquations(double[][][] Cs)
     {
@@ -27,7 +27,7 @@ public class GeodesicsEquations implements FirstOrderDifferentialEquations {
             double sum = 0;
             for (int k = 0; k < 2; k++)
                 for (int i = 0; i < 2; i++)
-                    sum += -Cs[0][k][i] * y[k] * y[i];
+                    sum += -Cs[j][k][i] * y[k] * y[i];
             yDot[j] = sum;
         }
         yDot[2] = y[0];
