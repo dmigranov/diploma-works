@@ -222,12 +222,9 @@ public class Controller {
 
         //drawGeodesic
         {
-            Point3D[] points = geodesicsCalculator.calculateGeodesic(0.1, 2, 1, 2);
+            Point3D[] points = geodesicsCalculator.calculateGeodesic(2.4, 2.4, 0.1, 0.1);
             Point prev = null;
-            for(int i = 0; i < points.length; i++)
-            {
-                //double x = Puv.x, y = -Puv.z, z = Puv.y;
-                Point3D p = points[i];
+            for (Point3D p : points) {
                 Matrix mp = new Matrix(4, 1, p.x, -p.z, p.y, 1);
                 Matrix nmp = Matrix.multiply(resultMatrix, mp);
                 Point3D np = new Point3D(nmp.get(0, 0), nmp.get(1, 0), nmp.get(2, 0));
@@ -238,7 +235,6 @@ public class Controller {
                     wireframePanel.drawLine(prev.x, prev.y, x, y, Color.GREEN);
                 prev = new Point(x, y);
             }
-
         }
 
         wireframePanel.repaint();

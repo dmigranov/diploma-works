@@ -175,26 +175,24 @@ public class GeodesicsCalculator {
     {
         //кривая на двумерой поверхности задаётся одним парамаетром t
         //по сути внутри просто интегрируем, используя разные разностные операторы
-        double[][][] Cs = calculateChristoffelSymbol(state[0], state[1]);
+        double[][][] Cs = calculateChristoffelSymbol(state[2], state[3]);
         ClassicalRungeKuttaIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-8);   //Это число ни на что не влияет, т.к. использую singleStep
         FirstOrderDifferentialEquations ode = new GeodesicsEquations(Cs);
-        double[] newState = rg.singleStep(ode, t0, state, t0 + step);
-        return newState;
+        return rg.singleStep(ode, t0, state, t0 + step);
     }
 
     public Point3D[] calculateGeodesic(double uStart, double vStart, double uDir, double vDir)
     {
         //todo: не надо их каждый раз пересчитывать, сохранять в контроллере!
-        Point3D[] points = new Point3D[50];
+        Point3D[] points = new Point3D[40];
         double[] state = new double[] {uDir, vDir, uStart, vStart}, newState;
-        double t = 0, step = 0.5;
-        for(int i = 0; i < 50; i++)
+        double t = 0, step = 0.25;
+        for(int i = 0; i < 40; i++)
         {
-            newState = geodesicEquationStep(state, t, step);
             double u = state[2], v = state[3];
             points[i] = splineCalculator.calculateSplineFunction(u, v, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));
             t += step;
-            state = newState;
+            state = geodesicEquationStep(state, t, step);;
         }
 
         return points;
