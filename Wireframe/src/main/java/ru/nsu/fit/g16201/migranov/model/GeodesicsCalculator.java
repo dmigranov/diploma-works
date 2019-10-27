@@ -85,12 +85,9 @@ public class GeodesicsCalculator {
         };
 
         UnivariateDifferentiableVectorFunction dvf = differentiator.differentiate(f);
-
         DerivativeStructure drvs = new DerivativeStructure(1, 1, 0, values[diffArgNumber]); //просто переменная с такимто значением
-
         DerivativeStructure [] dr = dvf.value(drvs);
         return Arrays.stream(dr).mapToDouble(derivativeStructure -> derivativeStructure.getPartialDerivative(1)).toArray();
-
     }
 
     private double[][] differentiateUnivariateMatrixFunction(UnivariateMatrixFunction f, double value)
@@ -111,7 +108,7 @@ public class GeodesicsCalculator {
         return retArray;
     }
 
-    //double[] -> dounle[][]
+    //double[] -> dobnle[][]
     private double[][] differentiatePolivariateMatrixFunction(Function<double[], double[][]> fPoli, int diffArgNumber, double[] values)
     {
         //todo: добавить все необходимые проверки на аргументы
@@ -145,12 +142,26 @@ public class GeodesicsCalculator {
     {
         //в данном случае у нас x1 = u, x2 = v - внутренние координаты поверхности
         //по ним будем дифференцировать gij
-        double[][][] Cs = new double[2][2][2];
-        for(int i = 0; i < 2; i++)
-            for(int j = 0; j < 2; j++)
-                for(int k = 0; k < 2; k++)
-                    ;
 
+        Function<double[], double[][]> func = new Function<double[], double[][]>() {
+            @Override
+            public double[][] apply(double[] doubles) {
+                return new double[0][];
+            }
+        };
+
+        double[][][] Cs = new double[2][2][2];  //C[i][k][l] = Г ^i  kl
+        double[][][] gDiff = new double[2][][];
+
+        //gDiff[0] = differentiatePolivariateMatrixFunction();
+
+        for(int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                for (int k = 0; k < 2; k++) {
+
+                }
+            }
+        }
 
         return null;
     }

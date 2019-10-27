@@ -135,14 +135,8 @@
       <workItem from="1571657320412" duration="638000" />
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
-      <workItem from="1572090669394" duration="3729000" />
-    </task>
-    <task id="LOCAL-00094" summary="added color chooser for background">
-      <created>1571226970223</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1571226970223</updated>
+      <workItem from="1572090669394" duration="4458000" />
+      <workItem from="1572164274004" duration="300000" />
     </task>
     <task id="LOCAL-00095" summary="more interface">
       <created>1571227257506</created>
@@ -480,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572096347987</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="started christoff symb">
+      <created>1572096460853</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1572096460853</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -514,7 +515,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="i don;t like the eps idea" />
     <MESSAGE value="added new example + some work" />
     <MESSAGE value="собрал калкулэйт сплайн ыункш в одну" />
     <MESSAGE value="удалил лишнее" />
@@ -539,7 +539,8 @@
     <MESSAGE value="собираюсь изменить в основном коде univariate... на function" />
     <MESSAGE value="polivariatevectorfun works" />
     <MESSAGE value="удалил старые funcs" />
-    <option name="LAST_COMMIT_MESSAGE" value="удалил старые funcs" />
+    <MESSAGE value="started christoff symb" />
+    <option name="LAST_COMMIT_MESSAGE" value="started christoff symb" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
