@@ -9,7 +9,6 @@ import org.apache.commons.math3.analysis.differentiation.UnivariateDifferentiabl
 import org.apache.commons.math3.util.Precision;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.function.Function;
 
 public class GeodesicsCalculator {
@@ -20,12 +19,10 @@ public class GeodesicsCalculator {
         this.splineCalculator = splineCalculator;
     }
 
-
     private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, 0.01);
     public double[][] calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
     {
         double g11, g22, g12, g21;
-
         double xu, xv, yu, yv, zu, zv;
 
         Function<double[], double[]> func = new Function<double[], double[]>() {
@@ -59,6 +56,12 @@ public class GeodesicsCalculator {
         //todo: а если не обратима? det = 0
         return new double[][]{ {g22/det, -g12/det}, {-g12/det, g11/det}};
     }
+
+    private double[][] calculateContravariantMetricTensor(double u0, double v0)
+    {
+        return calculateContravariantMetricTensor(calculateMetricTensor(u0, v0));
+    }
+
 
     //f: (u, v) |-> (x, y, z)
     private double[] differentiateUnivariateVectorFunction(UnivariateVectorFunction f, double value)
@@ -150,18 +153,24 @@ public class GeodesicsCalculator {
         double[][][] Cs = new double[2][2][2];  //C[i][k][l] = Г ^i  kl
         double[] values = {u0, v0};
         double[][][] gDiff = new double[2][][];
+        double[][] gContra = calculateContravariantMetricTensor(u0, v0);
         Arrays.setAll(gDiff, i -> differentiatePolivariateMatrixFunction(func, i, values));
         //gDiff[i][j][k] = d gjk / dxi; в данном случае у нас x1 = u, x2 = v - внутренние координаты поверхности
 
         for(int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
                 for (int k = 0; k < 2; k++) {
-
+                    double sum = 0;
+                    for(int m = 0; m < 2; m++)
+                    {
+                        sum += gContra[i][m] * (gDiff[k][m][j] + gDiff[j][m][k] - gDiff[m][j][k]);
+                    }
+                    Cs[i][j][k] = sum/2;
                 }
             }
         }
 
-        return null;
+        return Cs;
     }
 
 }
