@@ -143,8 +143,7 @@ public class GeodesicsCalculator {
         return retArray;
     }
 
-    //потом просто пожставить, чтобы не вычитывать каждый раз производные заново при вызове метода!
-    public double[][][] calculateChristoffelSymbol(double u0, double v0)
+    private double[][][] calculateChristoffelSymbol(double u0, double v0)
     {
         Function<double[], double[][]> func = new Function<double[], double[][]>() {
             @Override
@@ -180,7 +179,7 @@ public class GeodesicsCalculator {
     {
         //кривая на двумерой поверхности задаётся одним парамаетром t
         //по сути внутри просто интегрируем, используя разные разностные операторы
-        double[][][] Cs = calculateChristoffelSymbol(u0, v0)
+        double[][][] Cs = calculateChristoffelSymbol(u0, v0);
 
         FirstOrderIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-8);    //todo: singleStep?
         FirstOrderDifferentialEquations ode = new GeodesicsEquations(Cs);
