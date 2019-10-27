@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/example3d-5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsEquations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,14 +137,7 @@
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
       <workItem from="1572090669394" duration="4458000" />
-      <workItem from="1572164274004" duration="2840000" />
-    </task>
-    <task id="LOCAL-00099" summary="added interface for changing Ti, Tj">
-      <created>1571228975301</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1571228975301</updated>
+      <workItem from="1572164274004" duration="4591000" />
     </task>
     <task id="LOCAL-00100" summary="done for today i guess">
       <created>1571229711265</created>
@@ -481,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572166828847</updated>
     </task>
-    <option name="localTasksCounter" value="148" />
+    <task id="LOCAL-00148" summary="что ж, до этого я просто на пиках проверял, видимо там все ровненько. а так ок?">
+      <created>1572167245315</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1572167245315</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="gij start" />
     <MESSAGE value="bad" />
     <MESSAGE value="some diff" />
     <MESSAGE value="gij done? have to check" />
@@ -540,7 +540,8 @@
     <MESSAGE value="some progress" />
     <MESSAGE value="gonna calc symbols" />
     <MESSAGE value="считает но чёто не то, порядок странный" />
-    <option name="LAST_COMMIT_MESSAGE" value="считает но чёто не то, порядок странный" />
+    <MESSAGE value="что ж, до этого я просто на пиках проверял, видимо там все ровненько. а так ок?" />
+    <option name="LAST_COMMIT_MESSAGE" value="что ж, до этого я просто на пиках проверял, видимо там все ровненько. а так ок?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

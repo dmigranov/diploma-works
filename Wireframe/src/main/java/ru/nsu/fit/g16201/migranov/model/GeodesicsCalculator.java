@@ -173,4 +173,11 @@ public class GeodesicsCalculator {
         return Cs;
     }
 
+    private double[] solveGeodesicsEquation()
+    {
+        //кривая на двумерой поверхности задаётся одним парамаетром t
+        //геодезич тоже
+        return null;
+    }
+
 }
