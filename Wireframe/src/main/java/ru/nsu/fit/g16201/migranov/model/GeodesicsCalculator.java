@@ -186,7 +186,7 @@ public class GeodesicsCalculator {
         //todo: не надо их каждый раз пересчитывать, сохранять в контроллере!
         Point3D[] points = new Point3D[30];
         double[] state = new double[] {uDir, vDir, uStart, vStart}, newState;
-        double t = 0, step = 0.35;
+        double t = 0, step = 0.39;
         for(int i = 0; i < 30; i++)
         {
             double u = state[2], v = state[3];

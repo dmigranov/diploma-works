@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
@@ -137,14 +136,7 @@
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
       <workItem from="1572090669394" duration="4458000" />
-      <workItem from="1572164274004" duration="14144000" />
-    </task>
-    <task id="LOCAL-00115" summary="getters">
-      <created>1571398421562</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1571398421562</updated>
+      <workItem from="1572164274004" duration="14308000" />
     </task>
     <task id="LOCAL-00116" summary="new class done первое приближение">
       <created>1571398614792</created>
@@ -482,7 +474,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572185383009</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="НАЧАЛЬНЫЙ ВЕКТОР КАРДИНАЛЬНО ВЛИЯЕТ НА ДЛИНУ ВСЕЙ КРИВОЙ!">
+      <created>1572185549990</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1572185549990</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +515,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="for -&gt; setAll" />
     <MESSAGE value="собираюсь изменить в основном коде univariate... на function" />
     <MESSAGE value="polivariatevectorfun works" />
     <MESSAGE value="удалил старые funcs" />
@@ -541,7 +539,8 @@
     <MESSAGE value="nad but something" />
     <MESSAGE value="worse" />
     <MESSAGE value="хм, он даже что-то рисует. подозреваю, что дело в параметрах. начальный вектор не должен быть большим!" />
-    <option name="LAST_COMMIT_MESSAGE" value="хм, он даже что-то рисует. подозреваю, что дело в параметрах. начальный вектор не должен быть большим!" />
+    <MESSAGE value="НАЧАЛЬНЫЙ ВЕКТОР КАРДИНАЛЬНО ВЛИЯЕТ НА ДЛИНУ ВСЕЙ КРИВОЙ!" />
+    <option name="LAST_COMMIT_MESSAGE" value="НАЧАЛЬНЫЙ ВЕКТОР КАРДИНАЛЬНО ВЛИЯЕТ НА ДЛИНУ ВСЕЙ КРИВОЙ!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
