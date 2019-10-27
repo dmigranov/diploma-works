@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="hmpj">
+    <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="nad but something">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
@@ -137,14 +137,7 @@
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
       <workItem from="1572090669394" duration="4458000" />
-      <workItem from="1572164274004" duration="12715000" />
-    </task>
-    <task id="LOCAL-00112" summary="еренос кода идёт">
-      <created>1571397813235</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1571397813235</updated>
+      <workItem from="1572164274004" duration="13260000" />
     </task>
     <task id="LOCAL-00113" summary="more moved">
       <created>1571398059928</created>
@@ -482,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572183295595</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="nad but something">
+      <created>1572184204032</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1572184204032</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="hmph" />
     <MESSAGE value="added differentiatePolivariateMatrixFunction с выбором по какому аргументу дифференцировать" />
     <MESSAGE value="added differentiatePolivariateVectorFunction" />
     <MESSAGE value="for -&gt; setAll" />
@@ -541,7 +540,8 @@
     <MESSAGE value="как бы это заметодить" />
     <MESSAGE value="qqqq" />
     <MESSAGE value="hmpj" />
-    <option name="LAST_COMMIT_MESSAGE" value="hmpj" />
+    <MESSAGE value="nad but something" />
+    <option name="LAST_COMMIT_MESSAGE" value="nad but something" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

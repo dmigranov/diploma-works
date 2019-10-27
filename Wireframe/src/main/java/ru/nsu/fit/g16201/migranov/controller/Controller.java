@@ -222,7 +222,7 @@ public class Controller {
 
         //drawGeodesic
         {
-            Point3D[] points = geodesicsCalculator.calculateGeodesic(0.1, 0.1, 1, 1);
+            Point3D[] points = geodesicsCalculator.calculateGeodesic(0.1, 2, 1, 2);
             Point prev = null;
             for(int i = 0; i < points.length; i++)
             {
