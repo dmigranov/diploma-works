@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -136,14 +137,7 @@
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
       <workItem from="1572090669394" duration="4458000" />
-      <workItem from="1572164274004" duration="11164000" />
-    </task>
-    <task id="LOCAL-00110" summary="q">
-      <created>1571392822690</created>
-      <option name="number" value="00110" />
-      <option name="presentableId" value="LOCAL-00110" />
-      <option name="project" value="LOCAL" />
-      <updated>1571392822690</updated>
+      <workItem from="1572164274004" duration="11921000" />
     </task>
     <task id="LOCAL-00111" summary="new class for spline ops in model">
       <created>1571397371609</created>
@@ -481,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572181883123</updated>
     </task>
-    <option name="localTasksCounter" value="159" />
+    <task id="LOCAL-00159" summary="qqqq">
+      <created>1572182561581</created>
+      <option name="number" value="00159" />
+      <option name="presentableId" value="LOCAL-00159" />
+      <option name="project" value="LOCAL" />
+      <updated>1572182561581</updated>
+    </task>
+    <option name="localTasksCounter" value="160" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="more unification" />
     <MESSAGE value="добавил дифференцирование матриц" />
     <MESSAGE value="hmph" />
     <MESSAGE value="added differentiatePolivariateMatrixFunction с выбором по какому аргументу дифференцировать" />
@@ -540,7 +540,8 @@
     <MESSAGE value="some" />
     <MESSAGE value="some refaactor" />
     <MESSAGE value="как бы это заметодить" />
-    <option name="LAST_COMMIT_MESSAGE" value="как бы это заметодить" />
+    <MESSAGE value="qqqq" />
+    <option name="LAST_COMMIT_MESSAGE" value="qqqq" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -549,11 +550,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java</url>
           <line>149</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java</url>
-          <line>424</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

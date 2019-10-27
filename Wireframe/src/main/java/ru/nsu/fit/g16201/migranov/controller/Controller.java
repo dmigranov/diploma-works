@@ -1,9 +1,6 @@
 package ru.nsu.fit.g16201.migranov.controller;
 
-import ru.nsu.fit.g16201.migranov.model.GeodesicsCalculator;
-import ru.nsu.fit.g16201.migranov.model.Matrix;
-import ru.nsu.fit.g16201.migranov.model.Point3D;
-import ru.nsu.fit.g16201.migranov.model.SplineCalculator;
+import ru.nsu.fit.g16201.migranov.model.*;
 import ru.nsu.fit.g16201.migranov.view.WireframePanel;
 
 import java.awt.*;
@@ -223,8 +220,21 @@ public class Controller {
             }
         }
 
+        //drawGeodesic
+        {
+            Point3D[] points = geodesicsCalculator.calculateGeodesic(0.1, 0.1, 1, 1);
+            for(int i = 0; i < points.length - 1; i++)
+            {
+                Matrix mp = Matrix.getVector4(points[0]);
+
+            }
+
+        }
+
         wireframePanel.repaint();
     }
+
+
 
 
     private void findModelPoints() {
@@ -421,7 +431,6 @@ public class Controller {
 
             splineCalculator = new SplineCalculator(Ni, Nj, Ti, Tj, splinePoints);
             geodesicsCalculator = new GeodesicsCalculator(splineCalculator);
-            //double[][][] z = geodesicsCalculator.calculateChristoffelSymbol(splineCalculator.getUMax()/2.5, splineCalculator.getVMax()/2.5);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)

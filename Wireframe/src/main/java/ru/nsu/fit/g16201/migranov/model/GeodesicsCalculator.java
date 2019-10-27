@@ -171,23 +171,31 @@ public class GeodesicsCalculator {
     }
 
     //u0_s и v0_s - это вектор из точки u0 v0
-    private double[] geodesicEquationStep(double u0, double v0, double u0_s, double v0_s, double t0, double step)
+    private double[] geodesicEquationStep(double[] state, double t0, double step)
     {
         //кривая на двумерой поверхности задаётся одним парамаетром t
         //по сути внутри просто интегрируем, используя разные разностные операторы
-        double[][][] Cs = calculateChristoffelSymbol(u0, v0);
-        double[] state = new double[] {u0, v0, u0_s, v0_s};
+        double[][][] Cs = calculateChristoffelSymbol(state[0], state[1]);
         ClassicalRungeKuttaIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-8);   //Это число ни на что не влияет, т.к. использую singleStep
         FirstOrderDifferentialEquations ode = new GeodesicsEquations(Cs);
         double[] newState = rg.singleStep(ode, t0, state, t0 + step);
         return newState;
     }
 
-    public double[] calculateGeodesic(double uStart, double vStart, double uDir, double vDir)
+    public Point3D[] calculateGeodesic(double uStart, double vStart, double uDir, double vDir)
     {
+        Point3D[] points = new Point3D[10];
+        double[] state = new double[] {uStart, vStart, uDir, vDir}, newState;
+        double t = 0, step = 0.05;
+        for(int i = 0; i < 10; i++)
+        {
+            newState = geodesicEquationStep(state, t, step);
+            double u = newState[0], v = newState[1];
+            points[i] = splineCalculator.calculateSplineFunction(u, v, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));
+            t += step;
+        }
 
-
-        return null;
+        return points;
     }
 
 }
