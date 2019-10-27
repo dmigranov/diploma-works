@@ -184,10 +184,10 @@ public class GeodesicsCalculator {
     public Point3D[] calculateGeodesic(double uStart, double vStart, double uDir, double vDir)
     {
         //todo: не надо их каждый раз пересчитывать, сохранять в контроллере!
-        Point3D[] points = new Point3D[40];
+        Point3D[] points = new Point3D[30];
         double[] state = new double[] {uDir, vDir, uStart, vStart}, newState;
-        double t = 0, step = 0.25;
-        for(int i = 0; i < 40; i++)
+        double t = 0, step = 0.35;
+        for(int i = 0; i < 30; i++)
         {
             double u = state[2], v = state[3];
             points[i] = splineCalculator.calculateSplineFunction(u, v, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));

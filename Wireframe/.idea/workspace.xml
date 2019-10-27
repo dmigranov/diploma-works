@@ -137,14 +137,7 @@
       <workItem from="1571662182772" duration="671000" />
       <workItem from="1571835607307" duration="1939000" />
       <workItem from="1572090669394" duration="4458000" />
-      <workItem from="1572164274004" duration="13992000" />
-    </task>
-    <task id="LOCAL-00114" summary="u/v min/max moved">
-      <created>1571398262836</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1571398262836</updated>
+      <workItem from="1572164274004" duration="14144000" />
     </task>
     <task id="LOCAL-00115" summary="getters">
       <created>1571398421562</created>
@@ -482,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572184628087</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="хм, он даже что-то рисует. подозреваю, что дело в параметрах. начальный вектор не должен быть большим!">
+      <created>1572185383009</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1572185383009</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added differentiatePolivariateVectorFunction" />
     <MESSAGE value="for -&gt; setAll" />
     <MESSAGE value="собираюсь изменить в основном коде univariate... на function" />
     <MESSAGE value="polivariatevectorfun works" />
@@ -541,7 +540,8 @@
     <MESSAGE value="hmpj" />
     <MESSAGE value="nad but something" />
     <MESSAGE value="worse" />
-    <option name="LAST_COMMIT_MESSAGE" value="worse" />
+    <MESSAGE value="хм, он даже что-то рисует. подозреваю, что дело в параметрах. начальный вектор не должен быть большим!" />
+    <option name="LAST_COMMIT_MESSAGE" value="хм, он даже что-то рисует. подозреваю, что дело в параметрах. начальный вектор не должен быть большим!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
