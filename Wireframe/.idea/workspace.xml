@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicInitialConditions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,15 +54,16 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ru.nsu.fit.g16201.migranov.view" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Диплом\MY CODE\Wireframe" />
       <recent name="D:\Диплом\MY CODE\Wireframe\src\main" />
       <recent name="D:\Диплом\MY CODE\Wireframe\src\FIT_16201_Migranov_Wireframe_Data" />
       <recent name="D:\Диплом\MY CODE\Wireframe\out2\production\Wireframe" />
       <recent name="D:\Code\CG\Wireframe\src\FIT_16201_Migranov_Wireframe_Data" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.nsu.fit.g16201.migranov.controller" />
+      <recent name="ru.nsu.fit.g16201.migranov.view" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -139,14 +141,7 @@
       <workItem from="1572090669394" duration="4458000" />
       <workItem from="1572164274004" duration="14469000" />
       <workItem from="1572358116792" duration="698000" />
-      <workItem from="1572430774081" duration="518000" />
-    </task>
-    <task id="LOCAL-00117" summary="gonna  унифицировать вычисление точек на поверхности">
-      <created>1571398793110</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1571398793110</updated>
+      <workItem from="1572430774081" duration="1153000" />
     </task>
     <task id="LOCAL-00118" summary="i don;t like the eps idea">
       <created>1571400635430</created>
@@ -484,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572185796038</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL-00166" summary="started adding support for several geodesics">
+      <created>1572431374255</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1572431374257</updated>
+    </task>
+    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,7 +520,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="polivariatevectorfun works" />
     <MESSAGE value="удалил старые funcs" />
     <MESSAGE value="started christoff symb" />
     <MESSAGE value="gonna calculate christoffel symbols" />
@@ -543,7 +544,8 @@
     <MESSAGE value="хм, он даже что-то рисует. подозреваю, что дело в параметрах. начальный вектор не должен быть большим!" />
     <MESSAGE value="НАЧАЛЬНЫЙ ВЕКТОР КАРДИНАЛЬНО ВЛИЯЕТ НА ДЛИНУ ВСЕЙ КРИВОЙ!" />
     <MESSAGE value="короче, проблемы возникают на границе! думаю, есть смысл крутиться в while пока не достигнем границы" />
-    <option name="LAST_COMMIT_MESSAGE" value="короче, проблемы возникают на границе! думаю, есть смысл крутиться в while пока не достигнем границы" />
+    <MESSAGE value="started adding support for several geodesics" />
+    <option name="LAST_COMMIT_MESSAGE" value="started adding support for several geodesics" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

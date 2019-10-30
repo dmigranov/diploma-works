@@ -6,6 +6,7 @@ import ru.nsu.fit.g16201.migranov.view.WireframePanel;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
@@ -43,6 +44,7 @@ public class Controller {
     private Point3D[][] splinePoints;
     private Point3D[][] modelPoints;
     private List<Point3D[]> geodesics;
+    private List<GeodesicInitialConditions> geodesicsInitialConditions;
 
     private SplineCalculator splineCalculator;
     private GeodesicsCalculator geodesicsCalculator;
@@ -168,7 +170,8 @@ public class Controller {
         //n*k и m*k - это фактически разрешение
         if (needsToBeRedrawn) {
             findModelPoints();
-            geoPoints = geodesicsCalculator.calculateGeodesic(0.1, 0.1, 0.3, 0.2);
+            for(var cond : geodesicsInitialConditions )
+                geodesics.add(geodesicsCalculator.calculateGeodesic(cond.getuStart(), cond.getvStart(), cond.getuDir(), cond.getvDir()));
 
             //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
             //|knotsJ| = Nj + Kj + 1
@@ -226,16 +229,18 @@ public class Controller {
         //drawGeodesic
         {
             Point prev = null;
-            for (Point3D p : geoPoints) {
-                Matrix mp = new Matrix(4, 1, p.x, -p.z, p.y, 1);
-                Matrix nmp = Matrix.multiply(resultMatrix, mp);
-                Point3D np = new Point3D(nmp.get(0, 0), nmp.get(1, 0), nmp.get(2, 0));
-                double w = nmp.get(3, 0);
-                int x = (int) ((np.x / w + 1) / 2 * wireframePanel.getCanvasWidth());
-                int y = (int) ((np.y / w + 1) / 2 * wireframePanel.getCanvasHeight());
-                if (prev != null)
-                    wireframePanel.drawLine(prev.x, prev.y, x, y, Color.GREEN);
-                prev = new Point(x, y);
+            for(var geoPoints : geodesics) {
+                for (Point3D p : geoPoints) {
+                    Matrix mp = new Matrix(4, 1, p.x, -p.z, p.y, 1);
+                    Matrix nmp = Matrix.multiply(resultMatrix, mp);
+                    Point3D np = new Point3D(nmp.get(0, 0), nmp.get(1, 0), nmp.get(2, 0));
+                    double w = nmp.get(3, 0);
+                    int x = (int) ((np.x / w + 1) / 2 * wireframePanel.getCanvasWidth());
+                    int y = (int) ((np.y / w + 1) / 2 * wireframePanel.getCanvasHeight());
+                    if (prev != null)
+                        wireframePanel.drawLine(prev.x, prev.y, x, y, Color.GREEN);
+                    prev = new Point(x, y);
+                }
             }
         }
 
@@ -440,6 +445,9 @@ public class Controller {
             splineCalculator = new SplineCalculator(Ni, Nj, Ti, Tj, splinePoints);
             geodesicsCalculator = new GeodesicsCalculator(splineCalculator);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
+            geodesics = new ArrayList<>();
+            geodesicsInitialConditions = new ArrayList<>();
+
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
         {
