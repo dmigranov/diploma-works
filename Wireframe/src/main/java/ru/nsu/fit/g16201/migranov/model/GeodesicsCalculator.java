@@ -23,14 +23,16 @@ public class GeodesicsCalculator {
         this.splineCalculator = splineCalculator;
     }
 
-    private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, 0.01);
+    private double epsilon = 0.01;
+    private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, epsilon);
 
     private Function<double[], double[][]> metricTensorFunction = values -> calculateMetricTensor(values[0], values[1]);
     private Function<double[], double[]> splineFunction = new Function<>() {
         @Override
         public double[] apply(double[] values) {
             double u = values[0], v = values[1];
-            Point3D p = splineCalculator.calculateSplineFunction(u, v, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));
+            Point3D p = splineCalculator.calculateSplineFunction(u, v);
+            if(p == null) return null;
             return new double[]{p.x, p.y, p.z};
         }
     };
@@ -189,10 +191,13 @@ public class GeodesicsCalculator {
         List<Point3D> points = new ArrayList<>();
         double[] state = new double[] {uDir, vDir, uStart, vStart}, newState;
         double t = 0, step = 0.5;
-        while(true)
+        double eps = 4*epsilon;
+        while(true) //todo или по превышении числа итераций..
         {
             double u = state[2], v = state[3];
-            Point3D p = splineCalculator.calculateSplineFunction(u, v, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));
+            if(u <= splineCalculator.getUMin() + eps || u >= splineCalculator.getUMax() - eps || v <= splineCalculator.getVMin() + eps || v >= splineCalculator.getVMax() - eps)
+                break;
+            Point3D p = splineCalculator.calculateSplineFunction(u, v);
             if(p == null)
                 break;
             points.add(p);

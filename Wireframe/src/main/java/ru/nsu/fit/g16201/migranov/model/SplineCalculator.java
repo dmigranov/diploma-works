@@ -159,5 +159,25 @@ public class SplineCalculator {
     public int getNj() {
         return Nj;
     }
+
+    public Point3D calculateSplineFunction(double u, double v) {
+        if((u < uMin || u > uMax || v < vMin || v > vMax))
+            return null;
+        double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
+
+        {
+            for (int i = 0; i <= Ni; i++) {
+                double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
+                for (int j = 0; j <= Nj; j++) {
+                    double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
+                    Px += splinePoints[i][j].x * bi * bj;
+                    Py += splinePoints[i][j].y * bi * bj;
+                    Pz += splinePoints[i][j].z * bi * bj;
+                }
+            }
+        }
+
+        return new Point3D(Px, Py, Pz);
+    }
 }
 
