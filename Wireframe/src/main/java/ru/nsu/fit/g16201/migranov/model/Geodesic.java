@@ -48,4 +48,20 @@ public class Geodesic {
     public Color getColor() {
         return color;
     }
+
+    public void setuStart(double uStart) {
+        this.uStart = uStart;
+    }
+
+    public void setvStart(double vStart) {
+        this.vStart = vStart;
+    }
+
+    public void setuDir(double uDir) {
+        this.uDir = uDir;
+    }
+
+    public void setvDir(double vDir) {
+        this.vDir = vDir;
+    }
 }

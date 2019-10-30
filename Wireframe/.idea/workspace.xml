@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example3d-5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/example3d-5.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/Geodesic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/Geodesic.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,14 +140,7 @@
       <workItem from="1572090669394" duration="4458000" />
       <workItem from="1572164274004" duration="14469000" />
       <workItem from="1572358116792" duration="698000" />
-      <workItem from="1572430774081" duration="3434000" />
-    </task>
-    <task id="LOCAL-00121" summary="удалил лишнее">
-      <created>1571401592841</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1571401592841</updated>
+      <workItem from="1572430774081" duration="3692000" />
     </task>
     <task id="LOCAL-00122" summary="maven added apache libreay">
       <created>1571407104893</created>
@@ -487,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572433126917</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="exper">
+      <created>1572434271922</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1572434271922</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,7 +519,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="some progress" />
     <MESSAGE value="gonna calc symbols" />
     <MESSAGE value="считает но чёто не то, порядок странный" />
     <MESSAGE value="что ж, до этого я просто на пиках проверял, видимо там все ровненько. а так ок?" />
@@ -546,7 +543,8 @@
     <MESSAGE value="multiple" />
     <MESSAGE value="gonaa add geodesic class" />
     <MESSAGE value="added geodesic class" />
-    <option name="LAST_COMMIT_MESSAGE" value="added geodesic class" />
+    <MESSAGE value="exper" />
+    <option name="LAST_COMMIT_MESSAGE" value="exper" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -558,7 +556,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java</url>
-          <line>462</line>
+          <line>469</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -568,7 +566,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java</url>
-          <line>283</line>
+          <line>290</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>

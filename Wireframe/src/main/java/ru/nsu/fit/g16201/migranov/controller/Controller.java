@@ -102,13 +102,20 @@ public class Controller {
                 {
                     var g1 = geodesics.get(0);
                     var g2 = geodesics.get(1);
-                    g1.
+                    g1.setuStart(g1.getuStart() - 0.1);
+                    g2.setuStart(g2.getuStart() + 0.1);
+                    geodesicsCalculator.calculateGeodesic(g1);
+                    geodesicsCalculator.calculateGeodesic(g2);
                 }
 
                 else if (key == KeyEvent.VK_E)
                 {
                     var g1 = geodesics.get(0);
                     var g2 = geodesics.get(1);
+                    g1.setuStart(g1.getuStart() + 0.1);
+                    g2.setuStart(g2.getuStart() - 0.1);
+                    geodesicsCalculator.calculateGeodesic(g1);
+                    geodesicsCalculator.calculateGeodesic(g2);
                 }
 
                     Matrix tr = Matrix.getTranslationMatrix(new Point3D(dx, dy, dz));
