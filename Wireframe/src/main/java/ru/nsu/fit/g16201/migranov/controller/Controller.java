@@ -6,6 +6,7 @@ import ru.nsu.fit.g16201.migranov.view.WireframePanel;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.List;
 
 public class Controller {
     private WireframePanel wireframePanel;
@@ -41,6 +42,7 @@ public class Controller {
     private Matrix figureRotateMatrix;
     private Point3D[][] splinePoints;
     private Point3D[][] modelPoints;
+    private List<Point3D[]> geodesics;
 
     private SplineCalculator splineCalculator;
     private GeodesicsCalculator geodesicsCalculator;
@@ -166,6 +168,7 @@ public class Controller {
         //n*k и m*k - это фактически разрешение
         if (needsToBeRedrawn) {
             findModelPoints();
+            geoPoints = geodesicsCalculator.calculateGeodesic(0.1, 0.1, 0.3, 0.2);
 
             //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
             //|knotsJ| = Nj + Kj + 1
@@ -222,9 +225,8 @@ public class Controller {
 
         //drawGeodesic
         {
-            Point3D[] points = geodesicsCalculator.calculateGeodesic(0.1, 0.1, 0.25, 0.25);
             Point prev = null;
-            for (Point3D p : points) {
+            for (Point3D p : geoPoints) {
                 Matrix mp = new Matrix(4, 1, p.x, -p.z, p.y, 1);
                 Matrix nmp = Matrix.multiply(resultMatrix, mp);
                 Point3D np = new Point3D(nmp.get(0, 0), nmp.get(1, 0), nmp.get(2, 0));
