@@ -47,9 +47,12 @@ public class SplineCalculator {
         vMax = knotsJ[Nj + Tj];
     }
 
+
     public Point3D calculateSplineFunction(double u, double v, boolean isUEdge, boolean isVEdge) {
         //Pij - array of control points (spline points)
 
+        if((u < uMin || u > uMax || v < vMin || v > vMax) && !isUEdge && !isVEdge)
+            return null;
         double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
         if(isUEdge && isVEdge)
             return splinePoints[Ni][Nj];

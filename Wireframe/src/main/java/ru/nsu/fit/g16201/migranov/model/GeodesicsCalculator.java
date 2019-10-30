@@ -10,7 +10,9 @@ import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
 import org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegrator;
 import org.apache.commons.math3.util.Precision;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.function.Function;
 
 public class GeodesicsCalculator {
@@ -183,18 +185,22 @@ public class GeodesicsCalculator {
 
     public Point3D[] calculateGeodesic(double uStart, double vStart, double uDir, double vDir)
     {
-        Point3D[] points = new Point3D[30];
+        //Point3D[] points = new Point3D[30];
+        List<Point3D> points = new ArrayList<>();
         double[] state = new double[] {uDir, vDir, uStart, vStart}, newState;
         double t = 0, step = 0.5;
-        for(int i = 0; i < 30; i++)
+        while(true)
         {
             double u = state[2], v = state[3];
-            points[i] = splineCalculator.calculateSplineFunction(u, v, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));
+            Point3D p = splineCalculator.calculateSplineFunction(u, v, Precision.equals(u, splineCalculator.getUMax()), Precision.equals(v, splineCalculator.getVMax()));
+            if(p == null)
+                break;
+            points.add(p);
             t += step;
             state = geodesicEquationStep(state, t, step);;
         }
 
-        return points;
+        return points.toArray(new Point3D[0]);
     }
 
     public void calculateGeodesic(Geodesic geodesic) {

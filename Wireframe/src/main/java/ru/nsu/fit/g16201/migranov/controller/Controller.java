@@ -98,8 +98,20 @@ public class Controller {
                     dy = 0.1;
                 else if (key == KeyEvent.VK_DOWN)
                     dy = -0.1;
+                else if (key == KeyEvent.VK_Q)
+                {
+                    var g1 = geodesics.get(0);
+                    var g2 = geodesics.get(1);
+                    g1.
+                }
 
-                Matrix tr = Matrix.getTranslationMatrix(new Point3D(dx, dy, dz));
+                else if (key == KeyEvent.VK_E)
+                {
+                    var g1 = geodesics.get(0);
+                    var g2 = geodesics.get(1);
+                }
+
+                    Matrix tr = Matrix.getTranslationMatrix(new Point3D(dx, dy, dz));
 
                 Point3D z = new Point3D(-(ref.x - eye.x), -(ref.y - eye.y), -(ref.z - eye.z)).normalize();
                 Point3D x = Point3D.getVectorProduct(up, z).normalize();
@@ -227,8 +239,8 @@ public class Controller {
 
         //drawGeodesic
         {
-            Point prev = null;
             for(var geodesic : geodesics) {
+                Point prev = null;
                 Color geoColor = geodesic.getColor();
                 for (Point3D p : geodesic.getPoints()) {
                     Matrix mp = new Matrix(4, 1, p.x, -p.z, p.y, 1);
@@ -268,6 +280,8 @@ public class Controller {
 
                 v += incrementV;
 
+                if(Puv == null)
+                    System.out.println();
                 double x = Puv.x, y = -Puv.z, z = Puv.y;
                 Matrix p = new Matrix(4, 1, x, y, z, 1);
                 Matrix np = Matrix.multiply(figureRotateMatrix, p);
@@ -446,8 +460,8 @@ public class Controller {
             geodesicsCalculator = new GeodesicsCalculator(splineCalculator);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
             geodesics = new ArrayList<>();
-            geodesics.add(new Geodesic(2.3, 0.1, 0, 0.2, Color.GREEN));
-            //geodesics.add(new Geodesic(2.3, 0.1, 0, 0.2, Color.GREEN));
+            geodesics.add(new Geodesic(1.3, 0.1, 0, 0.2, Color.GREEN));
+            geodesics.add(new Geodesic(3.7, 0.1, 0, 0.2, Color.YELLOW));
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
         {
