@@ -185,7 +185,7 @@ public class GeodesicsCalculator {
     {
         Point3D[] points = new Point3D[30];
         double[] state = new double[] {uDir, vDir, uStart, vStart}, newState;
-        double t = 0, step = 0.43;
+        double t = 0, step = 0.5;
         for(int i = 0; i < 30; i++)
         {
             double u = state[2], v = state[3];

@@ -447,6 +447,10 @@ public class Controller {
             modelPoints = new Point3D[n*k + 1][m*k + 1];
             geodesics = new ArrayList<>();
             geodesicsInitialConditions = new ArrayList<>();
+            geodesicsInitialConditions.add(new GeodesicInitialConditions(2.3, 0.1, 0, 0.2));
+            //geodesicsInitialConditions.add(new GeodesicInitialConditions(0.1, 0.2, 0.3, 0.2));
+
+
 
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
