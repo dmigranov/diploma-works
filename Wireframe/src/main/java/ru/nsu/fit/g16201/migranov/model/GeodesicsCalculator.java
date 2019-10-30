@@ -197,4 +197,8 @@ public class GeodesicsCalculator {
         return points;
     }
 
+    public void calculateGeodesic(Geodesic geodesic) {
+        Point3D[] points = calculateGeodesic(geodesic.getuStart(), geodesic.getvStart(), geodesic.getuDir(), geodesic.getvDir());
+        geodesic.setPoints(points);
+    }
 }
