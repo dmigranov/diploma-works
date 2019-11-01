@@ -71,6 +71,13 @@ public class WireframeFrame extends MainFrame {
 
     private void createGeodesicsConfigurationPanel() {
         geodesicsPanel = new JPanel();
+
+        JList geoList = new JList(test);
+        geoList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        geoList.setLayoutOrientation(JList.VERTICAL);
+
+        JScrollPane geoScrollPane = new JScrollPane(geoList);
+        geodesicsPanel.add(geoScrollPane);
     }
 
     private void resize() {

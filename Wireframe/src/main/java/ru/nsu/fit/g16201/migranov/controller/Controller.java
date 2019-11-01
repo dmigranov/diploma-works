@@ -102,8 +102,8 @@ public class Controller {
                 {
                     var g1 = geodesics.get(0);
                     var g2 = geodesics.get(1);
-                    g1.setuStart(g1.getuStart() - 0.1);
-                    g2.setuStart(g2.getuStart() + 0.1);
+                    g1.setuStart(g1.getuStart() - 0.05);
+                    g2.setuStart(g2.getuStart() + 0.05);
                     geodesicsCalculator.calculateGeodesic(g1);
                     geodesicsCalculator.calculateGeodesic(g2);
                 }
@@ -112,8 +112,8 @@ public class Controller {
                 {
                     var g1 = geodesics.get(0);
                     var g2 = geodesics.get(1);
-                    g1.setuStart(g1.getuStart() + 0.1);
-                    g2.setuStart(g2.getuStart() - 0.1);
+                    g1.setuStart(g1.getuStart() + 0.05);
+                    g2.setuStart(g2.getuStart() - 0.05);
                     geodesicsCalculator.calculateGeodesic(g1);
                     geodesicsCalculator.calculateGeodesic(g2);
                 }
@@ -467,8 +467,8 @@ public class Controller {
             geodesicsCalculator = new GeodesicsCalculator(splineCalculator);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
             geodesics = new ArrayList<>();
-            geodesics.add(new Geodesic(1.3, 0.1, 0, 0.2, Color.GREEN));
-            geodesics.add(new Geodesic(3.7, 0.1, 0, 0.2, Color.YELLOW));
+            geodesics.add(new Geodesic(0.4, 0.1, 0, 0.2, Color.GREEN));
+            geodesics.add(new Geodesic(2.6, 0.1, 0, 0.2, Color.YELLOW));
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
         {

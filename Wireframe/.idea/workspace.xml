@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/example3d_copy.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/SplineCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -140,14 +141,8 @@
       <workItem from="1572090669394" duration="4458000" />
       <workItem from="1572164274004" duration="14469000" />
       <workItem from="1572358116792" duration="698000" />
-      <workItem from="1572430774081" duration="4456000" />
-    </task>
-    <task id="LOCAL-00123" summary="gij start">
-      <created>1571407483002</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1571407483002</updated>
+      <workItem from="1572430774081" duration="6724000" />
+      <workItem from="1572618398214" duration="506000" />
     </task>
     <task id="LOCAL-00124" summary="bad">
       <created>1571412574990</created>
@@ -485,7 +480,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572434564669</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="well it's better">
+      <created>1572439759975</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1572439759975</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +521,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="считает но чёто не то, порядок странный" />
     <MESSAGE value="что ж, до этого я просто на пиках проверял, видимо там все ровненько. а так ок?" />
     <MESSAGE value="added diffequation" />
     <MESSAGE value="перешел к FirstOrderDifferentialEquations, т.к можно перейти к системе первого порядка" />
@@ -544,7 +545,8 @@
     <MESSAGE value="added geodesic class" />
     <MESSAGE value="exper" />
     <MESSAGE value="something" />
-    <option name="LAST_COMMIT_MESSAGE" value="something" />
+    <MESSAGE value="well it's better" />
+    <option name="LAST_COMMIT_MESSAGE" value="well it's better" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
