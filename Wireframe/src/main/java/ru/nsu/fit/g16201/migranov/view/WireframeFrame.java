@@ -17,21 +17,26 @@ import java.util.List;
 
 public class WireframeFrame extends MainFrame {
     private JLabel statusLabel = new JLabel("");
+
     private List<AbstractButton> deactivatedButtons = new ArrayList<>();
+    private boolean fileIsLoaded = false;
 
     private Controller controller;
+    private WireframePanel wireframePanel;
+
 
     private JPanel mainPanel;
     private JTabbedPane tabbedPane;
     private JPanel geodesicsPanel;
 
-    private WireframePanel wireframePanel;
 
     private JTextField nField, mField, kField, swField, shField, znField, TiField, TjField;
     private JColorChooser backgroundColorChooser, figureColorChooser;
-    private JButton confirmButton;
-    private boolean fileIsLoaded = false;
     private JRadioButton uniformButton, nonUniformButton;
+
+    private JTextField uStartField, vStartField, uDirField, vDirField;
+
+    private JButton confirmButton;
 
     public static void main(String[] args) throws Exception {
         new WireframeFrame();
@@ -72,12 +77,22 @@ public class WireframeFrame extends MainFrame {
     private void createGeodesicsConfigurationPanel() {
         geodesicsPanel = new JPanel();
 
-        JList geoList = new JList(test);
+        JList geoList = new JList();
         geoList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         geoList.setLayoutOrientation(JList.VERTICAL);
 
         JScrollPane geoScrollPane = new JScrollPane(geoList);
         geodesicsPanel.add(geoScrollPane);
+
+
+        JPanel geodesicPropertiesPanel = new JPanel();
+
+        uStartField = new JTextField();
+        vStartField = new JTextField();
+        uDirField = new JTextField();
+        vDirField = new JTextField();
+
+
     }
 
     private void resize() {

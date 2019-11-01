@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/example3d_copy.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -142,14 +140,7 @@
       <workItem from="1572164274004" duration="14469000" />
       <workItem from="1572358116792" duration="698000" />
       <workItem from="1572430774081" duration="6724000" />
-      <workItem from="1572618398214" duration="506000" />
-    </task>
-    <task id="LOCAL-00124" summary="bad">
-      <created>1571412574990</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1571412574990</updated>
+      <workItem from="1572618398214" duration="966000" />
     </task>
     <task id="LOCAL-00125" summary="some diff">
       <created>1571413075358</created>
@@ -487,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572439759975</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="added jlist">
+      <created>1572618967017</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1572618967017</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,7 +519,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="что ж, до этого я просто на пиках проверял, видимо там все ровненько. а так ок?" />
     <MESSAGE value="added diffequation" />
     <MESSAGE value="перешел к FirstOrderDifferentialEquations, т.к можно перейти к системе первого порядка" />
     <MESSAGE value="w" />
@@ -546,7 +543,8 @@
     <MESSAGE value="exper" />
     <MESSAGE value="something" />
     <MESSAGE value="well it's better" />
-    <option name="LAST_COMMIT_MESSAGE" value="well it's better" />
+    <MESSAGE value="added jlist" />
+    <option name="LAST_COMMIT_MESSAGE" value="added jlist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
