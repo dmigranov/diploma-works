@@ -42,6 +42,38 @@ public class WireframeFrame extends MainFrame {
         new WireframeFrame();
     }
 
+    private void resize() {
+        if(!fileIsLoaded)
+            return;
+        int width = mainPanel.getWidth();
+        int height = mainPanel.getHeight();
+        double sw = controller.getSw(), sh = controller.getSh();
+
+        double nwidth, nheight;
+        if(width < height) {
+            nheight = height;
+            nwidth = sw / sh * height;
+            if(nwidth > width)
+            {
+                nheight = nheight / nwidth * width;
+                nwidth = width;
+            }
+        }
+        else
+        {
+            nwidth = width;
+            nheight = sh / sw * width;
+            if(nheight > height)
+            {
+                nwidth = nwidth/ nheight * height;
+                nheight = height;
+            }
+        }
+        wireframePanel.setPreferredSize(new Dimension((int)Math.round(nwidth) - 20, (int)Math.round(nheight) - 20));
+        controller.drawFigure();
+        mainPanel.revalidate();
+    }
+
     private WireframeFrame() throws Exception {
         super(800, 600, "Untitled | Denis Migranov, 16201");
 
@@ -86,46 +118,20 @@ public class WireframeFrame extends MainFrame {
 
 
         JPanel geodesicPropertiesPanel = new JPanel();
-
+        JPanel uvPanel = new JPanel(new GridLayout(2, 2, 0, 0));
         uStartField = new JTextField();
         vStartField = new JTextField();
         uDirField = new JTextField();
         vDirField = new JTextField();
 
+        uvPanel.add(new LabelTextField("u0: ", uStartField, new FloatTextFieldKeyListener()));
+        uvPanel.add(new LabelTextField("v0: ", vStartField, new FloatTextFieldKeyListener()));
+        uvPanel.add(new LabelTextField("u̇0: ", uDirField, new FloatTextFieldKeyListener()));
+        uvPanel.add(new LabelTextField("v̇0: ", vDirField, new FloatTextFieldKeyListener()));
 
     }
 
-    private void resize() {
-        if(!fileIsLoaded)
-            return;
-        int width = mainPanel.getWidth();
-        int height = mainPanel.getHeight();
-        double sw = controller.getSw(), sh = controller.getSh();
 
-        double nwidth, nheight;
-        if(width < height) {
-            nheight = height;
-            nwidth = sw / sh * height;
-            if(nwidth > width)
-            {
-                nheight = nheight / nwidth * width;
-                nwidth = width;
-            }
-        }
-        else
-        {
-            nwidth = width;
-            nheight = sh / sw * width;
-            if(nheight > height)
-            {
-                nwidth = nwidth/ nheight * height;
-                nheight = height;
-            }
-        }
-        wireframePanel.setPreferredSize(new Dimension((int)Math.round(nwidth) - 20, (int)Math.round(nheight) - 20));
-        controller.drawFigure();
-        mainPanel.revalidate();
-    }
 
     private void createCommonConfigurationPanel() {
         tabbedPane = new JTabbedPane();
