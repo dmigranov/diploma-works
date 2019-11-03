@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GeoWireFold.iml" filepath="$PROJECT_DIR$/GeoWireFold.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GeoWireFoldInside.iml" filepath="$PROJECT_DIR$/GeoWireFoldInside.iml" />
     </modules>
   </component>
 </project>

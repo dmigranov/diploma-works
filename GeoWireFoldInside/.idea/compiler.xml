@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="GeoWireFold" />
+        <module name="GeoWireFoldInside" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="GeoWireFold" target="11" />
+      <module name="GeoWireFoldInside" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -15,31 +15,27 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WireframeFrame extends MainFrame {
+public class ManifoldInsideFrame extends MainFrame {
     private JLabel statusLabel = new JLabel("");
 
     private List<AbstractButton> deactivatedButtons = new ArrayList<>();
     private boolean fileIsLoaded = false;
 
     private Controller controller;
-    private WireframePanel wireframePanel;
+    private ManifoldInsidePanel manifoldInsidePanel;
 
 
     private JPanel mainPanel;
     private JTabbedPane tabbedPane;
-    private JPanel geodesicsPanel;
-
 
     private JTextField nField, mField, kField, swField, shField, znField, TiField, TjField;
     private JColorChooser backgroundColorChooser, figureColorChooser;
     private JRadioButton uniformButton, nonUniformButton;
 
-    private JTextField uStartField, vStartField, uDirField, vDirField;
-
     private JButton confirmButton;
 
     public static void main(String[] args) throws Exception {
-        new WireframeFrame();
+        new ManifoldInsideFrame();
     }
 
     private void resize() {
@@ -69,12 +65,12 @@ public class WireframeFrame extends MainFrame {
                 nheight = height;
             }
         }
-        wireframePanel.setPreferredSize(new Dimension((int)Math.round(nwidth) - 20, (int)Math.round(nheight) - 20));
+        manifoldInsidePanel.setPreferredSize(new Dimension((int)Math.round(nwidth) - 20, (int)Math.round(nheight) - 20));
         controller.drawFigure();
         mainPanel.revalidate();
     }
 
-    private WireframeFrame() throws Exception {
+    private ManifoldInsideFrame() throws Exception {
         super(800, 600, "Untitled | Denis Migranov, 16201");
 
         mainPanel = new JPanel(new GridBagLayout());
@@ -84,12 +80,11 @@ public class WireframeFrame extends MainFrame {
                 resize();
             }
         });
-        wireframePanel = new WireframePanel();
-        mainPanel.add(wireframePanel);
-        controller = new Controller(wireframePanel);
+        manifoldInsidePanel = new ManifoldInsidePanel();
+        mainPanel.add(manifoldInsidePanel);
+        controller = new Controller(manifoldInsidePanel);
         addMenus();
         createCommonConfigurationPanel();
-        createGeodesicsConfigurationPanel();
 
         add(mainPanel);
 
@@ -105,31 +100,6 @@ public class WireframeFrame extends MainFrame {
         setLocationRelativeTo(null);
         setVisible(true);
     }
-
-    private void createGeodesicsConfigurationPanel() {
-        geodesicsPanel = new JPanel();
-
-        JList geoList = new JList();
-        geoList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        geoList.setLayoutOrientation(JList.VERTICAL);
-
-        JScrollPane geoScrollPane = new JScrollPane(geoList);
-        geodesicsPanel.add(geoScrollPane);
-
-        JPanel geodesicPropertiesPanel = new JPanel();
-        JPanel uvPanel = new JPanel(new GridLayout(2, 2, 0, 0));
-        uStartField = new JTextField();
-        vStartField = new JTextField();
-        uDirField = new JTextField();
-        vDirField = new JTextField();
-
-        uvPanel.add(new LabelTextField("u0: ", uStartField, new FloatTextFieldKeyListener()));
-        uvPanel.add(new LabelTextField("v0: ", vStartField, new FloatTextFieldKeyListener()));
-        uvPanel.add(new LabelTextField("u̇0: ", uDirField, new FloatTextFieldKeyListener()));
-        uvPanel.add(new LabelTextField("v̇0: ", vDirField, new FloatTextFieldKeyListener()));
-
-    }
-
 
 
     private void createCommonConfigurationPanel() {
@@ -245,7 +215,7 @@ public class WireframeFrame extends MainFrame {
             }
             catch (NumberFormatException n)
             {
-                JOptionPane.showMessageDialog(WireframeFrame.this, n.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(ManifoldInsideFrame.this, n.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
         confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -259,8 +229,6 @@ public class WireframeFrame extends MainFrame {
 
         addSubMenu("Options", KeyEvent.VK_O);
         addMenuAndToolBarButton("Options/Configuration", "Configure splines and viewing properties", KeyEvent.VK_S, "settings.png", "onConfigure", true);
-        addMenuAndToolBarButton("Options/Geodesics", "Configure geodesics", KeyEvent.VK_G, "settings.png", "onConfigureGeodesics", true);
-
 
         addSubMenu("Help", KeyEvent.VK_H);
         addMenuAndToolBarButton("Help/About", "Shows program version and copyright information", KeyEvent.VK_A, "book.png", "onAbout", false);
@@ -279,7 +247,7 @@ public class WireframeFrame extends MainFrame {
         final Method method = getClass().getMethod(actionMethod);
         item.addActionListener(evt -> {
             try {
-                method.invoke(WireframeFrame.this);
+                method.invoke(ManifoldInsideFrame.this);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -343,12 +311,12 @@ public class WireframeFrame extends MainFrame {
                     b.setEnabled(true);
                 }
                 fileIsLoaded = true;
-                wireframePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+                manifoldInsidePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 resize();
             }
             else
             {
-                wireframePanel.setBorder(BorderFactory.createEmptyBorder());
+                manifoldInsidePanel.setBorder(BorderFactory.createEmptyBorder());
 
                 fileIsLoaded = false;
                 JOptionPane.showMessageDialog(this, "Wrong file format.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -371,19 +339,6 @@ public class WireframeFrame extends MainFrame {
         aboutPanel.add(new JLabel("Denis Migranov, Novosibirsk State University, group 16201, 2019"));
         aboutPanel.add(new JLabel("Icons used are from www.flaticon.com/packs/multimedia-collection and icons8.com"));
         JOptionPane.showMessageDialog(this, aboutPanel, "GeoWireFold", JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    public void onConfigureGeodesics()
-    {
-        //выводить окно со списком геодезических.
-        //как задавать: начальная точка +...
-        //вектор? и потом по нему идти
-        updateFields();
-        if(JOptionPane.showConfirmDialog(this, geodesicsPanel, "Options", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION)
-        {
-
-        }
-
     }
 
     public void onConfigure()
