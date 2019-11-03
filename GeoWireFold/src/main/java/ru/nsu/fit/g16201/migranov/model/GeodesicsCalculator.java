@@ -8,7 +8,6 @@ import org.apache.commons.math3.analysis.differentiation.UnivariateDifferentiabl
 import org.apache.commons.math3.analysis.differentiation.UnivariateDifferentiableVectorFunction;
 import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
 import org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegrator;
-import org.apache.commons.math3.util.Precision;
 
 import java.util.ArrayList;
 import java.util.Arrays;

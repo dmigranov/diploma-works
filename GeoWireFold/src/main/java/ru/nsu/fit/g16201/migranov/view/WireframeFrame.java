@@ -217,7 +217,7 @@ public class WireframeFrame extends MainFrame {
                 m = Integer.parseInt(mField.getText());
                 Ti = Integer.parseInt(TiField.getText());
                 Tj = Integer.parseInt(TjField.getText());
-                if(2 > Ti || 2 > Tj || Ti > controller.getNi() + 1 || Tj > controller.getNj() + 1)
+                if(1 > Ti || 1 > Tj || Ti > controller.getNi() + 1 || Tj > controller.getNj() + 1)
                     throw new NumberFormatException("Wrong Ti or Tj, 2 <= Ti <= Ni + 1 ");
                 if(m <= 0 || n <= 0 || k <= 0)
                     throw new NumberFormatException("Wrong m, n, or k");
