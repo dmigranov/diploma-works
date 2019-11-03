@@ -371,41 +371,7 @@ public class Controller {
         }
     }
 
-    public int getN() {
-        return n;
-    }
 
-    public int getM() {
-        return m;
-    }
-
-    public int getK() {
-        return k;
-    }
-
-    public double getSw() {
-        return sw;
-    }
-
-    public void setSw(double sw) {
-        this.sw = sw;
-    }
-
-    public double getSh() {
-        return sh;
-    }
-
-    public void setSh(double sh) {
-        this.sh = sh;
-    }
-
-    public double getZn() {
-        return zn;
-    }
-
-    public Color getBackgroundColor() {
-        return backgroundColor;
-    }
 
     public int load3DFile(File file) {
         needsToBeRedrawn = true;
@@ -495,18 +461,6 @@ public class Controller {
         return substrings;
     }
 
-    public void setCommonConstants(double sw, double sh, double zn, double zf, Color color) {
-        this.sw = sw;
-        this.sh = sh;
-        this.zn = zn;
-        this.zf = zf;
-        this.projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
-        this.backgroundColor = color;
-        wireframePanel.setBackgroundColor(backgroundColor);
-
-        drawFigure();
-    }
-
     public void setConstants(int n, int m, int k, double sw, double sh, double zn, double zf, Color backgroundColor, Color figureColor, int ti, int tj) {
         this.n = n;
         this.m = m;
@@ -529,6 +483,40 @@ public class Controller {
         drawFigure();
     }
 
+    public void setIsUniform(boolean isUniform, double uMin, double uMax, double vMin, double vMax) {
+
+    }
+
+
+
+    public int getN() {
+        return n;
+    }
+
+    public int getM() {
+        return m;
+    }
+
+    public int getK() {
+        return k;
+    }
+
+    public double getSw() {
+        return sw;
+    }
+
+    public double getSh() {
+        return sh;
+    }
+
+    public double getZn() {
+        return zn;
+    }
+
+    public Color getBackgroundColor() {
+        return backgroundColor;
+    }
+
     public Color getFigureColor() {
         return figureColor;
     }
@@ -547,9 +535,5 @@ public class Controller {
 
     public int getNj() {
         return splineCalculator.getNj();
-    }
-
-    public void setIsUniform(boolean isUniform, double uMin, double uMax, double vMin, double vMax) {
-
     }
 }
