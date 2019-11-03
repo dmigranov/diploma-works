@@ -66,6 +66,7 @@ public class GeodesicsCalculator {
         return new double[][]{ {g22/det, -g12/det}, {-g12/det, g11/det}};
     }
 
+
     private double[][] calculateContravariantMetricTensor(double u0, double v0)
     {
         return calculateContravariantMetricTensor(calculateMetricTensor(u0, v0));
