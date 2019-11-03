@@ -434,7 +434,7 @@ public class Controller {
             modelPoints = new Point3D[n*k + 1][m*k + 1];
             geodesics = new ArrayList<>();
             geodesics.add(new Geodesic(0.4, 0.1, 0, 0.2, Color.GREEN));
-            geodesics.add(new Geodesic(4.6, 0.1, 0, 0.2, Color.YELLOW));
+            geodesics.add(new Geodesic(3.6, 0.1, 0, 0.2, Color.YELLOW));
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
         {

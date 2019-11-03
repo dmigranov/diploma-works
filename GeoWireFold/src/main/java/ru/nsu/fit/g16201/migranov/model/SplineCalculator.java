@@ -27,28 +27,29 @@ public class SplineCalculator {
     }
 
     private void calculateKnots() {
-        knotsI = new double[Ni + Ti + 1];
-        knotsJ = new double[Nj + Tj + 1];
+        knotsI = new double[Ni + Ti + 2];   //knotsI[m+1], где m = n + p + 1, p - степень, n + 1 - число точек
+        knotsJ = new double[Nj + Tj + 2];
 
         if(!isUniform) {
+            //clamped spacing
             for (int i = 0; i < knotsI.length; i++) {
-                if (i < Ti)
+                if (Ti >= i)
                     knotsI[i] = 0;
-                else if (Ti <= i && i <= Ni)
-                    knotsI[i] = i - Ti + 1;
+                else if (Ti < i && i <= Ni)
+                    knotsI[i] = i - Ti;
                 else //i > n
-                    knotsI[i] = Ni - Ti + 2;
+                    knotsI[i] = Ni - Ti + 1;
             }
             uMin = knotsI[0];
             uMax = knotsI[Ni + Ti];
 
             for (int j = 0; j < knotsJ.length; j++) {
-                if (j < Tj)
+                if (j <= Tj)
                     knotsJ[j] = 0;
-                else if (Tj <= j && j <= Nj)
-                    knotsJ[j] = j - Tj + 1;
+                else if (Tj < j && j <= Nj)
+                    knotsJ[j] = j - Tj;
                 else //j > n
-                    knotsJ[j] = Nj - Tj + 2;
+                    knotsJ[j] = Nj - Tj + 1;
             }
             vMin = knotsJ[0];
             vMax = knotsJ[Nj + Tj];
@@ -56,7 +57,7 @@ public class SplineCalculator {
         else
         {
             double u = uMin;
-            double uDiff = (uMax - uMin)/(Ni + Ti);
+            double uDiff = (uMax - uMin)/(Ni + Ti + 1);
             for (int i = 0; i < knotsI.length - 1; i++) {
                 knotsI[i] = u;
                 u += uDiff;
@@ -64,7 +65,7 @@ public class SplineCalculator {
             knotsI[Ni + Ti] = uMax;
 
             double v = vMin;
-            double vDiff = (vMax - vMin)/(Nj + Tj);
+            double vDiff = (vMax - vMin)/(Nj + Tj + 1);
             for (int j = 0; j < knotsJ.length - 1; j++) {
                 knotsJ[j] = v;
                 v += vDiff;
@@ -75,31 +76,32 @@ public class SplineCalculator {
     }
 
     //k - index (i, j), t - Ti/Tj, u - knot points, v - coordinate (u/v)
-    private double calculateSplineBasisFunction(int k, int t, double[] u, double v)    //aka Blending Function akd Ni,p
+    private double calculateSplineBasisFunction(int i, int t, double[] u, double v)    //aka Blending Function akd Ni,p
     {
         //http://paulbourke.net/geometry/spline/
         //чем больше степень Ti/Tj - тем боолее гладкая кривая
         double val;
 
-        if (t == 1) {
-            if ((u[k] <= v) && (v < u[k + 1]))
+        if (t == 0)
+        {
+            if ((u[i] <= v) && (v < u[i + 1]))
                 val = 1;
             else
                 val = 0;
-        } else {
-            if ((u[k + t - 1] == u[k]) && (u[k + t] == u[k + 1]))
+        }
+        else
+        {
+            if ((u[i + t] == u[i]) && (u[i + t + 1] == u[i + 1]))
                 val = 0;
-            else if (u[k + t - 1] == u[k])
-                val = (u[k + t] - v) / (u[k + t] - u[k + 1]) * calculateSplineBasisFunction(k + 1, t - 1, u, v);
-            else if (u[k + t] == u[k + 1])
-                val = (v - u[k]) / (u[k + t - 1] - u[k]) * calculateSplineBasisFunction(k, t - 1, u, v);
+            else if (u[i + t] == u[i])
+                val = (u[i + t + 1] - v) / (u[i + t + 1] - u[i + 1]) * calculateSplineBasisFunction(i + 1, t - 1, u, v);
+            else if (u[i + t + 1] == u[i + 1])
+                val = (v - u[i]) / (u[i + t] - u[i]) * calculateSplineBasisFunction(i, t - 1, u, v);
             else
-                val = (v - u[k]) / (u[k + t - 1] - u[k]) * calculateSplineBasisFunction(k, t - 1, u, v) +
-                        (u[k + t] - v) / (u[k + t] - u[k + 1]) * calculateSplineBasisFunction(k + 1, t - 1, u, v);
+                val =   (v - u[i]) / (u[i + t] - u[i]) * calculateSplineBasisFunction(i, t - 1, u, v) +
+                        (u[i + t + 1] - v) / (u[i + t + 1] - u[i + 1]) * calculateSplineBasisFunction(i + 1, t - 1, u, v);
         }
 
-        if(Double.isNaN(val))
-            System.out.println();
         return val;
     }
 
