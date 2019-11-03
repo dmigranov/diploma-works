@@ -98,6 +98,8 @@ public class SplineCalculator {
                         (u[k + t] - v) / (u[k + t] - u[k + 1]) * calculateSplineBasisFunction(k + 1, t - 1, u, v);
         }
 
+        if(Double.isNaN(val))
+            System.out.println();
         return val;
     }
 
