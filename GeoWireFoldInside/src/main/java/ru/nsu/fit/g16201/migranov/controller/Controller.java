@@ -7,7 +7,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Controller {
     private WireframePanel wireframePanel;
@@ -43,7 +42,6 @@ public class Controller {
     private Matrix figureRotateMatrix;
     private Point3D[][] splinePoints;
     private Point3D[][] modelPoints;
-    private List<Geodesic> geodesics;
 
     private SplineCalculator splineCalculator;
     private GeodesicsCalculator geodesicsCalculator;
@@ -98,27 +96,8 @@ public class Controller {
                     dy = 0.1;
                 else if (key == KeyEvent.VK_DOWN)
                     dy = -0.1;
-                else if (key == KeyEvent.VK_Q)
-                {
-                    var g1 = geodesics.get(0);
-                    var g2 = geodesics.get(1);
-                    g1.setuStart(g1.getuStart() - 0.05);
-                    g2.setuStart(g2.getuStart() + 0.05);
-                    geodesicsCalculator.calculateGeodesic(g1);
-                    geodesicsCalculator.calculateGeodesic(g2);
-                }
 
-                else if (key == KeyEvent.VK_E)
-                {
-                    var g1 = geodesics.get(0);
-                    var g2 = geodesics.get(1);
-                    g1.setuStart(g1.getuStart() + 0.05);
-                    g2.setuStart(g2.getuStart() - 0.05);
-                    geodesicsCalculator.calculateGeodesic(g1);
-                    geodesicsCalculator.calculateGeodesic(g2);
-                }
-
-                    Matrix tr = Matrix.getTranslationMatrix(new Point3D(dx, dy, dz));
+                Matrix tr = Matrix.getTranslationMatrix(new Point3D(dx, dy, dz));
 
                 Point3D z = new Point3D(-(ref.x - eye.x), -(ref.y - eye.y), -(ref.z - eye.z)).normalize();
                 Point3D x = Point3D.getVectorProduct(up, z).normalize();
@@ -188,8 +167,6 @@ public class Controller {
         //n*k и m*k - это фактически разрешение
         if (needsToBeRedrawn) {
             findModelPoints();
-            for(var geodesic : geodesics )
-                geodesicsCalculator.calculateGeodesic(geodesic);
 
             //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
             //|knotsJ| = Nj + Kj + 1
@@ -240,25 +217,6 @@ public class Controller {
                         wireframePanel.drawLine(uPrev[j].x, uPrev[j].y, x, y, color);
                     }
                     uPrev[j] = new Point(x, y);
-                }
-            }
-        }
-
-        //drawGeodesic
-        {
-            for(var geodesic : geodesics) {
-                Point prev = null;
-                Color geoColor = geodesic.getColor();
-                for (Point3D p : geodesic.getPoints()) {
-                    Matrix mp = new Matrix(4, 1, p.x, -p.z, p.y, 1);
-                    Matrix nmp = Matrix.multiply(resultMatrix, mp);
-                    Point3D np = new Point3D(nmp.get(0, 0), nmp.get(1, 0), nmp.get(2, 0));
-                    double w = nmp.get(3, 0);
-                    int x = (int) ((np.x / w + 1) / 2 * wireframePanel.getCanvasWidth());
-                    int y = (int) ((np.y / w + 1) / 2 * wireframePanel.getCanvasHeight());
-                    if (prev != null)
-                        wireframePanel.drawLine(prev.x, prev.y, x, y, geoColor);
-                    prev = new Point(x, y);
                 }
             }
         }
@@ -432,9 +390,6 @@ public class Controller {
             splineCalculator = new SplineCalculator(Ni, Nj, Ti, Tj, splinePoints);
             geodesicsCalculator = new GeodesicsCalculator(splineCalculator);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
-            geodesics = new ArrayList<>();
-            geodesics.add(new Geodesic(0.4, 0.1, 0, 0.2, Color.GREEN));
-            geodesics.add(new Geodesic(3.6, 0.1, 0, 0.2, Color.YELLOW));
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
         {
