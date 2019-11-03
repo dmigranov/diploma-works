@@ -548,4 +548,8 @@ public class Controller {
     public int getNj() {
         return splineCalculator.getNj();
     }
+
+    public void setIsUniform(boolean isUniform, double uMin, double uMax, double vMin, double vMax) {
+
+    }
 }

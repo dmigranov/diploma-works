@@ -259,6 +259,19 @@ public class WireframeFrame extends MainFrame {
                     throw new NumberFormatException("Wrong m, n, or k");
 
                 controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj);
+
+                double uMin = 0, uMax = 0, vMin = 0, vMax = 0;
+                boolean isUniform = uniformButton.isSelected();
+
+                if(isUniform) {
+                    uMin = Double.parseDouble(uMinField.getText());
+                    uMax = Double.parseDouble(uMaxField.getText());
+                    vMin = Double.parseDouble(vMinField.getText());
+                    vMax = Double.parseDouble(vMaxField.getText());
+                }
+                controller.setIsUniform(isUniform, uMin, uMax, vMin, vMax);
+
+
                 resize();
 
                 updateFields();
