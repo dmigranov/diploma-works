@@ -28,9 +28,9 @@ public class SplineCalculator {
 
     private void calculateKnots() {
         knotsI = new double[Ni + Ti + 1];
+        knotsJ = new double[Nj + Tj + 1];
 
         if(!isUniform) {
-
             for (int i = 0; i < knotsI.length; i++) {
                 if (i < Ti)
                     knotsI[i] = 0;
@@ -42,7 +42,6 @@ public class SplineCalculator {
             uMin = knotsI[0];
             uMax = knotsI[Ni + Ti];
 
-            knotsJ = new double[Nj + Tj + 1];
             for (int j = 0; j < knotsJ.length; j++) {
                 if (j < Tj)
                     knotsJ[j] = 0;
@@ -56,6 +55,21 @@ public class SplineCalculator {
         }
         else
         {
+            double u = uMin;
+            double uDiff = (uMax - uMin)/(Ni + Ti);
+            for (int i = 0; i < knotsI.length - 1; i++) {
+                knotsI[i] = u;
+                u += uDiff;
+            }
+            knotsI[Ni + Ti] = uMax;
+
+            double v = vMin;
+            double vDiff = (vMax - vMin)/(Nj + Tj);
+            for (int j = 0; j < knotsJ.length - 1; j++) {
+                knotsJ[j] = v;
+                v += vDiff;
+            }
+            knotsJ[Nj + Tj] = vMax;
 
         }
     }
@@ -198,7 +212,7 @@ public class SplineCalculator {
         return calculateSplineFunction(u, v, isUEdge, isVEdge);
     }
 
-    private void setIsUniform(boolean isUniform, double uMin, double uMax, double vMin, double vMax)
+    public void setIsUniform(boolean isUniform, double uMin, double uMax, double vMin, double vMax)
     {
         this.isUniform = isUniform;
         this.uMin = uMin;

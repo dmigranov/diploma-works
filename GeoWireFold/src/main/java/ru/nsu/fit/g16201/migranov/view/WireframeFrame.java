@@ -258,8 +258,6 @@ public class WireframeFrame extends MainFrame {
                 if(m <= 0 || n <= 0 || k <= 0)
                     throw new NumberFormatException("Wrong m, n, or k");
 
-                controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj);
-
                 double uMin = 0, uMax = 0, vMin = 0, vMax = 0;
                 boolean isUniform = uniformButton.isSelected();
 
@@ -272,8 +270,7 @@ public class WireframeFrame extends MainFrame {
                     if(uMax <= uMin || vMax <= vMin)
                         throw new NumberFormatException("Wrong u/v limits");
                 }
-                controller.setIsUniform(isUniform, uMin, uMax, vMin, vMax);
-
+                controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj, isUniform, uMin, uMax, vMin, vMax);
 
                 resize();
 

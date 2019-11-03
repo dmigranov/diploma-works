@@ -461,7 +461,7 @@ public class Controller {
         return substrings;
     }
 
-    public void setConstants(int n, int m, int k, double sw, double sh, double zn, double zf, Color backgroundColor, Color figureColor, int ti, int tj) {
+    public void setConstants(int n, int m, int k, double sw, double sh, double zn, double zf, Color backgroundColor, Color figureColor, int ti, int tj, boolean isUniform, double uMin, double uMax, double vMin, double vMax) {
         this.n = n;
         this.m = m;
         this.k = k;
@@ -478,15 +478,11 @@ public class Controller {
         wireframePanel.setBackgroundColor(backgroundColor);
 
         splineCalculator.setDegrees(ti, tj);
+        splineCalculator.setIsUniform(isUniform, uMin, uMax, vMin, vMax);
 
         needsToBeRedrawn = true;
         drawFigure();
     }
-
-    public void setIsUniform(boolean isUniform, double uMin, double uMax, double vMin, double vMax) {
-
-    }
-
 
 
     public int getN() {
