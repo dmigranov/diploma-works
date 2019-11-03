@@ -116,7 +116,6 @@ public class WireframeFrame extends MainFrame {
         JScrollPane geoScrollPane = new JScrollPane(geoList);
         geodesicsPanel.add(geoScrollPane);
 
-
         JPanel geodesicPropertiesPanel = new JPanel();
         JPanel uvPanel = new JPanel(new GridLayout(2, 2, 0, 0));
         uStartField = new JTextField();

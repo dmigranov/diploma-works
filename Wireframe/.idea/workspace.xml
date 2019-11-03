@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="71d98680-af08-4742-b335-10bbdc2e635a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example3d-5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/example3d-5.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/model/GeodesicsCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/fit/g16201/migranov/view/WireframeFrame.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -140,14 +143,8 @@
       <workItem from="1572164274004" duration="14469000" />
       <workItem from="1572358116792" duration="698000" />
       <workItem from="1572430774081" duration="6724000" />
-      <workItem from="1572618398214" duration="1319000" />
-    </task>
-    <task id="LOCAL-00126" summary="gij done? have to check">
-      <created>1571413400547</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1571413400547</updated>
+      <workItem from="1572618398214" duration="1418000" />
+      <workItem from="1572762687628" duration="935000" />
     </task>
     <task id="LOCAL-00127" summary="чёто неправильно считает производные...">
       <created>1571413912167</created>
@@ -485,7 +482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572619397140</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="more fields">
+      <created>1572619749463</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1572619749463</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +523,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="перешел к FirstOrderDifferentialEquations, т.к можно перейти к системе первого порядка" />
     <MESSAGE value="w" />
     <MESSAGE value="computeDerivatives done?" />
     <MESSAGE value="found mistake" />
@@ -544,7 +547,8 @@
     <MESSAGE value="well it's better" />
     <MESSAGE value="added jlist" />
     <MESSAGE value="dsd" />
-    <option name="LAST_COMMIT_MESSAGE" value="dsd" />
+    <MESSAGE value="more fields" />
+    <option name="LAST_COMMIT_MESSAGE" value="more fields" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
