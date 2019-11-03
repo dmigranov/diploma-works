@@ -208,8 +208,8 @@ public class WireframeFrame extends MainFrame {
         nonUniformButton = new JRadioButton("Non-uniform knot vector");
         group.add(uniformButton);
         group.add(nonUniformButton);
-        uniformButton.setEnabled(false);
-        nonUniformButton.setEnabled(false);
+        //uniformButton.setEnabled(false);
+        //nonUniformButton.setEnabled(false);
         radioPanel.add(uniformButton);
         radioPanel.add(nonUniformButton);
         nonUniformButton.setSelected(true);
