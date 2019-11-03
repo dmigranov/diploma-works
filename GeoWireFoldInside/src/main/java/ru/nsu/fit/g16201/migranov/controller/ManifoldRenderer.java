@@ -2,9 +2,15 @@ package ru.nsu.fit.g16201.migranov.controller;
 
 import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
 
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 public class ManifoldRenderer {
     private final double observerHeight = 1;
     private ManifoldInsidePanel panel;
+    private ThreadPoolExecutor executor;
+
 
     public ManifoldRenderer(ManifoldInsidePanel panel)
     {
@@ -12,8 +18,12 @@ public class ManifoldRenderer {
         this.panel = panel;
     }
 
-    public void render()
+    public void render(int numberOfThreads)
     {
+        int width = panel.getWidth();
+
+
+        executor = new ThreadPoolExecutor(numberOfThreads, numberOfThreads, 1000, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(width));
 
     }
 }
