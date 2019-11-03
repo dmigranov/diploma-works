@@ -34,7 +34,7 @@ public class WireframeFrame extends MainFrame {
     private JColorChooser backgroundColorChooser, figureColorChooser;
 
     private JRadioButton uniformButton, nonUniformButton;
-    private JTextField uMin, vMin, uMax, vMax;
+    private JTextField uMinField, vMinField, uMaxField, vMaxField;
 
 
     private JTextField uStartField, vStartField, uDirField, vDirField;
@@ -215,16 +215,24 @@ public class WireframeFrame extends MainFrame {
         spline3DConfigurationPanel.add(radioPanel);
 
         JPanel uvPanel = new JPanel(new GridLayout(2, 2));
-        uMin = new JTextField();
-        uMax = new JTextField();
-        vMin = new JTextField();
-        vMax = new JTextField();
-        uvPanel.add(new LabelTextField("uMin: ", uMin, new FloatTextFieldKeyListener()));
-        uvPanel.add(new LabelTextField("uMax: ", uMax, new FloatTextFieldKeyListener()));
-        uvPanel.add(new LabelTextField("vMin: ", vMin, new FloatTextFieldKeyListener()));
-        uvPanel.add(new LabelTextField("vMax: ", vMax, new FloatTextFieldKeyListener()));
+        uMinField = new JTextField();
+        uMaxField = new JTextField();
+        vMinField = new JTextField();
+        vMaxField = new JTextField();
+        setUVMinMaxFields(false);
+        uvPanel.add(new LabelTextField("uMin: ", uMinField, new FloatTextFieldKeyListener()));
+        uvPanel.add(new LabelTextField("uMax: ", uMaxField, new FloatTextFieldKeyListener()));
+        uvPanel.add(new LabelTextField("vMin: ", vMinField, new FloatTextFieldKeyListener()));
+        uvPanel.add(new LabelTextField("vMax: ", vMaxField, new FloatTextFieldKeyListener()));
         spline3DConfigurationPanel.add(uvPanel);
 
+        uniformButton.addActionListener(e -> {
+            setUVMinMaxFields(true);
+        });
+
+        nonUniformButton.addActionListener(e -> {
+            setUVMinMaxFields(false);
+        });
 
         confirmButton = new JButton("Confirm");
         confirmButton.addActionListener(e -> {
@@ -263,6 +271,13 @@ public class WireframeFrame extends MainFrame {
         confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
     }
 
+    private void setUVMinMaxFields(boolean state)
+    {
+        uMinField.setEditable(state);
+        uMaxField.setEditable(state);
+        vMinField.setEditable(state);
+        vMaxField.setEditable(state);
+    }
 
     private void addMenus() throws NoSuchMethodException {
         addSubMenu("File", KeyEvent.VK_F);
