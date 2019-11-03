@@ -268,6 +268,9 @@ public class WireframeFrame extends MainFrame {
                     uMax = Double.parseDouble(uMaxField.getText());
                     vMin = Double.parseDouble(vMinField.getText());
                     vMax = Double.parseDouble(vMaxField.getText());
+
+                    if(uMax <= uMin || vMax <= vMin)
+                        throw new NumberFormatException("Wrong u/v limits");
                 }
                 controller.setIsUniform(isUniform, uMin, uMax, vMin, vMax);
 
