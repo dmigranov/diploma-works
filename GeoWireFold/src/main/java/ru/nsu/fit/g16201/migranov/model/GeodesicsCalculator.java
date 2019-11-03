@@ -62,6 +62,7 @@ public class GeodesicsCalculator {
         double det = g11*g22 - g12*g12;
 
         //todo: а если не обратима? det = 0
+        //todo: при uniform spacing определитель равен нулю, из-за чего проблемы!
         return new double[][]{ {g22/det, -g12/det}, {-g12/det, g11/det}};
     }
 
@@ -192,9 +193,11 @@ public class GeodesicsCalculator {
         double[] state = new double[] {uDir, vDir, uStart, vStart}, newState;
         double t = 0, step = 0.3;
         double eps = 4*epsilon;
+        double u = 0, v = 0;
         while(true) //todo или по превышении числа итераций..
         {
-            double u = state[2], v = state[3];
+            u = state[2];
+            v = state[3];
             if(u <= splineCalculator.getUMin() + eps || u >= splineCalculator.getUMax() - eps || v <= splineCalculator.getVMin() + eps || v >= splineCalculator.getVMax() - eps)
                 break;
             Point3D p = splineCalculator.calculateSplineFunction(u, v);
