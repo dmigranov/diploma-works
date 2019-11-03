@@ -415,8 +415,8 @@ public class Controller {
 
             if(Ni <= 0 || Nj <= 0)
                 throw new IOException("Wrong Ni or Nj");
-            if(2 > Ti || 2 > Tj || Ti > Ni + 1 || Tj > Nj + 1)
-                throw new IOException("Wrong Ti or Tj, 2 <= Ti <= Ni + 1 ");
+            if(1 > Ti || 1 > Tj || Ti > Ni || Tj > Nj)
+                throw new IOException("Wrong Ti or Tj, 1 <= Ti <= Ni ");
 
             splinePoints = new Point3D[Ni + 1][Nj + 1];
             for(int i = 0; i <= Ni; i++)
