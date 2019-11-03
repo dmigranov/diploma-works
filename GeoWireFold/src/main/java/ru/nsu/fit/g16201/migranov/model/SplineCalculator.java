@@ -160,23 +160,29 @@ public class SplineCalculator {
     }
 
     Point3D calculateSplineFunction(double u, double v) {
-        if((u < uMin || u > uMax || v < vMin || v > vMax))
-            return null;
-        double Px = 0, Py = 0, Pz = 0;      //function P(u,v) which is a 3D-point
+        boolean isUEdge = false, isVEdge = false;
 
+        if(u < uMin)
         {
-            for (int i = 0; i <= Ni; i++) {
-                double bi = calculateSplineBasisFunction(i, Ti, knotsI, u);
-                for (int j = 0; j <= Nj; j++) {
-                    double bj = calculateSplineBasisFunction(j, Tj, knotsJ, v);
-                    Px += splinePoints[i][j].x * bi * bj;
-                    Py += splinePoints[i][j].y * bi * bj;
-                    Pz += splinePoints[i][j].z * bi * bj;
-                }
-            }
+            u = uMin;
+        }
+        else if (u > uMax)
+        {
+            u = uMax;
+            isUEdge = true;
         }
 
-        return new Point3D(Px, Py, Pz);
+        if(v < vMin)
+        {
+            v = vMin;
+        }
+        else if (v > vMax)
+        {
+            v = vMax;
+            isVEdge = true;
+        }
+
+        return calculateSplineFunction(u, v, isUEdge, isVEdge);
     }
 }
 
