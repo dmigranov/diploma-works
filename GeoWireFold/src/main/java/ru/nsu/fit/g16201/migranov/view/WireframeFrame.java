@@ -32,7 +32,10 @@ public class WireframeFrame extends MainFrame {
 
     private JTextField nField, mField, kField, swField, shField, znField, TiField, TjField;
     private JColorChooser backgroundColorChooser, figureColorChooser;
+
     private JRadioButton uniformButton, nonUniformButton;
+    private JTextField uMin, vMin, uMax, vMax;
+
 
     private JTextField uStartField, vStartField, uDirField, vDirField;
 
@@ -127,9 +130,7 @@ public class WireframeFrame extends MainFrame {
         uvPanel.add(new LabelTextField("v0: ", vStartField, new FloatTextFieldKeyListener()));
         uvPanel.add(new LabelTextField("u̇0: ", uDirField, new FloatTextFieldKeyListener()));
         uvPanel.add(new LabelTextField("v̇0: ", vDirField, new FloatTextFieldKeyListener()));
-
     }
-
 
 
     private void createCommonConfigurationPanel() {
@@ -212,7 +213,18 @@ public class WireframeFrame extends MainFrame {
         nonUniformButton.setSelected(true);
         radioPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Uniformity of knot vector"));
         spline3DConfigurationPanel.add(radioPanel);
-        //todo: добавить поля для umin vmin / max и считывать их значение!
+
+        JPanel uvPanel = new JPanel(new GridLayout(2, 2));
+        uMin = new JTextField();
+        uMax = new JTextField();
+        vMin = new JTextField();
+        vMax = new JTextField();
+        uvPanel.add(new LabelTextField("uMin: ", uMin, new FloatTextFieldKeyListener()));
+        uvPanel.add(new LabelTextField("uMax: ", uMax, new FloatTextFieldKeyListener()));
+        uvPanel.add(new LabelTextField("vMin: ", vMin, new FloatTextFieldKeyListener()));
+        uvPanel.add(new LabelTextField("vMax: ", vMax, new FloatTextFieldKeyListener()));
+        spline3DConfigurationPanel.add(uvPanel);
+
 
         confirmButton = new JButton("Confirm");
         confirmButton.addActionListener(e -> {
