@@ -14,8 +14,6 @@ public class SplineCalculator {
     private double uMin;
     private double vMin;
 
-    private boolean isUniform = false;
-
     public SplineCalculator(int Ni, int Nj, int Ti, int Tj, Point3D[][] splinePoints) {
         this.Ni = Ni;
         this.Nj = Nj;
@@ -30,7 +28,7 @@ public class SplineCalculator {
         knotsI = new double[Ni + Ti + 2];   //knotsI[m+1], где m = n + p + 1, p - степень, n + 1 - число точек
         knotsJ = new double[Nj + Tj + 2];
 
-        if(!isUniform) {
+
             //clamped spacing
             for (int i = 0; i < knotsI.length; i++) {
                 if (Ti >= i)
@@ -53,26 +51,7 @@ public class SplineCalculator {
             }
             vMin = knotsJ[0];
             vMax = knotsJ[Nj + Tj];
-        }
-        else
-        {
-            double u = uMin;
-            double uDiff = (uMax - uMin)/(Ni + Ti + 1);
-            for (int i = 0; i < knotsI.length - 1; i++) {
-                knotsI[i] = u;
-                u += uDiff;
-            }
-            knotsI[Ni + Ti] = uMax;
 
-            double v = vMin;
-            double vDiff = (vMax - vMin)/(Nj + Tj + 1);
-            for (int j = 0; j < knotsJ.length - 1; j++) {
-                knotsJ[j] = v;
-                v += vDiff;
-            }
-            knotsJ[Nj + Tj] = vMax;
-
-        }
     }
 
     //k - index (i, j), t - Ti/Tj, u - knot points, v - coordinate (u/v)
@@ -214,16 +193,6 @@ public class SplineCalculator {
         }
 
         return calculateSplineFunction(u, v, isUEdge, isVEdge);
-    }
-
-    public void setIsUniform(boolean isUniform, double uMin, double uMax, double vMin, double vMax)
-    {
-        this.isUniform = isUniform;
-        this.uMin = uMin;
-        this.uMax = uMax;
-        this.vMin = vMin;
-        this.vMax = vMax;
-        calculateKnots();
     }
 }
 

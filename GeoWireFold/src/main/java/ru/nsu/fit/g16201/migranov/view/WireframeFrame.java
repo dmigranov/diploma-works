@@ -33,10 +33,6 @@ public class WireframeFrame extends MainFrame {
     private JTextField nField, mField, kField, swField, shField, znField, TiField, TjField;
     private JColorChooser backgroundColorChooser, figureColorChooser;
 
-    private JRadioButton uniformButton, nonUniformButton;
-    private JTextField uMinField, vMinField, uMaxField, vMaxField;
-
-
     private JTextField uStartField, vStartField, uDirField, vDirField;
 
     private JButton confirmButton;
@@ -202,40 +198,6 @@ public class WireframeFrame extends MainFrame {
         //spline3DConfigurationPanel.add(new JLabel("Ti & Tj are orders of spline basis functions; the smoothness of surface depends on Ni, Ti, Nj, Tj (dependency is given by knot points)"));
         spline3DConfigurationPanel.add(figureColorChooser);
 
-        JPanel radioPanel = new JPanel(new GridLayout(2, 1));
-        ButtonGroup group = new ButtonGroup();
-        uniformButton = new JRadioButton("Uniform knot vector");
-        nonUniformButton = new JRadioButton("Non-uniform knot vector");
-        group.add(uniformButton);
-        group.add(nonUniformButton);
-        //uniformButton.setEnabled(false);
-        //nonUniformButton.setEnabled(false);
-        radioPanel.add(uniformButton);
-        radioPanel.add(nonUniformButton);
-        nonUniformButton.setSelected(true);
-        radioPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Uniformity of knot vector"));
-        spline3DConfigurationPanel.add(radioPanel);
-
-        JPanel uvPanel = new JPanel(new GridLayout(2, 2));
-        uMinField = new JTextField();
-        uMaxField = new JTextField();
-        vMinField = new JTextField();
-        vMaxField = new JTextField();
-        setUVMinMaxFields(false);
-        uvPanel.add(new LabelTextField("uMin: ", uMinField, new FloatTextFieldKeyListener()));
-        uvPanel.add(new LabelTextField("uMax: ", uMaxField, new FloatTextFieldKeyListener()));
-        uvPanel.add(new LabelTextField("vMin: ", vMinField, new FloatTextFieldKeyListener()));
-        uvPanel.add(new LabelTextField("vMax: ", vMaxField, new FloatTextFieldKeyListener()));
-        spline3DConfigurationPanel.add(uvPanel);
-
-        uniformButton.addActionListener(e -> {
-            setUVMinMaxFields(true);
-        });
-
-        nonUniformButton.addActionListener(e -> {
-            setUVMinMaxFields(false);
-        });
-
         confirmButton = new JButton("Confirm");
         confirmButton.addActionListener(e -> {
             try
@@ -260,19 +222,7 @@ public class WireframeFrame extends MainFrame {
                 if(m <= 0 || n <= 0 || k <= 0)
                     throw new NumberFormatException("Wrong m, n, or k");
 
-                double uMin = 0, uMax = 0, vMin = 0, vMax = 0;
-                boolean isUniform = uniformButton.isSelected();
-
-                if(isUniform) {
-                    uMin = Double.parseDouble(uMinField.getText());
-                    uMax = Double.parseDouble(uMaxField.getText());
-                    vMin = Double.parseDouble(vMinField.getText());
-                    vMax = Double.parseDouble(vMaxField.getText());
-
-                    if(uMax <= uMin || vMax <= vMin)
-                        throw new NumberFormatException("Wrong u/v limits");
-                }
-                controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj, isUniform, uMin, uMax, vMin, vMax);
+                controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj);
 
                 resize();
 
@@ -284,14 +234,6 @@ public class WireframeFrame extends MainFrame {
             }
         });
         confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-    }
-
-    private void setUVMinMaxFields(boolean state)
-    {
-        uMinField.setEditable(state);
-        uMaxField.setEditable(state);
-        vMinField.setEditable(state);
-        vMaxField.setEditable(state);
     }
 
     private void addMenus() throws NoSuchMethodException {
