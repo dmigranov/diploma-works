@@ -3,7 +3,7 @@ package ru.nsu.fit.g16201.migranov.model;
 public class SphereFunction extends ManifoldFunction {
 
     private double r;
-    SphereFunction(double r)
+    public SphereFunction(double r)
     {
         this.r = r;
         uMax = Double.POSITIVE_INFINITY;

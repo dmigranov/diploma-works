@@ -34,6 +34,8 @@ public class Controller {
 
     private int width, height;
 
+    private SphereFunction sphereFunction = new SphereFunction(1);
+
     private boolean needsToBeRedrawn = true, isDrawingFirstTime = true;
 
     //фигура
@@ -252,8 +254,10 @@ public class Controller {
             for(int j = 0; j <= m * k; j++)
             {
                 Point3D Puv;
-                if(isSphere)
-                    Puv = new Point3D(Math.cos(u) * Math.cos(v), Math.sin(v), Math.sin(u) * Math.cos(v));   //todo: сделать это в виде функции
+                if(isSphere) {
+                    double[] vals = sphereFunction.apply(u, v);
+                    Puv = new Point3D(vals[0], vals[1], vals[2]);
+                }
                 else
                     Puv = splineCalculator.calculateSplineFunction(u, v, i == n * k, j == m * k);
                 v += incrementV;

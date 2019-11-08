@@ -13,7 +13,7 @@ abstract class ManifoldFunction implements Function<double[], double[]> {
     double getUMax() {return uMax;}
     double getVMax() {return vMax;}
 
-    double[] apply(double u, double v)
+    public double[] apply(double u, double v)
     {
         return apply(new double[]{u, v});
     }
