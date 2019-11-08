@@ -2,7 +2,7 @@ package ru.nsu.fit.g16201.migranov.model;
 
 import java.util.function.Function;
 
-public class SplineFunction implements Function<double[], double[]> {
+public class SplineFunction implements ManifoldFunction {
 
     private SplineCalculator splineCalculator;
 
