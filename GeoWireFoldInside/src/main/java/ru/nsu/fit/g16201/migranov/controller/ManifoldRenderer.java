@@ -1,5 +1,6 @@
 package ru.nsu.fit.g16201.migranov.controller;
 
+import ru.nsu.fit.g16201.migranov.model.GeodesicsCalculator;
 import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
 
 import java.awt.image.BufferedImage;
@@ -13,12 +14,18 @@ public class ManifoldRenderer {
     private ThreadPoolExecutor executor;
 
     private int[][] floatColors;
-    private double zn, sw, sh;
+    private GeodesicsCalculator geodesicsCalculator;
+
+    private double zn;
+    private double sw;
+    private double sh;
     private int width, height;
 
     private double observerHeight = 1;
     private double posU, posV;
     private double rotationAngle = 0;
+
+    private double dt = 1;
 
     private BufferedImage texture;
 
@@ -27,8 +34,9 @@ public class ManifoldRenderer {
         this.panel = panel;
     }
 
-    public void render(int numberOfThreads, double zn, double sw, double sh, double uPos, double vPos, BufferedImage texture)
+    public void render(int numberOfThreads, GeodesicsCalculator geodesicsCalculator, double zn, double sw, double sh, double uPos, double vPos, BufferedImage texture)
     {
+        this.geodesicsCalculator = geodesicsCalculator;
         this.zn = zn;
         this.sw = sw;
         this.sh = sh;
@@ -71,7 +79,7 @@ public class ManifoldRenderer {
             picX = j;
         }
 
-
+//
 
         //считаем что в маленькой окрестности наблюдателя лучи идут по евклидовым правилам (и это правильно, см. сфера - маленькие треугольники и большие!)
         @Override
