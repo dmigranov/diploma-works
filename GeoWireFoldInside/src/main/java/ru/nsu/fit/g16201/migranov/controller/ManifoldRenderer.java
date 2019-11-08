@@ -23,11 +23,14 @@ public class ManifoldRenderer {
         this.panel = panel;
     }
 
-    public void render(int numberOfThreads, double zn, double sw, double sh)
+    public void render(int numberOfThreads, double zn, double sw, double sh, double uPos, double vPos)
     {
         this.zn = zn;
         this.sw = sw;
         this.sh = sh;
+        this.uPos = uPos;
+        this.vPos = vPos;
+
         width = panel.getWidth();
         height = panel.getHeight();
 
