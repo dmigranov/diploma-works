@@ -237,8 +237,8 @@ public class Controller {
             v = vMin;
             for(int j = 0; j <= m * k; j++)
             {
-                Point3D Puv = splineCalculator.calculateSplineFunction(u, v, i == n * k, j == m * k);
-
+                //Point3D Puv = splineCalculator.calculateSplineFunction(u, v, i == n * k, j == m * k);
+                Point3D Puv = new Point3D(Math.cos(u) * Math.cos(v), Math.sin(v), Math.sin(u) * Math.cos(v));
                 v += incrementV;
 
                 double x = Puv.x, y = -Puv.z, z = Puv.y;
