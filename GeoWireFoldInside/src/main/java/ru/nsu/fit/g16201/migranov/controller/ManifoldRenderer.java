@@ -2,6 +2,7 @@ package ru.nsu.fit.g16201.migranov.controller;
 
 import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
 
+import java.awt.image.BufferedImage;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -19,18 +20,21 @@ public class ManifoldRenderer {
     private double posU, posV;
     private double rotationAngle = 0;
 
+    private BufferedImage texture;
+
     public ManifoldRenderer(ManifoldInsidePanel panel)
     {
         this.panel = panel;
     }
 
-    public void render(int numberOfThreads, double zn, double sw, double sh, double uPos, double vPos)
+    public void render(int numberOfThreads, double zn, double sw, double sh, double uPos, double vPos, BufferedImage texture)
     {
         this.zn = zn;
         this.sw = sw;
         this.sh = sh;
         this.posU = uPos;
         this.posV = vPos;
+        this.texture = texture;
 
         width = panel.getWidth();
         height = panel.getHeight();
@@ -85,7 +89,7 @@ public class ManifoldRenderer {
             dirU /= len;
             dirV /= len;
 
-            //double [] state = new double[] {};
+            double [] state = new double[] {posU, posV, dirU, dirV};
 
 
             //y = h'
