@@ -39,7 +39,6 @@ public class Controller {
     //фигура
     private Color figureColor;
     private Matrix figureRotateMatrix;
-    private Point3D[][] splinePoints;
     private Point3D[][] modelPoints;
 
     private SplineCalculator splineCalculator;
@@ -353,7 +352,7 @@ public class Controller {
             if(1 > Ti || 1 > Tj || Ti > Ni || Tj > Nj)
                 throw new IOException("Wrong Ti or Tj, 1 <= Ti <= Ni ");
 
-            splinePoints = new Point3D[Ni + 1][Nj + 1];
+            Point3D[][] splinePoints = new Point3D[Ni + 1][Nj + 1];
             for(int i = 0; i <= Ni; i++)
             {
                 for(int j = 0; j <= Nj; j++)
