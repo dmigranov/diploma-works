@@ -223,8 +223,6 @@ public class Controller {
     }
 
 
-
-
     private void findModelPoints() {
         double uMin = splineCalculator.getUMin(), uMax = splineCalculator.getUMax();
         double vMin = splineCalculator.getVMin(), vMax = splineCalculator.getVMax();
@@ -243,8 +241,6 @@ public class Controller {
 
                 v += incrementV;
 
-                if(Puv == null)
-                    System.out.println();
                 double x = Puv.x, y = -Puv.z, z = Puv.y;
                 Matrix p = new Matrix(4, 1, x, y, z, 1);
                 Matrix np = Matrix.multiply(figureRotateMatrix, p);
@@ -280,41 +276,6 @@ public class Controller {
         return matrix;
     }
 
-    public void saveFile(File file) {  //todo
-        /*try(PrintWriter pw = new PrintWriter(file)) {
-            pw.println(n + " " + m + " " + k + " " + a + " " + b + " " + c + " " + d);
-            pw.println(zn + " " + zf + " " + sw + " " + sh);
-
-            write3x3MatrixByRow(pw, sceneRotateMatrix);
-
-            pw.println(backgroundColor.getRed() + " " + backgroundColor.getGreen() + " " + backgroundColor.getBlue());
-            pw.println(figures.size());
-
-            for(Figure figure : figures)
-            {
-                Color color = figure.getColor();
-                pw.println(color.getRed() + " " + color.getGreen() + " " + color.getBlue());
-
-                Point3D center = figure.getCenter();
-                pw.println(center.x + " " + center.y + " " + center.z);
-
-                write3x3MatrixByRow(pw, figure.getRotateMatrix());
-
-                Point3D[][] splinePoints = figure.getSplinePoints();
-                pw.println(splinePoints.length + " " + splinePoints[0].length + "0 0");
-
-                for(Point2D p : splinePoints)
-                {
-                    pw.println(p.x + " " + p.y);
-                }
-            }
-        }
-        catch(IOException e)
-        {
-        }
-
-        */
-    }
 
     //4 строку и столбец - выбрасываем
     private void write3x3MatrixByRow(PrintWriter pw, Matrix matrix) {
