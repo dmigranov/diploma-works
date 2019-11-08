@@ -25,7 +25,7 @@ public class GeodesicsCalculator {
     private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, epsilon);
 
     private Function<double[], double[][]> metricTensorFunction = values -> calculateMetricTensor(values[0], values[1]);
-    private Function<double[], double[]> manifoldFunction;
+    private ManifoldFunction manifoldFunction;
 
     private double[][] calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
     {
@@ -189,11 +189,13 @@ public class GeodesicsCalculator {
         {
             u = state[2];
             v = state[3];
-            if(u <= splineCalculator.getUMin() + eps || u >= splineCalculator.getUMax() - eps || v <= splineCalculator.getVMin() + eps || v >= splineCalculator.getVMax() - eps)
+            if(u <= manifoldFunction.getUMin() + eps || u >= manifoldFunction.getUMax() - eps || v <= manifoldFunction.getVMin() + eps || v >= manifoldFunction.getVMax() - eps)
                 break;
-            Point3D p = splineCalculator.calculateSplineFunction(u, v);
-            if(p == null)
+            double[] pArr = manifoldFunction.apply(u, v);
+            if(pArr == null)
                 break;
+            Point3D p = new Point3D(pArr[0], pArr[1], pArr[2]);
+
             points.add(p);
             t += step;
             state = geodesicEquationStep(state, t, step);;

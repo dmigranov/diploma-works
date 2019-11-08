@@ -430,7 +430,7 @@ public class Controller {
             }
 
             splineCalculator = new SplineCalculator(Ni, Nj, Ti, Tj, splinePoints);
-            geodesicsCalculator = new GeodesicsCalculator(splineCalculator);
+            geodesicsCalculator = new GeodesicsCalculator(new SplineFunction(splineCalculator));
             modelPoints = new Point3D[n*k + 1][m*k + 1];
             geodesics = new ArrayList<>();
             geodesics.add(new Geodesic(0.4, 0.1, 0, 0.2, Color.GREEN));

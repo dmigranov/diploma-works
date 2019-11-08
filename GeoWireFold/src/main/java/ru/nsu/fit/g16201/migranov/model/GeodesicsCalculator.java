@@ -15,26 +15,17 @@ import java.util.List;
 import java.util.function.Function;
 
 public class GeodesicsCalculator {
-    private SplineCalculator splineCalculator;
 
-    public GeodesicsCalculator(SplineCalculator splineCalculator)
+    public GeodesicsCalculator(ManifoldFunction manifoldFunction)
     {
-        this.splineCalculator = splineCalculator;
+        this.manifoldFunction = manifoldFunction;
     }
 
     private double epsilon = 0.01;
     private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, epsilon);
 
     private Function<double[], double[][]> metricTensorFunction = values -> calculateMetricTensor(values[0], values[1]);
-    private Function<double[], double[]> splineFunction = new Function<>() {
-        @Override
-        public double[] apply(double[] values) {
-            double u = values[0], v = values[1];
-            Point3D p = splineCalculator.calculateSplineFunction(u, v);
-            if(p == null) return null;
-            return new double[]{p.x, p.y, p.z};
-        }
-    };
+    private ManifoldFunction manifoldFunction;
 
     private double[][] calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
     {
@@ -42,8 +33,8 @@ public class GeodesicsCalculator {
         double xu, xv, yu, yv, zu, zv;
 
         double[] values = new double[] {u0, v0};
-        double[] drdu = differentiatePolivariateVectorFunction(splineFunction, 0, values);
-        double[] drdv = differentiatePolivariateVectorFunction(splineFunction, 1, values);
+        double[] drdu = differentiatePolivariateVectorFunction(manifoldFunction, 0, values);
+        double[] drdv = differentiatePolivariateVectorFunction(manifoldFunction, 1, values);
 
         xu = drdu[0]; yu = drdu[1]; zu = drdu[2];
         xv = drdv[0]; yv = drdv[1]; zv = drdv[2];
@@ -198,11 +189,13 @@ public class GeodesicsCalculator {
         {
             u = state[2];
             v = state[3];
-            if(u <= splineCalculator.getUMin() + eps || u >= splineCalculator.getUMax() - eps || v <= splineCalculator.getVMin() + eps || v >= splineCalculator.getVMax() - eps)
+            if(u <= manifoldFunction.getUMin() + eps || u >= manifoldFunction.getUMax() - eps || v <= manifoldFunction.getVMin() + eps || v >= manifoldFunction.getVMax() - eps)
                 break;
-            Point3D p = splineCalculator.calculateSplineFunction(u, v);
-            if(p == null)
+            double[] pArr = manifoldFunction.apply(u, v);
+            if(pArr == null)
                 break;
+            Point3D p = new Point3D(pArr[0], pArr[1], pArr[2]);
+
             points.add(p);
             t += step;
             state = geodesicEquationStep(state, t, step);;

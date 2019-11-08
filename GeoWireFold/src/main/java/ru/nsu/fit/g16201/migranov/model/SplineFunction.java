@@ -1,12 +1,19 @@
 package ru.nsu.fit.g16201.migranov.model;
 
-public class SplineFunction implements ManifoldFunction {
+import java.util.function.Function;
+
+public class SplineFunction extends ManifoldFunction {
 
     private SplineCalculator splineCalculator;
 
     public SplineFunction(SplineCalculator splineCalculator)
     {
         this.splineCalculator = splineCalculator;
+        uMin = splineCalculator.getUMin();
+        uMax = splineCalculator.getUMax();
+        vMin = splineCalculator.getVMin();
+        vMax = splineCalculator.getVMax();
+
     }
 
 

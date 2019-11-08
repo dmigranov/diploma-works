@@ -8,10 +8,15 @@ abstract class ManifoldFunction implements Function<double[], double[]> {
     double vMin;
     double vMax;
 
-    public double getUMin() {return uMin;}
-    public double getVMin() {return vMin;}
-    public double getUMax() {return uMax;}
-    public double getVMax() {return vMax;}
+    double getUMin() {return uMin;}
+    double getVMin() {return vMin;}
+    double getUMax() {return uMax;}
+    double getVMax() {return vMax;}
+
+    double[] apply(double u, double v)
+    {
+        return apply(new double[]{u, v});
+    }
 
 
 }
