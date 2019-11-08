@@ -7,7 +7,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 public class ManifoldRenderer {
-    private final double observerHeight = 1;
 
     private ManifoldInsidePanel panel;
     private ThreadPoolExecutor executor;
@@ -16,6 +15,8 @@ public class ManifoldRenderer {
     private double zn, sw, sh;
     private int width, height;
 
+    private double observerHeight = 1;
+    private double uPos, vPos;
 
     public ManifoldRenderer(ManifoldInsidePanel panel)
     {
@@ -62,14 +63,23 @@ public class ManifoldRenderer {
             picX = j;
         }
 
+
+
+        //считаем что в маленькой окрестности наблюдателя лучи идут по евклидовым правилам (и это правильно, см. сфера - маленькие треугольники и большие!)
         @Override
         public void run() {
-            double nearStartY = -sh/2, dy = sh/height;
+            //double nearStartY = -sh/2, dy = sh/height;
 
-            double y = nearStartY + dy/2;
+            //double y = nearStartY + dy/2;
+            double dy = sh/height, y = dy/2;
 
+            //y = h'
+            final double dMultiplier = zn * observerHeight;
             for(int i = 0; i < height; i++) {
                 y += dy;
+                if(y <= observerHeight) {
+                    double d_ = dMultiplier / y;
+                }
             }
         }
 
