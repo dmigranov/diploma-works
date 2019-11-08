@@ -14,6 +14,7 @@ public class ManifoldRenderer {
 
     private int[][] floatColors;
     private double zn, sw, sh;
+    private int width, height;
 
 
     public ManifoldRenderer(ManifoldInsidePanel panel)
@@ -26,19 +27,18 @@ public class ManifoldRenderer {
         this.zn = zn;
         this.sw = sw;
         this.sh = sh;
-        int width = panel.getWidth();
-        int height = panel.getHeight();
+        width = panel.getWidth();
+        height = panel.getHeight();
 
         floatColors = new int[height][width];
 
         executor = new ThreadPoolExecutor(numberOfThreads, numberOfThreads, 1000, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(width));
 
-        double nearStartX = - sw/2;
-        double nearStartY = - sh/2;
+        double nearStartX = -sw/2;
 
-        double dx = sw/width, dy = sh/height;
+
+        double dx = sw/ width;
         double x;
-        double y = nearStartY + dy/2;
 
 
         x = nearStartX + dx/2;
@@ -48,12 +48,11 @@ public class ManifoldRenderer {
             executor.execute(new RendererTask(x, j));
             x += dx;
         }
-        y += dy;
 
         executor.shutdown();
     }
 
-    static class RendererTask implements Runnable {
+    class RendererTask implements Runnable {
 
         private double pixelX;
         private int picX;
@@ -65,8 +64,16 @@ public class ManifoldRenderer {
 
         @Override
         public void run() {
+            double nearStartY = -sh/2, dy = sh/height;
 
+            double y = nearStartY + dy/2;
+
+            for(int i = 0; i < height; i++) {
+                y += dy;
+            }
         }
+
+
     }
 
 
