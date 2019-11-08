@@ -368,7 +368,8 @@ public class Controller {
             }
 
             splineCalculator = new SplineCalculator(Ni, Nj, Ti, Tj, splinePoints);
-            geodesicsCalculator = new GeodesicsCalculator(new SplineFunction(splineCalculator));
+            //geodesicsCalculator = new GeodesicsCalculator(new SplineFunction(splineCalculator));
+            geodesicsCalculator = new GeodesicsCalculator(sphereFunction);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
