@@ -15,26 +15,17 @@ import java.util.List;
 import java.util.function.Function;
 
 public class GeodesicsCalculator {
-    private SplineCalculator splineCalculator;
 
-    public GeodesicsCalculator(SplineCalculator splineCalculator)
+    public GeodesicsCalculator(ManifoldFunction manifoldFunction)
     {
-        this.splineCalculator = splineCalculator;
+        this.manifoldFunction = manifoldFunction;
     }
 
     private double epsilon = 0.01;
     private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, epsilon);
 
     private Function<double[], double[][]> metricTensorFunction = values -> calculateMetricTensor(values[0], values[1]);
-    private Function<double[], double[]> manifoldFunction = new Function<>() {
-        @Override
-        public double[] apply(double[] values) {
-            double u = values[0], v = values[1];
-            Point3D p = splineCalculator.calculateSplineFunction(u, v);
-            if(p == null) return null;
-            return new double[]{p.x, p.y, p.z};
-        }
-    };
+    private Function<double[], double[]> manifoldFunction;
 
     private double[][] calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
     {
