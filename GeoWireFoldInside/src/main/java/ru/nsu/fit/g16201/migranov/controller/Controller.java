@@ -224,8 +224,23 @@ public class Controller {
 
 
     private void findModelPoints() {
-        double uMin = splineCalculator.getUMin(), uMax = splineCalculator.getUMax();
-        double vMin = splineCalculator.getVMin(), vMax = splineCalculator.getVMax();
+        boolean isSphere = true;
+
+        double uMin, uMax, vMin, vMax;
+
+        if(isSphere)
+        {
+            uMin = 0;
+            uMax = Math.PI * 2;
+            vMin = 0;
+            vMax = Math.PI * 2;
+        }
+        else {
+            uMin = splineCalculator.getUMin();
+            uMax = splineCalculator.getUMax();
+            vMin = splineCalculator.getVMin();
+            vMax = splineCalculator.getVMax();
+        }
 
         double incrementU = (uMax - uMin) / n / k;
         double incrementV = (vMax - vMin) / m / k;
@@ -237,8 +252,11 @@ public class Controller {
             v = vMin;
             for(int j = 0; j <= m * k; j++)
             {
-                //Point3D Puv = splineCalculator.calculateSplineFunction(u, v, i == n * k, j == m * k);
-                Point3D Puv = new Point3D(Math.cos(u) * Math.cos(v), Math.sin(v), Math.sin(u) * Math.cos(v));
+                Point3D Puv;
+                if(isSphere)
+                    Puv = new Point3D(Math.cos(u) * Math.cos(v), Math.sin(v), Math.sin(u) * Math.cos(v));   //todo: сделать это в виде функции
+                else
+                    Puv = splineCalculator.calculateSplineFunction(u, v, i == n * k, j == m * k);
                 v += incrementV;
 
                 double x = Puv.x, y = -Puv.z, z = Puv.y;

@@ -26,7 +26,7 @@ public class GeodesicsCalculator {
     private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, epsilon);
 
     private Function<double[], double[][]> metricTensorFunction = values -> calculateMetricTensor(values[0], values[1]);
-    private Function<double[], double[]> splineFunction = new Function<>() {
+    private Function<double[], double[]> manifoldFunction = new Function<>() {
         @Override
         public double[] apply(double[] values) {
             double u = values[0], v = values[1];
@@ -42,8 +42,8 @@ public class GeodesicsCalculator {
         double xu, xv, yu, yv, zu, zv;
 
         double[] values = new double[] {u0, v0};
-        double[] drdu = differentiatePolivariateVectorFunction(splineFunction, 0, values);
-        double[] drdv = differentiatePolivariateVectorFunction(splineFunction, 1, values);
+        double[] drdu = differentiatePolivariateVectorFunction(manifoldFunction, 0, values);
+        double[] drdv = differentiatePolivariateVectorFunction(manifoldFunction, 1, values);
 
         xu = drdu[0]; yu = drdu[1]; zu = drdu[2];
         xv = drdv[0]; yv = drdv[1]; zv = drdv[2];
