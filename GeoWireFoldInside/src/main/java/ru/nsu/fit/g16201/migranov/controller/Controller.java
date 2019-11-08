@@ -48,7 +48,7 @@ public class Controller {
     public Controller(ManifoldInsidePanel manifoldInsidePanel) {
         this.manifoldInsidePanel = manifoldInsidePanel;
 
-        cameraMatrix = Matrix.getViewMatrixNew(eye, ref, up);  //c 153
+        cameraMatrix = Matrix.getViewMatrix(eye, ref, up);  //c 153
 
         manifoldInsidePanel.addMouseWheelListener(e -> {
             int count = e.getWheelRotation();
@@ -65,7 +65,7 @@ public class Controller {
                     eye = oldEye;
                     return;
                 }
-                cameraMatrix = Matrix.getViewMatrixNew(eye, ref, up);  //матрица получается аналогичная
+                cameraMatrix = Matrix.getViewMatrix(eye, ref, up);  //матрица получается аналогичная
                 drawFigure();
             }
             else

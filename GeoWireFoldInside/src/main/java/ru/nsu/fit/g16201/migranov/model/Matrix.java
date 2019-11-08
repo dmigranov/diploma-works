@@ -39,32 +39,9 @@ public class Matrix {
                 0, 0, 0, 1);
     }
 
-    /*public static Matrix getViewMatrix(Point3D eye, Point3D ref, Point3D up) {
-        Point3D w = new Point3D(eye.x - ref.x, eye.y - ref.y, eye.z - ref.z).normalize();
-        //Point3D w = new Point3D(ref.x - eye.x, ref.y - eye.y, ref.z - eye.z).normalize();
-        Point3D rr = Point3D.getVectorProduct(up, w);
-        Point3D u = rr.normalize();
-        Point3D v = Point3D.getVectorProduct(w, u);
-
-        return new Matrix(4, 4,
-                u.x, u.y, u.z, -u.x*eye.x,
-                        v.x, v.y, v.z, -u.y*eye.y,
-                        w.x, w.y, w.z, -u.z*eye.z,
-                        0, 0, 0, 1
-        );
-
-        return new Matrix(4, 4,
-                u.x, u.y, u.z, -(u.x*eye.x + u.y*eye.y + u.z* eye.z),
-                v.x, v.y, v.z, -(v.x*eye.x + v.y*eye.y + v.z* eye.z),
-                w.x, w.y, w.z, -(w.x*eye.x + w.y*eye.y + w.z* eye.z),
-                0, 0, 0, 1
-        );
-    }*/
-
-
 
     //в левосторонней ск вроде верно
-    public static Matrix getViewMatrixNew(Point3D eye, Point3D ref, Point3D up) {
+    public static Matrix getViewMatrix(Point3D eye, Point3D ref, Point3D up) {
         Point3D z = new Point3D(ref.x - eye.x, ref.y - eye.y, ref.z - eye.z).normalize();
 
         Point3D x = Point3D.getVectorProduct(up, z).normalize();
@@ -78,24 +55,6 @@ public class Matrix {
         );
     }
 
-    /*public static Matrix getViewMatrixInverse(Point3D eye, Point3D ref, Point3D up) {
-        Point3D z = new Point3D(ref.x - eye.x, ref.y - eye.y, ref.z - eye.z).normalize();
-
-        Point3D x = Point3D.getVectorProduct(up, z).normalize();
-        Point3D y = Point3D.getVectorProduct(z, x);
-
-        return new Matrix(4, 4,
-                x.x, x.y, x.z, -(x.x*eye.x + x.y*eye.y + x.z* eye.z),
-                y.x, y.y, y.z, -(y.x*eye.x + y.y*eye.y + y.z* eye.z),
-                z.x, z.y, z.z, -(z.x*eye.x + z.y*eye.y + z.z* eye.z),
-                0, 0, 0, 1
-        );
-    }*/
-
-
-    /*public static Matrix getViewTranslationMatrix(Point3D eye, Point3D ref, Point3D up) {
-        return Matrix.transpose(getViewMatrix(eye, ref, up));
-    }*/
 
     private static Matrix transpose(Matrix a) {
         Matrix b = new Matrix(a.cols, a.rows);
@@ -137,6 +96,13 @@ public class Matrix {
                 0, cos(angle), -sin(angle), 0,
                 0, sin(angle), cos(angle), 0,
                 0, 0, 0, 1);
+    }
+
+    public static Matrix getRotateMatrix2D(double angle) {
+        return new Matrix(43, 3,
+                cos(angle), -sin(angle), 0,
+                sin(angle), cos(angle), 0,
+                0, 0, 1);
     }
 
     public static Matrix getRotateMatrix(double angle, Point3D axe) {

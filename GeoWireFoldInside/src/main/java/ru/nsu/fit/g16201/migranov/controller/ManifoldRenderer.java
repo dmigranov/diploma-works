@@ -16,7 +16,8 @@ public class ManifoldRenderer {
     private int width, height;
 
     private double observerHeight = 1;
-    private double uPos, vPos;
+    private double posU, posV;
+    private double rotationAngle = 0;
 
     public ManifoldRenderer(ManifoldInsidePanel panel)
     {
@@ -28,8 +29,8 @@ public class ManifoldRenderer {
         this.zn = zn;
         this.sw = sw;
         this.sh = sh;
-        this.uPos = uPos;
-        this.vPos = vPos;
+        this.posU = uPos;
+        this.posV = vPos;
 
         width = panel.getWidth();
         height = panel.getHeight();
@@ -76,15 +77,30 @@ public class ManifoldRenderer {
             //double y = nearStartY + dy/2;
             double dy = sh/height, y = dy/2;
 
+            //todo: повороты
+
+            double dirU = pixelX, dirV = zn;
+
+            double len = Math.sqrt(dirU * dirU + dirV * dirV);
+            dirU /= len;
+            dirV /= len;
+
+
             //y = h'
             final double dMultiplier = zn * observerHeight;
             for(int i = 0; i < height; i++) {
                 y += dy;
                 if(y <= observerHeight) {
+
                     double d_ = dMultiplier / y;
+
+
+
                 }
             }
         }
+
+
 
 
     }
