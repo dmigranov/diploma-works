@@ -167,7 +167,7 @@ public class GeodesicsCalculator {
     }
 
     //u0_s и v0_s - это вектор из точки u0 v0
-    private double[] geodesicEquationStep(double[] state, double t0, double step)
+    public double[] geodesicEquationStep(double[] state, double t0, double step)
     {
         //кривая на двумерой поверхности задаётся одним парамаетром t
         //по сути внутри просто интегрируем, используя разные разностные операторы

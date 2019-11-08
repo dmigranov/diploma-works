@@ -53,7 +53,6 @@ public class ManifoldRenderer {
 
         double nearStartX = -sw/2;
 
-
         double dx = sw/ width;
         double x;
 
@@ -101,16 +100,24 @@ public class ManifoldRenderer {
 
 
             //y = h'
+
+            double nextDist = len, s = 0;
             final double dMultiplier = zn * observerHeight;
             for(int i = 0; i < height; i++) {
                 y += dy;
+                int iters = 0;
                 if(y <= observerHeight) {
 
                     double d_ = dMultiplier / y;
+                    while(/*sy > minsy &&*/ iters < 5000)
+                    {
 
 
-
+                        iters++;
+                    }
                 }
+
+
             }
         }
 
