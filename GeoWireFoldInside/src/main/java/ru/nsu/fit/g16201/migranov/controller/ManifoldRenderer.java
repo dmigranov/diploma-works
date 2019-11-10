@@ -31,7 +31,7 @@ public class ManifoldRenderer {
 
     private int skyColor = Color.CYAN.getRGB();
 
-    private BufferedImage texture;
+    private Texture texture;
 
     public ManifoldRenderer(ManifoldInsidePanel panel, GeodesicsCalculator geodesicsCalculator, double zn, double sw, double sh, double uPos, double vPos, BufferedImage texture)
     {
@@ -42,7 +42,7 @@ public class ManifoldRenderer {
         this.sh = sh;
         this.posU = uPos;
         this.posV = vPos;
-        this.texture = texture;
+        this.texture = new Texture(texture);
     }
 
     public void render(int numberOfThreads)
@@ -112,8 +112,6 @@ public class ManifoldRenderer {
         //считаем что в маленькой окрестности наблюдателя лучи идут по евклидовым правилам (и это правильно, см. сфера - маленькие треугольники и большие!)
         @Override
         public void run() {
-            Random random = new Random();
-
             double dy = sh/height, realY = dy/2;
 
             //todo: повороты
@@ -136,19 +134,22 @@ public class ManifoldRenderer {
             while(realY <= observerHeight)
             {
                 double d_ = dMultiplier / realY;
-
+                double u = state[0], v = state[1];
 
                 if(s >= nextDist)
                 {
                     picY++;     //переходим к следующему пикселю в столбце, соответственно, надо пройти ещё.
+                    realY += dy;
                     //todo: достать цвет из текстуры по координатам u, v точки куда дошли и дать соответсвующему пикселю
+                    colors[picY][picX] = texture.getColorAt(u, v);
                     nextDist = 0; //scrDistAlongRay * camY / sy; //todo
                 }
 
-                colors[picY][picX] = new Color(random.nextFloat(), random.nextFloat(), random.nextFloat()).getRGB();
+                double ds = 1; //Surf.vlen(u, v, state.data[1] * dt, state.data[3] * dt);
+                //todo: тут шаг по геодеззической evolveRK!(Surf.geodesicStep)(state, dt);
+                s += ds;
+
                 iters++;
-                realY += dy;
-                picY++;
             }
 
             for(; picY < height; picY++)
