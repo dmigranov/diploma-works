@@ -66,7 +66,9 @@ public class ManifoldInsideFrame extends MainFrame {
                 nheight = height;
             }
         }
-        manifoldOutsidePanel.setPreferredSize(new Dimension((int)Math.round(nwidth) - 20, (int)Math.round(nheight) - 20));
+        manifoldOutsidePanel.setPreferredSize(new Dimension((int)Math.round(nwidth)/2 - 20, (int)Math.round(nheight)/2 - 20));
+        manifoldInsidePanel.setPreferredSize(new Dimension((int)Math.round(nwidth)/2 - 20, (int)Math.round(nheight)/2 - 20));
+
         controller.drawFigure();
         mainPanel.revalidate();
     }
@@ -75,6 +77,8 @@ public class ManifoldInsideFrame extends MainFrame {
         super(800, 600, "Untitled | Denis Migranov, 16201");
 
         mainPanel = new JPanel(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.insets = new Insets(0, 10, 0, 10);
         mainPanel.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
@@ -82,9 +86,11 @@ public class ManifoldInsideFrame extends MainFrame {
             }
         });
         manifoldOutsidePanel = new ManifoldOutsidePanel();
-        mainPanel.add(manifoldOutsidePanel);
+        mainPanel.add(manifoldOutsidePanel, constraints);
+
+
         manifoldInsidePanel = new ManifoldInsidePanel();
-        mainPanel.add(manifoldInsidePanel);
+        mainPanel.add(manifoldInsidePanel, constraints);
         controller = new Controller(manifoldOutsidePanel, manifoldInsidePanel);
         addMenus();
         createCommonConfigurationPanel();
@@ -286,7 +292,6 @@ public class ManifoldInsideFrame extends MainFrame {
     }
 
 
-
     private void load3DFile(File file)
     {
         if(file != null) {
@@ -300,11 +305,13 @@ public class ManifoldInsideFrame extends MainFrame {
                 }
                 fileIsLoaded = true;
                 manifoldOutsidePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+                manifoldInsidePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 resize();
             }
             else
             {
                 manifoldOutsidePanel.setBorder(BorderFactory.createEmptyBorder());
+                manifoldInsidePanel.setBorder(BorderFactory.createEmptyBorder());
 
                 fileIsLoaded = false;
                 JOptionPane.showMessageDialog(this, "Wrong file format.", "Error", JOptionPane.ERROR_MESSAGE);
