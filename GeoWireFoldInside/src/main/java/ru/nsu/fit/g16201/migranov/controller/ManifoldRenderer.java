@@ -130,24 +130,21 @@ public class ManifoldRenderer {
             final double dMultiplier = zn * observerHeight;
 
             int iters = 0;
-            for(int picY = 0; picY < height && iters < 5000; picY++) //picY = h' в терминах моего рисунка
+
+            int picY = 0;
+            while(realY <= observerHeight)
             {
+                double d_ = dMultiplier / realY;
+
+                colors[picY][picX] = new Color(random.nextFloat(), random.nextFloat(), random.nextFloat()).getRGB();
+
+                iters++;
                 realY += dy;
-                if(realY <= observerHeight) {
-
-                    double d_ = dMultiplier / realY;
-
-                    iters++;
-
-                    colors[picY][picX] = new Color(random.nextFloat(), random.nextFloat(), random.nextFloat()).getRGB();
-                }
-                else
-                {
-                    colors[picY][picX] = skyColor; //todo: можно сделать заранее, массово, для всего ряда
-                }
-
-
+                picY++;
             }
+
+            for(; picY < height; picY++)
+                colors[picY][picX] = skyColor;
         }
 
 
