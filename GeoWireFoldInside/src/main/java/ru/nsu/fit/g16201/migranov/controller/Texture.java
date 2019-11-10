@@ -16,6 +16,7 @@ public class Texture {
 
     int getColorAt(double u, double v)
     {
+        System.out.print(u + " " + v + "|");
         if (u >= 360) {
             do u -= 360; while (u >= 360);
         } else if (u < 0) {
@@ -32,10 +33,10 @@ public class Texture {
         } else if (v < -90) {
             v = -180 - v;
         }
-        // iu: 0..360,  iv: -90..90 - сферические координаты
+        // iu: [0..360),  iv: [-90..90) - сферические координаты
 
-        int picX = (int)(u/360) * textureImage.getWidth();
-        int picY = (int)((u + 90)/180) * textureImage.getHeight();
+        int picX = (int)(u/360) * (textureImage).getWidth();
+        int picY = (int)((v + 90)/180) * textureImage.getHeight();
 
 
         return textureImage.getRGB(picX, picY);

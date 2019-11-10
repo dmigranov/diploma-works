@@ -124,7 +124,7 @@ public class ManifoldRenderer {
             dirU /= len;
             dirV /= len;
 
-            double [] state = new double[] {posU, posV, dirU, dirV};
+            double [] state = new double[] {dirU, dirV, posU, posV};
 
             double nextDist = len, s = 0;
             final double dMultiplier = zn * observerHeight;
