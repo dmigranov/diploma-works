@@ -69,15 +69,14 @@ public class ManifoldInsideFrame extends MainFrame {
         manifoldOutsidePanel.setPreferredSize(new Dimension((int)Math.round(nwidth)/2 - 20, (int)Math.round(nheight)/2 - 20));
         manifoldInsidePanel.setPreferredSize(new Dimension((int)Math.round(nwidth)/2 - 20, (int)Math.round(nheight)/2 - 20));
 
-        controller.drawAll();
         mainPanel.revalidate();
+        controller.drawAll();
     }
 
     private ManifoldInsideFrame() throws Exception {
         super(800, 600, "Untitled | Denis Migranov, 16201");
 
         mainPanel = new JPanel(new GridBagLayout());
-        JSplitPane splitPane = new JSplitPane()
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.insets = new Insets(0, 10, 0, 10);
         constraints.gridx = GridBagConstraints.RELATIVE;
@@ -87,6 +86,8 @@ public class ManifoldInsideFrame extends MainFrame {
                 resize();
             }
         });
+
+        //todo: сделать так, чтобы не было мелтешения при изменении размера (когда одна панель, её нет; возможно, упаковать outside И inside в доп. панели)
         manifoldOutsidePanel = new ManifoldOutsidePanel();
         mainPanel.add(manifoldOutsidePanel, constraints);
 

@@ -49,8 +49,8 @@ public class ManifoldRenderer {
     {
         observerHeight = sh/2;
 
-        width = panel.getWidth();
-        height = panel.getHeight();
+        width = panel.getCanvasWidth();
+        height = panel.getCanvasHeight();
 
         colors = new int[height][width];
 
@@ -88,13 +88,8 @@ public class ManifoldRenderer {
             {
                 for(int j = 0; j < width; j++)
                 {
-                    try {
-                        panel.setPixel(j, i, colors[i][j]);
-                    }
-                    catch (ArrayIndexOutOfBoundsException e)
-                    {
+                    panel.setPixel(j, height - i - 1, colors[i][j]);
 
-                    }
                 }
             }
 
