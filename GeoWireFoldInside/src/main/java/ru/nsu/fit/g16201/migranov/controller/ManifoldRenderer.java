@@ -32,21 +32,28 @@ public class ManifoldRenderer {
     private int skyColor = Color.CYAN.getRGB();
 
     private Texture texture;
+    private double[][] g;
 
-    public ManifoldRenderer(ManifoldInsidePanel panel, GeodesicsCalculator geodesicsCalculator, double zn, double sw, double sh, double uPos, double vPos, BufferedImage texture)
+    ManifoldRenderer(ManifoldInsidePanel panel, GeodesicsCalculator geodesicsCalculator, double zn, double sw, double sh, double uPos, double vPos, BufferedImage texture)
     {
         this.panel = panel;
         this.geodesicsCalculator = geodesicsCalculator;
         this.zn = zn;
         this.sw = sw;
         this.sh = sh;
+
+
         this.posU = uPos;
         this.posV = vPos;
+
+        g = geodesicsCalculator.calculateMetricTensor(uPos, vPos);
+
         this.texture = new Texture(texture);
     }
 
-    public void render(int numberOfThreads)
+    public void render(int numberOfThreads)   //todo: направление?
     {
+
         observerHeight = sh/2;
 
         width = panel.getCanvasWidth();
@@ -145,7 +152,7 @@ public class ManifoldRenderer {
                     nextDist = 0; //scrDistAlongRay * camY / sy; //todo
                 }
 
-                double ds = geodesicsCalculator.calculateGeodesicLength(u, v, state[2] * dt, state[3] * dt);
+                double ds = calculateGeodesicLength(dt * state[2], dt * state[3]);
                 //todo: тут шаг по геодеззической evolveRK!(Surf.geodesicStep)(state, dt);
                 s += ds;
 
@@ -161,5 +168,10 @@ public class ManifoldRenderer {
 
     }
 
+
+    private double calculateGeodesicLength(double du, double dv)
+    {
+        return g[0][0] * du * du + 2 * g[0][1] * du * dv + g [1][1] * dv * dv;
+    }
 
 }

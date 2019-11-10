@@ -27,7 +27,7 @@ public class GeodesicsCalculator {
     private Function<double[], double[][]> metricTensorFunction = values -> calculateMetricTensor(values[0], values[1]);
     private ManifoldFunction manifoldFunction;
 
-    private double[][] calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
+    public double[][] calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
     {
         double g11, g22, g12, g21;
         double xu, xv, yu, yv, zu, zv;
@@ -210,10 +210,5 @@ public class GeodesicsCalculator {
     }
 
 
-    public double calculateGeodesicLength(double u, double v, double du, double dv)
-    {
-        double[][] g = calculateMetricTensor(u, v);
 
-        return g[0][0] * du * du + 2 * g[0][1] * du * dv + g [1][1] * dv * dv;
-    }
 }

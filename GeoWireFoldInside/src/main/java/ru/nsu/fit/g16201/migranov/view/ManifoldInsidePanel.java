@@ -29,8 +29,6 @@ public class ManifoldInsidePanel extends JPanel {
     {
         super.paintComponent(g);
 
-        //canvasGraphics.drawLine(0, 0, width - 1, height - 1);
-
         g.drawImage(canvas, 0, 0, null, null);
     }
 
