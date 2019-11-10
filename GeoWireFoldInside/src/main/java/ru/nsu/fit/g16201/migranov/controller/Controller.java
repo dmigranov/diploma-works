@@ -202,7 +202,7 @@ public class Controller {
     }
 
     private void drawInside() {
-       renderer.render(4);
+       renderer.render(6);
     }
 
     private void drawFigure() {
