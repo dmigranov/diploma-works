@@ -6,6 +6,7 @@ import ru.nsu.fit.g16201.migranov.view.ManifoldOutsidePanel;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -89,7 +90,6 @@ public class ManifoldRenderer {
                 for(int j = 0; j < width; j++)
                 {
                     panel.setPixel(j, height - i - 1, colors[i][j]);
-
                 }
             }
 
@@ -113,6 +113,8 @@ public class ManifoldRenderer {
         //считаем что в маленькой окрестности наблюдателя лучи идут по евклидовым правилам (и это правильно, см. сфера - маленькие треугольники и большие!)
         @Override
         public void run() {
+            Random random = new Random();
+
             //double nearStartY = -sh/2, dy = sh/height;
 
             //double y = nearStartY + dy/2;
@@ -146,7 +148,7 @@ public class ManifoldRenderer {
                         iters++;
                     }*/
 
-                    colors[i][picX] = Color.gray.getRGB();
+                    colors[i][picX] = new Color(random.nextFloat(), random.nextFloat(), random.nextFloat()).getRGB();
                 }
                 else
                 {
