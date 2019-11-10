@@ -15,13 +15,13 @@ public class ManifoldInsidePanel extends JPanel {
         super();
         width = 10;
         height = 10;
-        setPreferredSize(new Dimension(width, height));
-        /*canvas = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        //setPreferredSize(new Dimension(width, height));
+        canvas = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         canvasGraphics = canvas.createGraphics();
         canvasGraphics.setColor(Color.BLACK);
         canvasGraphics.setBackground(Color.WHITE);
 
-        canvasGraphics.clearRect(0, 0, width, height);*/
+        canvasGraphics.clearRect(0, 0, width, height);
     }
 
     @Override
