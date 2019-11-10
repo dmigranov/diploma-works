@@ -122,9 +122,13 @@ public class ManifoldRenderer {
 
             double dirU = realX, dirV = zn;
 
+
+
             double len = Math.sqrt(dirU * dirU + dirV * dirV);
             dirU /= len;
             dirV /= len;
+
+            System.out.print("{" + dirU + " " + dirV + "}");
 
 
             double [] state = new double[] {posU, posV, dirU, dirV};
@@ -153,7 +157,7 @@ public class ManifoldRenderer {
                 }
 
                 double ds = calculateGeodesicLength(dt * du, dt * dv);
-                state = geodesicsCalculator.geodesicStep(state, dt);    //шаг по геодезиечской
+                state = geodesicsCalculator.geodesicEquationStep(state, dt);    //шаг по геодезиечской
                 s += ds;
 
                 iters++;

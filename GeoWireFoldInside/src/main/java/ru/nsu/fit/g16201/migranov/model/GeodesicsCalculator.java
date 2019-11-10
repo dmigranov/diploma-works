@@ -210,6 +210,7 @@ public class GeodesicsCalculator {
     }
 
 
-    public double[] geodesicStep(double[] state, double dt) {
+    public double[] geodesicEquationStep(double[] state, double dt) {
+        return geodesicEquationStep(state, 0, dt);
     }
 }
