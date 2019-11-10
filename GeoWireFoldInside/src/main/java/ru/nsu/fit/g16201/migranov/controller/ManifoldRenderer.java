@@ -139,7 +139,7 @@ public class ManifoldRenderer {
             {
                 double d_ = dMultiplier / realY;
                 double u = state[0], v = state[1];
-
+                double du = state[2], dv = state[3];
                 if(s >= nextDist)
                 {
 
@@ -149,11 +149,11 @@ public class ManifoldRenderer {
 
                     picY++;     //переходим к следующему пикселю в столбце, соответственно, надо пройти ещё.
                     realY += dy;
-                    nextDist = 0; //scrDistAlongRay * camY / sy; //todo
+                    nextDist = 0; //scrDistAlongRay * camY / sy; //todo; new nextdist >= old nextdist
                 }
 
-                double ds = calculateGeodesicLength(dt * state[2], dt * state[3]);
-                //todo: тут шаг по геодеззической evolveRK!(Surf.geodesicStep)(state, dt);
+                double ds = calculateGeodesicLength(dt * du, dt * dv);
+                state = geodesicsCalculator.geodesicStep(state, dt);    //шаг по геодезиечской
                 s += ds;
 
                 iters++;
