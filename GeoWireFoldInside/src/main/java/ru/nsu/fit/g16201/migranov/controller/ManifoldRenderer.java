@@ -2,7 +2,6 @@ package ru.nsu.fit.g16201.migranov.controller;
 
 import ru.nsu.fit.g16201.migranov.model.GeodesicsCalculator;
 import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
-import ru.nsu.fit.g16201.migranov.view.ManifoldOutsidePanel;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -100,11 +99,11 @@ public class ManifoldRenderer {
 
     class RendererTask implements Runnable {
 
-        private double pixelX;
+        private double realX;
         private int picX;
 
         RendererTask(double x, int j) {
-            pixelX = x;
+            realX = x;
             picX = j;
         }
 
@@ -115,14 +114,12 @@ public class ManifoldRenderer {
         public void run() {
             Random random = new Random();
 
-            //double nearStartY = -sh/2, dy = sh/height;
 
-            //double y = nearStartY + dy/2;
-            double dy = sh/height, y = dy/2;
+            double dy = sh/height, realY = dy/2;
 
             //todo: повороты
 
-            double dirU = pixelX, dirV = zn;
+            double dirU = realX, dirV = zn;
 
             double len = Math.sqrt(dirU * dirU + dirV * dirV);
             dirU /= len;
@@ -130,29 +127,28 @@ public class ManifoldRenderer {
 
             double [] state = new double[] {posU, posV, dirU, dirV};
 
-
             //y = h'
 
             double nextDist = len, s = 0;
             final double dMultiplier = zn * observerHeight;
-            for(int i = 0; i < height; i++) {
-                y += dy;
+            for(int picY = 0; picY < height; picY++) {
+                realY += dy;
                 int iters = 0;
-                if(y <= observerHeight) {
+                if(realY <= observerHeight) {
 
-                    /*double d_ = dMultiplier / y;
-                    while(sy > minsy && iters < 5000)
+                    double d_ = dMultiplier / realY;
+                    /*while(realY > minsy && iters < 5000)
                     {
 
 
                         iters++;
                     }*/
 
-                    colors[i][picX] = new Color(random.nextFloat(), random.nextFloat(), random.nextFloat()).getRGB();
+                    colors[picY][picX] = new Color(random.nextFloat(), random.nextFloat(), random.nextFloat()).getRGB();
                 }
                 else
                 {
-                    colors[i][picX] = skyColor; //todo: можно сделать заранее, массово, для всего ряда
+                    colors[picY][picX] = skyColor; //todo: можно сделать заранее, массово, для всего ряда
                 }
 
 
