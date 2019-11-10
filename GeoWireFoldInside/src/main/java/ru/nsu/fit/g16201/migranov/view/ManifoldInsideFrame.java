@@ -79,6 +79,7 @@ public class ManifoldInsideFrame extends MainFrame {
         mainPanel = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.insets = new Insets(0, 10, 0, 10);
+        constraints.gridx = GridBagConstraints.RELATIVE;
         mainPanel.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent e) {
@@ -86,7 +87,7 @@ public class ManifoldInsideFrame extends MainFrame {
             }
         });
         manifoldOutsidePanel = new ManifoldOutsidePanel();
-        mainPanel.add(manifoldOutsidePanel, constraints);
+        //mainPanel.add(manifoldOutsidePanel, constraints);
 
 
         manifoldInsidePanel = new ManifoldInsidePanel();
