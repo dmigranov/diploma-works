@@ -124,6 +124,7 @@ public class ManifoldRenderer {
             dirU /= len;
             dirV /= len;
 
+
             double [] state = new double[] {posU, posV, dirU, dirV};
 
             double nextDist = len, s = 0;
@@ -136,8 +137,15 @@ public class ManifoldRenderer {
             {
                 double d_ = dMultiplier / realY;
 
-                colors[picY][picX] = new Color(random.nextFloat(), random.nextFloat(), random.nextFloat()).getRGB();
 
+                if(s >= nextDist)
+                {
+                    picY++;     //переходим к следующему пикселю в столбце, соответственно, надо пройти ещё.
+                    //todo: достать цвет из текстуры по координатам u, v точки куда дошли и дать соответсвующему пикселю
+                    nextDist = 0; //scrDistAlongRay * camY / sy; //todo
+                }
+
+                colors[picY][picX] = new Color(random.nextFloat(), random.nextFloat(), random.nextFloat()).getRGB();
                 iters++;
                 realY += dy;
                 picY++;
