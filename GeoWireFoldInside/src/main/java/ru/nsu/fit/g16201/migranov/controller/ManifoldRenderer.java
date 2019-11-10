@@ -5,6 +5,7 @@ import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -121,8 +122,8 @@ public class ManifoldRenderer {
 
 
             double len = Math.sqrt(dirU * dirU + dirV * dirV);
-            dirU /= len;
-            dirV /= len;
+            dirU /= (len * 100);
+            dirV /= (len * 100);
 
             double [] state = new double[] {dirU, dirV, posU, posV};
 
@@ -135,8 +136,8 @@ public class ManifoldRenderer {
             while(realY <= observerHeight)
             {
                 double d_ = dMultiplier / realY;
-                double u = state[0], v = state[1];
-                double du = state[2], dv = state[3];
+                double u = state[2], v = state[3];
+                double du = state[0], dv = state[1];
                 if(s >= nextDist)
                 {
 
@@ -151,7 +152,7 @@ public class ManifoldRenderer {
 
                 double ds = calculateGeodesicLength(dt * du, dt * dv);
                 state = geodesicsCalculator.geodesicEquationStep(state, dt);    //шаг по геодезиечской
-                s += ds;
+                System.out.println(state[2] + " " + state[3] + "|" + state[0] + " " + state[1] + " |||| ");
 
                 iters++;
             }

@@ -16,7 +16,6 @@ public class Texture {
 
     int getColorAt(double u, double v)
     {
-        System.out.print(u + " " + v + "|");
         if (u >= 360) {
             do u -= 360; while (u >= 360);
         } else if (u < 0) {
