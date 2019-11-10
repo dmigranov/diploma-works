@@ -88,7 +88,13 @@ public class ManifoldRenderer {
             {
                 for(int j = 0; j < width; j++)
                 {
-                    panel.setPixel(j, i, colors[i][j]);
+                    try {
+                        panel.setPixel(j, i, colors[i][j]);
+                    }
+                    catch (ArrayIndexOutOfBoundsException e)
+                    {
+
+                    }
                 }
             }
 
