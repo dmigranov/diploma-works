@@ -169,7 +169,7 @@ public class SplineCalculator {
         return new Point3D(Px, Py, Pz);
     }
 
-    Point3D calculateSplineFunction(double u, double v) {
+    public Point3D calculateSplineFunction(double u, double v) {
         boolean isUEdge = false, isVEdge = false;
 
         if(u < uMin)

@@ -270,6 +270,7 @@ public class Controller {
 
 
     private void findModelPoints() {
+        //todo: экстраполировать сплайновую поверхность за пределы границ
         double uMin = splineCalculator.getUMin(), uMax = splineCalculator.getUMax();
         double vMin = splineCalculator.getVMin(), vMax = splineCalculator.getVMax();
 
@@ -287,8 +288,6 @@ public class Controller {
 
                 v += incrementV;
 
-                if(Puv == null)
-                    System.out.println();
                 double x = Puv.x, y = -Puv.z, z = Puv.y;
                 Matrix p = new Matrix(4, 1, x, y, z, 1);
                 Matrix np = Matrix.multiply(figureRotateMatrix, p);
