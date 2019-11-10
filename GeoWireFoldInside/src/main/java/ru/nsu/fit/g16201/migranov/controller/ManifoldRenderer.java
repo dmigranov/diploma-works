@@ -114,7 +114,6 @@ public class ManifoldRenderer {
         public void run() {
             Random random = new Random();
 
-
             double dy = sh/height, realY = dy/2;
 
             //todo: повороты
@@ -127,22 +126,18 @@ public class ManifoldRenderer {
 
             double [] state = new double[] {posU, posV, dirU, dirV};
 
-            //y = h'
-
             double nextDist = len, s = 0;
             final double dMultiplier = zn * observerHeight;
-            for(int picY = 0; picY < height; picY++) {
+
+            int iters = 0;
+            for(int picY = 0; picY < height && iters < 5000; picY++) //picY = h' в терминах моего рисунка
+            {
                 realY += dy;
-                int iters = 0;
                 if(realY <= observerHeight) {
 
                     double d_ = dMultiplier / realY;
-                    /*while(realY > minsy && iters < 5000)
-                    {
 
-
-                        iters++;
-                    }*/
+                    iters++;
 
                     colors[picY][picX] = new Color(random.nextFloat(), random.nextFloat(), random.nextFloat()).getRGB();
                 }
