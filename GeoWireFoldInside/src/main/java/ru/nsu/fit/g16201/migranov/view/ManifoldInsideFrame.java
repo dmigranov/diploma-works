@@ -69,7 +69,7 @@ public class ManifoldInsideFrame extends MainFrame {
         manifoldOutsidePanel.setPreferredSize(new Dimension((int)Math.round(nwidth)/2 - 20, (int)Math.round(nheight)/2 - 20));
         manifoldInsidePanel.setPreferredSize(new Dimension((int)Math.round(nwidth)/2 - 20, (int)Math.round(nheight)/2 - 20));
 
-        controller.drawFigure();
+        controller.drawAll();
         mainPanel.revalidate();
     }
 

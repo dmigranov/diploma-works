@@ -33,13 +33,9 @@ public class ManifoldRenderer {
 
     private BufferedImage texture;
 
-    public ManifoldRenderer(ManifoldInsidePanel panel)
+    public ManifoldRenderer(ManifoldInsidePanel panel, GeodesicsCalculator geodesicsCalculator, double zn, double sw, double sh, double uPos, double vPos, BufferedImage texture)
     {
         this.panel = panel;
-    }
-
-    public void render(int numberOfThreads, GeodesicsCalculator geodesicsCalculator, double zn, double sw, double sh, double uPos, double vPos, BufferedImage texture)
-    {
         this.geodesicsCalculator = geodesicsCalculator;
         this.zn = zn;
         this.sw = sw;
@@ -47,7 +43,10 @@ public class ManifoldRenderer {
         this.posU = uPos;
         this.posV = vPos;
         this.texture = texture;
+    }
 
+    public void render(int numberOfThreads)
+    {
         observerHeight = sh/2;
 
         width = panel.getWidth();
@@ -89,13 +88,13 @@ public class ManifoldRenderer {
             {
                 for(int j = 0; j < width; j++)
                 {
-
                     panel.setPixel(j, i, colors[i][j]);
                 }
             }
 
             panel.repaint();
         };
+        new Thread(checker).start();
     }
 
     class RendererTask implements Runnable {

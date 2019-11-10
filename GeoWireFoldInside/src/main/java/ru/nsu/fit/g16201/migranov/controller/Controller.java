@@ -47,6 +47,7 @@ public class Controller {
     private GeodesicsCalculator geodesicsCalculator;
 
     private ManifoldRenderer renderer;
+    private double uPos = 0, vPos = 0;
 
 
     public Controller(ManifoldOutsidePanel manifoldOutsidePanel, ManifoldInsidePanel manifoldInsidePanel) {
@@ -163,7 +164,16 @@ public class Controller {
 
     private double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
 
-    public void drawFigure() {
+    public void drawAll() {
+        drawFigure();
+        drawInside();
+    }
+
+    private void drawInside() {
+       renderer.render(4);
+    }
+
+    private void drawFigure() {
         manifoldOutsidePanel.clear();
 
         /* Step size along the curve */
@@ -375,7 +385,7 @@ public class Controller {
             //geodesicsCalculator = new GeodesicsCalculator(new SplineFunction(splineCalculator));
             geodesicsCalculator = new GeodesicsCalculator(sphereFunction);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
-            renderer = new ManifoldRenderer(manifoldInsidePanel);
+            renderer = new ManifoldRenderer(manifoldInsidePanel, geodesicsCalculator, zn, sw, sh, uPos, vPos, null);
 
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
@@ -383,7 +393,7 @@ public class Controller {
             return -1;
         }
 
-        drawFigure();
+        drawAll();
 
         return 0;
     }
@@ -422,7 +432,7 @@ public class Controller {
         splineCalculator.setDegrees(ti, tj);
 
         needsToBeRedrawn = true;
-        drawFigure();
+        drawAll();
     }
 
 
@@ -473,4 +483,6 @@ public class Controller {
     public int getNj() {
         return splineCalculator.getNj();
     }
+
+
 }
