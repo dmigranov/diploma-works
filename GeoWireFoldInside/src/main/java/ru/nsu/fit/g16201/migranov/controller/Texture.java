@@ -16,8 +16,29 @@ public class Texture {
 
     int getColorAt(double u, double v)
     {
-        //todo: по u v вычислять пиксель и возвращать его цвет (для этого надо знать u/vMin и u/vMax)
-        return new Color(random.nextFloat(), random.nextFloat(), random.nextFloat()).getRGB();
+        if (u >= 360) {
+            do u -= 360; while (u >= 360);
+        } else if (u < 0) {
+            do u += 360; while (u < 0);
+        }
+        if (v >= 180) {
+            do v -= 360; while (v >= 180);
+        } else if (v < -180) {
+            do v += 360; while (v < -180);
+        }
+
+        if (v >= 90) {
+            v = 180 - v;
+        } else if (v < -90) {
+            v = -180 - v;
+        }
+        // iu: 0..360,  iv: -90..90 - сферические координаты
+
+        int picX = (int)(u/360) * textureImage.getWidth();
+        int picY = (int)((u + 90)/180) * textureImage.getHeight();
+
+
+        return textureImage.getRGB(picX, picY);
     }
 
 }
