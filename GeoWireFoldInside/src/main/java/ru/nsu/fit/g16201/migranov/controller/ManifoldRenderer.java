@@ -145,7 +145,7 @@ public class ManifoldRenderer {
                     nextDist = 0; //scrDistAlongRay * camY / sy; //todo
                 }
 
-                double ds = 1; //Surf.vlen(u, v, state.data[1] * dt, state.data[3] * dt);
+                double ds = geodesicsCalculator.calculateGeodesicLength(u, v, state[2] * dt, state[3] * dt);
                 //todo: тут шаг по геодеззической evolveRK!(Surf.geodesicStep)(state, dt);
                 s += ds;
 

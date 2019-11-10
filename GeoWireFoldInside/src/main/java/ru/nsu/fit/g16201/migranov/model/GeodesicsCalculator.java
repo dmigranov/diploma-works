@@ -208,4 +208,12 @@ public class GeodesicsCalculator {
         Point3D[] points = calculateGeodesic(geodesic.getuStart(), geodesic.getvStart(), geodesic.getuDir(), geodesic.getvDir());
         geodesic.setPoints(points);
     }
+
+
+    public double calculateGeodesicLength(double u, double v, double du, double dv)
+    {
+        double[][] g = calculateMetricTensor(u, v);
+
+        return g[0][0] * du * du + 2 * g[0][1] * du * dv + g [1][1] * dv * dv;
+    }
 }
