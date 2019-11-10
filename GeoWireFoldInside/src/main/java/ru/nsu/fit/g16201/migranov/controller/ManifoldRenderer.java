@@ -67,6 +67,7 @@ public class ManifoldRenderer {
         double dx = sw / width;
         double x;
 
+        System.out.println();
 
         x = nearStartX + dx/2;
         for(int j = 0; j < width; j++)
@@ -77,8 +78,6 @@ public class ManifoldRenderer {
         }
 
         executor.shutdown();
-
-
 
         //запускать это в новом треде, а не в свинговом, нет смысла, так как появятся плохие эффекты связанные с изменением размера и сохранением размера массива
         while(true)
@@ -122,8 +121,7 @@ public class ManifoldRenderer {
 
             double dirU = realX, dirV = zn;
 
-            System.out.print(realX +  " ");
-
+            System.out.print(realX + " ");
             double len = Math.sqrt(dirU * dirU + dirV * dirV);
             dirU /= len;
             dirV /= len;
