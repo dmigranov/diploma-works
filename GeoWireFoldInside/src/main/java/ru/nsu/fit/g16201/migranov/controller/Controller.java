@@ -48,7 +48,7 @@ public class Controller {
     private GeodesicsCalculator geodesicsCalculator;
 
     private ManifoldRenderer renderer;
-    private double uPos = 0, vPos = 0;
+    private double uPos = 1, vPos = 1;
 
 
     public Controller(ManifoldOutsidePanel manifoldOutsidePanel, ManifoldInsidePanel manifoldInsidePanel) {
