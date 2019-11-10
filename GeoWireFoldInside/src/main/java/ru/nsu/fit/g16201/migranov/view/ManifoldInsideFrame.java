@@ -77,6 +77,7 @@ public class ManifoldInsideFrame extends MainFrame {
         super(800, 600, "Untitled | Denis Migranov, 16201");
 
         mainPanel = new JPanel(new GridBagLayout());
+        JSplitPane splitPane = new JSplitPane()
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.insets = new Insets(0, 10, 0, 10);
         constraints.gridx = GridBagConstraints.RELATIVE;
@@ -87,8 +88,7 @@ public class ManifoldInsideFrame extends MainFrame {
             }
         });
         manifoldOutsidePanel = new ManifoldOutsidePanel();
-        //mainPanel.add(manifoldOutsidePanel, constraints);
-
+        mainPanel.add(manifoldOutsidePanel, constraints);
 
         manifoldInsidePanel = new ManifoldInsidePanel();
         mainPanel.add(manifoldInsidePanel, constraints);
