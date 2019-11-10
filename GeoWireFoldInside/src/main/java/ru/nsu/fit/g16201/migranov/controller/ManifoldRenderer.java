@@ -51,9 +51,8 @@ public class ManifoldRenderer {
         this.texture = new Texture(texture);
     }
 
-    public void render(int numberOfThreads)   //todo: направление?
+    void render(int numberOfThreads)   //todo: направление?
     {
-
         observerHeight = sh/2;
 
         width = panel.getCanvasWidth();
@@ -65,9 +64,8 @@ public class ManifoldRenderer {
 
         double nearStartX = -sw/2;
 
-        double dx = sw/ width;
+        double dx = sw / width;
         double x;
-
 
 
         x = nearStartX + dx/2;
@@ -101,7 +99,7 @@ public class ManifoldRenderer {
 
             panel.repaint();
         };
-        new Thread(checker).start();
+        checker.run();  //в новом треде запускаит нет смысла, так как появятся плохие эффекты связанные с изменением размера
     }
 
     class RendererTask implements Runnable {
@@ -145,10 +143,17 @@ public class ManifoldRenderer {
 
                 if(s >= nextDist)
                 {
+
+                    //todo: достать цвет из текстуры по координатам u, v точки куда дошли и дать соответсвующему пикселю
+                    try {
+                        colors[picY][picX] = texture.getColorAt(u, v);
+                    }
+                    catch (ArrayIndexOutOfBoundsException e)
+                    {
+                        e.printStackTrace();
+                    }
                     picY++;     //переходим к следующему пикселю в столбце, соответственно, надо пройти ещё.
                     realY += dy;
-                    //todo: достать цвет из текстуры по координатам u, v точки куда дошли и дать соответсвующему пикселю
-                    colors[picY][picX] = texture.getColorAt(u, v);
                     nextDist = 0; //scrDistAlongRay * camY / sy; //todo
                 }
 
