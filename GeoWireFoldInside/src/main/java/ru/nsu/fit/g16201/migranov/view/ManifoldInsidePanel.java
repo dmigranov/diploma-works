@@ -68,6 +68,10 @@ public class ManifoldInsidePanel extends JPanel {
         return height;
     }
 
+    public void setPixel(int x, int y, int color) {
+        canvas.setRGB(x, y, color);
+    }
+
     public void clear() {
         canvasGraphics.clearRect(0, 0, width, height);
     }

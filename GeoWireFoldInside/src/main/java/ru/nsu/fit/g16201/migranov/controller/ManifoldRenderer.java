@@ -23,7 +23,7 @@ public class ManifoldRenderer {
     private double sh;
     private int width, height;
 
-    private double observerHeight = 1;
+    private double observerHeight;
     private double posU, posV;
     private double rotationAngle = 0;
 
@@ -48,6 +48,8 @@ public class ManifoldRenderer {
         this.posV = vPos;
         this.texture = texture;
 
+        observerHeight = sh/2;
+
         width = panel.getWidth();
         height = panel.getHeight();
 
@@ -61,6 +63,7 @@ public class ManifoldRenderer {
         double x;
 
 
+
         x = nearStartX + dx/2;
         for(int j = 0; j < width; j++)
         {
@@ -70,6 +73,29 @@ public class ManifoldRenderer {
         }
 
         executor.shutdown();
+
+
+        Runnable checker = () -> {
+            while(true)
+            {
+                try {
+                    if (executor.awaitTermination(300, TimeUnit.MILLISECONDS)) break;
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            for (int i = 0; i < height; i++)
+            {
+                for(int j = 0; j < width; j++)
+                {
+
+                    panel.setPixel(j, i, colors[i][j]);
+                }
+            }
+
+            panel.repaint();
+        };
     }
 
     class RendererTask implements Runnable {
@@ -112,17 +138,19 @@ public class ManifoldRenderer {
                 int iters = 0;
                 if(y <= observerHeight) {
 
-                    double d_ = dMultiplier / y;
-                    while(/*sy > minsy &&*/ iters < 5000)
+                    /*double d_ = dMultiplier / y;
+                    while(sy > minsy && iters < 5000)
                     {
 
 
                         iters++;
-                    }
+                    }*/
+
+                    colors[i][picX] = Color.gray.getRGB();
                 }
                 else
                 {
-                    //небо
+                    colors[i][picX] = skyColor; //todo: можно сделать заранее, массово, для всего ряда
                 }
 
 
