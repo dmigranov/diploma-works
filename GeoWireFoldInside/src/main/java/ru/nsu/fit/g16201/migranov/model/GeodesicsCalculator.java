@@ -22,7 +22,7 @@ public class GeodesicsCalculator {
     }
 
     private double epsilon = 0.01;
-    private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, epsilon);
+    private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(3, epsilon);
 
     private Function<double[], double[][]> metricTensorFunction = values -> calculateMetricTensor(values[0], values[1]);
     private ManifoldFunction manifoldFunction;
@@ -172,7 +172,7 @@ public class GeodesicsCalculator {
         //кривая на двумерой поверхности задаётся одним парамаетром t
         //по сути внутри просто интегрируем, используя разные разностные операторы
         double[][][] Cs = calculateChristoffelSymbol(state[2], state[3]);
-        ClassicalRungeKuttaIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-8);   //Это число ни на что не влияет, т.к. использую singleStep
+        ClassicalRungeKuttaIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-5);   //Это число ни на что не влияет, т.к. использую singleStep
         FirstOrderDifferentialEquations ode = new GeodesicsEquations(Cs);
         return rg.singleStep(ode, t0, state, t0 + step);
     }

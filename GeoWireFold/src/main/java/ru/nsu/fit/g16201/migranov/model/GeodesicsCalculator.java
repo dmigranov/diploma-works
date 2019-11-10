@@ -22,7 +22,7 @@ public class GeodesicsCalculator {
     }
 
     private double epsilon = 0.01;
-    private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, epsilon);
+    private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(3, epsilon);
 
     private Function<double[], double[][]> metricTensorFunction = values -> calculateMetricTensor(values[0], values[1]);
     private ManifoldFunction manifoldFunction;

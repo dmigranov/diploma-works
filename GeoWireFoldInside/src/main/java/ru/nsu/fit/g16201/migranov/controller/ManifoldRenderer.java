@@ -119,7 +119,7 @@ public class ManifoldRenderer {
 
             //todo: повороты
 
-            double dirU = realX, dirV = zn;
+            double dirU = realX, dirV = zn; //todo: проверить
 
 
             double len = Math.sqrt(dirU * dirU + dirV * dirV);
