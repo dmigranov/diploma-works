@@ -1,6 +1,7 @@
 package ru.nsu.fit.g16201.migranov.controller;
 
 import ru.nsu.fit.g16201.migranov.model.*;
+import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
 import ru.nsu.fit.g16201.migranov.view.ManifoldOutsidePanel;
 
 import java.awt.*;
@@ -9,7 +10,7 @@ import java.io.*;
 
 public class Controller {
     private ManifoldOutsidePanel manifoldOutsidePanel;
-    private ManifoldOutsidePanel manifoldInsidePanel;
+    private ManifoldInsidePanel manifoldInsidePanel;
 
     private Point3D eye = new Point3D(-10, 0, 0);
     private Point3D ref = new Point3D(10, 0, 0);
@@ -48,8 +49,9 @@ public class Controller {
     private ManifoldRenderer renderer;
 
 
-    public Controller(ManifoldOutsidePanel manifoldOutsidePanel) {
+    public Controller(ManifoldOutsidePanel manifoldOutsidePanel, ManifoldInsidePanel manifoldInsidePanel) {
         this.manifoldOutsidePanel = manifoldOutsidePanel;
+        this.manifoldInsidePanel = manifoldInsidePanel;
 
         cameraMatrix = Matrix.getViewMatrix(eye, ref, up);  //c 153
 

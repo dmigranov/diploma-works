@@ -22,7 +22,9 @@ public class ManifoldInsideFrame extends MainFrame {
     private boolean fileIsLoaded = false;
 
     private Controller controller;
+
     private ManifoldOutsidePanel manifoldOutsidePanel;
+    private ManifoldInsidePanel manifoldInsidePanel;
 
     private JPanel mainPanel;
     private JTabbedPane tabbedPane;
@@ -81,7 +83,9 @@ public class ManifoldInsideFrame extends MainFrame {
         });
         manifoldOutsidePanel = new ManifoldOutsidePanel();
         mainPanel.add(manifoldOutsidePanel);
-        controller = new Controller(manifoldOutsidePanel);
+        manifoldInsidePanel = new ManifoldInsidePanel();
+        mainPanel.add(manifoldInsidePanel);
+        controller = new Controller(manifoldOutsidePanel, manifoldInsidePanel);
         addMenus();
         createCommonConfigurationPanel();
 

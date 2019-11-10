@@ -1,6 +1,7 @@
 package ru.nsu.fit.g16201.migranov.controller;
 
 import ru.nsu.fit.g16201.migranov.model.GeodesicsCalculator;
+import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
 import ru.nsu.fit.g16201.migranov.view.ManifoldOutsidePanel;
 
 import java.awt.*;
@@ -11,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ManifoldRenderer {
 
-    private ManifoldOutsidePanel panel;
+    private ManifoldInsidePanel panel;
     private ThreadPoolExecutor executor;
 
     private int[][] colors;
@@ -32,7 +33,7 @@ public class ManifoldRenderer {
 
     private BufferedImage texture;
 
-    public ManifoldRenderer(ManifoldOutsidePanel panel)
+    public ManifoldRenderer(ManifoldInsidePanel panel)
     {
         this.panel = panel;
     }
