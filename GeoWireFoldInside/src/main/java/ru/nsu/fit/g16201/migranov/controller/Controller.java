@@ -160,7 +160,39 @@ public class Controller {
             }
         });
 
+
+        manifoldInsidePanel.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                boolean move = false;
+
+                int key = e.getKeyCode();
+
+                switch (key) {
+                    case KeyEvent.VK_W:
+                    case KeyEvent.VK_A:
+                    case KeyEvent.VK_S:
+                    case KeyEvent.VK_D:
+                        move = true;
+                }
+
+                drawInside();
+            }
+        });
+
+        manifoldInsidePanel.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                manifoldInsidePanel.requestFocusInWindow();
+            }
+        });
     }
+
+
+
 
     private double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
 
