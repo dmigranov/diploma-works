@@ -34,7 +34,7 @@ public class ManifoldRenderer {
     private Texture texture;
     private double[][] g;
 
-    ManifoldRenderer(ManifoldInsidePanel panel, GeodesicsCalculator geodesicsCalculator, double zn, double sw, double sh, double uPos, double vPos, BufferedImage texture)
+    ManifoldRenderer(ManifoldInsidePanel panel, GeodesicsCalculator geodesicsCalculator, double zn, double sw, double sh, double uPos, double vPos, Texture texture)
     {
         this.panel = panel;
         this.geodesicsCalculator = geodesicsCalculator;
@@ -48,7 +48,7 @@ public class ManifoldRenderer {
 
         g = geodesicsCalculator.calculateMetricTensor(uPos, vPos);
 
-        this.texture = new Texture(texture);
+        this.texture = texture;
     }
 
     void render(int numberOfThreads)   //todo: направление?

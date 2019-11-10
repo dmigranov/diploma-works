@@ -4,6 +4,7 @@ import ru.nsu.fit.g16201.migranov.model.*;
 import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
 import ru.nsu.fit.g16201.migranov.view.ManifoldOutsidePanel;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
@@ -417,13 +418,14 @@ public class Controller {
             //geodesicsCalculator = new GeodesicsCalculator(new SplineFunction(splineCalculator));
             geodesicsCalculator = new GeodesicsCalculator(sphereFunction);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
-            renderer = new ManifoldRenderer(manifoldInsidePanel, geodesicsCalculator, zn, sw, sh, uPos, vPos, null);
+            renderer = new ManifoldRenderer(manifoldInsidePanel, geodesicsCalculator, zn, sw, sh, uPos, vPos, new Texture(ImageIO.read(getClass().getResource("/map.png"))));
 
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
         {
             return -1;
         }
+
 
         drawAll();
 
