@@ -67,8 +67,6 @@ public class ManifoldRenderer {
         double dx = sw / width;
         double x;
 
-        System.out.println();
-
         x = nearStartX + dx/2;
         for(int j = 0; j < width; j++)
         {
@@ -134,6 +132,7 @@ public class ManifoldRenderer {
             int iters = 0;
 
             int picY = 0;
+            double u_ = 0;
             while(realY <= observerHeight)
             {
                 double d_ = dMultiplier / realY;
@@ -156,7 +155,10 @@ public class ManifoldRenderer {
                 s += ds;
 
                 iters++;
+                u_ = u;
             }
+
+            System.out.print(u_ + " ");
 
             for(; picY < height; picY++)
                 colors[picY][picX] = skyColor;
