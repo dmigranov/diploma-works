@@ -1,14 +1,15 @@
 package ru.nsu.fit.g16201.migranov.controller;
 
 import ru.nsu.fit.g16201.migranov.model.*;
-import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
+import ru.nsu.fit.g16201.migranov.view.ManifoldOutsidePanel;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
 public class Controller {
-    private ManifoldInsidePanel manifoldInsidePanel;
+    private ManifoldOutsidePanel manifoldOutsidePanel;
+    private ManifoldOutsidePanel manifoldInsidePanel;
 
     private Point3D eye = new Point3D(-10, 0, 0);
     private Point3D ref = new Point3D(10, 0, 0);
@@ -32,8 +33,6 @@ public class Controller {
 
     private Integer prevX = null, prevY = null;
 
-    private int width, height;
-
     private SphereFunction sphereFunction = new SphereFunction(1);
 
     private boolean needsToBeRedrawn = true, isDrawingFirstTime = true;
@@ -46,12 +45,15 @@ public class Controller {
     private SplineCalculator splineCalculator;
     private GeodesicsCalculator geodesicsCalculator;
 
-    public Controller(ManifoldInsidePanel manifoldInsidePanel) {
-        this.manifoldInsidePanel = manifoldInsidePanel;
+    private ManifoldRenderer renderer;
+
+
+    public Controller(ManifoldOutsidePanel manifoldOutsidePanel) {
+        this.manifoldOutsidePanel = manifoldOutsidePanel;
 
         cameraMatrix = Matrix.getViewMatrix(eye, ref, up);  //c 153
 
-        manifoldInsidePanel.addMouseWheelListener(e -> {
+        manifoldOutsidePanel.addMouseWheelListener(e -> {
             int count = e.getWheelRotation();
 
             if(e.isControlDown())
@@ -79,8 +81,8 @@ public class Controller {
             }
         });
 
-        manifoldInsidePanel.setFocusable(true);
-        manifoldInsidePanel.addKeyListener(new KeyAdapter() {
+        manifoldOutsidePanel.setFocusable(true);
+        manifoldOutsidePanel.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
@@ -114,7 +116,7 @@ public class Controller {
             }
         });
 
-        manifoldInsidePanel.addMouseMotionListener(new MouseMotionAdapter() {
+        manifoldOutsidePanel.addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             public void mouseDragged(MouseEvent e) {
                 super.mouseDragged(e);
@@ -139,7 +141,7 @@ public class Controller {
             }
         });
 
-        manifoldInsidePanel.addMouseListener(new MouseAdapter() {
+        manifoldOutsidePanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
@@ -151,7 +153,7 @@ public class Controller {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                manifoldInsidePanel.requestFocusInWindow();
+                manifoldOutsidePanel.requestFocusInWindow();
             }
         });
 
@@ -160,7 +162,7 @@ public class Controller {
     private double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
 
     public void drawFigure() {
-        manifoldInsidePanel.clear();
+        manifoldOutsidePanel.clear();
 
         /* Step size along the curve */
         //n*k и m*k - это фактически разрешение
@@ -204,23 +206,23 @@ public class Controller {
                 Point3D np = new Point3D(nmp.get(0, 0), nmp.get(1, 0), nmp.get(2, 0));
                 double w = nmp.get(3, 0);
                 {
-                    int x = (int) ((np.x / w + 1) / 2 * manifoldInsidePanel.getCanvasWidth());
-                    int y = (int) ((np.y / w + 1) / 2 * manifoldInsidePanel.getCanvasHeight());
+                    int x = (int) ((np.x / w + 1) / 2 * manifoldOutsidePanel.getCanvasWidth());
+                    int y = (int) ((np.y / w + 1) / 2 * manifoldOutsidePanel.getCanvasHeight());
 
                     if (vPrev != null && i % k == 0) {
-                        manifoldInsidePanel.drawLine(vPrev.x, vPrev.y, x, y, color);
+                        manifoldOutsidePanel.drawLine(vPrev.x, vPrev.y, x, y, color);
                     }
                     vPrev = new Point(x, y);
 
                     if (uPrev[j] != null && j % k == 0) {
-                        manifoldInsidePanel.drawLine(uPrev[j].x, uPrev[j].y, x, y, color);
+                        manifoldOutsidePanel.drawLine(uPrev[j].x, uPrev[j].y, x, y, color);
                     }
                     uPrev[j] = new Point(x, y);
                 }
             }
         }
 
-        manifoldInsidePanel.repaint();
+        manifoldOutsidePanel.repaint();
     }
 
 
@@ -338,7 +340,7 @@ public class Controller {
 
             substrings = readLineAndSplit(br);
             backgroundColor = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
-            manifoldInsidePanel.setBackgroundColor(backgroundColor);
+            manifoldOutsidePanel.setBackgroundColor(backgroundColor);
 
             substrings = readLineAndSplit(br);
             figureColor = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
@@ -371,6 +373,8 @@ public class Controller {
             //geodesicsCalculator = new GeodesicsCalculator(new SplineFunction(splineCalculator));
             geodesicsCalculator = new GeodesicsCalculator(sphereFunction);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
+            renderer = new ManifoldRenderer(manifoldInsidePanel);
+
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
         {
@@ -411,7 +415,7 @@ public class Controller {
         this.projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
         this.backgroundColor = backgroundColor;
         this.figureColor = figureColor;
-        manifoldInsidePanel.setBackgroundColor(backgroundColor);
+        manifoldOutsidePanel.setBackgroundColor(backgroundColor);
 
         splineCalculator.setDegrees(ti, tj);
 

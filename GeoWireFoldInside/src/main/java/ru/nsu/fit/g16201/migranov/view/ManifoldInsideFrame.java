@@ -22,7 +22,7 @@ public class ManifoldInsideFrame extends MainFrame {
     private boolean fileIsLoaded = false;
 
     private Controller controller;
-    private ManifoldInsidePanel manifoldInsidePanel;
+    private ManifoldOutsidePanel manifoldOutsidePanel;
 
     private JPanel mainPanel;
     private JTabbedPane tabbedPane;
@@ -64,7 +64,7 @@ public class ManifoldInsideFrame extends MainFrame {
                 nheight = height;
             }
         }
-        manifoldInsidePanel.setPreferredSize(new Dimension((int)Math.round(nwidth) - 20, (int)Math.round(nheight) - 20));
+        manifoldOutsidePanel.setPreferredSize(new Dimension((int)Math.round(nwidth) - 20, (int)Math.round(nheight) - 20));
         controller.drawFigure();
         mainPanel.revalidate();
     }
@@ -79,9 +79,9 @@ public class ManifoldInsideFrame extends MainFrame {
                 resize();
             }
         });
-        manifoldInsidePanel = new ManifoldInsidePanel();
-        mainPanel.add(manifoldInsidePanel);
-        controller = new Controller(manifoldInsidePanel);
+        manifoldOutsidePanel = new ManifoldOutsidePanel();
+        mainPanel.add(manifoldOutsidePanel);
+        controller = new Controller(manifoldOutsidePanel);
         addMenus();
         createCommonConfigurationPanel();
 
@@ -295,12 +295,12 @@ public class ManifoldInsideFrame extends MainFrame {
                     b.setEnabled(true);
                 }
                 fileIsLoaded = true;
-                manifoldInsidePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+                manifoldOutsidePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 resize();
             }
             else
             {
-                manifoldInsidePanel.setBorder(BorderFactory.createEmptyBorder());
+                manifoldOutsidePanel.setBorder(BorderFactory.createEmptyBorder());
 
                 fileIsLoaded = false;
                 JOptionPane.showMessageDialog(this, "Wrong file format.", "Error", JOptionPane.ERROR_MESSAGE);

@@ -1,8 +1,9 @@
 package ru.nsu.fit.g16201.migranov.controller;
 
 import ru.nsu.fit.g16201.migranov.model.GeodesicsCalculator;
-import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
+import ru.nsu.fit.g16201.migranov.view.ManifoldOutsidePanel;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -10,10 +11,10 @@ import java.util.concurrent.TimeUnit;
 
 public class ManifoldRenderer {
 
-    private ManifoldInsidePanel panel;
+    private ManifoldOutsidePanel panel;
     private ThreadPoolExecutor executor;
 
-    private int[][] floatColors;
+    private int[][] colors;
     private GeodesicsCalculator geodesicsCalculator;
 
     private double zn;
@@ -27,9 +28,11 @@ public class ManifoldRenderer {
 
     private double dt = 1;
 
+    private int skyColor = Color.CYAN.getRGB();
+
     private BufferedImage texture;
 
-    public ManifoldRenderer(ManifoldInsidePanel panel)
+    public ManifoldRenderer(ManifoldOutsidePanel panel)
     {
         this.panel = panel;
     }
@@ -47,7 +50,7 @@ public class ManifoldRenderer {
         width = panel.getWidth();
         height = panel.getHeight();
 
-        floatColors = new int[height][width];
+        colors = new int[height][width];
 
         executor = new ThreadPoolExecutor(numberOfThreads, numberOfThreads, 1000, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(width));
 
@@ -115,6 +118,10 @@ public class ManifoldRenderer {
 
                         iters++;
                     }
+                }
+                else
+                {
+                    //небо
                 }
 
 

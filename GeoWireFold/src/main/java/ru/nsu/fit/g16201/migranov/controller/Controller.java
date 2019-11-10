@@ -271,6 +271,7 @@ public class Controller {
 
     private void findModelPoints() {
         //todo: экстраполировать сплайновую поверхность за пределы границ
+        //уравнение плоскости?
         double uMin = splineCalculator.getUMin(), uMax = splineCalculator.getUMax();
         double vMin = splineCalculator.getVMin(), vMax = splineCalculator.getVMax();
 
