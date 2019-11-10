@@ -79,27 +79,26 @@ public class ManifoldRenderer {
         executor.shutdown();
 
 
-        Runnable checker = () -> {
-            while(true)
-            {
-                try {
-                    if (executor.awaitTermination(300, TimeUnit.MILLISECONDS)) break;
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
 
-            for (int i = 0; i < height; i++)
-            {
-                for(int j = 0; j < width; j++)
-                {
-                    panel.setPixel(j, height - i - 1, colors[i][j]);
-                }
+        //запускать это в новом треде, а не в свинговом, нет смысла, так как появятся плохие эффекты связанные с изменением размера и сохранением размера массива
+        while(true)
+        {
+            try {
+                if (executor.awaitTermination(300, TimeUnit.MILLISECONDS)) break;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+        }
 
-            panel.repaint();
-        };
-        checker.run();  //в новом треде запускаит нет смысла, так как появятся плохие эффекты связанные с изменением размера
+        for (int i = 0; i < height; i++)
+        {
+            for(int j = 0; j < width; j++)
+            {
+                panel.setPixel(j, height - i - 1, colors[i][j]);
+            }
+        }
+
+        panel.repaint();
     }
 
     class RendererTask implements Runnable {
@@ -145,13 +144,9 @@ public class ManifoldRenderer {
                 {
 
                     //todo: достать цвет из текстуры по координатам u, v точки куда дошли и дать соответсвующему пикселю
-                    try {
-                        colors[picY][picX] = texture.getColorAt(u, v);
-                    }
-                    catch (ArrayIndexOutOfBoundsException e)
-                    {
-                        e.printStackTrace();
-                    }
+
+                    colors[picY][picX] = texture.getColorAt(u, v);
+
                     picY++;     //переходим к следующему пикселю в столбце, соответственно, надо пройти ещё.
                     realY += dy;
                     nextDist = 0; //scrDistAlongRay * camY / sy; //todo
