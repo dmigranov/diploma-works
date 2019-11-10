@@ -121,13 +121,10 @@ public class ManifoldRenderer {
 
             double dirU = realX, dirV = zn;
 
-            System.out.print(realX + " ");
+
             double len = Math.sqrt(dirU * dirU + dirV * dirV);
             dirU /= len;
             dirV /= len;
-
-            //System.out.print("{" + dirU + " " + dirV + "}");
-
 
             double [] state = new double[] {posU, posV, dirU, dirV};
 
