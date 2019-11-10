@@ -24,8 +24,6 @@ public class GeodesicsEquations implements FirstOrderDifferentialEquations {
 
         for(int j = 0; j < 2; j++)
         {
-            double sum = 0;
-
             yDot[j] = -Cs[j][0][0]*y[0]*y[0] - 2 * Cs[j][0][1]*y[0]*y[1] - Cs[j][1][1]*y[1]*y[1];
         }
         yDot[2] = y[0];
