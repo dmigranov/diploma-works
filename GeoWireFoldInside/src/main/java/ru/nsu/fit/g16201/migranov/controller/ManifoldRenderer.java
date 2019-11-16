@@ -70,7 +70,7 @@ public class ManifoldRenderer {
         double x;
 
         x = nearStartX + dx/2;
-        for(int j = 0; j < width; j++)
+        for(int j = 0; j < 1; j++)
         {
             //центры пикселя
             executor.execute(new RendererTask(x, j));
@@ -138,6 +138,8 @@ public class ManifoldRenderer {
             while(realY <= observerHeight)
             {
                 double d_ = dMultiplier / realY;
+                System.out.println(realY + " " + d_);
+                //todo: разобраться с d_ и nextDist
                 double u = state[2], v = state[3];
                 double du = state[0], dv = state[1];
                 if(s >= nextDist)
