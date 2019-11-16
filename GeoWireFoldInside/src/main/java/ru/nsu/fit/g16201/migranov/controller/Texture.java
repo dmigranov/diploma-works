@@ -8,6 +8,11 @@ public class Texture {
     private BufferedImage textureImage;
     private int width;
     private int height;
+    private static final double ANGLE_90 = Math.PI/2;
+    private static final double ANGLE_180 = Math.PI;
+    private static final double ANGLE_360 = Math.PI * 2;
+
+
 
     private Random random = new Random();
 
@@ -20,31 +25,30 @@ public class Texture {
 
     int getColorAt(double u, double v)
     {
-        if (u >= 360) {
-            do u -= 360; while (u >= 360);
+        if (u >= ANGLE_360) {
+            do u -= ANGLE_360; while (u >= ANGLE_360);
         } else if (u < 0) {
-            do u += 360; while (u < 0);
+            do u += ANGLE_360; while (u < 0);
         }
-        if (v >= 180) {
-            do v -= 360; while (v >= 180);
-        } else if (v < -180) {
-            do v += 360; while (v < -180);
+        if (v >= ANGLE_180) {
+            do v -= ANGLE_360; while (v >= ANGLE_180);
+        } else if (v < -ANGLE_180) {
+            do v += ANGLE_360; while (v < -ANGLE_180);
         }
 
-        if (v >= 90) {
-            v = 180 - v;
-        } else if (v < -90) {
-            v = -180 - v;
+        if (v >= ANGLE_90) {
+            v = ANGLE_180 - v;
+        } else if (v < -ANGLE_90) {
+            v = -ANGLE_180 - v;
         }
         // iu: [0..360),  iv: [-90..90) - сферические координаты
 
-        int picX = (int)((u/360) * width);
+        int picX = (int)((u/ANGLE_360) * width);
         if(picX > width - 1)
             picX = width - 1;
-        int picY = (int)(((v + 90)/180) * height);
+        int picY = (int)(((v + ANGLE_90)/ANGLE_180) * height);
         if(picY > height - 1)
             picY = height - 1;
-        //todo: exception
 
         return textureImage.getRGB(picX, picY);
     }

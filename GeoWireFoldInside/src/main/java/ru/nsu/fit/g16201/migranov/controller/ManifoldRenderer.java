@@ -140,8 +140,6 @@ public class ManifoldRenderer {
                 double du = state[0], dv = state[1];
                 if(s >= nextDist)
                 {
-                    //todo: достать цвет из текстуры по координатам u, v точки куда дошли и дать соответсвующему пикселю
-
                     colors[picY][picX] = texture.getColorAt(u, v);
                     picY++;     //переходим к следующему пикселю в столбце, соответственно, надо пройти ещё.
                     realY += dy;
