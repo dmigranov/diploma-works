@@ -18,5 +18,4 @@ abstract class ManifoldFunction implements Function<double[], double[]> {
         return apply(new double[]{u, v});
     }
 
-
-}
+    public abstract double[] calculateInitialState(double posU, double posV, double dirU, double dirV);

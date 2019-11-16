@@ -124,7 +124,8 @@ public class ManifoldRenderer {
             double len = Math.sqrt(dirU * dirU + dirV * dirV);
 
 
-            double [] state = new double[] {dirU, dirV, posU, posV};
+            //double [] state = new double[] {dirU, dirV, posU, posV};
+            double [] state = calculateInitialState(posU, posV, dirU, dirV);
 
             double nextDist = len, s = 0;
             final double dMultiplier = zn * observerHeight;
@@ -167,6 +168,8 @@ public class ManifoldRenderer {
 
 
     }
+
+
 
 
     private double calculateGeodesicLength(double du, double dv)
