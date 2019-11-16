@@ -33,9 +33,10 @@ public class Texture {
             v = -180 - v;
         }
         // iu: [0..360),  iv: [-90..90) - сферические координаты
+        System.out.println(u +  " " + v);
 
-        int picX = (int)(u/360) * (textureImage).getWidth();
-        int picY = (int)((v + 90)/180) * textureImage.getHeight();
+        int picX = (int)((u/360) * (textureImage).getWidth());
+        int picY = (int)(((v + 90)/180) * textureImage.getHeight());
 
 
         return textureImage.getRGB(picX, picY);

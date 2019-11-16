@@ -8,6 +8,8 @@ import org.apache.commons.math3.analysis.differentiation.UnivariateDifferentiabl
 import org.apache.commons.math3.analysis.differentiation.UnivariateDifferentiableVectorFunction;
 import org.apache.commons.math3.ode.FirstOrderDifferentialEquations;
 import org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegrator;
+import org.apache.commons.math3.ode.nonstiff.MidpointIntegrator;
+import org.apache.commons.math3.ode.nonstiff.RungeKuttaIntegrator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -172,7 +174,7 @@ public class GeodesicsCalculator {
         //кривая на двумерой поверхности задаётся одним парамаетром t
         //по сути внутри просто интегрируем, используя разные разностные операторы
         double[][][] Cs = calculateChristoffelSymbol(state[2], state[3]);
-        ClassicalRungeKuttaIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-5);   //Это число ни на что не влияет, т.к. использую singleStep
+        RungeKuttaIntegrator rg = new MidpointIntegrator(1.0e-5);   //Это число ни на что не влияет, т.к. использую singleStep
         FirstOrderDifferentialEquations ode = new GeodesicsEquations(Cs);
         return rg.singleStep(ode, t0, state, t0 + step);
     }

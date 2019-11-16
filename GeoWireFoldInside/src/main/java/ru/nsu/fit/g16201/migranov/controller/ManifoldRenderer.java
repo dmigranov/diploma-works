@@ -118,12 +118,11 @@ public class ManifoldRenderer {
 
             //todo: повороты
 
+            //стопэ, но ведь u и v это углы
             double dirU = realX, dirV = zn; //todo: проверить
 
-
             double len = Math.sqrt(dirU * dirU + dirV * dirV);
-            dirU /= (len * 100);
-            dirV /= (len * 100);
+
 
             double [] state = new double[] {dirU, dirV, posU, posV};
 
@@ -131,8 +130,9 @@ public class ManifoldRenderer {
             final double dMultiplier = zn * observerHeight;
 
             int iters = 0;
-
             int picY = 0;
+
+            double t = 0;
             while(realY <= observerHeight)
             {
                 double d_ = dMultiplier / realY;
@@ -140,19 +140,22 @@ public class ManifoldRenderer {
                 double du = state[0], dv = state[1];
                 if(s >= nextDist)
                 {
-
                     //todo: достать цвет из текстуры по координатам u, v точки куда дошли и дать соответсвующему пикселю
 
                     colors[picY][picX] = texture.getColorAt(u, v);
-
                     picY++;     //переходим к следующему пикселю в столбце, соответственно, надо пройти ещё.
                     realY += dy;
                     nextDist = 0; //scrDistAlongRay * camY / sy; //todo; new nextdist >= old nextdist
                 }
 
                 double ds = calculateGeodesicLength(dt * du, dt * dv);
-                state = geodesicsCalculator.geodesicEquationStep(state, dt);    //шаг по геодезиечской
-                System.out.println(state[2] + " " + state[3] + "|" + state[0] + " " + state[1] + " |||| ");
+                s += ds;
+                state[0] /= ds; //а t? сейчас t = 1, а если другое?
+                state[1] /= ds;
+
+                state = geodesicsCalculator.geodesicEquationStep(state, t, dt);    //шаг по геодезиечской
+                t += dt;
+                //System.out.println(state[2] + " " + state[3] + " | " + state[0] + " " + state[1] + " | " + iters);
 
                 iters++;
             }
@@ -170,7 +173,7 @@ public class ManifoldRenderer {
 
     private double calculateGeodesicLength(double du, double dv)
     {
-        return g[0][0] * du * du + 2 * g[0][1] * du * dv + g [1][1] * dv * dv;
+        return Math.sqrt(g[0][0] * du * du + 2 * g[0][1] * du * dv + g [1][1] * dv * dv);
     }
 
 }
