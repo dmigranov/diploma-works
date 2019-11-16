@@ -6,12 +6,16 @@ import java.util.Random;
 
 public class Texture {
     private BufferedImage textureImage;
+    private int width;
+    private int height;
 
     private Random random = new Random();
 
     Texture(BufferedImage image)
     {
         this.textureImage = image;
+        width = textureImage.getWidth();
+        height = textureImage.getHeight();
     }
 
     int getColorAt(double u, double v)
@@ -33,11 +37,14 @@ public class Texture {
             v = -180 - v;
         }
         // iu: [0..360),  iv: [-90..90) - сферические координаты
-        System.out.println(u +  " " + v);
 
-        int picX = (int)((u/360) * (textureImage).getWidth());
-        int picY = (int)(((v + 90)/180) * textureImage.getHeight());
-
+        int picX = (int)((u/360) * width);
+        if(picX > width - 1)
+            picX = width - 1;
+        int picY = (int)(((v + 90)/180) * height);
+        if(picY > height - 1)
+            picY = height - 1;
+        //todo: exception
 
         return textureImage.getRGB(picX, picY);
     }
