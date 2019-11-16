@@ -24,4 +24,9 @@ public class SplineFunction extends ManifoldFunction {
         if(p == null) return null;
         return new double[]{p.x, p.y, p.z};
     }
+
+    @Override
+    public double[] calculateInitialState(double posU, double posV, double dirU, double dirV) {
+        return new double[0];
+    }
 }

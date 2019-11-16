@@ -215,4 +215,8 @@ public class GeodesicsCalculator {
     public double[] geodesicEquationStep(double[] state, double dt) {
         return geodesicEquationStep(state, 0, dt);
     }
+
+    public ManifoldFunction getFunction() {
+        return manifoldFunction;
+    }
 }

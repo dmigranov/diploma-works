@@ -26,15 +26,9 @@ public class SphereFunction extends ManifoldFunction {
 
         double cos_v = Math.cos(posV);
         double cos_u = Math.cos(posU), sin_u = Math.sin(posU), sin_v = Math.sin(posV);
-        static if (poleSingularity)
-            if (abs(cos_v) < 0.000001) cos_v = cos_v >= 0 ? 0.000001 : 0.000001;
-        enum u_code = format("du = sin(angle) / sqrt(%s);", codes[3]).txtSimp;
-        enum v_code = format("dv = cos(angle) / sqrt(%s);", codes[5]).txtSimp;
-        pragma(msg, u_code);
-        pragma(msg, v_code);
-        mixin(u_code);
-        mixin(v_code);
-        //du = sin(angle)/(cos_v*R); dv = cos(angle)/R;
 
+        double du = Math.sin(angle)/(cos_v*r);
+        double dv = Math.cos(angle)/r;
+        return new double[] {du, dv, posU, posV};
     }
 }

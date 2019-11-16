@@ -1,6 +1,7 @@
 package ru.nsu.fit.g16201.migranov.controller;
 
 import ru.nsu.fit.g16201.migranov.model.GeodesicsCalculator;
+import ru.nsu.fit.g16201.migranov.model.ManifoldFunction;
 import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
 
 import java.awt.*;
@@ -18,7 +19,7 @@ public class ManifoldRenderer {
 
     private int[][] colors;
     private GeodesicsCalculator geodesicsCalculator;
-
+    private ManifoldFunction function;
     private double zn;
     private double sw;
     private double sh;
@@ -48,7 +49,7 @@ public class ManifoldRenderer {
         this.posV = vPos;
 
         g = geodesicsCalculator.calculateMetricTensor(uPos, vPos);
-
+        function = geodesicsCalculator.getFunction();
         this.texture = texture;
     }
 
@@ -121,11 +122,11 @@ public class ManifoldRenderer {
             //стопэ, но ведь u и v это углы
             double dirU = realX, dirV = zn; //todo: проверить
 
-            double len = Math.sqrt(dirU * dirU + dirV * dirV);
+            double len = Math.sqrt(dirU * dirU + dirV * dirV);  //это только по плоскости, не учитывает высоту!
 
 
             //double [] state = new double[] {dirU, dirV, posU, posV};
-            double [] state = calculateInitialState(posU, posV, dirU, dirV);
+            double [] state = function.calculateInitialState(posU, posV, dirU, dirV);
 
             double nextDist = len, s = 0;
             final double dMultiplier = zn * observerHeight;
