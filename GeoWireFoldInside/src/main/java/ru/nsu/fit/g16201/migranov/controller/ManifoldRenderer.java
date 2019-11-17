@@ -70,7 +70,7 @@ public class ManifoldRenderer {
         double x;
 
         x = nearStartX + dx/2;
-        for(int j = 0; j < 1; j++)
+        for(int j = 0; j < width; j++)
         {
             //центры пикселя
             executor.execute(new RendererTask(x, j));
@@ -137,8 +137,7 @@ public class ManifoldRenderer {
             double t = 0;
             while(realY <= observerHeight)
             {
-                double d_ = dMultiplier / realY;
-                System.out.println(realY + " " + d_);
+                //System.out.println(realY + " " + d_);
                 //todo: разобраться с d_ и nextDist
                 double u = state[2], v = state[3];
                 double du = state[0], dv = state[1];
@@ -147,8 +146,11 @@ public class ManifoldRenderer {
                     colors[picY][picX] = texture.getColorAt(u, v);
                     picY++;     //переходим к следующему пикселю в столбце, соответственно, надо пройти ещё.
                     realY += dy;
-                    nextDist = 0; //scrDistAlongRay * camY / sy; //todo; new nextdist >= old nextdist
+                    nextDist = zn / (observerHeight / realY - 1) + zn;
+                    System.out.println(nextDist);
+
                 }
+
 
                 double ds = calculateGeodesicLength(dt * du, dt * dv);
                 s += ds;
