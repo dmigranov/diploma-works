@@ -165,16 +165,20 @@ public class Controller {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
-                boolean move = false;
 
                 int key = e.getKeyCode();
 
                 switch (key) {
                     case KeyEvent.VK_W:
+                        renderer.moveForward(30);
+                        break;
                     case KeyEvent.VK_A:
+                        renderer.moveBack(30);
+                        break;
                     case KeyEvent.VK_S:
+                        break;
                     case KeyEvent.VK_D:
-                        move = true;
+                        break;
                 }
 
                 drawInside();

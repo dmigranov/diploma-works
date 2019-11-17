@@ -100,6 +100,17 @@ public class ManifoldRenderer {
         panel.repaint();
     }
 
+    public void moveForward(double distance) {
+    }
+
+
+    public void moveBack(double distance) {
+        //повернуться на 180 градусов и moveForward
+
+
+    }
+
+
     class RendererTask implements Runnable {
 
         private double realX;
@@ -109,8 +120,6 @@ public class ManifoldRenderer {
             realX = x;
             picX = j;
         }
-
-//
 
         //считаем что в маленькой окрестности наблюдателя лучи идут по евклидовым правилам (и это правильно, см. сфера - маленькие треугольники и большие!)
         @Override
@@ -123,7 +132,6 @@ public class ManifoldRenderer {
             double dirU = realX, dirV = zn;
 
             double len = Math.sqrt(dirU * dirU + dirV * dirV);  //это только по плоскости, не учитывает высоту!
-
 
             //double [] state = new double[] {dirU, dirV, posU, posV};
             double [] state = function.calculateInitialState(posU, posV, dirU, dirV);
@@ -164,9 +172,6 @@ public class ManifoldRenderer {
                 colors[picY][picX] = skyColor;
         }
 
-
-
-
     }
 
 
@@ -177,4 +182,7 @@ public class ManifoldRenderer {
         return Math.sqrt(g[0][0] * du * du + 2 * g[0][1] * du * dv + g [1][1] * dv * dv);
     }
 
+    public double getDt() {
+        return dt;
+    }
 }
