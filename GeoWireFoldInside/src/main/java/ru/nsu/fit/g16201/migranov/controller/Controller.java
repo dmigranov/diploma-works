@@ -35,7 +35,7 @@ public class Controller {
 
     private Integer prevX = null, prevY = null;
 
-    private SphereFunction sphereFunction = new SphereFunction(1000);
+    private SphereFunction sphereFunction = new SphereFunction(100);
 
     private boolean needsToBeRedrawn = true, isDrawingFirstTime = true;
 
@@ -48,7 +48,6 @@ public class Controller {
     private GeodesicsCalculator geodesicsCalculator;
 
     private ManifoldRenderer renderer;
-    private double uPos = 1, vPos = 1;
 
 
     public Controller(ManifoldOutsidePanel manifoldOutsidePanel, ManifoldInsidePanel manifoldInsidePanel) {
@@ -418,7 +417,7 @@ public class Controller {
             //geodesicsCalculator = new GeodesicsCalculator(new SplineFunction(splineCalculator));
             geodesicsCalculator = new GeodesicsCalculator(sphereFunction);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
-            renderer = new ManifoldRenderer(manifoldInsidePanel, geodesicsCalculator, zn, sw, sh, uPos, vPos, new Texture(ImageIO.read(getClass().getResource("/map.png"))));
+            renderer = new ManifoldRenderer(manifoldInsidePanel, geodesicsCalculator, zn, sw, sh, 0, 0, new Texture(ImageIO.read(getClass().getResource("/map.png"))));
 
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)

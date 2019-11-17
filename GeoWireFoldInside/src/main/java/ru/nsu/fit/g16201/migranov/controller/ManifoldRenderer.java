@@ -120,13 +120,13 @@ public class ManifoldRenderer {
             //todo: повороты
 
             //стопэ, но ведь u и v это углы
-            double dirU = realX, dirV = zn; //todo: проверить
+            double dirU = realX, dirV = zn;
 
             double len = Math.sqrt(dirU * dirU + dirV * dirV);  //это только по плоскости, не учитывает высоту!
 
 
-            double [] state = new double[] {dirU, dirV, posU, posV};
-            //double [] state = function.calculateInitialState(posU, posV, dirU, dirV);
+            //double [] state = new double[] {dirU, dirV, posU, posV};
+            double [] state = function.calculateInitialState(posU, posV, dirU, dirV);
 
             double nextDistance = len, s = 0;
             final double dMultiplier = zn * observerHeight;
@@ -137,8 +137,6 @@ public class ManifoldRenderer {
             double t = 0;
             while(realY <= observerHeight)
             {
-                //System.out.println(realY + " " + d_);
-                //todo: разобраться с d_ и nextDist
                 double u = state[2], v = state[3];
                 double du = state[0], dv = state[1];
                 if(s >= nextDistance)
@@ -147,8 +145,8 @@ public class ManifoldRenderer {
                     picY++;     //переходим к следующему пикселю в столбце, соответственно, надо пройти ещё.
                     realY += dy;
                     nextDistance = len * (observerHeight / (sh - realY));
+                    //nextDistance = zn * realY/(observerHeight - realY);   //todo подумать
                 }
-
 
                 double ds = calculateGeodesicLength(dt * du, dt * dv);
                 s += ds;
@@ -157,7 +155,6 @@ public class ManifoldRenderer {
 
                 state = geodesicsCalculator.geodesicEquationStep(state, t, dt);    //шаг по геодезиечской
                 t += dt;
-                //System.out.println(state[2] + " " + state[3] + " | " + state[0] + " " + state[1] + " | " + iters);
 
                 iters++;
             }
