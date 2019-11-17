@@ -35,7 +35,7 @@ public class Controller {
 
     private Integer prevX = null, prevY = null;
 
-    private SphereFunction sphereFunction = new SphereFunction(1);
+    private SphereFunction sphereFunction = new SphereFunction(100);
 
     private boolean needsToBeRedrawn = true, isDrawingFirstTime = true;
 

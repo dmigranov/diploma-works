@@ -125,10 +125,10 @@ public class ManifoldRenderer {
             double len = Math.sqrt(dirU * dirU + dirV * dirV);  //это только по плоскости, не учитывает высоту!
 
 
-            //double [] state = new double[] {dirU, dirV, posU, posV};
-            double [] state = function.calculateInitialState(posU, posV, dirU, dirV);
+            double [] state = new double[] {dirU, dirV, posU, posV};
+            //double [] state = function.calculateInitialState(posU, posV, dirU, dirV);
 
-            double nextDist = len, s = 0;
+            double nextDistance = len, s = 0;
             final double dMultiplier = zn * observerHeight;
 
             int iters = 0;
@@ -141,14 +141,12 @@ public class ManifoldRenderer {
                 //todo: разобраться с d_ и nextDist
                 double u = state[2], v = state[3];
                 double du = state[0], dv = state[1];
-                if(s >= nextDist)
+                if(s >= nextDistance)
                 {
                     colors[picY][picX] = texture.getColorAt(u, v);
                     picY++;     //переходим к следующему пикселю в столбце, соответственно, надо пройти ещё.
                     realY += dy;
-                    nextDist = zn / (observerHeight / realY - 1) + zn;
-                    System.out.println(nextDist);
-
+                    nextDistance = len * (observerHeight / (sh - realY));
                 }
 
 
