@@ -135,7 +135,7 @@ public class ManifoldRenderer {
             int picY = 0;
 
             double t = 0;
-            while(realY <= observerHeight)
+            while(realY <= observerHeight && iters < 10000)
             {
                 double u = state[2], v = state[3];
                 double du = state[0], dv = state[1];
