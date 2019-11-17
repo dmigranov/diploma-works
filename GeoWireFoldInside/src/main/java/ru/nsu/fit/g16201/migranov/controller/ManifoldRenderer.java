@@ -108,22 +108,40 @@ public class ManifoldRenderer {
 
         double[] state = function.calculateInitialState(posU, posV, dirU, dirV);
 
+        double u, v, du, dv, t = 0;
         while(s < distance && iters < 1000) {
-            double u = state[2], v = state[3];
-            du = state.data[1] * dt; dv = state.data[3] * dt;
-            double ds = Surf.vlen(u, v, du, dv);
-            state = evolveRK!(Surf.geodesicStep)(state, dt);
+            u = state[2]; v = state[3];
+            du = state[0]; dv = state[1];
+            double ds = calculateGeodesicLength(dt * du, dt * dv);
+            state = geodesicsCalculator.geodesicEquationStep(state, t, dt);    //шаг по геодезиечской
             s += ds;
             iters++;
         }
-        //posU = ...
+        posU = state[2];
+        posV = state[3];
     }
 
 
     public void moveBack(double distance) {
-        //повернуться на 180 градусов и moveForward&
-        //решить уравнение с dt = -1
 
+        double s = 0;
+        int iters = 0;
+
+        double dirU = 0, dirV = zn;
+
+        double[] state = function.calculateInitialState(posU, posV, dirU, dirV);
+
+        double u, v, du, dv, t = 0;
+        while(s < distance && iters < 1000) {
+            u = state[2]; v = state[3];
+            du = state[0]; dv = state[1];
+            double ds = calculateGeodesicLength(dt * du, dt * dv);
+            state = geodesicsCalculator.geodesicEquationStep(state, t, -dt);    //шаг по геодезиечской
+            s += ds;
+            iters++;
+        }
+        posU = state[2];
+        posV = state[3];
 
     }
 

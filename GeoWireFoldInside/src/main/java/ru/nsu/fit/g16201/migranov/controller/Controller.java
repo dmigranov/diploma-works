@@ -167,21 +167,24 @@ public class Controller {
                 super.keyPressed(e);
 
                 int key = e.getKeyCode();
-
+                boolean moved = false;
                 switch (key) {
                     case KeyEvent.VK_W:
-                        renderer.moveForward(30);
-                        break;
-                    case KeyEvent.VK_A:
-                        renderer.moveBack(30);
+                        renderer.moveForward(20);
+                        moved = true;
                         break;
                     case KeyEvent.VK_S:
+                        moved = true;
+                        renderer.moveBack(20);
+                        break;
+                    case KeyEvent.VK_A:
                         break;
                     case KeyEvent.VK_D:
                         break;
                 }
 
-                drawInside();
+                if(moved)
+                    drawInside();
             }
         });
 
