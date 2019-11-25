@@ -6,11 +6,10 @@ public class SpongeFunction extends ManifoldFunction {
     public SpongeFunction(double a)
     {
         this.a = a;
-        uMax = Double.POSITIVE_INFINITY;
-        vMax = Double.POSITIVE_INFINITY;
-
-        uMin = Double.NEGATIVE_INFINITY;
-        vMin = Double.NEGATIVE_INFINITY;
+        uMin = -Math.PI * 4;
+        uMax = Math.PI * 4;
+        vMin =  -Math.PI * 4;
+        vMax = Math.PI * 4;
     }
     @Override
     public double[] apply(double[] values) {
