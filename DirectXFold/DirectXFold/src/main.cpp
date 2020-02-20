@@ -82,3 +82,31 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
         //тут, перед message loop, передаётся управление методу Init
         g_game->Initialize(hwnd, rc.right - rc.left, rc.bottom - rc.top);
     }
+
+    // Main message loop
+    // it runs indefinitely, and then check for messages inside the while loop
+    // the loop will keep running forever unless something interrupts the loop and causes it to exit
+    // то есть даже если не рендерим, всё равно апдейтим
+    // поэтмоу жрёт столько когда свёрнута
+
+    MSG msg = {};
+    while (WM_QUIT != msg.message)
+    {
+        //Peek: возвращает true, если сообщение есть, если нет - то false (но мы все равно рисуем)
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE) != 0)	//remove: message are removed from the queue after pick
+        {
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);	//dispatch передает сообщение winproc!!!
+        }
+        else
+        {
+            g_game->Tick();	//update & render
+        }
+    }
+
+    g_game.reset();
+
+    CoUninitialize();
+
+    return (int)msg.wParam;
+}
