@@ -1,9 +1,2 @@
-﻿  pch.cpp
-  Game.cpp
-  main.cpp
-  Создание кода...
-     Создается библиотека bin\DirectXFoldd.lib и объект bin\DirectXFoldd.exp
-main.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: __thiscall Game::Game(void)" (??0Game@@QAE@XZ) в функции "class std::unique_ptr<class Game,struct std::default_delete<class Game> > __cdecl std::make_unique<class Game,0>(void)" (??$make_unique@VGame@@$$V$0A@@std@@YA?AV?$unique_ptr@VGame@@U?$default_delete@VGame@@@std@@@0@XZ)
-main.obj : error LNK2019: ссылка на неразрешенный внешний символ "long __stdcall WndProc(struct HWND__ *,unsigned int,unsigned int,long)" (?WndProc@@YGJPAUHWND__@@IIJ@Z) в функции _wWinMain@16
-MSVCRTD.lib(exe_main.obj) : error LNK2019: ссылка на неразрешенный внешний символ _main в функции "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
-bin\DirectXFoldd.exe : fatal error LNK1120: неразрешенных внешних элементов: 3
+﻿     Создается библиотека bin\DirectXFoldd.lib и объект bin\DirectXFoldd.exp
+  DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe

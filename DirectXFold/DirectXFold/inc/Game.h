@@ -11,11 +11,13 @@ public:
     void Tick();
 
     // Messages (called by WndProc)
+    /*
     void OnActivated();
     void OnDeactivated();
     void OnSuspending();
     void OnResuming();
     void OnWindowSizeChanged(int width, int height);
+    */
 
     // Properties
     void GetDefaultSize(int& width, int& height);
@@ -57,7 +59,9 @@ private:
     ID3D11VertexShader* g_d3dVertexShader = nullptr;
     ID3D11PixelShader* g_d3dPixelShader = nullptr;
 
+
     bool                                            m_minimized = false;
+
 
     // Timer
     DWORD                                           previousTime = timeGetTime();
