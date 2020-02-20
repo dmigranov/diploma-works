@@ -5,7 +5,7 @@ public:
 
 
     // Initialization and management
-    void Initialize(HWND window, int width, int height);
+    int Initialize(HWND window, int width, int height);
 
     // Basic game loop
     void Tick();
@@ -31,6 +31,8 @@ private:
     int                                             m_outputWidth;
     int                                             m_outputHeight;
 
+
+    HWND                                            m_hwnd;				//дескриптор окна игры
     // Direct3D device and swap chain.
     ID3D11Device* g_d3dDevice = nullptr;                                    //used for allocating GPU resources such as buffers, textures, shaders, and state objects
     ID3D11DeviceContext* g_d3dDeviceContext = nullptr;                      //used to configure the rendering pipeline and draw geometry
