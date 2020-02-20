@@ -10,6 +10,13 @@ public:
     // Basic game loop
     void Tick();
 
+    // Messages (called by WndProc)
+    void OnActivated();
+    void OnDeactivated();
+    void OnSuspending();
+    void OnResuming();
+    void OnWindowSizeChanged(int width, int height);
+
     // Properties
     void GetDefaultSize(int& width, int& height);
 };
