@@ -19,4 +19,11 @@ public:
 
     // Properties
     void GetDefaultSize(int& width, int& height);
+
+
+
+
+private:
+    bool            m_minimized = false;
+
 };
