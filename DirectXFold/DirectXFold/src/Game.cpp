@@ -1,6 +1,5 @@
 #include <pch.h>
 #include "Game.h"
-#include "..\inc\Game.h"
 
 Game::Game() noexcept
 {
