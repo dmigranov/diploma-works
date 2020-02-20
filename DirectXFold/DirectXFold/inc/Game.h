@@ -24,6 +24,11 @@ public:
 
 
 private:
-    bool            m_minimized = false;
+    // Device resources.
+    HWND                                            m_window;				//дескриптор окна игры
+    int                                             m_outputWidth;
+    int                                             m_outputHeight;
+
+    bool                                            m_minimized = false;
 
 };
