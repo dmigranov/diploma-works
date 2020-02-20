@@ -1,5 +1,4 @@
-﻿  pch.cpp
-  Game.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(1,1): fatal error C1010: непредвиденный конец файла во время поиска предкомпилированного заголовка. Возможно, вы забыли добавить директиву "#include "pch.h"" в источник.
-  main.cpp
-  Создание кода...
+﻿  Game.cpp
+     Создается библиотека bin\DirectXFoldd.lib и объект bin\DirectXFoldd.exp
+MSVCRTD.lib(exe_main.obj) : error LNK2019: ссылка на неразрешенный внешний символ _main в функции "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+bin\DirectXFoldd.exe : fatal error LNK1120: неразрешенных внешних элементов: 1
