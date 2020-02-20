@@ -59,4 +59,9 @@ private:
 
     bool                                            m_minimized = false;
 
+    // Timer
+    DWORD                                           previousTime = timeGetTime();
+    const float                                     targetFramerate = 30.0f;
+    const float                                     maxTimeStep = 1.0f / targetFramerate;
+
 };
