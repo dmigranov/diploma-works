@@ -1,6 +1,2 @@
 ﻿  Game.cpp
-  main.cpp
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(2054,59): warning C4316: "Game": объект, размещенный в куче, может не быть выровнен 16
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\main.cpp(40): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::unique_ptr<Game,std::default_delete<Game>> std::make_unique<Game,,0>(void)"
-  Создание кода...
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe

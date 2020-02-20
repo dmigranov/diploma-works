@@ -2,7 +2,7 @@
 #include "Game.h"
 
 Game::Game() noexcept :
-    m_window(nullptr),
+    m_hwnd(nullptr),
     m_outputWidth(800),
     m_outputHeight(600)
 {

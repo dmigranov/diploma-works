@@ -21,29 +21,19 @@ public:
     // Basic game loop
     void Tick();
 
-    // Messages (called by WndProc)
-    /*
-    void OnActivated();
-    void OnDeactivated();
-    void OnSuspending();
-    void OnResuming();
-    void OnWindowSizeChanged(int width, int height);
-    */
-
     // Properties
     void GetDefaultSize(int& width, int& height);
 
 
 
-
 private:
+    
     // Device resources.
-    HWND                                            m_window;				//дескриптор окна игры
+    HWND                                            m_hwnd;				//дескриптор окна игры
     int                                             m_outputWidth;
     int                                             m_outputHeight;
 
 
-    HWND                                            m_hwnd;				//дескриптор окна игры
     // Direct3D device and swap chain.
     ID3D11Device* g_d3dDevice = nullptr;                                    //used for allocating GPU resources such as buffers, textures, shaders, and state objects
     ID3D11DeviceContext* g_d3dDeviceContext = nullptr;                      //used to configure the rendering pipeline and draw geometry
@@ -93,5 +83,29 @@ private:
     DWORD                                           previousTime = timeGetTime();
     const float                                     targetFramerate = 30.0f;
     const float                                     maxTimeStep = 1.0f / targetFramerate;
+
+
+
+    VertexPosColor g_Vertices[8] =
+    {
+        { XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
+        { XMFLOAT3(-1.0f,  1.0f, -1.0f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
+        { XMFLOAT3(1.0f,  1.0f, -1.0f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
+        { XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT3(1.0f, 0.0f, 0.0f) }, // 3
+        { XMFLOAT3(-1.0f, -1.0f,  1.0f), XMFLOAT3(0.0f, 0.0f, 1.0f) }, // 4
+        { XMFLOAT3(-1.0f,  1.0f,  1.0f), XMFLOAT3(0.0f, 1.0f, 1.0f) }, // 5
+        { XMFLOAT3(1.0f,  1.0f,  1.0f), XMFLOAT3(1.0f, 1.0f, 1.0f) }, // 6
+        { XMFLOAT3(1.0f, -1.0f,  1.0f), XMFLOAT3(1.0f, 0.0f, 1.0f) }  // 7
+    };
+
+    WORD g_Indicies[36] =
+    {
+        0, 1, 2, 0, 2, 3,
+        4, 6, 5, 4, 7, 6,
+        4, 5, 1, 4, 1, 0,
+        3, 2, 6, 3, 6, 7,
+        1, 5, 6, 1, 6, 2,
+        4, 0, 3, 4, 3, 7
+    };
 
 };
