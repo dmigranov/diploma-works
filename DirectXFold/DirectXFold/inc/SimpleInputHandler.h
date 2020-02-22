@@ -1,0 +1,13 @@
+#pragma once
+#include "InputHandler.h"
+class SimpleInputHandler :
+	public InputHandler
+{
+public:
+	SimpleInputHandler(/*std::shared_ptr<Camera> camera, */HWND window);
+	void HandleInput();
+protected:
+	void HandleKeyboard();
+	void HandleMouse();
+};
+
