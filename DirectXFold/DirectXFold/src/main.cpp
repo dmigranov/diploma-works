@@ -1,3 +1,7 @@
+//inspired by:
+//https://www.3dgep.com/introduction-to-directx-11/#Initialize_DirectX
+//DirectXTK template by Chuck Walbourne
+
 #include <pch.h>
 #include "Game.h"
 
