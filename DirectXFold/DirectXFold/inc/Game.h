@@ -1,3 +1,6 @@
+#include "PixelShader.h"
+#include "VertexShader.h"
+
 using namespace DirectX;
 
 // Vertex data for a colored cube.
@@ -6,7 +9,6 @@ struct VertexPosColor
     XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
     XMFLOAT3 Color;
 };
-
 
 
 class Game

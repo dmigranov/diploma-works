@@ -199,3 +199,98 @@ void Game::GetDefaultSize(int& width, int& height)
     width = m_outputWidth;
     height = m_outputHeight;
 }
+
+bool Game::LoadContent()
+{
+    assert(g_d3dDevice);
+
+    // Create an initialize the vertex buffer.
+    D3D11_BUFFER_DESC vertexBufferDesc;
+    ZeroMemory(&vertexBufferDesc, sizeof(D3D11_BUFFER_DESC));
+
+    vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;  //how the buffer is bound to pipeline
+    vertexBufferDesc.ByteWidth = sizeof(VertexPosColor) * _countof(g_Vertices);
+    vertexBufferDesc.CPUAccessFlags = 0;    // no CPU access is necessary
+    vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+
+    //used to specify the data that is used to initialize a buffer when it is created.
+    D3D11_SUBRESOURCE_DATA resourceData;
+    ZeroMemory(&resourceData, sizeof(D3D11_SUBRESOURCE_DATA));
+    resourceData.pSysMem = g_Vertices; //A pointer to the data to initialize the buffer with.
+
+    HRESULT hr = g_d3dDevice->CreateBuffer(&vertexBufferDesc, &resourceData, &g_d3dVertexBuffer);
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+    // Create and initialize the index buffer.
+    D3D11_BUFFER_DESC indexBufferDesc;
+    ZeroMemory(&indexBufferDesc, sizeof(D3D11_BUFFER_DESC));
+
+    indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
+    indexBufferDesc.ByteWidth = sizeof(WORD) * _countof(g_Indicies);
+    indexBufferDesc.CPUAccessFlags = 0;
+    indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+    resourceData.pSysMem = g_Indicies;
+
+    hr = g_d3dDevice->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+
+    // Create the constant buffers for the variables defined in the vertex shader.
+    D3D11_BUFFER_DESC constantBufferDesc;
+    ZeroMemory(&constantBufferDesc, sizeof(D3D11_BUFFER_DESC));
+
+    constantBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+    constantBufferDesc.ByteWidth = sizeof(XMMATRIX);
+    constantBufferDesc.CPUAccessFlags = 0;
+    constantBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+
+    //we will update the contents of buffers using the ID3D11DeviceContext::UpdateSubresource method and this method expects constant buffers to be initialized with D3D11_USAGE_DEFAULT usage flag and buffers that are created with the D3D11_USAGE_DEFAULT flag must have their CPUAccessFlags set to 0.
+    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dConstantBuffers[CB_Application]);
+    if (FAILED(hr))
+    {
+        return false;
+    }
+    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dConstantBuffers[CB_Frame]);
+    if (FAILED(hr))
+    {
+        return false;
+    }
+    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dConstantBuffers[CB_Object]);
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+    //loading shaders from global variables 
+    hr = g_d3dDevice->CreateVertexShader(g_vs, sizeof(g_vs), nullptr, &g_d3dVertexShader);
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+    hr = g_d3dDevice->CreatePixelShader(g_ps, sizeof(g_ps), nullptr, &g_d3dPixelShader);
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+    //ID3D11InputLayout is used to define how the vertex data attached to the input-assembler stage is layed out in memory
+    D3D11_INPUT_ELEMENT_DESC vertexLayoutDesc[] =
+    {
+        { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(VertexPosColor, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
+        { "COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, offsetof(VertexPosColor, Color), D3D11_INPUT_PER_VERTEX_DATA, 0 }
+    };
+
+    hr = g_d3dDevice->CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs), &g_d3dInputLayout);
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
+}
