@@ -19,6 +19,7 @@ public:
 
     // Initialization and management
     int Initialize(HWND window, int width, int height);
+    void Cleanup();
 
     // Basic game loop
     void Tick();
@@ -37,7 +38,6 @@ private:
     void Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil);
     void Present();
 
-    void Cleanup();
 
     bool LoadContent();
     void UnloadContent();

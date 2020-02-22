@@ -80,7 +80,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
         GetClientRect(hwnd, &rc);
 
         //тут, перед message loop, передаётся управление методу Init
-        g_game->Initialize(hwnd, rc.right - rc.left, rc.bottom - rc.top);
+        if (g_game->Initialize(hwnd, rc.right - rc.left, rc.bottom - rc.top) != 0)
+        {
+            MessageBox(nullptr, TEXT("Failed to initialize DirectX device and swap chain."), TEXT("Error"), MB_OK);
+            return -1;
+        }
     }
 
     // Main message loop
@@ -103,7 +107,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
             g_game->Tick();	//update & render
         }
     }
-
+    
+    g_game->Cleanup();
     g_game.reset();
 
     CoUninitialize();

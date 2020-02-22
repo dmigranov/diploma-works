@@ -174,6 +174,11 @@ int Game::Initialize(HWND window, int width, int height)
     g_Viewport.MinDepth = 0.0f;
     g_Viewport.MaxDepth = 1.0f;
 
+    if (!LoadContent())
+    {
+        return -1;
+    }
+
     return 0;
 }
 
@@ -263,6 +268,20 @@ void Game::Present()
 {
     g_d3dSwapChain->Present(1, 0);
     //ñ vsync?
+}
+
+void Game::Cleanup()
+{
+    UnloadContent();
+
+    SafeRelease(g_d3dDepthStencilView);
+    SafeRelease(g_d3dRenderTargetView);
+    SafeRelease(g_d3dDepthStencilBuffer);
+    SafeRelease(g_d3dDepthStencilState);
+    SafeRelease(g_d3dRasterizerState);
+    SafeRelease(g_d3dSwapChain);
+    SafeRelease(g_d3dDeviceContext);
+    SafeRelease(g_d3dDevice);
 }
 
 bool Game::LoadContent()
