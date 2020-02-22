@@ -27,6 +27,7 @@ int Game::Initialize(HWND window, int width, int height)
     unsigned int clientWidth = clientRect.right - clientRect.left;
     unsigned int clientHeight = clientRect.bottom - clientRect.top;
 
+    //The swap chain description defines the size and number of render buffers that will be used by the swap chain. It also associates the window to the swap chain which determines where the final image will be presented. The swap chain description also defines the quality of anti-aliasing (if any) that should be applied and how the back buffer is flipped during presentation.
     DXGI_SWAP_CHAIN_DESC swapChainDesc;
     ZeroMemory(&swapChainDesc, sizeof(DXGI_SWAP_CHAIN_DESC));
 
@@ -34,9 +35,10 @@ int Game::Initialize(HWND window, int width, int height)
     swapChainDesc.BufferDesc.Width = clientWidth;
     swapChainDesc.BufferDesc.Height = clientHeight;
     swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-    //swapChainDesc.BufferDesc.RefreshRate = QueryRefreshRate(clientWidth, clientHeight, vSync);
+    swapChainDesc.BufferDesc.RefreshRate = {0, 1};
     swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
     swapChainDesc.OutputWindow = m_hwnd;
+    //sampledesc - multisampling
     swapChainDesc.SampleDesc.Count = 1;
     swapChainDesc.SampleDesc.Quality = 0;
     swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;

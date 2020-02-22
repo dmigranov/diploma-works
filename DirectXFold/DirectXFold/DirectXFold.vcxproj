@@ -30,6 +30,9 @@
     <ClInclude Include="inc\Game.h" />
     <ClInclude Include="inc\pch.h" />
   </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Data\Shaders\vertex_shader.hlsl" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{802A2142-3802-46EF-946B-42BFD9754DCA}</ProjectGuid>

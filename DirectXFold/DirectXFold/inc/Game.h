@@ -26,8 +26,21 @@ public:
 
 
 
+
+
 private:
-    
+
+    void Update(float deltaTime);
+    void Render();
+    void Cleanup();
+
+    template< class ShaderClass >   //load and compile a shader at runtime
+    ShaderClass* LoadShader(const std::wstring& fileName, const std::string& entryPoint, const std::string& profile);
+
+    bool LoadContent();
+    void UnloadContent();
+
+
     // Device resources.
     HWND                                            m_hwnd;				//дескриптор окна игры
     int                                             m_outputWidth;
