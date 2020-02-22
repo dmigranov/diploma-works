@@ -211,18 +211,21 @@ void Game::Update(float deltaTime)
 {
     m_inputHandler->HandleInput();
 
-    XMVECTOR eyePosition = Vector4(0, 0, -10, 1);
+    XMVECTOR eyePosition = Vector4(0, 2, -10, 1);
     XMVECTOR focusPoint = Vector4(0, 0, 0, 1);
     XMVECTOR upDirection = Vector4(0, 1, 0, 1);
     g_ViewMatrix = XMMatrixLookAtLH(eyePosition, focusPoint, upDirection);
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &g_ViewMatrix, 0, 0);
 
 
-    static float angle = 0.0f;
+    /*static float angle = 0.0f;
     angle += 90.0f * deltaTime;
     XMVECTOR rotationAxis = XMVectorSet(0, 1, 0, 0);
 
-    g_WorldMatrix = XMMatrixRotationAxis(rotationAxis, XMConvertToRadians(angle));
+    g_WorldMatrix = XMMatrixRotationAxis(rotationAxis, XMConvertToRadians(angle));*/
+
+    DWORD t = timeGetTime();
+    g_WorldMatrix = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), cos(t/100.0));
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &g_WorldMatrix, 0, 0);
 }
 
@@ -357,7 +360,7 @@ bool Game::LoadContent()
     }
 
     //loading shaders from global variables 
-    hr = g_d3dDevice->CreateVertexShader(g_vs, sizeof(g_vs), nullptr, &g_d3dVertexShader);
+    hr = g_d3dDevice->CreateVertexShader(g_mvs, sizeof(g_mvs), nullptr, &g_d3dVertexShader);
     if (FAILED(hr))
     {
         return false;

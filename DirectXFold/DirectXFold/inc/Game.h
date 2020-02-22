@@ -1,6 +1,7 @@
 #include "PixelShader.h"
 #include "VertexShader.h"
-#include <SimpleInputHandler.h>
+#include "MorphingVertexShader.h"
+#include "SimpleInputHandler.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
