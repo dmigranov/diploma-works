@@ -27,7 +27,7 @@ struct VertexShaderOutput
 };
 
 //entry point
-VertexShaderOutput SimpleVertexShader(AppData IN)
+VertexShaderOutput MorphingVertexShader(AppData IN)
 {
 	VertexShaderOutput OUT;
     

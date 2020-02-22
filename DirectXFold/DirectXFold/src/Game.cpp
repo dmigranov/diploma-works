@@ -220,7 +220,7 @@ void Game::Update(float deltaTime)
 
     static float angle = 0.0f;
     angle += 90.0f * deltaTime;
-    XMVECTOR rotationAxis = XMVectorSet(0, 1, 1, 0);
+    XMVECTOR rotationAxis = XMVectorSet(0, 1, 0, 0);
 
     g_WorldMatrix = XMMatrixRotationAxis(rotationAxis, XMConvertToRadians(angle));
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &g_WorldMatrix, 0, 0);
@@ -399,6 +399,7 @@ bool Game::LoadContent()
 
     return true;
 }
+
 
 void Game::UnloadContent()
 {
