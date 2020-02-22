@@ -25,3 +25,15 @@ struct VertexShaderOutput
     float4 color : COLOR;
     float4 position : SV_POSITION;  //system-value semantic that is required by the rasterizer stage
 };
+
+//entry point
+VertexShaderOutput SimpleVertexShader(AppData IN)
+{
+	VertexShaderOutput OUT;
+ 
+	matrix mvp = mul(projectionMatrix, mul(viewMatrix, worldMatrix));
+	OUT.position = mul(mvp, IN.position);
+	OUT.color = float4(IN.color, 1.0f);
+ 
+	return OUT;
+}

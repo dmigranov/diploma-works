@@ -43,5 +43,8 @@
     <FxCompile Include="Data\Shaders\vertex_shader.hlsl">
       <Filter>Data\Shaders</Filter>
     </FxCompile>
+    <FxCompile Include="Data\Shaders\pixel_shader.hlsl">
+      <Filter>Data\Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
