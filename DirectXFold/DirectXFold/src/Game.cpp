@@ -187,8 +187,8 @@ void Game::Tick()
     // debugging and you don't want the deltaTime value to explode.
     deltaTime = std::min<float>(deltaTime, maxTimeStep);
 
-    //            Update( deltaTime );
-    //            Render();
+    Update( deltaTime );
+    Render();
 }
 
 // Properties
@@ -197,6 +197,72 @@ void Game::GetDefaultSize(int& width, int& height)
     // TODO: Change to desired default window size (note minimum size is 320x200).
     width = m_outputWidth;
     height = m_outputHeight;
+}
+
+void Game::Update(float deltaTime)
+{
+    XMVECTOR eyePosition = XMVectorSet(0, 0, -10, 1);
+    XMVECTOR focusPoint = XMVectorSet(0, 0, 0, 1);
+    XMVECTOR upDirection = XMVectorSet(0, 1, 0, 0);
+    g_ViewMatrix = XMMatrixLookAtLH(eyePosition, focusPoint, upDirection);
+    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &g_ViewMatrix, 0, 0);
+
+
+    static float angle = 0.0f;
+    angle += 90.0f * deltaTime;
+    XMVECTOR rotationAxis = XMVectorSet(0, 1, 1, 0);
+
+    g_WorldMatrix = XMMatrixRotationAxis(rotationAxis, XMConvertToRadians(angle));
+    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &g_WorldMatrix, 0, 0);
+}
+
+void Game::Render()
+{
+    assert(g_d3dDevice);
+    assert(g_d3dDeviceContext);
+
+    Clear(Colors::YellowGreen, 1.0f, 0);
+
+    //Input Assembler Stage
+    const UINT vertexStride = sizeof(VertexPosColor);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
+    const UINT offset = 0;
+    g_d3dDeviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
+    g_d3dDeviceContext->IASetInputLayout(g_d3dInputLayout);
+    g_d3dDeviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+    g_d3dDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+    //Vertex Shader Stage
+    g_d3dDeviceContext->VSSetShader(g_d3dVertexShader, nullptr, 0);
+    g_d3dDeviceContext->VSSetConstantBuffers(0, 3, g_d3dConstantBuffers);
+
+    //Rasterizer Stage
+    g_d3dDeviceContext->RSSetState(g_d3dRasterizerState);
+    g_d3dDeviceContext->RSSetViewports(1, &g_Viewport);
+
+    //Pixel Shader Stage
+    g_d3dDeviceContext->PSSetShader(g_d3dPixelShader, nullptr, 0);
+
+    //Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
+    g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
+    g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
+
+
+    //DRAW
+    g_d3dDeviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
+
+    Present();
+}
+
+void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil)
+{
+    g_d3dDeviceContext->ClearRenderTargetView(g_d3dRenderTargetView, clearColor);   //clear the back buffer to a particlular color
+    g_d3dDeviceContext->ClearDepthStencilView(g_d3dDepthStencilView, D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, clearDepth, clearStencil);        //method is used to clear the depth and stencil buffer to a particular depth value and stencil value.
+}
+
+void Game::Present()
+{
+    g_d3dSwapChain->Present(1, 0);
+    //ñ vsync?
 }
 
 bool Game::LoadContent()
@@ -306,4 +372,16 @@ bool Game::LoadContent()
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &g_ProjectionMatrix, 0, 0);
 
     return true;
+}
+
+void Game::UnloadContent()
+{
+    SafeRelease(g_d3dConstantBuffers[CB_Application]);
+    SafeRelease(g_d3dConstantBuffers[CB_Frame]);
+    SafeRelease(g_d3dConstantBuffers[CB_Object]);
+    SafeRelease(g_d3dIndexBuffer);
+    SafeRelease(g_d3dVertexBuffer);
+    SafeRelease(g_d3dInputLayout);
+    SafeRelease(g_d3dVertexShader);
+    SafeRelease(g_d3dPixelShader);
 }
