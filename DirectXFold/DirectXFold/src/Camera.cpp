@@ -47,6 +47,8 @@ void Camera::RecalculateMatrixProj()
 	double vh = m_viewport.h;
 
 	double aspect = (sw * vw) / (sh * vh);
+	
+	//TODO: хяопюбхрэ люрпхжш, рй рср нмх пу ю мюдн ку
 
 	if (m_isOrthographic)
 	{

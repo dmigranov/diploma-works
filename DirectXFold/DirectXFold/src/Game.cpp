@@ -6,6 +6,7 @@ Game::Game() noexcept :
     m_outputWidth(800),
     m_outputHeight(600)
 {
+    m_camera = std::make_shared<Camera>();
 }
 
 int Game::Initialize(HWND window, int width, int height)
@@ -179,7 +180,7 @@ int Game::Initialize(HWND window, int width, int height)
         return -1;
     }
 
-    m_inputHandler = std::make_unique<SimpleInputHandler>(/*m_camera, */m_hwnd);
+    m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, m_hwnd);
 
     return 0;
 }
@@ -391,6 +392,8 @@ bool Game::LoadContent()
     float clientHeight = static_cast<float>(clientRect.bottom - clientRect.top);
 
     g_ProjectionMatrix = XMMatrixPerspectiveFovLH(XMConvertToRadians(45.0f), clientWidth / clientHeight, 0.1f, 100.0f);
+   
+    //todo: вставить иницирование параметров камеры сюда
 
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &g_ProjectionMatrix, 0, 0);
 

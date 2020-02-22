@@ -128,4 +128,7 @@ private:
 
     // Input
     std::unique_ptr<InputHandler>         m_inputHandler;
+    // Camera
+    std::shared_ptr<Camera>               m_camera;
+
 };
