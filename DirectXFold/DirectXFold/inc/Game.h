@@ -3,6 +3,7 @@
 #include <SimpleInputHandler.h>
 
 using namespace DirectX;
+using namespace DirectX::SimpleMath;
 
 // Vertex data for a colored cube.
 struct VertexPosColor

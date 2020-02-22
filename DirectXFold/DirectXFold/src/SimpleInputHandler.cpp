@@ -9,12 +9,12 @@ using namespace DirectX::SimpleMath;
 const float MOVEMENT_GAIN = 0.41f;
 const float ROTATION_GAIN = 0.012f;
 
-SimpleInputHandler::SimpleInputHandler(/*std::shared_ptr<Camera> camera,*/ HWND window)
+SimpleInputHandler::SimpleInputHandler(std::shared_ptr<Camera> camera, HWND window)
 {
     m_keyboard = std::make_unique<Keyboard>();
     m_mouse = std::make_unique<Mouse>();
     m_mouse->SetWindow(window);
-    //m_camera = camera;
+    m_camera = camera;
 }
 
 void SimpleInputHandler::HandleInput()
@@ -46,7 +46,7 @@ void SimpleInputHandler::HandleKeyboard()
         move.x -= 1.f;
 
     move *= MOVEMENT_GAIN;
-    //m_camera->Move(move);
+    m_camera->Move(move);
 }
 
 void SimpleInputHandler::HandleMouse()
@@ -58,7 +58,7 @@ void SimpleInputHandler::HandleMouse()
         Vector3 delta = Vector3(float(mouse.x), float(mouse.y), 0.f)
             * ROTATION_GAIN;
 
-        //m_camera->ChangePitchYaw(-delta.y, -delta.x);
+        m_camera->ChangePitchYaw(-delta.y, -delta.x);
     }
 
     m_mouse->SetMode(mouse.leftButton ? Mouse::MODE_RELATIVE : Mouse::MODE_ABSOLUTE);

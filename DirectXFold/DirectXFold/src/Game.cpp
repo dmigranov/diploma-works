@@ -210,9 +210,9 @@ void Game::Update(float deltaTime)
 {
     m_inputHandler->HandleInput();
 
-    XMVECTOR eyePosition = XMVectorSet(0, 0, -10, 1);
-    XMVECTOR focusPoint = XMVectorSet(0, 0, 0, 1);
-    XMVECTOR upDirection = XMVectorSet(0, 1, 0, 0);
+    XMVECTOR eyePosition = Vector4(0, 0, -10, 1);
+    XMVECTOR focusPoint = Vector4(0, 0, 0, 1);
+    XMVECTOR upDirection = Vector4(0, 1, 0, 1);
     g_ViewMatrix = XMMatrixLookAtLH(eyePosition, focusPoint, upDirection);
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &g_ViewMatrix, 0, 0);
 

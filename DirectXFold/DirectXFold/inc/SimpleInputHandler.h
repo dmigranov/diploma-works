@@ -4,7 +4,7 @@ class SimpleInputHandler :
 	public InputHandler
 {
 public:
-	SimpleInputHandler(/*std::shared_ptr<Camera> camera, */HWND window);
+	SimpleInputHandler(std::shared_ptr<Camera> camera, HWND window);
 	void HandleInput();
 protected:
 	void HandleKeyboard();
