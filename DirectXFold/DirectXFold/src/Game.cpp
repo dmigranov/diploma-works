@@ -179,6 +179,8 @@ int Game::Initialize(HWND window, int width, int height)
         return -1;
     }
 
+    m_inputHandler = std::make_unique<SimpleInputHandler>(/*m_camera, */m_hwnd);
+
     return 0;
 }
 
@@ -206,6 +208,8 @@ void Game::GetDefaultSize(int& width, int& height)
 
 void Game::Update(float deltaTime)
 {
+    m_inputHandler->HandleInput();
+
     XMVECTOR eyePosition = XMVectorSet(0, 0, -10, 1);
     XMVECTOR focusPoint = XMVectorSet(0, 0, 0, 1);
     XMVECTOR upDirection = XMVectorSet(0, 1, 0, 0);

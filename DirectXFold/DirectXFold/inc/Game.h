@@ -1,5 +1,6 @@
 #include "PixelShader.h"
 #include "VertexShader.h"
+#include <SimpleInputHandler.h>
 
 using namespace DirectX;
 
@@ -123,4 +124,7 @@ private:
         4, 0, 3, 4, 3, 7
     };
 
+
+    // Input
+    std::unique_ptr<InputHandler>         m_inputHandler;
 };
