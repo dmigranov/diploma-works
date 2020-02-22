@@ -105,7 +105,6 @@ int Game::Initialize(HWND window, int width, int height)
     SafeRelease(backBuffer);
 
 
-
     // Create the depth buffer for use with the depth/stencil view.
     D3D11_TEXTURE2D_DESC depthStencilBufferDesc;
     ZeroMemory(&depthStencilBufferDesc, sizeof(D3D11_TEXTURE2D_DESC));
@@ -293,4 +292,18 @@ bool Game::LoadContent()
         return false;
     }
 
+    // Setup the projection matrix.
+    RECT clientRect;
+    GetClientRect(m_hwnd, &clientRect);
+
+    // Compute the exact client dimensions.
+    // This is required for a correct projection matrix.
+    float clientWidth = static_cast<float>(clientRect.right - clientRect.left);
+    float clientHeight = static_cast<float>(clientRect.bottom - clientRect.top);
+
+    g_ProjectionMatrix = XMMatrixPerspectiveFovLH(XMConvertToRadians(45.0f), clientWidth / clientHeight, 0.1f, 100.0f);
+
+    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &g_ProjectionMatrix, 0, 0);
+
+    return true;
 }
