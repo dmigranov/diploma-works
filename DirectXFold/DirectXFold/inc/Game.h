@@ -1,4 +1,5 @@
 #pragma once
+#include <list>
 #include "Mesh.h"
 #include "PixelShader.h"
 #include "VertexShader.h"
@@ -70,9 +71,8 @@ private:
     // Vertex buffer data
     ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
     
-    Mesh *cube;
-    ID3D11Buffer* g_d3dVertexBuffer = nullptr;
-    ID3D11Buffer* g_d3dIndexBuffer = nullptr;
+    std::list<Mesh *> meshes;
+    Mesh* cube;
 
     // Shader data
     ID3D11VertexShader* g_d3dVertexShader = nullptr;
@@ -91,7 +91,7 @@ private:
     ID3D11Buffer* g_d3dConstantBuffers[NumConstantBuffers];
     //todo: создать отдельные классы-константбуфферы (три штуки), которые будут инкапс. все вещи для каждого этапа
 
-    XMMATRIX m_world;
+    XMMATRIX m_morph;
     XMMATRIX m_view;
     XMMATRIX m_proj;
 

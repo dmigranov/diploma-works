@@ -4,6 +4,12 @@
 Mesh::Mesh() : Mesh(XMMatrixIdentity())
 { }
 
+Mesh::~Mesh()
+{
+    SafeRelease(g_d3dIndexBuffer);
+    SafeRelease(g_d3dVertexBuffer);
+}
+
 Mesh::Mesh(XMMATRIX world)
 {
     auto &game = Game::GetInstance();

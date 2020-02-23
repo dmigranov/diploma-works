@@ -13,12 +13,14 @@ public:
     };
 
     Mesh();
+    ~Mesh();
     Mesh(XMMATRIX world);
 	void SetWorldMatrix(XMMATRIX world);
     void SetConstants(MeshConstantBuffer constantBuffer);
     void SetConstants(XMMATRIX world, XMMATRIX morph);
 
     void Render();
+        
 
 
     // Vertex data for a colored cube.
