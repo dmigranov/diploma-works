@@ -19,6 +19,8 @@ public:
     void SetConstants(MeshConstantBuffer constantBuffer);
     void SetConstants(XMMATRIX world, XMMATRIX morph);
     void Move(float x, float y, float z);
+    XMMATRIX GetWorldMatrix();
+
 
     void Render();
         

@@ -73,6 +73,11 @@ void Mesh::Move(float x, float y, float z)
         constantBuffer.m_world;
 }
 
+XMMATRIX Mesh::GetWorldMatrix()
+{
+    return constantBuffer.m_world;
+}
+
 void Mesh::Render()
 {
     // Input Assembler Stage - unique for every mesh
