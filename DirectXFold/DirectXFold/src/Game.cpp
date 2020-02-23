@@ -221,7 +221,7 @@ void Game::Update(float deltaTime)
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &m_view, 0, 0);
 
     DWORD t = timeGetTime();
-    m_world = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), cos(t/100.0));
+    m_world = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.8*cos(t/100.0));
 }
 
 void Game::Render()
@@ -250,14 +250,11 @@ void Game::Render()
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
     g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
 
-    cube->SetWorldMatrix(XMMatrixTranslation(-3, 0, 0));
-    cube->Render();
-    
-    cube2->SetWorldMatrix(m_world);
-    cube2->Render();
+    //cube->SetWorldMatrix(XMMatrixTranslation(-3, 0, 0));
+    //cube->Render();
 
-    {   //можно рисовать один и тот же меш используя разные матрицы, но как-то нелогично
-        cube->SetWorldMatrix(XMMatrixTranslation(4, 1, 1));
+    {   //можно рисовать один и тот же меш используя разные матрицы
+        cube->SetWorldMatrix(m_world);
         cube->Render();
     }
 
@@ -359,7 +356,7 @@ bool Game::LoadContent()
     }
 
     //loading shaders from global variables 
-    hr = g_d3dDevice->CreateVertexShader(g_vs, sizeof(g_vs), nullptr, &g_d3dVertexShader);
+    hr = g_d3dDevice->CreateVertexShader(g_mvs, sizeof(g_mvs), nullptr, &g_d3dVertexShader);
     if (FAILED(hr))
     {
         return false;
@@ -404,7 +401,6 @@ bool Game::LoadContent()
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);
 
     cube = new Mesh();
-    cube2 = new Mesh();
 
     return true;
 }
@@ -421,5 +417,4 @@ void Game::UnloadContent()
     SafeRelease(g_d3dVertexShader);
     SafeRelease(g_d3dPixelShader);
     delete cube;
-    delete cube2;
 }
