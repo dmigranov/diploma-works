@@ -7,7 +7,6 @@
 
 using namespace DirectX;
 
-
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 // Indicates to hybrid graphics systems to prefer the discrete part by default
@@ -38,7 +37,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
     freopen("CONOUT$", "w", stderr);
 
     Game &g_game = Game::GetInstance();
-
 
     // Register class and create window
     {
@@ -76,8 +74,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
         ShowWindow(hwnd, nCmdShow);
         // TODO: Change nCmdShow to SW_SHOWMAXIMIZED to default to fullscreen.
 
-        //SetWindowLongPtr(hwnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(g_game.get()));
-
         GetClientRect(hwnd, &rc);
 
         //тут, перед message loop, передаётся управление методу Init
@@ -110,7 +106,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
     }
     
     g_game.Cleanup();
-    //g_game.reset();
 
     CoUninitialize();
 
