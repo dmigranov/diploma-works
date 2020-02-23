@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Mesh.h"
 
-Mesh::Mesh(XMMATRIX world)
+Mesh::Mesh(XMMATRIX &world)
 {
     auto &game = Game::GetInstance();
     auto device = game.g_d3dDevice;
@@ -36,5 +36,10 @@ Mesh::Mesh(XMMATRIX world)
 
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
+    constantBuffer.m_world = world;
+}
+
+void Mesh::SetWorldMatrix(XMMATRIX &world)
+{
     constantBuffer.m_world = world;
 }

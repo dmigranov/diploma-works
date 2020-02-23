@@ -6,8 +6,8 @@ using namespace DirectX;
 class Mesh
 {
 public:
-    Mesh(XMMATRIX world);
-	void SetWorldMatrix(XMMATRIX m_world);
+    Mesh(XMMATRIX &world);
+	void SetWorldMatrix(XMMATRIX &world);
 
 	struct MeshConstantBuffer	//=Object Constant Buffer
 	{
