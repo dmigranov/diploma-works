@@ -85,6 +85,7 @@ private:
 
 	XMMATRIX m_proj;
 	XMMATRIX m_view;
+	bool m_viewDirty;
 
 	Rect m_viewport;
 

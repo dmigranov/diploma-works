@@ -4,7 +4,8 @@ using namespace DirectX::SimpleMath;
 
 Camera::Camera() : m_viewport(0.0f, 0.0f, 1.0f, 1.0f),
 m_pitch(0), m_yaw(0),
-m_lookAt(Vector3(0, 0, 0))
+m_lookAt(Vector3(0, 0, 0)),
+m_viewDirty(true)
 {}
 
 void Camera::SetViewport(Rect rect)
@@ -20,16 +21,17 @@ void Camera::SetOutputSize(double outputWidth, double outputHeight)
 
 const XMMATRIX& Camera::GetView()
 {
-	//todo: добавить булеву переменную - dirty flag
+	if (m_viewDirty)
+	{
+		float y = sinf(m_pitch);
+		float r = cosf(m_pitch);
+		float z = r * cosf(m_yaw);
+		float x = r * sinf(m_yaw);
 
-	float y = sinf(m_pitch);
-	float r = cosf(m_pitch);
-	float z = r * cosf(m_yaw);
-	float x = r * sinf(m_yaw);
+		Vector3 lookAt = m_position + Vector3(x, y, z);
 
-	Vector3 lookAt = m_position + Vector3(x, y, z);
-
-	m_view = XMMatrixLookAtLH(m_position, lookAt, Vector3::Up);
+		m_view = XMMatrixLookAtLH(m_position, lookAt, Vector3::Up);
+	}
 	return m_view;
 }
 
@@ -55,17 +57,19 @@ void Camera::RecalculateMatrixProj()
 void Camera::SetPosition(double x, double y, double z)
 {
 	m_position = Vector3(x, y, z);
+	m_viewDirty = true;
 }
 
 void Camera::SetPosition(Vector3 v)
 {
 	m_position = v;
+	m_viewDirty = true;
 }
 
 void Camera::SetLookAt(Vector3 v)
 {
 	m_lookAt = v;
-	GetView();
+	m_viewDirty = true;
 }
 
 void Camera::Move(Vector3 v)
@@ -73,6 +77,7 @@ void Camera::Move(Vector3 v)
 	Quaternion q = Quaternion::CreateFromYawPitchRoll(m_yaw, -m_pitch, 0.f);
 	Vector3 move = Vector3::Transform(v, q);
 	m_position += move;
+	m_viewDirty = true;
 }
 
 Vector3 Camera::GetPosition()
@@ -100,6 +105,7 @@ void Camera::ChangePitchYaw(double deltaPitch, double deltaYaw)
 	{
 		m_yaw += DirectX::XM_PI * 2.0f;
 	}
+	m_viewDirty = true;
 }
 
 void Camera::SetFovY(float fovY)
