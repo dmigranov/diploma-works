@@ -59,7 +59,8 @@ void Mesh::Render()
     deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
     deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
 
-    //DRAW
     //deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &(constantBuffer.m_world), 0, 0);
+    
+    //DRAW
     deviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
 }
