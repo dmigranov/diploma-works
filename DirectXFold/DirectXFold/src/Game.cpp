@@ -262,13 +262,13 @@ void Game::Render()
 
     cube->Render();
     
-    /*g_d3dDeviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
+    {   //можно рисовать один и тот же меш используя разные матрицы, но как-то нелогично
+        cube->SetWorldMatrix(XMMatrixTranslation(4, 1, 1));
+        cube->Render();
+    }
 
-    {
-        g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &XMMatrixTranslation(3, 0, 0), 0, 0);
-        g_d3dDeviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
-    }*/
-    
+
+
     Present();
 }
 
