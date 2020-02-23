@@ -6,9 +6,4 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
               _Ty=Camera
           ]
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<Camera> std::make_shared<Camera,>(void)"
-  main.cpp
-  Mesh.cpp
-  SimpleInputHandler.cpp
-  Создание кода...
-     Создается библиотека bin\DirectXFoldd.lib и объект bin\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe

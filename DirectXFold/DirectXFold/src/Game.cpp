@@ -303,7 +303,7 @@ void Game::Cleanup()
 bool Game::LoadContent()
 {
     assert(g_d3dDevice);
-
+    HRESULT hr;
     // Create an initialize the vertex buffer.
     D3D11_BUFFER_DESC vertexBufferDesc;
     ZeroMemory(&vertexBufferDesc, sizeof(D3D11_BUFFER_DESC));
@@ -318,7 +318,7 @@ bool Game::LoadContent()
     ZeroMemory(&resourceData, sizeof(D3D11_SUBRESOURCE_DATA));
     resourceData.pSysMem = g_Vertices; //A pointer to the data to initialize the buffer with.
 
-    HRESULT hr = g_d3dDevice->CreateBuffer(&vertexBufferDesc, &resourceData, &g_d3dVertexBuffer);
+    hr = g_d3dDevice->CreateBuffer(&vertexBufferDesc, &resourceData, &g_d3dVertexBuffer);
     if (FAILED(hr))
     {
         return false;
@@ -339,7 +339,8 @@ bool Game::LoadContent()
     {
         return false;
     }
-
+    
+    //cube = new Mesh();
 
     // Create the constant buffers for the variables defined in the vertex shader.
     D3D11_BUFFER_DESC constantBufferDesc;
@@ -426,4 +427,5 @@ void Game::UnloadContent()
     SafeRelease(g_d3dInputLayout);
     SafeRelease(g_d3dVertexShader);
     SafeRelease(g_d3dPixelShader);
+    delete cube;
 }
