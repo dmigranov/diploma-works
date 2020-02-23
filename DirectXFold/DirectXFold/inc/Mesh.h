@@ -8,12 +8,13 @@ class Mesh
 public:
     Mesh();
     Mesh(XMMATRIX world);
-	void SetWorldMatrix(XMMATRIX world);
+	void SetConstants(XMMATRIX world);
     void Render();
 
 	struct MeshConstantBuffer	//=Object Constant Buffer
 	{
 		XMMATRIX m_world;
+        XMMATRIX m_morph;
 	};
 
     // Vertex data for a colored cube.

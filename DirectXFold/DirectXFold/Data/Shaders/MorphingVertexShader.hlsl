@@ -11,6 +11,7 @@ cbuffer PerFrame : register(b1)
 cbuffer PerObject : register(b2)
 {
 	matrix worldMatrix;
+    matrix morphMatrix;
 }
 
 //POSITION and COLOR are semantics that are used to link vs variables to ps variables

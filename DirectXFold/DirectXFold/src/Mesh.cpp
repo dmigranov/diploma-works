@@ -42,12 +42,14 @@ Mesh::Mesh(XMMATRIX world)
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
     constantBuffer.m_world = world;
+    constantBuffer.m_morph = XMMatrixIdentity();
 }
 
 
-void Mesh::SetWorldMatrix(XMMATRIX world)
+void Mesh::SetConstants(XMMATRIX world)
 {
     constantBuffer.m_world = world;
+    //todo
 }
 
 void Mesh::Render()
