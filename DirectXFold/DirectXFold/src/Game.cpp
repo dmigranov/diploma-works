@@ -394,14 +394,14 @@ bool Game::LoadContent()
     float clientWidth = static_cast<float>(clientRect.right - clientRect.left);
     float clientHeight = static_cast<float>(clientRect.bottom - clientRect.top);
 
-    //g_ProjectionMatrix = XMMatrixPerspectiveFovLH(XMConvertToRadians(45.0f), clientWidth / clientHeight, 0.1f, 100.0f);
+    m_proj = XMMatrixPerspectiveFovLH(XMConvertToRadians(45.0f), clientWidth / clientHeight, 0.1f, 100.0f);
    
     m_camera->SetPosition(0, 2, -10);
     m_camera->SetFovY(XM_PI / 4.f);
     m_camera->SetOutputSize(clientWidth, clientHeight);
     m_camera->SetNearPlane(0.1f);
     m_camera->SetFarPlane(100.f);
-    //m_proj = 
+    //m_proj = m_camera->GetProj();
 
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);
 

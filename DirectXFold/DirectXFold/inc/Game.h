@@ -90,16 +90,15 @@ private:
     ID3D11Buffer* g_d3dConstantBuffers[NumConstantBuffers];
     //todo: создать отдельные классы-константбуфферы (три штуки), которые будут инкапс. все вещи для каждого этапа
 
+
     XMMATRIX m_world;
     XMMATRIX m_view;
     XMMATRIX m_proj;
-
 
     // Timer
     DWORD                                           previousTime = timeGetTime();
     const float                                     targetFramerate = 30.0f;
     const float                                     maxTimeStep = 1.0f / targetFramerate;
-
 
 
     VertexPosColor g_Vertices[8] =
