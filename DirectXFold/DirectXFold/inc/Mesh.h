@@ -1,4 +1,6 @@
 #pragma once
+#include "Game.h"
+
 using namespace DirectX;
 
 class Mesh

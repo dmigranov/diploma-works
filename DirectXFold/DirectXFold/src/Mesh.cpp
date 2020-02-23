@@ -3,6 +3,9 @@
 
 Mesh::Mesh(XMMATRIX world)
 {
+    auto &game = Game::GetInstance();
+    auto device = game.g_d3dDevice;
+
     // Create and initialize the vertex buffer.
     D3D11_BUFFER_DESC vertexBufferDesc;
     ZeroMemory(&vertexBufferDesc, sizeof(D3D11_BUFFER_DESC));
@@ -17,7 +20,7 @@ Mesh::Mesh(XMMATRIX world)
     ZeroMemory(&resourceData, sizeof(D3D11_SUBRESOURCE_DATA));
     resourceData.pSysMem = g_Vertices; //A pointer to the data to initialize the buffer with.
 
-    //g_d3dDevice->CreateBuffer(&vertexBufferDesc, &resourceData, &g_d3dVertexBuffer);
+    device->CreateBuffer(&vertexBufferDesc, &resourceData, &g_d3dVertexBuffer);
 
 
 
@@ -31,7 +34,7 @@ Mesh::Mesh(XMMATRIX world)
     indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
     resourceData.pSysMem = g_Indicies;
 
-    //g_d3dDevice->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
+    device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
     constantBuffer.m_world = world;
 }

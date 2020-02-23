@@ -32,6 +32,8 @@ public:
 
 
 private:
+    friend class Mesh;
+
     Game() noexcept;
     Game(Game const&) = delete;
     Game& operator=(Game const&) = delete;
