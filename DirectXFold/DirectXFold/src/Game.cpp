@@ -221,7 +221,7 @@ void Game::Update(float deltaTime)
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &m_view, 0, 0);
 
     DWORD t = timeGetTime();
-    m_world = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.8*cos(t/100.0));
+    m_world = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 1.5*cos(t/100.0));
 }
 
 void Game::Render()

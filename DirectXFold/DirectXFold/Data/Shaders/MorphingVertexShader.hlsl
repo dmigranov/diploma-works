@@ -44,8 +44,8 @@ VertexShaderOutput MorphingVertexShader(AppData IN)
         { 0, 0, 0, 1 }
     };
 	//newWorld[1][1] *= 2;
-    //matrix newWorld = worldMatrix * lerp(eye, morphMatrix, alpha);
-    matrix mvp = mul(projectionMatrix, mul(viewMatrix, morphMatrix));
+    matrix newWorld = lerp(eye, morphMatrix, alpha) * worldMatrix;
+    matrix mvp = mul(projectionMatrix, mul(viewMatrix, newWorld));
 	OUT.position = mul(mvp, IN.position);
 	OUT.color = float4(IN.color, 1.0f);
  
