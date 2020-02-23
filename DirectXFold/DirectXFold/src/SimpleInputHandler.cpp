@@ -40,10 +40,10 @@ void SimpleInputHandler::HandleKeyboard()
         move.z -= 1.f;
 
     if (kb.Left || kb.A)
-        move.x += 1.f;
+        move.x -= 1.f;
 
     if (kb.Right || kb.D)
-        move.x -= 1.f;
+        move.x += 1.f;
 
     move *= MOVEMENT_GAIN;
     m_camera->Move(move);
@@ -58,7 +58,7 @@ void SimpleInputHandler::HandleMouse()
         Vector3 delta = Vector3(float(mouse.x), float(mouse.y), 0.f)
             * ROTATION_GAIN;
 
-        m_camera->ChangePitchYaw(-delta.y, -delta.x);
+        m_camera->ChangePitchYaw(-delta.y, delta.x);
     }
 
     m_mouse->SetMode(mouse.leftButton ? Mouse::MODE_RELATIVE : Mouse::MODE_ABSOLUTE);
