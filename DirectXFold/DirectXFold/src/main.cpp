@@ -7,10 +7,6 @@
 
 using namespace DirectX;
 
-namespace
-{
-    std::unique_ptr<Game> g_game;
-};
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
@@ -41,7 +37,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
     freopen("CONOUT$", "w", stdout);
     freopen("CONOUT$", "w", stderr);
 
-    g_game = std::make_unique<Game>();
+    Game &g_game = Game::GetInstance();
+
 
     // Register class and create window
     {
@@ -61,7 +58,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 
         // Create window
         int w, h;
-        g_game->GetDefaultSize(w, h);
+        g_game.GetDefaultSize(w, h);
 
         RECT rc = { 0, 0, static_cast<LONG>(w), static_cast<LONG>(h) };
 
@@ -79,12 +76,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
         ShowWindow(hwnd, nCmdShow);
         // TODO: Change nCmdShow to SW_SHOWMAXIMIZED to default to fullscreen.
 
-        SetWindowLongPtr(hwnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(g_game.get()));
+        //SetWindowLongPtr(hwnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(g_game.get()));
 
         GetClientRect(hwnd, &rc);
 
         //тут, перед message loop, передаётся управление методу Init
-        if (g_game->Initialize(hwnd, rc.right - rc.left, rc.bottom - rc.top) != 0)
+        if (g_game.Initialize(hwnd, rc.right - rc.left, rc.bottom - rc.top) != 0)
         {
             MessageBox(nullptr, TEXT("Failed to initialize DirectX device and swap chain."), TEXT("Error"), MB_OK);
             return -1;
@@ -108,12 +105,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
         }
         else
         {
-            g_game->Tick();	//update & render
+            g_game.Tick();	//update & render
         }
     }
     
-    g_game->Cleanup();
-    g_game.reset();
+    g_game.Cleanup();
+    //g_game.reset();
 
     CoUninitialize();
 
@@ -135,7 +132,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     static bool s_fullscreen = false;
     // TODO: Set s_fullscreen to true if defaulting to fullscreen.
 
-    auto game = reinterpret_cast<Game*>(GetWindowLongPtr(hWnd, GWLP_USERDATA));
+    Game& g_game = Game::GetInstance();
 
     switch (message)
     {

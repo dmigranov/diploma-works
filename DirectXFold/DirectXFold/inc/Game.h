@@ -17,7 +17,7 @@ struct VertexPosColor
 class Game
 {
 public:
-	Game() noexcept;
+    static Game& GetInstance();
 
 
     // Initialization and management
@@ -32,6 +32,9 @@ public:
 
 
 private:
+    Game() noexcept;
+    Game(Game const&) = delete;
+    Game& operator=(Game const&) = delete;
 
     void Update(float deltaTime);
     void Render();

@@ -9,6 +9,12 @@ Game::Game() noexcept :
     m_camera = std::make_shared<Camera>();
 }
 
+Game& Game::GetInstance()
+{
+    static Game game;
+    return game;
+}
+
 int Game::Initialize(HWND window, int width, int height)
 {
     /*
