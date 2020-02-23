@@ -242,10 +242,6 @@ void Game::Render()
     //Input Assembler Stage - common
 
     g_d3dDeviceContext->IASetInputLayout(g_d3dInputLayout);
-    const UINT vertexStride = sizeof(VertexPosColor);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
-    const UINT offset = 0;
-    g_d3dDeviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
-    g_d3dDeviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
     g_d3dDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
     //Vertex Shader Stage
@@ -263,14 +259,14 @@ void Game::Render()
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
     g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
 
-
-    //DRAW
-    g_d3dDeviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
+    cube->Render();
+    
+    /*g_d3dDeviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
 
     {
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &XMMatrixTranslation(3, 0, 0), 0, 0);
         g_d3dDeviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
-    }
+    }*/
     
     Present();
 }
@@ -306,7 +302,7 @@ bool Game::LoadContent()
     assert(g_d3dDevice);
     HRESULT hr;
     // Create an initialize the vertex buffer.
-    D3D11_BUFFER_DESC vertexBufferDesc;
+    /*D3D11_BUFFER_DESC vertexBufferDesc;
     ZeroMemory(&vertexBufferDesc, sizeof(D3D11_BUFFER_DESC));
 
     vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;  //how the buffer is bound to pipeline
@@ -340,9 +336,9 @@ bool Game::LoadContent()
     {
         return false;
     }
+    */
     
-    
-    //cube = new Mesh();
+    cube = new Mesh();
 
     // Create the constant buffers for the variables defined in the vertex shader.
     D3D11_BUFFER_DESC constantBufferDesc;

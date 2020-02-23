@@ -53,7 +53,13 @@ void Mesh::SetWorldMatrix(XMMATRIX world)
 
 void Mesh::Render()
 {
+    // Input Assembler Stage - unique for every mesh
+    const UINT vertexStride = sizeof(VertexPosColor);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
+    const UINT offset = 0;
+    deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
+    deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
 
-    deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &(constantBuffer.m_world), 0, 0);
+    //DRAW
+    //deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &(constantBuffer.m_world), 0, 0);
     deviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
 }
