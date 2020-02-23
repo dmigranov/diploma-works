@@ -9,8 +9,7 @@ public:
 	{
 		Rect(float x = 0.0f, float y = 0.0f, float w = 1.0f, float h = 1.0f)
 			: x(x), y(y), w(w), h(h)
-		{
-		}
+		{ }
 
 		float x, y, w, h;
 	};
@@ -36,11 +35,6 @@ public:
 	// Установка дальней отсекающей плоскости
 	void SetFarPlane(float farPlane);
 
-	// Set/Get orthographic mode (true) or perspective mode (false)
-	void	SetOrthographic(bool isOrthographic);
-
-
-
 	/**
 	* @brief Where on the screen is the camera rendered in normalized (!!!) coordinates
 	* http://www.gamedev.net/page/resources/_/technical/game-programming/a-room-with-a-view-r3901.
@@ -49,7 +43,7 @@ public:
 	void SetViewport(Rect rect = Rect(0.0f, 0.0f, 1.0f, 1.0f));
 	Rect GetViewport();
 
-	void	SetOutputSize(double outputWidth, double outputHeight);
+	void SetOutputSize(double outputWidth, double outputHeight);
 
 
 	const Matrix& GetView();
@@ -88,11 +82,6 @@ private:
 	float m_fovY;
 	float m_nearPlane;
 	float m_farPlane;
-
-	// Is the camera orthographic (true) or perspective (false)?
-	bool	m_isOrthographic;
-	// Camera's half-size when in orthographic mode.
-	double	m_orthographicSize;
 
 	XMMATRIX m_proj;
 	XMMATRIX m_view;

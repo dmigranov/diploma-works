@@ -31,9 +31,6 @@ public:
     void GetDefaultSize(int& width, int& height);
 
 
-
-
-
 private:
 
     void Update(float deltaTime);

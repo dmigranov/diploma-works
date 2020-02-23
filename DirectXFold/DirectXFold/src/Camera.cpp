@@ -3,7 +3,6 @@
 using namespace DirectX::SimpleMath;
 
 Camera::Camera() : m_viewport(0.0f, 0.0f, 1.0f, 1.0f),
-m_isOrthographic(false),
 m_pitch(0), m_yaw(0),
 m_lookAt(Vector3(0, 0, 0))
 {}
@@ -21,6 +20,8 @@ void Camera::SetOutputSize(double outputWidth, double outputHeight)
 
 const Matrix& Camera::GetView()
 {
+	//todo: добавить булеву переменную - dirty flag
+
 	float y = sinf(m_pitch);
 	float r = cosf(m_pitch);
 	float z = r * cosf(m_yaw);
@@ -46,21 +47,9 @@ void Camera::RecalculateMatrixProj()
 	double vw = m_viewport.w;
 	double vh = m_viewport.h;
 
-	double aspect = (sw * vw) / (sh * vh);
+	float aspect = (float)((sw * vw) / (sh * vh));
 	
-	//TODO: ИСПРАВИТЬ МАТРИЦЫ, ТК ТУТ ОНИ РХ А НАДО ЛХ
-
-	if (m_isOrthographic)
-	{
-		double h = 2 * m_orthographicSize;
-		double w = h * aspect;
-
-		m_proj = Matrix::CreateOrthographic((float)w, (float)h, m_nearPlane, m_farPlane);
-	}
-	else
-	{
-		m_proj = Matrix::CreatePerspectiveFieldOfView(m_fovY, (float)aspect, m_nearPlane, m_farPlane);
-	}
+	m_proj = XMMatrixPerspectiveFovLH(m_fovY, aspect, m_nearPlane, m_farPlane);
 }
 
 void Camera::SetPosition(double x, double y, double z)
@@ -131,9 +120,4 @@ void Camera::SetNearPlane(float nearPlane)
 void Camera::SetFarPlane(float farPlane)
 {
 	m_farPlane = farPlane;
-}
-
-void Camera::SetOrthographic(bool isOrthographic)
-{
-	m_isOrthographic = isOrthographic;
 }

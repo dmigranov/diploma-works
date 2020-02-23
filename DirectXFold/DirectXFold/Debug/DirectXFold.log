@@ -1,4 +1,14 @@
-﻿  Game.cpp
+﻿  Camera.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(25,17): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(26,17): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(27,21): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(28,21): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(57,29): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(57,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(57,23): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(73,59): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(73,52): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(228,70): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1590,59): warning C4316: "std::_Ref_count_obj2<_Ty>": объект, размещенный в куче, может не быть выровнен 16
           with
@@ -6,4 +16,12 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
               _Ty=Camera
           ]
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<Camera> std::make_shared<Camera,>(void)"
+  SimpleInputHandler.cpp
+  main.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(2054,59): warning C4316: "Game": объект, размещенный в куче, может не быть выровнен 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\main.cpp(44): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::unique_ptr<Game,std::default_delete<Game>> std::make_unique<Game,,0>(void)"
+  Создание кода...
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(39): warning C4172: возвращение адреса локальной или временной переменной
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(33): warning C4172: возвращение адреса локальной или временной переменной
+     
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe
