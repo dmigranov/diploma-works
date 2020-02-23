@@ -264,6 +264,11 @@ void Game::Render()
     //DRAW
     g_d3dDeviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
 
+    {
+    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &XMMatrixTranslation(2, 0, 0), 0, 0);
+    g_d3dDeviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
+    }
+    
     Present();
 }
 
@@ -361,7 +366,7 @@ bool Game::LoadContent()
     }
 
     //loading shaders from global variables 
-    hr = g_d3dDevice->CreateVertexShader(g_mvs, sizeof(g_mvs), nullptr, &g_d3dVertexShader);
+    hr = g_d3dDevice->CreateVertexShader(g_vs, sizeof(g_vs), nullptr, &g_d3dVertexShader);
     if (FAILED(hr))
     {
         return false;
