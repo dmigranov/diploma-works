@@ -1,3 +1,5 @@
+#pragma once
+#include "Mesh.h"
 #include "PixelShader.h"
 #include "VertexShader.h"
 #include "MorphingVertexShader.h"
@@ -75,6 +77,8 @@ private:
 
     // Vertex buffer data
     ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
+    
+    Mesh *cube;
     ID3D11Buffer* g_d3dVertexBuffer = nullptr;
     ID3D11Buffer* g_d3dIndexBuffer = nullptr;
 
