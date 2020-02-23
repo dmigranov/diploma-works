@@ -9,7 +9,7 @@ using namespace DirectX::SimpleMath;
 const float MOVEMENT_GAIN = 0.29f;
 const float ROTATION_GAIN = 0.012f;
 
-SimpleInputHandler::SimpleInputHandler(std::shared_ptr<Camera> camera, HWND window)
+SimpleInputHandler::SimpleInputHandler(std::shared_ptr<Camera> camera, std::function<void()> func, HWND window)
 {
     m_keyboard = std::make_unique<Keyboard>();
     m_mouse = std::make_unique<Mouse>();

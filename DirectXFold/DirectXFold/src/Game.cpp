@@ -185,8 +185,8 @@ int Game::Initialize(HWND window, int width, int height)
     {
         return -1;
     }
-
-    m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, m_hwnd);
+    //SimpleInputHandler(m_camera, , m_hwnd);
+    m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, [this]() { this->cube-> }, m_hwnd);
 
     return 0;
 }
@@ -368,7 +368,7 @@ bool Game::LoadContent()
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);
 
     cube = new Mesh();
-
+    meshes.push_back(cube);
     return true;
 }
 

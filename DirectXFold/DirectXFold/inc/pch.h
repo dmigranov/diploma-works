@@ -13,6 +13,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include <list>
 
 // Link library dependencies
 #pragma comment(lib, "d3d11.lib")

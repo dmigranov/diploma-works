@@ -1,5 +1,4 @@
 #pragma once
-#include <list>
 #include "Mesh.h"
 #include "PixelShader.h"
 #include "VertexShader.h"
