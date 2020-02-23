@@ -228,8 +228,9 @@ void Game::Update(float deltaTime)
     g_WorldMatrix = XMMatrixRotationAxis(rotationAxis, XMConvertToRadians(angle));*/
 
     DWORD t = timeGetTime();
-    m_world = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), cos(t/100.0));
-    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &m_world, 0, 0);
+    //m_world = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), cos(t/100.0));
+    cube->SetWorldMatrix(XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), cos(t / 100.0)));
+    //g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &m_world, 0, 0);
 }
 
 void Game::Render()
