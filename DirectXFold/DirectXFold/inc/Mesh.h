@@ -27,7 +27,7 @@ private:
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
 	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
     ID3D11DeviceContext* deviceContext;
-    ID3D11Buffer** d3dConstantBufferPtr;
+    ID3D11Resource* d3dConstantBuffer;
 	MeshConstantBuffer constantBuffer;
 
     VertexPosColor g_Vertices[8] =

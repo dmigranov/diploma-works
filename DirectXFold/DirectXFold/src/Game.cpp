@@ -337,8 +337,7 @@ bool Game::LoadContent()
         return false;
     }
     */
-    
-    cube = new Mesh();
+ 
 
     // Create the constant buffers for the variables defined in the vertex shader.
     D3D11_BUFFER_DESC constantBufferDesc;
@@ -410,6 +409,8 @@ bool Game::LoadContent()
     m_camera->SetFarPlane(100.f);
     m_proj = m_camera->GetProj();
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);
+
+    cube = new Mesh();
 
     return true;
 }
