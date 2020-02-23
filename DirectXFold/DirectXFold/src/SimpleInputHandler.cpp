@@ -45,11 +45,10 @@ void SimpleInputHandler::HandleKeyboard()
 
     if (kb.Right || kb.D)
         move.x += 1.f;
-
     move *= MOVEMENT_GAIN;
     m_camera->Move(move);
-    if(kb.Q)
-        func();
+
+    func();
 }
 
 void SimpleInputHandler::HandleMouse()

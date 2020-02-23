@@ -185,8 +185,13 @@ int Game::Initialize(HWND window, int width, int height)
     {
         return -1;
     }
-    //SimpleInputHandler(m_camera, , m_hwnd);
-    m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, [this]() { this->cube->Move(0.2f, 0.f, 0.f); }, m_hwnd);
+    m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, [this]() { 
+        auto ks = Keyboard::Get().GetState();
+        if(ks.U)
+            this->cube->Move(0.f, 0.2f, 0.f); 
+        if (ks.J)
+            this->cube->Move(0.f, -0.2f, 0.f);
+    }, m_hwnd);
 
     return 0;
 }
@@ -258,11 +263,7 @@ void Game::Render()
         cube->SetConstants(XMMatrixTranslation(-3, 0, 0), m_morph);
         cube->Render();
     }
-
-    {
-        cube->SetConstants(XMMatrixTranslation(2, 0, -1), m_morph);
-        cube->Render();
-    }*/
+    */
 
     Present();
 }
