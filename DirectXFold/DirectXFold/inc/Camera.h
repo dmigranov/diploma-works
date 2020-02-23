@@ -46,8 +46,8 @@ public:
 	void SetOutputSize(double outputWidth, double outputHeight);
 
 
-	const Matrix& GetView();
-	const Matrix& GetProj();
+	const XMMATRIX& GetView();
+	const XMMATRIX& GetProj();
 
 	/**
 	* @brief Returns a ray going from camera through a screen point.

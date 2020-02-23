@@ -18,7 +18,7 @@ void Camera::SetOutputSize(double outputWidth, double outputHeight)
 	m_outputHeight = outputHeight;
 }
 
-const Matrix& Camera::GetView()
+const XMMATRIX& Camera::GetView()
 {
 	//todo: добавить булеву переменную - dirty flag
 
@@ -33,7 +33,7 @@ const Matrix& Camera::GetView()
 	return m_view;
 }
 
-const Matrix& Camera::GetProj()
+const XMMATRIX& Camera::GetProj()
 {
 	RecalculateMatrixProj();
 	return m_proj;
@@ -104,12 +104,12 @@ void Camera::ChangePitchYaw(double deltaPitch, double deltaYaw)
 
 void Camera::SetFovY(float fovY)
 {
-	if (fovY < 1.0f)
+	/*if (fovY < 1.0f)
 		m_fovY = 1.0f;
 	else if (fovY > 179.0f)
 		m_fovY = 179.0f;
-	else
-		m_fovY = fovY;
+	else*/
+	m_fovY = fovY;
 }
 
 void Camera::SetNearPlane(float nearPlane)

@@ -29,6 +29,7 @@ struct VertexShaderOutput
 //entry point
 VertexShaderOutput MorphingVertexShader(AppData IN)
 {
+	//todo: транспонировать? так как матрицы row-major, а тут надо column-major
 	VertexShaderOutput OUT;
     
 	float3 p1 = IN.position;
