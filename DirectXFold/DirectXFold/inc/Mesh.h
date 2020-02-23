@@ -6,16 +6,20 @@ using namespace DirectX;
 class Mesh
 {
 public:
+    struct MeshConstantBuffer	//=Object Constant Buffer
+    {
+        XMMATRIX m_world;
+        XMMATRIX m_morph;
+    };
+
     Mesh();
     Mesh(XMMATRIX world);
-	void SetConstants(XMMATRIX world);
+	void SetWorldMatrix(XMMATRIX world);
+    void SetConstants(MeshConstantBuffer constantBuffer);
+    void SetConstants(XMMATRIX world, XMMATRIX morph);
+
     void Render();
 
-	struct MeshConstantBuffer	//=Object Constant Buffer
-	{
-		XMMATRIX m_world;
-        XMMATRIX m_morph;
-	};
 
     // Vertex data for a colored cube.
     struct VertexPosColor

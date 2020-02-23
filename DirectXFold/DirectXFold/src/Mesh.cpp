@@ -46,10 +46,9 @@ Mesh::Mesh(XMMATRIX world)
 }
 
 
-void Mesh::SetConstants(XMMATRIX world)
+void Mesh::SetWorldMatrix(XMMATRIX world)
 {
     constantBuffer.m_world = world;
-    //todo
 }
 
 void Mesh::Render()
