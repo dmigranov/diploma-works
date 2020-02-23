@@ -220,17 +220,8 @@ void Game::Update(float deltaTime)
     m_view = m_camera->GetView();
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &m_view, 0, 0);
 
-
-    /*static float angle = 0.0f;
-    angle += 90.0f * deltaTime;
-    XMVECTOR rotationAxis = XMVectorSet(0, 1, 0, 0);
-
-    g_WorldMatrix = XMMatrixRotationAxis(rotationAxis, XMConvertToRadians(angle));*/
-
     DWORD t = timeGetTime();
-    //m_world = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), cos(t/100.0));
-    cube->SetWorldMatrix(XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), cos(t / 100.0)));
-    //g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &m_world, 0, 0);
+    m_world = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), cos(t/100.0));
 }
 
 void Game::Render()
@@ -260,6 +251,7 @@ void Game::Render()
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
     g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
 
+    cube->SetWorldMatrix(m_world);
     cube->Render();
     
     {   //можно рисовать один и тот же меш используя разные матрицы, но как-то нелогично
