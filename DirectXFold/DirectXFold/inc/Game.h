@@ -8,14 +8,6 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-// Vertex data for a colored cube.
-struct VertexPosColor
-{
-    XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
-    XMFLOAT3 Color;
-};
-
-
 class Game
 {
 public:

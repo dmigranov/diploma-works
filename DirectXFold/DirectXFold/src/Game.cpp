@@ -254,7 +254,7 @@ void Game::Render()
     //cube->Render();
 
     {   //можно рисовать один и тот же меш используя разные матрицы
-        cube->SetWorldMatrix(m_world);
+        cube->SetConstants(m_world);
         cube->Render();
     }
 
@@ -349,6 +349,7 @@ bool Game::LoadContent()
     {
         return false;
     }
+    constantBufferDesc.ByteWidth = sizeof(Mesh::MeshConstantBuffer);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dConstantBuffers[CB_Object]);
     if (FAILED(hr))
     {
@@ -371,8 +372,8 @@ bool Game::LoadContent()
     //ID3D11InputLayout is used to define how the vertex data attached to the input-assembler stage is layed out in memory
     D3D11_INPUT_ELEMENT_DESC vertexLayoutDesc[] =
     {
-        { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(VertexPosColor, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        { "COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, offsetof(VertexPosColor, Color), D3D11_INPUT_PER_VERTEX_DATA, 0 }
+        { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
+        { "COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Color), D3D11_INPUT_PER_VERTEX_DATA, 0 }
     };
 
     hr = g_d3dDevice->CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs), &g_d3dInputLayout);
