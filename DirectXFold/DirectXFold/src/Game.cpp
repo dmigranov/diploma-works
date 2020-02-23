@@ -214,8 +214,8 @@ void Game::Update(float deltaTime)
     XMVECTOR eyePosition = Vector4(0, 2, -10, 1);
     XMVECTOR focusPoint = Vector4(0, 0, 0, 1);
     XMVECTOR upDirection = Vector4(0, 1, 0, 1);
-    g_ViewMatrix = XMMatrixLookAtLH(eyePosition, focusPoint, upDirection);
-    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &g_ViewMatrix, 0, 0);
+    m_view = XMMatrixLookAtLH(eyePosition, focusPoint, upDirection);
+    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &m_view, 0, 0);
 
 
     /*static float angle = 0.0f;
@@ -225,8 +225,8 @@ void Game::Update(float deltaTime)
     g_WorldMatrix = XMMatrixRotationAxis(rotationAxis, XMConvertToRadians(angle));*/
 
     DWORD t = timeGetTime();
-    g_WorldMatrix = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), cos(t/100.0));
-    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &g_WorldMatrix, 0, 0);
+    m_world = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), cos(t/100.0));
+    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &m_world, 0, 0);
 }
 
 void Game::Render()
@@ -394,11 +394,16 @@ bool Game::LoadContent()
     float clientWidth = static_cast<float>(clientRect.right - clientRect.left);
     float clientHeight = static_cast<float>(clientRect.bottom - clientRect.top);
 
-    g_ProjectionMatrix = XMMatrixPerspectiveFovLH(XMConvertToRadians(45.0f), clientWidth / clientHeight, 0.1f, 100.0f);
+    //g_ProjectionMatrix = XMMatrixPerspectiveFovLH(XMConvertToRadians(45.0f), clientWidth / clientHeight, 0.1f, 100.0f);
    
-    //todo: вставить иницирование параметров камеры сюда
+    m_camera->SetPosition(0, 2, -10);
+    m_camera->SetFovY(XM_PI / 4.f);
+    m_camera->SetOutputSize(clientWidth, clientHeight);
+    m_camera->SetNearPlane(0.1f);
+    m_camera->SetFarPlane(100.f);
+    //m_proj = 
 
-    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &g_ProjectionMatrix, 0, 0);
+    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);
 
     return true;
 }

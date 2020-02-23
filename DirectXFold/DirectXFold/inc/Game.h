@@ -90,9 +90,9 @@ private:
     ID3D11Buffer* g_d3dConstantBuffers[NumConstantBuffers];
     //todo: создать отдельные классы-константбуфферы (три штуки), которые будут инкапс. все вещи для каждого этапа
 
-    XMMATRIX g_WorldMatrix;
-    XMMATRIX g_ViewMatrix;
-    XMMATRIX g_ProjectionMatrix;
+    XMMATRIX m_world;
+    XMMATRIX m_view;
+    XMMATRIX m_proj;
 
 
     // Timer
