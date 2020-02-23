@@ -78,7 +78,7 @@ private:
     // Vertex buffer data
     ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
     
-    Mesh *cube;
+    Mesh *cube, *cube2;
     ID3D11Buffer* g_d3dVertexBuffer = nullptr;
     ID3D11Buffer* g_d3dIndexBuffer = nullptr;
 
@@ -99,7 +99,6 @@ private:
     ID3D11Buffer* g_d3dConstantBuffers[NumConstantBuffers];
     //todo: создать отдельные классы-константбуфферы (три штуки), которые будут инкапс. все вещи для каждого этапа
 
-
     XMMATRIX m_world;
     XMMATRIX m_view;
     XMMATRIX m_proj;
@@ -109,33 +108,8 @@ private:
     const float                                     targetFramerate = 30.0f;
     const float                                     maxTimeStep = 1.0f / targetFramerate;
 
-
-    VertexPosColor g_Vertices[8] =
-    {
-        { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
-        { XMFLOAT4(-1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
-        { XMFLOAT4(1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
-        { XMFLOAT4(1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT3(1.0f, 0.0f, 0.0f) }, // 3
-        { XMFLOAT4(-1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, 1.0f) }, // 4
-        { XMFLOAT4(-1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT3(0.0f, 1.0f, 1.0f) }, // 5
-        { XMFLOAT4(1.0f,  1.0f,  1.0f, 1.0f), XMFLOAT3(1.0f, 1.0f, 1.0f) }, // 6
-        { XMFLOAT4(1.0f, -1.0f,  1.0f, 1.0f), XMFLOAT3(1.0f, 0.0f, 1.0f) }  // 7
-    };
-
-    WORD g_Indicies[36] =
-    {
-        0, 1, 2, 0, 2, 3,
-        4, 6, 5, 4, 7, 6,
-        4, 5, 1, 4, 1, 0,
-        3, 2, 6, 3, 6, 7,
-        1, 5, 6, 1, 6, 2,
-        4, 0, 3, 4, 3, 7
-    };
-
-
     // Input
     std::unique_ptr<InputHandler>         m_inputHandler;
     // Camera
     std::shared_ptr<Camera>               m_camera;
-
 };
