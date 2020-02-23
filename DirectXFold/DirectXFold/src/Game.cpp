@@ -265,8 +265,8 @@ void Game::Render()
     g_d3dDeviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
 
     {
-    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &XMMatrixTranslation(2, 0, 0), 0, 0);
-    g_d3dDeviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
+        g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Object], 0, nullptr, &XMMatrixTranslation(3, 0, 0), 0, 0);
+        g_d3dDeviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
     }
     
     Present();

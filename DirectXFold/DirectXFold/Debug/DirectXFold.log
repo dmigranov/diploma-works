@@ -1,12 +1,2 @@
-﻿  Game.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(229,64): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1590,59): warning C4316: "std::_Ref_count_obj2<_Ty>": объект, размещенный в куче, может не быть выровнен 16
-          with
-          [
-              _Ty=Camera
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<Camera> std::make_shared<Camera,>(void)"
-  Mesh.cpp
-  Создание кода...
-     
+﻿  Mesh.cpp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe
