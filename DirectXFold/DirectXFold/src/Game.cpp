@@ -221,7 +221,7 @@ void Game::Update(float deltaTime)
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &m_view, 0, 0);
 
     DWORD t = timeGetTime();
-    m_world = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 1.5*cos(t/100.0));
+    m_world = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.4*cos(t/100.0));
 }
 
 void Game::Render()
@@ -250,11 +250,14 @@ void Game::Render()
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
     g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
 
-    //cube->SetWorldMatrix(XMMatrixTranslation(-3, 0, 0));
-    //cube->Render();
 
     {   //можно рисовать один и тот же меш используя разные матрицы
-        cube->SetConstants(XMMatrixTranslation(1, 0, 0), m_world);
+        cube->SetConstants(XMMatrixTranslation(-3, 0, 0), m_world);
+        cube->Render();
+    }
+
+    {   //можно рисовать один и тот же меш используя разные матрицы
+        cube->SetConstants(XMMatrixTranslation(2, 0, -1), m_world);
         cube->Render();
     }
 
