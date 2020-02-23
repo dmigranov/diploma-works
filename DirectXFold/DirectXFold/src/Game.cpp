@@ -239,11 +239,12 @@ void Game::Render()
 
     Clear(Colors::YellowGreen, 1.0f, 0);
 
-    //Input Assembler Stage
+    //Input Assembler Stage - common
+
+    g_d3dDeviceContext->IASetInputLayout(g_d3dInputLayout);
     const UINT vertexStride = sizeof(VertexPosColor);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
     const UINT offset = 0;
     g_d3dDeviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
-    g_d3dDeviceContext->IASetInputLayout(g_d3dInputLayout);
     g_d3dDeviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
     g_d3dDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
@@ -317,7 +318,7 @@ bool Game::LoadContent()
     D3D11_SUBRESOURCE_DATA resourceData;
     ZeroMemory(&resourceData, sizeof(D3D11_SUBRESOURCE_DATA));
     resourceData.pSysMem = g_Vertices; //A pointer to the data to initialize the buffer with.
-
+    
     hr = g_d3dDevice->CreateBuffer(&vertexBufferDesc, &resourceData, &g_d3dVertexBuffer);
     if (FAILED(hr))
     {
@@ -339,6 +340,7 @@ bool Game::LoadContent()
     {
         return false;
     }
+    
     
     //cube = new Mesh();
 
