@@ -15,6 +15,7 @@ SimpleInputHandler::SimpleInputHandler(std::shared_ptr<Camera> camera, std::func
     m_mouse = std::make_unique<Mouse>();
     m_mouse->SetWindow(window);
     m_camera = camera;
+    this->func = func;
 }
 
 void SimpleInputHandler::HandleInput()
@@ -47,6 +48,8 @@ void SimpleInputHandler::HandleKeyboard()
 
     move *= MOVEMENT_GAIN;
     m_camera->Move(move);
+    if(kb.Q)
+        func();
 }
 
 void SimpleInputHandler::HandleMouse()

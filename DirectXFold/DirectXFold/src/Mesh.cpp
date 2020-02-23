@@ -67,6 +67,12 @@ void Mesh::SetConstants(XMMATRIX world, XMMATRIX morph)
     SetConstants({world, morph});
 }
 
+void Mesh::Move(float x, float y, float z)
+{
+    constantBuffer.m_world = XMMatrixTranslation(x, y, z) *
+        constantBuffer.m_world;
+}
+
 void Mesh::Render()
 {
     // Input Assembler Stage - unique for every mesh

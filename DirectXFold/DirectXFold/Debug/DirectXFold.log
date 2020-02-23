@@ -1,26 +1,14 @@
-﻿  Camera.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(26,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(27,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(28,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(29,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(59,29): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(59,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(59,23): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(77,59): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(77,52): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-  Game.cpp
+﻿  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(224,64): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(370,22): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(371,22): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1590,59): warning C4316: "std::_Ref_count_obj2<_Ty>": объект, размещенный в куче, может не быть выровнен 16
           with
           [
               _Ty=Camera
           ]
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<Camera> std::make_shared<Camera,>(void)"
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(2055,35): error C2661: SimpleInputHandler::SimpleInputHandler: нет перегруженной функции, принимающей 3 аргументов
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(189): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::unique_ptr<SimpleInputHandler,std::default_delete<SimpleInputHandler>> std::make_unique<SimpleInputHandler,std::shared_ptr<Camera>&,std::list<Mesh *,std::allocator<Mesh *>>&,HWND&,0>(std::shared_ptr<Camera> &,std::list<Mesh *,std::allocator<Mesh *>> &,HWND &)"
-  main.cpp
   Mesh.cpp
-  Shader.cpp
-  SimpleInputHandler.cpp
+  main.cpp
   Создание кода...
+     
+  DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe

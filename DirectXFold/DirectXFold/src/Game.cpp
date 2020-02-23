@@ -186,7 +186,7 @@ int Game::Initialize(HWND window, int width, int height)
         return -1;
     }
     //SimpleInputHandler(m_camera, , m_hwnd);
-    m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, [this]() { this->cube-> }, m_hwnd);
+    m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, [this]() { this->cube->Move(1.f, 0.f, 0.f); }, m_hwnd);
 
     return 0;
 }
@@ -250,8 +250,9 @@ void Game::Render()
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
     g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
 
+    cube->Render();
 
-    {   //можно рисовать один и тот же меш используя разные матрицы
+    /*{   //можно рисовать один и тот же меш используя разные матрицы
         cube->SetConstants(XMMatrixTranslation(-3, 0, 0), m_morph);
         cube->Render();
     }
@@ -259,7 +260,7 @@ void Game::Render()
     {   //можно рисовать один и тот же меш используя разные матрицы
         cube->SetConstants(XMMatrixTranslation(2, 0, -1), m_morph);
         cube->Render();
-    }
+    }*/
 
     Present();
 }

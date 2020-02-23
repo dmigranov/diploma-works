@@ -9,5 +9,7 @@ public:
 protected:
 	void HandleKeyboard();
 	void HandleMouse();
+private:
+	std::function<void()> func;
 };
 
