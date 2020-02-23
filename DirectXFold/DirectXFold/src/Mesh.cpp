@@ -51,6 +51,16 @@ void Mesh::SetWorldMatrix(XMMATRIX world)
     constantBuffer.m_world = world;
 }
 
+void Mesh::SetConstants(MeshConstantBuffer constantBuffer)
+{
+    this->constantBuffer = constantBuffer;
+}
+
+void Mesh::SetConstants(XMMATRIX world, XMMATRIX morph)
+{
+    SetConstants({world, morph});
+}
+
 void Mesh::Render()
 {
     // Input Assembler Stage - unique for every mesh
@@ -59,7 +69,7 @@ void Mesh::Render()
     deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
     deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
 
-    deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &(constantBuffer.m_world), 0, 0);
+    deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBuffer, 0, 0);
     
     //DRAW
     deviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);

@@ -254,7 +254,7 @@ void Game::Render()
     //cube->Render();
 
     {   //можно рисовать один и тот же меш используя разные матрицы
-        cube->SetConstants(m_world);
+        cube->SetConstants(XMMatrixTranslation(1, 0, 0), m_world);
         cube->Render();
     }
 
