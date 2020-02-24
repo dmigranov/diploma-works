@@ -258,12 +258,11 @@ void Game::Render()
 
     cube->Render();
 
-    /*
-    {   //можно рисовать один и тот же меш использу€ разные матрицы но лучше в update и не экономить
-        cube->SetConstants(XMMatrixTranslation(-3, 0, 0), m_morph);
-        cube->Render();
+    
+    {   //можно рисовать один и тот же меш использу€ разные матрицы
+        cube->Render(XMMatrixTranslation(-3, 0, 0));
     }
-    */
+    
 
     Present();
 }
