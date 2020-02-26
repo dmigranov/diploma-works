@@ -14,7 +14,7 @@ cbuffer PerObject : register(b2)
 }
 
 //POSITION and COLOR are semantics that are used to link vs variables to ps variables
-struct AppData
+struct VertexShaderInput
 {
     float4 position : POSITION;
     float3 color: COLOR;
@@ -27,7 +27,7 @@ struct VertexShaderOutput
 };
 
 //entry point
-VertexShaderOutput SimpleVertexShader(AppData IN)
+VertexShaderOutput SimpleVertexShader(VertexShaderInput IN)
 {
 	VertexShaderOutput OUT;
  

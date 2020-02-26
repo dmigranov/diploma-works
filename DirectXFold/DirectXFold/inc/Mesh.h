@@ -24,7 +24,7 @@ public:
 
     void Render();
     void Render(XMMATRIX matrix);
-
+    void Render(std::list<XMMATRIX> matrices);
 
     // Vertex data for a colored cube.
     struct VertexPosColor
