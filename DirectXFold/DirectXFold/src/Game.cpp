@@ -380,7 +380,14 @@ bool Game::LoadContent()
     /*m_proj = m_camera->GetProj();
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
 
-    mesh1 = new Mesh();
+    mesh1 = new Mesh({
+        { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
+        { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
+        { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
+        },
+        {
+        0, 1, 2, 2, 1, 0
+        });
     meshes.push_back(mesh1);
     return true;
 }
