@@ -263,7 +263,6 @@ void Game::Render()
         std::list<XMMATRIX> list = { XMMatrixTranslation(-3, 0, 0), XMMatrixTranslation(3, 0, 1) };
         cube->Render(list);
     }*/
-    
 
     Present();
 }
