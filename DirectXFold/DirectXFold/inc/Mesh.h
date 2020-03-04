@@ -18,9 +18,9 @@ public:
         XMFLOAT3 Color;
     };
 
-    Mesh(VertexPosColor vertices[], WORD indices[]);
+    Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[]);
     ~Mesh();
-    Mesh(VertexPosColor vertices[], WORD indices[], XMMATRIX world);
+    Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[], XMMATRIX world);
 	void SetWorldMatrix(XMMATRIX world);
     void SetConstants(MeshConstantBuffer constantBuffer);
     void SetConstants(XMMATRIX world, XMMATRIX morph);
@@ -71,7 +71,7 @@ private:
     };*/
     
 
-    VertexPosColor g_Vertices[3] =
+    /*VertexPosColor g_Vertices[3] =
     {
         { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
         { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
@@ -81,6 +81,10 @@ private:
     WORD g_Indices[6] =
     {
         0, 1, 2, 2, 1, 0
-    };
+    };*/
+    VertexPosColor* g_Vertices;
+    int verticesCount;
+    WORD* g_Indices;
+    int indicesCount;
 };
 

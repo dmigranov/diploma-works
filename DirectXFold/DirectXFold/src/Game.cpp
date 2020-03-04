@@ -380,14 +380,18 @@ bool Game::LoadContent()
     /*m_proj = m_camera->GetProj();
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
 
-    mesh1 = new Mesh({
+    Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
         { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
         { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
-        },
-        {
+    };
+
+    WORD indices[] = {
         0, 1, 2, 2, 1, 0
-        });
+    };
+
+    mesh1 = new Mesh(_countof(vertices), vertices,
+        _countof(indices), indices);
     meshes.push_back(mesh1);
     return true;
 }

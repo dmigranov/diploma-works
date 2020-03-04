@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Mesh.h"
 
-Mesh::Mesh(VertexPosColor vertices[], WORD indices[]) : Mesh(vertices, indices, XMMatrixIdentity())
+Mesh::Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[]) : Mesh(nv, vertices, ni, indices, XMMatrixIdentity())
 { }
 
 Mesh::~Mesh()
@@ -10,19 +10,23 @@ Mesh::~Mesh()
     SafeRelease(g_d3dVertexBuffer);
 }
 
-Mesh::Mesh(VertexPosColor vertices[], WORD g_Indices[], XMMATRIX world)
+Mesh::Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[], XMMATRIX world)
 {
     auto &game = Game::GetInstance();
     auto device = game.g_d3dDevice;
     deviceContext = game.g_d3dDeviceContext;
     d3dConstantBuffer = game.g_d3dConstantBuffers[2];
+    g_Indices = indices;
+    g_Vertices = vertices;
+    verticesCount = nv;
+    indicesCount = ni;
 
     // Create and initialize the vertex buffer.
     D3D11_BUFFER_DESC vertexBufferDesc;
     ZeroMemory(&vertexBufferDesc, sizeof(D3D11_BUFFER_DESC));
 
     vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;  //how the buffer is bound to pipeline
-    vertexBufferDesc.ByteWidth = sizeof(VertexPosColor) * _countof(g_Vertices);
+    vertexBufferDesc.ByteWidth = sizeof(VertexPosColor) * verticesCount;
     vertexBufferDesc.CPUAccessFlags = 0;    // no CPU access is necessary
     vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 
@@ -40,10 +44,10 @@ Mesh::Mesh(VertexPosColor vertices[], WORD g_Indices[], XMMATRIX world)
     ZeroMemory(&indexBufferDesc, sizeof(D3D11_BUFFER_DESC));
 
     indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
-    indexBufferDesc.ByteWidth = sizeof(WORD) * _countof(g_Indicies);
+    indexBufferDesc.ByteWidth = sizeof(WORD) * indicesCount;
     indexBufferDesc.CPUAccessFlags = 0;
     indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-    resourceData.pSysMem = g_Indicies;
+    resourceData.pSysMem = g_Indices;
 
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
@@ -89,7 +93,7 @@ void Mesh::Render()
     deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBuffer, 0, 0);
     
     //DRAW
-    deviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
+    deviceContext->DrawIndexed(indicesCount, 0, 0);
 }
 
 void Mesh::Render(XMMATRIX matrix)
@@ -109,7 +113,7 @@ void Mesh::Render(XMMATRIX matrix)
     deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
     //DRAW
-    deviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
+    deviceContext->DrawIndexed(indicesCount, 0, 0);
 }
 
 void Mesh::Render(std::list<XMMATRIX> matrices)
@@ -127,6 +131,6 @@ void Mesh::Render(std::list<XMMATRIX> matrices)
         deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
         //DRAW
-        deviceContext->DrawIndexed(_countof(g_Indicies), 0, 0);
+        deviceContext->DrawIndexed(indicesCount, 0, 0);
     }
 }
