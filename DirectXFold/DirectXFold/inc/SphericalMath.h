@@ -6,5 +6,5 @@ Matrix BananaProjectionMatrixFrontHalf(double z0);
 Matrix BananaProjectionMatrixBackHalf(double z0);
 
 
-Matrix SphericalRotationZW(double d);
-Matrix SphericalRotationXW(double d);
+Matrix SphericalRotationZW(float d);
+Matrix SphericalRotationXW(float d);

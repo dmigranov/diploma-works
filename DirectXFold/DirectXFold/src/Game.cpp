@@ -256,7 +256,20 @@ void Game::Render()
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
     g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
 
-    cube->Render();
+    //first render
+    {
+        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
+        g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &front, 0, 0);
+        cube->Render();
+    }
+    
+    //second render
+    {
+        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
+        g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &back, 0, 0);
+        cube->Render();
+    }
+
 
     
     /*{   //можно рисовать один и тот же меш используя разные матрицы
@@ -367,8 +380,8 @@ bool Game::LoadContent()
     m_camera->SetOutputSize(clientWidth, clientHeight);
     m_camera->SetNearPlane(0.1f);
     m_camera->SetFarPlane(100.f);
-    m_proj = m_camera->GetProj();
-    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);
+    /*m_proj = m_camera->GetProj();
+    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
 
     cube = new Mesh();
     meshes.push_back(cube);

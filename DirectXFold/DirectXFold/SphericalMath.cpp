@@ -29,7 +29,7 @@ Matrix BananaProjectionMatrixBackHalf(double z0)
 }
 
 //rotation around plane XY which stays invariant
-Matrix SphericalRotationZW(double d)
+Matrix SphericalRotationZW(float d)
 {
 	return Matrix(	1.f, 0.f, 0.f, 0.f,
 					0.f, 1.f, 0.f, 0.f,
@@ -37,7 +37,7 @@ Matrix SphericalRotationZW(double d)
 					0.f, 0.f, -sinf(d), cosf(d));
 }		
 
-Matrix SphericalRotationXW(double d)
+Matrix SphericalRotationXW(float d)
 {
 	return Matrix(	cosf(d), 0.f, 0.f, sinf(d),
 					0.f, 1.f, 0.f, 0.f,

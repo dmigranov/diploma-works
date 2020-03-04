@@ -43,4 +43,14 @@ const XMMATRIX& SphericalCamera::GetProj()
 	return m_proj;
 }
 
+const XMMATRIX& SphericalCamera::GetFrontProj()
+{
+	// TODO: вставьте здесь оператор return
+}
+
+const XMMATRIX& SphericalCamera::GetBackProj()
+{
+	// TODO: вставьте здесь оператор return
+}
+
 
