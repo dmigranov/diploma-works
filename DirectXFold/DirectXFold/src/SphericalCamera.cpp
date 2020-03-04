@@ -3,6 +3,7 @@
 
 const XMMATRIX& SphericalCamera::GetView()
 {
+	//todo: посмотреть как сделана камера в проекте для визуализации
 	if (m_viewDirty)
 	{
 		float y = sinf(m_pitch);
@@ -20,14 +21,6 @@ const XMMATRIX& SphericalCamera::GetView()
 
 const XMMATRIX& SphericalCamera::GetProj()
 {
-	/*double sw = m_outputWidth;
-	double sh = m_outputHeight;
-
-	double vw = m_viewport.w;
-	double vh = m_viewport.h;
-
-	float aspect = (float)((sw * vw) / (sh * vh));*/
-
 	m_proj = BananaProjectionMatrix(m_nearPlane);
 
 	return m_proj;

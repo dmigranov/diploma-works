@@ -1,41 +1,6 @@
-﻿  SphericalMath.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(11,16): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(19,21): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(19,30): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(20,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(20,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(25,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(25,41): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(28,12): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(28,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-  Camera.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(26,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(27,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(28,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(29,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(59,29): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(59,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(59,23): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(77,59): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(77,52): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-  Game.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(229,64): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(374,22): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1590,59): warning C4316: "std::_Ref_count_obj2<_Ty>": объект, размещенный в куче, может не быть выровнен 16
-          with
-          [
-              _Ty=SphericalCamera
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<SphericalCamera> std::make_shared<SphericalCamera,>(void)"
-  Mesh.cpp
-  SimpleInputHandler.cpp
-  SphericalCamera.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(8,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+﻿  SphericalCamera.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(9,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(10,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(10,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(11,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-  main.cpp
-  Создание кода...
-  LINK : 
-     
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(12,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe
