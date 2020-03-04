@@ -17,3 +17,20 @@ const XMMATRIX& SphericalCamera::GetView()
 	}
 	return m_view;
 }
+
+const XMMATRIX& SphericalCamera::GetProj()
+{
+	/*double sw = m_outputWidth;
+	double sh = m_outputHeight;
+
+	double vw = m_viewport.w;
+	double vh = m_viewport.h;
+
+	float aspect = (float)((sw * vw) / (sh * vh));*/
+
+	m_proj = BananaProjectionMatrix(m_nearPlane);
+
+	return m_proj;
+}
+
+

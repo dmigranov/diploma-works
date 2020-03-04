@@ -4,6 +4,8 @@
 class SphericalCamera :
 	public Camera
 {
-	const XMMATRIX& GetView();
+	const XMMATRIX& GetView() override;
+	const XMMATRIX& GetProj() override;
+
 };
 

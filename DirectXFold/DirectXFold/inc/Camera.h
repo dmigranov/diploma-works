@@ -47,7 +47,7 @@ public:
 
 
 	virtual const XMMATRIX& GetView();
-	const XMMATRIX& GetProj();
+	virtual const XMMATRIX& GetProj();
 
 	/**
 	* @brief Returns a ray going from camera through a screen point.
