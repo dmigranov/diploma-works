@@ -188,9 +188,9 @@ int Game::Initialize(HWND window, int width, int height)
     m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, [this]() { 
         auto ks = Keyboard::Get().GetState();
         if(ks.U)
-            this->cube->Move(0.f, 0.2f, 0.f); 
+            this->mesh1->Move(0.f, 0.2f, 0.f); 
         if (ks.J)
-            this->cube->Move(0.f, -0.2f, 0.f);
+            this->mesh1->Move(0.f, -0.2f, 0.f);
     }, m_hwnd);
 
     return 0;
@@ -227,7 +227,7 @@ void Game::Update(float deltaTime)
     */
     DWORD t = timeGetTime();
     m_morph = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.4*cos(t/100.0));
-    cube->SetConstants(cube->GetWorldMatrix(), m_morph);
+    mesh1->SetConstants(mesh1->GetWorldMatrix(), m_morph);
 }
 
 void Game::Render()
@@ -262,7 +262,7 @@ void Game::Render()
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &front, 0, 0);
         auto view = m_camera->GetView();
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
-        cube->Render();
+        mesh1->Render();
     }
     
     //second render
@@ -271,7 +271,7 @@ void Game::Render()
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &back, 0, 0);
         auto view = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
-        cube->Render();
+        mesh1->Render();
     }
 
     Present();
@@ -380,8 +380,8 @@ bool Game::LoadContent()
     /*m_proj = m_camera->GetProj();
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
 
-    cube = new Mesh();
-    meshes.push_back(cube);
+    mesh1 = new Mesh();
+    meshes.push_back(mesh1);
     return true;
 }
 
@@ -394,5 +394,5 @@ void Game::UnloadContent()
     SafeRelease(g_d3dInputLayout);
     SafeRelease(g_d3dVertexShader);
     SafeRelease(g_d3dPixelShader);
-    delete cube;
+    delete mesh1;
 }

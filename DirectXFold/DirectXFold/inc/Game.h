@@ -72,7 +72,7 @@ private:
     ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
     
     std::list<Mesh *> meshes;
-    Mesh* cube;
+    Mesh *mesh1, *mesh2;
 
     // Shader data
     ID3D11VertexShader* g_d3dVertexShader = nullptr;

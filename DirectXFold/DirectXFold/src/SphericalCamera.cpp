@@ -42,5 +42,3 @@ const XMMATRIX& SphericalCamera::GetBackProj()
 	static Matrix back = BananaProjectionMatrixBackHalf(m_nearPlane);
 	return back;
 }
-
-
