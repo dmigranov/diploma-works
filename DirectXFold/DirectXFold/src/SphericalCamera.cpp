@@ -13,7 +13,7 @@ const XMMATRIX& SphericalCamera::GetView()
 		Vector3 lookAt = m_position + Vector3(x, y, z);
 
 		m_view = XMMatrixLookAtLH(m_position, lookAt, Vector3::Up);
-		m_view = SphericalRotationZW(m_position.z);
+		m_view = SphericalRotationXW(m_position.x) * SphericalRotationZW(m_position.z);
 	}
 	return m_view;
 }

@@ -1,6 +1,6 @@
-﻿  SphericalMath.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(11,21): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(11,30): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(12,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(12,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+﻿  SphericalCamera.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(8,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(9,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(10,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(11,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe
