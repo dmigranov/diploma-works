@@ -1,0 +1,18 @@
+#include "pch.h"
+#include "SphericalCamera.h"
+
+const XMMATRIX& SphericalCamera::GetView()
+{
+	if (m_viewDirty)
+	{
+		float y = sinf(m_pitch);
+		float r = cosf(m_pitch);
+		float z = r * cosf(m_yaw);
+		float x = r * sinf(m_yaw);
+
+		Vector3 lookAt = m_position + Vector3(x, y, z);
+
+		m_view = XMMatrixLookAtLH(m_position, lookAt, Vector3::Up);
+	}
+	return m_view;
+}

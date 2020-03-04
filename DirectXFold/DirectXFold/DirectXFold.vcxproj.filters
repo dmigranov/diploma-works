@@ -45,6 +45,12 @@
     <ClCompile Include="src\pch.cpp">
       <Filter>pch</Filter>
     </ClCompile>
+    <ClCompile Include="src\SphericalCamera.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SphericalMath.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -67,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="inc\pch.h">
       <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalCamera.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

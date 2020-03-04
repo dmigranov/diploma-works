@@ -62,7 +62,7 @@ public:
 	Vector3 WorldToScreenPoint(const Vector3& position);
 
 
-private:
+protected:
 
 	void RecalculateMatrixProj();
 

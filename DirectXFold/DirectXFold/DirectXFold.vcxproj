@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SphericalMath.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -29,6 +30,7 @@
     </ClCompile>
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\SimpleInputHandler.cpp" />
+    <ClCompile Include="src\SphericalCamera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Camera.h" />
@@ -38,6 +40,7 @@
     <ClInclude Include="inc\pch.h" />
     <ClInclude Include="inc\Shader.h" />
     <ClInclude Include="inc\SimpleInputHandler.h" />
+    <ClInclude Include="inc\SphericalCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">
