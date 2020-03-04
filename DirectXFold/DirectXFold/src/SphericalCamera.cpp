@@ -21,7 +21,8 @@ const XMMATRIX& SphericalCamera::GetView()
 
 const XMMATRIX& SphericalCamera::GetAntipodalView()
 {
-	return -Matrix(m_view);
+	//todo: так? с минусом картинка неправильная: при повортах указ. в одном направлении...
+	return Matrix(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1)*Matrix(m_view);
 }
 
 const XMMATRIX& SphericalCamera::GetProj()
@@ -33,12 +34,12 @@ const XMMATRIX& SphericalCamera::GetProj()
 
 const XMMATRIX& SphericalCamera::GetFrontProj()
 {
-	static Matrix front = BananaProjectionMatrixFrontHalf(m_nearPlane);
+	static Matrix front = BananaProjectionMatrixFrontHalf(0);
 	return front;
 }
 
 const XMMATRIX& SphericalCamera::GetBackProj()
 {
-	static Matrix back = BananaProjectionMatrixBackHalf(m_nearPlane);
+	static Matrix back = BananaProjectionMatrixBackHalf(0);
 	return back;
 }
