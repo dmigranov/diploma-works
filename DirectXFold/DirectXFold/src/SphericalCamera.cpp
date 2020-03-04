@@ -21,7 +21,7 @@ const XMMATRIX& SphericalCamera::GetView()
 
 const XMMATRIX& SphericalCamera::GetAntipodalView()
 {
-	return SphericalRotationXW(XM_PI) * Matrix(m_view);
+	return -Matrix(m_view);
 }
 
 const XMMATRIX& SphericalCamera::GetProj()

@@ -263,6 +263,7 @@ void Game::Render()
         auto view = m_camera->GetView();
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
         mesh1->Render();
+        //mesh2->Render();
     }
     
     //second render
@@ -272,6 +273,7 @@ void Game::Render()
         auto view = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
         mesh1->Render();
+        //mesh2->Render();
     }
 
     Present();
@@ -380,19 +382,36 @@ bool Game::LoadContent()
     /*m_proj = m_camera->GetProj();
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
 
-    Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
-        { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
-        { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
-    };
+    {
+        Mesh::VertexPosColor vertices[] = {
+            { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
+            { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
+            { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
+        };
 
-    WORD indices[] = {
-        0, 1, 2, 2, 1, 0
-    };
+        WORD indices[] = {
+            0, 1, 2, 2, 1, 0
+        };
 
-    mesh1 = new Mesh(_countof(vertices), vertices,
-        _countof(indices), indices);
-    meshes.push_back(mesh1);
+        mesh1 = new Mesh(_countof(vertices), vertices,
+            _countof(indices), indices);
+        //meshes.push_back(mesh1);
+    }
+
+    {
+        Mesh::VertexPosColor vertices[] = {
+        { XMFLOAT4(0.f, 0.0f, 0.8f, 0.6f), XMFLOAT3(1.0f, 0.0f, 0.0f) }, // 0
+        { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 1.0f) }, // 1
+        { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 2
+        };
+
+        WORD indices[] = {
+            0, 1, 2, 2, 1, 0
+        };
+
+        mesh2 = new Mesh(_countof(vertices), vertices,
+            _countof(indices), indices);
+    }
     return true;
 }
 
@@ -406,4 +425,5 @@ void Game::UnloadContent()
     SafeRelease(g_d3dVertexShader);
     SafeRelease(g_d3dPixelShader);
     delete mesh1;
+    delete mesh2;
 }
