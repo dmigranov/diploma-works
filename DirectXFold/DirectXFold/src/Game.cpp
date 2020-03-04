@@ -222,9 +222,9 @@ void Game::Update(float deltaTime)
 {
     m_inputHandler->HandleInput();
 
-    m_view = m_camera->GetView();
+    /*m_view = m_camera->GetView();
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &m_view, 0, 0);
-
+    */
     DWORD t = timeGetTime();
     m_morph = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.4*cos(t/100.0));
     cube->SetConstants(cube->GetWorldMatrix(), m_morph);
@@ -260,6 +260,8 @@ void Game::Render()
     {
         auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &front, 0, 0);
+        auto view = m_camera->GetView();
+        g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
         cube->Render();
     }
     
@@ -267,15 +269,10 @@ void Game::Render()
     {
         auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &back, 0, 0);
+        auto view = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
+        g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
         cube->Render();
     }
-
-
-    
-    /*{   //можно рисовать один и тот же меш используя разные матрицы
-        std::list<XMMATRIX> list = { XMMatrixTranslation(-3, 0, 0), XMMatrixTranslation(3, 0, 1) };
-        cube->Render(list);
-    }*/
 
     Present();
 }
@@ -375,7 +372,7 @@ bool Game::LoadContent()
 
     //m_proj = XMMatrixPerspectiveFovLH(XMConvertToRadians(45.0f), clientWidth / clientHeight, 0.1f, 100.0f);
    
-    m_camera->SetPosition(0, 0, 1);
+    m_camera->SetPosition(0, 0, 0);
     m_camera->SetFovY(XM_PI / 4.f);
     m_camera->SetOutputSize(clientWidth, clientHeight);
     m_camera->SetNearPlane(0.1f);

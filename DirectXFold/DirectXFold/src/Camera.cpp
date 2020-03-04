@@ -7,6 +7,7 @@ m_pitch(0), m_yaw(0),
 m_lookAt(Vector3(0, 0, 0)),
 m_viewDirty(true)
 {}
+//todo: добавитт false
 
 void Camera::SetViewport(Rect rect)
 {

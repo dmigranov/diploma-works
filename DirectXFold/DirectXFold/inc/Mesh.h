@@ -24,6 +24,10 @@ public:
 
     void Render();
     void Render(XMMATRIX matrix);
+
+    /*{   //можно рисовать один и тот же меш используя разные матрицы
+    std::list<XMMATRIX> list = { XMMatrixTranslation(-3, 0, 0), XMMatrixTranslation(3, 0, 1) };
+    cube->Render(list); }*/
     void Render(std::list<XMMATRIX> matrices);
 
     // Vertex data for a colored cube.
