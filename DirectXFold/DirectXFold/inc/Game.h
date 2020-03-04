@@ -4,6 +4,7 @@
 #include "VertexShader.h"
 #include "MorphingVertexShader.h"
 #include "SimpleInputHandler.h"
+#include "SphericalCamera.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;

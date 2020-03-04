@@ -41,6 +41,7 @@
     <ClInclude Include="inc\Shader.h" />
     <ClInclude Include="inc\SimpleInputHandler.h" />
     <ClInclude Include="inc\SphericalCamera.h" />
+    <ClInclude Include="inc\SphericalMath.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">

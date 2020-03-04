@@ -67,7 +67,7 @@ private:
 
     VertexPosColor g_Vertices[3] =
     {
-        { XMFLOAT4(0.0f, 0.0f, 0.0f, -1.0f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
+        { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
         { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
         { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
     };

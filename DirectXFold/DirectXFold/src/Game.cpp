@@ -363,7 +363,7 @@ bool Game::LoadContent()
 
     //m_proj = XMMatrixPerspectiveFovLH(XMConvertToRadians(45.0f), clientWidth / clientHeight, 0.1f, 100.0f);
    
-    m_camera->SetPosition(0, 2, -10);
+    m_camera->SetPosition(0, 0, 1);
     m_camera->SetFovY(XM_PI / 4.f);
     m_camera->SetOutputSize(clientWidth, clientHeight);
     m_camera->SetNearPlane(0.1f);
