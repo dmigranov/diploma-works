@@ -42,7 +42,7 @@ private:
 	MeshConstantBuffer constantBuffer;
 
     
-    VertexPosColor g_Vertices[8] =
+    /*VertexPosColor g_Vertices[8] =
     {
         { XMFLOAT4(-1.0f, -1.0f, -1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
         { XMFLOAT4(-1.0f,  1.0f, -1.0f, 1.0f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
@@ -62,19 +62,19 @@ private:
         3, 2, 6, 3, 6, 7,
         1, 5, 6, 1, 6, 2,
         4, 0, 3, 4, 3, 7
-    };
+    };*/
     
 
-    /*VertexPosColor g_Vertices[3] =
+    VertexPosColor g_Vertices[3] =
     {
-        { XMFLOAT4(0.0f, 0.0f, 0.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
-        { XMFLOAT4(0.0f,  0.2f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
-        { XMFLOAT4(1.0f,  -0.2f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
+        { XMFLOAT4(0.0f, 0.0f, 0.0f, -1.0f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
+        { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
+        { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
     };
 
     WORD g_Indicies[6] =
     {
         0, 1, 2, 2, 1, 0
-    };*/
+    };
 };
 

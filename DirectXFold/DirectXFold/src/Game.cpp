@@ -259,10 +259,10 @@ void Game::Render()
     cube->Render();
 
     
-    {   //можно рисовать один и тот же меш используя разные матрицы
+    /*{   //можно рисовать один и тот же меш используя разные матрицы
         std::list<XMMATRIX> list = { XMMatrixTranslation(-3, 0, 0), XMMatrixTranslation(3, 0, 1) };
         cube->Render(list);
-    }
+    }*/
     
 
     Present();
