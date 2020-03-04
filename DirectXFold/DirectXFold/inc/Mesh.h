@@ -12,9 +12,15 @@ public:
         XMMATRIX m_morph;
     };
 
-    Mesh();
+    struct VertexPosColor
+    {
+        XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
+        XMFLOAT3 Color;
+    };
+
+    Mesh(VertexPosColor vertices[], WORD indices[]);
     ~Mesh();
-    Mesh(XMMATRIX world);
+    Mesh(VertexPosColor vertices[], WORD indices[], XMMATRIX world);
 	void SetWorldMatrix(XMMATRIX world);
     void SetConstants(MeshConstantBuffer constantBuffer);
     void SetConstants(XMMATRIX world, XMMATRIX morph);
@@ -31,11 +37,7 @@ public:
     void Render(std::list<XMMATRIX> matrices);
 
     // Vertex data for a colored cube.
-    struct VertexPosColor
-    {
-        XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
-        XMFLOAT3 Color;
-    };
+
 
 private:
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
@@ -76,7 +78,7 @@ private:
         { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
     };
 
-    WORD g_Indicies[6] =
+    WORD g_Indices[6] =
     {
         0, 1, 2, 2, 1, 0
     };

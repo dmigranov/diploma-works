@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Mesh.h"
 
-Mesh::Mesh() : Mesh(XMMatrixIdentity())
+Mesh::Mesh(VertexPosColor vertices[], WORD indices[]) : Mesh(vertices, indices, XMMatrixIdentity())
 { }
 
 Mesh::~Mesh()
@@ -10,7 +10,7 @@ Mesh::~Mesh()
     SafeRelease(g_d3dVertexBuffer);
 }
 
-Mesh::Mesh(XMMATRIX world)
+Mesh::Mesh(VertexPosColor vertices[], WORD g_Indices[], XMMATRIX world)
 {
     auto &game = Game::GetInstance();
     auto device = game.g_d3dDevice;
