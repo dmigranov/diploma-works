@@ -46,7 +46,7 @@ public:
 	void SetOutputSize(double outputWidth, double outputHeight);
 
 
-	const XMMATRIX& GetView();
+	virtual const XMMATRIX& GetView();
 	const XMMATRIX& GetProj();
 
 	/**
