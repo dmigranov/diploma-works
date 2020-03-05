@@ -10,3 +10,4 @@ Matrix SphericalRotationXW(float d);
 Matrix SphericalRotationYW(float d);
 Matrix SphericalRotationYZ(float d);
 Matrix SphericalRotationXZ(float d);
+Matrix SphericalRotationXY(float d);
