@@ -383,11 +383,11 @@ bool Game::LoadContent()
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
 
     {
-        /*Mesh::VertexPosColor vertices[] = {
+        Mesh::VertexPosColor vertices[] = {
             { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
             { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
             { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
-        };*/
+        };
 
         /*Mesh::VertexPosColor vertices[] = {
             { GetCartesianFromSpherical(1.37f, 2.17f, 1.f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
@@ -395,11 +395,11 @@ bool Game::LoadContent()
             { GetCartesianFromSpherical(1.97f, 2.57f, 1.f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
         };*/
 
-        Mesh::VertexPosColor vertices[] = {
+        /*Mesh::VertexPosColor vertices[] = {
             { GetCartesianFromSpherical(XM_PI, XM_PIDIV2, 0.f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
             { GetCartesianFromSpherical(XM_PIDIV4, XM_PIDIV2, 1.f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
             { GetCartesianFromSpherical(XM_PIDIV4, XM_PIDIV2, 2.5f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
-        };
+        };*/
 
         WORD indices[] = {
             0, 1, 2, 2, 1, 0

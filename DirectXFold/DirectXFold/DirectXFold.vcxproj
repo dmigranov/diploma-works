@@ -31,6 +31,7 @@
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\SimpleInputHandler.cpp" />
     <ClCompile Include="src\SphericalCamera.cpp" />
+    <ClCompile Include="src\TextDrawer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Camera.h" />
@@ -42,6 +43,7 @@
     <ClInclude Include="inc\SimpleInputHandler.h" />
     <ClInclude Include="inc\SphericalCamera.h" />
     <ClInclude Include="inc\SphericalMath.h" />
+    <ClInclude Include="inc\TextDrawer.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">
