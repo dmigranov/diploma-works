@@ -406,7 +406,7 @@ bool Game::LoadContent()
         };*/
 
         WORD indices[] = {
-            0, 1, 2, 2, 1, 0
+            0, 1, 2/*, 2, 1, 0*/
         };
 
         mesh1 = new Mesh(_countof(vertices), vertices,
