@@ -389,10 +389,16 @@ bool Game::LoadContent()
             { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
         };*/
 
-        Mesh::VertexPosColor vertices[] = {
+        /*Mesh::VertexPosColor vertices[] = {
             { GetCartesianFromSpherical(1.37f, 2.17f, 1.f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
             { GetCartesianFromSpherical(1.f, 2.f, 3.14f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
             { GetCartesianFromSpherical(1.97f, 2.57f, 1.f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
+        };*/
+
+        Mesh::VertexPosColor vertices[] = {
+            { GetCartesianFromSpherical(XM_PI, XM_PIDIV2, 0.f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
+            { GetCartesianFromSpherical(XM_PIDIV4, XM_PIDIV2, 1.f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
+            { GetCartesianFromSpherical(XM_PIDIV4, XM_PIDIV2, 2.5f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
         };
 
         WORD indices[] = {

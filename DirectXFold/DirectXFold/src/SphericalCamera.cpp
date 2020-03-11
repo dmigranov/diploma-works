@@ -22,7 +22,7 @@ const XMMATRIX& SphericalCamera::GetView()
 const XMMATRIX& SphericalCamera::GetAntipodalView()
 {
 	//todo: так? с минусом картинка неправильная: при повортах указ. в одном направлении...
-	return /*Matrix(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1)*/-Matrix(m_view);
+	return /*Matrix(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1)**/-Matrix(m_view);
 }
 
 const XMMATRIX& SphericalCamera::GetProj()
