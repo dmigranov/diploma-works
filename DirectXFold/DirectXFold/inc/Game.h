@@ -1,5 +1,6 @@
 #pragma once
 #include <sstream>
+#include <iomanip>
 #include "Mesh.h"
 #include "PixelShader.h"
 #include "VertexShader.h"

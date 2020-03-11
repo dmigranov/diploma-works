@@ -1,4 +1,4 @@
-#include <pch.h>
+ï»¿#include <pch.h>
 #include "Game.h"
 
 Game::Game() noexcept :
@@ -20,7 +20,7 @@ int Game::Initialize(HWND window, int width, int height)
     /*
     The process of initializing a Direct3D rendering device consists of several steps:
     1. Create the device and swap chain,
-    2. Create a render target view of the swap chain’s back buffer,
+    2. Create a render target view of the swap chainâ€™s back buffer,
     3. Create a texture for the depth-stencil buffer,
     4. Create a depth-stencil view from the depth-stencil buffer,
     5. Create a depth-stencil state object that defines the behaviour of the output merger stage,
@@ -92,9 +92,9 @@ int Game::Initialize(HWND window, int width, int height)
 
 
     // Next initialize the back buffer of the swap chain and associate it to a render target view.
-    // we use the swap chain’s GetBuffer method to retrieve a pointer to the swap chain’s 
-    // single back buffer. The swap chain’s back buffer is automatically created based on the content of the DXGI_SWAP_CHAIN_DESC variable
-    // so we do not need to manually create a texture for this purpose. However we do need to associate the backbuffer to a render target view in order to render to the swap chain’s back buffer.
+    // we use the swap chainâ€™s GetBuffer method to retrieve a pointer to the swap chainâ€™s 
+    // single back buffer. The swap chainâ€™s back buffer is automatically created based on the content of the DXGI_SWAP_CHAIN_DESC variable
+    // so we do not need to manually create a texture for this purpose. However we do need to associate the backbuffer to a render target view in order to render to the swap chainâ€™s back buffer.
     
     ID3D11Texture2D* backBuffer;
     hr = g_d3dSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&backBuffer);
@@ -143,10 +143,10 @@ int Game::Initialize(HWND window, int width, int height)
     D3D11_DEPTH_STENCIL_DESC depthStencilStateDesc;
     ZeroMemory(&depthStencilStateDesc, sizeof(D3D11_DEPTH_STENCIL_DESC));
 
-    depthStencilStateDesc.DepthEnable = TRUE;       //òåñò ãëóáèíû ïðîâîäèòñÿ
+    depthStencilStateDesc.DepthEnable = TRUE;       //Ñ‚ÐµÑÑ‚ Ð³Ð»ÑƒÐ±Ð¸Ð½Ñ‹ Ð¿Ñ€Ð¾Ð²Ð¾Ð´Ð¸Ñ‚ÑÑ
     depthStencilStateDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
     depthStencilStateDesc.DepthFunc = D3D11_COMPARISON_LESS;
-    depthStencilStateDesc.StencilEnable = FALSE;    //ÒÅÑÒ òðàôàðåòà ÍÅ ÏÐÎÂÎÄÈÒÑß!
+    depthStencilStateDesc.StencilEnable = FALSE;    //Ð¢Ð•Ð¡Ð¢ Ñ‚Ñ€Ð°Ñ„Ð°Ñ€ÐµÑ‚Ð° ÐÐ• ÐŸÐ ÐžÐ’ÐžÐ”Ð˜Ð¢Ð¡Ð¯!
 
     hr = g_d3dDevice->CreateDepthStencilState(&depthStencilStateDesc, &g_d3dDepthStencilState);
 
@@ -279,9 +279,11 @@ void Game::Render()
     }
     std::stringstream ss;
     Vector4 pos = m_camera->GetPosition();
-    ss << "X: " << pos.x << std::endl;
-    ss << "Y: " << pos.y << std::endl;
-    ss << "Z: " << pos.z << std::endl;
+    Vector3 sphPos = GetSphericalFromCartesian(pos.x, pos.y, pos.z, pos.w);
+    ss << std::fixed << std::setprecision(2);
+    ss << "X: " << pos.x << " A1: " << sphPos.x << std::endl;
+    ss << "Y: " << pos.y << " A2: " << sphPos.y << std::endl;
+    ss << "Z: " << pos.z << " A3: " << sphPos.z << std::endl;
     ss << "W: " << pos.w << std::endl;
     m_textDrawer->DrawTextUpRightAlign(ss.str().c_str(), m_outputWidth-20, 20);
     
@@ -298,7 +300,7 @@ void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil
 void Game::Present()
 {
     g_d3dSwapChain->Present(1, 0);
-    //ñ vsync?
+    //Ñ vsync?
 }
 
 void Game::Cleanup()
@@ -463,5 +465,17 @@ XMFLOAT4 Game::GetCartesianFromSpherical(float a1, float a2, float a3)
 
 XMFLOAT3 Game::GetSphericalFromCartesian(float x1, float x2, float x3, float x4)
 {
-    return XMFLOAT3();
+    float x12 = x1 * x1;
+    float x22 = x2 * x2;
+    float x32 = x3 * x3;
+
+    float a3 = acosf(x4);
+    float a2 = acosf(x3/sqrtf(x12 + x22 + x32));
+    float a1;
+    if(x1 >= 0)
+        a1 = acosf(x2 / sqrtf(x12 + x22));
+    else 
+        a1 = XM_2PI - acosf(x2 / sqrtf(x12 + x22));
+
+    return XMFLOAT3(a1, a2, a3);
 }
