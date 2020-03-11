@@ -1,37 +1,11 @@
-﻿  pch.cpp
-  SphericalMath.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(12,16): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(20,17): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(28,17): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-  Camera.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(27,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(28,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(29,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(30,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(60,29): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(60,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(60,23): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(78,59): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(78,52): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-  Game.cpp
+﻿  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(231,64): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(411,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(427,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(413,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(429,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1590,59): warning C4316: "std::_Ref_count_obj2<_Ty>": объект, размещенный в куче, может не быть выровнен 16
           with
           [
               _Ty=SphericalCamera
           ]
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<SphericalCamera> std::make_shared<SphericalCamera,>(void)"
-  main.cpp
-  Mesh.cpp
-  Shader.cpp
-  SimpleInputHandler.cpp
-  SphericalCamera.cpp
-  TextDrawer.cpp
-  Создание кода...
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(25): warning C4172: возвращение адреса локальной или временной переменной
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(38): warning C4172: возвращение адреса локальной или временной переменной
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(44): warning C4172: возвращение адреса локальной или временной переменной
-     Создается библиотека bin\DirectXFoldd.lib и объект bin\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe

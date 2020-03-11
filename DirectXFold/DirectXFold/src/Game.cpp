@@ -278,6 +278,8 @@ void Game::Render()
         //mesh2->Render();
     }
 
+    m_textDrawer->DrawText(L"0123456789", 500, 50);
+
     Present();
 }
 
