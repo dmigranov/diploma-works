@@ -1,11 +1,234 @@
-﻿  Game.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(229,64): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(409,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(425,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1590,59): warning C4316: "std::_Ref_count_obj2<_Ty>": объект, размещенный в куче, может не быть выровнен 16
-          with
-          [
-              _Ty=SphericalCamera
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<SphericalCamera> std::make_shared<SphericalCamera,>(void)"
-  DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe
+﻿  pch.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): error C2259: "ID3D11DeviceContext": невозможно создать экземпляр абстрактного класса
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7499): message : см. объявление "ID3D11DeviceContext"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : из-за следующих членов:
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : HRESULT IUnknown::QueryInterface(const IID &,void **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\unknwnbase.h(113): message : см. объявление "IUnknown::QueryInterface"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : ULONG IUnknown::AddRef(void): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\unknwnbase.h(117): message : см. объявление "IUnknown::AddRef"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : ULONG IUnknown::Release(void): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\unknwnbase.h(119): message : см. объявление "IUnknown::Release"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceChild::GetDevice(ID3D11Device **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(1390): message : см. объявление "ID3D11DeviceChild::GetDevice"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : HRESULT ID3D11DeviceChild::GetPrivateData(const GUID &,UINT *,void *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(1394): message : см. объявление "ID3D11DeviceChild::GetPrivateData"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : HRESULT ID3D11DeviceChild::SetPrivateData(const GUID &,UINT,const void *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(1402): message : см. объявление "ID3D11DeviceChild::SetPrivateData"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : HRESULT ID3D11DeviceChild::SetPrivateDataInterface(const GUID &,const IUnknown *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(1410): message : см. объявление "ID3D11DeviceChild::SetPrivateDataInterface"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::VSSetConstantBuffers(UINT,UINT,ID3D11Buffer *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7502): message : см. объявление "ID3D11DeviceContext::VSSetConstantBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::PSSetShaderResources(UINT,UINT,ID3D11ShaderResourceView *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7510): message : см. объявление "ID3D11DeviceContext::PSSetShaderResources"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::PSSetShader(ID3D11PixelShader *,ID3D11ClassInstance *const *,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7518): message : см. объявление "ID3D11DeviceContext::PSSetShader"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::PSSetSamplers(UINT,UINT,ID3D11SamplerState *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7525): message : см. объявление "ID3D11DeviceContext::PSSetSamplers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::VSSetShader(ID3D11VertexShader *,ID3D11ClassInstance *const *,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7533): message : см. объявление "ID3D11DeviceContext::VSSetShader"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DrawIndexed(UINT,UINT,INT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7540): message : см. объявление "ID3D11DeviceContext::DrawIndexed"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::Draw(UINT,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7548): message : см. объявление "ID3D11DeviceContext::Draw"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : HRESULT ID3D11DeviceContext::Map(ID3D11Resource *,UINT,D3D11_MAP,UINT,D3D11_MAPPED_SUBRESOURCE *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7554): message : см. объявление "ID3D11DeviceContext::Map"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::Unmap(ID3D11Resource *,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7566): message : см. объявление "ID3D11DeviceContext::Unmap"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::PSSetConstantBuffers(UINT,UINT,ID3D11Buffer *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7572): message : см. объявление "ID3D11DeviceContext::PSSetConstantBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::IASetInputLayout(ID3D11InputLayout *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7580): message : см. объявление "ID3D11DeviceContext::IASetInputLayout"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::IASetVertexBuffers(UINT,UINT,ID3D11Buffer *const *,const UINT *,const UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7584): message : см. объявление "ID3D11DeviceContext::IASetVertexBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::IASetIndexBuffer(ID3D11Buffer *,DXGI_FORMAT,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7596): message : см. объявление "ID3D11DeviceContext::IASetIndexBuffer"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DrawIndexedInstanced(UINT,UINT,UINT,INT,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7604): message : см. объявление "ID3D11DeviceContext::DrawIndexedInstanced"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DrawInstanced(UINT,UINT,UINT,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7616): message : см. объявление "ID3D11DeviceContext::DrawInstanced"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::GSSetConstantBuffers(UINT,UINT,ID3D11Buffer *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7626): message : см. объявление "ID3D11DeviceContext::GSSetConstantBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::GSSetShader(ID3D11GeometryShader *,ID3D11ClassInstance *const *,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7634): message : см. объявление "ID3D11DeviceContext::GSSetShader"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7641): message : см. объявление "ID3D11DeviceContext::IASetPrimitiveTopology"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::VSSetShaderResources(UINT,UINT,ID3D11ShaderResourceView *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7645): message : см. объявление "ID3D11DeviceContext::VSSetShaderResources"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::VSSetSamplers(UINT,UINT,ID3D11SamplerState *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7653): message : см. объявление "ID3D11DeviceContext::VSSetSamplers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::Begin(ID3D11Asynchronous *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7661): message : см. объявление "ID3D11DeviceContext::Begin"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::End(ID3D11Asynchronous *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7665): message : см. объявление "ID3D11DeviceContext::End"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : HRESULT ID3D11DeviceContext::GetData(ID3D11Asynchronous *,void *,UINT,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7669): message : см. объявление "ID3D11DeviceContext::GetData"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::SetPredication(ID3D11Predicate *,BOOL): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7679): message : см. объявление "ID3D11DeviceContext::SetPredication"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::GSSetShaderResources(UINT,UINT,ID3D11ShaderResourceView *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7685): message : см. объявление "ID3D11DeviceContext::GSSetShaderResources"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::GSSetSamplers(UINT,UINT,ID3D11SamplerState *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7693): message : см. объявление "ID3D11DeviceContext::GSSetSamplers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::OMSetRenderTargets(UINT,ID3D11RenderTargetView *const *,ID3D11DepthStencilView *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7701): message : см. объявление "ID3D11DeviceContext::OMSetRenderTargets"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::OMSetRenderTargetsAndUnorderedAccessViews(UINT,ID3D11RenderTargetView *const *,ID3D11DepthStencilView *,UINT,UINT,ID3D11UnorderedAccessView *const *,const UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7709): message : см. объявление "ID3D11DeviceContext::OMSetRenderTargetsAndUnorderedAccessViews"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::OMSetBlendState(ID3D11BlendState *,const FLOAT [],UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7725): message : см. объявление "ID3D11DeviceContext::OMSetBlendState"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::OMSetDepthStencilState(ID3D11DepthStencilState *,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7733): message : см. объявление "ID3D11DeviceContext::OMSetDepthStencilState"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::SOSetTargets(UINT,ID3D11Buffer *const *,const UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7739): message : см. объявление "ID3D11DeviceContext::SOSetTargets"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DrawAuto(void): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7747): message : см. объявление "ID3D11DeviceContext::DrawAuto"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DrawIndexedInstancedIndirect(ID3D11Buffer *,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7749): message : см. объявление "ID3D11DeviceContext::DrawIndexedInstancedIndirect"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DrawInstancedIndirect(ID3D11Buffer *,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7755): message : см. объявление "ID3D11DeviceContext::DrawInstancedIndirect"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::Dispatch(UINT,UINT,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7761): message : см. объявление "ID3D11DeviceContext::Dispatch"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DispatchIndirect(ID3D11Buffer *,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7769): message : см. объявление "ID3D11DeviceContext::DispatchIndirect"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::RSSetState(ID3D11RasterizerState *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7775): message : см. объявление "ID3D11DeviceContext::RSSetState"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::RSSetViewports(UINT,const D3D11_VIEWPORT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7779): message : см. объявление "ID3D11DeviceContext::RSSetViewports"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::RSSetScissorRects(UINT,const D3D11_RECT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7785): message : см. объявление "ID3D11DeviceContext::RSSetScissorRects"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CopySubresourceRegion(ID3D11Resource *,UINT,UINT,UINT,UINT,ID3D11Resource *,UINT,const D3D11_BOX *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7791): message : см. объявление "ID3D11DeviceContext::CopySubresourceRegion"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CopyResource(ID3D11Resource *,ID3D11Resource *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7809): message : см. объявление "ID3D11DeviceContext::CopyResource"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::UpdateSubresource(ID3D11Resource *,UINT,const D3D11_BOX *,const void *,UINT,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7815): message : см. объявление "ID3D11DeviceContext::UpdateSubresource"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CopyStructureCount(ID3D11Buffer *,UINT,ID3D11UnorderedAccessView *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7829): message : см. объявление "ID3D11DeviceContext::CopyStructureCount"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::ClearRenderTargetView(ID3D11RenderTargetView *,const FLOAT []): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7837): message : см. объявление "ID3D11DeviceContext::ClearRenderTargetView"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::ClearUnorderedAccessViewUint(ID3D11UnorderedAccessView *,const UINT []): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7843): message : см. объявление "ID3D11DeviceContext::ClearUnorderedAccessViewUint"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::ClearUnorderedAccessViewFloat(ID3D11UnorderedAccessView *,const FLOAT []): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7849): message : см. объявление "ID3D11DeviceContext::ClearUnorderedAccessViewFloat"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::ClearDepthStencilView(ID3D11DepthStencilView *,UINT,FLOAT,UINT8): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7855): message : см. объявление "ID3D11DeviceContext::ClearDepthStencilView"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::GenerateMips(ID3D11ShaderResourceView *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7865): message : см. объявление "ID3D11DeviceContext::GenerateMips"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::SetResourceMinLOD(ID3D11Resource *,FLOAT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7869): message : см. объявление "ID3D11DeviceContext::SetResourceMinLOD"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : FLOAT ID3D11DeviceContext::GetResourceMinLOD(ID3D11Resource *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7874): message : см. объявление "ID3D11DeviceContext::GetResourceMinLOD"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::ResolveSubresource(ID3D11Resource *,UINT,ID3D11Resource *,UINT,DXGI_FORMAT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7878): message : см. объявление "ID3D11DeviceContext::ResolveSubresource"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::ExecuteCommandList(ID3D11CommandList *,BOOL): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7890): message : см. объявление "ID3D11DeviceContext::ExecuteCommandList"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::HSSetShaderResources(UINT,UINT,ID3D11ShaderResourceView *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7895): message : см. объявление "ID3D11DeviceContext::HSSetShaderResources"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::HSSetShader(ID3D11HullShader *,ID3D11ClassInstance *const *,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7903): message : см. объявление "ID3D11DeviceContext::HSSetShader"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::HSSetSamplers(UINT,UINT,ID3D11SamplerState *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7910): message : см. объявление "ID3D11DeviceContext::HSSetSamplers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::HSSetConstantBuffers(UINT,UINT,ID3D11Buffer *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7918): message : см. объявление "ID3D11DeviceContext::HSSetConstantBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DSSetShaderResources(UINT,UINT,ID3D11ShaderResourceView *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7926): message : см. объявление "ID3D11DeviceContext::DSSetShaderResources"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DSSetShader(ID3D11DomainShader *,ID3D11ClassInstance *const *,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7934): message : см. объявление "ID3D11DeviceContext::DSSetShader"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DSSetSamplers(UINT,UINT,ID3D11SamplerState *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7941): message : см. объявление "ID3D11DeviceContext::DSSetSamplers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DSSetConstantBuffers(UINT,UINT,ID3D11Buffer *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7949): message : см. объявление "ID3D11DeviceContext::DSSetConstantBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CSSetShaderResources(UINT,UINT,ID3D11ShaderResourceView *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7957): message : см. объявление "ID3D11DeviceContext::CSSetShaderResources"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CSSetUnorderedAccessViews(UINT,UINT,ID3D11UnorderedAccessView *const *,const UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7965): message : см. объявление "ID3D11DeviceContext::CSSetUnorderedAccessViews"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CSSetShader(ID3D11ComputeShader *,ID3D11ClassInstance *const *,UINT): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7975): message : см. объявление "ID3D11DeviceContext::CSSetShader"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CSSetSamplers(UINT,UINT,ID3D11SamplerState *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7982): message : см. объявление "ID3D11DeviceContext::CSSetSamplers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CSSetConstantBuffers(UINT,UINT,ID3D11Buffer *const *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7990): message : см. объявление "ID3D11DeviceContext::CSSetConstantBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::VSGetConstantBuffers(UINT,UINT,ID3D11Buffer **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(7998): message : см. объявление "ID3D11DeviceContext::VSGetConstantBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::PSGetShaderResources(UINT,UINT,ID3D11ShaderResourceView **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8006): message : см. объявление "ID3D11DeviceContext::PSGetShaderResources"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::PSGetShader(ID3D11PixelShader **,ID3D11ClassInstance **,UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8014): message : см. объявление "ID3D11DeviceContext::PSGetShader"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::PSGetSamplers(UINT,UINT,ID3D11SamplerState **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8022): message : см. объявление "ID3D11DeviceContext::PSGetSamplers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::VSGetShader(ID3D11VertexShader **,ID3D11ClassInstance **,UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8030): message : см. объявление "ID3D11DeviceContext::VSGetShader"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::PSGetConstantBuffers(UINT,UINT,ID3D11Buffer **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8038): message : см. объявление "ID3D11DeviceContext::PSGetConstantBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::IAGetInputLayout(ID3D11InputLayout **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8046): message : см. объявление "ID3D11DeviceContext::IAGetInputLayout"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::IAGetVertexBuffers(UINT,UINT,ID3D11Buffer **,UINT *,UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8050): message : см. объявление "ID3D11DeviceContext::IAGetVertexBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::IAGetIndexBuffer(ID3D11Buffer **,DXGI_FORMAT *,UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8062): message : см. объявление "ID3D11DeviceContext::IAGetIndexBuffer"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::GSGetConstantBuffers(UINT,UINT,ID3D11Buffer **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8070): message : см. объявление "ID3D11DeviceContext::GSGetConstantBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::GSGetShader(ID3D11GeometryShader **,ID3D11ClassInstance **,UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8078): message : см. объявление "ID3D11DeviceContext::GSGetShader"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::IAGetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8086): message : см. объявление "ID3D11DeviceContext::IAGetPrimitiveTopology"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::VSGetShaderResources(UINT,UINT,ID3D11ShaderResourceView **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8090): message : см. объявление "ID3D11DeviceContext::VSGetShaderResources"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::VSGetSamplers(UINT,UINT,ID3D11SamplerState **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8098): message : см. объявление "ID3D11DeviceContext::VSGetSamplers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::GetPredication(ID3D11Predicate **,BOOL *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8106): message : см. объявление "ID3D11DeviceContext::GetPredication"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::GSGetShaderResources(UINT,UINT,ID3D11ShaderResourceView **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8112): message : см. объявление "ID3D11DeviceContext::GSGetShaderResources"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::GSGetSamplers(UINT,UINT,ID3D11SamplerState **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8120): message : см. объявление "ID3D11DeviceContext::GSGetSamplers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::OMGetRenderTargets(UINT,ID3D11RenderTargetView **,ID3D11DepthStencilView **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8128): message : см. объявление "ID3D11DeviceContext::OMGetRenderTargets"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::OMGetRenderTargetsAndUnorderedAccessViews(UINT,ID3D11RenderTargetView **,ID3D11DepthStencilView **,UINT,UINT,ID3D11UnorderedAccessView **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8136): message : см. объявление "ID3D11DeviceContext::OMGetRenderTargetsAndUnorderedAccessViews"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::OMGetBlendState(ID3D11BlendState **,FLOAT [],UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8150): message : см. объявление "ID3D11DeviceContext::OMGetBlendState"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::OMGetDepthStencilState(ID3D11DepthStencilState **,UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8158): message : см. объявление "ID3D11DeviceContext::OMGetDepthStencilState"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::SOGetTargets(UINT,ID3D11Buffer **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8164): message : см. объявление "ID3D11DeviceContext::SOGetTargets"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::RSGetState(ID3D11RasterizerState **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8170): message : см. объявление "ID3D11DeviceContext::RSGetState"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::RSGetViewports(UINT *,D3D11_VIEWPORT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8174): message : см. объявление "ID3D11DeviceContext::RSGetViewports"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::RSGetScissorRects(UINT *,D3D11_RECT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8180): message : см. объявление "ID3D11DeviceContext::RSGetScissorRects"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::HSGetShaderResources(UINT,UINT,ID3D11ShaderResourceView **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8186): message : см. объявление "ID3D11DeviceContext::HSGetShaderResources"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::HSGetShader(ID3D11HullShader **,ID3D11ClassInstance **,UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8194): message : см. объявление "ID3D11DeviceContext::HSGetShader"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::HSGetSamplers(UINT,UINT,ID3D11SamplerState **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8202): message : см. объявление "ID3D11DeviceContext::HSGetSamplers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::HSGetConstantBuffers(UINT,UINT,ID3D11Buffer **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8210): message : см. объявление "ID3D11DeviceContext::HSGetConstantBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DSGetShaderResources(UINT,UINT,ID3D11ShaderResourceView **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8218): message : см. объявление "ID3D11DeviceContext::DSGetShaderResources"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DSGetShader(ID3D11DomainShader **,ID3D11ClassInstance **,UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8226): message : см. объявление "ID3D11DeviceContext::DSGetShader"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DSGetSamplers(UINT,UINT,ID3D11SamplerState **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8234): message : см. объявление "ID3D11DeviceContext::DSGetSamplers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::DSGetConstantBuffers(UINT,UINT,ID3D11Buffer **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8242): message : см. объявление "ID3D11DeviceContext::DSGetConstantBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CSGetShaderResources(UINT,UINT,ID3D11ShaderResourceView **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8250): message : см. объявление "ID3D11DeviceContext::CSGetShaderResources"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CSGetUnorderedAccessViews(UINT,UINT,ID3D11UnorderedAccessView **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8258): message : см. объявление "ID3D11DeviceContext::CSGetUnorderedAccessViews"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CSGetShader(ID3D11ComputeShader **,ID3D11ClassInstance **,UINT *): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8266): message : см. объявление "ID3D11DeviceContext::CSGetShader"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CSGetSamplers(UINT,UINT,ID3D11SamplerState **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8274): message : см. объявление "ID3D11DeviceContext::CSGetSamplers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::CSGetConstantBuffers(UINT,UINT,ID3D11Buffer **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8282): message : см. объявление "ID3D11DeviceContext::CSGetConstantBuffers"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::ClearState(void): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8290): message : см. объявление "ID3D11DeviceContext::ClearState"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : void ID3D11DeviceContext::Flush(void): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8292): message : см. объявление "ID3D11DeviceContext::Flush"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : D3D11_DEVICE_CONTEXT_TYPE ID3D11DeviceContext::GetType(void): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8294): message : см. объявление "ID3D11DeviceContext::GetType"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : UINT ID3D11DeviceContext::GetContextFlags(void): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8296): message : см. объявление "ID3D11DeviceContext::GetContextFlags"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\TextDrawer.h(8,33): message : HRESULT ID3D11DeviceContext::FinishCommandList(BOOL,ID3D11CommandList **): абстрактный
+D:\Windows Kits\10\Include\10.0.18362.0\um\d3d11.h(8298): message : см. объявление "ID3D11DeviceContext::FinishCommandList"
