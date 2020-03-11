@@ -470,6 +470,9 @@ XMFLOAT3 Game::GetSphericalFromCartesian(float x4, float x3, float x2, float x1)
     float x22 = x2 * x2;
     float x32 = x3 * x3;
 
+    //todo: условия на нули
+
+
     float a1 = acosf(x1);
     float a2 = acosf(x2/sqrtf(x22 + x32 + x42));
     float a3;
