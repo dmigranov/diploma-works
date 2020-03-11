@@ -425,7 +425,7 @@ bool Game::LoadContent()
 
         mesh1 = new Mesh(_countof(vertices), vertices,
             _countof(indices), indices);
-        //meshes.push_back(mesh1);
+        meshes.push_back(mesh1);
     }
 
     {
@@ -441,11 +441,11 @@ bool Game::LoadContent()
 
         mesh2 = new Mesh(_countof(vertices), vertices,
             _countof(indices), indices);
-        //meshes.push_back(mesh2);
+        meshes.push_back(mesh2);
 
     }
 
-    {
+    /*{
         //0.2 0.4 0.8
         Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(0.0f, 0.33166f, 0.5f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 0
@@ -462,7 +462,7 @@ bool Game::LoadContent()
             _countof(indices), indices);
         meshes.push_back(mesh);
 
-    }
+    }*/
     return true;
 }
 
