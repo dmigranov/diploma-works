@@ -5,7 +5,9 @@ using namespace DirectX;
 
 class Mesh
 {
+    friend class Line;
 public:
+
     struct MeshConstantBuffer	//=Object Constant Buffer
     {
         XMMATRIX m_world;

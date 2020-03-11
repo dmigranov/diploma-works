@@ -119,7 +119,6 @@ void Mesh::Render(XMMATRIX matrix)
 //а можно передавать сразу много .. матриц в этот метод и рисовать их все
 void Mesh::Render(std::list<XMMATRIX> matrices)
 {
-
     // Input Assembler Stage - unique for every mesh
     const UINT vertexStride = sizeof(VertexPosColor);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
     const UINT offset = 0;
