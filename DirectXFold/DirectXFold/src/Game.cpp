@@ -246,7 +246,6 @@ void Game::Render()
 
     //Input Assembler Stage - common
     g_d3dDeviceContext->IASetInputLayout(g_d3dInputLayout);
-    g_d3dDeviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
     //Vertex Shader Stage
     g_d3dDeviceContext->VSSetShader(g_d3dVertexShader, nullptr, 0);

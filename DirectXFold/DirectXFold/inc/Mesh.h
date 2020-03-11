@@ -28,14 +28,12 @@ public:
     void Move(float x, float y, float z);
     XMMATRIX GetWorldMatrix();
 
+    //можно рисовать один и тот же меш используя разные матрицы
+    //std::list<XMMATRIX> list = { ..., ... }; cube->Render(list); 
+    virtual void Render(std::list<XMMATRIX> matrices);
+    virtual void Render();
+    virtual void Render(XMMATRIX matrix);
 
-    void Render();
-    void Render(XMMATRIX matrix);
-
-    /*{   //можно рисовать один и тот же меш используя разные матрицы
-    std::list<XMMATRIX> list = { XMMatrixTranslation(-3, 0, 0), XMMatrixTranslation(3, 0, 1) };
-    cube->Render(list); }*/
-    void Render(std::list<XMMATRIX> matrices);
 
 private:
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
