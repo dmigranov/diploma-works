@@ -281,11 +281,11 @@ void Game::Render()
     Vector4 pos = m_camera->GetPosition();
     Vector3 sphPos = GetSphericalFromCartesian(pos.x, pos.y, pos.z, pos.w);
     ss << std::fixed << std::setprecision(2);
-    ss << "X: " << pos.x << " A1: " << sphPos.x << std::endl;
-    ss << "Y: " << pos.y << " A2: " << sphPos.y << std::endl;
-    ss << "Z: " << pos.z << " A3: " << sphPos.z << std::endl;
+    ss << "X: " << pos.x << (pos.x < 0 ? "" : " ") << " A1: " << sphPos.x << std::endl;
+    ss << "Y: " << pos.y << (pos.y < 0 ? "" : " ") << " A2: " << sphPos.y << std::endl;
+    ss << "Z: " << pos.z << (pos.z < 0 ? "" : " ") << " A3: " << sphPos.z << std::endl;
     ss << "W: " << pos.w << std::endl;
-    m_textDrawer->DrawTextUpRightAlign(ss.str().c_str(), m_outputWidth-20, 20);
+    m_textDrawer->DrawTextDownLeftAlign(ss.str().c_str(), 20, m_outputHeight - 20);
     
 
     Present();
@@ -482,7 +482,6 @@ XMFLOAT3 Game::GetSphericalFromCartesian(float x4, float x3, float x2, float x1)
             return Vector3(a1, a2, 0);
         else
             return Vector3(a1, a2, XM_PI);
-
 
     float a3;
     if(x4 >= 0)
