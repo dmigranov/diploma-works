@@ -16,6 +16,7 @@ const XMMATRIX& SphericalCamera::GetView()
 		m_view = XMMatrixLookAtLH(m_position, lookAt, Vector3::Up);*/
 		m_view = SphericalRotationXW(m_position.x) * SphericalRotationZW(m_position.z);
 	}
+	//spherePos = 
 	return m_view;
 }
 
@@ -42,4 +43,9 @@ const XMMATRIX& SphericalCamera::GetBackProj()
 {
 	static Matrix back = BananaProjectionMatrixBackHalf(0);
 	return back;
+}
+
+Vector4 SphericalCamera::GetPosition()
+{
+	return XMVector4Transform(spherePos, m_view);
 }

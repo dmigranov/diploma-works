@@ -9,11 +9,7 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
               _Ty=SphericalCamera
           ]
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<SphericalCamera> std::make_shared<SphericalCamera,>(void)"
-  Mesh.cpp
-  SphericalCamera.cpp
   main.cpp
+  Mesh.cpp
   Создание кода...
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(25): warning C4172: возвращение адреса локальной или временной переменной
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(38): warning C4172: возвращение адреса локальной или временной переменной
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(44): warning C4172: возвращение адреса локальной или временной переменной
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe

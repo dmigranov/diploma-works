@@ -278,7 +278,7 @@ void Game::Render()
         //mesh2->Render();
     }
     std::stringstream ss;
-    Vector3 pos = m_camera->GetPosition();
+    Vector4 pos = m_camera->GetPosition();
     ss << "X: " << pos.x << std::endl;
     m_textDrawer->DrawTextUpRightAlign(ss.str().c_str(), m_outputWidth-20, 20);
     

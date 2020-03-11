@@ -24,7 +24,7 @@ public:
 	void SetLookAt(Vector3 v);
 
 	void Move(Vector3 v);
-	Vector3 GetPosition();
+	virtual Vector4 GetPosition();
 
 	void ChangePitchYaw(double pitch, double yaw);
 

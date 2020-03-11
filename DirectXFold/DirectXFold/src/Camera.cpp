@@ -81,9 +81,9 @@ void Camera::Move(Vector3 v)
 	m_viewDirty = true;
 }
 
-Vector3 Camera::GetPosition()
+Vector4 Camera::GetPosition()
 {
-	return m_position;
+	return Vector4(m_position.x, m_position.y, m_position.z, 1);
 }
 
 void Camera::ChangePitchYaw(double deltaPitch, double deltaYaw)
