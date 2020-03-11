@@ -3,17 +3,11 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(236,64): warning C4
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(294,78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(427,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(443,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(460,40): warning C4316: "Line": объект, размещенный в куче, может не быть выровнен 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(461,40): warning C4316: "Line": объект, размещенный в куче, может не быть выровнен 16
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1590,59): warning C4316: "std::_Ref_count_obj2<_Ty>": объект, размещенный в куче, может не быть выровнен 16
           with
           [
               _Ty=SphericalCamera
           ]
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<SphericalCamera> std::make_shared<SphericalCamera,>(void)"
-  Line.cpp
-  main.cpp
-  Mesh.cpp
-  TextDrawer.cpp
-  Создание кода...
-     Создается библиотека bin\DirectXFoldd.lib и объект bin\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe
