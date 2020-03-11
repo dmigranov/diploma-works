@@ -280,6 +280,9 @@ void Game::Render()
     std::stringstream ss;
     Vector4 pos = m_camera->GetPosition();
     ss << "X: " << pos.x << std::endl;
+    ss << "Y: " << pos.y << std::endl;
+    ss << "Z: " << pos.z << std::endl;
+    ss << "W: " << pos.w << std::endl;
     m_textDrawer->DrawTextUpRightAlign(ss.str().c_str(), m_outputWidth-20, 20);
     
 
@@ -456,4 +459,9 @@ XMFLOAT4 Game::GetCartesianFromSpherical(float a1, float a2, float a3)
     float sin2 = sinf(a2), cos2 = cosf(a2);
     float sin3 = sinf(a3), cos3 = cosf(a1);
     return XMFLOAT4(sin1*sin2*sin3, sin1*sin2*cos3, sin1*cos2, cos1);
+}
+
+XMFLOAT3 Game::GetSphericalFromCartesian(float x1, float x2, float x3, float x4)
+{
+    return XMFLOAT3();
 }
