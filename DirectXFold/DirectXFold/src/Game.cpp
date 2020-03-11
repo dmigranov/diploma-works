@@ -463,19 +463,20 @@ XMFLOAT4 Game::GetCartesianFromSpherical(float a1, float a2, float a3)
     return XMFLOAT4(sin3*sin2*sin1, sin3*sin2*cos1, sin3*cos2, cos3);
 }
 
-XMFLOAT3 Game::GetSphericalFromCartesian(float x1, float x2, float x3, float x4)
+//xyzw
+XMFLOAT3 Game::GetSphericalFromCartesian(float x4, float x3, float x2, float x1)
 {
-    float x12 = x1 * x1;
+    float x42 = x4 * x4;
     float x22 = x2 * x2;
     float x32 = x3 * x3;
 
-    float a3 = acosf(x4);
-    float a2 = acosf(x3/sqrtf(x12 + x22 + x32));
-    float a1;
-    if(x1 >= 0)
-        a1 = acosf(x2 / sqrtf(x12 + x22));
+    float a1 = acosf(x1);
+    float a2 = acosf(x2/sqrtf(x22 + x32 + x42));
+    float a3;
+    if(x4 >= 0)
+        a3 = acosf(x3 / sqrtf(x32 + x42));
     else 
-        a1 = XM_2PI - acosf(x2 / sqrtf(x12 + x22));
+        a3 = XM_2PI - acosf(x3 / sqrtf(x32 + x42));
 
     return XMFLOAT3(a1, a2, a3);
 }
