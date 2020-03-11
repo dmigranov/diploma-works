@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Mesh.h"
+#include "Game.h"
 
 Mesh::Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[]) : Mesh(nv, vertices, ni, indices, XMMatrixIdentity())
 { }
