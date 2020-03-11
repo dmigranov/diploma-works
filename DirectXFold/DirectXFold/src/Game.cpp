@@ -444,6 +444,23 @@ bool Game::LoadContent()
         meshes.push_back(mesh2);
 
     }
+
+    {
+        Mesh::VertexPosColor vertices[] = {
+        { XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f), XMFLOAT3(1.0f, 0.0f, 0.0f) }, // 0
+        { XMFLOAT4(0.0f,  0.f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, 1.0f) }, // 1
+        { XMFLOAT4(0.0f,  0.0f, 0.0f, -1.f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 2
+        };
+
+        WORD indices[] = {
+            0, 1, 2
+        };
+
+        Mesh * mesh = new Line(_countof(vertices), vertices,
+            _countof(indices), indices);
+        meshes.push_back(mesh);
+
+    }
     return true;
 }
 

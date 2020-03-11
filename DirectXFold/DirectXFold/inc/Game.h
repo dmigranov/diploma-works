@@ -1,7 +1,9 @@
 #pragma once
 #include <sstream>
 #include <iomanip>
+#include "Line.h"
 #include "Mesh.h"
+
 #include "PixelShader.h"
 #include "VertexShader.h"
 #include "MorphingVertexShader.h"

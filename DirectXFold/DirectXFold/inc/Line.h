@@ -1,8 +1,9 @@
 #pragma once
 #include "Mesh.h"
-class Line :
-	public Mesh
+class Line : public Mesh
 {
+public:
+	//using Mesh::Mesh;
 	void Render() override;
 	void Render(XMMATRIX matrix) override;
 	void Render(std::list<XMMATRIX> matrices) override;
