@@ -42,6 +42,9 @@ private:
     bool LoadContent();
     void UnloadContent();
 
+    XMFLOAT4 GetCartesianFromSpherical(float a1, float a2, float a3);
+
+
 
     // Device resources.
     HWND                                            m_hwnd;				//дескриптор окна игры

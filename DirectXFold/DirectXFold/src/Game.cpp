@@ -383,10 +383,16 @@ bool Game::LoadContent()
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
 
     {
-        Mesh::VertexPosColor vertices[] = {
+        /*Mesh::VertexPosColor vertices[] = {
             { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
             { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
             { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
+        };*/
+
+        Mesh::VertexPosColor vertices[] = {
+            { GetCartesianFromSpherical(1.37f, 2.17f, 1.f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
+            { GetCartesianFromSpherical(1.f, 2.f, 3.14f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
+            { GetCartesianFromSpherical(1.97f, 2.57f, 1.f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
         };
 
         WORD indices[] = {
@@ -426,4 +432,13 @@ void Game::UnloadContent()
     SafeRelease(g_d3dPixelShader);
     delete mesh1;
     delete mesh2;
+}
+
+
+XMFLOAT4 Game::GetCartesianFromSpherical(float a1, float a2, float a3)
+{
+    float sin1 = sinf(a1), cos1 = cosf(a1);
+    float sin2 = sinf(a2), cos2 = cosf(a2);
+    float sin3 = sinf(a3), cos3 = cosf(a1);
+    return XMFLOAT4(sin1*sin2*sin3, sin1*sin2*cos3, sin1*cos2, cos1);
 }
