@@ -269,8 +269,10 @@ void Game::Render()
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &front, 0, 0);
         auto view = m_camera->GetView();
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
-        mesh1->Render();
+        //mesh1->Render();
         //mesh2->Render();
+        for (auto mesh : meshes)
+            mesh->Render();
     }
     
     //second render
@@ -279,8 +281,8 @@ void Game::Render()
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &back, 0, 0);
         auto view = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
-        mesh1->Render();
-        //mesh2->Render();
+        for (auto mesh : meshes)
+            mesh->Render();
     }
     std::stringstream ss;
     Vector4 pos = m_camera->GetPosition();
@@ -424,7 +426,7 @@ bool Game::LoadContent()
 
         mesh1 = new Mesh(_countof(vertices), vertices,
             _countof(indices), indices);
-        //meshes.push_back(mesh1);
+        meshes.push_back(mesh1);
     }
 
     {
@@ -440,6 +442,8 @@ bool Game::LoadContent()
 
         mesh2 = new Mesh(_countof(vertices), vertices,
             _countof(indices), indices);
+        meshes.push_back(mesh2);
+
     }
     return true;
 }
