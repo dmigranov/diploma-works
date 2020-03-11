@@ -393,11 +393,11 @@ bool Game::LoadContent()
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
 
     {
-        Mesh::VertexPosColor vertices[] = {
+        /*Mesh::VertexPosColor vertices[] = {
             { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
             { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
             { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
-        };
+        };*/
 
         /*Mesh::VertexPosColor vertices[] = {
             { GetCartesianFromSpherical(1.37f, 2.17f, 1.f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
@@ -405,11 +405,11 @@ bool Game::LoadContent()
             { GetCartesianFromSpherical(1.97f, 2.57f, 1.f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
         };*/
 
-        /*Mesh::VertexPosColor vertices[] = {
-            { GetCartesianFromSpherical(XM_PI, XM_PIDIV2, 0.f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
-            { GetCartesianFromSpherical(XM_PIDIV4, XM_PIDIV2, 1.f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
-            { GetCartesianFromSpherical(XM_PIDIV4, XM_PIDIV2, 2.5f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
-        };*/
+        Mesh::VertexPosColor vertices[] = {
+            { GetCartesianFromSpherical(0.f, XM_PIDIV2, XM_PI), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
+            { GetCartesianFromSpherical(1.f, XM_PIDIV2, XM_PIDIV4), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
+            { GetCartesianFromSpherical(2.5f, XM_PIDIV2, XM_PIDIV4), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
+        };
 
         WORD indices[] = {
             0, 1, 2, 2, 1, 0
@@ -455,10 +455,10 @@ void Game::UnloadContent()
 
 XMFLOAT4 Game::GetCartesianFromSpherical(float a1, float a2, float a3)
 {
-    float sin1 = sinf(a1), cos1 = cosf(a1);
+    float sin3 = sinf(a3), cos3 = cosf(a3);
     float sin2 = sinf(a2), cos2 = cosf(a2);
-    float sin3 = sinf(a3), cos3 = cosf(a1);
-    return XMFLOAT4(sin1*sin2*sin3, sin1*sin2*cos3, sin1*cos2, cos1);
+    float sin1 = sinf(a1), cos1 = cosf(a3);
+    return XMFLOAT4(sin3*sin2*sin1, sin3*sin2*cos1, sin3*cos2, cos3);
 }
 
 XMFLOAT3 Game::GetSphericalFromCartesian(float x1, float x2, float x3, float x4)

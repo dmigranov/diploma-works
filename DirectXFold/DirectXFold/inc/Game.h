@@ -46,7 +46,7 @@ private:
     bool LoadContent();
     void UnloadContent();
 
-    XMFLOAT4 GetCartesianFromSpherical(float a1, float a2, float a3);
+    XMFLOAT4 GetCartesianFromSpherical(float a3, float a2, float a1);
     XMFLOAT3 GetSphericalFromCartesian(float x1, float x2, float x3, float x4);
 
 
