@@ -98,11 +98,6 @@ void Mesh::Render()
 
 void Mesh::Render(XMMATRIX matrix)
 {
-    //TODO: теоретически, если мы рисуем один и тот же меш много раз, нам не надо
-    //каждый раз устанавливать буферы
-    //можно конечно использовать инстансинг
-    //а можно передавать сразу много .. матриц в этот метод и рисовать их все
-
     // Input Assembler Stage - unique for every mesh
     const UINT vertexStride = sizeof(VertexPosColor);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
     const UINT offset = 0;
@@ -116,6 +111,10 @@ void Mesh::Render(XMMATRIX matrix)
     deviceContext->DrawIndexed(indicesCount, 0, 0);
 }
 
+//если мы рисуем один и тот же меш много раз, нам не надо
+//каждый раз устанавливать буферы
+//можно конечно использовать инстансинг
+//а можно передавать сразу много .. матриц в этот метод и рисовать их все
 void Mesh::Render(std::list<XMMATRIX> matrices)
 {
 
