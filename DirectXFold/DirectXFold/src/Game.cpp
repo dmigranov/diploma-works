@@ -193,6 +193,8 @@ int Game::Initialize(HWND window, int width, int height)
             this->mesh1->Move(0.f, -0.2f, 0.f);
     }, m_hwnd);
 
+    m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
+
     return 0;
 }
 
@@ -438,6 +440,7 @@ void Game::UnloadContent()
     SafeRelease(g_d3dPixelShader);
     delete mesh1;
     delete mesh2;
+    delete m_textDrawer;
 }
 
 

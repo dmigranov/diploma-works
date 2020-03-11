@@ -6,6 +6,9 @@
 #include "SimpleInputHandler.h"
 #include "SphericalCamera.h"
 
+#include "TextDrawer.h"
+
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -107,4 +110,6 @@ private:
     std::unique_ptr<InputHandler>         m_inputHandler;
     // Camera
     std::shared_ptr<Camera>               m_camera;
+
+    TextDrawer                            *m_textDrawer;
 };
