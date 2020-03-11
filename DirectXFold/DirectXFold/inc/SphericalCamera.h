@@ -11,7 +11,8 @@ public:
 	const XMMATRIX& GetFrontProj();
 	const XMMATRIX& GetBackProj();
 
-
+private:
+	Vector4 spherePos = Vector4(0, 0, 0, 1);
 
 };
 

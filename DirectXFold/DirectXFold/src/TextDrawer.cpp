@@ -12,7 +12,7 @@ TextDrawer::TextDrawer(ID3D11Device* device, ID3D11DeviceContext *context, const
 	m_font = std::make_unique<SpriteFont>(device, fontFile);
 }
 
-void TextDrawer::DrawTextUpRightAlign(const wchar_t* output, float x, float y)
+void TextDrawer::DrawTextUpRightAlign(const char* output, float x, float y)
 {
 	m_spriteBatch->Begin();
 
