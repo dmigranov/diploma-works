@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "TextDrawer.h"
+
+
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -10,16 +12,15 @@ TextDrawer::TextDrawer(ID3D11Device* device, ID3D11DeviceContext *context, const
 	m_font = std::make_unique<SpriteFont>(device, fontFile);
 }
 
-void TextDrawer::DrawText()
+void TextDrawer::DrawText(const wchar_t* output, float x, float y)
 {
 	m_spriteBatch->Begin();
 
-	const wchar_t* output = L"Hello World";
-
+	Vector2 pos = Vector2(x, y);
 	Vector2 origin = m_font->MeasureString(output) / 2.f;
 
 	m_font->DrawString(m_spriteBatch.get(), output,
-		m_fontPos, Colors::White, 0.f, origin);
+		pos, Colors::Black, 0.f, origin);
 
 	m_spriteBatch->End();
 }
