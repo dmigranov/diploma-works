@@ -278,7 +278,8 @@ void Game::Render()
         //mesh2->Render();
     }
 
-    m_textDrawer->DrawText(L"0123456789", 500, 50);
+    m_textDrawer->DrawTextUpRightAlign(L"012\n3456\n789", m_outputWidth-20, 20);
+    
 
     Present();
 }
