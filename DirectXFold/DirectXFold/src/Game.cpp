@@ -423,15 +423,15 @@ bool Game::LoadContent()
         Mesh::VertexPosColor vertices[] = {
             { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) },   // 0
             { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) },  // 1
-            { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }//, // 2
-            //{ XMFLOAT4(-0.33166f, 0.f, -0.5f, 0.8f), XMFLOAT3(1.0f, 0.0f, 0.0f) }   // 3
+            { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
+            { XMFLOAT4(-0.33166f, 0.f, -0.5f, 0.8f), XMFLOAT3(1.0f, 0.0f, 0.0f) }   // 3
         };
 
         WORD indices[] = {
-            /*0, 1, 2*/ 2, 1, 0, 0, 1, 2
-            /*1, 2, 3,
+            2, 1, 0, 
+            1, 2, 3,
             0, 1, 3,
-            3, 2, 0*/
+            3, 2, 0
         };
 
         mesh1 = new Mesh(_countof(vertices), vertices,
@@ -484,7 +484,8 @@ bool Game::LoadContent()
         };
 
         WORD indices[] = {
-            0, 1, 2, 3, 0
+            0, 1, 2, 3, 0,
+            0, 3, 2, 1, 0
         };
 
         Mesh* mesh = new Mesh(_countof(vertices), vertices,
