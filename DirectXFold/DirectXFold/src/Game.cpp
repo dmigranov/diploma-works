@@ -189,9 +189,10 @@ int Game::Initialize(HWND window, int width, int height)
         auto ks = Keyboard::Get().GetState();
         float gain = 0.045f;
         if (ks.U)
-            this->mesh1->SetWorldMatrix(SphericalRotationYW(-gain)*mesh1->GetWorldMatrix());
+            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(-gain))); //так всегда вверх! //todo: поразмыслить над тем же для камеры!
+            //this->mesh1->SetWorldMatrix(XMMatrixMultiply(SphericalRotationYW(-gain), mesh1->GetWorldMatrix())); //а так - направление меняется с движение тетраэдра!
         if (ks.J)
-            this->mesh1->SetWorldMatrix(SphericalRotationYW(gain) * mesh1->GetWorldMatrix());
+            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(gain)));
         if (ks.H)
             this->mesh1->SetWorldMatrix(SphericalRotationXW(-gain) * mesh1->GetWorldMatrix());
         if (ks.K)
