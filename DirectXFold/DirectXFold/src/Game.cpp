@@ -189,23 +189,13 @@ int Game::Initialize(HWND window, int width, int height)
         auto ks = Keyboard::Get().GetState();
         float gain = 0.045f;
         if (ks.U)
-        {
-            //this->mesh1->Move(0.f, 0.2f, 0.f);
             this->mesh1->SetWorldMatrix(SphericalRotationYW(-gain)*mesh1->GetWorldMatrix());
-        }
         if (ks.J)
-        {
             this->mesh1->SetWorldMatrix(SphericalRotationYW(gain) * mesh1->GetWorldMatrix());
-        }
         if (ks.H)
-        {
-            //this->mesh1->Move(0.f, 0.2f, 0.f);
             this->mesh1->SetWorldMatrix(SphericalRotationXW(-gain) * mesh1->GetWorldMatrix());
-        }
         if (ks.K)
-        {
             this->mesh1->SetWorldMatrix(SphericalRotationXW(gain) * mesh1->GetWorldMatrix());
-        }
     }, m_hwnd);
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
