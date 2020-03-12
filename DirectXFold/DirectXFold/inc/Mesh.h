@@ -10,10 +10,10 @@ public:
     class MeshUpdater
     {
     public:
-        MeshUpdater(std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix)> func);
-        DirectX::SimpleMath::Matrix operator()(DirectX::SimpleMath::Matrix in);
+        MeshUpdater(std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix, float delta)> func);
+        DirectX::SimpleMath::Matrix operator()(DirectX::SimpleMath::Matrix in, float delta);
     private:
-        std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix)> m_func;
+        std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix, float delta)> m_func;
     };
 
     struct MeshConstantBuffer	//=Object Constant Buffer
@@ -39,7 +39,7 @@ public:
     XMMATRIX GetWorldMatrix();
 
     void AddUpdater(MeshUpdater updater);
-    void Update();
+    void Update(float deltaTime);
 
     //можно рисовать один и тот же меш используя разные матрицы
     //std::list<XMMATRIX> list = { ..., ... }; cube->Render(list); 

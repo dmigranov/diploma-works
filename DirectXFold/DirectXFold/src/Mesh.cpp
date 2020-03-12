@@ -83,11 +83,11 @@ void Mesh::AddUpdater(MeshUpdater updater)
     meshUpdaters.push_back(updater);
 }
 
-void Mesh::Update()
+void Mesh::Update(float deltaTime)
 {
     for (auto updater : meshUpdaters)
     {
-        constantBuffer.m_world = updater(constantBuffer.m_world);
+        constantBuffer.m_world = updater(constantBuffer.m_world, deltaTime);
     }
 }
 
@@ -156,12 +156,12 @@ void Mesh::Render(std::list<XMMATRIX> matrices)
     }
 }
 
-Mesh::MeshUpdater::MeshUpdater(std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix)> func)
+Mesh::MeshUpdater::MeshUpdater(std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix, float delta)> func)
 {
     m_func = func;
 }
 
-DirectX::SimpleMath::Matrix Mesh::MeshUpdater::operator()(DirectX::SimpleMath::Matrix in)
+DirectX::SimpleMath::Matrix Mesh::MeshUpdater::operator()(DirectX::SimpleMath::Matrix in, float delta)
 {
-    return m_func(in);
+    return m_func(in, delta);
 }

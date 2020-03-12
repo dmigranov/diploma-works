@@ -203,7 +203,7 @@ int Game::Initialize(HWND window, int width, int height)
 
     }, m_hwnd);
 
-    mesh1->AddUpdater(Mesh::MeshUpdater([](Matrix in) { return Matrix(); }));
+    mesh1->AddUpdater(Mesh::MeshUpdater([](Matrix in, float deltaTime) { return SphericalRotationXZ(0) * in; }));
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
 
@@ -245,7 +245,7 @@ void Game::Update(float deltaTime)
 
     for (auto mesh : meshes)
     {
-        mesh->Update();
+        mesh->Update(deltaTime);
     }
 
 }
