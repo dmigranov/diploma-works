@@ -38,6 +38,9 @@ public:
     void Move(float x, float y, float z);
     XMMATRIX GetWorldMatrix();
 
+    void AddUpdater(MeshUpdater updater);
+    void Update();
+
     //можно рисовать один и тот же меш используя разные матрицы
     //std::list<XMMATRIX> list = { ..., ... }; cube->Render(list); 
     virtual void Render(std::list<XMMATRIX> matrices);

@@ -203,6 +203,8 @@ int Game::Initialize(HWND window, int width, int height)
 
     }, m_hwnd);
 
+    mesh1->AddUpdater(Mesh::MeshUpdater());
+
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
 
     return 0;
@@ -240,6 +242,12 @@ void Game::Update(float deltaTime)
     DWORD t = timeGetTime();
     m_morph = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.4*cos(t/100.0));
     mesh1->SetConstants(mesh1->GetWorldMatrix(), m_morph);
+
+    for (auto mesh : meshes)
+    {
+        mesh->Update();
+    }
+
 }
 
 void Game::Render()

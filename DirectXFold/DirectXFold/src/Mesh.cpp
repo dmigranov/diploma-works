@@ -78,6 +78,19 @@ void Mesh::Move(float x, float y, float z)
         constantBuffer.m_world;
 }
 
+void Mesh::AddUpdater(MeshUpdater updater)
+{
+    meshUpdaters.push_back(updater);
+}
+
+void Mesh::Update()
+{
+    for (auto updater : meshUpdaters)
+    {
+        constantBuffer.m_world = updater(constantBuffer.m_world);
+    }
+}
+
 XMMATRIX Mesh::GetWorldMatrix()
 {
     return constantBuffer.m_world;
@@ -85,10 +98,6 @@ XMMATRIX Mesh::GetWorldMatrix()
 
 void Mesh::Render()
 {
-    for (auto updater : meshUpdaters)
-    {
-        constantBuffer.m_world = updater(constantBuffer.m_world);
-    }
 
     // Input Assembler Stage - unique for every mesh
     const UINT vertexStride = sizeof(VertexPosColor);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.

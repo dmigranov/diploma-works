@@ -1,16 +1,18 @@
 #pragma once
 #include <sstream>
 #include <iomanip>
-#include "Line.h"
-#include "Mesh.h"
 
 #include "PixelShader.h"
 #include "VertexShader.h"
 #include "MorphingVertexShader.h"
+
+#include "Line.h"
+#include "Mesh.h"
 #include "SimpleInputHandler.h"
 #include "SphericalCamera.h"
-
 #include "TextDrawer.h"
+
+
 
 
 using namespace DirectX;
