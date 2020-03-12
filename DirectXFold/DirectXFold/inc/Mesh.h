@@ -1,5 +1,5 @@
 #pragma once
-
+#include "MeshUpdater.h"
 using namespace DirectX;
 
 class Mesh
@@ -7,6 +7,14 @@ class Mesh
     //todo: добавить parent mesh (возможно null)
     friend class Line;
 public:
+
+    class MeshUpdater
+    {
+    public:
+        MeshUpdater(std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix)> func);
+    private:
+        std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix)> m_func;
+    };
 
     struct MeshConstantBuffer	//=Object Constant Buffer
     {
@@ -38,6 +46,8 @@ public:
     Mesh * Clone();
 
 private:
+    std::list<MeshUpdater> meshUpdaters;
+
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
 	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
     ID3D11DeviceContext* deviceContext;
