@@ -11,6 +11,8 @@ public:
 	const XMMATRIX& GetFrontProj();
 	const XMMATRIX& GetBackProj();
 	Vector4 GetPosition() override;
+	void Move(Vector4 v) override;
+
 private:
 	Vector4 spherePos = Vector4(0, 0, 0, 1);
 

@@ -9,9 +9,9 @@ d:\диплом\my code\directxfold\directxfold\debug\shader.obj
 d:\диплом\my code\directxfold\directxfold\debug\mesh.obj
 d:\диплом\my code\directxfold\directxfold\debug\main.obj
 d:\диплом\my code\directxfold\directxfold\debug\line.obj
-d:\диплом\my code\directxfold\directxfold\debug\game.obj
 d:\диплом\my code\directxfold\directxfold\debug\camera.obj
 d:\диплом\my code\directxfold\directxfold\debug\sphericalmath.obj
+d:\диплом\my code\directxfold\directxfold\debug\game.obj
 d:\диплом\my code\directxfold\directxfold\bin\directxfoldd.lib
 d:\диплом\my code\directxfold\directxfold\bin\directxfoldd.exp
 d:\диплом\my code\directxfold\directxfold\inc\pixelshader.h
@@ -20,9 +20,6 @@ d:\диплом\my code\directxfold\directxfold\inc\vertexshader.h
 d:\диплом\my code\directxfold\directxfold\bin\basicvertexshader_d.cso
 d:\диплом\my code\directxfold\directxfold\inc\morphingvertexshader.h
 d:\диплом\my code\directxfold\directxfold\bin\morphingvertexshader_d.cso
-d:\диплом\my code\directxfold\directxfold\bin\directxfoldd.exe
-d:\диплом\my code\directxfold\directxfold\bin\directxfoldd.ilk
-d:\диплом\my code\directxfold\directxfold\bin\directxfoldd.pdb
 d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\cl.command.1.tlog
 d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\cl.read.1.tlog
 d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\cl.write.1.tlog
@@ -30,6 +27,12 @@ d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\directxfo
 d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\fxc.command.1.tlog
 d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\fxc.read.1.tlog
 d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\fxc.write.1.tlog
+d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\link.15940-cvtres.read.1.tlog
+d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\link.15940-cvtres.write.1.tlog
+d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\link.15940-rc.read.1.tlog
+d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\link.15940-rc.write.1.tlog
+d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\link.15940.read.1.tlog
+d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\link.15940.write.1.tlog
 d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\link.command.1.tlog
 d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\link.read.1.tlog
 d:\диплом\my code\directxfold\directxfold\debug\directxfold.tlog\link.write.1.tlog

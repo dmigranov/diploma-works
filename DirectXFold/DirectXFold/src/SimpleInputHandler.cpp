@@ -32,7 +32,7 @@ void SimpleInputHandler::HandleKeyboard()
         //ExitGame();
     }
 
-    Vector3 move = Vector3::Zero;
+    Vector4 move = Vector4::Zero;
 
     if (kb.Up || kb.W)
         move.z += 1.f;

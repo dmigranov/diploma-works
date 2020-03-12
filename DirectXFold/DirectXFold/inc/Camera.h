@@ -23,7 +23,7 @@ public:
 
 	void SetLookAt(Vector3 v);
 
-	void Move(Vector3 v);
+	virtual void Move(Vector4 v);
 	virtual Vector4 GetPosition();
 
 	void ChangePitchYaw(double pitch, double yaw);

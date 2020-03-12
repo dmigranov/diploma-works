@@ -49,3 +49,13 @@ Vector4 SphericalCamera::GetPosition()
 {
 	return XMVector4Transform(spherePos, m_view);
 }
+
+void SphericalCamera::Move(Vector4 v4)
+{
+	//todo
+	Vector3 v = Vector3(v4.x, v4.y, v4.z);
+	Quaternion q = Quaternion::CreateFromYawPitchRoll(m_yaw, -m_pitch, 0.f);
+	Vector3 move = Vector3::Transform(v, q);
+	m_position += move;
+	m_viewDirty = true;
+}

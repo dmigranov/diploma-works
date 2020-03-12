@@ -73,8 +73,9 @@ void Camera::SetLookAt(Vector3 v)
 	m_viewDirty = true;
 }
 
-void Camera::Move(Vector3 v)
+void Camera::Move(Vector4 v4)
 {
+	Vector3 v = Vector3(v4.x, v4.y, v4.z);
 	Quaternion q = Quaternion::CreateFromYawPitchRoll(m_yaw, -m_pitch, 0.f);
 	Vector3 move = Vector3::Transform(v, q);
 	m_position += move;
