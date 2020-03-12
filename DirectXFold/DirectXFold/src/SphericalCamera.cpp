@@ -14,7 +14,7 @@ const XMMATRIX& SphericalCamera::GetView()
 		Vector3 lookAt = m_position + Vector3(x, y, z);
 
 		m_view = XMMatrixLookAtLH(m_position, lookAt, Vector3::Up);*/
-		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
+		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXW(m_yaw);
 	}
 	//spherePos = 
 	return m_view;
@@ -50,12 +50,15 @@ Vector4 SphericalCamera::GetPosition()
 	return XMVector4Transform(spherePos, m_view);
 }
 
-void SphericalCamera::Move(Vector4 v4)
+void SphericalCamera::Move(Vector4 v)
 {
 	//todo
-	Vector3 v = Vector3(v4.x, v4.y, v4.z);
-	Quaternion q = Quaternion::CreateFromYawPitchRoll(m_yaw, -m_pitch, 0.f);
-	Vector3 move = Vector3::Transform(v, q);
-	m_position += move;
+	//Vector3 v = Vector3(v4.x, v4.y, v4.z);
+	//Quaternion q = Quaternion::CreateFromYawPitchRoll(m_yaw, -m_pitch, 0.f);
+
+	Vector4 move = XMVector4Transform(v, SphericalRotationXW(m_yaw));
+	Vector3 moveTemp = Vector3(move.x, move.y, move.z);
+
+	m_position += moveTemp;
 	m_viewDirty = true;
 }

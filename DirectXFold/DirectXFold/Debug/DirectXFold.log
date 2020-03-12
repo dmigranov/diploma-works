@@ -1,8 +1,7 @@
 ﻿  SphericalCamera.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(56,59): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(56,52): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(26): warning C4172: возвращение адреса локальной или временной переменной
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(17,140): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(59,59): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(39): warning C4172: возвращение адреса локальной или временной переменной
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(26): warning C4172: возвращение адреса локальной или временной переменной
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(45): warning C4172: возвращение адреса локальной или временной переменной
-     Создается библиотека bin\DirectXFoldd.lib и объект bin\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe
