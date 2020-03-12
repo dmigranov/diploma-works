@@ -85,6 +85,11 @@ XMMATRIX Mesh::GetWorldMatrix()
 
 void Mesh::Render()
 {
+    for (auto updater : meshUpdaters)
+    {
+        constantBuffer.m_world = updater(constantBuffer.m_world);
+    }
+
     // Input Assembler Stage - unique for every mesh
     const UINT vertexStride = sizeof(VertexPosColor);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
     const UINT offset = 0;
@@ -140,4 +145,14 @@ void Mesh::Render(std::list<XMMATRIX> matrices)
         //DRAW
         deviceContext->DrawIndexed(indicesCount, 0, 0);
     }
+}
+
+Mesh::MeshUpdater::MeshUpdater(std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix)> func)
+{
+    m_func = func;
+}
+
+DirectX::SimpleMath::Matrix Mesh::MeshUpdater::operator()(DirectX::SimpleMath::Matrix in)
+{
+    return m_func(in);
 }

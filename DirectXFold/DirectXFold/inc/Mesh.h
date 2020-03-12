@@ -1,5 +1,4 @@
 #pragma once
-#include "MeshUpdater.h"
 using namespace DirectX;
 
 class Mesh
@@ -12,6 +11,7 @@ public:
     {
     public:
         MeshUpdater(std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix)> func);
+        DirectX::SimpleMath::Matrix operator()(DirectX::SimpleMath::Matrix in);
     private:
         std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix)> m_func;
     };
