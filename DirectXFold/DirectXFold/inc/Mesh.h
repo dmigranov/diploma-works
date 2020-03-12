@@ -34,7 +34,7 @@ public:
     virtual void Render(std::list<XMMATRIX> matrices);
     virtual void Render();
     virtual void Render(XMMATRIX matrix);
-
+    Mesh * Clone();
 
 private:
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;

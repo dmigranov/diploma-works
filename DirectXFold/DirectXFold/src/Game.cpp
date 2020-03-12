@@ -119,7 +119,7 @@ int Game::Initialize(HWND window, int width, int height)
     depthStencilBufferDesc.ArraySize = 1;
     depthStencilBufferDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
     depthStencilBufferDesc.CPUAccessFlags = 0; // No CPU access required.
-    depthStencilBufferDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+    depthStencilBufferDesc.Format = DXGI_FORMAT_D32_FLOAT;
     depthStencilBufferDesc.Width = clientWidth;
     depthStencilBufferDesc.Height = clientHeight;
     depthStencilBufferDesc.MipLevels = 1;
@@ -196,6 +196,11 @@ int Game::Initialize(HWND window, int width, int height)
             this->mesh1->SetWorldMatrix(SphericalRotationXW(-gain) * mesh1->GetWorldMatrix());
         if (ks.K)
             this->mesh1->SetWorldMatrix(SphericalRotationXW(gain) * mesh1->GetWorldMatrix());
+        if (ks.Y)
+            this->mesh1->SetWorldMatrix(SphericalRotationXZ(-gain) * mesh1->GetWorldMatrix());
+        if (ks.I)
+            this->mesh1->SetWorldMatrix(SphericalRotationXZ(gain) * mesh1->GetWorldMatrix());
+
     }, m_hwnd);
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
@@ -426,9 +431,14 @@ bool Game::LoadContent()
         mesh1 = new Mesh(_countof(vertices), vertices,
             _countof(indices), indices);
         meshes.push_back(mesh1);
+
+        Mesh * mesh = mesh1->Clone();
+        mesh->SetWorldMatrix(SphericalRotationXZ(0.6) * mesh->GetWorldMatrix());
+        meshes.push_back(mesh);
+
     }
 
-    {
+    /*{
         Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(-0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(1.0f, 0.0f, 0.0f) }, // 0
         { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 1.0f) }, // 1
@@ -443,7 +453,7 @@ bool Game::LoadContent()
             _countof(indices), indices);
         meshes.push_back(mesh2);
 
-    }
+    }*/
 
     /*{
         //0.2 0.4 0.8

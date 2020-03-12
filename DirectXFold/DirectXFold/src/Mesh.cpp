@@ -114,6 +114,11 @@ void Mesh::Render(XMMATRIX matrix)
     deviceContext->DrawIndexed(indicesCount, 0, 0);
 }
 
+Mesh * Mesh::Clone()
+{
+    return new Mesh(verticesCount, g_Vertices, indicesCount, g_Indices, constantBuffer.m_world);
+}
+
 //если мы рисуем один и тот же меш много раз, нам не надо
 //каждый раз устанавливать буферы
 //можно конечно использовать инстансинг
