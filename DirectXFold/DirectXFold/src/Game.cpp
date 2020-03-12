@@ -203,7 +203,30 @@ int Game::Initialize(HWND window, int width, int height)
 
     }, m_hwnd);
 
-    mesh1->AddUpdater(Mesh::MeshUpdater([](Matrix in, float deltaTime) { return SphericalRotationXZ(0) * in; }));
+    mesh1->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) { 
+        std::srand(unsigned(std::time(0)));
+        Matrix res = Matrix::Identity;
+        int r = std::rand() % 6;
+        switch (r)
+        {
+        case 0:
+        case 1:
+            res *= SphericalRotationXZ(delta);
+            break;
+        case 2:
+        case 3:
+            res *= SphericalRotationXZ(-delta);
+            break;
+        case 4:
+            res *= SphericalRotationYZ(delta);
+            break;
+        case 5:
+            res *= SphericalRotationYZ(-delta);
+            break;
+        }
+            
+        return res * in; 
+    }));
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
 
