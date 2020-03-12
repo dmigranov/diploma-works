@@ -6,17 +6,9 @@ const XMMATRIX& SphericalCamera::GetView()
 	//todo: посмотреть как сделана камера в проекте для визуализации
 	if (m_viewDirty)
 	{
-		/*float y = sinf(m_pitch);
-		float r = cosf(m_pitch);
-		float z = r * cosf(m_yaw);
-		float x = r * sinf(m_yaw);
-
-		Vector3 lookAt = m_position + Vector3(x, y, z);
-
-		m_view = XMMatrixLookAtLH(m_position, lookAt, Vector3::Up);*/
-		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) /*SphericalRotationYW(-m_pitch)*/;
+		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
 	}
-	//spherePos = 
+
 	return m_view;
 }
 
@@ -52,21 +44,27 @@ Vector4 SphericalCamera::GetPosition()
 
 void SphericalCamera::Move(Vector4 v)
 {
-	//Vector3 v = Vector3(v4.x, v4.y, v4.z);
 
-	Vector4 move = XMVector4Transform(v, SphericalRotationXW(m_yaw));
+	Vector4 move = XMVector4Transform(XMVector4Transform(v, SphericalRotationXW(m_yaw)), SphericalRotationYW(m_pitch));
 	Vector3 moveTemp = Vector3(move.x, move.y, move.z);
 
-	//todo
+	Vector3 mtp = (m_position + moveTemp);
+
+	std::cout << mtp.x << " " << mtp.y << " " << mtp.z << " ";
+	//todo: поправка для pitch?
+
+	moveTemp = Vector3(v.x, v.y, v.z);
 
 	m_position += moveTemp;
+	std::cout << m_position.x << " " << m_position.y << " " << m_position.z << std::endl;
+
 	m_viewDirty = true;
 }
 
 void SphericalCamera::ChangePitchYaw(double pitch, double yaw)
 {
 	this->Camera::ChangePitchYaw(pitch, yaw);
-	//todo: менять позицию в change pitch yaw
+	//todo: сделать поправки на поворот как в Move
 	m_position += Vector3(yaw, pitch, 0);
 }
 

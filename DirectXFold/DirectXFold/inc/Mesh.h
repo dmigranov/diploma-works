@@ -4,6 +4,7 @@ using namespace DirectX;
 
 class Mesh
 {
+    //todo: добавить parent mesh (возможно null)
     friend class Line;
 public:
 
