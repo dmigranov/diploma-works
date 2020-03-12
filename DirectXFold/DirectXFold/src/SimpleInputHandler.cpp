@@ -52,8 +52,10 @@ void SimpleInputHandler::HandleKeyboard()
     if (kb.F)
         move.y -= 1.f;
 
+
     move *= MOVEMENT_GAIN;
-    m_camera->Move(move);
+    if(move != Vector4::Zero)
+        m_camera->Move(move);
 
     func();
 }

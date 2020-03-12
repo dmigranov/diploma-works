@@ -42,21 +42,13 @@ Vector4 SphericalCamera::GetPosition()
 	return XMVector4Transform(spherePos, m_view);
 }
 
+//v = dx dy dz dw
 void SphericalCamera::Move(Vector4 v)
 {
-
-	Vector4 move = XMVector4Transform(XMVector4Transform(v, SphericalRotationXW(m_yaw)), SphericalRotationYW(m_pitch));
+	Vector4 move = XMVector4Transform(v, Matrix::Identity);
 	Vector3 moveTemp = Vector3(move.x, move.y, move.z);
 
-	Vector3 mtp = (m_position + moveTemp);
-
-	std::cout << mtp.x << " " << mtp.y << " " << mtp.z << " ";
-	//todo: поправка для pitch?
-
-	moveTemp = Vector3(v.x, v.y, v.z);
-
 	m_position += moveTemp;
-	std::cout << m_position.x << " " << m_position.y << " " << m_position.z << std::endl;
 
 	m_viewDirty = true;
 }
