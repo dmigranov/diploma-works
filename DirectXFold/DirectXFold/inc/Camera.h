@@ -26,7 +26,7 @@ public:
 	virtual void Move(Vector4 v);
 	virtual Vector4 GetPosition();
 
-	void ChangePitchYaw(double pitch, double yaw);
+	virtual void ChangePitchYaw(double pitch, double yaw);
 
 	// Установка вертикального угла обзора (в градусах)
 	void SetFovY(float fovY);

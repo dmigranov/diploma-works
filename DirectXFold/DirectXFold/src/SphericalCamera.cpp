@@ -14,7 +14,7 @@ const XMMATRIX& SphericalCamera::GetView()
 		Vector3 lookAt = m_position + Vector3(x, y, z);
 
 		m_view = XMMatrixLookAtLH(m_position, lookAt, Vector3::Up);*/
-		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXW(m_yaw)/*SphericalRotationYW(-m_pitch)*/;
+		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) /*SphericalRotationYW(-m_pitch)*/;
 	}
 	//spherePos = 
 	return m_view;
@@ -63,4 +63,10 @@ void SphericalCamera::Move(Vector4 v)
 	m_viewDirty = true;
 }
 
-//todo: менять позицию в change pitch yaw
+void SphericalCamera::ChangePitchYaw(double pitch, double yaw)
+{
+	this->Camera::ChangePitchYaw(pitch, yaw);
+	//todo: менять позицию в change pitch yaw
+	m_position += Vector3(yaw, pitch, 0);
+}
+
