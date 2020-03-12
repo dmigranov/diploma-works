@@ -203,7 +203,7 @@ int Game::Initialize(HWND window, int width, int height)
 
     }, m_hwnd);
 
-    mesh1->AddUpdater(Mesh::MeshUpdater());
+    mesh1->AddUpdater(Mesh::MeshUpdater([](Matrix in) { return Matrix(); }));
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
 
