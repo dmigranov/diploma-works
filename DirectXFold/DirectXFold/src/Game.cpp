@@ -471,6 +471,40 @@ bool Game::LoadContent()
         meshes.push_back(mesh1);
     }
 
+    {
+
+
+        /*Mesh::VertexPosColor vertices[] = {
+            { GetCartesianFromSpherical(1.37f, 2.17f, 1.f), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
+            { GetCartesianFromSpherical(1.f, 2.f, 3.14f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
+            { GetCartesianFromSpherical(1.97f, 2.57f, 1.f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
+        };*/
+
+        /*Mesh::VertexPosColor vertices[] = {
+            { GetCartesianFromSpherical(0.f, XM_PIDIV2, XM_PI), XMFLOAT3(0.0f, 0.0f, 0.0f) }, // 0
+            { GetCartesianFromSpherical(1.f, XM_PIDIV2, XM_PIDIV4), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 1
+            { GetCartesianFromSpherical(2.5f, XM_PIDIV2, XM_PIDIV4), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
+        };*/
+
+        Mesh::VertexPosColor vertices[] = {
+            { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(1.0f, 0.0f, 0.0f) },   // 0
+            { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.5f, 0.0f) },  // 1
+            { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(.5f, 0.0f, 0.5f) }, // 2
+            { XMFLOAT4(-0.33166f, 0.f, -0.5f, 0.8f), XMFLOAT3(0.0f, 1.0f, 1.0f) }   // 3
+        };
+
+        WORD indices[] = {
+            2, 1, 0,
+            1, 2, 3,
+            0, 1, 3,
+            3, 2, 0
+        };
+
+        Mesh *mesh = new Mesh(_countof(vertices), vertices,
+            _countof(indices), indices, SphericalRotationXW(XM_PI/2));
+        meshes.push_back(mesh);
+    }
+
     /*{
         Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(-0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(1.0f, 0.0f, 0.0f) }, // 0

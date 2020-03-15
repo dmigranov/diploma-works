@@ -7,7 +7,7 @@ SphericalCamera::SphericalCamera()
 }
 const XMMATRIX& SphericalCamera::GetView()
 {
-	//todo: посмотреть как сделана камера в проекте для визуализации
+	//todo: возможно, стоит подумать над юзабилити, чтобы вращение всегда было одинаково
 	if (m_viewDirty)
 	{
 		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
