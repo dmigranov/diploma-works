@@ -22,6 +22,12 @@
     <Filter Include="pch">
       <UniqueIdentifier>{726c6ec4-e5fa-4e02-9628-13f96c518afd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Meshes">
+      <UniqueIdentifier>{17af7417-b7da-4ccd-a134-ef90d8f0d0d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Meshes">
+      <UniqueIdentifier>{5feba0ce-febe-44e2-8841-7d90a911b80f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -34,9 +40,6 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\Camera.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Mesh.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\Shader.cpp">
@@ -54,8 +57,14 @@
     <ClCompile Include="src\TextDrawer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\Mesh.cpp">
+      <Filter>Исходные файлы\Meshes</Filter>
+    </ClCompile>
     <ClCompile Include="src\Line.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Icosahedron.cpp">
+      <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -69,9 +78,6 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="inc\Camera.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Mesh.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="inc\Shader.h">
@@ -89,8 +95,14 @@
     <ClInclude Include="inc\TextDrawer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Mesh.h">
+      <Filter>Файлы заголовков\Meshes</Filter>
+    </ClInclude>
     <ClInclude Include="inc\Line.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Icosahedron.h">
+      <Filter>Файлы заголовков\Meshes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

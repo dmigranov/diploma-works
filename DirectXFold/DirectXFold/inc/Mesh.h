@@ -5,6 +5,7 @@ class Mesh
 {
     //todo: добавить parent mesh (возможно null)
     friend class Line;
+    friend class Icosahedron;
 public:
 
     class MeshUpdater
@@ -29,6 +30,7 @@ public:
         XMFLOAT3 Color;
     };
 
+    Mesh();
     Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[]);
     ~Mesh();
     Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[], XMMATRIX world);

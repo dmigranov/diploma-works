@@ -8,6 +8,8 @@
 
 #include "Line.h"
 #include "Mesh.h"
+#include "Icosahedron.h"
+
 #include "SimpleInputHandler.h"
 #include "SphericalCamera.h"
 #include "TextDrawer.h"
@@ -37,6 +39,8 @@ public:
 
 private:
     friend class Mesh;
+    friend class Icosahedron;
+
 
     Game() noexcept;
     Game(Game const&) = delete;
