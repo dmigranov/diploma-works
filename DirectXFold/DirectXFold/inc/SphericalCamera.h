@@ -5,6 +5,7 @@ class SphericalCamera :
 	public Camera
 {
 public:
+	SphericalCamera();
 	const XMMATRIX& GetView() override;
 	const XMMATRIX& GetAntipodalView();
 	const XMMATRIX& GetProj() override;
