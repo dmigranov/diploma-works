@@ -10,9 +10,8 @@ const XMMATRIX& SphericalCamera::GetView()
 	//todo: посмотреть как сделана камера в проекте для визуализации
 	if (m_viewDirty)
 	{
-		m_view = XMMatrixMultiply(SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z), m_view);
+		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
 	}
-	m_position = Vector3(0, 0, 0);
 	return m_view;
 }
 
