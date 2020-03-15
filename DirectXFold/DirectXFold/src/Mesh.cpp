@@ -99,6 +99,13 @@ XMMATRIX Mesh::GetWorldMatrix()
     return constantBuffer.m_world;
 }
 
+Mesh* Mesh::Clone()
+{
+    Mesh* mesh = new Mesh(verticesCount, g_Vertices, indicesCount, g_Indices, constantBuffer.m_world);
+    mesh->SetParent(parentMesh);
+    return mesh;
+}
+
 void Mesh::Render()
 {
 
@@ -109,7 +116,10 @@ void Mesh::Render()
     deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
     deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
 
-    deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBuffer, 0, 0);
+    MeshConstantBuffer constantBufferTemp = { constantBuffer.m_world };
+    if (parentMesh != nullptr)
+        constantBufferTemp.m_world * parentMesh->GetWorldMatrix();
+    deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
     
     //DRAW
     deviceContext->DrawIndexed(indicesCount, 0, 0);
@@ -125,18 +135,14 @@ void Mesh::Render(XMMATRIX matrix)
     deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
 
     MeshConstantBuffer constantBufferTemp = { matrix };
+    if (parentMesh != nullptr)
+        constantBufferTemp.m_world* parentMesh->GetWorldMatrix();
     deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
     //DRAW
     deviceContext->DrawIndexed(indicesCount, 0, 0);
 }
 
-Mesh * Mesh::Clone()
-{
-    Mesh * mesh = new Mesh(verticesCount, g_Vertices, indicesCount, g_Indices, constantBuffer.m_world);
-    mesh->SetParent(parentMesh);
-    return mesh;
-}
 
 //если мы рисуем один и тот же меш много раз, нам не надо
 //каждый раз устанавливать буферы
@@ -154,6 +160,8 @@ void Mesh::Render(std::list<XMMATRIX> matrices)
     for (auto matrix : matrices)
     {
         MeshConstantBuffer constantBufferTemp = { matrix };
+        if (parentMesh != nullptr)
+            constantBufferTemp.m_world* parentMesh->GetWorldMatrix();
         deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
         //DRAW
