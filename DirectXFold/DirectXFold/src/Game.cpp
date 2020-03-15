@@ -482,7 +482,7 @@ bool Game::LoadContent()
         };
 
         Mesh * mesh = new Mesh(_countof(vertices), vertices,
-            _countof(indices), indices);
+            _countof(indices), indices, SphericalRotationYW(0.7));
         meshes.push_back(mesh);
         mesh->SetParent(mesh1);
 
