@@ -264,8 +264,8 @@ void Game::Update(float deltaTime)
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &m_view, 0, 0);
     */
     DWORD t = timeGetTime();
-    m_morph = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.4*cos(t/100.0));
-    mesh1->SetConstants(mesh1->GetWorldMatrix(), m_morph);
+    //m_morph = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.4*cos(t/100.0));
+    //mesh1->SetConstants(mesh1->GetWorldMatrix(), m_morph);
 
     for (auto mesh : meshes)
     {

@@ -25,7 +25,7 @@ void Line::Render(XMMATRIX matrix)
     deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
     deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
 
-    MeshConstantBuffer constantBufferTemp = { matrix, constantBuffer.m_morph };
+    MeshConstantBuffer constantBufferTemp = { matrix };
     deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
     //DRAW
@@ -43,7 +43,7 @@ void Line::Render(std::list<XMMATRIX> matrices)
 
     for (auto matrix : matrices)
     {
-        MeshConstantBuffer constantBufferTemp = { matrix, constantBuffer.m_morph };
+        MeshConstantBuffer constantBufferTemp = { matrix };
         deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
         //DRAW

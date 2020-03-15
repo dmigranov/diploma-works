@@ -57,7 +57,6 @@ Mesh::Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[], XMMATRIX w
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
     constantBuffer.m_world = world;
-    constantBuffer.m_morph = XMMatrixIdentity();
 }
 
 
@@ -69,11 +68,6 @@ void Mesh::SetWorldMatrix(XMMATRIX world)
 void Mesh::SetConstants(MeshConstantBuffer constantBuffer)
 {
     this->constantBuffer = constantBuffer;
-}
-
-void Mesh::SetConstants(XMMATRIX world, XMMATRIX morph)
-{
-    SetConstants({world, morph});
 }
 
 void Mesh::SetParent(Mesh* parent)
@@ -130,7 +124,7 @@ void Mesh::Render(XMMATRIX matrix)
     deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
     deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
 
-    MeshConstantBuffer constantBufferTemp = { matrix, constantBuffer.m_morph };
+    MeshConstantBuffer constantBufferTemp = { matrix };
     deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
     //DRAW
@@ -139,7 +133,9 @@ void Mesh::Render(XMMATRIX matrix)
 
 Mesh * Mesh::Clone()
 {
-    return new Mesh(verticesCount, g_Vertices, indicesCount, g_Indices, constantBuffer.m_world);
+    Mesh * mesh = new Mesh(verticesCount, g_Vertices, indicesCount, g_Indices, constantBuffer.m_world);
+    mesh->SetParent(parentMesh);
+    return mesh;
 }
 
 //если мы рисуем один и тот же меш много раз, нам не надо
@@ -157,7 +153,7 @@ void Mesh::Render(std::list<XMMATRIX> matrices)
 
     for (auto matrix : matrices)
     {
-        MeshConstantBuffer constantBufferTemp = { matrix, constantBuffer.m_morph };
+        MeshConstantBuffer constantBufferTemp = { matrix };
         deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
         //DRAW

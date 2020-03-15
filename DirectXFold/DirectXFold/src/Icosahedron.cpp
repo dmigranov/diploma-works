@@ -64,7 +64,6 @@ Icosahedron::Icosahedron(float wSec, XMMATRIX world)
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
     constantBuffer.m_world = world;
-    constantBuffer.m_morph = XMMatrixIdentity();
 }
 
 Icosahedron::Icosahedron(float wSec) : Icosahedron(wSec, XMMatrixIdentity())
