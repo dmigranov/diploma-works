@@ -118,7 +118,7 @@ void Mesh::Render()
 
     MeshConstantBuffer constantBufferTemp = { constantBuffer.m_world };
     if (parentMesh != nullptr)
-        constantBufferTemp.m_world * parentMesh->GetWorldMatrix();
+        constantBufferTemp.m_world *= parentMesh->GetWorldMatrix();
     deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
     
     //DRAW
@@ -136,7 +136,7 @@ void Mesh::Render(XMMATRIX matrix)
 
     MeshConstantBuffer constantBufferTemp = { matrix };
     if (parentMesh != nullptr)
-        constantBufferTemp.m_world* parentMesh->GetWorldMatrix();
+        constantBufferTemp.m_world *= parentMesh->GetWorldMatrix();
     deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
     //DRAW
@@ -161,7 +161,7 @@ void Mesh::Render(std::list<XMMATRIX> matrices)
     {
         MeshConstantBuffer constantBufferTemp = { matrix };
         if (parentMesh != nullptr)
-            constantBufferTemp.m_world* parentMesh->GetWorldMatrix();
+            constantBufferTemp.m_world *= parentMesh->GetWorldMatrix();
         deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
         //DRAW
