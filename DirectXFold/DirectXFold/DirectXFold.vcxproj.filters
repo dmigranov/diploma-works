@@ -107,4 +107,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="meshes.txt" />
+  </ItemGroup>
 </Project>
