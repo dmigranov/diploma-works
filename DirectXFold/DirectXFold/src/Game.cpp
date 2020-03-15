@@ -444,12 +444,12 @@ bool Game::LoadContent()
             { XMFLOAT4(-(sqrtf(0.11f)), 0.f, -0.5f, 0.8f), XMFLOAT3(1.0f, 0.0f, 0.0f) }   // 3
         };*/
 
-        float v1 = 0.9f, v2 = sqrtf(1.f - v1 * v1);
+        float v1 = 0.9f, v3 = 0.2f, v2 = sqrtf(1.f - v1 * v1 - v3*v3);
         Mesh::VertexPosColor vertices[] = {
-            { XMFLOAT4(v2, 0.f, 0.f, v1), XMFLOAT3(0.0f, 0.0f, 0.0f) },   // 0
-            { XMFLOAT4(0.f,  v2, 0.f, v1), XMFLOAT3(0.0f, 1.0f, 0.0f) },  // 1
-            { XMFLOAT4(0.f,  -v2, 0.f, v1), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
-            { XMFLOAT4(-v2, 0.f, 0.f, v1), XMFLOAT3(1.0f, 0.0f, 0.0f) }   // 3
+            { XMFLOAT4(v2, 0.f, v3, v1), XMFLOAT3(0.0f, 0.0f, 0.0f) },   // 0
+            { XMFLOAT4(0.f,  v2, -v3, v1), XMFLOAT3(0.0f, 1.0f, 0.0f) },  // 1
+            { XMFLOAT4(0.f,  -v2, -v3, v1), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
+            { XMFLOAT4(-v2, 0.f, v3, v1), XMFLOAT3(1.0f, 0.0f, 0.0f) }   // 3
         };
 
         WORD indices[] = {
