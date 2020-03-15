@@ -427,13 +427,12 @@ bool Game::LoadContent()
     float clientWidth = static_cast<float>(clientRect.right - clientRect.left);
     float clientHeight = static_cast<float>(clientRect.bottom - clientRect.top);
 
-    //m_proj = XMMatrixPerspectiveFovLH(XMConvertToRadians(45.0f), clientWidth / clientHeight, 0.1f, 100.0f);
-   
     m_camera->SetPosition(0, 0, 0);
     m_camera->SetFovY(XM_PI / 4.f);
     m_camera->SetOutputSize(clientWidth, clientHeight);
     m_camera->SetNearPlane(0.1f);
     m_camera->SetFarPlane(100.f);
+
     /*m_proj = m_camera->GetProj();
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
 
@@ -443,7 +442,7 @@ bool Game::LoadContent()
             { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) },   // 0
             { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) },  // 1
             { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
-            { XMFLOAT4(-0.33166f, 0.f, -0.5f, 0.8f), XMFLOAT3(1.0f, 0.0f, 0.0f) }   // 3
+            { XMFLOAT4(-(sqrtf(0.11f)), 0.f, -0.5f, 0.8f), XMFLOAT3(1.0f, 0.0f, 0.0f) }   // 3
         };
 
         WORD indices[] = {
