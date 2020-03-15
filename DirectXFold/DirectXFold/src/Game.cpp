@@ -523,6 +523,10 @@ bool Game::LoadContent()
     {
         mesh1 = new Icosahedron(0.9f);
         meshes.push_back(mesh1);
+        Mesh * mesh = new Icosahedron(0.9f, SphericalRotationXW(XM_PI / 2));
+        meshes.push_back(mesh);
+        mesh = new Icosahedron(0.9f, SphericalRotationYW(XM_PI / 2));
+        meshes.push_back(mesh);
     }
 
     return true;
