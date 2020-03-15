@@ -32,16 +32,21 @@ public:
 
     Mesh();
     Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[]);
-    ~Mesh();
     Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[], XMMATRIX world);
+
+    ~Mesh();
+
+    XMMATRIX GetWorldMatrix();
 	void SetWorldMatrix(XMMATRIX world);
     void SetConstants(MeshConstantBuffer constantBuffer);
     void SetConstants(XMMATRIX world, XMMATRIX morph);
+    void SetParent(Mesh* parent);
+
     void Move(float x, float y, float z);
-    XMMATRIX GetWorldMatrix();
 
     void AddUpdater(MeshUpdater updater);
     void Update(float deltaTime);
+
 
     //можно рисовать один и тот же меш используя разные матрицы
     //std::list<XMMATRIX> list = { ..., ... }; cube->Render(list); 
@@ -51,6 +56,8 @@ public:
     Mesh * Clone();
 
 private:
+    Mesh* parentMesh = nullptr;
+    
     std::list<MeshUpdater> meshUpdaters;
 
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;

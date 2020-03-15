@@ -76,6 +76,11 @@ void Mesh::SetConstants(XMMATRIX world, XMMATRIX morph)
     SetConstants({world, morph});
 }
 
+void Mesh::SetParent(Mesh* parent)
+{
+    parentMesh = parent;
+}
+
 void Mesh::Move(float x, float y, float z)
 {
     constantBuffer.m_world = XMMatrixTranslation(x, y, z) *
