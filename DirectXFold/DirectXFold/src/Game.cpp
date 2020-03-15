@@ -194,17 +194,17 @@ int Game::Initialize(HWND window, int width, int height)
         if (ks.J)
             this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(gain)));
         if (ks.H)
-            this->mesh1->SetWorldMatrix(SphericalRotationXW(-gain) * mesh1->GetWorldMatrix());
+            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXW(-gain)));
         if (ks.K)
-            this->mesh1->SetWorldMatrix(SphericalRotationXW(gain) * mesh1->GetWorldMatrix());
+            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXW(gain)));
         if (ks.Y)
-            this->mesh1->SetWorldMatrix(SphericalRotationXZ(-gain) * mesh1->GetWorldMatrix());
+            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(-gain)));
         if (ks.I)
-            this->mesh1->SetWorldMatrix(SphericalRotationXZ(gain) * mesh1->GetWorldMatrix());
+            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(gain)));
 
     }, m_hwnd);
 
-    mesh1->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) { 
+    /*mesh1->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) { 
         std::srand(unsigned(std::time(0)));
         Matrix res = Matrix::Identity;
         int r = std::rand() % 6;
@@ -227,7 +227,7 @@ int Game::Initialize(HWND window, int width, int height)
         }
             
         return res * in; 
-    }));
+    }));*/
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
 
