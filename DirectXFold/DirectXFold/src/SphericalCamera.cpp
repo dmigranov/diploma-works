@@ -30,13 +30,13 @@ const XMMATRIX& SphericalCamera::GetProj()
 
 const XMMATRIX& SphericalCamera::GetFrontProj()
 {
-	static Matrix front = BananaProjectionMatrixFrontHalf(0);
+	static Matrix front = BananaProjectionMatrixFrontHalf(0.01);
 	return front;
 }
 
 const XMMATRIX& SphericalCamera::GetBackProj()
 {
-	static Matrix back = BananaProjectionMatrixBackHalf(0);
+	static Matrix back = BananaProjectionMatrixBackHalf(0.01);
 	return back;
 }
 

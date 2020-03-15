@@ -67,5 +67,4 @@ Icosahedron::Icosahedron(float wSec, XMMATRIX world)
 }
 
 Icosahedron::Icosahedron(float wSec) : Icosahedron(wSec, XMMatrixIdentity())
-{
-}
+{}
