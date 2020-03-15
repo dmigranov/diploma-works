@@ -521,29 +521,6 @@ bool Game::LoadContent()
     }*/
 
     {
-        /*float wSec = 0.9f, inv = sqrtf(1 - 0.8*0.8);
-        Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(0.f,  0.f, -inv, wSec), XMFLOAT3(0.5f, 1.0f, 0.0f) }, // 0
-        { XMFLOAT4(0.f,  0.f, inv, wSec), XMFLOAT3(0.0f, 1.0f, 0.5f) }, // 1
-        { XMFLOAT4(0.f, -inv, 0.f, wSec), XMFLOAT3(0.5f, 1.0f, 1.0f) }, // 2
-        { XMFLOAT4(0.f,  inv, 0.f, wSec), XMFLOAT3(1.0f, 0.5f, 0.0f) }, // 3
-        { XMFLOAT4(-inv,  0.f, 0.f, wSec), XMFLOAT3(0.5f, 0.0f, 0.5f) }, // 4
-        { XMFLOAT4(inv,  0.f, 0.f, wSec), XMFLOAT3(0.5f, 0.5f, 0.5f) }, // 5
-        };
-
-        WORD indices[] = {
-            0, 2, 4,
-            4, 3, 0,
-            5, 2, 0,
-            0, 3, 5,
-            4, 2, 1,
-            1, 3, 4,
-            1, 2, 5, 
-            5, 3, 1, 
-        };
-
-        mesh1 = new Mesh(_countof(vertices), vertices,
-            _countof(indices), indices);*/
         mesh1 = new Icosahedron(0.9f);
         meshes.push_back(mesh1);
     }
