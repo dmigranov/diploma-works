@@ -437,12 +437,19 @@ bool Game::LoadContent()
     g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
 
     {
-
-        Mesh::VertexPosColor vertices[] = {
+        /*Mesh::VertexPosColor vertices[] = {
             { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) },   // 0
             { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) },  // 1
             { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
             { XMFLOAT4(-(sqrtf(0.11f)), 0.f, -0.5f, 0.8f), XMFLOAT3(1.0f, 0.0f, 0.0f) }   // 3
+        };*/
+
+        float v1 = 0.9f, v2 = sqrtf(1.f - v1 * v1);
+        Mesh::VertexPosColor vertices[] = {
+            { XMFLOAT4(v2, 0.f, 0.f, v1), XMFLOAT3(0.0f, 0.0f, 0.0f) },   // 0
+            { XMFLOAT4(0.f,  v2, 0.f, v1), XMFLOAT3(0.0f, 1.0f, 0.0f) },  // 1
+            { XMFLOAT4(0.f,  -v2, 0.f, v1), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
+            { XMFLOAT4(-v2, 0.f, 0.f, v1), XMFLOAT3(1.0f, 0.0f, 0.0f) }   // 3
         };
 
         WORD indices[] = {
