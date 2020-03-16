@@ -3,7 +3,7 @@
 #include "Game.h"
 
 
-Icosahedron::Icosahedron(float wSec, XMMATRIX world)
+Octahedron::Octahedron(float wSec, XMMATRIX world)
 {
     float inv = sqrtf(1 - 0.8 * 0.8);
     Mesh::VertexPosColor vertices[] = {
@@ -66,5 +66,5 @@ Icosahedron::Icosahedron(float wSec, XMMATRIX world)
     constantBuffer.m_world = world;
 }
 
-Icosahedron::Icosahedron(float wSec) : Icosahedron(wSec, XMMatrixIdentity())
+Octahedron::Octahedron(float wSec) : Octahedron(wSec, XMMatrixIdentity())
 {}

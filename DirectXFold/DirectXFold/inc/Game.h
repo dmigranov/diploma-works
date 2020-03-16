@@ -39,7 +39,7 @@ public:
 
 private:
     friend class Mesh;
-    friend class Icosahedron;
+    friend class Octahedron;
 
 
     Game() noexcept;

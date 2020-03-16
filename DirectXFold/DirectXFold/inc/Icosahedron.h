@@ -1,11 +1,11 @@
 #pragma once
 #include "Mesh.h"
-class Icosahedron :
+class Octahedron :
 	public Mesh
 {
 public:
-	Icosahedron(float wSec, XMMATRIX world);
-	Icosahedron(float wSec);
+	Octahedron(float wSec, XMMATRIX world);
+	Octahedron(float wSec);
 
 };
 
