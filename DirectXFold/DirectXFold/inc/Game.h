@@ -8,7 +8,7 @@
 
 #include "Line.h"
 #include "Mesh.h"
-#include "Icosahedron.h"
+#include "Octahedron.h"
 
 #include "SimpleInputHandler.h"
 #include "SphericalCamera.h"

@@ -463,7 +463,7 @@ bool Game::LoadContent()
 
 
     {
-        mesh1 = new Octahedron(0.9f);
+        mesh1 = new Octahedron(-.99f);
         meshes.push_back(mesh1);
 
         float v1 = 0.99f, v3 = 0.08f, v2 = sqrtf(1.f - v1 * v1 - v3 * v3);
@@ -483,12 +483,12 @@ bool Game::LoadContent()
 
         Mesh * mesh = new Mesh(_countof(vertices), vertices,
             _countof(indices), indices, SphericalRotationYW(0.7));
-        meshes.push_back(mesh);
-        mesh->SetParent(mesh1);
+        //meshes.push_back(mesh);
+        //mesh->SetParent(mesh1);
 
-        mesh->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
+        /*mesh->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
             return SphericalRotationXW(-delta) * in;
-        }));
+        }));*/
     }
 
     return true;

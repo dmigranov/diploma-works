@@ -63,7 +63,7 @@
     <ClCompile Include="src\Line.cpp">
       <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
-    <ClCompile Include="src\Icosahedron.cpp">
+    <ClCompile Include="src\Octahedron.cpp">
       <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,7 +101,7 @@
     <ClInclude Include="inc\Line.h">
       <Filter>Файлы заголовков\Meshes</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Icosahedron.h">
+    <ClInclude Include="inc\Octahedron.h">
       <Filter>Файлы заголовков\Meshes</Filter>
     </ClInclude>
   </ItemGroup>

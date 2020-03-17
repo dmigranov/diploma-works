@@ -1,6 +1,6 @@
 ﻿  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(308,78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(466,37): warning C4316: "Octahedron": объект, размещенный в куче, может не быть выровнен 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(466,38): warning C4316: "Octahedron": объект, размещенный в куче, может не быть выровнен 16
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(485,64): warning C4305: аргумент: усечение из "double" в "float"
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(485,66): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1590,59): warning C4316: "std::_Ref_count_obj2<_Ty>": объект, размещенный в куче, может не быть выровнен 16
@@ -9,11 +9,4 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
               _Ty=SphericalCamera
           ]
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<SphericalCamera> std::make_shared<SphericalCamera,>(void)"
-  Icosahedron.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Icosahedron.cpp(8,36): warning C4305: аргумент: усечение из "double" в "float"
-  Line.cpp
-  Mesh.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Mesh.cpp(104,102): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
-  main.cpp
-  Создание кода...
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe
