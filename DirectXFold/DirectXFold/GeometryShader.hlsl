@@ -1,7 +1,7 @@
 struct VertexInput
 {
-	float4 color : COLOR;
-	float4 position : POSITION; //стандартный System-Value для вертекса, который требуется на RS
+    float4 color : COLOR;
+    float4 position : POSITION; 
 };
 
 struct VertexOutput

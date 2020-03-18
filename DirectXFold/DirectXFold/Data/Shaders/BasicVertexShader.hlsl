@@ -23,7 +23,7 @@ struct VertexShaderInput
 struct VertexShaderOutput
 {
     float4 color : COLOR;
-    float4 position : POSITION; 
+    float4 position : POSITION;
 };
 
 //entry point
