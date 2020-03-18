@@ -136,28 +136,28 @@ void Octahedron::SetSectionHeight(double newSectionHeight)
     switch (fc)
     {
     case FixedCoordinate::FC_X:
-        constantBuffer.m_world *= Matrix(newSectionHeight / sectionHeight, 0, 0, 0,
+        constantBuffer.m_world = Matrix(newSectionHeight / sectionHeight, 0, 0, 0,
             0, multiplier, 0, 0,
             0, 0, multiplier, 0,
-            0, 0, 0, multiplier);
+            0, 0, 0, multiplier) * constantBuffer.m_world;
         break;
     case FixedCoordinate::FC_Y:
-        constantBuffer.m_world *= Matrix(multiplier, 0, 0, 0,
+        constantBuffer.m_world = Matrix(multiplier, 0, 0, 0,
             0, newSectionHeight / sectionHeight, 0, 0,
             0, 0, multiplier, 0,
-            0, 0, 0, multiplier);
+            0, 0, 0, multiplier) * constantBuffer.m_world;
         break;
     case FixedCoordinate::FC_Z:
-        constantBuffer.m_world *= Matrix(multiplier, 0, 0, 0,
+        constantBuffer.m_world = Matrix(multiplier, 0, 0, 0,
             0, multiplier, 0, 0,
             0, 0, newSectionHeight / sectionHeight, 0,
-            0, 0, 0, multiplier);
+            0, 0, 0, multiplier) * constantBuffer.m_world;
         break;
     case FixedCoordinate::FC_W:
-        constantBuffer.m_world *= Matrix(multiplier, 0, 0, 0,
+        constantBuffer.m_world = Matrix(multiplier, 0, 0, 0,
             0, multiplier, 0, 0,
             0, 0, multiplier, 0,
-            0, 0, 0, newSectionHeight / sectionHeight);
+            0, 0, 0, newSectionHeight / sectionHeight) * constantBuffer.m_world;
 
         break;
     }
