@@ -162,7 +162,7 @@ int Game::Initialize(HWND window, int width, int height)
     blendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
     blendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
     blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
-    hr = g_d3dDevice->CreateBlendState(&blendDesc, &g_d3dBlendState);
+    hr = g_d3dDevice->CreateBlendState(&blendDesc, &g_d3dBlendStateOn);
     if (FAILED(hr))
     {
         return -1;
@@ -293,7 +293,7 @@ void Game::Render()
     //Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
     g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
-    g_d3dDeviceContext->OMSetBlendState(g_d3dBlendState, 0, 0xffffffff);
+    g_d3dDeviceContext->OMSetBlendState(g_d3dBlendStateOn, 0, 0xffffffff);
 
     //first render
     {

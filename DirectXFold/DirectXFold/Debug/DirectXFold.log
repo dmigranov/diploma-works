@@ -1,6 +1,4 @@
-﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\VertexShader.h
-  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\BasicVertexShader_d.cso
-  Game.cpp
+﻿  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(329,78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(488,73): warning C4316: "Octahedron": объект, размещенный в куче, может не быть выровнен 16
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(510,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
