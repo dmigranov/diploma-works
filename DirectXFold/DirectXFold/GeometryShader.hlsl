@@ -16,7 +16,7 @@ void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<Ve
 {
     float4 pos0 = input[0].position, pos1 = input[1].position, pos2 = input[2].position;
     
-    VertexOutput v1 = { input[0].color, pos0.z/pos0.w, input[0].position };
+    VertexOutput v1 = { input[0].color, pos0.z / pos0.w, input[0].position };
     stream.Append(v1); // добавление вертекса
     VertexOutput v2 = { input[1].color, pos1.z / pos1.w, input[1].position };
     stream.Append(v2); // добавление вертекса
