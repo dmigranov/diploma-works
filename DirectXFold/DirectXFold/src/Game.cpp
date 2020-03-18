@@ -301,10 +301,11 @@ void Game::Render()
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &front, 0, 0);
         auto view = m_camera->GetView();
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
-        //mesh1->Render();
-        //mesh2->Render();
-        for (auto mesh : meshes)
-            mesh->Render();
+        
+        mesh1->Render();
+        mesh2->Render();
+        //for (auto mesh : meshes)
+        //    mesh->Render();
     }
     
     //second render
@@ -313,8 +314,11 @@ void Game::Render()
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &back, 0, 0);
         auto view = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
         g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
-        for (auto mesh : meshes)
-            mesh->Render();
+        mesh1->Render();
+        mesh2->Render();
+        
+        //for (auto mesh : meshes)
+        //    mesh->Render();
     }
 
 
@@ -407,7 +411,7 @@ bool Game::LoadContent()
     D3D11_INPUT_ELEMENT_DESC vertexLayoutDesc[] =
     {
         { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        { "COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Color), D3D11_INPUT_PER_VERTEX_DATA, 0 }
+        { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Color), D3D11_INPUT_PER_VERTEX_DATA, 0 }
     };
 
     hr = g_d3dDevice->CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs), &g_d3dInputLayout);
@@ -493,10 +497,10 @@ bool Game::LoadContent()
 
         float v1 = 0.99f, v3 = 0.08f, v2 = sqrtf(1.f - v1 * v1 - v3 * v3);
         Mesh::VertexPosColor vertices[] = {
-            { XMFLOAT4(v2, 0.f, v3, v1), XMFLOAT4(1.0f, 0.0f, 0.0f, 0.5f) },   // 0
-            { XMFLOAT4(0.f,  v2, -v3, v1), XMFLOAT4(0.0f, 1.0f, 1.0f, 0.5f) },  // 1
-            { XMFLOAT4(0.f,  -v2, -v3, v1), XMFLOAT4(0.0f, 0.0f, 1.0f, 0.5f) }, // 2
-            { XMFLOAT4(-v2, 0.f, v3, v1), XMFLOAT4(0.0f, 1.0f, 0.0f, 0.5f) }   // 3
+            { XMFLOAT4(v2, 0.f, v3, v1), XMFLOAT4(1.f, 1.f, 1.f, 0.3f) },   // 0
+            { XMFLOAT4(0.f,  v2, -v3, v1), XMFLOAT4(1.f, 1.f, 1.f, 0.3f) },  // 1
+            { XMFLOAT4(0.f,  -v2, -v3, v1), XMFLOAT4(1.f, 1.f, 1.f, 0.3f) }, // 2
+            { XMFLOAT4(-v2, 0.f, v3, v1), XMFLOAT4(1.f, 1.f, 1.f, 0.3f) }   // 3
         };
 
         WORD indices[] = {
@@ -506,10 +510,10 @@ bool Game::LoadContent()
             3, 2, 0
         };
 
-        Mesh * mesh = new Mesh(_countof(vertices), vertices,
+        mesh2 = new Mesh(_countof(vertices), vertices,
             _countof(indices), indices);
-        meshes.push_back(mesh);
-        mesh->SetParent(mesh1);
+        meshes.push_back(mesh2);
+        //mesh2->SetParent(mesh1);
 
         /*mesh->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
             return SphericalRotationXW(-delta) * in;
