@@ -1,0 +1,11 @@
+﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\PixelShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\BasicPixelShader_d.cso
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\VertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\BasicVertexShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\MorphingVertexShader.hlsl(36,9-24): warning X3206: implicit truncation of vector type
+  
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\MorphingVertexShader.cso
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\GeometryShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\GeometryShader.cso
+  pch.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\pch.cpp(1,10): fatal error C1083: Не удается открыть файл включение: pch.h: No such file or directory,
