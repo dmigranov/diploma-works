@@ -17,6 +17,7 @@ Octahedron::Octahedron(float wSec) : Octahedron(wSec, XMMatrixIdentity())
 Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
 {
     this->fc = coord;
+    sectionHeight = section;
 
     float inv = sqrtf(1 - section * section);
     if (coord == FixedCoordinate::FC_W)
@@ -181,21 +182,5 @@ void Octahedron::SetSectionHeight(float sectionHeight)
 
 float Octahedron::GetSectionHeight()
 {
-    float oldSectionHeight;
-    switch (fc)
-    {
-    case FixedCoordinate::FC_X:
-        oldSectionHeight = g_Vertices[0].Position.x;
-        break;
-    case FixedCoordinate::FC_Y:
-        oldSectionHeight = g_Vertices[0].Position.y;
-        break;
-    case FixedCoordinate::FC_Z:
-        oldSectionHeight = g_Vertices[0].Position.z;
-        break;
-    case FixedCoordinate::FC_W:
-        oldSectionHeight = g_Vertices[0].Position.w;
-        break;
-    }
-    return oldSectionHeight;
+    return sectionHeight;
 }

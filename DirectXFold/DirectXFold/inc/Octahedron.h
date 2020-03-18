@@ -20,5 +20,6 @@ public:
 
 private:
 	FixedCoordinate fc;
+	float sectionHeight;
 };
 
