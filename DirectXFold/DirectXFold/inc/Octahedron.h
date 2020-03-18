@@ -4,7 +4,7 @@ class Octahedron :
 	public Mesh
 {
 public:
-	enum FixedCoordinate {
+	enum class FixedCoordinate {
 		FC_X,
 		FC_Y,
 		FC_Z,
@@ -13,7 +13,6 @@ public:
 	Octahedron(float wSec, XMMATRIX world);
 	Octahedron(float wSec);
 	Octahedron(FixedCoordinate coord, float section, XMMATRIX world);
-
-
+	Octahedron(FixedCoordinate coord, float section);
 };
 

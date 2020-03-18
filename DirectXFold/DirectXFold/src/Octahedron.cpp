@@ -3,7 +3,7 @@
 #include "Game.h"
 
 
-Octahedron::Octahedron(float wSec, XMMATRIX world) : Octahedron(FC_W, wSec, world)
+Octahedron::Octahedron(float wSec, XMMATRIX world) : Octahedron(FixedCoordinate::FC_W, wSec, world)
 {
 }
 
@@ -13,7 +13,7 @@ Octahedron::Octahedron(float wSec) : Octahedron(wSec, XMMatrixIdentity())
 Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
 {
     float inv = sqrtf(1 - section * section);
-    if (coord == FC_W)
+    if (coord == FixedCoordinate::FC_W)
     {
         Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(0.f,  0.f, -inv, section), XMFLOAT3(0.5f, 1.0f, 0.0f) }, // 0
@@ -26,7 +26,7 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
     }
-    else if (coord == FC_Z)
+    else if (coord == FixedCoordinate::FC_Z)
     {
         Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(0.f,  0.f, section, -inv), XMFLOAT3(0.5f, 1.0f, 0.0f) }, // 0
@@ -39,7 +39,7 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
     }
-    else if (coord == FC_Y)
+    else if (coord == FixedCoordinate::FC_Y)
     {
         Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(0.f, section, 0.f, -inv), XMFLOAT3(0.5f, 1.0f, 0.0f) }, // 0
@@ -52,7 +52,7 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
     }
-    else //if (coord == FC_X)
+    else //if (coord == FixedCoordinate::FC_X)
     {
         Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(section, 0.f, 0.f, -inv), XMFLOAT3(0.5f, 1.0f, 0.0f) }, // 0
@@ -114,4 +114,8 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
     constantBuffer.m_world = world;
+}
+
+Octahedron::Octahedron(FixedCoordinate coord, float section) : Octahedron(coord, section, XMMatrixIdentity())
+{
 }
