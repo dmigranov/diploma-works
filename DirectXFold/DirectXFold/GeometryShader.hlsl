@@ -1,14 +1,14 @@
 struct VertexInput
 {
     float4 color : COLOR;
-    float4 position : POSITION; 
+    float4 position : POSITIONT;
 };
 
 struct VertexOutput
 {
     float4 color : COLOR;
     float depth : DEPTH;
-    float4 position : SV_POSITION; //стандартный System-Value для вертекса, который требуется на RS
+    float4 position : SV_Position; //стандартный System-Value для вертекса, который требуется на RS
 };
 
 [maxvertexcount(3)] // максимальное кол-во вертексов, которое мы можем добавить

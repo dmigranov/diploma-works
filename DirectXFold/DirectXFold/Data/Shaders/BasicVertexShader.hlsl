@@ -23,7 +23,7 @@ struct VertexShaderInput
 struct VertexShaderOutput
 {
     float4 color : COLOR;
-    float4 position : POSITION;
+    float4 position : POSITIONT;
 };
 
 //entry point
@@ -32,8 +32,8 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN)
 	VertexShaderOutput OUT;
  
 	matrix mvp = mul(projectionMatrix, mul(viewMatrix, worldMatrix));
-	OUT.position = mul(mvp, IN.position);
     OUT.color = IN.color;
+	OUT.position = mul(mvp, IN.position);
  
 	return OUT;
 }

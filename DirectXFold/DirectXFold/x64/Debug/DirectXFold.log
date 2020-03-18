@@ -1,21 +1,11 @@
-﻿  pch.cpp
-  SphericalMath.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(12,16): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(20,17): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(28,17): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-  Camera.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(27,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(28,18): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(29,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(30,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(60,29): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(60,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(60,23): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(79,59): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(79,52): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\VertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\BasicVertexShader.cso
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\GeometryShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\GeometryShader.cso
   Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(344,78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Mesh.cpp
   Octahedron.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(26,37): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(26,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
@@ -81,18 +71,6 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(160,39): warn
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(159,19): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(158,16): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(157,41): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-  Line.cpp
   main.cpp
-  Mesh.cpp
-  Shader.cpp
-  SimpleInputHandler.cpp
-  SphericalCamera.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(65,29): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(65,24): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-  TextDrawer.cpp
   Создание кода...
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(23): warning C4172: возвращение адреса локальной или временной переменной
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(36): warning C4172: возвращение адреса локальной или временной переменной
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(42): warning C4172: возвращение адреса локальной или временной переменной
-     Создается библиотека bin64\DirectXFoldd.lib и объект bin64\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFoldd.exe
