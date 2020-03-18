@@ -142,6 +142,8 @@ void Octahedron::SetSectionHeight(float sectionHeight)
             g_Vertices[i].Position.y *= multiplier;
             g_Vertices[i].Position.z *= multiplier;
             g_Vertices[i].Position.w *= multiplier;
+
+            constantBuffer.m_world = Matrix(); //*=? todo
             break;
         case FixedCoordinate::FC_Y:
             oldSectionHeight = oldPos.y;
@@ -161,12 +163,39 @@ void Octahedron::SetSectionHeight(float sectionHeight)
             break;
         case FixedCoordinate::FC_W:
             oldSectionHeight = oldPos.w;
-            g_Vertices[i].Position.w = sectionHeight;
+            //g_Vertices[i].Position.w = sectionHeight;
             multiplier = sqrtf((1 - sectionHeight * sectionHeight) / (1 - oldSectionHeight * oldSectionHeight));
-            g_Vertices[i].Position.x *= multiplier;
+            /*g_Vertices[i].Position.x *= multiplier;
             g_Vertices[i].Position.y *= multiplier;
-            g_Vertices[i].Position.z *= multiplier;
+            g_Vertices[i].Position.z *= multiplier;*/
+
+            constantBuffer.m_world = Matrix(multiplier, 0, 0, 0,
+                                            0, multiplier, 0, 0,
+                                            0, 0, multiplier, 0,
+                                            0, 0, 0, sectionHeight/oldSectionHeight); //*=? todo
+
             break;
         }
     }
+}
+
+float Octahedron::GetSectionHeight()
+{
+    float oldSectionHeight;
+    switch (fc)
+    {
+    case FixedCoordinate::FC_X:
+        oldSectionHeight = g_Vertices[0].Position.x;
+        break;
+    case FixedCoordinate::FC_Y:
+        oldSectionHeight = g_Vertices[0].Position.y;
+        break;
+    case FixedCoordinate::FC_Z:
+        oldSectionHeight = g_Vertices[0].Position.z;
+        break;
+    case FixedCoordinate::FC_W:
+        oldSectionHeight = g_Vertices[0].Position.w;
+        break;
+    }
+    return oldSectionHeight;
 }

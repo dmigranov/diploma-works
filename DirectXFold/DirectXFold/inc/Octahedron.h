@@ -15,6 +15,8 @@ public:
 	Octahedron(FixedCoordinate coord, float section, XMMATRIX world);
 	Octahedron(FixedCoordinate coord, float section);
 	void SetSectionHeight(float section);
+	float GetSectionHeight();
+
 
 private:
 	FixedCoordinate fc;
