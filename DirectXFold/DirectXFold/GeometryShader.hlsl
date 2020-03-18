@@ -15,7 +15,7 @@ struct VertexOutput
 [maxvertexcount(3)] // максимальное кол-во вертексов, которое мы можем добавить
 void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<VertexOutput> stream)
 {
-    VertexOutput v1 = { input[0].color, input[0].depth, input[0].position };
+    VertexOutput v1 = { input[0].color, input[0].depth, input[0].position * 8 };
     stream.Append(v1); // добавление вертекса
     VertexOutput v2 = { input[1].color, input[1].depth, input[1].position };
     stream.Append(v2); // добавление вертекса
