@@ -7,19 +7,19 @@ XMFLOAT4 GenerateRandomColor()
     return XMFLOAT4(float(rand())/float(RAND_MAX), float(rand()) / float(RAND_MAX), float(rand()) / float(RAND_MAX), 1.f);
 }
 
-Octahedron::Octahedron(float wSec, XMMATRIX world) : Octahedron(FixedCoordinate::FC_W, wSec, world)
+Octahedron::Octahedron(double wSec, XMMATRIX world) : Octahedron(FixedCoordinate::FC_W, wSec, world)
 {
 }
 
-Octahedron::Octahedron(float wSec) : Octahedron(wSec, XMMatrixIdentity())
+Octahedron::Octahedron(double wSec) : Octahedron(wSec, XMMatrixIdentity())
 {}
 
-Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
+Octahedron::Octahedron(FixedCoordinate coord, double section, XMMATRIX world)
 {
     this->fc = coord;
     sectionHeight = section;
 
-    float inv = sqrtf(1 - section * section);
+    double inv = sqrt(1 - section * section);
     if (coord == FixedCoordinate::FC_W)
     {
         Mesh::VertexPosColor vertices[] = {
@@ -123,13 +123,16 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
     constantBuffer.m_world = world;
 }
 
-Octahedron::Octahedron(FixedCoordinate coord, float section) : Octahedron(coord, section, XMMatrixIdentity())
+Octahedron::Octahedron(FixedCoordinate coord, double section) : Octahedron(coord, section, XMMatrixIdentity())
 {
 }
 
-void Octahedron::SetSectionHeight(float newSectionHeight)
+void Octahedron::SetSectionHeight(double newSectionHeight)
 {
-    float multiplier = sqrtf((1 - newSectionHeight * newSectionHeight) / (1 - sectionHeight * sectionHeight));;
+    if (newSectionHeight < -1 || newSectionHeight > 1)
+        return;
+
+    double multiplier = sqrt((1. - newSectionHeight * newSectionHeight) / (1. - sectionHeight * sectionHeight));;
     switch (fc)
     {
     case FixedCoordinate::FC_X:
@@ -159,24 +162,18 @@ void Octahedron::SetSectionHeight(float newSectionHeight)
         g_Vertices[i].Position.w *= multiplier;*/
         break;
     case FixedCoordinate::FC_W:
-
-        //g_Vertices[i].Position.w = sectionHeight;
-        /*g_Vertices[i].Position.x *= multiplier;
-        g_Vertices[i].Position.y *= multiplier;
-        g_Vertices[i].Position.z *= multiplier;*/
-
-        constantBuffer.m_world = Matrix(multiplier, 0, 0, 0,
+        constantBuffer.m_world *= Matrix(multiplier, 0, 0, 0,
             0, multiplier, 0, 0,
             0, 0, multiplier, 0,
-            0, 0, 0, newSectionHeight / sectionHeight); //*=? todo
+            0, 0, 0, newSectionHeight / sectionHeight);
 
         break;
     }
-      
+    sectionHeight = newSectionHeight;
 
 }
 
-float Octahedron::GetSectionHeight()
+double Octahedron::GetSectionHeight()
 {
     return sectionHeight;
 }

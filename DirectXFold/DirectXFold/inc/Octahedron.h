@@ -10,16 +10,16 @@ public:
 		FC_Z,
 		FC_W
 	};
-	Octahedron(float wSec, XMMATRIX world);
-	Octahedron(float wSec);
-	Octahedron(FixedCoordinate coord, float section, XMMATRIX world);
-	Octahedron(FixedCoordinate coord, float section);
-	void SetSectionHeight(float newSectionHeight);
-	float GetSectionHeight();
+	Octahedron(double wSec, XMMATRIX world);
+	Octahedron(double wSec);
+	Octahedron(FixedCoordinate coord, double section, XMMATRIX world);
+	Octahedron(FixedCoordinate coord, double section);
+	void SetSectionHeight(double newSectionHeight);
+	double GetSectionHeight();
 
 
 private:
 	FixedCoordinate fc;
-	float sectionHeight;
+	double sectionHeight;
 };
 
