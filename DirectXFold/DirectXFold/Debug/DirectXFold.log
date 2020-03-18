@@ -1,12 +1,18 @@
-﻿  Game.cpp
+﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\VertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\BasicVertexShader_d.cso
+  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(329,78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(488,73): warning C4316: "Octahedron": объект, размещенный в куче, может не быть выровнен 16
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(510,64): warning C4305: аргумент: усечение из "double" в "float"
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(510,66): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(510,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1590,59): warning C4316: "std::_Ref_count_obj2<_Ty>": объект, размещенный в куче, может не быть выровнен 16
           with
           [
               _Ty=SphericalCamera
           ]
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<SphericalCamera> std::make_shared<SphericalCamera,>(void)"
+  Mesh.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Mesh.cpp(104,102): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
+  Octahedron.cpp
+  main.cpp
+  Создание кода...
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe

@@ -34,7 +34,7 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN)
  
 	matrix mvp = mul(projectionMatrix, mul(viewMatrix, worldMatrix));
 	OUT.position = mul(mvp, IN.position);
-	OUT.color = float4(IN.color, 0.5f);
+	OUT.color = float4(IN.color, 0.4f);
     OUT.depth = OUT.position.z / OUT.position.w;
  
 	return OUT;

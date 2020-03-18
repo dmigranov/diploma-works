@@ -493,10 +493,10 @@ bool Game::LoadContent()
 
         float v1 = 0.99f, v3 = 0.08f, v2 = sqrtf(1.f - v1 * v1 - v3 * v3);
         Mesh::VertexPosColor vertices[] = {
-            { XMFLOAT4(v2, 0.f, v3, v1), XMFLOAT3(0.0f, 0.0f, 0.0f) },   // 0
-            { XMFLOAT4(0.f,  v2, -v3, v1), XMFLOAT3(0.0f, 1.0f, 0.0f) },  // 1
-            { XMFLOAT4(0.f,  -v2, -v3, v1), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
-            { XMFLOAT4(-v2, 0.f, v3, v1), XMFLOAT3(1.0f, 0.0f, 0.0f) }   // 3
+            { XMFLOAT4(v2, 0.f, v3, v1), XMFLOAT3(1.0f, 1.0f, 1.0f) },   // 0
+            { XMFLOAT4(0.f,  v2, -v3, v1), XMFLOAT3(1.0f, 1.0f, 1.0f) },  // 1
+            { XMFLOAT4(0.f,  -v2, -v3, v1), XMFLOAT3(1.0f, 1.0f, 1.0f) }, // 2
+            { XMFLOAT4(-v2, 0.f, v3, v1), XMFLOAT3(1.0f, 1.0f, 1.0f) }   // 3
         };
 
         WORD indices[] = {
@@ -507,9 +507,9 @@ bool Game::LoadContent()
         };
 
         Mesh * mesh = new Mesh(_countof(vertices), vertices,
-            _countof(indices), indices, SphericalRotationYW(0.7));
-        //meshes.push_back(mesh);
-        //mesh->SetParent(mesh1);
+            _countof(indices), indices);
+        meshes.push_back(mesh);
+        mesh->SetParent(mesh1);
 
         /*mesh->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
             return SphericalRotationXW(-delta) * in;
