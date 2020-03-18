@@ -6,6 +6,8 @@ class Mesh
     //todo: добавить parent mesh (возможно null)
     friend class Line;
     friend class Octahedron;
+
+
 public:
 
     class MeshUpdater
@@ -26,7 +28,7 @@ public:
     struct VertexPosColor
     {
         XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
-        XMFLOAT3 Color;
+        XMFLOAT4 Color;
     };
 
     Mesh();

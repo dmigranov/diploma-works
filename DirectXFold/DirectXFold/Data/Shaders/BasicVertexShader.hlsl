@@ -17,7 +17,7 @@ cbuffer PerObject : register(b2)
 struct VertexShaderInput
 {
     float4 position : POSITION;
-    float3 color: COLOR;
+    float4 color: COLOR;
 };
 
 struct VertexShaderOutput
@@ -34,7 +34,7 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN)
  
 	matrix mvp = mul(projectionMatrix, mul(viewMatrix, worldMatrix));
 	OUT.position = mul(mvp, IN.position);
-	OUT.color = float4(IN.color, 0.4f);
+    OUT.color = IN.color;
     OUT.depth = OUT.position.z / OUT.position.w;
  
 	return OUT;

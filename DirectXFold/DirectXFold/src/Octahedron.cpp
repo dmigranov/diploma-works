@@ -16,12 +16,12 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
     if (coord == FixedCoordinate::FC_W)
     {
         Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(0.f,  0.f, -inv, section), XMFLOAT3(0.5f, 1.0f, 0.0f) }, // 0
-        { XMFLOAT4(0.f,  0.f, inv, section), XMFLOAT3(0.0f, 1.0f, 0.5f) }, // 1
-        { XMFLOAT4(0.f, -inv, 0.f, section), XMFLOAT3(0.5f, 1.0f, 1.0f) }, // 2
-        { XMFLOAT4(0.f,  inv, 0.f, section), XMFLOAT3(1.0f, 0.5f, 0.0f) }, // 3
-        { XMFLOAT4(-inv,  0.f, 0.f, section), XMFLOAT3(0.5f, 0.0f, 0.5f) }, // 4
-        { XMFLOAT4(inv,  0.f, 0.f, section), XMFLOAT3(0.5f, 0.5f, 0.5f) }, // 5
+        { XMFLOAT4(0.f,  0.f, -inv, section), XMFLOAT4(0.5f, 1.0f, 0.0f, 1.0f) }, // 0
+        { XMFLOAT4(0.f,  0.f, inv, section), XMFLOAT4(0.0f, 1.0f, 0.5f, 1.0f) }, // 1
+        { XMFLOAT4(0.f, -inv, 0.f, section), XMFLOAT4(0.5f, 1.0f, 1.0f, 1.0f) }, // 2
+        { XMFLOAT4(0.f,  inv, 0.f, section), XMFLOAT4(1.0f, 0.5f, 0.0f, 1.0f) }, // 3
+        { XMFLOAT4(-inv,  0.f, 0.f, section), XMFLOAT4(0.5f, 0.0f, 0.5f, 1.0f) }, // 4
+        { XMFLOAT4(inv,  0.f, 0.f, section), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f) }, // 5
         };
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
@@ -29,12 +29,12 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
     else if (coord == FixedCoordinate::FC_Z)
     {
         Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(0.f,  0.f, section, -inv), XMFLOAT3(0.5f, 1.0f, 0.0f) }, // 0
-        { XMFLOAT4(0.f,  0.f, section, inv), XMFLOAT3(0.0f, 1.0f, 0.5f) }, // 1
-        { XMFLOAT4(0.f, -inv, section, 0.f), XMFLOAT3(0.5f, 1.0f, 1.0f) }, // 2
-        { XMFLOAT4(0.f,  inv, section, 0.f), XMFLOAT3(1.0f, 0.5f, 0.0f) }, // 3
-        { XMFLOAT4(-inv,  0.f, section, 0.f), XMFLOAT3(0.5f, 0.0f, 0.5f) }, // 4
-        { XMFLOAT4(inv,  0.f, section, 0.f), XMFLOAT3(0.5f, 0.5f, 0.5f) }, // 5
+        { XMFLOAT4(0.f,  0.f, section, -inv), XMFLOAT4(0.5f, 1.0f, 0.0f, 1.0f) }, // 0
+        { XMFLOAT4(0.f,  0.f, section, inv), XMFLOAT4(0.0f, 1.0f, 0.5f, 1.0f) }, // 1
+        { XMFLOAT4(0.f, -inv, section, 0.f), XMFLOAT4(0.5f, 1.0f, 1.0f, 1.0f) }, // 2
+        { XMFLOAT4(0.f,  inv, section, 0.f), XMFLOAT4(1.0f, 0.5f, 0.0f, 1.0f) }, // 3
+        { XMFLOAT4(-inv,  0.f, section, 0.f), XMFLOAT4(0.5f, 0.0f, 0.5f, 1.0f) }, // 4
+        { XMFLOAT4(inv,  0.f, section, 0.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f) }, // 5
         };
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
@@ -42,12 +42,12 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
     else if (coord == FixedCoordinate::FC_Y)
     {
         Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(0.f, section, 0.f, -inv), XMFLOAT3(0.5f, 1.0f, 0.0f) }, // 0
-        { XMFLOAT4(0.f, section, 0.f, inv), XMFLOAT3(0.0f, 1.0f, 0.5f) }, // 1
-        { XMFLOAT4(0.f, section, -inv, 0.f), XMFLOAT3(0.5f, 1.0f, 1.0f) }, // 2
-        { XMFLOAT4(0.f, section, inv, 0.f), XMFLOAT3(1.0f, 0.5f, 0.0f) }, // 3
-        { XMFLOAT4(-inv, section, 0.f, 0.f), XMFLOAT3(0.5f, 0.0f, 0.5f) }, // 4
-        { XMFLOAT4(inv, section, 0.f, 0.f), XMFLOAT3(0.5f, 0.5f, 0.5f) }, // 5
+        { XMFLOAT4(0.f, section, 0.f, -inv), XMFLOAT4(0.5f, 1.0f, 0.0f, 1.0f) }, // 0
+        { XMFLOAT4(0.f, section, 0.f, inv), XMFLOAT4(0.0f, 1.0f, 0.5f, 1.0f) }, // 1
+        { XMFLOAT4(0.f, section, -inv, 0.f), XMFLOAT4(0.5f, 1.0f, 1.0f, 1.0f) }, // 2
+        { XMFLOAT4(0.f, section, inv, 0.f), XMFLOAT4(1.0f, 0.5f, 0.0f, 1.0f) }, // 3
+        { XMFLOAT4(-inv, section, 0.f, 0.f), XMFLOAT4(0.5f, 0.0f, 0.5f, 1.0f) }, // 4
+        { XMFLOAT4(inv, section, 0.f, 0.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f) }, // 5
         };
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
@@ -55,12 +55,12 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
     else //if (coord == FixedCoordinate::FC_X)
     {
         Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(section, 0.f, 0.f, -inv), XMFLOAT3(0.5f, 1.0f, 0.0f) }, // 0
-        { XMFLOAT4(section, 0.f, 0.f, inv), XMFLOAT3(0.0f, 1.0f, 0.5f) }, // 1
-        { XMFLOAT4(section, 0.f, -inv, 0.f), XMFLOAT3(0.5f, 1.0f, 1.0f) }, // 2
-        { XMFLOAT4(section, 0.f, inv, 0.f), XMFLOAT3(1.0f, 0.5f, 0.0f) }, // 3
-        { XMFLOAT4(section, -inv, 0.f, 0.f), XMFLOAT3(0.5f, 0.0f, 0.5f) }, // 4
-        { XMFLOAT4(section, inv, 0.f, 0.f), XMFLOAT3(0.5f, 0.5f, 0.5f) }, // 5
+        { XMFLOAT4(section, 0.f, 0.f, -inv), XMFLOAT4(0.5f, 1.0f, 0.0f, 1.0f) }, // 0
+        { XMFLOAT4(section, 0.f, 0.f, inv), XMFLOAT4(0.0f, 1.0f, 0.5f, 1.0f) }, // 1
+        { XMFLOAT4(section, 0.f, -inv, 0.f), XMFLOAT4(0.5f, 1.0f, 1.0f, 1.0f) }, // 2
+        { XMFLOAT4(section, 0.f, inv, 0.f), XMFLOAT4(1.0f, 0.5f, 0.0f, 1.0f) }, // 3
+        { XMFLOAT4(section, -inv, 0.f, 0.f), XMFLOAT4(0.5f, 0.0f, 0.5f, 1.0f) }, // 4
+        { XMFLOAT4(section, inv, 0.f, 0.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f) }, // 5
         };
         g_Vertices = vertices;
         verticesCount = _countof(vertices);

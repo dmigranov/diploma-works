@@ -84,7 +84,7 @@ private:
     ID3D11RasterizerState* g_d3dRasterizerState = nullptr;
     // Blend state: necessary for alpha blending
     ID3D11BlendState* g_d3dBlendStateOn = nullptr;
-    ID3D11BlendState* g_d3dBlendStateOff = nullptr;
+    //ID3D11BlendState* g_d3dBlendStateOff = nullptr;
 
     
     D3D11_VIEWPORT g_Viewport = { 0 };                                      //The g_Viewport variable defines the size of the viewport rectangle. The viewport rectangle is also used by the rasterizer stage to determine the renderable area on screen.
