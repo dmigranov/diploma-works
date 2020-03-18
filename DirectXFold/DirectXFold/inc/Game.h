@@ -83,7 +83,7 @@ private:
     // Define the functionality of the rasterizer stage.
     ID3D11RasterizerState* g_d3dRasterizerState = nullptr;
     // Blend state: necessary for alpha blending
-    ID3D11BlendState* g_d3dBlendStateOn = nullptr;
+    ID3D11BlendState* g_d3dBlendState = nullptr;
     //ID3D11BlendState* g_d3dBlendStateOff = nullptr;
 
     
