@@ -90,7 +90,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
     // то есть даже если не рендерим, всё равно апдейтим
     // поэтмоу жрёт столько когда свёрнута
 
-    srand(time(NULL));
     MSG msg = {};
     while (WM_QUIT != msg.message)
     {

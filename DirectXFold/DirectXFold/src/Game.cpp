@@ -26,6 +26,9 @@ int Game::Initialize(HWND window, int width, int height)
     5. Create a depth-stencil state object that defines the behaviour of the output merger stage,
     6. Create a rasterizer state object that defines the behaviour of the rasterizer stage.
     */
+
+    srand(time(NULL));
+
     m_hwnd = window;
     assert(m_hwnd != 0);
 
