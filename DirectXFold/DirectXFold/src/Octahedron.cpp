@@ -136,30 +136,22 @@ void Octahedron::SetSectionHeight(double newSectionHeight)
     switch (fc)
     {
     case FixedCoordinate::FC_X:
-        /*oldSectionHeight = oldPos.x;
-        g_Vertices[i].Position.x = sectionHeight;
-        multiplier = sqrtf((1 - sectionHeight * sectionHeight) / (1 - oldSectionHeight * oldSectionHeight));
-        g_Vertices[i].Position.y *= multiplier;
-        g_Vertices[i].Position.z *= multiplier;
-        g_Vertices[i].Position.w *= multiplier;*/
-
-        constantBuffer.m_world = Matrix(); //*=? todo
+        constantBuffer.m_world *= Matrix(newSectionHeight / sectionHeight, 0, 0, 0,
+            0, multiplier, 0, 0,
+            0, 0, multiplier, 0,
+            0, 0, 0, multiplier);
         break;
     case FixedCoordinate::FC_Y:
-        /*oldSectionHeight = oldPos.y;
-        g_Vertices[i].Position.y = newSectionHeight;
-        multiplier = sqrtf((1 - newSectionHeight * newSectionHeight) / (1 - oldSectionHeight * oldSectionHeight));
-        g_Vertices[i].Position.x *= multiplier;
-        g_Vertices[i].Position.z *= multiplier;
-        g_Vertices[i].Position.w *= multiplier;*/
+        constantBuffer.m_world *= Matrix(multiplier, 0, 0, 0,
+            0, newSectionHeight / sectionHeight, 0, 0,
+            0, 0, multiplier, 0,
+            0, 0, 0, multiplier);
         break;
     case FixedCoordinate::FC_Z:
-        /*oldSectionHeight = oldPos.z;
-        g_Vertices[i].Position.z = newSectionHeight;
-        multiplier = sqrtf((1 - newSectionHeight * newSectionHeight) / (1 - oldSectionHeight * oldSectionHeight));
-        g_Vertices[i].Position.x *= multiplier;
-        g_Vertices[i].Position.y *= multiplier;
-        g_Vertices[i].Position.w *= multiplier;*/
+        constantBuffer.m_world *= Matrix(multiplier, 0, 0, 0,
+            0, multiplier, 0, 0,
+            0, 0, newSectionHeight / sectionHeight, 0,
+            0, 0, 0, multiplier);
         break;
     case FixedCoordinate::FC_W:
         constantBuffer.m_world *= Matrix(multiplier, 0, 0, 0,
