@@ -4,7 +4,6 @@
 
 XMFLOAT4 GenerateRandomColor()
 {
-
     return XMFLOAT4(float(rand())/float(RAND_MAX), float(rand()) / float(RAND_MAX), float(rand()) / float(RAND_MAX), 1.f);
 }
 
@@ -17,7 +16,7 @@ Octahedron::Octahedron(float wSec) : Octahedron(wSec, XMMatrixIdentity())
 
 Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
 {
-
+    this->fc = coord;
 
     float inv = sqrtf(1 - section * section);
     if (coord == FixedCoordinate::FC_W)
@@ -125,4 +124,49 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
 
 Octahedron::Octahedron(FixedCoordinate coord, float section) : Octahedron(coord, section, XMMatrixIdentity())
 {
+}
+
+void Octahedron::SetSectionHeight(float sectionHeight)
+{
+    for (int i = 0; i < verticesCount; i++)
+    {
+        VertexPosColor oldVertex = g_Vertices[i];
+        XMFLOAT4 oldPos = oldVertex.Position;
+        float oldSectionHeight, multiplier;
+        switch (fc)
+        {
+        case FixedCoordinate::FC_X:
+            oldSectionHeight = oldPos.x;
+            g_Vertices[i].Position.x = sectionHeight;
+            multiplier = sqrtf((1 - sectionHeight * sectionHeight) / (1 - oldSectionHeight * oldSectionHeight));
+            g_Vertices[i].Position.y *= multiplier;
+            g_Vertices[i].Position.z *= multiplier;
+            g_Vertices[i].Position.w *= multiplier;
+            break;
+        case FixedCoordinate::FC_Y:
+            oldSectionHeight = oldPos.y;
+            g_Vertices[i].Position.y = sectionHeight;
+            multiplier = sqrtf((1 - sectionHeight * sectionHeight) / (1 - oldSectionHeight * oldSectionHeight));
+            g_Vertices[i].Position.x *= multiplier;
+            g_Vertices[i].Position.z *= multiplier;
+            g_Vertices[i].Position.w *= multiplier;
+            break;
+        case FixedCoordinate::FC_Z:
+            oldSectionHeight = oldPos.z;
+            g_Vertices[i].Position.z = sectionHeight;
+            multiplier = sqrtf((1 - sectionHeight * sectionHeight) / (1 - oldSectionHeight * oldSectionHeight));
+            g_Vertices[i].Position.x *= multiplier;
+            g_Vertices[i].Position.y *= multiplier;
+            g_Vertices[i].Position.w *= multiplier;
+            break;
+        case FixedCoordinate::FC_W:
+            oldSectionHeight = oldPos.w;
+            g_Vertices[i].Position.w = sectionHeight;
+            multiplier = sqrtf((1 - sectionHeight * sectionHeight) / (1 - oldSectionHeight * oldSectionHeight));
+            g_Vertices[i].Position.x *= multiplier;
+            g_Vertices[i].Position.y *= multiplier;
+            g_Vertices[i].Position.z *= multiplier;
+            break;
+        }
+    }
 }
