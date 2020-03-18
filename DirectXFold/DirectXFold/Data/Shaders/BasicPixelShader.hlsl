@@ -1,7 +1,6 @@
 struct PixelShaderInput
 {
 	float4 color : COLOR;
-    float depth : DEPTH;
 };
  
 float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
