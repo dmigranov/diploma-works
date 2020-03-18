@@ -23,7 +23,6 @@ struct VertexShaderInput
 struct VertexShaderOutput
 {
     float4 color : COLOR;
-    float depth : DEPTH;
     float4 position : POSITION;  //system-value semantic that is required by the rasterizer stage
 };
 
@@ -34,8 +33,6 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN)
  
 	matrix mvp = mul(projectionMatrix, mul(viewMatrix, worldMatrix));
 	OUT.position = mul(mvp, IN.position);
-    OUT.color = IN.color;
-    OUT.depth = OUT.position.z / OUT.position.w;
- 
+    OUT.color = IN.color; 
 	return OUT;
 }
