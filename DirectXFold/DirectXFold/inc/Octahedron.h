@@ -12,7 +12,7 @@ public:
 	};
 	Octahedron(float wSec, XMMATRIX world);
 	Octahedron(float wSec);
-	Octahedron(FixedCoordinate coord, float section);
+	Octahedron(FixedCoordinate coord, float section, XMMATRIX world);
 
 
 };
