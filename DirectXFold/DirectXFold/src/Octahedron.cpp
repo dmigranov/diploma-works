@@ -2,6 +2,11 @@
 #include "Octahedron.h"
 #include "Game.h"
 
+XMFLOAT4 GenerateRandomColor()
+{
+
+    return XMFLOAT4(float(rand())/float(RAND_MAX), float(rand()) / float(RAND_MAX), float(rand()) / float(RAND_MAX), 1.f);
+}
 
 Octahedron::Octahedron(float wSec, XMMATRIX world) : Octahedron(FixedCoordinate::FC_W, wSec, world)
 {
@@ -12,16 +17,18 @@ Octahedron::Octahedron(float wSec) : Octahedron(wSec, XMMatrixIdentity())
 
 Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
 {
+
+
     float inv = sqrtf(1 - section * section);
     if (coord == FixedCoordinate::FC_W)
     {
         Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(0.f,  0.f, -inv, section), XMFLOAT4(0.5f, 1.0f, 0.0f, 1.0f) }, // 0
-        { XMFLOAT4(0.f,  0.f, inv, section), XMFLOAT4(0.0f, 1.0f, 0.5f, 1.0f) }, // 1
-        { XMFLOAT4(0.f, -inv, 0.f, section), XMFLOAT4(0.5f, 1.0f, 1.0f, 1.0f) }, // 2
-        { XMFLOAT4(0.f,  inv, 0.f, section), XMFLOAT4(1.0f, 0.5f, 0.0f, 1.0f) }, // 3
-        { XMFLOAT4(-inv,  0.f, 0.f, section), XMFLOAT4(0.5f, 0.0f, 0.5f, 1.0f) }, // 4
-        { XMFLOAT4(inv,  0.f, 0.f, section), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f) }, // 5
+        { XMFLOAT4(0.f,  0.f, -inv, section), GenerateRandomColor() }, // 0
+        { XMFLOAT4(0.f,  0.f, inv, section), GenerateRandomColor() }, // 1
+        { XMFLOAT4(0.f, -inv, 0.f, section), GenerateRandomColor() }, // 2
+        { XMFLOAT4(0.f,  inv, 0.f, section), GenerateRandomColor() }, // 3
+        { XMFLOAT4(-inv,  0.f, 0.f, section), GenerateRandomColor() }, // 4
+        { XMFLOAT4(inv,  0.f, 0.f, section), GenerateRandomColor() }, // 5
         };
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
@@ -29,12 +36,12 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
     else if (coord == FixedCoordinate::FC_Z)
     {
         Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(0.f,  0.f, section, -inv), XMFLOAT4(0.5f, 1.0f, 0.0f, 1.0f) }, // 0
-        { XMFLOAT4(0.f,  0.f, section, inv), XMFLOAT4(0.0f, 1.0f, 0.5f, 1.0f) }, // 1
-        { XMFLOAT4(0.f, -inv, section, 0.f), XMFLOAT4(0.5f, 1.0f, 1.0f, 1.0f) }, // 2
-        { XMFLOAT4(0.f,  inv, section, 0.f), XMFLOAT4(1.0f, 0.5f, 0.0f, 1.0f) }, // 3
-        { XMFLOAT4(-inv,  0.f, section, 0.f), XMFLOAT4(0.5f, 0.0f, 0.5f, 1.0f) }, // 4
-        { XMFLOAT4(inv,  0.f, section, 0.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f) }, // 5
+        { XMFLOAT4(0.f,  0.f, section, -inv), GenerateRandomColor() }, // 0
+        { XMFLOAT4(0.f,  0.f, section, inv), GenerateRandomColor() }, // 1
+        { XMFLOAT4(0.f, -inv, section, 0.f), GenerateRandomColor() }, // 2
+        { XMFLOAT4(0.f,  inv, section, 0.f), GenerateRandomColor() }, // 3
+        { XMFLOAT4(-inv,  0.f, section, 0.f), GenerateRandomColor()}, // 4
+        { XMFLOAT4(inv,  0.f, section, 0.f), GenerateRandomColor() }, // 5
         };
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
@@ -42,12 +49,12 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
     else if (coord == FixedCoordinate::FC_Y)
     {
         Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(0.f, section, 0.f, -inv), XMFLOAT4(0.5f, 1.0f, 0.0f, 1.0f) }, // 0
-        { XMFLOAT4(0.f, section, 0.f, inv), XMFLOAT4(0.0f, 1.0f, 0.5f, 1.0f) }, // 1
-        { XMFLOAT4(0.f, section, -inv, 0.f), XMFLOAT4(0.5f, 1.0f, 1.0f, 1.0f) }, // 2
-        { XMFLOAT4(0.f, section, inv, 0.f), XMFLOAT4(1.0f, 0.5f, 0.0f, 1.0f) }, // 3
-        { XMFLOAT4(-inv, section, 0.f, 0.f), XMFLOAT4(0.5f, 0.0f, 0.5f, 1.0f) }, // 4
-        { XMFLOAT4(inv, section, 0.f, 0.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f) }, // 5
+        { XMFLOAT4(0.f, section, 0.f, -inv), GenerateRandomColor() }, // 0
+        { XMFLOAT4(0.f, section, 0.f, inv), GenerateRandomColor() }, // 1
+        { XMFLOAT4(0.f, section, -inv, 0.f), GenerateRandomColor() }, // 2
+        { XMFLOAT4(0.f, section, inv, 0.f), GenerateRandomColor() }, // 3
+        { XMFLOAT4(-inv, section, 0.f, 0.f), GenerateRandomColor() }, // 4
+        { XMFLOAT4(inv, section, 0.f, 0.f), GenerateRandomColor() }, // 5
         };
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
@@ -55,12 +62,12 @@ Octahedron::Octahedron(FixedCoordinate coord, float section, XMMATRIX world)
     else //if (coord == FixedCoordinate::FC_X)
     {
         Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(section, 0.f, 0.f, -inv), XMFLOAT4(0.5f, 1.0f, 0.0f, 1.0f) }, // 0
-        { XMFLOAT4(section, 0.f, 0.f, inv), XMFLOAT4(0.0f, 1.0f, 0.5f, 1.0f) }, // 1
-        { XMFLOAT4(section, 0.f, -inv, 0.f), XMFLOAT4(0.5f, 1.0f, 1.0f, 1.0f) }, // 2
-        { XMFLOAT4(section, 0.f, inv, 0.f), XMFLOAT4(1.0f, 0.5f, 0.0f, 1.0f) }, // 3
-        { XMFLOAT4(section, -inv, 0.f, 0.f), XMFLOAT4(0.5f, 0.0f, 0.5f, 1.0f) }, // 4
-        { XMFLOAT4(section, inv, 0.f, 0.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.0f) }, // 5
+        { XMFLOAT4(section, 0.f, 0.f, -inv), GenerateRandomColor() }, // 0
+        { XMFLOAT4(section, 0.f, 0.f, inv), GenerateRandomColor() }, // 1
+        { XMFLOAT4(section, 0.f, -inv, 0.f), GenerateRandomColor() }, // 2
+        { XMFLOAT4(section, 0.f, inv, 0.f), GenerateRandomColor() }, // 3
+        { XMFLOAT4(section, -inv, 0.f, 0.f), GenerateRandomColor() }, // 4
+        { XMFLOAT4(section, inv, 0.f, 0.f), GenerateRandomColor() }, // 5
         };
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
