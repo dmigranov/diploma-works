@@ -151,6 +151,16 @@ int Game::Initialize(HWND window, int width, int height)
     hr = g_d3dDevice->CreateDepthStencilState(&depthStencilStateDesc, &g_d3dDepthStencilState);
 
 
+    // Setup blend state
+    D3D11_BLEND_DESC blendDesc;
+    ZeroMemory(&blendDesc, sizeof(D3D11_BLEND_DESC));
+    blendDesc.RenderTarget[0].BlendEnable = FALSE;
+    blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
+    hr = g_d3dDevice->CreateBlendState(&blendDesc, &g_d3dBlendState);
+    if (FAILED(hr))
+    {
+        return -1;
+    }
     // Setup rasterizer state.
     D3D11_RASTERIZER_DESC rasterizerDesc;
     ZeroMemory(&rasterizerDesc, sizeof(D3D11_RASTERIZER_DESC));
