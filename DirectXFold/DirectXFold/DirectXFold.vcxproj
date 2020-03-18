@@ -100,6 +100,8 @@
       <VariableName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">g_gs</VariableName>
       <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">inc/GeometryShader.h</HeaderFileOutput>
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutDir)%(Filename)_d.cso</ObjectFileOutput>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SimpleGeometryShader</EntryPointName>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SimpleGeometryShader</EntryPointName>
     </FxCompile>
     <None Include="packages.config" />
   </ItemGroup>

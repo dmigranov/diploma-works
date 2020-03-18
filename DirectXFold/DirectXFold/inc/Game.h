@@ -2,9 +2,12 @@
 #include <sstream>
 #include <iomanip>
 
+//Shaders
 #include "PixelShader.h"
 #include "VertexShader.h"
 #include "MorphingVertexShader.h"
+#include "GeometryShader.h"
+
 
 #include "Line.h"
 #include "Mesh.h"
