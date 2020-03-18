@@ -19,7 +19,7 @@ Octahedron::Octahedron(FixedCoordinate coord, double section, XMMATRIX world)
     this->fc = coord;
     sectionHeight = section;
 
-    double inv = sqrt(1 - section * section);
+    double inv = sqrt(1. - section * section);
     if (coord == FixedCoordinate::FC_W)
     {
         Mesh::VertexPosColor vertices[] = {
