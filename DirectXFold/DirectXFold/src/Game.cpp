@@ -224,8 +224,7 @@ int Game::Initialize(HWND window, int width, int height)
             this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(gain)));
         if (ks.Z)
         { 
-            float c = static_cast<Octahedron*>(this->mesh1)->GetSectionHeight();
-            std::cout << c << std::endl;
+            static_cast<Octahedron*>(this->mesh1)->SetSectionHeight(-0.5);
         }
 
     }, m_hwnd);
