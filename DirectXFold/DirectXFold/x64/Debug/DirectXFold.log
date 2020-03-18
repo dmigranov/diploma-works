@@ -1,7 +1,7 @@
-﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\VertexShader.h
+﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\PixelShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\BasicPixelShader_d.cso
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\VertexShader.h
   compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\BasicVertexShader.cso
-  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\GeometryShader.h
-  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\GeometryShader.cso
   Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(344,78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
