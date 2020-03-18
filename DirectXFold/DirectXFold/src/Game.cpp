@@ -409,6 +409,12 @@ bool Game::LoadContent()
         return false;
     }
 
+    hr = g_d3dDevice->CreateGeometryShader(g_vs, sizeof(g_vs), nullptr, &g_d3dGeometryShader);
+    if (FAILED(hr))
+    {
+        return false;
+    }
+
     hr = g_d3dDevice->CreatePixelShader(g_ps, sizeof(g_ps), nullptr, &g_d3dPixelShader);
     if (FAILED(hr))
     {
