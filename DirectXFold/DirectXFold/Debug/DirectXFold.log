@@ -1,9 +1,8 @@
 ﻿  Game.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(308,78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(467,73): warning C4316: "Octahedron": объект, размещенный в куче, может не быть выровнен 16
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(470,72): warning C4316: "Octahedron": объект, размещенный в куче, может не быть выровнен 16
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(489,64): warning C4305: аргумент: усечение из "double" в "float"
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(489,66): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(310,78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(469,73): warning C4316: "Octahedron": объект, размещенный в куче, может не быть выровнен 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(491,64): warning C4305: аргумент: усечение из "double" в "float"
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(491,66): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1590,59): warning C4316: "std::_Ref_count_obj2<_Ty>": объект, размещенный в куче, может не быть выровнен 16
           with
           [

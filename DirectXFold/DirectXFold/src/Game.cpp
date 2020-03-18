@@ -297,6 +297,8 @@ void Game::Render()
         for (auto mesh : meshes)
             mesh->Render();
     }
+
+
     std::stringstream ss;
     Vector4 pos = m_camera->GetPosition();
     Vector3 sphPos = GetSphericalFromCartesian(pos.x, pos.y, pos.z, pos.w);
