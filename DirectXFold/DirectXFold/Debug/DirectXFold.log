@@ -1,8 +1,10 @@
-﻿  Game.cpp
+﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\GeometryShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\GeometryShader_d.cso
+  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(341,78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(506,73): warning C4316: "Octahedron": объект, размещенный в куче, может не быть выровнен 16
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(528,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(344,78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(509,73): warning C4316: "Octahedron": объект, размещенный в куче, может не быть выровнен 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(531,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1590,59): warning C4316: "std::_Ref_count_obj2<_Ty>": объект, размещенный в куче, может не быть выровнен 16
           with
           [
@@ -78,5 +80,4 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(158,16): warn
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(157,41): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
   main.cpp
   Создание кода...
-     
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe

@@ -294,6 +294,9 @@ void Game::Render()
     g_d3dDeviceContext->VSSetShader(g_d3dVertexShader, nullptr, 0);
     g_d3dDeviceContext->VSSetConstantBuffers(0, 3, g_d3dConstantBuffers);
 
+    //Geometry Shader Stage
+    g_d3dDeviceContext->GSSetShader(g_d3dGeometryShader, nullptr, 0);
+
     //Rasterizer Stage
     g_d3dDeviceContext->RSSetState(g_d3dRasterizerState);
     g_d3dDeviceContext->RSSetViewports(1, &g_Viewport);

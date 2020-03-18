@@ -1,13 +1,26 @@
-struct PixelInput
+struct VertexInput
 {
-	float4 Position : SV_POSITION; // стандартный System-Value для вертекса
+	float4 color : COLOR;
+	float depth : DEPTH;
+	float4 position : POSITION; //стандартный System-Value для вертекса, который требуется на RS
 };
 
-[maxvertexcount(1)] // максимальное кол-во вертексов, которое мы можем добавить
-void SimpleGeometryShader(point PixelInput input[1], inout PointStream<PixelInput> stream)
+struct VertexOutput
 {
-	PixelInput pointOut = input[0]; // получение вертекса
-	
-	stream.Append(pointOut); // добавление вертекса
+    float4 color : COLOR;
+    float depth : DEPTH;
+    float4 position : SV_POSITION; //стандартный System-Value для вертекса, который требуется на RS
+};
+
+[maxvertexcount(3)] // максимальное кол-во вертексов, которое мы можем добавить
+void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<VertexOutput> stream)
+{
+    VertexOutput v1 = { input[0].color, input[0].depth, input[0].position };
+    stream.Append(v1); // добавление вертекса
+    VertexOutput v2 = { input[1].color, input[1].depth, input[1].position };
+    stream.Append(v2); // добавление вертекса
+    VertexOutput v3 = { input[2].color, input[2].depth, input[2].position };
+    stream.Append(v3); // добавление вертекса
+
 	stream.RestartStrip(); // создаем примитив (для Point – требуется один вертекс)
 }

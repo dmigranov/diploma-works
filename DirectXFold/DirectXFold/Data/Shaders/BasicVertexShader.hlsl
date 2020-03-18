@@ -24,7 +24,7 @@ struct VertexShaderOutput
 {
     float4 color : COLOR;
     float depth : DEPTH;
-    float4 position : SV_POSITION;  //system-value semantic that is required by the rasterizer stage
+    float4 position : POSITION;  //system-value semantic that is required by the rasterizer stage
 };
 
 //entry point
