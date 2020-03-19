@@ -1,3 +1,5 @@
+#pragma enable_d3d11_debug_symbols
+
 cbuffer PerApplication : register(b0)
 {
     matrix projectionMatrix;
@@ -23,7 +25,7 @@ struct VertexShaderInput
 struct VertexShaderOutput
 {
     float4 color : COLOR;
-    float4 position : POSITIONT;
+    float4 position : SV_POSITION;
 };
 
 //entry point
