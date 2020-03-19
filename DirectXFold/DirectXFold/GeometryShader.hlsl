@@ -53,7 +53,7 @@ void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<Ve
 		{
 			VertexOutput v1 = { input[i].color, float4(GetCylinderPoint(p1.xyz, w, u, v, theta, 0), 1) };
 			stream.Append(v1);
-			VertexOutput v2 = { input[j].color, float4(GetCylinderPoint(p1.xyz, w, u, v, theta, tubeLength), 1) };
+			VertexOutput v2 = { input[j].color, float4(GetCylinderPoint(p2.xyz, -w, u, v, theta, 0), 1) };
 			stream.Append(v2);
 		}
 
