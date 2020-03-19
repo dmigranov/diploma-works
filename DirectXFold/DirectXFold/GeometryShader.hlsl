@@ -22,10 +22,16 @@ void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<Ve
     stream.Append(v3); // добавление вертекса
     
     
-    /*for (uint i = 0; i < 3; i++)
+    for (uint i = 0; i < 3; i++)
     {
-        float4
-    }*/
+		float4 p1 = input[i].position;
+		float4 p2 = input[(i + 1) % 3].position;
+		p1 /= p1.w;
+		p2 /= p2.w;
+        
+		float3 tubeDir = p1.xyz - p2.xyz;
+
+	}
 
         stream.RestartStrip(); // создаем примитив 
 }
