@@ -37,6 +37,6 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN)
 
     float4 c = OUT.position + IN.position;
 
-    
+    OUT.position.c = w;
 	return OUT;
 }
