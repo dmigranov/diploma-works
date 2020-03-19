@@ -4,7 +4,8 @@
 
 XMFLOAT4 GenerateRandomColor()
 {
-    return XMFLOAT4(float(rand())/float(RAND_MAX), float(rand()) / float(RAND_MAX), float(rand()) / float(RAND_MAX), 1.f);
+    //return XMFLOAT4(float(rand())/float(RAND_MAX), float(rand()) / float(RAND_MAX), float(rand()) / float(RAND_MAX), 1.f);
+    return XMFLOAT4(0.f, 1.f, 1.f, 0.5f);
 }
 
 Octahedron::Octahedron(double wSec, XMMATRIX world) : Octahedron(FixedCoordinate::FC_W, wSec, world)
