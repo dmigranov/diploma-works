@@ -20,6 +20,13 @@ void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<Ve
     stream.Append(v2); // добавление вертекса
     VertexOutput v3 = { input[2].color, { 0, 0 }, input[2].position };
     stream.Append(v3); // добавление вертекса
+    
+    float4 c = input[0].position + input[1].position;
+    
+    /*for (uint i = 0; i < 3; i++)
+    {
+        float4
+    }*/
 
-	stream.RestartStrip(); // создаем примитив 
+        stream.RestartStrip(); // создаем примитив 
 }
