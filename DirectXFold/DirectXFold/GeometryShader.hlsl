@@ -16,20 +16,18 @@ static const float PI = 3.14159265f;
 float3 GetCylinderPoint(float3 pos, float3 w, float3 u, float3 v, float theta, float t)
 {
 	float cost = cos(theta), sint = sin(theta);
-	return cost * u + sint * v + t * w;
+	return pos + cost * u + sint * v + t * w;
 }
 
 [maxvertexcount(18)] // максимальное кол-во вертексов, которое мы можем добавить
 void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<VertexOutput> stream)
 {
-	VertexOutput v1 = { input[0].color, { 0, 0 }, input[0].position };
+	/*VertexOutput v1 = { input[0].color, { 0, 0 }, input[0].position };
 	stream.Append(v1); // добавление вертекса
 	VertexOutput v2 = { input[1].color, { 0, 0 }, input[1].position };
 	stream.Append(v2); // добавление вертекса
 	VertexOutput v3 = { input[2].color, { 0, 0 }, input[2].position };
-	stream.Append(v3); // добавление вертекса
-   
-   
+	stream.Append(v3); // добавление вертекса*/
 	
 	for (uint i = 0; i < 3; i++)
 	{
@@ -39,19 +37,23 @@ void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<Ve
 		p2 /= p2.w;
        
 		//u and v are perpendiculat to each other and tubeDir
-		float3 tubeDir = normalize(p1.xyz - p2.xyz);
+		float3 tubeDir = (p2.xyz - p1.xyz);
+		float tubeLength = length(tubeDir);
+		float3 w = normalize(tubeDir);
 		float3 u;
-		if (tubeDir.x != 0 && tubeDir.y != 0)
-			u = normalize(cross(tubeDir, float3(0, 0, 1)));
+		if (w.x != 0 && w.y != 0)
+			u = normalize(cross(w, float3(0, 0, 1)));
 		else
-			u = normalize(cross(tubeDir, float3(1, 0, 0)));
-		float3 v = cross(tubeDir, v);
+			u = normalize(cross(w, float3(1, 0, 0)));
+		float3 v = cross(w, v);
 		
 		uint horiVerticesCount = 4;
 		float theta = 0, dtheta = 2 * PI / horiVerticesCount;
 		for (uint thI = 0; thI < 4; thI++, theta += dtheta)
 		{
-			
+			stream.Append(v1)
+			GetCylinderPoint(p1.xyz, w, u, v, theta, 0);
+			GetCylinderPoint(p1.xyz, w, u, v, theta, tubeLength);
 		}
 
 		stream.RestartStrip(); // создаем примитив 
