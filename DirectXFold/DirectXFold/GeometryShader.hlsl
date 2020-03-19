@@ -11,6 +11,7 @@ struct VertexOutput
     float4 position : SV_Position; //стандартный System-Value для вертекса, который требуется на RS
 };
 
+static const float PI = 3.14159265f;
 
 float3 GetCylinderPoint(float3 pos, float3 w, float3 u, float3 v, float theta, float t)
 {
@@ -18,9 +19,9 @@ float3 GetCylinderPoint(float3 pos, float3 w, float3 u, float3 v, float theta, f
 	return cost * u + sint * v + t * w;
 }
 
-[maxvertexcount(3)] // максимальное кол-во вертексов, которое мы можем добавить
+[maxvertexcount(18)] // максимальное кол-во вертексов, которое мы можем добавить
 void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<VertexOutput> stream)
-{    
+{
 	VertexOutput v1 = { input[0].color, { 0, 0 }, input[0].position };
 	stream.Append(v1); // добавление вертекса
 	VertexOutput v2 = { input[1].color, { 0, 0 }, input[1].position };
@@ -45,8 +46,15 @@ void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<Ve
 		else
 			u = normalize(cross(tubeDir, float3(1, 0, 0)));
 		float3 v = cross(tubeDir, v);
+		
+		uint horiVerticesCount = 4;
+		float theta = 0, dtheta = 2 * PI / horiVerticesCount;
+		for (uint thI = 0; thI < 4; thI++, theta += dtheta)
+		{
+			
+		}
+
+		stream.RestartStrip(); // создаем примитив 
 	}
 
-	stream.RestartStrip(); // создаем примитив 
 }
-
