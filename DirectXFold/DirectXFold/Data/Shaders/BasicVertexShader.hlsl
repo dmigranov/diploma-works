@@ -35,8 +35,5 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN)
     OUT.color = IN.color;
 	OUT.position = mul(mvp, IN.position);
 
-    float4 c = OUT.position + IN.position;
-
-    OUT.position.c = w;
 	return OUT;
 }
