@@ -11,14 +11,21 @@ struct VertexOutput
     float4 position : SV_Position; //стандартный System-Value дл€ вертекса, который требуетс€ на RS
 };
 
+//todo: возможно надо передавать координаты в мировой
+
 [maxvertexcount(3)] // максимальное кол-во вертексов, которое мы можем добавить
 void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<VertexOutput> stream)
 {
 	//Ѕј–»ќ÷≈Ќ“–»„≈— »≈  ќќ–ƒ»Ќј“џ!
 	
-	float a = length(input[1].position.xyz - input[2].position.xyz);
-	float b = length(input[2].position.xyz - input[0].position.xyz);
-	float c = length(input[1].position.xyz - input[0].position.xyz);
+	//тут в принципе можно поделить на w но всЄ равно уродское зачернение остаЄтс€
+	float3 xyz1 = input[1].position.xyz;
+	float3 xyz2 = input[2].position.xyz;
+	float3 xyz0 = input[0].position.xyz;
+
+	float a = length(xyz1 - xyz2);
+	float b = length(xyz2 - xyz0);
+	float c = length(xyz1 - xyz0);
 		
 	float alpha = acos((b * b + c * c - a * a) / (2.0 * b * c));
 	float beta = acos((a * a + c * c - b * b) / (2.0 * a * c));
