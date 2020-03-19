@@ -1,4 +1,4 @@
-static const float thickness = 0.02;
+static const float thickness = 0.001;
 
 
 struct PixelShaderInput
@@ -15,5 +15,4 @@ float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
 	if (distance < thickness)
 		return float4(0, 0, 0, 1); //draw fragment if close to edge
 	return IN.color; //else; а можно дискард
-    //return float4(IN.depth, IN.depth, IN.depth, 1);
 }
