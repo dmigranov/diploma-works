@@ -1,72 +1,72 @@
 ﻿  Octahedron.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(27,37): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(26,37): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(26,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(27,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(27,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(28,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(28,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(28,25): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(29,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(29,25): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(30,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(30,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(31,37): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(29,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(30,37): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(30,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(31,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(31,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(32,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(32,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(39,40): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(39,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(40,40): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(40,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(41,40): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(41,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(41,25): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(42,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(42,25): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(43,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(43,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(44,32): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(42,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(43,32): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(43,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(44,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(44,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(45,31): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(45,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(52,39): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(52,25): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(53,39): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(53,25): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(54,39): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(54,34): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(54,25): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(55,34): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(55,25): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(56,34): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(56,25): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(57,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(56,26): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(56,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(57,25): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(57,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(58,25): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(58,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(65,39): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(65,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(66,39): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(66,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(67,39): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(67,34): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(67,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(68,34): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(68,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(69,34): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(69,29): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(69,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(70,29): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(70,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(71,29): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(71,20): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(143,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(142,19): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(141,16): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(140,58): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(149,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(148,19): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(147,33): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(146,41): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(155,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(154,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(153,16): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(152,41): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(161,39): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(160,19): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(159,16): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(158,41): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(142,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(141,19): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(140,16): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(139,58): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(148,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(147,19): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(146,33): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(145,41): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(154,22): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(153,36): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(152,16): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(151,41): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(160,39): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(159,19): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(158,16): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(157,41): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
      Создается библиотека bin\DirectXFold.lib и объект bin\DirectXFold.exp
   Создание кода
-  0 of 597 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  4 of 597 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    1 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFold.exe

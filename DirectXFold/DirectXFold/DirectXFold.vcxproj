@@ -75,6 +75,10 @@
       <VariableName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">g_ps</VariableName>
       <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">inc/PixelShader.h</HeaderFileOutput>
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)%(Filename)_d.cso</ObjectFileOutput>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+ %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+ %(AdditionalOptions)</AdditionalOptions>
     </FxCompile>
     <FxCompile Include="Data\Shaders\BasicVertexShader.hlsl">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SimpleVertexShader</EntryPointName>
@@ -98,6 +102,12 @@
       <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">inc/VertexShader.h</HeaderFileOutput>
       <VariableName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">g_vs</VariableName>
       <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">inc/VertexShader.h</HeaderFileOutput>
+      <SuppressStartupBanner Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</SuppressStartupBanner>
+      <SuppressStartupBanner Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</SuppressStartupBanner>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+ %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+ %(AdditionalOptions)</AdditionalOptions>
     </FxCompile>
     <FxCompile Include="Data\Shaders\MorphingVertexShader.hlsl">
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MorphingVertexShader</EntryPointName>
@@ -143,6 +153,10 @@
       <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">inc/GeometryShader.h</HeaderFileOutput>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">SimpleGeometryShader</EntryPointName>
       <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">SimpleGeometryShader</EntryPointName>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+ %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+ %(AdditionalOptions)</AdditionalOptions>
     </FxCompile>
     <None Include="packages.config" />
   </ItemGroup>
