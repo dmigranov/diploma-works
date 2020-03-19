@@ -12,10 +12,10 @@ struct VertexOutput
 };
 
 
-float3 GetCylinderPoint()
+float3 GetCylinderPoint(float3 pos, float3 w, float3 u, float3 v, float theta, float t)
 {
-	return float3(0, 0, 0);
-
+	float cost = cos(theta), sint = sin(theta);
+	return cost * u + sint * v + t * w;
 }
 
 [maxvertexcount(3)] // максимальное кол-во вертексов, которое мы можем добавить
