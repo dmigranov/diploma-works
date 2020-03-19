@@ -57,6 +57,7 @@ void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<Ve
 			stream.Append(v2);
 		}
 
+		
 		stream.RestartStrip(); // создаем примитив 
 	}
 
