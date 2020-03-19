@@ -23,7 +23,7 @@ struct VertexShaderInput
 struct VertexShaderOutput
 {
     float4 color : COLOR;
-    float4 position : POSITIONT0;
+    float4 position : SV_POSITION;
 };
 
 //entry point
@@ -35,5 +35,8 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN)
     OUT.color = IN.color;
 	OUT.position = mul(mvp, IN.position);
 
+    float4 c = OUT.position + IN.position;
+
+    
 	return OUT;
 }
