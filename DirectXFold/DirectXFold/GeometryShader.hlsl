@@ -21,5 +21,5 @@ void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<Ve
     VertexOutput v3 = { input[2].color, { 0, 0 }, input[2].position };
     stream.Append(v3); // добавление вертекса
 
-	stream.RestartStrip(); // создаем примитив (для Point – требуется один вертекс)
+	stream.RestartStrip(); // создаем примитив 
 }

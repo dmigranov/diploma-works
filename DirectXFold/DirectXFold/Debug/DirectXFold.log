@@ -1,11 +1,4 @@
-﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\PixelShader.h
-  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\BasicPixelShader_d.cso
-  Microsoft (R) Direct3D Shader Compiler 10.1
-  Copyright (C) 2013 Microsoft. All rights reserved.
-  
-  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\VertexShader.h
-  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\BasicVertexShader_d.cso
-  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\GeometryShader.h
+﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\GeometryShader.h
   compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\GeometryShader_d.cso
   Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
