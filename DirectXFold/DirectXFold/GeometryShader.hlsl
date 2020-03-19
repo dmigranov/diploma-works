@@ -29,7 +29,14 @@ void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<Ve
 		p1 /= p1.w;
 		p2 /= p2.w;
         
-		float3 tubeDir = p1.xyz - p2.xyz;
+        //u and v are perpendiculat to each other and tubeDir
+		float3 tubeDir = normalize(p1.xyz - p2.xyz);
+		float u;
+		if (tubeDir != float3(0, 0, 1))
+			u = normalize(cross(tubeDir, float3(0, 0, 1)));
+        else
+			u = normalize(cross(tubeDir, float3(1, 1, 0)));
+		float v = cross(tubeDir, v);
 
 	}
 
