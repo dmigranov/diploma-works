@@ -1,7 +1,7 @@
 struct VertexInput
 {
     float4 color : COLOR;
-    float4 position : POSITIONT0;
+    float4 position : POSITIONT;
 };
 
 struct VertexOutput
