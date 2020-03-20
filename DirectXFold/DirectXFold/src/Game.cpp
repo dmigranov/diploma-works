@@ -405,12 +405,12 @@ bool Game::LoadContent()
         return false;
     }
 
-    /*constantBufferDesc.ByteWidth = sizeof(float);
+    constantBufferDesc.ByteWidth = 16; // sizeof(float);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dGSConstantBuffer);
     if (FAILED(hr))
     {
         return false;
-    }*/
+    }
 
     //loading shaders from global variables 
     hr = g_d3dDevice->CreateVertexShader(g_vs, sizeof(g_vs), nullptr, &g_d3dVertexShader);
