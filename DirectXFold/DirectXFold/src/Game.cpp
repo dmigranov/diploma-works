@@ -345,6 +345,7 @@ void Game::Render()
             mesh->Render();
     }
 
+    g_d3dDeviceContext->GSSetShader(nullptr, nullptr, 0);
 
     std::stringstream ss;
     Vector4 pos = m_camera->GetPosition();
