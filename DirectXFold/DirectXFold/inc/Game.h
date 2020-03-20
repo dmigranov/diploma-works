@@ -115,7 +115,7 @@ private:
     ID3D11Buffer* g_d3dVSConstantBuffers[NumConstantBuffers];
     //todo: создать отдельные классы-константбуфферы (три штуки), которые будут инкапс. все вещи для каждого этапа
 
-    ID3D11Buffer* g_d3dGSConstantBuffer;
+    ID3D11Buffer* g_d3dPSConstantBuffer;
 
     XMMATRIX m_morph;
     XMMATRIX m_view;

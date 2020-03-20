@@ -303,6 +303,7 @@ void Game::Render()
 
     //Pixel Shader Stage
     g_d3dDeviceContext->PSSetShader(g_d3dPixelShader, nullptr, 0);
+    g_d3dDeviceContext->PSSetConstantBuffers(0, 1, &g_d3dPSConstantBuffer);
 
     //Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
@@ -406,7 +407,7 @@ bool Game::LoadContent()
     }
 
     constantBufferDesc.ByteWidth = 16; // sizeof(float);
-    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dGSConstantBuffer);
+    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dPSConstantBuffer);
     if (FAILED(hr))
     {
         return false;
@@ -562,7 +563,7 @@ void Game::UnloadContent()
     SafeRelease(g_d3dVSConstantBuffers[CB_Application]);
     SafeRelease(g_d3dVSConstantBuffers[CB_Frame]);
     SafeRelease(g_d3dVSConstantBuffers[CB_Object]);
-    SafeRelease(g_d3dGSConstantBuffer);
+    SafeRelease(g_d3dPSConstantBuffer);
     SafeRelease(g_d3dInputLayout);
     SafeRelease(g_d3dVertexShader);
     SafeRelease(g_d3dGeometryShader);

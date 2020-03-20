@@ -1,5 +1,10 @@
 static const float thickness = 0.01;
 
+cbuffer PerApplication : register(b0)
+{
+	float fdfdf;
+}
+
 
 struct PixelShaderInput
 {
