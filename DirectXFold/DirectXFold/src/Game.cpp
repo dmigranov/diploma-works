@@ -233,6 +233,9 @@ int Game::Initialize(HWND window, int width, int height)
 
     }, m_hwnd);
 
+    float p = 0.005;
+    //Почему можно на стеке: When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
+    g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &p, 0, 0);
 
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");

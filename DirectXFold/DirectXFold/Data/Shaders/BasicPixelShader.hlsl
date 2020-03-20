@@ -1,8 +1,8 @@
-static const float thickness = 0.01;
+//static const float thickness = 0.01;
 
 cbuffer PerApplication : register(b0)
 {
-	float fdfdf;
+	float thickness;
 }
 
 
