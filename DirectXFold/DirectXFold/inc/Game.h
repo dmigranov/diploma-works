@@ -121,6 +121,8 @@ private:
     XMMATRIX m_view;
     XMMATRIX m_proj;
 
+    float m_edgeThickness = 0.01f;
+
     // Timer
     DWORD                                           previousTime = timeGetTime();
     const float                                     targetFramerate = 30.0f;
