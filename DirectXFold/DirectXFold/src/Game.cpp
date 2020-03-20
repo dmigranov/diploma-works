@@ -546,7 +546,7 @@ bool Game::LoadContent()
             3, 2, 0
         };*/
 
-        Mesh::VertexPosColor vertices[] = {
+        /*Mesh::VertexPosColor vertices[] = {
             { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT4(0.0f, 0.0f, 0.0f, 1.f) },   // 0
             { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) },  // 1
             { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT4(1.0f, 1.0f, 0.0f, 1.f) }, // 2
@@ -554,6 +554,21 @@ bool Game::LoadContent()
 
         WORD indices[] = {
             0, 1, 2, 2, 1, 0
+        };*/
+
+        float v1 = 0.99f, v3 = 0.08f, v2 = sqrtf(1.f - v1 * v1 - v3 * v3);
+        Mesh::VertexPosColor vertices[] = {
+            { XMFLOAT4(v2, 0.f, v3, v1), XMFLOAT4(1.f, 0.f, 1.f, 1.0f) },   // 0
+            { XMFLOAT4(0.f,  v2, -v3, v1), XMFLOAT4(0.f, 1.f, 1.f, 1.0f) },  // 1
+            { XMFLOAT4(0.f,  -v2, -v3, v1), XMFLOAT4(1.f, 1.f, 0.f, 1.0f) }, // 2
+            { XMFLOAT4(-v2, 0.f, v3, v1), XMFLOAT4(0.f, 0.f, 1.f, 1.0f) }   // 3
+        };
+
+        WORD indices[] = {
+            2, 1, 0,
+            1, 2, 3,
+            0, 1, 3,
+            3, 2, 0
         };
 
         mesh2 = new Mesh(_countof(vertices), vertices,
