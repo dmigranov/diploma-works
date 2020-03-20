@@ -18,8 +18,6 @@
 #include "TextDrawer.h"
 
 
-
-
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
@@ -114,8 +112,10 @@ private:
     };
 
     //three constant buffers: buffers are used to store shader variables that remain constant during current draw call. An example of a constant shader variable is the cameraТs projection matrix. Since the projection matrix will be the same for every vertex of the object, this variable does not need to be passed to the shader using vertex data.
-    ID3D11Buffer* g_d3dConstantBuffers[NumConstantBuffers];
+    ID3D11Buffer* g_d3dVSConstantBuffers[NumConstantBuffers];
     //todo: создать отдельные классы-константбуфферы (три штуки), которые будут инкапс. все вещи дл€ каждого этапа
+
+    ID3D11Buffer* g_d3dGSConstantBuffer;
 
     XMMATRIX m_morph;
     XMMATRIX m_view;

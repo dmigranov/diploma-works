@@ -267,7 +267,7 @@ void Game::Update(float deltaTime)
     m_inputHandler->HandleInput();
 
     /*m_view = m_camera->GetView();
-    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &m_view, 0, 0);
+    g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &m_view, 0, 0);
     */
     DWORD t = timeGetTime();
     //m_morph = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.4*cos(t/100.0));
@@ -292,7 +292,7 @@ void Game::Render()
 
     //Vertex Shader Stage
     g_d3dDeviceContext->VSSetShader(g_d3dVertexShader, nullptr, 0);
-    g_d3dDeviceContext->VSSetConstantBuffers(0, 3, g_d3dConstantBuffers);
+    g_d3dDeviceContext->VSSetConstantBuffers(0, 3, g_d3dVSConstantBuffers);
 
     //Geometry Shader Stage
     g_d3dDeviceContext->GSSetShader(g_d3dGeometryShader, nullptr, 0);
@@ -312,9 +312,9 @@ void Game::Render()
     //first render
     {
         auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
-        g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &front, 0, 0);
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &front, 0, 0);
         auto view = m_camera->GetView();
-        g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
 
 
         for (auto mesh : meshes)
@@ -324,9 +324,9 @@ void Game::Render()
     //second render
     {
         auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
-        g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &back, 0, 0);
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &back, 0, 0);
         auto view = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
-        g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
 
         for (auto mesh : meshes)
             mesh->Render();
@@ -388,22 +388,29 @@ bool Game::LoadContent()
     constantBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 
     //we will update the contents of buffers using the ID3D11DeviceContext::UpdateSubresource method and this method expects constant buffers to be initialized with D3D11_USAGE_DEFAULT usage flag and buffers that are created with the D3D11_USAGE_DEFAULT flag must have their CPUAccessFlags set to 0.
-    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dConstantBuffers[CB_Application]);
+    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Application]);
     if (FAILED(hr))
     {
         return false;
     }
-    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dConstantBuffers[CB_Frame]);
+    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Frame]);
     if (FAILED(hr))
     {
         return false;
     }
     constantBufferDesc.ByteWidth = sizeof(Mesh::MeshConstantBuffer);
-    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dConstantBuffers[CB_Object]);
+    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Object]);
     if (FAILED(hr))
     {
         return false;
     }
+
+    /*constantBufferDesc.ByteWidth = sizeof(float);
+    hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dGSConstantBuffer);
+    if (FAILED(hr))
+    {
+        return false;
+    }*/
 
     //loading shaders from global variables 
     hr = g_d3dDevice->CreateVertexShader(g_vs, sizeof(g_vs), nullptr, &g_d3dVertexShader);
@@ -453,7 +460,7 @@ bool Game::LoadContent()
     m_camera->SetFarPlane(100.f);
 
     /*m_proj = m_camera->GetProj();
-    g_d3dDeviceContext->UpdateSubresource(g_d3dConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
+    g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
 
     {
         /*Mesh::VertexPosColor vertices[] = {
@@ -552,11 +559,13 @@ bool Game::LoadContent()
 
 void Game::UnloadContent()
 {
-    SafeRelease(g_d3dConstantBuffers[CB_Application]);
-    SafeRelease(g_d3dConstantBuffers[CB_Frame]);
-    SafeRelease(g_d3dConstantBuffers[CB_Object]);
+    SafeRelease(g_d3dVSConstantBuffers[CB_Application]);
+    SafeRelease(g_d3dVSConstantBuffers[CB_Frame]);
+    SafeRelease(g_d3dVSConstantBuffers[CB_Object]);
+    SafeRelease(g_d3dGSConstantBuffer);
     SafeRelease(g_d3dInputLayout);
     SafeRelease(g_d3dVertexShader);
+    SafeRelease(g_d3dGeometryShader);
     SafeRelease(g_d3dPixelShader);
     delete mesh1;
     delete mesh2;
