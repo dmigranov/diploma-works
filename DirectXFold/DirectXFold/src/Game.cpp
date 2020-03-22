@@ -246,7 +246,6 @@ int Game::Initialize(HWND window, int width, int height)
     //Почему можно на стеке: When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
     g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &m_edgeThickness, 0, 0);
 
-
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
 
     return 0;
@@ -437,8 +436,7 @@ bool Game::LoadContent()
     D3D11_INPUT_ELEMENT_DESC vertexLayoutDesc[] =
     {
         { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Color), D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        //{ "SV_VertexID",   0, DXGI_FORMAT_R32_UINT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+        { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Color), D3D11_INPUT_PER_VERTEX_DATA, 0 }
     };
 
     hr = g_d3dDevice->CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs), &g_d3dInputLayout);
@@ -565,10 +563,10 @@ bool Game::LoadContent()
             3, 2, 0
         };
 
-        mesh2 = new Mesh(_countof(vertices), vertices,
-            _countof(indices), indices, SphericalRotationXW(0.6f));
-        //meshes.push_back(mesh2);
+        meshes.push_back(new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationXW(XM_PIDIV2)));
 
+        //mesh2 = new Mesh(_countof(vertices), vertices, (indices), indices, SphericalRotationXW(0.6f));
+        //meshes.push_back(mesh2);
         //mesh2->SetParent(mesh1);
 
         /*mesh->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
