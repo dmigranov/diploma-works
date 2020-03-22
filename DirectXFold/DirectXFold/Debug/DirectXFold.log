@@ -1,8 +1,6 @@
 ﻿  Microsoft (R) Direct3D Shader Compiler 10.1
   Copyright (C) 2013 Microsoft. All rights reserved.
   
-D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\BasicVertexShader.hlsl(41,14): warning X4000: use of potentially uninitialized variable (temp)
-  
   compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\VertexShader.h
   compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\BasicVertexShader_d.cso
   Game.cpp

@@ -397,21 +397,25 @@ bool Game::LoadContent()
     ZeroMemory(&constantBufferDesc, sizeof(D3D11_BUFFER_DESC));
 
     constantBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
-    constantBufferDesc.ByteWidth = sizeof(XMMATRIX);
     constantBufferDesc.CPUAccessFlags = 0;
     constantBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 
     //we will update the contents of buffers using the ID3D11DeviceContext::UpdateSubresource method and this method expects constant buffers to be initialized with D3D11_USAGE_DEFAULT usage flag and buffers that are created with the D3D11_USAGE_DEFAULT flag must have their CPUAccessFlags set to 0.
+    
+    constantBufferDesc.ByteWidth = sizeof(PerApplicationConstantBuffer);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Application]);
     if (FAILED(hr))
     {
         return false;
     }
+
+    constantBufferDesc.ByteWidth = sizeof(PerFrameConstantBuffer);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Frame]);
     if (FAILED(hr))
     {
         return false;
     }
+
     constantBufferDesc.ByteWidth = sizeof(Mesh::MeshConstantBuffer);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Object]);
     if (FAILED(hr))
@@ -419,7 +423,7 @@ bool Game::LoadContent()
         return false;
     }
 
-    constantBufferDesc.ByteWidth = 16; // sizeof(float);
+    constantBufferDesc.ByteWidth = 16; // sizeof(float) - недостаточно. надо кратное;
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dPSConstantBuffer);
     if (FAILED(hr))
     {

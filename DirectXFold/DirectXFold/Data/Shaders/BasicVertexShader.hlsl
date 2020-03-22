@@ -33,17 +33,20 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN, uint instanceID : SV
 {
 	VertexShaderOutput OUT;
  
-	matrix mvp, temp;
+	matrix mvp, temp = matrix(0, 0, 0, 0,
+	0, 0, 0, 0,
+	0, 0, 0, 0,
+	0, 0, 0, 0);
 	if (instanceID == 1)
 		temp = matrix(0, 0, 0, 1,
 	0, 1, 0, 0,
 	0, 0, 1, 0,
 	-1, 0, 0, 0);
-	if (instanceID == 0)
+	/*if (instanceID == 0)
 		temp = matrix(1, 0, 0, 0,
 	0, 1, 0, 0,
 	0, 0, 1, 0,
-	0, 0, 0, 1);
+	0, 0, 0, 1);*/
 
 		mvp = mul(projectionMatrix, mul(viewMatrix, mul(worldMatrix, temp)));
 
