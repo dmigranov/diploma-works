@@ -1,6 +1,7 @@
 Я в панели управления DirectX замутил все сообщения об ошибках, чтобы проще было отлаживаться. ПОМНИ ОБ ЭТОМ
 
 До оптимизации:
+Render()...:
  //first render
     {
         auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
@@ -22,3 +23,7 @@
         for (auto mesh : meshes)
             mesh->Render();
     }
+    причём в mesh->Render каждый раз апдейтится сабресурс! это 4+2n вызова каждый кадр, где n - число мешей
+
+
+    Теперь:
