@@ -55,5 +55,4 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(41
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(42,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(42,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(42,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     Creating library bin\DirectXFoldd.lib and object bin\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe

@@ -3,6 +3,7 @@
 class SphericalDodecahedron :
 	public Mesh
 {
+public:
 	enum class FixedCoordinate {
 		FC_X,
 		FC_Y,

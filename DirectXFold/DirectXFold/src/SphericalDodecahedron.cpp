@@ -47,9 +47,9 @@ SphericalDodecahedron::SphericalDodecahedron(double section)
     verticesCount = _countof(vertices);
 
     WORD indices[] = {
-            0, 8, 10,
-            8, 10, 12,
-            12, 10, 2
+            // 0, 8, 10,
+             12, 10, 0,
+             12, 10, 2
 
             
     };
@@ -90,7 +90,7 @@ SphericalDodecahedron::SphericalDodecahedron(double section)
 
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
-    //constantBuffer.m_world = world;
+    constantBuffer.m_world = Matrix::Identity;
 }
 
 

@@ -12,6 +12,8 @@
 #include "Line.h"
 #include "Mesh.h"
 #include "Octahedron.h"
+#include "SphericalDodecahedron.h"
+
 
 #include "SimpleInputHandler.h"
 #include "SphericalCamera.h"
