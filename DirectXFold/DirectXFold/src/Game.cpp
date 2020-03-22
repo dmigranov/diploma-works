@@ -324,11 +324,10 @@ void Game::Render()
 
     //first render
     {
-        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &front, 0, 0);
+        //auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
+        //g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &front, 0, 0);
         auto view = m_camera->GetView();
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
-
 
         for (auto mesh : meshes)
             mesh->Render();
@@ -336,8 +335,8 @@ void Game::Render()
     
     //second render
     {
-        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &back, 0, 0);
+        //auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
+        //g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &back, 0, 0);
         auto view = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
 
@@ -584,9 +583,9 @@ bool Game::LoadContent()
 
         mesh2 = new Mesh(_countof(vertices), vertices,
             _countof(indices), indices, SphericalRotationXW(0.6f));
-        meshes.push_back(mesh2);
+        //meshes.push_back(mesh2);
 
-        mesh2->SetParent(mesh1);
+        //mesh2->SetParent(mesh1);
 
         /*mesh->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
             return SphericalRotationXW(-delta) * in;
