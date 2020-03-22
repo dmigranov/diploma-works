@@ -132,4 +132,9 @@
     <Text Include="meshes.txt" />
     <Text Include="WARNING.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="res\mesh1.sph">
+      <Filter>Файлы ресурсов</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
 </Project>

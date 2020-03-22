@@ -155,6 +155,11 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="meshes.txt" />
+    <CopyFileToFolders Include="res\mesh1.sph">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <FileType>Text</FileType>
+    </CopyFileToFolders>
     <Text Include="WARNING.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
