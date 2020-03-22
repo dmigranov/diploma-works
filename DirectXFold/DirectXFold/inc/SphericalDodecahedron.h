@@ -12,8 +12,7 @@ class SphericalDodecahedron :
 
 	SphericalDodecahedron(double wSec, XMMATRIX world);
 	SphericalDodecahedron(double wSec);
-	SphericalDodecahedron(FixedCoordinate coord, double section, XMMATRIX world);
-	SphericalDodecahedron(FixedCoordinate coord, double section);
+
 	void SetSectionHeight(double newSectionHeight);
 	double GetSectionHeight();
 
