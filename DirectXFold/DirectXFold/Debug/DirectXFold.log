@@ -85,6 +85,4 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(158,16): warn
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(157,41): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
   main.cpp
   Создание кода...
-  LINK : не найден или не выполнена сборка bin\DirectXFoldd.exe при последней инкрементной компоновке; выполняется полная компоновка
-     Создается библиотека bin\DirectXFoldd.lib и объект bin\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe

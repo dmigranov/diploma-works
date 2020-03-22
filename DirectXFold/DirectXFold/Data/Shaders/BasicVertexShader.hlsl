@@ -20,26 +20,25 @@ struct VertexShaderInput
 {
     float4 position : POSITION;
     float4 color: COLOR;
-	uint instanceID : SV_InstanceID;
 };
 
 struct VertexShaderOutput
 {
+	float4 position : SV_POSITION;
     float4 color : COLOR;
-    float4 position : POSITIONT;
 };
 
 //entry point
-VertexShaderOutput SimpleVertexShader(VertexShaderInput IN)
+VertexShaderOutput SimpleVertexShader(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 {
 	VertexShaderOutput OUT;
  
 	matrix mvp;
-	bool cond = true; //(instanceID == 0);
+	bool cond = (instanceID == 0);
 	if (cond)
         mvp = mul(projectionMatrix, mul(viewMatrix, worldMatrix));
     else
-		mvp = mul(projectionMatrix, mul(viewMatrix, worldMatrix));
+		mvp = mul(projectionMatrixAnti, mul(viewMatrixAnti, worldMatrix));
     OUT.color = IN.color;
 	OUT.position = mul(mvp, IN.position);
 

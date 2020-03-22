@@ -1,14 +1,14 @@
 struct VertexInput
 {
+	float4 position : SV_POSITION;
     float4 color : COLOR;
-    float4 position : POSITIONT;
 };
 
 struct VertexOutput
 {
     float4 color : COLOR;
 	noperspective float3 edgeDistance : EDGEDISTANCE;
-    float4 position : SV_Position; //стандартный System-Value для вертекса, который требуется на RS
+	float4 position : SV_POSITION; //стандартный System-Value для вертекса, который требуется на RS
 };
 
 //todo: возможно надо передавать координаты в мировой
