@@ -33,17 +33,18 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN, uint instanceID : SV
 {
 	VertexShaderOutput OUT;
  
-	matrix mvp, viewMatrix = viewMatrixFront, projectionMatrix;
+	matrix mvp, viewMatrix, projectionMatrix;
 	if (instanceID == 0)
 	{
 		projectionMatrix = projectionMatrixFront;
+		viewMatrix = viewMatrixFront;
 	}
 	else if (instanceID == 1)
 	{
 		projectionMatrix = projectionMatrixBack;
+		viewMatrix = viewMatrixBack;
 	}
 
-	
 	mvp = mul(projectionMatrix, mul(viewMatrix, worldMatrix));
 
 	OUT.color = IN.color;

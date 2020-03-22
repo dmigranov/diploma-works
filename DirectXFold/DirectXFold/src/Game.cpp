@@ -322,12 +322,20 @@ void Game::Render()
     g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
     g_d3dDeviceContext->OMSetBlendState(g_d3dBlendState, 0, 0xffffffff);
 
+    auto viewFront = m_camera->GetView();
+    auto viewBack = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
+    PerFrameConstantBuffer buf = { viewFront , viewBack };
+    g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &buf, 0, 0);
+    for (auto mesh : meshes)
+        mesh->Render();
+
+
     //first render
-    {
+    /*{
         //auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
         //g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &front, 0, 0);
-        auto view = m_camera->GetView();
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
+        //auto view = m_camera->GetView();
+        //g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
 
         for (auto mesh : meshes)
             mesh->Render();
@@ -337,12 +345,12 @@ void Game::Render()
     {
         //auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
         //g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &back, 0, 0);
-        auto view = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
+        //auto view = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
+        //g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &view, 0, 0);
 
         for (auto mesh : meshes)
             mesh->Render();
-    }
+    }*/
 
     g_d3dDeviceContext->GSSetShader(nullptr, nullptr, 0);
 
@@ -408,8 +416,7 @@ bool Game::LoadContent()
         return false;
     }
 
-    //constantBufferDesc.ByteWidth = sizeof(PerFrameConstantBuffer); //todo
-    constantBufferDesc.ByteWidth = sizeof(XMMATRIX);
+    constantBufferDesc.ByteWidth = sizeof(PerFrameConstantBuffer);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Frame]);
     if (FAILED(hr))
     {
