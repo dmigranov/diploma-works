@@ -224,11 +224,11 @@ int Game::Initialize(HWND window, int width, int height)
             this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(gain)));
         if (ks.Z)
         { 
-            static_cast<Octahedron*>(this->mesh1)->SetSectionHeight(static_cast<Octahedron*>(this->mesh1)->GetSectionHeight() + .0001);
+            static_cast<SphericalOctahedron*>(this->mesh1)->SetSectionHeight(static_cast<SphericalOctahedron*>(this->mesh1)->GetSectionHeight() + .0001);
         }
         if (ks.X)
         {
-            static_cast<Octahedron*>(this->mesh1)->SetSectionHeight(static_cast<Octahedron*>(this->mesh1)->GetSectionHeight() - .0001);
+            static_cast<SphericalOctahedron*>(this->mesh1)->SetSectionHeight(static_cast<SphericalOctahedron*>(this->mesh1)->GetSectionHeight() - .0001);
         }
         if(ks.N)
         {
@@ -527,7 +527,7 @@ bool Game::LoadContent()
 
     {
         //todo: странное управление FC_Z. Исправить
-        mesh1 = new Octahedron(Octahedron::FixedCoordinate::FC_W, -.99f);
+        mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f);
         meshes.push_back(mesh1);
 
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "Mesh.h"
-class Octahedron :
+class SphericalOctahedron :
 	public Mesh
 {
 public:
@@ -10,10 +10,10 @@ public:
 		FC_Z,
 		FC_W
 	};
-	Octahedron(double wSec, XMMATRIX world);
-	Octahedron(double wSec);
-	Octahedron(FixedCoordinate coord, double section, XMMATRIX world);
-	Octahedron(FixedCoordinate coord, double section);
+	SphericalOctahedron(double wSec, XMMATRIX world);
+	SphericalOctahedron(double wSec);
+	SphericalOctahedron(FixedCoordinate coord, double section, XMMATRIX world);
+	SphericalOctahedron(FixedCoordinate coord, double section);
 	void SetSectionHeight(double newSectionHeight);
 	double GetSectionHeight();
 

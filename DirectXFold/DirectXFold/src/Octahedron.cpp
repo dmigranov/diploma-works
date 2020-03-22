@@ -7,14 +7,14 @@ XMFLOAT4 GenerateRandomColor()
     return XMFLOAT4(float(rand())/float(RAND_MAX), float(rand()) / float(RAND_MAX), float(rand()) / float(RAND_MAX), 1.f);
 }
 
-Octahedron::Octahedron(double wSec, XMMATRIX world) : Octahedron(FixedCoordinate::FC_W, wSec, world)
+SphericalOctahedron::SphericalOctahedron(double wSec, XMMATRIX world) : SphericalOctahedron(FixedCoordinate::FC_W, wSec, world)
 {
 }
 
-Octahedron::Octahedron(double wSec) : Octahedron(wSec, XMMatrixIdentity())
+SphericalOctahedron::SphericalOctahedron(double wSec) : SphericalOctahedron(wSec, XMMatrixIdentity())
 {}
 
-Octahedron::Octahedron(FixedCoordinate coord, double section, XMMATRIX world)
+SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, XMMATRIX world)
 {
     this->fc = coord;
     sectionHeight = section;
@@ -123,11 +123,11 @@ Octahedron::Octahedron(FixedCoordinate coord, double section, XMMATRIX world)
     constantBuffer.m_world = world;
 }
 
-Octahedron::Octahedron(FixedCoordinate coord, double section) : Octahedron(coord, section, XMMatrixIdentity())
+SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section) : SphericalOctahedron(coord, section, XMMatrixIdentity())
 {
 }
 
-void Octahedron::SetSectionHeight(double newSectionHeight)
+void SphericalOctahedron::SetSectionHeight(double newSectionHeight)
 {
     if (newSectionHeight < -1 || newSectionHeight > 1)
         return;
@@ -165,7 +165,7 @@ void Octahedron::SetSectionHeight(double newSectionHeight)
 
 }
 
-double Octahedron::GetSectionHeight()
+double SphericalOctahedron::GetSectionHeight()
 {
     return sectionHeight;
 }
