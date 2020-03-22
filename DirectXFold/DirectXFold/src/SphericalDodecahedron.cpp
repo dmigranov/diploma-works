@@ -19,7 +19,7 @@ SphericalDodecahedron::SphericalDodecahedron(double section)
     double phi = 0.5 + sqrt(5) / 2.0;
     double pdc = phi / coeff;
     double ipdc = 1 / (phi * coeff);
-
+    std::cout << sqrt(pdc * pdc + ipdc * ipdc + section * section) << std::endl;    //21 - я ошибся!
 
     Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(coeff,  coeff, coeff, section), GenerateRandomColor() }, // 0
@@ -47,8 +47,8 @@ SphericalDodecahedron::SphericalDodecahedron(double section)
     verticesCount = _countof(vertices);
 
     WORD indices[] = {
-            // 0, 8, 10,
-             12, 10, 0,
+             0, 8, 10,
+             0, 10, 12,
              12, 10, 2
 
             
