@@ -134,4 +134,16 @@ private:
     std::shared_ptr<Camera>               m_camera;
 
     TextDrawer                            *m_textDrawer;
+
+    struct PerApplicationConstantBuffer
+    {
+        XMMATRIX proj;
+        XMMATRIX proj_anti;
+    };
+
+    struct PerFrameConstantBuffer
+    {
+        XMMATRIX view;
+        XMMATRIX view_anti;
+    };
 };

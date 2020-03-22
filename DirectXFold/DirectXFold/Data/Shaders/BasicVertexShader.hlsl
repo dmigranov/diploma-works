@@ -1,11 +1,13 @@
 cbuffer PerApplication : register(b0)
 {
     matrix projectionMatrix;
+	matrix projectionMatrixAnti;
 }
 
 cbuffer PerFrame : register(b1)
 {
     matrix viewMatrix;
+	matrix viewMatrixAnti;
 }
 
 cbuffer PerObject : register(b2)
