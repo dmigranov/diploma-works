@@ -2,7 +2,7 @@
 #include "SphericalDodecahedron.h"
 #include "Game.h"
 
-XMFLOAT4 GenerateRandomColor()
+XMFLOAT4 SphericalDodecahedron::GenerateRandomColor()
 {
     return XMFLOAT4(float(rand()) / float(RAND_MAX), float(rand()) / float(RAND_MAX), float(rand()) / float(RAND_MAX), 1.f);
 }
@@ -90,7 +90,7 @@ SphericalDodecahedron::SphericalDodecahedron(double section)
 
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
-    constantBuffer.m_world = world;
+    //constantBuffer.m_world = world;
 }
 
 

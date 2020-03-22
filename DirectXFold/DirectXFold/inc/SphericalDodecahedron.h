@@ -19,5 +19,6 @@ class SphericalDodecahedron :
 private:
 	FixedCoordinate fc;
 	double sectionHeight;
+	XMFLOAT4 GenerateRandomColor();
 };
 

@@ -41,6 +41,7 @@ public:
 private:
     friend class Mesh;
     friend class SphericalOctahedron;
+    friend class SphericalDodecahedron;
 
 
     Game() noexcept;
