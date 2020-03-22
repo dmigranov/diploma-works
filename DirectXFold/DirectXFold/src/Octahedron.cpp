@@ -8,8 +8,7 @@ XMFLOAT4 GenerateRandomColor()
 }
 
 SphericalOctahedron::SphericalOctahedron(double wSec, XMMATRIX world) : SphericalOctahedron(FixedCoordinate::FC_W, wSec, world)
-{
-}
+{}
 
 SphericalOctahedron::SphericalOctahedron(double wSec) : SphericalOctahedron(wSec, XMMatrixIdentity())
 {}
