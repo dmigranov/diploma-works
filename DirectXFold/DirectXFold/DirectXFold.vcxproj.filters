@@ -66,6 +66,9 @@
     <ClCompile Include="src\Octahedron.cpp">
       <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
+    <ClCompile Include="src\SphericalMeshLoader.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -103,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="inc\Octahedron.h">
       <Filter>Файлы заголовков\Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalMeshLoader.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
