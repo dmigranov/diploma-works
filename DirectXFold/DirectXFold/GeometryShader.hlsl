@@ -18,7 +18,6 @@ void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<Ve
 {
 	//ÁÀÐÈÎÖÅÍÒÐÈ×ÅÑÊÈÅ ÊÎÎÐÄÈÍÀÒÛ!
 	
-	//òóò â ïðèíöèïå ìîæíî ïîäåëèòü íà w íî âñ¸ ðàâíî óðîäñêîå çà÷åðíåíèå îñòà¸òñÿ
 	float3 xyz1 = input[1].position.xyz;
 	float3 xyz2 = input[2].position.xyz;
 	float3 xyz0 = input[0].position.xyz;

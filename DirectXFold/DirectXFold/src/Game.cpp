@@ -567,6 +567,7 @@ bool Game::LoadContent()
         };
 
         meshes.push_back(new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationXW(XM_PIDIV2)));
+        meshes.push_back(new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationYW(XM_PIDIV2)));
 
         //mesh2 = new Mesh(_countof(vertices), vertices, (indices), indices, SphericalRotationXW(0.6f));
         //meshes.push_back(mesh2);

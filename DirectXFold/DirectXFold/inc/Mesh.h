@@ -6,6 +6,7 @@ class Mesh
     //todo: добавить parent mesh (возможно null)
     friend class Line;
     friend class SphericalOctahedron;
+    friend class SphericalDodecahedron;
 
 
 public:
