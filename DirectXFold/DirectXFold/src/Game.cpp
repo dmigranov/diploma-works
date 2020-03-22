@@ -572,10 +572,10 @@ bool Game::LoadContent()
         };
 
         mesh2 = new Mesh(_countof(vertices), vertices,
-            _countof(indices), indices);
-        //meshes.push_back(mesh2);
+            _countof(indices), indices, SphericalRotationXW(0.6f));
+        meshes.push_back(mesh2);
 
-        //mesh2->SetParent(mesh1);
+        mesh2->SetParent(mesh1);
 
         /*mesh->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
             return SphericalRotationXW(-delta) * in;

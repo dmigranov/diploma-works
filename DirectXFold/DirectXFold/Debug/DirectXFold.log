@@ -9,7 +9,7 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(236,1): warning C43
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(241,1): warning C4305: +=: усечение из "double" в "float"
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(358,78): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(530,91): warning C4316: "SphericalOctahedron": объект, размещенный в куче, может не быть выровнен 16
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(575,40): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(575,67): warning C4316: "Mesh": объект, размещенный в куче, может не быть выровнен 16
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\memory(1583,59): warning C4316: "std::_Ref_count_obj2<_Ty>": объект, размещенный в куче, может не быть выровнен 16
           with
           [
