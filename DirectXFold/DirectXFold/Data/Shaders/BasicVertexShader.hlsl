@@ -29,21 +29,25 @@ struct VertexShaderOutput
 };
 
 //entry point
-VertexShaderOutput SimpleVertexShader(VertexShaderInput IN, uint instanceID : SV_VertexID)
+VertexShaderOutput SimpleVertexShader(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 {
 	VertexShaderOutput OUT;
  
-	matrix mvp;
-	bool cond = (instanceID % 2  == 0);
-	if (cond)
-		OUT.color = float4(1.f, 1.f, 1.f, 1.f);
-	else;
-		OUT.color = float4(0.f, 0.f, 0.f, 0.f);
+	matrix mvp, temp;
+	if (instanceID == 1)
+		temp = matrix(0, 0, 0, 1,
+	0, 1, 0, 0,
+	0, 0, 1, 0,
+	-1, 0, 0, 0);
+	if (instanceID == 0)
+		temp = matrix(1, 0, 0, 0,
+	0, 1, 0, 0,
+	0, 0, 1, 0,
+	0, 0, 0, 1);
 
+		mvp = mul(projectionMatrix, mul(viewMatrix, mul(worldMatrix, temp)));
 
-	mvp = mul(projectionMatrix, mul(viewMatrix, worldMatrix));
-
-    //OUT.color = IN.color;
+    OUT.color = IN.color;
 	OUT.position = mul(mvp, IN.position);
 
 	return OUT;
