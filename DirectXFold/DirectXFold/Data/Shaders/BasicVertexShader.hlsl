@@ -1,13 +1,13 @@
 cbuffer PerApplication : register(b0)
 {
-    matrix projectionMatrix;
-	matrix projectionMatrixAnti;
+    matrix projectionMatrixFront;
+	matrix projectionMatrixBack;
 }
 
 cbuffer PerFrame : register(b1)
 {
-    matrix viewMatrix;
-	matrix viewMatrixAnti;
+    matrix viewMatrixFront;
+	matrix viewMatrixBack;
 }
 
 cbuffer PerObject : register(b2)
@@ -37,16 +37,16 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN, uint instanceID : SV
 	0, 0, 0, 0,
 	0, 0, 0, 0,
 	0, 0, 0, 0);
-	if (instanceID == 1)
+	if (instanceID == 0)
 		temp = matrix(0, 0, 0, 1,
 	0, 1, 0, 0,
 	0, 0, 1, 0,
 	-1, 0, 0, 0);
-	/*if (instanceID == 0)
+	if (instanceID == 1)
 		temp = matrix(1, 0, 0, 0,
 	0, 1, 0, 0,
 	0, 0, 1, 0,
-	0, 0, 0, 1);*/
+	0, 0, 0, 1);
 
 		mvp = mul(projectionMatrix, mul(viewMatrix, mul(worldMatrix, temp)));
 

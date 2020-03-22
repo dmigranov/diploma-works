@@ -409,7 +409,8 @@ bool Game::LoadContent()
         return false;
     }
 
-    constantBufferDesc.ByteWidth = sizeof(PerFrameConstantBuffer);
+    //constantBufferDesc.ByteWidth = sizeof(PerFrameConstantBuffer); //todo
+    constantBufferDesc.ByteWidth = sizeof(XMMATRIX);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Frame]);
     if (FAILED(hr))
     {
@@ -478,8 +479,13 @@ bool Game::LoadContent()
     m_camera->SetNearPlane(0.001f);
     m_camera->SetFarPlane(100.f);
 
-    /*m_proj = m_camera->GetProj();
-    g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &m_proj, 0, 0);*/
+    {
+        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
+        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
+        PerApplicationConstantBuffer buf = {front, back};
+
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &buf, 0, 0);
+    }
 
     {
         /*Mesh::VertexPosColor vertices[] = {
