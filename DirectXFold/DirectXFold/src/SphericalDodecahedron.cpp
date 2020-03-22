@@ -12,3 +12,27 @@ SphericalDodecahedron::SphericalDodecahedron(double wSec, XMMATRIX world) : Sphe
 
 SphericalDodecahedron::SphericalDodecahedron(double wSec) : SphericalDodecahedron(wSec, XMMatrixIdentity())
 {}
+
+SphericalDodecahedron::SphericalDodecahedron(FixedCoordinate coord, double section) : SphericalDodecahedron(coord, section, XMMatrixIdentity())
+{}
+
+SphericalDodecahedron::SphericalDodecahedron(FixedCoordinate coord, double section, XMMATRIX world)
+{
+    this->fc = coord;
+    sectionHeight = section;
+
+    double inv = sqrt(1. - section * section);
+
+}
+
+void SphericalDodecahedron::SetSectionHeight(double newSectionHeight)
+{
+    //todo
+}
+
+double SphericalDodecahedron::GetSectionHeight()
+{
+    //todo
+    return 0.0;
+}
+
