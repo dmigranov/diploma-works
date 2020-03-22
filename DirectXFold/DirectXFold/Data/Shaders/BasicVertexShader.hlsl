@@ -39,6 +39,8 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN, uint instanceID : SV
         mvp = mul(projectionMatrix, mul(viewMatrix, worldMatrix));
     else
 		mvp = mul(projectionMatrixAnti, mul(viewMatrixAnti, worldMatrix));
+	mvp = mul(projectionMatrix, mul(viewMatrix, worldMatrix));
+
     OUT.color = IN.color;
 	OUT.position = mul(mvp, IN.position);
 

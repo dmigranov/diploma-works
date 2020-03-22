@@ -121,7 +121,7 @@ void Mesh::Render()
     deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
     
     //DRAW
-    deviceContext->DrawIndexed(indicesCount, 0, 0);
+    deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
 }
 
 void Mesh::Render(XMMATRIX matrix)
@@ -139,7 +139,7 @@ void Mesh::Render(XMMATRIX matrix)
     deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
     //DRAW
-    deviceContext->DrawIndexed(indicesCount, 0, 0);
+    deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
 }
 
 
@@ -164,7 +164,7 @@ void Mesh::Render(std::list<XMMATRIX> matrices)
         deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
         //DRAW
-        deviceContext->DrawIndexed(indicesCount, 0, 0);
+        deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
     }
 }
 
