@@ -13,6 +13,7 @@
 #include "Mesh.h"
 #include "Octahedron.h"
 #include "SphericalDodecahedron.h"
+#include "SphericalMeshLoader.h"
 
 
 #include "SimpleInputHandler.h"

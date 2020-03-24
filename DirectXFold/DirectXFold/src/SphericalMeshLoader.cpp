@@ -11,7 +11,7 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 	if (!infile)
 	{
 		std::cerr << "Unable to open file " << filepath << std::endl;
-		exit(1);
+		exit(1); //todo?
 	}
 
 	std::string str;
