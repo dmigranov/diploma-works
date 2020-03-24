@@ -86,6 +86,8 @@ protected:
 
 	XMMATRIX m_proj;
 	XMMATRIX m_view;
+	XMMATRIX m_view_const;
+
 	bool m_viewDirty;
 
 	Rect m_viewport;

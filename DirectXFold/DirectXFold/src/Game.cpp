@@ -241,6 +241,10 @@ int Game::Initialize(HWND window, int width, int height)
             m_edgeThickness += 0.002;
             g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &m_edgeThickness, 0, 0);
         }
+        if (ks.Q)
+            m_camera->Move(SphericalRotationXZ(gain));
+        if (ks.E)
+            m_camera->Move(SphericalRotationXZ(-gain));
     }, m_hwnd);
 
     //Почему можно на стеке: When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
