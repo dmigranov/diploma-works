@@ -40,8 +40,8 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 
 			str = str.substr(2);
 			std::vector<std::string> strIndices = parseString(str, ' ');
-			std::vector<int> indices = getIntValues(strIndices);			std::vector<double> values = getDoubleValues(parsedStrings);
-			vertices.push_back(Vector4(values[0], values[1], values[2], values[3]));
+			std::vector<int> triangleIndices = getIntValues(strIndices);			
+			vertexIndices.insert(std::end(vertexIndices), std::begin(triangleIndices), std::end(triangleIndices));
 		}
 	}
 
