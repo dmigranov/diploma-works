@@ -10,10 +10,11 @@ SphericalCamera::SphericalCamera()
 const XMMATRIX& SphericalCamera::GetView()
 {
 	//todo: возможно, стоит подумать над юзабилити, чтобы вращение всегда было одинаково
-	if (m_viewDirty)
+	//todo: усножить на XZ в зависимости от мыши
+	/*if (m_viewDirty)
 	{
 		m_view = SphericalRotationXW(m_position.x)* SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
-	}
+	}*/
 	return m_view;
 }
 
@@ -52,11 +53,13 @@ void SphericalCamera::Move(Vector4 v)
 {
 	Vector4 move = XMVector4Transform(v, Matrix::Identity);
 	Vector3 moveTemp = Vector3(move.x, move.y, move.z);
-
+	m_view = Matrix(m_view) * SphericalRotationXW(moveTemp.x) * SphericalRotationYW(moveTemp.y) * SphericalRotationZW(moveTemp.z);
 	m_position += moveTemp;
+
 
 	m_viewDirty = true;
 }
+
 
 void SphericalCamera::ChangePitchYaw(double pitch, double yaw)
 {
