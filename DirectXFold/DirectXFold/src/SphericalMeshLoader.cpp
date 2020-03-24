@@ -34,6 +34,15 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 			std::vector<double> values = getDoubleValues(parsedStrings);
 			vertices.push_back(Vector4(values[0], values[1], values[2], values[3]));
 		}
+
+		else if (str.length > 1 && str[0] == 'i' && str[1] == ' ') //i 1 2 3
+		{
+
+			str = str.substr(2);
+			std::vector<std::string> strIndices = parseString(str, ' ');
+			std::vector<int> indices = getIntValues(strIndices);			std::vector<double> values = getDoubleValues(parsedStrings);
+			vertices.push_back(Vector4(values[0], values[1], values[2], values[3]));
+		}
 	}
 
 	return Mesh();
