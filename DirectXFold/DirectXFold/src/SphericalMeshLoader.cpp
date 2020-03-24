@@ -1,6 +1,5 @@
 #include "pch.h"
-#include <fstream>
-#include <vector>
+
 
 #include "SphericalMeshLoader.h"
 using namespace DirectX::SimpleMath;
@@ -26,7 +25,7 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 
 	while (std::getline(infile, str))
 	{
-		if (str.length > 1 && str[0] == 'v' && str[1] == ' ') //v -0.5 0.5 -0.5
+		if (str.length() > 1 && str[0] == 'v' && str[1] == ' ') //v -0.5 0.5 -0.5
 		{
 
 			str = str.substr(2);
@@ -35,7 +34,7 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 			vertices.push_back(Vector4(values[0], values[1], values[2], values[3]));
 		}
 
-		else if (str.length > 1 && str[0] == 'i' && str[1] == ' ') //i 1 2 3
+		else if (str.length() > 1 && str[0] == 'i' && str[1] == ' ') //i 1 2 3
 		{
 
 			str = str.substr(2);

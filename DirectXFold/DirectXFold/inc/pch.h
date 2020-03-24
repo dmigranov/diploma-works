@@ -14,7 +14,8 @@
 #include <algorithm>
 #include <list>
 #include <cstdlib>
-
+#include <fstream>
+#include <vector>
 
 // Link library dependencies
 #pragma comment(lib, "d3d11.lib")
