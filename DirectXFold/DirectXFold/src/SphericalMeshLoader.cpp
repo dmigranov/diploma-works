@@ -26,7 +26,17 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 
 	while (std::getline(infile, str))
 	{
-		
+		if (str[0] == 'v')
+		{
+			if (str[1] == ' ') //v -0.5 0.5 -0.5
+			{
+				str = str.substr(2);
+				std::vector<std::string> parsedStrings = parseString(str, ' ');
+				std::vector<double> values = getDoubleValues(parsedStrings);
+				vertices.push_back(Vector3(values[0], values[1], values[2]));
+			}
+
+		}
 	}
 
 	return Mesh();
