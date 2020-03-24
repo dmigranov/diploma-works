@@ -33,8 +33,8 @@ public:
     };
 
     Mesh();
-    Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[]);
-    Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[], XMMATRIX world);
+    Mesh(int nv, VertexPosColor* vertices, int ni, WORD* indices);
+    Mesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, XMMATRIX world);
 
     ~Mesh();
 

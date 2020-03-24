@@ -19,7 +19,7 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 	std::string str;
 
 	std::vector<Mesh::VertexPosColor> vertices;
-	std::vector<int> vertexIndices;
+	std::vector<WORD> vertexIndices;
 
 
 	while (std::getline(infile, str))

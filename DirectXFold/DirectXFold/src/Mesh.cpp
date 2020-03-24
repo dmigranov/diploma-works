@@ -6,7 +6,7 @@ Mesh::Mesh()
 {
 }
 
-Mesh::Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[]) : Mesh(nv, vertices, ni, indices, XMMatrixIdentity())
+Mesh::Mesh(int nv, VertexPosColor* vertices, int ni, WORD* indices) : Mesh(nv, vertices, ni, indices, XMMatrixIdentity())
 { }
 
 Mesh::~Mesh()
@@ -15,7 +15,7 @@ Mesh::~Mesh()
     SafeRelease(g_d3dVertexBuffer);
 }
 
-Mesh::Mesh(int nv, VertexPosColor vertices[], int ni, WORD indices[], XMMATRIX world)
+Mesh::Mesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, XMMATRIX world)
 {
     auto &game = Game::GetInstance();
     auto device = game.g_d3dDevice;

@@ -1,4 +1,5 @@
-﻿  SphericalMeshLoader.cpp
+﻿  main.cpp
+  SphericalMeshLoader.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(33,75): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
           with
           [
@@ -34,4 +35,5 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(33,9
           [
               _Ty=double
           ]
+  Generating Code...
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe
