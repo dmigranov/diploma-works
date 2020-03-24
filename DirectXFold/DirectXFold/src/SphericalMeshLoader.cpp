@@ -21,7 +21,7 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 
 	std::vector<Vector4> vertices;
 	std::vector<Vector4> colors; 
-	std::vector<unsigned int> vertexIndices;
+	std::vector<int> vertexIndices;
 
 
 	while (std::getline(infile, str))
@@ -65,5 +65,20 @@ std::vector<std::string> SphericalMeshLoader::parseString(std::string str, char 
 
 std::vector<double> SphericalMeshLoader::getDoubleValues(std::vector<std::string> strings)
 {
-	return std::vector<double>();
+	std::vector<double> vec;
+	for (std::string str : strings)
+	{
+		vec.push_back(atof(str.c_str()));
+	}
+	return vec;
+}
+
+std::vector<int> SphericalMeshLoader::getIntValues(std::vector<std::string> strings)
+{
+	std::vector<double> vec;
+	for (std::string str : strings)
+	{
+		vec.push_back(atoi(str.c_str()));
+	}
+	return vec;
 }
