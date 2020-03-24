@@ -46,3 +46,24 @@ Mesh SphericalMeshLoader::LoadMeshSphericalCoordinates(const char* filepath)
 {
 	return Mesh();
 }
+
+std::vector<std::string> SphericalMeshLoader::parseString(std::string str, char delimiter)
+{
+	std::vector<std::string> vec;
+	size_t startIndex = 0;
+	size_t endIndex;
+	while ((endIndex = str.find(delimiter, startIndex)) != std::string::npos)
+	{
+		std::string substr = str.substr(startIndex, endIndex - startIndex);
+		vec.push_back(substr);
+		startIndex = endIndex + 1;
+	}
+	std::string substr = str.substr(startIndex, endIndex - startIndex);
+	vec.push_back(substr);
+	return vec;
+}
+
+std::vector<double> SphericalMeshLoader::getDoubleValues(std::vector<std::string> strings)
+{
+	return std::vector<double>();
+}
