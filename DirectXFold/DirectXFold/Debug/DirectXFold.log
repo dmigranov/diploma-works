@@ -1,4 +1,139 @@
-﻿  main.cpp
+﻿  Game.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(236,1): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(241,1): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(344,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(525,91): warning C4316: 'SphericalOctahedron': object allocated on the heap may not be aligned 16
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\memory(1583,59): warning C4316: 'std::_Ref_count_obj2<_Ty>': object allocated on the heap may not be aligned 16
+          with
+          [
+              _Ty=SphericalCamera
+          ]
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : see reference to function template instantiation 'std::shared_ptr<SphericalCamera> std::make_shared<SphericalCamera,>(void)' being compiled
+  Mesh.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Mesh.cpp(104,102): warning C4316: 'Mesh': object allocated on the heap may not be aligned 16
+  Octahedron.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(25,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(25,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(26,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(26,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(27,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(27,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(28,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(28,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(29,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(29,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(30,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(30,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(38,40): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(38,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(39,40): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(39,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(40,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(40,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(41,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(41,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(42,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(42,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(43,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(43,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(51,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(51,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(52,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(52,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(53,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(53,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(54,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(54,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(55,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(55,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(56,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(56,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(64,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(64,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(65,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(65,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(66,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(66,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(67,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(67,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(68,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(68,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(69,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(69,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(141,22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(140,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(139,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(138,58): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(147,22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(146,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(145,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(144,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(153,22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(152,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(151,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(150,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(159,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(158,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(157,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(156,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  SphericalDodecahedron.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(25,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(25,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(25,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(25,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(26,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(26,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(26,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(26,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(27,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(27,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(27,27): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(27,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(28,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(28,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(28,27): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(28,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(29,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(29,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(29,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(29,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(30,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(30,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(30,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(30,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(31,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(31,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(31,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(31,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(32,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(32,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(32,28): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(32,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(34,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(34,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(34,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(35,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(35,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(35,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(36,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(36,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(36,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(37,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(37,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(37,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(39,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(39,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(39,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(40,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(40,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(40,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(41,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(41,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(41,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(42,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(42,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(42,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   SphericalMeshLoader.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(33,75): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
           with
@@ -35,5 +170,9 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(33,9
           [
               _Ty=double
           ]
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(46,89): warning C4316: 'Mesh': object allocated on the heap may not be aligned 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(51,19): warning C4316: 'Mesh': object allocated on the heap may not be aligned 16
+  main.cpp
   Generating Code...
+     Creating library bin\DirectXFoldd.lib and object bin\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe

@@ -525,8 +525,8 @@ bool Game::LoadContent()
         mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f);
         meshes.push_back(mesh1);
 
-        Mesh test = SphericalMeshLoader::LoadMesh("mesh1.sph");
-
+        Mesh* test = SphericalMeshLoader::LoadMesh("mesh1.sph");
+        meshes.push_back(test);
         /*float v1 = 0.99f, v3 = 0.08f, v2 = sqrtf(1.f - v1 * v1 - v3 * v3);
         Mesh::VertexPosColor vertices[] = {
             { XMFLOAT4(v2, 0.f, v3, v1), XMFLOAT4(1.f, 0.f, 1.f, 1.0f) },   // 0
