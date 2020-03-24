@@ -1,6 +1,9 @@
 #include "pch.h"
 #include <fstream>
+#include <vector>
+
 #include "SphericalMeshLoader.h"
+using namespace DirectX::SimpleMath;
 
 
 Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
@@ -15,7 +18,10 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 	}
 
 	std::string str;
-	size_t polygonSize;
+
+	std::vector<Vector4> vertices;
+	std::vector<Vector4> colors; 
+	std::vector<unsigned int> vertexIndices;
 
 	return Mesh();
 }
