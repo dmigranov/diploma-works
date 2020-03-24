@@ -523,7 +523,7 @@ bool Game::LoadContent()
     {
         //todo: странное управление FC_Z. Исправить
         mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f);
-        //meshes.push_back(mesh1);
+        meshes.push_back(mesh1);
 
 
         /*float v1 = 0.99f, v3 = 0.08f, v2 = sqrtf(1.f - v1 * v1 - v3 * v3);
@@ -568,7 +568,7 @@ bool Game::LoadContent()
 
         //meshes.push_back(new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationXW(XM_PIDIV2)));
         //meshes.push_back(new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationYW(XM_PIDIV2)));
-        meshes.push_back(new SphericalDodecahedron(0.99f));
+        //meshes.push_back(new SphericalDodecahedron(0.99f));
 
         //mesh2 = new Mesh(_countof(vertices), vertices, (indices), indices, SphericalRotationXW(0.6f));
         //meshes.push_back(mesh2);
