@@ -30,7 +30,7 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 			str = str.substr(2);
 			std::vector<std::string> parsedStrings = parseString(str, ' ');
 			std::vector<double> values = getDoubleValues(parsedStrings);
-			vertices.push_back(Vector4(values[0], values[1], values[2], values[3]));
+			vertices.push_back({ XMFLOAT4(values[0], values[1], values[2], values[3]), XMFLOAT4(values[4], values[5], values[6], 1.f) });
 		}
 
 		else if (str.length() > 1 && str[0] == 'i' && str[1] == ' ') //i 1 2 3
@@ -43,7 +43,7 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 		}
 	}
 
-	return Mesh();
+	return Mesh(vertices.size(), &vertices[0], vertexIndices.size(), &vertexIndices[0]);
 }
 
 Mesh SphericalMeshLoader::LoadMeshSphericalCoordinates(const char* filepath)
