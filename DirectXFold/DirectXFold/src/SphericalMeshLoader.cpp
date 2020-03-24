@@ -23,6 +23,12 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 	std::vector<Vector4> colors; 
 	std::vector<unsigned int> vertexIndices;
 
+
+	while (std::getline(infile, str))
+	{
+		
+	}
+
 	return Mesh();
 }
 
