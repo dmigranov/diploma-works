@@ -18,8 +18,7 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 
 	std::string str;
 
-	std::vector<Vector4> vertices;
-	std::vector<Vector4> colors; 
+	std::vector<Mesh::VertexPosColor> vertices;
 	std::vector<int> vertexIndices;
 
 
