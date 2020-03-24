@@ -25,3 +25,8 @@ Mesh SphericalMeshLoader::LoadMesh(const char* filepath)
 
 	return Mesh();
 }
+
+Mesh SphericalMeshLoader::LoadMeshSphericalCoordinates(const char* filepath)
+{
+	return Mesh();
+}
