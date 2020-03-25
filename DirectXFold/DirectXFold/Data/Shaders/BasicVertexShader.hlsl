@@ -53,7 +53,7 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN, uint instanceID : SV
 	
 	OUT.color = IN.color;
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
-	OUT.fogFactor = saturate((fogEnd - cameraSpacePosition.z) / (fogEnd - fogStart)); //todo
+	OUT.fogFactor = saturate((fogEnd - cameraSpacePosition.z) / (fogEnd - fogStart));
 	
 	return OUT;
 }
