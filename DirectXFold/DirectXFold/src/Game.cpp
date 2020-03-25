@@ -245,6 +245,17 @@ int Game::Initialize(HWND window, int width, int height)
             m_camera->Move(SphericalRotationXZ(gain));
         if (ks.E)
             m_camera->Move(SphericalRotationXZ(-gain));
+        if(ks.O)
+        { 
+            perApplicationConstantBuffer.fogEnd += 0.1;
+            g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationConstantBuffer, 0, 0);
+        }
+        if (ks.P)
+        {
+            perApplicationConstantBuffer.fogEnd -= 0.1;
+            g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationConstantBuffer, 0, 0);
+        }
+
     }, m_hwnd);
 
     //Почему можно на стеке: When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
@@ -470,9 +481,8 @@ bool Game::LoadContent()
     {
         auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
         auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
-        PerApplicationConstantBuffer buf = {front, back, 0.f, 2.f};
-
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &buf, 0, 0);
+        perApplicationConstantBuffer = {front, back, 0.f, 2.f};
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationConstantBuffer, 0, 0);
     }
 
     {

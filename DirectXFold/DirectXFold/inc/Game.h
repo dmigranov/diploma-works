@@ -146,6 +146,7 @@ private:
         float fogStart;
         float fogEnd;
     };
+    PerApplicationConstantBuffer perApplicationConstantBuffer;
 
     struct PerFrameConstantBuffer
     {
