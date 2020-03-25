@@ -2,6 +2,8 @@ cbuffer PerApplication : register(b0)
 {
     matrix projectionMatrixFront;
 	matrix projectionMatrixBack;
+	float fogStart;
+	float fogEnd;
 }
 
 cbuffer PerFrame : register(b1)
