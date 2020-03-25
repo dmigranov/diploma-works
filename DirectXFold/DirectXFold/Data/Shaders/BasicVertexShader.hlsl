@@ -35,7 +35,7 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN, uint instanceID : SV
 {
 	VertexShaderOutput OUT;
  
-	matrix mvp, viewMatrix, projectionMatrix;
+	matrix viewMatrix, projectionMatrix;
 	if (instanceID == 0)
 	{
 		projectionMatrix = projectionMatrixFront;
@@ -47,10 +47,11 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN, uint instanceID : SV
 		viewMatrix = viewMatrixBack;
 	}
 
-	mvp = mul(projectionMatrix, mul(viewMatrix, worldMatrix));
-
+	matrix viewWorld = mul(viewMatrix, worldMatrix);
+	float4 cameraSpacePosition = mul(viewWorld, IN.position);
+	
 	OUT.color = IN.color;
-	OUT.position = mul(mvp, IN.position);
+	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 
 	return OUT;
 }
