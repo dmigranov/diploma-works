@@ -27,5 +27,5 @@ float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
 	else 
 		preFogColor = IN.color; //а можно дискард
 	
-	return preFogColor;
+	return IN.fogFactor * preFogColor + (1.0 - IN.fogFactor) * fogColor;;
 }
