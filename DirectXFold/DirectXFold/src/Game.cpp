@@ -340,7 +340,7 @@ void Game::Render()
 
     auto viewFront = m_camera->GetView();
     auto viewBack = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
-    PerFrameConstantBuffer buf = { viewFront , viewBack };
+    PerFrameVSConstantBuffer buf = { viewFront , viewBack };
     g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &buf, 0, 0);
     for (auto mesh : meshes)
         mesh->Render();
@@ -403,14 +403,14 @@ bool Game::LoadContent()
 
     //we will update the contents of buffers using the ID3D11DeviceContext::UpdateSubresource method and this method expects constant buffers to be initialized with D3D11_USAGE_DEFAULT usage flag and buffers that are created with the D3D11_USAGE_DEFAULT flag must have their CPUAccessFlags set to 0.
     
-    constantBufferDesc.ByteWidth = sizeof(PerApplicationConstantBuffer);
+    constantBufferDesc.ByteWidth = sizeof(PerApplicationVSConstantBuffer);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Application]);
     if (FAILED(hr))
     {
         return false;
     }
 
-    constantBufferDesc.ByteWidth = sizeof(PerFrameConstantBuffer);
+    constantBufferDesc.ByteWidth = sizeof(PerFrameVSConstantBuffer);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Frame]);
     if (FAILED(hr))
     {

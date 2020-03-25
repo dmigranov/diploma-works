@@ -125,8 +125,6 @@ private:
     XMMATRIX m_view;
     XMMATRIX m_proj;
 
-    float m_edgeThickness = 0.01f;
-
     // Timer
     DWORD                                           previousTime = timeGetTime();
     const float                                     targetFramerate = 30.0f;
@@ -139,18 +137,24 @@ private:
 
     TextDrawer                            *m_textDrawer;
 
-    struct PerApplicationConstantBuffer
+    struct PerApplicationVSConstantBuffer
     {
         XMMATRIX proj;
         XMMATRIX proj_anti;
         float fogStart;
         float fogEnd;
     };
-    PerApplicationConstantBuffer perApplicationConstantBuffer;
+    PerApplicationVSConstantBuffer perApplicationConstantBuffer;
 
-    struct PerFrameConstantBuffer
+    struct PerFrameVSConstantBuffer
     {
         XMMATRIX view;
         XMMATRIX view_anti;
     };
+
+    struct PerApplicationPSConstantBuffer
+    {
+        float m_edgeThickness = 0.01f;
+    };
+
 };
