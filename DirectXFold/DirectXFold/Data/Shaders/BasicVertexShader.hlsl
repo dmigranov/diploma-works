@@ -54,9 +54,11 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN, uint instanceID : SV
 	OUT.color = IN.color;
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	
-	float chordLength = distance(float4(0, 0, 0, 1), IN.position); //длина хорды
-	
-	OUT.fogFactor = saturate((fogEnd - cameraSpacePosition.z) / (fogEnd - fogStart));
+	float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
+	float distance = 2 * asin(chordLength/2.);
+	if (instanceID == 1)
+		distance += 3.14159265;
+	OUT.fogFactor = saturate((fogEnd - distance) / (fogEnd - fogStart));
 	
 	return OUT;
 }
