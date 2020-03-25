@@ -3,10 +3,15 @@
 #include <iomanip>
 
 //Shaders
-#include "PixelShader.h"
+
 #include "VertexShader.h"
 #include "MorphingVertexShader.h"
+#include "SphLinVertexShader.h"
+#include "SphExpVertexShader.h"
+
 #include "GeometryShader.h"
+
+#include "PixelShader.h"
 
 
 #include "Line.h"

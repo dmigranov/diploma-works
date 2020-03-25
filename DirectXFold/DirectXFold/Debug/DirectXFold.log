@@ -1,9 +1,4 @@
-﻿D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpFogShader.hlsl(48,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
-D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpFogShader.hlsl(48,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
-  
-  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\SphExpVertexShader.h
-  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\VertexSphericalExpFogShader_d.cso
-  Game.cpp
+﻿  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(236,1): warning C4305: '-=': truncation from 'double' to 'float'
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(241,1): warning C4305: '+=': truncation from 'double' to 'float'
@@ -144,4 +139,5 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(42
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(42,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   main.cpp
   Generating Code...
+     Creating library bin\DirectXFoldd.lib and object bin\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe
