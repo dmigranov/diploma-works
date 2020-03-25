@@ -28,6 +28,7 @@ struct VertexShaderOutput
 {
 	float4 position : SV_POSITION;
     float4 color : COLOR;
+	float fogFactor : FOG_FACTOR;
 };
 
 //entry point
@@ -52,6 +53,7 @@ VertexShaderOutput SimpleVertexShader(VertexShaderInput IN, uint instanceID : SV
 	
 	OUT.color = IN.color;
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
-
+	OUT.fogFactor = saturate((fogEnd - cameraSpacePosition.z) / (fogEnd - fogStart)); //todo
+	
 	return OUT;
 }
