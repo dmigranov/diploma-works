@@ -247,12 +247,12 @@ int Game::Initialize(HWND window, int width, int height)
             m_camera->Move(SphericalRotationXZ(-gain));
         if(ks.O)
         { 
-            perApplicationVSConstantBuffer.fogEnd += 0.1;
+            perApplicationVSConstantBuffer.density += 0.005;
             g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
         }
         if (ks.P)
         {
-            perApplicationVSConstantBuffer.fogEnd -= 0.1;
+            perApplicationVSConstantBuffer.density -= 0.005;
             g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
         }
 
@@ -311,7 +311,7 @@ void Game::Render()
     assert(g_d3dDevice);
     assert(g_d3dDeviceContext);
 
-    Clear(perApplicationPSConstantBuffer.backgroundColor, 1.0f, 0);
+    Clear(perApplicationPSConstantBuffer.mistColor, 1.0f, 0);
 
     //Input Assembler Stage - common
     g_d3dDeviceContext->IASetInputLayout(g_d3dInputLayout);
@@ -481,7 +481,7 @@ bool Game::LoadContent()
     {
         auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
         auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
-        perApplicationVSConstantBuffer = {front, back, 0.f, 2.f};
+        perApplicationVSConstantBuffer = {front, back, 0.05f};
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
     }
 

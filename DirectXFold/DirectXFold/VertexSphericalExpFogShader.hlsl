@@ -2,8 +2,7 @@ cbuffer PerApplication : register(b0)
 {
 	matrix projectionMatrixFront;
 	matrix projectionMatrixBack;
-	float fogStart;
-	float fogEnd;
+	float density;
 }
 
 cbuffer PerFrame : register(b1)
@@ -58,7 +57,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float distance = 2 * asin(chordLength / 2.);
 	if (instanceID == 1)
 		distance += 3.14159265;
-	OUT.fogFactor = saturate((fogEnd - distance) / (fogEnd - fogStart));
+	OUT.fogFactor = saturate(exp(-density * distance));
 	
 	return OUT;
 }

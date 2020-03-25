@@ -141,8 +141,9 @@ private:
     {
         XMMATRIX proj;
         XMMATRIX proj_anti;
-        float fogStart;
-        float fogEnd;
+        float density;
+        //float fogStart;
+        //float fogEnd;
     };
     PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
 
@@ -154,7 +155,7 @@ private:
 
     struct PerApplicationPSConstantBuffer
     {
-        XMVECTORF32 backgroundColor = Colors::YellowGreen;
+        XMVECTORF32 mistColor = Colors::CadetBlue;
         float m_edgeThickness = 0.01f;
     };
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
