@@ -1,13 +1,5 @@
-﻿  Microsoft (R) Direct3D Shader Compiler 10.1
-  Copyright (C) 2013 Microsoft. All rights reserved.
-  
-D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\BasicVertexShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
-D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\BasicVertexShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
-  
-  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\VertexShader.h
-  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\BasicVertexShader_d.cso
-  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\GeometryShader.h
-  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\GeometryShader_d.cso
+﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\PixelShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\BasicPixelShader_d.cso
   Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(236,1): warning C4305: '-=': truncation from 'double' to 'float'

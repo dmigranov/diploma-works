@@ -20,12 +20,12 @@ float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
 	float3 edgeDistance = IN.edgeDistance;
 	float distance = min(edgeDistance.x, min(edgeDistance.y, edgeDistance.z));
 	
-	float4 edgeColor;
+	float4 preFogColor;
 	
 	if (distance < thickness)
-		edgeColor = 0.7 * float4(0, 0, 0, 1) + 0.3 * IN.color; //draw fragment if close to edge
+		preFogColor = 0.7 * float4(0, 0, 0, 1) + 0.3 * IN.color; //draw fragment if close to edge
 	else 
-		edgeColor = IN.color; //а можно дискард
+		preFogColor = IN.color; //а можно дискард
 	
-	
+	return preFogColor;
 }
