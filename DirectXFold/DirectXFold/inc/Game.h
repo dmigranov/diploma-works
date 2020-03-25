@@ -8,6 +8,7 @@
 #include "MorphingVertexShader.h"
 #include "SphLinVertexShader.h"
 #include "SphExpVertexShader.h"
+#include "SphExp2VertexShader.h"
 
 #include "GeometryShader.h"
 
