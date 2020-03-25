@@ -143,6 +143,8 @@ private:
     {
         XMMATRIX proj;
         XMMATRIX proj_anti;
+        float fogStart;
+        float fogEnd;
     };
 
     struct PerFrameConstantBuffer

@@ -470,7 +470,7 @@ bool Game::LoadContent()
     {
         auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
         auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
-        PerApplicationConstantBuffer buf = {front, back};
+        PerApplicationConstantBuffer buf = {front, back, 0.f, 2.f};
 
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &buf, 0, 0);
     }
