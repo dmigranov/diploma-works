@@ -253,8 +253,10 @@ int Game::Initialize(HWND window, int width, int height)
         if (ks.P)
         {
             if(perApplicationVSConstantBuffer.density >= 0.004)
+            { 
                 perApplicationVSConstantBuffer.density -= 0.005;
-            g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
+                g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
+            }
         }
 
     }, m_hwnd);
@@ -312,6 +314,9 @@ void Game::Render()
     assert(g_d3dDevice);
     assert(g_d3dDeviceContext);
 
+    //double ffar = exp(-perApplicationVSConstantBuffer.density * 2);
+    //https://www.opengl.org/archives/resources/code/samples/advanced/advanced97/notes/node122.html
+    //у меня тут случай far=inf
     Clear(perApplicationPSConstantBuffer.mistColor, 1.0f, 0);
 
     //Input Assembler Stage - common
