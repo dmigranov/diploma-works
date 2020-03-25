@@ -130,6 +130,9 @@
     <FxCompile Include="GeometryShader.hlsl">
       <Filter>Data\Shaders</Filter>
     </FxCompile>
+    <FxCompile Include="VertexSphericalLinearFogShader.hlsl">
+      <Filter>Data\Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
