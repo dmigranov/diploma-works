@@ -232,14 +232,14 @@ int Game::Initialize(HWND window, int width, int height)
         }
         if(ks.N)
         {
-            if(m_edgeThickness >= 0)
-                m_edgeThickness -= 0.002;
-            g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &m_edgeThickness, 0, 0);
+            if(perApplicationPSConstantBuffer.m_edgeThickness >= 0)
+                perApplicationPSConstantBuffer.m_edgeThickness -= 0.002;
+            g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
         }
         if (ks.M)
         {
-            m_edgeThickness += 0.002;
-            g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &m_edgeThickness, 0, 0);
+            perApplicationPSConstantBuffer.m_edgeThickness += 0.002;
+            g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
         }
         if (ks.Q)
             m_camera->Move(SphericalRotationXZ(gain));
@@ -247,19 +247,19 @@ int Game::Initialize(HWND window, int width, int height)
             m_camera->Move(SphericalRotationXZ(-gain));
         if(ks.O)
         { 
-            perApplicationConstantBuffer.fogEnd += 0.1;
-            g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationConstantBuffer, 0, 0);
+            perApplicationVSConstantBuffer.fogEnd += 0.1;
+            g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
         }
         if (ks.P)
         {
-            perApplicationConstantBuffer.fogEnd -= 0.1;
-            g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationConstantBuffer, 0, 0);
+            perApplicationVSConstantBuffer.fogEnd -= 0.1;
+            g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
         }
 
     }, m_hwnd);
 
     //Почему можно на стеке: When UpdateSubresource returns, the application is free to change or even free the data pointed to by pSrcData because the method has already copied/snapped away the original contents. 
-    g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &m_edgeThickness, 0, 0);
+    g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
 
@@ -424,7 +424,7 @@ bool Game::LoadContent()
         return false;
     }
 
-    constantBufferDesc.ByteWidth = 16; // sizeof(float) - недостаточно. надо кратное;
+    constantBufferDesc.ByteWidth = 16; // sizeof(PerApplicationPSConstantBuffer);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dPSConstantBuffer);
     if (FAILED(hr))
     {
@@ -481,8 +481,8 @@ bool Game::LoadContent()
     {
         auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
         auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
-        perApplicationConstantBuffer = {front, back, 0.f, 2.f};
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationConstantBuffer, 0, 0);
+        perApplicationVSConstantBuffer = {front, back, 0.f, 2.f};
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
     }
 
     {

@@ -144,7 +144,7 @@ private:
         float fogStart;
         float fogEnd;
     };
-    PerApplicationVSConstantBuffer perApplicationConstantBuffer;
+    PerApplicationVSConstantBuffer perApplicationVSConstantBuffer;
 
     struct PerFrameVSConstantBuffer
     {
@@ -156,5 +156,6 @@ private:
     {
         float m_edgeThickness = 0.01f;
     };
+    PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
 
 };
