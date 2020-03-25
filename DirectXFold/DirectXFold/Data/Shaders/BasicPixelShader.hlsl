@@ -2,6 +2,7 @@
 
 cbuffer PerApplication : register(b0)
 {
+	float4 backgroundColor;
 	float thickness;
 }
 
@@ -13,7 +14,7 @@ struct PixelShaderInput
 	float fogFactor : FOG_FACTOR;
 };
 
-static const float4 fogColor = float4(0.5f, 0.5f, 0.5f, 1.0f);
+//static const float4 fogColor = float4(0.5f, 0.5f, 0.5f, 1.0f);
  
 float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
 {
@@ -27,5 +28,5 @@ float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
 	else 
 		preFogColor = IN.color; //а можно дискард
 	
-	return IN.fogFactor * preFogColor + (1.0 - IN.fogFactor) * fogColor;;
+	return IN.fogFactor * preFogColor + (1.0 - IN.fogFactor) * backgroundColor;
 }

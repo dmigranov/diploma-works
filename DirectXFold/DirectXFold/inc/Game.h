@@ -154,6 +154,7 @@ private:
 
     struct PerApplicationPSConstantBuffer
     {
+        XMVECTORF32 backgroundColor = Colors::YellowGreen;
         float m_edgeThickness = 0.01f;
     };
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;

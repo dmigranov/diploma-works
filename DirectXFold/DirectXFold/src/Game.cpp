@@ -311,7 +311,7 @@ void Game::Render()
     assert(g_d3dDevice);
     assert(g_d3dDeviceContext);
 
-    Clear(Colors::YellowGreen, 1.0f, 0);
+    Clear(perApplicationPSConstantBuffer.backgroundColor, 1.0f, 0);
 
     //Input Assembler Stage - common
     g_d3dDeviceContext->IASetInputLayout(g_d3dInputLayout);
@@ -424,7 +424,7 @@ bool Game::LoadContent()
         return false;
     }
 
-    constantBufferDesc.ByteWidth = 16; // sizeof(PerApplicationPSConstantBuffer);
+    constantBufferDesc.ByteWidth = sizeof(PerApplicationPSConstantBuffer);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dPSConstantBuffer);
     if (FAILED(hr))
     {
