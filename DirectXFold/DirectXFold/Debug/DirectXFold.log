@@ -5,7 +5,7 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(241,1): warning C43
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(250,1): warning C4305: '+=': truncation from 'double' to 'float'
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(257,1): warning C4305: '-=': truncation from 'double' to 'float'
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(365,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(549,128): warning C4316: 'SphericalOctahedron': object allocated on the heap may not be aligned 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(549,83): warning C4316: 'SphericalOctahedron': object allocated on the heap may not be aligned 16
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\memory(1583,59): warning C4316: 'std::_Ref_count_obj2<_Ty>': object allocated on the heap may not be aligned 16
           with
           [

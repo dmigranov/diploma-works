@@ -13,6 +13,12 @@ SphericalOctahedron::SphericalOctahedron(double wSec, XMMATRIX world) : Spherica
 SphericalOctahedron::SphericalOctahedron(double wSec) : SphericalOctahedron(wSec, XMMatrixIdentity())
 {}
 
+SphericalOctahedron::SphericalOctahedron(double wSec, XMMATRIX world, XMFLOAT4 * colors) : SphericalOctahedron(FixedCoordinate::FC_W, wSec, world, colors)
+{}
+
+SphericalOctahedron::SphericalOctahedron(double wSec, XMFLOAT4* colors) : SphericalOctahedron(wSec, Matrix::Identity, colors)
+{}
+
 SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, XMMATRIX world)
 {
     this->fc = coord;
@@ -31,6 +37,12 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
         };
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
+
+        if (section < 0)
+            world *= Matrix(1, 0, 0, 0,
+                0, 1, 0, 0,
+                0, 0, -1, 0,
+                0, 0, 0, 1);   //матрица отражения!
     }
     else if (coord == FixedCoordinate::FC_Z)
     {
@@ -145,11 +157,11 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
 
-        /*if (section < 0)
+        if (section < 0)
             world*=Matrix(1,0,0,0,
                 0,1,0,0,
                 0,0,-1,0,
-                0,0,0,1);*/   //матрица отражения!
+                0,0,0,1);   //матрица отражения!
     }
     else if (coord == FixedCoordinate::FC_Z)
     {
