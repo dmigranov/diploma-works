@@ -376,7 +376,8 @@ void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil
 
 void Game::Present()
 {
-    g_d3dSwapChain->Present(1, 0);
+    g_d3dSwapChain->Present(1, 0);    //60 гц
+    //g_d3dSwapChain->Present(0, 0);    //для тестирования производительности
     //с vsync?
 }
 
