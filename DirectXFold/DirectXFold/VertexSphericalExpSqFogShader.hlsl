@@ -56,7 +56,8 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
 	float distance = 2 * asin(chordLength / 2.);
 	if (instanceID == 1)
-		distance += 3.14159265;
+		distance += 3.14159265;	//это работает потому что для instanceID = 1 камера из антиподальной точки
+	//distance = 2 * 3.14159265 - distance;
 	OUT.fogFactor = saturate(exp(-pow(density * distance, 2)));
 	
 	return OUT;

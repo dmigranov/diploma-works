@@ -232,7 +232,7 @@ int Game::Initialize(HWND window, int width, int height)
         }
         if(ks.N)
         {
-            if(perApplicationPSConstantBuffer.m_edgeThickness >= 0)
+            if(perApplicationPSConstantBuffer.m_edgeThickness >= -0.1)
                 perApplicationPSConstantBuffer.m_edgeThickness -= 0.002;
             g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
         }
@@ -542,7 +542,8 @@ bool Game::LoadContent()
 
     {
         //todo: странное управление FC_Z. Исправить
-        mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f);
+        XMFLOAT4 arr[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
+        mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, Matrix::Identity, arr);
         meshes.push_back(mesh1);
 
         mesh2 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationXW(1.f));
@@ -598,8 +599,8 @@ bool Game::LoadContent()
         //meshes.push_back(mesh2);
         //mesh2->SetParent(mesh1);
 
-        /*mesh->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
-            return SphericalRotationXW(-delta) * in;
+        /*mesh1->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
+            return SphericalRotationZW(delta/3.f) * in;
         }));*/
     }
 
