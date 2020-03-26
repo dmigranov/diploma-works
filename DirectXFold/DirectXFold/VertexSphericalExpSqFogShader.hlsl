@@ -28,6 +28,7 @@ struct VertexShaderOutput
 	float4 position : SV_POSITION;
 	float4 color : COLOR;
 	float fogFactor : FOG_FACTOR;
+	float4 viewPosition : DEBUG;
 };
 
 //entry point
@@ -49,7 +50,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 	float4 cameraSpacePosition = mul(viewWorld, IN.position);
-	
+	OUT.viewPosition = cameraSpacePosition;
 	OUT.color = IN.color;
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	

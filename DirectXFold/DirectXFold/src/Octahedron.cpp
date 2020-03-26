@@ -144,6 +144,12 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
         };
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
+
+        if (section < 0)
+            world*=Matrix(1,0,0,0,
+                0,1,0,0,
+                0,0,-1,0,
+                0,0,0,1);
     }
     else if (coord == FixedCoordinate::FC_Z)
     {

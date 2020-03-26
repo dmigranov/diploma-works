@@ -539,14 +539,14 @@ bool Game::LoadContent()
 
     }*/
 
-    m_camera->Move(SphericalRotationZW(/*XM_PI*/-0.3f));
+    m_camera->Move(SphericalRotationZW(XM_PI-0.3f));
 
     {
         //todo: странное управление FC_Z. Исправить
         XMFLOAT4 arr[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
         //mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, .99f, SphericalRotationXZ(XM_PIDIV4), arr);
 
-        mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_X, .99f, Matrix::Identity, arr);
+        mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationXZ(XM_PIDIV4), arr);
         meshes.push_back(mesh1);
 
         //mesh2 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationXW(1.f));
