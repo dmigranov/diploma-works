@@ -487,7 +487,7 @@ bool Game::LoadContent()
     {
         auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
         auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
-        perApplicationVSConstantBuffer = {front, back, 0.05f};
+        perApplicationVSConstantBuffer = {front, back, 0.25f};
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
     }
 
@@ -539,14 +539,15 @@ bool Game::LoadContent()
 
     }*/
 
+    m_camera->Move(SphericalRotationZW(-0.3f));
 
     {
         //todo: странное управление FC_Z. Исправить
         XMFLOAT4 arr[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
-        mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, .99f, Matrix::Identity, arr);
+        mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, .99f, SphericalRotationXZ(XM_PIDIV4), arr);
         meshes.push_back(mesh1);
 
-        mesh2 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationXW(1.f));
+        //mesh2 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationXW(1.f));
         //meshes.push_back(mesh2);
 
         Mesh* test = SphericalMeshLoader::LoadMesh("mesh1.sph");

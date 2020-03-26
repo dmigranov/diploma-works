@@ -2,7 +2,7 @@
 
 cbuffer PerApplication : register(b0)
 {
-	float4 backgroundColor;
+	float4 fogColor;
 	float thickness;
 }
 
@@ -30,5 +30,6 @@ float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
 		preFogColor = IN.color; //а можно дискард
 	//todo: исправить черные полоски при выключенном edgeDistance а то некрасиво
 	
-	return IN.fogFactor * preFogColor + (1.0 - IN.fogFactor) * backgroundColor;
+	return IN.fogFactor * preFogColor + (1.0 - IN.fogFactor) * fogColor;
+;
 }
