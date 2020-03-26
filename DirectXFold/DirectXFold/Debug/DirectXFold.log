@@ -82,7 +82,6 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(159,39): warn
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(158,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(157,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Octahedron.cpp(156,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  SimpleInputHandler.cpp
   SphericalDodecahedron.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(25,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(25,35): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data

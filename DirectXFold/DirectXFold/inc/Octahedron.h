@@ -14,6 +14,8 @@ public:
 	SphericalOctahedron(double wSec);
 	SphericalOctahedron(FixedCoordinate coord, double section, XMMATRIX world);
 	SphericalOctahedron(FixedCoordinate coord, double section);
+	SphericalOctahedron(FixedCoordinate coord, double section, XMMATRIX world, XMFLOAT4 * colors);
+
 	void SetSectionHeight(double newSectionHeight);
 	double GetSectionHeight();
 

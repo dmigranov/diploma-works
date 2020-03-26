@@ -546,7 +546,7 @@ bool Game::LoadContent()
         meshes.push_back(mesh1);
 
         mesh2 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationXW(1.f));
-        meshes.push_back(mesh2);
+        //meshes.push_back(mesh2);
 
         Mesh* test = SphericalMeshLoader::LoadMesh("mesh1.sph");
         //meshes.push_back(test);

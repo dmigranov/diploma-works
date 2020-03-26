@@ -24,9 +24,11 @@ float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
 	float4 preFogColor;
 	
 	if (distance < thickness)
+		//preFogColor = float4(0, 0, 0, 1);
 		preFogColor = 0.7 * float4(0, 0, 0, 1) + 0.3 * IN.color; //draw fragment if close to edge
 	else 
 		preFogColor = IN.color; //а можно дискард
+	//todo: исправить черные полоски при выключенном edgeDistance а то некрасиво
 	
 	return IN.fogFactor * preFogColor + (1.0 - IN.fogFactor) * backgroundColor;
 }
