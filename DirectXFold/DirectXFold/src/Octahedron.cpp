@@ -145,11 +145,11 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
         g_Vertices = vertices;
         verticesCount = _countof(vertices);
 
-        if (section < 0)
+        /*if (section < 0)
             world*=Matrix(1,0,0,0,
                 0,1,0,0,
                 0,0,-1,0,
-                0,0,0,1);   //матрица отражения!
+                0,0,0,1);*/   //матрица отражения!
     }
     else if (coord == FixedCoordinate::FC_Z)
     {
