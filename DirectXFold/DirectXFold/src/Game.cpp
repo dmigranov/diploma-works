@@ -380,8 +380,8 @@ void Game::Render()
     if (Keyboard::Get().GetState().LeftShift)
     {
         ss.str(std::string());
-        ss << xAngleProtractor << "°";
-        m_textDrawer->DrawTextDownRightAlign(ss.str().c_str(), 20, m_outputHeight - 20);
+        ss << xAngleProtractor / XM_PI * 180;
+        m_textDrawer->DrawTextDownRightAlign(ss.str().c_str(), m_outputWidth - 20, m_outputHeight - 20);
     }
 
 
