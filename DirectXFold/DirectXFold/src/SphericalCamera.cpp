@@ -12,6 +12,7 @@ SphericalCamera::SphericalCamera()
 const XMMATRIX& SphericalCamera::GetView()
 {
 	//todo: возможно, стоит подумать над юзабилити, чтобы вращение всегда было одинаково
+	//todo: умножить на XZ и YZ! в зависимости от мыши
 	if (m_viewDirty)
 	{
 		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(XZRot);

@@ -245,15 +245,15 @@ int Game::Initialize(HWND window, int width, int height)
         }
         if (ks.Q)
         {
-            std::static_pointer_cast<SphericalCamera>(m_camera)->SetXZRotation(gain);
-            if (ks.LeftShift)
-                xAngleProtractor += gain;
-        }
-        if (ks.E)
-        {
             std::static_pointer_cast<SphericalCamera>(m_camera)->SetXZRotation(-gain);
             if (ks.LeftShift)
                 xAngleProtractor -= gain;
+        }
+        if (ks.E)
+        {
+            std::static_pointer_cast<SphericalCamera>(m_camera)->SetXZRotation(gain);
+            if (ks.LeftShift)
+                xAngleProtractor += gain;
         }
         if(ks.O)
         { 
@@ -546,24 +546,25 @@ bool Game::LoadContent()
     }*/
 
     {
-        Mesh::VertexPosColor vertices[] = {
+        /*Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(-0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
         { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
         { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
-        };
-
-        /*Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(0.f, 0.0f, 0.0f, 1.f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
-        { XMFLOAT4(0.6f,  0.0f, 0.0f, 0.8f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
-        { XMFLOAT4(0.6f,  0.0f, 0.0f, 0.8f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
         };*/
+
+        float s = sqrtf(1 - 0.99f*0.99f);
+        Mesh::VertexPosColor vertices[] = {
+        { XMFLOAT4(-s, 0.f, s, 0.99f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
+        { XMFLOAT4(0.f,  0.f, s, 0.99f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
+        { XMFLOAT4(0.f,  0.f, -s, 0.99f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
+        };
 
         WORD indices[] = {
             0, 1, 2, 2, 1, 0
         };
 
         mesh2 = new Mesh(_countof(vertices), vertices,
-            _countof(indices), indices, SphericalRotationYZ(XM_PIDIV2));
+            _countof(indices), indices/*, SphericalRotationYZ(XM_PIDIV2)*/);
         meshes.push_back(mesh2);
 
     }
