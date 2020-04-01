@@ -54,7 +54,7 @@ Vector4 SphericalCamera::GetPosition()
 //v = dx dy dz dw
 void SphericalCamera::Move(Vector4 v)
 {
-	Vector4 move = XMVector4Transform(v, Matrix::Identity);
+	Vector4 move = XMVector4Transform(v, SphericalRotationXZ(-XZRot));
 	Vector3 moveTemp = Vector3(move.x, move.y, move.z);
 
 	m_position += moveTemp;
