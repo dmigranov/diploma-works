@@ -23,24 +23,26 @@ SphericalCube::SphericalCube(double wSec, XMMATRIX world, XMFLOAT4* colors)
 {
 	//fixed coord - всегда w!
 
-    if(colors == nullptr)
+    if (colors == nullptr);
         //todo: generate random
 
     double cubeCoord = sqrt((1 - wSec * wSec)/3.f);
-    /*Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(0.f,  0.f, -inv, wSec), colors[0] }, // 0
-        { XMFLOAT4(0.f,  0.f, inv, wSec), colors[1]  }, // 1
-        { XMFLOAT4(0.f, -inv, 0.f, wSec), colors[2]  }, // 2
-        { XMFLOAT4(0.f,  inv, 0.f, wSec), colors[3]  }, // 3
-        { XMFLOAT4(-inv,  0.f, 0.f, wSec), colors[4]  }, // 4
-        { XMFLOAT4(inv,  0.f, 0.f, wSec), colors[5]  }, // 5
+    Mesh::VertexPosColor vertices[] = {
+        { XMFLOAT4(-cubeCoord,  -cubeCoord, -cubeCoord, wSec), colors[0] }, // 0
+        { XMFLOAT4(-cubeCoord,  -cubeCoord, cubeCoord, wSec), colors[1]  }, // 1
+        { XMFLOAT4(-cubeCoord,  cubeCoord, -cubeCoord, wSec), colors[2]  }, // 2
+        { XMFLOAT4(-cubeCoord,  cubeCoord, cubeCoord, wSec), colors[3]  }, // 3
+        { XMFLOAT4(cubeCoord,  -cubeCoord, -cubeCoord, wSec), colors[4]  }, // 4
+        { XMFLOAT4(cubeCoord,  -cubeCoord, cubeCoord, wSec), colors[5]  }, // 5
+        { XMFLOAT4(cubeCoord,  cubeCoord, -cubeCoord, wSec), colors[6]  }, // 6
+        { XMFLOAT4(cubeCoord,  cubeCoord, cubeCoord, wSec), colors[7]  }, // 7
     };
     g_Vertices = vertices;
     verticesCount = _countof(vertices);
 
-    if (section < 0)
+    if (wSec < 0)
         world *= Matrix(1, 0, 0, 0,
             0, 1, 0, 0,
             0, 0, -1, 0,
-            0, 0, 0, 1);*/
+            0, 0, 0, 1);
 }
