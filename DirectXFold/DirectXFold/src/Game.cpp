@@ -245,13 +245,13 @@ int Game::Initialize(HWND window, int width, int height)
         }
         if (ks.Q)
         {
-            m_camera->Move(SphericalRotationXZ(gain));
+            std::static_pointer_cast<SphericalCamera>(m_camera)->SetXZRotation(gain);
             if (ks.LeftShift)
                 xAngleProtractor += gain;
         }
         if (ks.E)
         {
-            m_camera->Move(SphericalRotationXZ(-gain));
+            std::static_pointer_cast<SphericalCamera>(m_camera)->SetXZRotation(-gain);
             if (ks.LeftShift)
                 xAngleProtractor -= gain;
         }

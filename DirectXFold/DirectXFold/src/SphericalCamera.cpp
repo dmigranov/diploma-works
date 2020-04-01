@@ -16,7 +16,7 @@ const XMMATRIX& SphericalCamera::GetView()
 	if (m_viewDirty)
 	{
 		//m_view = Matrix(m_view_const) * SphericalRotationXW(m_position.x)* SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
-		m_view =  SphericalRotationXW(m_position.x)* SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * Matrix(m_view_const);
+		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(XZRot);
 
 	}
 	return m_view;
@@ -60,6 +60,11 @@ void SphericalCamera::Move(Vector4 v)
 	m_position += moveTemp;
 
 	m_viewDirty = true;
+}
+
+void SphericalCamera::SetXZRotation(double rot)
+{
+	XZRot += rot;
 }
 
 

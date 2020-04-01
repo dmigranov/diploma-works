@@ -13,10 +13,12 @@ public:
 	const XMMATRIX& GetBackProj();
 	Vector4 GetPosition() override;
 	void Move(Vector4 v) override;
+	void SetXZRotation(double rot);
 	void ChangePitchYaw(double pitch, double yaw) override;
 
 private:
 	Vector4 spherePos = Vector4(0, 0, 0, 1);
+	double XZRot = 0;
 
 };
 
