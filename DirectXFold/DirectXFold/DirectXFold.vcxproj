@@ -22,6 +22,7 @@
     <ClCompile Include="SphericalMath.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\SphericalCube.cpp" />
     <ClCompile Include="src\SphericalOctahedron.cpp" />
     <ClCompile Include="src\Line.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -42,6 +43,7 @@
   <ItemGroup>
     <ClInclude Include="inc\Camera.h" />
     <ClInclude Include="inc\Game.h" />
+    <ClInclude Include="inc\SphericalCube.h" />
     <ClInclude Include="inc\SphericalOctahedron.h" />
     <ClInclude Include="inc\InputHandler.h" />
     <ClInclude Include="inc\Line.h" />
