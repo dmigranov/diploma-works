@@ -84,7 +84,8 @@ void Camera::Move(Vector4 v4)
 
 void Camera::Move(Matrix m)
 {
-	m_view_const = m * (Matrix)m_view_const; //todo: проверить
+	//m_view_const = m * (Matrix)m_view_const; //todo: проверить
+	m_view_const = (Matrix)m_view_const * m;
 }
 
 Vector4 Camera::GetPosition()

@@ -15,7 +15,9 @@ const XMMATRIX& SphericalCamera::GetView()
 	//todo: усножить на XZ в зависимости от мыши
 	if (m_viewDirty)
 	{
-		m_view = Matrix(m_view_const) * SphericalRotationXW(m_position.x)* SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
+		//m_view = Matrix(m_view_const) * SphericalRotationXW(m_position.x)* SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
+		m_view =  SphericalRotationXW(m_position.x)* SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * Matrix(m_view_const);
+
 	}
 	return m_view;
 }

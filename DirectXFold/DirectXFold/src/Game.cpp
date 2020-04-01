@@ -546,24 +546,24 @@ bool Game::LoadContent()
     }*/
 
     {
-        /*Mesh::VertexPosColor vertices[] = {
+        Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(-0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
         { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
         { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
-        };*/
+        };
 
-        Mesh::VertexPosColor vertices[] = {
+        /*Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(0.f, 0.0f, 0.0f, 1.f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
         { XMFLOAT4(0.6f,  0.0f, 0.0f, 0.8f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
-        { XMFLOAT4(-0.6f,  0.0f, 0.0f, 0.8f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
-        };
+        { XMFLOAT4(0.6f,  0.0f, 0.0f, 0.8f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
+        };*/
 
         WORD indices[] = {
             0, 1, 2, 2, 1, 0
         };
 
         mesh2 = new Mesh(_countof(vertices), vertices,
-            _countof(indices), indices);
+            _countof(indices), indices, SphericalRotationYZ(XM_PIDIV2));
         meshes.push_back(mesh2);
 
     }
