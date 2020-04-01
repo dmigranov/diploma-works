@@ -166,4 +166,6 @@ private:
     };
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
 
+
+    double xAngleProtractor = 0;
 };

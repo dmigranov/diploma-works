@@ -208,6 +208,8 @@ int Game::Initialize(HWND window, int width, int height)
     }
     m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, [this]() { 
         auto ks = Keyboard::Get().GetState();
+        Keyboard::KeyboardStateTracker tracker;
+        tracker.Update(ks);
         float gain = 0.045f;
         if (ks.U)
             this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(-gain))); //так всегда вверх! //todo: поразмыслить над тем же для камеры!
@@ -242,9 +244,17 @@ int Game::Initialize(HWND window, int width, int height)
             g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
         }
         if (ks.Q)
+        {
             m_camera->Move(SphericalRotationXZ(gain));
+            if (ks.LeftShift)
+                xAngleProtractor += gain;
+        }
         if (ks.E)
+        {
             m_camera->Move(SphericalRotationXZ(-gain));
+            if (ks.LeftShift)
+                xAngleProtractor -= gain;
+        }
         if(ks.O)
         { 
             perApplicationVSConstantBuffer.density += 0.005;
@@ -258,6 +268,9 @@ int Game::Initialize(HWND window, int width, int height)
                 g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
             }
         }
+
+        if (ks.IsKeyUp(Keyboard::Keys::LeftShift))
+            xAngleProtractor = 0;
 
     }, m_hwnd);
 
@@ -363,6 +376,15 @@ void Game::Render()
     ss << "Z: " << pos.z << (pos.z < 0 ? "" : " ") << " A3: " << sphPos.z << std::endl;
     ss << "W: " << pos.w << std::endl;
     m_textDrawer->DrawTextDownLeftAlign(ss.str().c_str(), 20, m_outputHeight - 20);
+
+    if (Keyboard::Get().GetState().LeftShift)
+    {
+        ss.str(std::string());
+        ss << xAngleProtractor << "°";
+        m_textDrawer->DrawTextDownRightAlign(ss.str().c_str(), 20, m_outputHeight - 20);
+    }
+
+
     
 
     Present();
