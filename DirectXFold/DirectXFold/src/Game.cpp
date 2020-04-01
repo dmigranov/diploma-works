@@ -545,11 +545,17 @@ bool Game::LoadContent()
         meshes.push_back(mesh);
     }*/
 
-    /*{
+    {
+        /*Mesh::VertexPosColor vertices[] = {
+        { XMFLOAT4(-0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
+        { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
+        { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
+        };*/
+
         Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(-0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(1.0f, 0.0f, 0.0f) }, // 0
-        { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 1.0f) }, // 1
-        { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) }, // 2
+        { XMFLOAT4(0.f, 0.0f, 0.0f, 1.f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
+        { XMFLOAT4(0.6f,  0.0f, 0.0f, 0.8f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
+        { XMFLOAT4(-0.6f,  0.0f, 0.0f, 0.8f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
         };
 
         WORD indices[] = {
@@ -560,7 +566,7 @@ bool Game::LoadContent()
             _countof(indices), indices);
         meshes.push_back(mesh2);
 
-    }*/
+    }
 
     //m_camera->Move(SphericalRotationZW(XM_PI-0.3f));
 
