@@ -21,10 +21,14 @@ SphericalCube::SphericalCube(double wSec, XMFLOAT4* colors) : SphericalCube(wSec
 
 SphericalCube::SphericalCube(double wSec, XMMATRIX world, XMFLOAT4* colors)
 {
-	//fixed coord - всегда w!
+    //fixed coord - всегда w!
 
-    if (colors == nullptr);
-        //todo: generate random
+    if (colors == nullptr)
+    {
+        colors = new XMFLOAT4[8];
+        for (int i = 0; i < 8; i++)
+            colors[i] = GenerateRandomColor();
+    }
 
     double cubeCoord = sqrt((1 - wSec * wSec)/3.f);
     Mesh::VertexPosColor vertices[] = {
