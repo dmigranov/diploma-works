@@ -2,6 +2,11 @@
 #include "SphericalCube.h"
 #include "Game.h"
 
+XMFLOAT4 SphericalCube::GenerateRandomColor()
+{
+    return XMFLOAT4(float(rand()) / float(RAND_MAX), float(rand()) / float(RAND_MAX), float(rand()) / float(RAND_MAX), 1.f);
+}
+
 SphericalCube::SphericalCube(double wSec) : SphericalCube(wSec, Matrix::Identity)
 {
 }
@@ -17,6 +22,9 @@ SphericalCube::SphericalCube(double wSec, XMFLOAT4* colors) : SphericalCube(wSec
 SphericalCube::SphericalCube(double wSec, XMMATRIX world, XMFLOAT4* colors)
 {
 	//fixed coord - всегда w!
+
+    if(colors == nullptr)
+        //todo: generate random
 
     double cubeCoord = sqrt((1 - wSec * wSec)/3.f);
     /*Mesh::VertexPosColor vertices[] = {
