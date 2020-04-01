@@ -1,34 +1,18 @@
-﻿  SphericalCube.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(35,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(35,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(35,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(35,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(36,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(36,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(36,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(36,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(37,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(37,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(37,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(37,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(38,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(38,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(38,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(38,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(39,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(39,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(39,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(39,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(40,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(40,44): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(40,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(40,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(41,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(41,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(41,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(41,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(42,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(42,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(42,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(42,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+﻿  Game.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(238,1): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(243,1): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(261,1): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(268,1): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(379,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(385,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(385,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(569,76): warning C4316: 'Mesh': object allocated on the heap may not be aligned 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(586,82): warning C4316: 'SphericalCube': object allocated on the heap may not be aligned 16
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\memory(1583,59): warning C4316: 'std::_Ref_count_obj2<_Ty>': object allocated on the heap may not be aligned 16
+          with
+          [
+              _Ty=SphericalCamera
+          ]
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : see reference to function template instantiation 'std::shared_ptr<SphericalCamera> std::make_shared<SphericalCamera,>(void)' being compiled
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe
