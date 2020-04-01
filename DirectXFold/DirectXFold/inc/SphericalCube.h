@@ -3,5 +3,10 @@
 class SphericalCube :
 	public Mesh
 {
+public:
+	SphericalCube(double wSec);
+	SphericalCube(double wSec, XMMATRIX world);
+	SphericalCube(double wSec, XMMATRIX world, XMFLOAT4* colors);
+	SphericalCube(double wSec, XMFLOAT4* colors);
 };
 
