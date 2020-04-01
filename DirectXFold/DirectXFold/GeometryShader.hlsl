@@ -8,7 +8,7 @@ struct VertexInput
 struct VertexOutput
 {
     float4 color : COLOR;
-	/*noperspective*/ float3 edgeDistance : EDGEDISTANCE;
+	noperspective float3 edgeDistance : EDGEDISTANCE;
 	float fogFactor : FOG_FACTOR;
 	float4 position : SV_POSITION; //стандартный System-Value для вертекса, который требуется на RS
 };

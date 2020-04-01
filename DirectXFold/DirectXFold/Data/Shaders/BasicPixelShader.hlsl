@@ -10,7 +10,7 @@ cbuffer PerApplication : register(b0)
 struct PixelShaderInput
 {
 	float4 color : COLOR;
-	/*noperspective*/ float3 edgeDistance : EDGEDISTANCE;
+	noperspective float3 edgeDistance : EDGEDISTANCE;
 	float fogFactor : FOG_FACTOR;
 };
 
@@ -23,7 +23,7 @@ float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
 	
 	float4 preFogColor;
 	
-	if (distance < thickness)
+	if (thickness > 0 && distance < thickness)
 		preFogColor = 0.7 * float4(0, 0, 0, 1) + 0.3 * IN.color; //draw fragment if close to edge
 	else 
 		preFogColor = IN.color; //а можно дискард
