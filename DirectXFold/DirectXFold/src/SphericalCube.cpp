@@ -49,4 +49,14 @@ SphericalCube::SphericalCube(double wSec, XMMATRIX world, XMFLOAT4* colors)
             0, 1, 0, 0,
             0, 0, -1, 0,
             0, 0, 0, 1);
+
+    WORD indices[] = {
+            0, 2, 4,
+            4, 2, 6,
+
+            0, 2, 1,
+            3, 2, 1,
+
+
+    };
 }
