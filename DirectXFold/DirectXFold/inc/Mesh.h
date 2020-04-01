@@ -7,6 +7,7 @@ class Mesh
     friend class Line;
     friend class SphericalOctahedron;
     friend class SphericalDodecahedron;
+    friend class SphericalCube;
 
 
 public:

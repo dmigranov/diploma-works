@@ -20,6 +20,7 @@
 #include "SphericalOctahedron.h"
 #include "SphericalDodecahedron.h"
 #include "SphericalMeshLoader.h"
+#include "SphericalCube.h"
 
 
 #include "SimpleInputHandler.h"
@@ -51,6 +52,7 @@ private:
     friend class Mesh;
     friend class SphericalOctahedron;
     friend class SphericalDodecahedron;
+    friend class SphericalCube;
 
 
     Game() noexcept;
