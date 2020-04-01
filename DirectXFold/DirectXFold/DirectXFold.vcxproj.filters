@@ -63,13 +63,13 @@
     <ClCompile Include="src\Line.cpp">
       <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
-    <ClCompile Include="src\Octahedron.cpp">
-      <Filter>Исходные файлы\Meshes</Filter>
-    </ClCompile>
     <ClCompile Include="src\SphericalMeshLoader.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="src\SphericalDodecahedron.cpp">
+      <Filter>Исходные файлы\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalOctahedron.cpp">
       <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,13 +107,13 @@
     <ClInclude Include="inc\Line.h">
       <Filter>Файлы заголовков\Meshes</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Octahedron.h">
-      <Filter>Файлы заголовков\Meshes</Filter>
-    </ClInclude>
     <ClInclude Include="inc\SphericalMeshLoader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="inc\SphericalDodecahedron.h">
+      <Filter>Файлы заголовков\Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalOctahedron.h">
       <Filter>Файлы заголовков\Meshes</Filter>
     </ClInclude>
   </ItemGroup>

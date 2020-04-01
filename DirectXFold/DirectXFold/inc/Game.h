@@ -17,7 +17,7 @@
 
 #include "Line.h"
 #include "Mesh.h"
-#include "Octahedron.h"
+#include "SphericalOctahedron.h"
 #include "SphericalDodecahedron.h"
 #include "SphericalMeshLoader.h"
 
