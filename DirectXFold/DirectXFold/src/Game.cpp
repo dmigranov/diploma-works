@@ -234,7 +234,7 @@ int Game::Initialize(HWND window, int width, int height)
         }
         if(ks.N)
         {
-            if(perApplicationPSConstantBuffer.m_edgeThickness >= -0.1)
+            if(perApplicationPSConstantBuffer.m_edgeThickness >= 0)
                 perApplicationPSConstantBuffer.m_edgeThickness -= 0.002;
             g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
         }
@@ -243,17 +243,18 @@ int Game::Initialize(HWND window, int width, int height)
             perApplicationPSConstantBuffer.m_edgeThickness += 0.002;
             g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
         }
+        float mouseLikeGain = 0.02f;
         if (ks.Q)
         {
-            std::static_pointer_cast<SphericalCamera>(m_camera)->SetXZRotation(-gain);
+            std::static_pointer_cast<SphericalCamera>(m_camera)->SetXZRotation(-mouseLikeGain);
             if (ks.LeftShift)
-                xAngleProtractor -= gain;
+                xAngleProtractor -= mouseLikeGain;
         }
         if (ks.E)
         {
-            std::static_pointer_cast<SphericalCamera>(m_camera)->SetXZRotation(gain);
+            std::static_pointer_cast<SphericalCamera>(m_camera)->SetXZRotation(mouseLikeGain);
             if (ks.LeftShift)
-                xAngleProtractor += gain;
+                xAngleProtractor += mouseLikeGain;
         }
         if(ks.O)
         { 
@@ -552,11 +553,12 @@ bool Game::LoadContent()
         { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
         };*/
 
-        float s = sqrtf(1 - 0.99f*0.99f);
+        float height = 0.5f;
+        float s = sqrtf(1 - height * height);
         Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(-s, 0.f, s, 0.99f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
-        { XMFLOAT4(0.f,  0.f, s, 0.99f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
-        { XMFLOAT4(0.f,  0.f, -s, 0.99f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
+        { XMFLOAT4(s, 0.f, 0.f, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
+        { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
+        { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
         };
 
         WORD indices[] = {

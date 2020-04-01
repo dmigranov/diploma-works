@@ -2,13 +2,13 @@
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(238,1): warning C4305: '-=': truncation from 'double' to 'float'
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(243,1): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(260,1): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(267,1): warning C4305: '-=': truncation from 'double' to 'float'
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(378,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(384,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(384,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(567,76): warning C4316: 'Mesh': object allocated on the heap may not be aligned 16
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(579,83): warning C4316: 'SphericalOctahedron': object allocated on the heap may not be aligned 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(261,1): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(268,1): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(379,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(385,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(385,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(569,76): warning C4316: 'Mesh': object allocated on the heap may not be aligned 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(581,83): warning C4316: 'SphericalOctahedron': object allocated on the heap may not be aligned 16
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\memory(1583,59): warning C4316: 'std::_Ref_count_obj2<_Ty>': object allocated on the heap may not be aligned 16
           with
           [
