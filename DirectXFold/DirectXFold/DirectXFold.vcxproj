@@ -42,6 +42,7 @@
     <ClCompile Include="src\TextDrawer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="h\Mesh.h" />
     <ClInclude Include="inc\Camera.h" />
     <ClInclude Include="inc\Game.h" />
     <ClInclude Include="inc\HyperbolicMath.h" />

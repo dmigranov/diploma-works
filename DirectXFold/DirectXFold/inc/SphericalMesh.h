@@ -1,7 +1,8 @@
 #pragma once
+#include "Mesh.h"
 using namespace DirectX;
 
-class SphericalMesh
+class SphericalMesh : Mesh
 {
     //todo: добавить parent mesh (возможно null)
     friend class Line;
