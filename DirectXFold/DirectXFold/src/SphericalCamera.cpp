@@ -16,7 +16,7 @@ const XMMATRIX& SphericalCamera::GetView()
 	if (m_viewDirty)
 	{
 		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(XZRot);
-
+		//первые три члена - аналог трансл€ции. —начала перемещаем камеру в (0 0 0 1)
 	}
 	return m_view;
 }
@@ -70,7 +70,8 @@ void SphericalCamera::SetXZRotation(double rot)
 void SphericalCamera::ChangePitchYaw(double pitch, double yaw)
 {
 	this->Camera::ChangePitchYaw(pitch, yaw);
-	//todo: сделать поправки на поворот как в Move
-	m_position += Vector3(yaw, pitch, 0);
+
+	XZRot += yaw;
+
 }
 
