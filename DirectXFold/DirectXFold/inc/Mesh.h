@@ -25,7 +25,10 @@ public:
         DirectX::XMFLOAT4 Color;
     };
 
-    
+    Mesh();
+    Mesh(int nv, VertexPosColor* vertices, int ni, WORD* indices);
+    Mesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, XMMATRIX world);
+
 
     DirectX::XMMATRIX GetWorldMatrix();
     void SetWorldMatrix(DirectX::XMMATRIX world);
@@ -51,8 +54,6 @@ protected:
     int verticesCount;
     WORD* g_Indices;
     int indicesCount;
-
-
 
     std::list<MeshUpdater> meshUpdaters;
 

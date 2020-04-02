@@ -3,6 +3,15 @@
 
 using namespace DirectX;
 
+Mesh::Mesh()
+{
+}
+
+Mesh::Mesh(int nv, VertexPosColor* vertices, int ni, WORD* indices)
+{
+
+}
+
 XMMATRIX Mesh::GetWorldMatrix()
 {
 	return constantBuffer.m_world;
