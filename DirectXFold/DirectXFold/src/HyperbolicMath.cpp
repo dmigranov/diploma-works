@@ -4,26 +4,33 @@
 using namespace DirectX::SimpleMath;
 using namespace DirectX;
 
-
-
-DirectX::SimpleMath::Matrix HyperbolicRotationZW(float d)
+Matrix HyperbolicRotationZW(float d)
 {
-	return DirectX::SimpleMath::Matrix();
+	return Matrix(1.f, 0.f, 0.f, 0.f,
+		0.f, 1.f, 0.f, 0.f,
+		0.f, 0.f, coshf(d), sinhf(d),
+		0.f, 0.f, -sinhf(d), coshf(d));
 }
 
 Matrix HyperbolicRotationXW(float d)
 {
-	return Matrix();
+	return Matrix(coshf(d), 0.f, 0.f, sinhf(d),
+		0.f, 1.f, 0.f, 0.f,
+		0.f, 0.f, 1.f, 0.f,
+		-sinhf(d), 0.f, 0.f, coshf(d));
 }
 
 Matrix HyperbolicRotationYW(float d)
 {
-	return Matrix();
+	return Matrix(1.f, 0.f, 0.f, 0.f,
+		0.f, coshf(d), 0.f, sinhf(d),
+		0.f, 0.f, 1.f, 0.f,
+		0.f, -sinhf(d), 0.f, coshf(d));
 }
 
-DirectX::SimpleMath::Matrix HyperbolicRotationYZ(float d)
+Matrix HyperbolicRotationYZ(float d)
 {
-	return DirectX::SimpleMath::Matrix();
+	return Matrix();
 }
 
 Matrix HyperbolicRotationXZ(float d)
