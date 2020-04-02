@@ -246,13 +246,13 @@ int Game::Initialize(HWND window, int width, int height)
         float mouseLikeGain = 0.02f;
         if (ks.Q)
         {
-            std::static_pointer_cast<SphericalCamera>(m_camera)->SetXZRotation(-mouseLikeGain);
+            (m_camera)->ChangePitchYaw(0, -mouseLikeGain);
             if (ks.LeftShift)
                 xAngleProtractor -= mouseLikeGain;
         }
         if (ks.E)
         {
-            std::static_pointer_cast<SphericalCamera>(m_camera)->SetXZRotation(mouseLikeGain);
+            (m_camera)->ChangePitchYaw(0, mouseLikeGain);
             if (ks.LeftShift)
                 xAngleProtractor += mouseLikeGain;
         }

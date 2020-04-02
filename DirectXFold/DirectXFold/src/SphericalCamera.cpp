@@ -61,22 +61,9 @@ void SphericalCamera::Move(Vector4 v)
 	m_viewDirty = true;
 }
 
-void SphericalCamera::SetXZRotation(double rot)
-{
-	XZRot += rot;
-}
-
-void SphericalCamera::SetYZRotation(double rot)
-{
-	YZRot += rot;
-}
-
 
 void SphericalCamera::ChangePitchYaw(double pitch, double yaw)
 {
 	this->Camera::ChangePitchYaw(pitch, yaw);
-
-	XZRot += yaw;
-	YZRot += pitch;
 }
 
