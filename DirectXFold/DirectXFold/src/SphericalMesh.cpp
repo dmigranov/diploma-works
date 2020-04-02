@@ -61,12 +61,6 @@ SphericalMesh::SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* ind
     constantBuffer.m_world = world;
 }
 
-void SphericalMesh::Move(float x, float y, float z)
-{
-    constantBuffer.m_world = XMMatrixTranslation(x, y, z) *
-        constantBuffer.m_world;
-}
-
 void SphericalMesh::AddUpdater(MeshUpdater updater)
 {
     meshUpdaters.push_back(updater);

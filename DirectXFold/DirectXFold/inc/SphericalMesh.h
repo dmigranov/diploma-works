@@ -3,21 +3,16 @@
 
 class SphericalMesh : public Mesh
 {
-    //todo: добавить parent mesh (возможно null)
     friend class SphericalOctahedron;
     friend class SphericalDodecahedron;
     friend class SphericalCube;
 
 public:
-
-    
     SphericalMesh();
     SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices);
     SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, DirectX::XMMATRIX world);
 
     ~SphericalMesh();
-
-    void Move(float x, float y, float z) override;
 
     void AddUpdater(MeshUpdater updater) override;
     void Update(float deltaTime) override;
