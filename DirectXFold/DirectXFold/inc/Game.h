@@ -23,6 +23,7 @@
 #include "SphericalMeshLoader.h"
 #include "SphericalCube.h"
 
+#include "HyperbolicMesh.h"
 
 #include "SimpleInputHandler.h"
 #include "SphericalCamera.h"
@@ -50,6 +51,7 @@ public:
 
 
 private:
+    friend class Mesh;
     friend class SphericalMesh;
     friend class SphericalOctahedron;
     friend class SphericalDodecahedron;
