@@ -535,22 +535,20 @@ bool Game::LoadContent()
     }
 
     //m_camera->Move(SphericalRotationZW(XM_PI-0.3f));
-
+    //mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, .99f, SphericalRotationXZ(XM_PIDIV4), arr);
+    
     {
-        //mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, .99f, SphericalRotationXZ(XM_PIDIV4), arr);
-
-        
         XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
         mesh1 = new SphericalOctahedron(.99f, SphericalRotationXZ(XM_PIDIV4), arrOct);
         meshes.push_back(mesh1);
         
-
         /*
         XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
-        mesh1 = new SphericalCube(.99f, SphericalRotationXZ(XM_PIDIV4), arrСube);
-        meshes.push_back(mesh1);
+        mesh2 = new SphericalCube(.99f, SphericalRotationXW(XM_PIDIV4), arrСube);
+        mesh2->SetParent(mesh1);
+        meshes.push_back(mesh2);
         */
-
+        
 
         //mesh2 = new SphericalMesh(_countof(vertices), vertices, (indices), indices, SphericalRotationXW(0.6f));
         //meshes.push_back(mesh2);
