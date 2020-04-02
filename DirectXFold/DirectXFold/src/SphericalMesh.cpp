@@ -61,21 +61,6 @@ SphericalMesh::SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* ind
     constantBuffer.m_world = world;
 }
 
-void SphericalMesh::AddUpdater(MeshUpdater updater)
-{
-    meshUpdaters.push_back(updater);
-}
-
-void SphericalMesh::Update(float deltaTime)
-{
-    for (auto updater : meshUpdaters)
-    {
-        constantBuffer.m_world = updater(constantBuffer.m_world, deltaTime);
-    }
-}
-
-
-
 void SphericalMesh::Render()
 {
     // Input Assembler Stage - unique for every mesh

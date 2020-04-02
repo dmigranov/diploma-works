@@ -33,8 +33,8 @@ public:
 
     void SetParent(Mesh* parent);
 
-    virtual void AddUpdater(MeshUpdater updater) = 0;
-    virtual void Update(float deltaTime) = 0;
+    void AddUpdater(MeshUpdater updater);
+    void Update(float deltaTime);
 
     virtual void Render(std::list<DirectX::XMMATRIX> matrices) = 0;
     virtual void Render() = 0;
@@ -42,6 +42,9 @@ public:
 
 
 protected:
+    std::list<MeshUpdater> meshUpdaters;
+
+
     Mesh* parentMesh = nullptr;
     MeshConstantBuffer constantBuffer;
 

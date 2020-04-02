@@ -14,9 +14,6 @@ public:
 
     ~SphericalMesh();
 
-    void AddUpdater(MeshUpdater updater) override;
-    void Update(float deltaTime) override;
-
 
     //можно рисовать один и тот же меш используя разные матрицы
     //std::list<XMMATRIX> list = { ..., ... }; cube->Render(list); 
@@ -25,7 +22,6 @@ public:
     virtual void Render(DirectX::XMMATRIX matrix);
 
 private: 
-    std::list<MeshUpdater> meshUpdaters;
 
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
 	ID3D11Buffer* g_d3dIndexBuffer = nullptr;
