@@ -14,15 +14,10 @@ public:
 
     ~SphericalMesh();
 
-
     //можно рисовать один и тот же меш используя разные матрицы
     //std::list<XMMATRIX> list = { ..., ... }; cube->Render(list); 
     virtual void Render(std::list<DirectX::XMMATRIX> matrices);
     virtual void Render();
     virtual void Render(DirectX::XMMATRIX matrix);
-
-private: 
-
-
 };
 
