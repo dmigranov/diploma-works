@@ -62,8 +62,5 @@ void SphericalCamera::Move(Vector4 v)
 }
 
 
-void SphericalCamera::ChangePitchYaw(double pitch, double yaw)
-{
-	this->Camera::ChangePitchYaw(pitch, yaw);
-}
+
 
