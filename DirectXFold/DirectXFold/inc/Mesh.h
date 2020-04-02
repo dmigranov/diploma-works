@@ -42,8 +42,19 @@ public:
 
 
 protected:
-    std::list<MeshUpdater> meshUpdaters;
+    ID3D11Buffer* g_d3dVertexBuffer = nullptr;
+    ID3D11Buffer* g_d3dIndexBuffer = nullptr;
+    ID3D11DeviceContext* deviceContext;
+    ID3D11Resource* d3dConstantBuffer;     //todo: буфферы должны быть в классе для Shader'а
 
+    VertexPosColor* g_Vertices;
+    int verticesCount;
+    WORD* g_Indices;
+    int indicesCount;
+
+
+
+    std::list<MeshUpdater> meshUpdaters;
 
     Mesh* parentMesh = nullptr;
     MeshConstantBuffer constantBuffer;
