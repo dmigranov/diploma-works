@@ -515,43 +515,11 @@ bool Game::LoadContent()
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
     }
 
-    {
-        /*Mesh::VertexPosColor vertices[] = {
-            { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.0f, 0.0f) },   // 0
-            { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 1.0f, 0.0f) },  // 1
-            { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(1.0f, 1.0f, 0.0f) }, // 2
-            { XMFLOAT4(-(sqrtf(0.11f)), 0.f, -0.5f, 0.8f), XMFLOAT3(1.0f, 0.0f, 0.0f) }   // 3
-        };*/
 
-   
-    }
 
-    /*{
-        Mesh::VertexPosColor vertices[] = {
-            { XMFLOAT4(0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT3(1.0f, 0.0f, 0.0f) },   // 0
-            { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT3(0.0f, 0.5f, 0.0f) },  // 1
-            { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT3(.5f, 0.0f, 0.5f) }, // 2
-            { XMFLOAT4(-0.33166f, 0.f, -0.5f, 0.8f), XMFLOAT3(0.0f, 1.0f, 1.0f) }   // 3
-        };
-
-        WORD indices[] = {
-            2, 1, 0,
-            1, 2, 3,
-            0, 1, 3,
-            3, 2, 0
-        };
-
-        Mesh *mesh = new Mesh(_countof(vertices), vertices,
-            _countof(indices), indices, SphericalRotationXW(XM_PI/2));
-        meshes.push_back(mesh);
-    }*/
 
     {
-        /*Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(-0.6f, 0.0f, 0.0f, 0.8f), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
-        { XMFLOAT4(0.0f,  0.6f, 0.0f, 0.8f), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
-        { XMFLOAT4(0.0f,  -0.6f, 0.0f, 0.8f), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
-        };*/
+
 
         float height = 0.5f;
         float s = sqrtf(1 - height * height);
@@ -566,7 +534,7 @@ bool Game::LoadContent()
         };
 
         mesh2 = new Mesh(_countof(vertices), vertices,
-            _countof(indices), indices/*, SphericalRotationYZ(XM_PIDIV2)*/);
+            _countof(indices), indices);
         meshes.push_back(mesh2);
 
     }
