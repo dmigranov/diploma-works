@@ -5,10 +5,10 @@ class SphericalCube :
 {
 public:
 	SphericalCube(double wSec);
-	SphericalCube(double wSec, XMMATRIX world);
-	SphericalCube(double wSec, XMFLOAT4* colors);
-	SphericalCube(double wSec, XMMATRIX world, XMFLOAT4* colors);
+	SphericalCube(double wSec, DirectX::XMMATRIX world);
+	SphericalCube(double wSec, DirectX::XMFLOAT4* colors);
+	SphericalCube(double wSec, DirectX::XMMATRIX world, DirectX::XMFLOAT4* colors);
 private:
-	XMFLOAT4 GenerateRandomColor();
+	DirectX::XMFLOAT4 GenerateRandomColor();
 };
 

@@ -1,46 +1,24 @@
 #pragma once
 #include "Mesh.h"
-using namespace DirectX;
 
 class SphericalMesh : Mesh
 {
     //todo: добавить parent mesh (возможно null)
-    friend class Line;
     friend class SphericalOctahedron;
     friend class SphericalDodecahedron;
     friend class SphericalCube;
 
 public:
 
-    class MeshUpdater
-    {
-    public:
-        MeshUpdater(std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix, float delta)> func);
-        DirectX::SimpleMath::Matrix operator()(DirectX::SimpleMath::Matrix in, float delta);
-    private:
-        std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix, float delta)> m_func;
-    };
-
-    struct MeshConstantBuffer	//=Object Constant Buffer
-    {
-        XMMATRIX m_world;
-    };
-
-    // Vertex data for a colored cube.
-    struct VertexPosColor
-    {
-        XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
-        XMFLOAT4 Color;
-    };
-
+    
     SphericalMesh();
     SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices);
-    SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, XMMATRIX world);
+    SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, DirectX::XMMATRIX world);
 
     ~SphericalMesh();
 
-    XMMATRIX GetWorldMatrix();
-	void SetWorldMatrix(XMMATRIX world);
+    DirectX::XMMATRIX GetWorldMatrix();
+	void SetWorldMatrix(DirectX::XMMATRIX world);
     void SetConstants(MeshConstantBuffer constantBuffer);
     void SetParent(SphericalMesh* parent);
 
@@ -52,9 +30,9 @@ public:
 
     //можно рисовать один и тот же меш используя разные матрицы
     //std::list<XMMATRIX> list = { ..., ... }; cube->Render(list); 
-    virtual void Render(std::list<XMMATRIX> matrices);
+    virtual void Render(std::list<DirectX::XMMATRIX> matrices);
     virtual void Render();
-    virtual void Render(XMMATRIX matrix);
+    virtual void Render(DirectX::XMMATRIX matrix);
     SphericalMesh * Clone();
 
 private:

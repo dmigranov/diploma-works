@@ -57,9 +57,6 @@
     <ClCompile Include="src\TextDrawer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\Line.cpp">
-      <Filter>Исходные файлы\Meshes</Filter>
-    </ClCompile>
     <ClCompile Include="src\SphericalMeshLoader.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -77,6 +74,9 @@
     </ClCompile>
     <ClCompile Include="src\HyperbolicMath.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mesh.cpp">
+      <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,9 +107,6 @@
     <ClInclude Include="inc\TextDrawer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Line.h">
-      <Filter>Файлы заголовков\Meshes</Filter>
-    </ClInclude>
     <ClInclude Include="inc\SphericalMeshLoader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
@@ -128,7 +125,7 @@
     <ClInclude Include="inc\HyperbolicMath.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="h\Mesh.h">
+    <ClInclude Include="inc\Mesh.h">
       <Filter>Файлы заголовков\Meshes</Filter>
     </ClInclude>
   </ItemGroup>

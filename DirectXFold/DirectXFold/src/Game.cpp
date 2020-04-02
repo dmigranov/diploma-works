@@ -447,7 +447,7 @@ bool Game::LoadContent()
         return false;
     }
 
-    constantBufferDesc.ByteWidth = sizeof(SphericalMesh::MeshConstantBuffer);
+    constantBufferDesc.ByteWidth = sizeof(Mesh::MeshConstantBuffer);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Object]);
     if (FAILED(hr))
     {
@@ -483,8 +483,8 @@ bool Game::LoadContent()
     //ID3D11InputLayout is used to define how the vertex data attached to the input-assembler stage is layed out in memory
     D3D11_INPUT_ELEMENT_DESC vertexLayoutDesc[] =
     {
-        { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(SphericalMesh::VertexPosColor, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(SphericalMesh::VertexPosColor, Color), D3D11_INPUT_PER_VERTEX_DATA, 0 }
+        { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
+        { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Color), D3D11_INPUT_PER_VERTEX_DATA, 0 }
     };
 
     hr = g_d3dDevice->CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs), &g_d3dInputLayout);
@@ -518,7 +518,7 @@ bool Game::LoadContent()
     {
         float height = 0.5f;
         float s = sqrtf(1 - height * height);
-        SphericalMesh::VertexPosColor vertices[] = {
+        Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(s, 0.f, 0.f, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
         { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
         { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2

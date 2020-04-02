@@ -1,8 +1,9 @@
 #include "pch.h"
-
-
 #include "SphericalMeshLoader.h"
+
+
 using namespace DirectX::SimpleMath;
+using namespace DirectX;
 
 
 SphericalMesh* SphericalMeshLoader::LoadMesh(const char* filepath)
@@ -18,7 +19,7 @@ SphericalMesh* SphericalMeshLoader::LoadMesh(const char* filepath)
 
 	std::string str;
 
-	std::vector<SphericalMesh::VertexPosColor> vertices;
+	std::vector<Mesh::VertexPosColor> vertices;
 	std::vector<WORD> vertexIndices;
 
 

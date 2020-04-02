@@ -11,7 +11,7 @@ public:
 		FC_W
 	};
 
-	SphericalDodecahedron(double wSec, XMMATRIX world);
+	SphericalDodecahedron(double wSec, DirectX::XMMATRIX world);
 	SphericalDodecahedron(double wSec);
 
 	void SetSectionHeight(double newSectionHeight);
@@ -20,6 +20,6 @@ public:
 private:
 	FixedCoordinate fc;
 	double sectionHeight;
-	XMFLOAT4 GenerateRandomColor();
+	DirectX::XMFLOAT4 GenerateRandomColor();
 };
 

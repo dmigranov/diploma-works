@@ -15,7 +15,8 @@
 #include "PixelShader.h"
 
 
-#include "Line.h"
+#include "Mesh.h"
+
 #include "SphericalMesh.h"
 #include "SphericalOctahedron.h"
 #include "SphericalDodecahedron.h"
