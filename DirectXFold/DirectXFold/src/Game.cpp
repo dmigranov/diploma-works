@@ -581,16 +581,14 @@ bool Game::LoadContent()
         mesh1 = new SphericalOctahedron(.99f, SphericalRotationXZ(XM_PIDIV4), arrOct);
         meshes.push_back(mesh1);
         
+
         /*
         XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
         mesh1 = new SphericalCube(.99f, SphericalRotationXZ(XM_PIDIV4), arrСube);
         meshes.push_back(mesh1);
         */
-        //mesh2 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationXW(1.f));
-        //meshes.push_back(mesh2);
 
         Mesh* test = SphericalMeshLoader::LoadMesh("mesh1.sph");
-        //meshes.push_back(test);
 
         float v1 = 0.99f, v3 = 0.08f, v2 = sqrtf(1.f - v1 * v1 - v3 * v3);
         Mesh::VertexPosColor vertices[] = {
@@ -607,9 +605,6 @@ bool Game::LoadContent()
             3, 2, 0
         };
 
-        //meshes.push_back(new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationXW(XM_PIDIV2)));
-        //meshes.push_back(new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, -.99f, SphericalRotationYW(XM_PIDIV2)));
-        //meshes.push_back(new SphericalDodecahedron(0.99f));
 
         //mesh2 = new Mesh(_countof(vertices), vertices, (indices), indices, SphericalRotationXW(0.6f));
         //meshes.push_back(mesh2);
