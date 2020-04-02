@@ -33,8 +33,6 @@ public:
 
     void SetParent(Mesh* parent);
 
-    virtual void Move(float x, float y, float z) = 0;
-
     virtual void AddUpdater(MeshUpdater updater) = 0;
     virtual void Update(float deltaTime) = 0;
 
