@@ -105,8 +105,8 @@ public class Controller {
                 {
                     var g1 = geodesics.get(0);
                     var g2 = geodesics.get(1);
-                    g1.setuStart(g1.getuStart() - 0.01);
-                    g2.setuStart(g2.getuStart() + 0.01);
+                    g1.setuStart(g1.getuStart() - 0.1);
+                    g2.setuStart(g2.getuStart() + 0.1);
                     geodesicsCalculator.calculateGeodesic(g1);
                     geodesicsCalculator.calculateGeodesic(g2);
                 }
@@ -115,8 +115,8 @@ public class Controller {
                 {
                     var g1 = geodesics.get(0);
                     var g2 = geodesics.get(1);
-                    g1.setuStart(g1.getuStart() + 0.01);
-                    g2.setuStart(g2.getuStart() - 0.01);
+                    g1.setuStart(g1.getuStart() + 0.1);
+                    g2.setuStart(g2.getuStart() - 0.1);
                     geodesicsCalculator.calculateGeodesic(g1);
                     geodesicsCalculator.calculateGeodesic(g2);
                 }
@@ -455,8 +455,8 @@ public class Controller {
             geodesicsCalculator = new GeodesicsCalculator(spongeFunction);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
             geodesics = new ArrayList<>();
-            geodesics.add(new Geodesic(spongeFunction.getUMin() + 0.1, spongeFunction.getVMin() + 0.1, 0, 0.2, Color.GREEN));
-            geodesics.add(new Geodesic(spongeFunction.getUMax() - 0.1, spongeFunction.getVMin() + 0.1, 0, 0.2, Color.YELLOW));
+            geodesics.add(new Geodesic(spongeFunction.getUMin() + 0.1, spongeFunction.getVMin() + 0.1, 0, 0.2, Color.RED));
+            geodesics.add(new Geodesic(spongeFunction.getUMax() - 0.1, spongeFunction.getVMin() + 0.1, 0, 0.2, Color.BLACK));
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
         {
