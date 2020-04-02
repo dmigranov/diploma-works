@@ -11,12 +11,6 @@ SphericalMesh::SphericalMesh()
 SphericalMesh::SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices) : Mesh(nv, vertices, ni, indices)
 { }
 
-SphericalMesh::~SphericalMesh()
-{
-    SafeRelease(g_d3dIndexBuffer);
-    SafeRelease(g_d3dVertexBuffer);
-}
-
 SphericalMesh::SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, XMMATRIX world) : Mesh(nv, vertices, ni, indices, world)
 {
 }

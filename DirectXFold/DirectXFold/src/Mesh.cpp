@@ -39,8 +39,6 @@ Mesh::Mesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, XMMATRIX wor
 
     device->CreateBuffer(&vertexBufferDesc, &resourceData, &g_d3dVertexBuffer);
 
-
-
     // Create and initialize the index buffer.
     D3D11_BUFFER_DESC indexBufferDesc;
     ZeroMemory(&indexBufferDesc, sizeof(D3D11_BUFFER_DESC));
@@ -54,6 +52,12 @@ Mesh::Mesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, XMMATRIX wor
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 
     constantBuffer.m_world = world;
+}
+
+Mesh::~Mesh()
+{
+    SafeRelease(g_d3dIndexBuffer);
+    SafeRelease(g_d3dVertexBuffer);
 }
 
 XMMATRIX Mesh::GetWorldMatrix()

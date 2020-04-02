@@ -29,6 +29,7 @@ public:
     Mesh(int nv, VertexPosColor* vertices, int ni, WORD* indices);
     Mesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, DirectX::XMMATRIX world);
 
+    ~Mesh();
 
     DirectX::XMMATRIX GetWorldMatrix();
     void SetWorldMatrix(DirectX::XMMATRIX world);

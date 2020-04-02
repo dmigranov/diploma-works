@@ -12,8 +12,6 @@ public:
     SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices);
     SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, DirectX::XMMATRIX world);
 
-    ~SphericalMesh();
-
     //можно рисовать один и тот же меш используя разные матрицы
     //std::list<XMMATRIX> list = { ..., ... }; cube->Render(list); 
     virtual void Render(std::list<DirectX::XMMATRIX> matrices);
