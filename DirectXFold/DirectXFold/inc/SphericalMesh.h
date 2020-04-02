@@ -17,15 +17,15 @@ public:
 
     ~SphericalMesh();
 
-    DirectX::XMMATRIX GetWorldMatrix();
-	void SetWorldMatrix(DirectX::XMMATRIX world);
-    void SetConstants(MeshConstantBuffer constantBuffer);
-    void SetParent(SphericalMesh* parent);
+    DirectX::XMMATRIX GetWorldMatrix() override;
+	void SetWorldMatrix(DirectX::XMMATRIX world) override;
+    void SetConstants(MeshConstantBuffer constantBuffer) override;
+    void SetParent(Mesh* parent) override;
 
-    void Move(float x, float y, float z);
+    void Move(float x, float y, float z) override;
 
-    void AddUpdater(MeshUpdater updater);
-    void Update(float deltaTime);
+    void AddUpdater(MeshUpdater updater) override;
+    void Update(float deltaTime) override;
 
 
     //можно рисовать один и тот же меш используя разные матрицы
@@ -36,7 +36,7 @@ public:
     SphericalMesh * Clone();
 
 private:
-    SphericalMesh* parentMesh = nullptr;
+    Mesh* parentMesh = nullptr;
     
     std::list<MeshUpdater> meshUpdaters;
 

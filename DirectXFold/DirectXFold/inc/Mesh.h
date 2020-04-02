@@ -25,7 +25,21 @@ public:
         DirectX::XMFLOAT4 Color;
     };
 
+    
 
+    virtual DirectX::XMMATRIX GetWorldMatrix() = 0;
+    virtual void SetWorldMatrix(DirectX::XMMATRIX world) = 0;
+    virtual void SetConstants(MeshConstantBuffer constantBuffer) = 0;
+    virtual void SetParent(Mesh* parent) = 0;
+
+    virtual void Move(float x, float y, float z) = 0;
+
+    virtual void AddUpdater(MeshUpdater updater) = 0;
+    virtual void Update(float deltaTime) = 0;
+
+    virtual void Render(std::list<DirectX::XMMATRIX> matrices) = 0;
+    virtual void Render() = 0;
+    virtual void Render(DirectX::XMMATRIX matrix) = 0;
 
 };
 

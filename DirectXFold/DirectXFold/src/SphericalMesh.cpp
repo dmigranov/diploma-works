@@ -72,7 +72,7 @@ void SphericalMesh::SetConstants(MeshConstantBuffer constantBuffer)
     this->constantBuffer = constantBuffer;
 }
 
-void SphericalMesh::SetParent(SphericalMesh* parent)
+void SphericalMesh::SetParent(Mesh* parent)
 {
     parentMesh = parent;
 }

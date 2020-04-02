@@ -1,10 +1,8 @@
 #include "pch.h"
 #include "SphericalMeshLoader.h"
 
-
 using namespace DirectX::SimpleMath;
 using namespace DirectX;
-
 
 SphericalMesh* SphericalMeshLoader::LoadMesh(const char* filepath)
 {
