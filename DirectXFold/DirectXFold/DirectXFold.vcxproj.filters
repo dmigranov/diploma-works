@@ -75,6 +75,9 @@
     <ClCompile Include="src\SphericalMesh.cpp">
       <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
+    <ClCompile Include="src\HyperbolicMath.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -121,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="inc\SphericalMesh.h">
       <Filter>Файлы заголовков\Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\HyperbolicMath.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
