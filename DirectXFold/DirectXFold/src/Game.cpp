@@ -530,7 +530,7 @@ bool Game::LoadContent()
 
         mesh2 = new Mesh(_countof(vertices), vertices,
             _countof(indices), indices);
-        //meshes.push_back(mesh2);
+        meshes.push_back(mesh2);
 
     }
 
