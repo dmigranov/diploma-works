@@ -18,4 +18,3 @@ public:
     virtual void Render() override;
     virtual void Render(DirectX::XMMATRIX matrix) override;
 };
-
