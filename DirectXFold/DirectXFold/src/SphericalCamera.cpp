@@ -15,7 +15,7 @@ const XMMATRIX& SphericalCamera::GetView()
 	//todo: умножить на XZ и YZ! в зависимости от мыши
 	if (m_viewDirty)
 	{
-		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(XZRot);
+		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(XZRot) * SphericalRotationYZ(YZRot);
 		//первые три члена - аналог трансл€ции. —начала перемещаем камеру в (0 0 0 1)
 	}
 	return m_view;
@@ -53,7 +53,7 @@ Vector4 SphericalCamera::GetPosition()
 //v = dx dy dz dw
 void SphericalCamera::Move(Vector4 v)
 {
-	Vector4 move = XMVector4Transform(v, SphericalRotationXZ(-XZRot));
+	Vector4 move = XMVector4Transform(v, SphericalRotationYZ(-YZRot) * SphericalRotationXZ(-XZRot));
 	Vector3 moveTemp = Vector3(move.x, move.y, move.z);
 
 	m_position += moveTemp;
@@ -66,12 +66,17 @@ void SphericalCamera::SetXZRotation(double rot)
 	XZRot += rot;
 }
 
+void SphericalCamera::SetYZRotation(double rot)
+{
+	YZRot += rot;
+}
+
 
 void SphericalCamera::ChangePitchYaw(double pitch, double yaw)
 {
 	this->Camera::ChangePitchYaw(pitch, yaw);
 
 	XZRot += yaw;
-
+	YZRot += pitch;
 }
 

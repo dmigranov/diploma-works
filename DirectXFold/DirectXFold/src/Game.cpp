@@ -515,12 +515,7 @@ bool Game::LoadContent()
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
     }
 
-
-
-
     {
-
-
         float height = 0.5f;
         float s = sqrtf(1 - height * height);
         Mesh::VertexPosColor vertices[] = {
@@ -535,7 +530,7 @@ bool Game::LoadContent()
 
         mesh2 = new Mesh(_countof(vertices), vertices,
             _countof(indices), indices);
-        meshes.push_back(mesh2);
+        //meshes.push_back(mesh2);
 
     }
 
@@ -555,23 +550,6 @@ bool Game::LoadContent()
         mesh1 = new SphericalCube(.99f, SphericalRotationXZ(XM_PIDIV4), arrСube);
         meshes.push_back(mesh1);
         */
-
-        Mesh* test = SphericalMeshLoader::LoadMesh("mesh1.sph");
-
-        float v1 = 0.99f, v3 = 0.08f, v2 = sqrtf(1.f - v1 * v1 - v3 * v3);
-        Mesh::VertexPosColor vertices[] = {
-            { XMFLOAT4(v2, 0.f, v3, v1), XMFLOAT4(1.f, 0.f, 1.f, 1.0f) },   // 0
-            { XMFLOAT4(0.f,  v2, -v3, v1), XMFLOAT4(0.f, 1.f, 1.f, 1.0f) },  // 1
-            { XMFLOAT4(0.f,  -v2, -v3, v1), XMFLOAT4(1.f, 1.f, 0.f, 1.0f) }, // 2
-            { XMFLOAT4(-v2, 0.f, v3, v1), XMFLOAT4(0.f, 0.f, 1.f, 1.0f) }   // 3
-        };
-
-        WORD indices[] = {
-            2, 1, 0,
-            1, 2, 3,
-            0, 1, 3,
-            3, 2, 0
-        };
 
 
         //mesh2 = new Mesh(_countof(vertices), vertices, (indices), indices, SphericalRotationXW(0.6f));
