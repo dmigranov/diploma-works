@@ -1,13 +1,12 @@
-using namespace DirectX::SimpleMath;
-using namespace DirectX;
+#pragma once
 
-Matrix BananaProjectionMatrix(double z0);
-Matrix BananaProjectionMatrixFrontHalf(double z0);
-Matrix BananaProjectionMatrixBackHalf(double z0);
+DirectX::SimpleMath::Matrix BananaProjectionMatrix(double z0);
+DirectX::SimpleMath::Matrix BananaProjectionMatrixFrontHalf(double z0);
+DirectX::SimpleMath::Matrix BananaProjectionMatrixBackHalf(double z0);
 
-Matrix SphericalRotationZW(float d);
-Matrix SphericalRotationXW(float d);
-Matrix SphericalRotationYW(float d);
-Matrix SphericalRotationYZ(float d);
-Matrix SphericalRotationXZ(float d);
-Matrix SphericalRotationXY(float d);
+DirectX::SimpleMath::Matrix SphericalRotationZW(float d);
+DirectX::SimpleMath::Matrix SphericalRotationXW(float d);
+DirectX::SimpleMath::Matrix SphericalRotationYW(float d);
+DirectX::SimpleMath::Matrix SphericalRotationYZ(float d);
+DirectX::SimpleMath::Matrix SphericalRotationXZ(float d);
+DirectX::SimpleMath::Matrix SphericalRotationXY(float d);
