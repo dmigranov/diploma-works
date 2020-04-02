@@ -72,11 +72,6 @@ void SphericalMesh::SetConstants(MeshConstantBuffer constantBuffer)
     this->constantBuffer = constantBuffer;
 }
 
-void SphericalMesh::SetParent(Mesh* parent)
-{
-    parentMesh = parent;
-}
-
 void SphericalMesh::Move(float x, float y, float z)
 {
     constantBuffer.m_world = XMMatrixTranslation(x, y, z) *
@@ -101,12 +96,7 @@ XMMATRIX SphericalMesh::GetWorldMatrix()
     return constantBuffer.m_world;
 }
 
-SphericalMesh* SphericalMesh::Clone()
-{
-    SphericalMesh* mesh = new SphericalMesh(verticesCount, g_Vertices, indicesCount, g_Indices, constantBuffer.m_world);
-    mesh->SetParent(parentMesh);
-    return mesh;
-}
+
 
 void SphericalMesh::Render()
 {

@@ -20,7 +20,6 @@ public:
     DirectX::XMMATRIX GetWorldMatrix() override;
 	void SetWorldMatrix(DirectX::XMMATRIX world) override;
     void SetConstants(MeshConstantBuffer constantBuffer) override;
-    void SetParent(Mesh* parent) override;
 
     void Move(float x, float y, float z) override;
 
@@ -33,11 +32,8 @@ public:
     virtual void Render(std::list<DirectX::XMMATRIX> matrices);
     virtual void Render();
     virtual void Render(DirectX::XMMATRIX matrix);
-    SphericalMesh * Clone();
 
-private:
-    Mesh* parentMesh = nullptr;
-    
+private: 
     std::list<MeshUpdater> meshUpdaters;
 
 	ID3D11Buffer* g_d3dVertexBuffer = nullptr;
