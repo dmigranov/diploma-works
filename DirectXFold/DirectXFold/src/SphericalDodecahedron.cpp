@@ -21,7 +21,7 @@ SphericalDodecahedron::SphericalDodecahedron(double section)
     double ipdc = 1 / (phi * coeff);
     std::cout << sqrt(pdc * pdc + ipdc * ipdc + section * section) << std::endl;    //21 - я ошибся!
 
-    Mesh::VertexPosColor vertices[] = {
+    SphericalMesh::VertexPosColor vertices[] = {
         { XMFLOAT4(coeff,  coeff, coeff, section), GenerateRandomColor() }, // 0
         { XMFLOAT4(coeff,  coeff, -coeff, section), GenerateRandomColor() }, // 1
         { XMFLOAT4(coeff, -coeff, coeff, section), GenerateRandomColor() }, // 2

@@ -1,7 +1,7 @@
 #pragma once
-#include "Mesh.h"
+#include "SphericalMesh.h"
 class SphericalCube :
-	public Mesh
+	public SphericalMesh
 {
 public:
 	SphericalCube(double wSec);

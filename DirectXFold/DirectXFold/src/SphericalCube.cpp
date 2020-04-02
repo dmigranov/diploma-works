@@ -31,7 +31,7 @@ SphericalCube::SphericalCube(double wSec, XMMATRIX world, XMFLOAT4* colors)
     }
 
     double cubeCoord = sqrt((1 - wSec * wSec)/3.f);
-    Mesh::VertexPosColor vertices[] = {
+    SphericalMesh::VertexPosColor vertices[] = {
         { XMFLOAT4(-cubeCoord,  -cubeCoord, -cubeCoord, wSec), colors[0] }, // 0
         { XMFLOAT4(-cubeCoord,  -cubeCoord, cubeCoord, wSec), colors[1]  }, // 1
         { XMFLOAT4(-cubeCoord,  cubeCoord, -cubeCoord, wSec), colors[2]  }, // 2

@@ -16,7 +16,7 @@
 
 
 #include "Line.h"
-#include "Mesh.h"
+#include "SphericalMesh.h"
 #include "SphericalOctahedron.h"
 #include "SphericalDodecahedron.h"
 #include "SphericalMeshLoader.h"
@@ -49,7 +49,7 @@ public:
 
 
 private:
-    friend class Mesh;
+    friend class SphericalMesh;
     friend class SphericalOctahedron;
     friend class SphericalDodecahedron;
     friend class SphericalCube;
@@ -106,8 +106,8 @@ private:
     // Vertex buffer data
     ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
     
-    std::list<Mesh *> meshes;
-    Mesh *mesh1, *mesh2;
+    std::list<SphericalMesh *> meshes;
+    SphericalMesh *mesh1, *mesh2;
 
     // Shader data
     ID3D11VertexShader* g_d3dVertexShader = nullptr;

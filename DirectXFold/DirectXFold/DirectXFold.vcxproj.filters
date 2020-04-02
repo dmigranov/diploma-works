@@ -57,9 +57,6 @@
     <ClCompile Include="src\TextDrawer.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\Mesh.cpp">
-      <Filter>Исходные файлы\Meshes</Filter>
-    </ClCompile>
     <ClCompile Include="src\Line.cpp">
       <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
@@ -73,6 +70,9 @@
       <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
     <ClCompile Include="src\SphericalCube.cpp">
+      <Filter>Исходные файлы\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalMesh.cpp">
       <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,9 +104,6 @@
     <ClInclude Include="inc\TextDrawer.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Mesh.h">
-      <Filter>Файлы заголовков\Meshes</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Line.h">
       <Filter>Файлы заголовков\Meshes</Filter>
     </ClInclude>
@@ -120,6 +117,9 @@
       <Filter>Файлы заголовков\Meshes</Filter>
     </ClInclude>
     <ClInclude Include="inc\SphericalCube.h">
+      <Filter>Файлы заголовков\Meshes</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalMesh.h">
       <Filter>Файлы заголовков\Meshes</Filter>
     </ClInclude>
   </ItemGroup>

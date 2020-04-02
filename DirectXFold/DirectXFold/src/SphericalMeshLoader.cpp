@@ -5,7 +5,7 @@
 using namespace DirectX::SimpleMath;
 
 
-Mesh* SphericalMeshLoader::LoadMesh(const char* filepath)
+SphericalMesh* SphericalMeshLoader::LoadMesh(const char* filepath)
 {
 	std::ifstream infile;
 	infile.open(filepath);
@@ -18,7 +18,7 @@ Mesh* SphericalMeshLoader::LoadMesh(const char* filepath)
 
 	std::string str;
 
-	std::vector<Mesh::VertexPosColor> vertices;
+	std::vector<SphericalMesh::VertexPosColor> vertices;
 	std::vector<WORD> vertexIndices;
 
 
@@ -43,12 +43,12 @@ Mesh* SphericalMeshLoader::LoadMesh(const char* filepath)
 		}
 	}
 
-	return new Mesh(vertices.size(), &vertices[0], vertexIndices.size(), &vertexIndices[0]);
+	return new SphericalMesh(vertices.size(), &vertices[0], vertexIndices.size(), &vertexIndices[0]);
 }
 
-Mesh* SphericalMeshLoader::LoadMeshSphericalCoordinates(const char* filepath)
+SphericalMesh* SphericalMeshLoader::LoadMeshSphericalCoordinates(const char* filepath)
 {
-	return new Mesh();
+	return new SphericalMesh();
 }
 
 std::vector<std::string> SphericalMeshLoader::parseString(std::string str, char delimiter)

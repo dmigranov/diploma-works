@@ -1,7 +1,7 @@
 #pragma once
-#include "Mesh.h"
+#include "SphericalMesh.h"
 class SphericalOctahedron :
-	public Mesh
+	public SphericalMesh
 {
 public:
 	enum class FixedCoordinate {

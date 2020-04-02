@@ -27,7 +27,7 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
     double inv = sqrt(1. - section * section);
     if (coord == FixedCoordinate::FC_W)
     {
-        Mesh::VertexPosColor vertices[] = {
+        SphericalMesh::VertexPosColor vertices[] = {
         { XMFLOAT4(0.f,  0.f, -inv, section), GenerateRandomColor() }, // 0
         { XMFLOAT4(0.f,  0.f, inv, section), GenerateRandomColor() }, // 1
         { XMFLOAT4(0.f, -inv, 0.f, section), GenerateRandomColor() }, // 2
@@ -46,7 +46,7 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
     }
     else if (coord == FixedCoordinate::FC_Z)
     {
-        Mesh::VertexPosColor vertices[] = {
+        SphericalMesh::VertexPosColor vertices[] = {
         { XMFLOAT4(0.f,  0.f, section, -inv), GenerateRandomColor() }, // 0
         { XMFLOAT4(0.f,  0.f, section, inv), GenerateRandomColor() }, // 1
         { XMFLOAT4(0.f, -inv, section, 0.f), GenerateRandomColor() }, // 2
@@ -59,7 +59,7 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
     }
     else if (coord == FixedCoordinate::FC_Y)
     {
-        Mesh::VertexPosColor vertices[] = {
+        SphericalMesh::VertexPosColor vertices[] = {
         { XMFLOAT4(0.f, section, 0.f, -inv), GenerateRandomColor() }, // 0
         { XMFLOAT4(0.f, section, 0.f, inv), GenerateRandomColor() }, // 1
         { XMFLOAT4(0.f, section, -inv, 0.f), GenerateRandomColor() }, // 2
@@ -72,7 +72,7 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
     }
     else //if (coord == FixedCoordinate::FC_X)
     {
-        Mesh::VertexPosColor vertices[] = {
+        SphericalMesh::VertexPosColor vertices[] = {
         { XMFLOAT4(section, 0.f, 0.f, -inv), GenerateRandomColor() }, // 0
         { XMFLOAT4(section, 0.f, 0.f, inv), GenerateRandomColor() }, // 1
         { XMFLOAT4(section, 0.f, -inv, 0.f), GenerateRandomColor() }, // 2
@@ -146,7 +146,7 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
     double inv = sqrt(1. - section * section);
     if (coord == FixedCoordinate::FC_W)
     {
-        Mesh::VertexPosColor vertices[] = {
+        SphericalMesh::VertexPosColor vertices[] = {
         { XMFLOAT4(0.f,  0.f, -inv, section), colors[0] }, // 0
         { XMFLOAT4(0.f,  0.f, inv, section), colors[1]  }, // 1
         { XMFLOAT4(0.f, -inv, 0.f, section), colors[2]  }, // 2
@@ -165,7 +165,7 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
     }
     else if (coord == FixedCoordinate::FC_Z)
     {
-        Mesh::VertexPosColor vertices[] = {
+        SphericalMesh::VertexPosColor vertices[] = {
         { XMFLOAT4(0.f,  0.f, section, -inv),colors[0]  }, // 0
         { XMFLOAT4(0.f,  0.f, section, inv), colors[1] }, // 1
         { XMFLOAT4(0.f, -inv, section, 0.f), colors[2] }, // 2
@@ -178,7 +178,7 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
     }
     else if (coord == FixedCoordinate::FC_Y)
     {
-        Mesh::VertexPosColor vertices[] = {
+        SphericalMesh::VertexPosColor vertices[] = {
         { XMFLOAT4(0.f, section, 0.f, -inv), colors[0] }, // 0
         { XMFLOAT4(0.f, section, 0.f, inv), colors[1] }, // 1
         { XMFLOAT4(0.f, section, -inv, 0.f), colors[2] }, // 2
@@ -191,7 +191,7 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
     }
     else //if (coord == FixedCoordinate::FC_X)
     {
-        Mesh::VertexPosColor vertices[] = {
+        SphericalMesh::VertexPosColor vertices[] = {
         { XMFLOAT4(section, 0.f, 0.f, -inv), colors[0]  }, // 0
         { XMFLOAT4(section, 0.f, 0.f, inv), colors[1] }, // 1
         { XMFLOAT4(section, 0.f, -inv, 0.f), colors[2] }, // 2

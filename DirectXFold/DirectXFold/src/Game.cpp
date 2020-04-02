@@ -447,7 +447,7 @@ bool Game::LoadContent()
         return false;
     }
 
-    constantBufferDesc.ByteWidth = sizeof(Mesh::MeshConstantBuffer);
+    constantBufferDesc.ByteWidth = sizeof(SphericalMesh::MeshConstantBuffer);
     hr = g_d3dDevice->CreateBuffer(&constantBufferDesc, nullptr, &g_d3dVSConstantBuffers[CB_Object]);
     if (FAILED(hr))
     {
@@ -483,8 +483,8 @@ bool Game::LoadContent()
     //ID3D11InputLayout is used to define how the vertex data attached to the input-assembler stage is layed out in memory
     D3D11_INPUT_ELEMENT_DESC vertexLayoutDesc[] =
     {
-        { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Color), D3D11_INPUT_PER_VERTEX_DATA, 0 }
+        { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(SphericalMesh::VertexPosColor, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
+        { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(SphericalMesh::VertexPosColor, Color), D3D11_INPUT_PER_VERTEX_DATA, 0 }
     };
 
     hr = g_d3dDevice->CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs), &g_d3dInputLayout);
@@ -518,7 +518,7 @@ bool Game::LoadContent()
     {
         float height = 0.5f;
         float s = sqrtf(1 - height * height);
-        Mesh::VertexPosColor vertices[] = {
+        SphericalMesh::VertexPosColor vertices[] = {
         { XMFLOAT4(s, 0.f, 0.f, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
         { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
         { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
@@ -528,7 +528,7 @@ bool Game::LoadContent()
             0, 1, 2, 2, 1, 0
         };
 
-        mesh2 = new Mesh(_countof(vertices), vertices,
+        mesh2 = new SphericalMesh(_countof(vertices), vertices,
             _countof(indices), indices);
         meshes.push_back(mesh2);
 
@@ -552,11 +552,11 @@ bool Game::LoadContent()
         */
 
 
-        //mesh2 = new Mesh(_countof(vertices), vertices, (indices), indices, SphericalRotationXW(0.6f));
+        //mesh2 = new SphericalMesh(_countof(vertices), vertices, (indices), indices, SphericalRotationXW(0.6f));
         //meshes.push_back(mesh2);
         //mesh2->SetParent(mesh1);
 
-        /*mesh1->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
+        /*mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
             return SphericalRotationZW(delta/3.f) * in;
         }));*/
     }
