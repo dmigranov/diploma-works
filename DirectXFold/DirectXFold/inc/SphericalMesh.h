@@ -1,7 +1,7 @@
 #pragma once
 #include "Mesh.h"
 
-class SphericalMesh : Mesh
+class SphericalMesh : public Mesh
 {
     //todo: добавить parent mesh (возможно null)
     friend class SphericalOctahedron;
@@ -16,10 +16,6 @@ public:
     SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, DirectX::XMMATRIX world);
 
     ~SphericalMesh();
-
-    DirectX::XMMATRIX GetWorldMatrix() override;
-	void SetWorldMatrix(DirectX::XMMATRIX world) override;
-    void SetConstants(MeshConstantBuffer constantBuffer) override;
 
     void Move(float x, float y, float z) override;
 
@@ -41,7 +37,6 @@ private:
     ID3D11DeviceContext* deviceContext;
     //todo: ƒјЋ≈≈ Ё“» буфферы должны быть в классе дл€ Shader'а
     ID3D11Resource* d3dConstantBuffer;
-	MeshConstantBuffer constantBuffer;
     
     VertexPosColor* g_Vertices;
     int verticesCount;

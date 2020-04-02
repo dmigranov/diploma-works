@@ -61,17 +61,6 @@ SphericalMesh::SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* ind
     constantBuffer.m_world = world;
 }
 
-
-void SphericalMesh::SetWorldMatrix(XMMATRIX world)
-{
-    constantBuffer.m_world = world;
-}
-
-void SphericalMesh::SetConstants(MeshConstantBuffer constantBuffer)
-{
-    this->constantBuffer = constantBuffer;
-}
-
 void SphericalMesh::Move(float x, float y, float z)
 {
     constantBuffer.m_world = XMMatrixTranslation(x, y, z) *
@@ -89,11 +78,6 @@ void SphericalMesh::Update(float deltaTime)
     {
         constantBuffer.m_world = updater(constantBuffer.m_world, deltaTime);
     }
-}
-
-XMMATRIX SphericalMesh::GetWorldMatrix()
-{
-    return constantBuffer.m_world;
 }
 
 
