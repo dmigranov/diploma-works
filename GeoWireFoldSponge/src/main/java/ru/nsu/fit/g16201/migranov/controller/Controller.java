@@ -49,6 +49,7 @@ public class Controller {
     private GeodesicsCalculator geodesicsCalculator;
 
     private SpongeFunction spongeFunction = new SpongeFunction(1);
+    private BumpFunction bumpFunction = new BumpFunction();
 
 
     public Controller(WireframePanel wireframePanel) {
