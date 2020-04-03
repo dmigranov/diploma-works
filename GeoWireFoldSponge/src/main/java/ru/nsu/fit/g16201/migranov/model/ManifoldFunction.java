@@ -2,7 +2,7 @@ package ru.nsu.fit.g16201.migranov.model;
 
 import java.util.function.Function;
 
-abstract class ManifoldFunction implements Function<double[], double[]> {
+public abstract class ManifoldFunction implements Function<double[], double[]> {
     double uMin;
     double uMax;
     double vMin;

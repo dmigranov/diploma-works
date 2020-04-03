@@ -48,8 +48,8 @@ public class Controller {
     private SplineCalculator splineCalculator;
     private GeodesicsCalculator geodesicsCalculator;
 
-    private SpongeFunction spongeFunction = new SpongeFunction(1);
-    private BumpFunction bumpFunction = new BumpFunction();
+    //private ManifoldFunction spongeFunction = new SpongeFunction(1);
+    private ManifoldFunction spongeFunction = new BumpFunction();
 
 
     public Controller(WireframePanel wireframePanel) {
@@ -106,8 +106,8 @@ public class Controller {
                 {
                     var g1 = geodesics.get(0);
                     var g2 = geodesics.get(1);
-                    g1.setuStart(g1.getuStart() - 0.1);
-                    g2.setuStart(g2.getuStart() + 0.1);
+                    g1.setuStart(g1.getuStart() - 0.02);
+                    g2.setuStart(g2.getuStart() + 0.02);
                     geodesicsCalculator.calculateGeodesic(g1);
                     geodesicsCalculator.calculateGeodesic(g2);
                 }
@@ -116,8 +116,8 @@ public class Controller {
                 {
                     var g1 = geodesics.get(0);
                     var g2 = geodesics.get(1);
-                    g1.setuStart(g1.getuStart() + 0.1);
-                    g2.setuStart(g2.getuStart() - 0.1);
+                    g1.setuStart(g1.getuStart() + 0.02);
+                    g2.setuStart(g2.getuStart() - 0.02);
                     geodesicsCalculator.calculateGeodesic(g1);
                     geodesicsCalculator.calculateGeodesic(g2);
                 }
