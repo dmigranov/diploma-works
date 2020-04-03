@@ -49,7 +49,7 @@ public class Controller {
     private GeodesicsCalculator geodesicsCalculator;
 
     //private ManifoldFunction spongeFunction = new SpongeFunction(1);
-    private ManifoldFunction spongeFunction = new BumpFunction();
+    private ManifoldFunction spongeFunction = new BumpFunction(10);
 
 
     public Controller(WireframePanel wireframePanel) {
@@ -309,7 +309,7 @@ public class Controller {
                     Puv = new Point3D(vals[0], vals[1], vals[2]);
                 }
                 else
-                    Puv = splineCalculator.calculateSplineFunction(u, v, i == n * k, j == m * k);
+                    Puv = splineCalculator.calculateSplineFunction(u, v, i == n * k, j == m * k);   //todo: заменитт на SplineFunction
                 v += incrementV;
 
                 double x = Puv.x, y = -Puv.z, z = Puv.y;
