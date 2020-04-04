@@ -1,6 +1,5 @@
 package ru.nsu.fit.g16201.migranov.model;
 
-import static java.lang.Math.abs;
 
 public class SplineCalculator {
     private int Ni, Nj, Ti, Tj;
@@ -29,7 +28,7 @@ public class SplineCalculator {
         knotsJ = new double[Nj + Tj + 2];
 
 
-            //clamped spacing
+            //clamped spacing - закоментированно
             for (int i = 0; i < knotsI.length; i++) {
                 if (Ti >= i)
                     knotsI[i] = 0;
@@ -48,6 +47,7 @@ public class SplineCalculator {
                     knotsJ[j] = j - Tj;
                 else //j > n
                     knotsJ[j] = Nj - Tj + 1;
+
             }
             vMin = knotsJ[0];
             vMax = knotsJ[Nj + Tj];

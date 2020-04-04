@@ -145,6 +145,7 @@ public class GeoWireFoldFrame extends MainFrame {
         uvPanel.add(new LabelTextField("v0: ", vStartField, new FloatTextFieldKeyListener()));
         uvPanel.add(new LabelTextField("u̇0: ", uDirField, new FloatTextFieldKeyListener()));
         uvPanel.add(new LabelTextField("v̇0: ", vDirField, new FloatTextFieldKeyListener()));
+        geodesicsPanel.add(uvPanel);
 
         addGeodesicButton = new JButton("Add Geodesic");
         removeGeodesicButton = new JButton("Remove Geodesic");
