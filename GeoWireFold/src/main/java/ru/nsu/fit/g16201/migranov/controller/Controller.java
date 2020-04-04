@@ -533,4 +533,8 @@ public class Controller {
     }
 
     public int getGeodesicsCount() { return geodesics.size(); }
+
+    public Geodesic getGeodesic(int index) {
+        return geodesics.get(index);
+    }
 }

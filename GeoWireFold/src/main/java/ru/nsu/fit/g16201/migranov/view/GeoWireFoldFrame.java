@@ -1,6 +1,7 @@
 package ru.nsu.fit.g16201.migranov.view;
 
 import ru.nsu.fit.g16201.migranov.controller.Controller;
+import ru.nsu.fit.g16201.migranov.model.Geodesic;
 import ru.nsu.fit.g16201.migranov.view.frametemplate.MainFrame;
 
 import javax.swing.*;
@@ -117,13 +118,6 @@ public class GeoWireFoldFrame extends MainFrame {
 
         geoList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         geoList.setLayoutOrientation(JList.VERTICAL);
-        geoList.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-
-            }
-        });
-
 
         JScrollPane geoScrollPane = new JScrollPane(geoList);
         geodesicsPanel.add(geoScrollPane);
@@ -139,6 +133,17 @@ public class GeoWireFoldFrame extends MainFrame {
         uvPanel.add(new LabelTextField("u̇0: ", uDirField, new FloatTextFieldKeyListener()));
         uvPanel.add(new LabelTextField("v̇0: ", vDirField, new FloatTextFieldKeyListener()));
         geodesicsPanel.add(uvPanel);
+
+        geoList.addListSelectionListener(e -> {
+            int index = geoList.getSelectedIndex();
+            Geodesic geodesic = controller.getGeodesic(index);
+            uStartField.setText(Double.toString(geodesic.getuStart()));
+            uDirField.setText(Double.toString(geodesic.getuDir()));
+            vStartField.setText(Double.toString(geodesic.getvStart()));
+            vDirField.setText(Double.toString(geodesic.getvDir()));
+
+        });
+
     }
 
 
