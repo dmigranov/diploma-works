@@ -531,4 +531,6 @@ public class Controller {
     public int getNj() {
         return splineCalculator.getNj();
     }
+
+    public int getGeodesicsCount() { return geodesics.size(); }
 }

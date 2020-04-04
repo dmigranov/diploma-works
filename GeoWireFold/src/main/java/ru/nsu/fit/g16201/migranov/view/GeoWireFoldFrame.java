@@ -35,7 +35,9 @@ public class GeoWireFoldFrame extends MainFrame {
 
     private JTextField uStartField, vStartField, uDirField, vDirField;
 
+    private JList geoList;
     private JButton confirmButton;
+    private DefaultListModel<String> geoListModel;
 
     public static void main(String[] args) throws Exception {
         new GeoWireFoldFrame();
@@ -108,7 +110,9 @@ public class GeoWireFoldFrame extends MainFrame {
     private void createGeodesicsConfigurationPanel() {
         geodesicsPanel = new JPanel();
 
-        JList geoList = new JList();
+        geoListModel = new DefaultListModel<String>();
+        geoList = new JList(geoListModel);
+
         geoList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         geoList.setLayoutOrientation(JList.VERTICAL);
 
@@ -294,6 +298,7 @@ public class GeoWireFoldFrame extends MainFrame {
     }
 
     private void updateFields() {
+
         nField.setText(controller.getN() + "");
         mField.setText(controller.getM() + "");
         kField.setText(controller.getK() + "");
@@ -305,6 +310,10 @@ public class GeoWireFoldFrame extends MainFrame {
         backgroundColorChooser.setColor(controller.getBackgroundColor());
         figureColorChooser.setColor(controller.getFigureColor());
 
+
+        int geoCount = controller.getGeodesicsCount();
+        for(int i = 1; i < geoCount + 1; i++)
+            geoListModel.addElement("Geodesic " + i);
     }
 
     public void onOpen3D() throws NoSuchMethodException
