@@ -6,6 +6,7 @@ import ru.nsu.fit.g16201.migranov.view.frametemplate.MainFrame;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -120,8 +121,8 @@ public class GeoWireFoldFrame extends MainFrame {
 
         geoList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         geoList.setLayoutOrientation(JList.VERTICAL);
-
         JScrollPane geoScrollPane = new JScrollPane(geoList);
+        geoList.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 10));
         geodesicsPanel.add(geoScrollPane);
 
         JPanel uvPanel = new JPanel(new GridLayout(3, 2, 0, 0));
