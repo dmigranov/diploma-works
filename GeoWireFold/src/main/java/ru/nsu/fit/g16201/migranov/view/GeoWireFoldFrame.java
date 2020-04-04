@@ -224,10 +224,10 @@ public class GeoWireFoldFrame extends MainFrame {
             removeGeodesicButton.setEnabled(true);
             saveGeodesicButton.setEnabled(true);
             Geodesic geodesic = controller.getGeodesic(index);
-            uStartField.setText(Double.toString(geodesic.getuStart()));
-            uDirField.setText(Double.toString(geodesic.getuDir()));
-            vStartField.setText(Double.toString(geodesic.getvStart()));
-            vDirField.setText(Double.toString(geodesic.getvDir()));
+            uStartField.setText(String.format("%.3f", geodesic.getuStart()));
+            uDirField.setText(String.format("%.3f", geodesic.getuDir()));
+            vStartField.setText(String.format("%.3f", geodesic.getvStart()));
+            vDirField.setText(String.format("%.3f", geodesic.getvDir()));
             geodesicColorChooser.setColor(geodesic.getColor());
         }
     }
