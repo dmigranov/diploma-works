@@ -211,7 +211,7 @@ public class GeoWireFoldFrame extends MainFrame {
             catch (NumberFormatException n)
             {
                 JOptionPane.showMessageDialog(GeoWireFoldFrame.this, n.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }*/
+            }
         });
     }
 
