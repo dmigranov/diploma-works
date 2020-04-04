@@ -139,7 +139,7 @@ public class GeoWireFoldFrame extends MainFrame {
         addGeodesicButton = new JButton("Add Geodesic");
         removeGeodesicButton = new JButton("Remove Geodesic");
         removeGeodesicButton.setEnabled(false);
-        saveGeodesicButton = new JButton("Save");
+        saveGeodesicButton = new JButton("Apply");
         saveGeodesicButton.setEnabled(false);
 
         addGeodesicButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -158,6 +158,7 @@ public class GeoWireFoldFrame extends MainFrame {
             int index = geoList.getSelectedIndex();
             if (index == -1) {
                 removeGeodesicButton.setEnabled(false);
+                saveGeodesicButton.setEnabled(false);
                 uStartField.setText("");
                 uDirField.setText("");
                 vStartField.setText("");
@@ -165,6 +166,7 @@ public class GeoWireFoldFrame extends MainFrame {
             }
             else {
                 removeGeodesicButton.setEnabled(true);
+                saveGeodesicButton.setEnabled(true);
                 Geodesic geodesic = controller.getGeodesic(index);
                 uStartField.setText(Double.toString(geodesic.getuStart()));
                 uDirField.setText(Double.toString(geodesic.getuDir()));
@@ -184,6 +186,13 @@ public class GeoWireFoldFrame extends MainFrame {
                 return;
             controller.removeGeodesic(index);
             updateFields();
+        });
+
+        saveGeodesicButton.addActionListener(e -> {
+            int index = geoList.getSelectedIndex();
+            if(index == -1)
+                return;
+
         });
     }
 

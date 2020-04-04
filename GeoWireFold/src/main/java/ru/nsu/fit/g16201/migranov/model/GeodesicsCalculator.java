@@ -182,7 +182,7 @@ public class GeodesicsCalculator {
         //Point3D[] points = new Point3D[30];
         List<Point3D> points = new ArrayList<>();
         double[] state = new double[] {uDir, vDir, uStart, vStart}, newState;
-        double t = 0, step = 0.2;
+        double t = 0, step = 0.05;
         double eps = 4*epsilon;
         double u = 0, v = 0;
         while(true) //todo или по превышении числа итераций..
