@@ -34,7 +34,7 @@ public class GeoWireFoldFrame extends MainFrame {
 
 
     private JTextField nField, mField, kField, swField, shField, znField, TiField, TjField;
-    private JColorChooser backgroundColorChooser, figureColorChooser;
+    private JColorChooser backgroundColorChooser, figureColorChooser, geodesicColorChooser;
     private JButton confirmButton;
 
 
@@ -124,6 +124,7 @@ public class GeoWireFoldFrame extends MainFrame {
         JScrollPane geoScrollPane = new JScrollPane(geoList);
         geodesicsPanel.add(geoScrollPane);
         JPanel geodesicPropertiesPanel = new JPanel();
+        geodesicPropertiesPanel.setLayout(new BoxLayout(geodesicPropertiesPanel, BoxLayout.Y_AXIS));
         JPanel uvPanel = new JPanel(new GridLayout(3, 2, 0, 0));
         uStartField = new JTextField();
         vStartField = new JTextField();
@@ -138,10 +139,15 @@ public class GeoWireFoldFrame extends MainFrame {
         addGeodesicButton = new JButton("Add Geodesic");
         removeGeodesicButton = new JButton("Remove Geodesic");
         removeGeodesicButton.setEnabled(false);
-        uvPanel.add(addGeodesicButton);
-        uvPanel.add(removeGeodesicButton);
 
-        geodesicsPanel.add(uvPanel);
+        addGeodesicButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        removeGeodesicButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        geodesicPropertiesPanel.add(uvPanel);
+        geodesicPropertiesPanel.add(addGeodesicButton);
+        geodesicPropertiesPanel.add(Box.createVerticalStrut(5));
+        geodesicPropertiesPanel.add(removeGeodesicButton);
+        geodesicsPanel.add(geodesicPropertiesPanel);
 
         geoList.addListSelectionListener(e -> {
             int index = geoList.getSelectedIndex();
