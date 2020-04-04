@@ -131,6 +131,16 @@ public class GeoWireFoldFrame extends MainFrame {
         uDirField = new JTextField();
         vDirField = new JTextField();
 
+        geodesicColorChooser = new JColorChooser();
+        {
+            AbstractColorChooserPanel[] panels = geodesicColorChooser.getChooserPanels();
+            for (AbstractColorChooserPanel p : panels)
+                if (!p.getDisplayName().equals("RGB"))
+                    geodesicColorChooser.removeChooserPanel(p);
+            geodesicColorChooser.setPreviewPanel(new JPanel());
+            geodesicColorChooser.setColor(controller.getBackgroundColor());
+        }
+
         uvPanel.add(new LabelTextField("u0: ", uStartField, new FloatTextFieldKeyListener()));
         uvPanel.add(new LabelTextField("v0: ", vStartField, new FloatTextFieldKeyListener()));
         uvPanel.add(new LabelTextField("u̇0: ", uDirField, new FloatTextFieldKeyListener()));
@@ -152,7 +162,9 @@ public class GeoWireFoldFrame extends MainFrame {
         geodesicPropertiesPanel.add(removeGeodesicButton);
         geodesicPropertiesPanel.add(Box.createVerticalStrut(5));
         geodesicPropertiesPanel.add(saveGeodesicButton);
+
         geodesicsPanel.add(geodesicPropertiesPanel);
+        geodesicsPanel.add(geodesicColorChooser);
 
         geoList.addListSelectionListener(e -> {
             int index = geoList.getSelectedIndex();
@@ -203,7 +215,7 @@ public class GeoWireFoldFrame extends MainFrame {
                 vDir = Double.parseDouble(vDirField.getText());
 
 
-                controller.changeGeodesic(uStart, vStart, uDir, vDir, geodesicColorChooser.getColor());
+                //controller.changeGeodesic(uStart, vStart, uDir, vDir, geodesicColorChooser.getColor());   //todo
 
 
                 updateFields();
