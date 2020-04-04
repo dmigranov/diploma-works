@@ -123,8 +123,7 @@ public class GeoWireFoldFrame extends MainFrame {
 
         JScrollPane geoScrollPane = new JScrollPane(geoList);
         geodesicsPanel.add(geoScrollPane);
-        JPanel geodesicPropertiesPanel = new JPanel();
-        geodesicPropertiesPanel.setLayout(new BoxLayout(geodesicPropertiesPanel, BoxLayout.Y_AXIS));
+
         JPanel uvPanel = new JPanel(new GridLayout(3, 2, 0, 0));
         uStartField = new JTextField();
         vStartField = new JTextField();
@@ -156,14 +155,6 @@ public class GeoWireFoldFrame extends MainFrame {
         removeGeodesicButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         saveGeodesicButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        geodesicPropertiesPanel.add(uvPanel);
-        geodesicPropertiesPanel.add(addGeodesicButton);
-        geodesicPropertiesPanel.add(Box.createVerticalStrut(5));
-        geodesicPropertiesPanel.add(removeGeodesicButton);
-        geodesicPropertiesPanel.add(Box.createVerticalStrut(5));
-        geodesicPropertiesPanel.add(saveGeodesicButton);
-
-        geodesicsPanel.add(geodesicPropertiesPanel);
         geodesicsPanel.add(geodesicColorChooser);
 
         geoList.addListSelectionListener(e -> {
@@ -468,15 +459,9 @@ public class GeoWireFoldFrame extends MainFrame {
 
     public void onConfigureGeodesics()
     {
-        //выводить окно со списком геодезических.
-        //как задавать: начальная точка +...
-        //вектор? и потом по нему идти
         updateFields();
-        if(JOptionPane.showConfirmDialog(this, geodesicsPanel, "Options", JOptionPane.DEFAULT_OPTION) == JOptionPane.OK_OPTION)
-        {
 
-        }
-
+        JOptionPane.showOptionDialog(this, geodesicsPanel, "Geodesics Options", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, new Object[]{addGeodesicButton, removeGeodesicButton, saveGeodesicButton}, addGeodesicButton);
     }
 
     public void onConfigure()
