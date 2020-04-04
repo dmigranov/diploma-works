@@ -124,7 +124,7 @@ public class GeoWireFoldFrame extends MainFrame {
         JScrollPane geoScrollPane = new JScrollPane(geoList);
         geodesicsPanel.add(geoScrollPane);
         JPanel geodesicPropertiesPanel = new JPanel();
-        JPanel uvPanel = new JPanel(new GridLayout(2, 2, 0, 0));
+        JPanel uvPanel = new JPanel(new GridLayout(3, 2, 0, 0));
         uStartField = new JTextField();
         vStartField = new JTextField();
         uDirField = new JTextField();
@@ -134,16 +134,34 @@ public class GeoWireFoldFrame extends MainFrame {
         uvPanel.add(new LabelTextField("v0: ", vStartField, new FloatTextFieldKeyListener()));
         uvPanel.add(new LabelTextField("u̇0: ", uDirField, new FloatTextFieldKeyListener()));
         uvPanel.add(new LabelTextField("v̇0: ", vDirField, new FloatTextFieldKeyListener()));
+
+        addGeodesicButton = new JButton("Add Geodesic");
+        removeGeodesicButton = new JButton("Remove Geodesic");
+        removeGeodesicButton.setEnabled(false);
+        uvPanel.add(addGeodesicButton);
+        uvPanel.add(removeGeodesicButton);
+
         geodesicsPanel.add(uvPanel);
 
         geoList.addListSelectionListener(e -> {
             int index = geoList.getSelectedIndex();
-            Geodesic geodesic = controller.getGeodesic(index);
-            uStartField.setText(Double.toString(geodesic.getuStart()));
-            uDirField.setText(Double.toString(geodesic.getuDir()));
-            vStartField.setText(Double.toString(geodesic.getvStart()));
-            vDirField.setText(Double.toString(geodesic.getvDir()));
+            if (index == -1) {
+                removeGeodesicButton.setEnabled(false);
+                uStartField.setText("");
+                uDirField.setText("");
+                vStartField.setText("");
+                vDirField.setText("");
+            }
+            else {
+                removeGeodesicButton.setEnabled(true);
+                Geodesic geodesic = controller.getGeodesic(index);
+                uStartField.setText(Double.toString(geodesic.getuStart()));
+                uDirField.setText(Double.toString(geodesic.getuDir()));
+                vStartField.setText(Double.toString(geodesic.getvStart()));
+                vDirField.setText(Double.toString(geodesic.getvDir()));
+            }
         });
+
 
     }
 
@@ -376,7 +394,7 @@ public class GeoWireFoldFrame extends MainFrame {
     {
         JPanel aboutPanel = new JPanel();
         aboutPanel.setLayout(new BoxLayout(aboutPanel, BoxLayout.Y_AXIS));
-        aboutPanel.add(new JLabel("Denis Migranov, Novosibirsk State University, group 16201, 2019"));
+        aboutPanel.add(new JLabel("Denis Migranov, Novosibirsk State University, IT faculty, group 16201, 2019-2020"));
         aboutPanel.add(new JLabel("Icons used are from www.flaticon.com/packs/multimedia-collection and icons8.com"));
         JOptionPane.showMessageDialog(this, aboutPanel, "GeoWireFold", JOptionPane.INFORMATION_MESSAGE);
     }
