@@ -198,7 +198,7 @@ public class GeoWireFoldFrame extends MainFrame {
                 uDir = Double.parseDouble(uDirField.getText());
                 vDir = Double.parseDouble(vDirField.getText());
 
-                controller.changeGeodesic(uStart, vStart, uDir, vDir, geodesicColorChooser.getColor());
+                controller.changeGeodesic(index, uStart, vStart, uDir, vDir, geodesicColorChooser.getColor());
 
                 updateGeodesicFields(index);
             }

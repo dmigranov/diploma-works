@@ -553,7 +553,15 @@ public class Controller {
         drawFigure();
     }
 
-    public void changeGeodesic(double uStart, double vStart, double uDir, double vDir, Color color) {
-        //todo
+    public void changeGeodesic(int index, double uStart, double vStart, double uDir, double vDir, Color color) {
+        Geodesic geodesic = geodesics.get(index);
+        geodesic.setuStart(uStart);
+        geodesic.setvStart(vStart);
+        geodesic.setuDir(uDir);
+        geodesic.setvDir(vDir);
+        geodesic.setColor(color);
+
+        needsToBeRedrawn = true;
+        drawFigure();
     }
 }

@@ -64,4 +64,8 @@ public class Geodesic {
     public void setvDir(double vDir) {
         this.vDir = vDir;
     }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
 }
