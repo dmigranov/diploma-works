@@ -15,7 +15,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WireframeFrame extends MainFrame {
+public class GeoWireFoldFrame extends MainFrame {
     private JLabel statusLabel = new JLabel("");
 
     private List<AbstractButton> deactivatedButtons = new ArrayList<>();
@@ -38,7 +38,7 @@ public class WireframeFrame extends MainFrame {
     private JButton confirmButton;
 
     public static void main(String[] args) throws Exception {
-        new WireframeFrame();
+        new GeoWireFoldFrame();
     }
 
     private void resize() {
@@ -73,7 +73,7 @@ public class WireframeFrame extends MainFrame {
         mainPanel.revalidate();
     }
 
-    private WireframeFrame() throws Exception {
+    private GeoWireFoldFrame() throws Exception {
         super(800, 600, "Untitled | Denis Migranov, 16201");
 
         mainPanel = new JPanel(new GridBagLayout());
@@ -230,7 +230,7 @@ public class WireframeFrame extends MainFrame {
             }
             catch (NumberFormatException n)
             {
-                JOptionPane.showMessageDialog(WireframeFrame.this, n.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(GeoWireFoldFrame.this, n.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
         confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -263,7 +263,7 @@ public class WireframeFrame extends MainFrame {
         final Method method = getClass().getMethod(actionMethod);
         item.addActionListener(evt -> {
             try {
-                method.invoke(WireframeFrame.this);
+                method.invoke(GeoWireFoldFrame.this);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

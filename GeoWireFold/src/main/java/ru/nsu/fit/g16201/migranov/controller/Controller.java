@@ -100,8 +100,8 @@ public class Controller {
                     dy = -0.1;
                 else if (key == KeyEvent.VK_Q)
                 {
-                    var g1 = geodesics.get(0);
-                    var g2 = geodesics.get(1);
+                    Geodesic g1 = geodesics.get(0);
+                    Geodesic g2 = geodesics.get(1);
                     g1.setuStart(g1.getuStart() - 0.05);
                     g2.setuStart(g2.getuStart() + 0.05);
                     geodesicsCalculator.calculateGeodesic(g1);
@@ -110,15 +110,15 @@ public class Controller {
 
                 else if (key == KeyEvent.VK_E)
                 {
-                    var g1 = geodesics.get(0);
-                    var g2 = geodesics.get(1);
+                    Geodesic g1 = geodesics.get(0);
+                    Geodesic g2 = geodesics.get(1);
                     g1.setuStart(g1.getuStart() + 0.05);
                     g2.setuStart(g2.getuStart() - 0.05);
                     geodesicsCalculator.calculateGeodesic(g1);
                     geodesicsCalculator.calculateGeodesic(g2);
                 }
 
-                    Matrix tr = Matrix.getTranslationMatrix(new Point3D(dx, dy, dz));
+                Matrix tr = Matrix.getTranslationMatrix(new Point3D(dx, dy, dz));
 
                 Point3D z = new Point3D(-(ref.x - eye.x), -(ref.y - eye.y), -(ref.z - eye.z)).normalize();
                 Point3D x = Point3D.getVectorProduct(up, z).normalize();
@@ -188,7 +188,7 @@ public class Controller {
         //n*k и m*k - это фактически разрешение
         if (needsToBeRedrawn) {
             findModelPoints();
-            for(var geodesic : geodesics )
+            for(Geodesic geodesic : geodesics )
                 geodesicsCalculator.calculateGeodesic(geodesic);
 
             //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
@@ -246,7 +246,7 @@ public class Controller {
 
         //drawGeodesic
         {
-            for(var geodesic : geodesics) {
+            for(Geodesic geodesic : geodesics) {
                 Point prev = null;
                 Color geoColor = geodesic.getColor();
                 for (Point3D p : geodesic.getPoints()) {

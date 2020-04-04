@@ -30,7 +30,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>ru.nsu.fit.g16201.migranov.view.WireframeFrame</mainClass>
+                            <mainClass>ru.nsu.fit.g16201.migranov.view.GeoWireFoldFrame</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
