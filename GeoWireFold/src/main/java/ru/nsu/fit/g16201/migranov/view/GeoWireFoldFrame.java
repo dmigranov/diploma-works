@@ -41,7 +41,7 @@ public class GeoWireFoldFrame extends MainFrame {
     private JTextField uStartField, vStartField, uDirField, vDirField;
     private JList geoList;
     private DefaultListModel<String> geoListModel;
-    private JButton addGeodesicButton, removeGeodesicButton;
+    private JButton addGeodesicButton, removeGeodesicButton, saveGeodesicButton;
 
 
     public static void main(String[] args) throws Exception {
@@ -139,14 +139,19 @@ public class GeoWireFoldFrame extends MainFrame {
         addGeodesicButton = new JButton("Add Geodesic");
         removeGeodesicButton = new JButton("Remove Geodesic");
         removeGeodesicButton.setEnabled(false);
+        saveGeodesicButton = new JButton("Save");
+        saveGeodesicButton.setEnabled(false);
 
         addGeodesicButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         removeGeodesicButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        saveGeodesicButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         geodesicPropertiesPanel.add(uvPanel);
         geodesicPropertiesPanel.add(addGeodesicButton);
         geodesicPropertiesPanel.add(Box.createVerticalStrut(5));
         geodesicPropertiesPanel.add(removeGeodesicButton);
+        geodesicPropertiesPanel.add(Box.createVerticalStrut(5));
+        geodesicPropertiesPanel.add(saveGeodesicButton);
         geodesicsPanel.add(geodesicPropertiesPanel);
 
         geoList.addListSelectionListener(e -> {
@@ -422,7 +427,7 @@ public class GeoWireFoldFrame extends MainFrame {
         //как задавать: начальная точка +...
         //вектор? и потом по нему идти
         updateFields();
-        if(JOptionPane.showConfirmDialog(this, geodesicsPanel, "Options", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION)
+        if(JOptionPane.showConfirmDialog(this, geodesicsPanel, "Options", JOptionPane.DEFAULT_OPTION) == JOptionPane.OK_OPTION)
         {
 
         }
