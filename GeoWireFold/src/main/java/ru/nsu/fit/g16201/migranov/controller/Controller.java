@@ -550,4 +550,8 @@ public class Controller {
         geodesics.remove(index);
         drawFigure();
     }
+
+    public double getuMax() {
+        return getuMax();
+    }
 }

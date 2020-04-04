@@ -193,31 +193,18 @@ public class GeoWireFoldFrame extends MainFrame {
             if(index == -1)
                 return;
 
-            /*try
+            try
             {
-                double zn, sw, sh;
+                double uStart, uDir, vStart, vDir;
 
-                sw = Double.parseDouble(swField.getText());
-                sh = Double.parseDouble(shField.getText());
-                zn = Double.parseDouble(znField.getText());
+                uStart = Double.parseDouble(uStartField.getText());
+                vStart = Double.parseDouble(vStartField.getText());
+                uDir = Double.parseDouble(uDirField.getText());
+                vDir = Double.parseDouble(vDirField.getText());
 
-                if(!(zn > 0 && sw > 0 && sh > 0))
-                    throw new NumberFormatException("Wrong clipping");
 
-                int n, m, k, Ti, Tj;
-                n = Integer.parseInt(nField.getText());
-                k = Integer.parseInt(kField.getText());
-                m = Integer.parseInt(mField.getText());
-                Ti = Integer.parseInt(TiField.getText());
-                Tj = Integer.parseInt(TjField.getText());
-                if(1 > Ti || 1 > Tj || Ti > controller.getNi() || Tj > controller.getNj())
-                    throw new NumberFormatException("Wrong Ti or Tj, 1 <= Ti <= Ni");
-                if(m <= 0 || n <= 0 || k <= 0)
-                    throw new NumberFormatException("Wrong m, n, or k");
+                //controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj);
 
-                controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj);
-
-                resize();
 
                 updateFields();
             }
