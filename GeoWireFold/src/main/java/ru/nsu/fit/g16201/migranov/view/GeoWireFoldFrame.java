@@ -223,7 +223,7 @@ public class GeoWireFoldFrame extends MainFrame {
         else {
             removeGeodesicButton.setEnabled(true);
             saveGeodesicButton.setEnabled(true);
-            Geodesic geodesic = controller.getGeodesic(index);
+            var geodesic = controller.getGeodesic(index);
             uStartField.setText(String.format("%.3f", geodesic.getuStart()));
             uDirField.setText(String.format("%.3f", geodesic.getuDir()));
             vStartField.setText(String.format("%.3f", geodesic.getvStart()));
