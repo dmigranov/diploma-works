@@ -6,6 +6,8 @@ import ru.nsu.fit.g16201.migranov.view.frametemplate.MainFrame;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import java.awt.*;
 import java.awt.event.*;
@@ -115,6 +117,13 @@ public class GeoWireFoldFrame extends MainFrame {
 
         geoList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         geoList.setLayoutOrientation(JList.VERTICAL);
+        geoList.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+
+            }
+        });
+
 
         JScrollPane geoScrollPane = new JScrollPane(geoList);
         geodesicsPanel.add(geoScrollPane);
@@ -310,7 +319,7 @@ public class GeoWireFoldFrame extends MainFrame {
         backgroundColorChooser.setColor(controller.getBackgroundColor());
         figureColorChooser.setColor(controller.getFigureColor());
 
-
+        geoListModel.clear();
         int geoCount = controller.getGeodesicsCount();
         for(int i = 1; i < geoCount + 1; i++)
             geoListModel.addElement("Geodesic " + i);
