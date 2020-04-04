@@ -114,7 +114,6 @@ public class GeoWireFoldFrame extends MainFrame {
 
         JScrollPane geoScrollPane = new JScrollPane(geoList);
         geodesicsPanel.add(geoScrollPane);
-
         JPanel geodesicPropertiesPanel = new JPanel();
         JPanel uvPanel = new JPanel(new GridLayout(2, 2, 0, 0));
         uStartField = new JTextField();
@@ -126,6 +125,7 @@ public class GeoWireFoldFrame extends MainFrame {
         uvPanel.add(new LabelTextField("v0: ", vStartField, new FloatTextFieldKeyListener()));
         uvPanel.add(new LabelTextField("u̇0: ", uDirField, new FloatTextFieldKeyListener()));
         uvPanel.add(new LabelTextField("v̇0: ", vDirField, new FloatTextFieldKeyListener()));
+        geodesicsPanel.add(uvPanel);
     }
 
 
