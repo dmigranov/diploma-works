@@ -175,6 +175,8 @@ public class GeoWireFoldFrame extends MainFrame {
                 uDirField.setText("");
                 vStartField.setText("");
                 vDirField.setText("");
+                backgroundColorChooser.setColor(Color.BLACK);
+
             }
             else {
                 removeGeodesicButton.setEnabled(true);
@@ -184,6 +186,7 @@ public class GeoWireFoldFrame extends MainFrame {
                 uDirField.setText(Double.toString(geodesic.getuDir()));
                 vStartField.setText(Double.toString(geodesic.getvStart()));
                 vDirField.setText(Double.toString(geodesic.getvDir()));
+                backgroundColorChooser.setColor(geodesic.getColor());
             }
         });
 
