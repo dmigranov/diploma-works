@@ -173,7 +173,13 @@ public class GeoWireFoldFrame extends MainFrame {
             updateFields();
         });
 
-
+        removeGeodesicButton.addActionListener(e -> {
+            int index = geoList.getSelectedIndex();
+            if(index == -1)
+                return;
+            controller.removeGeodesic(index);
+            updateFields();
+        });
     }
 
 

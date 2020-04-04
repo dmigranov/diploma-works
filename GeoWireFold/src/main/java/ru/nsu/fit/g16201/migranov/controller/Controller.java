@@ -546,4 +546,9 @@ public class Controller {
         needsToBeRedrawn = true;
         drawFigure();
     }
+
+    public void removeGeodesic(int index) {
+        geodesics.remove(index);
+        drawFigure();
+    }
 }
