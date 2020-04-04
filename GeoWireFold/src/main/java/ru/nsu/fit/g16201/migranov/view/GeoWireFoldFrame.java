@@ -35,12 +35,14 @@ public class GeoWireFoldFrame extends MainFrame {
 
     private JTextField nField, mField, kField, swField, shField, znField, TiField, TjField;
     private JColorChooser backgroundColorChooser, figureColorChooser;
+    private JButton confirmButton;
+
 
     private JTextField uStartField, vStartField, uDirField, vDirField;
-
     private JList geoList;
-    private JButton confirmButton;
     private DefaultListModel<String> geoListModel;
+    private JButton addGeodesicButton, removeGeodesicButton;
+
 
     public static void main(String[] args) throws Exception {
         new GeoWireFoldFrame();
@@ -141,7 +143,6 @@ public class GeoWireFoldFrame extends MainFrame {
             uDirField.setText(Double.toString(geodesic.getuDir()));
             vStartField.setText(Double.toString(geodesic.getvStart()));
             vDirField.setText(Double.toString(geodesic.getvDir()));
-
         });
 
     }
