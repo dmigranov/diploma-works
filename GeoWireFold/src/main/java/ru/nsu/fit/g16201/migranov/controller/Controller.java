@@ -478,7 +478,7 @@ public class Controller {
         wireframePanel.setBackgroundColor(backgroundColor);
 
         splineCalculator.setDegrees(ti, tj);
-
+        needsToBeRedrawn = true;
         drawFigure();
     }
 
@@ -543,7 +543,6 @@ public class Controller {
 
         geodesics.add(new Geodesic((uMax - uMin)/2, (vMax - vMin)/2, (uMax-uMin)/10, (vMax-vMin)/10, Color.BLACK));
 
-        needsToBeRedrawn = true;
         drawFigure();
     }
 
