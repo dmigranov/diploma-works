@@ -168,26 +168,7 @@ public class GeoWireFoldFrame extends MainFrame {
 
         geoList.addListSelectionListener(e -> {
             int index = geoList.getSelectedIndex();
-            if (index == -1) {
-                removeGeodesicButton.setEnabled(false);
-                saveGeodesicButton.setEnabled(false);
-                uStartField.setText("");
-                uDirField.setText("");
-                vStartField.setText("");
-                vDirField.setText("");
-                geodesicColorChooser.setColor(Color.BLACK);
-
-            }
-            else {
-                removeGeodesicButton.setEnabled(true);
-                saveGeodesicButton.setEnabled(true);
-                Geodesic geodesic = controller.getGeodesic(index);
-                uStartField.setText(Double.toString(geodesic.getuStart()));
-                uDirField.setText(Double.toString(geodesic.getuDir()));
-                vStartField.setText(Double.toString(geodesic.getvStart()));
-                vDirField.setText(Double.toString(geodesic.getvDir()));
-                geodesicColorChooser.setColor(geodesic.getColor());
-            }
+            updateGeodesicFields(index);
         });
 
         addGeodesicButton.addActionListener(e -> {
@@ -217,17 +198,38 @@ public class GeoWireFoldFrame extends MainFrame {
                 uDir = Double.parseDouble(uDirField.getText());
                 vDir = Double.parseDouble(vDirField.getText());
 
+                controller.changeGeodesic(uStart, vStart, uDir, vDir, geodesicColorChooser.getColor());
 
-                //controller.changeGeodesic(uStart, vStart, uDir, vDir, geodesicColorChooser.getColor());   //todo
-
-
-                updateFields();
+                updateGeodesicFields(index);
             }
             catch (NumberFormatException n)
             {
                 JOptionPane.showMessageDialog(GeoWireFoldFrame.this, n.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
+    }
+
+    private void updateGeodesicFields(int index) {
+        if (index == -1) {
+            removeGeodesicButton.setEnabled(false);
+            saveGeodesicButton.setEnabled(false);
+            uStartField.setText("");
+            uDirField.setText("");
+            vStartField.setText("");
+            vDirField.setText("");
+            geodesicColorChooser.setColor(Color.BLACK);
+
+        }
+        else {
+            removeGeodesicButton.setEnabled(true);
+            saveGeodesicButton.setEnabled(true);
+            Geodesic geodesic = controller.getGeodesic(index);
+            uStartField.setText(Double.toString(geodesic.getuStart()));
+            uDirField.setText(Double.toString(geodesic.getuDir()));
+            vStartField.setText(Double.toString(geodesic.getvStart()));
+            vDirField.setText(Double.toString(geodesic.getvDir()));
+            geodesicColorChooser.setColor(geodesic.getColor());
+        }
     }
 
 

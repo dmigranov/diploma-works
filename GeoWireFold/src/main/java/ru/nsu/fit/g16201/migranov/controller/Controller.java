@@ -553,7 +553,7 @@ public class Controller {
         drawFigure();
     }
 
-    public double getuMax() {
-        return getuMax();
+    public void changeGeodesic(double uStart, double vStart, double uDir, double vDir, Color color) {
+        //todo
     }
 }
