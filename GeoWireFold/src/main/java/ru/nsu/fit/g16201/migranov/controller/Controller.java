@@ -479,7 +479,6 @@ public class Controller {
 
         splineCalculator.setDegrees(ti, tj);
 
-        needsToBeRedrawn = true;
         drawFigure();
     }
 
@@ -536,5 +535,15 @@ public class Controller {
 
     public Geodesic getGeodesic(int index) {
         return geodesics.get(index);
+    }
+
+    public void addGeodesic() {
+        double uMin = splineCalculator.getUMin(), uMax = splineCalculator.getUMax();
+        double vMin = splineCalculator.getVMin(), vMax = splineCalculator.getVMax();
+
+        geodesics.add(new Geodesic((uMax - uMin)/2, (vMax - vMin)/2, (uMax-uMin)/10, (vMax-vMin)/10, Color.BLACK));
+
+        needsToBeRedrawn = true;
+        drawFigure();
     }
 }

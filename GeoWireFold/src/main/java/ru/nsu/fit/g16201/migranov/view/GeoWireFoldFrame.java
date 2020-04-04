@@ -162,6 +162,11 @@ public class GeoWireFoldFrame extends MainFrame {
             }
         });
 
+        addGeodesicButton.addActionListener(e -> {
+            controller.addGeodesic();
+            updateFields();
+        });
+
 
     }
 
