@@ -27,10 +27,8 @@ public class GeodesicsCalculator {
     private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, epsilon);
     private ClassicalRungeKuttaIntegrator integrator = new ClassicalRungeKuttaIntegrator(1.0e-8);   //Это число ни на что не влияет, т.к. использую singleStep
 
-
     private Function<double[], double[][]> metricTensorFunction = values -> calculateMetricTensor(values[0], values[1]);
     private ManifoldFunction manifoldFunction;
-
 
     private double[][] calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
     {
@@ -147,7 +145,7 @@ public class GeodesicsCalculator {
 
     private double[][][] calculateChristoffelSymbols(double u0, double v0)
     {
-
+        //todo: оптимизировать
         double[][][] Cs = new double[2][2][2];  //C[i][k][l] = Г ^i  kl
         double[] values = {u0, v0};
         double[][][] gDiff = new double[2][][];
