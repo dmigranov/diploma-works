@@ -93,6 +93,9 @@
     <ClCompile Include="src\HyperbolicMath.cpp">
       <Filter>Исходные файлы\Math</Filter>
     </ClCompile>
+    <ClCompile Include="EllipticalMath.cpp">
+      <Filter>Исходные файлы\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -144,6 +147,9 @@
       <Filter>Файлы заголовков\Math</Filter>
     </ClInclude>
     <ClInclude Include="inc\SphericalMath.h">
+      <Filter>Файлы заголовков\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\EllipticalMath.h">
       <Filter>Файлы заголовков\Math</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,7 +6,7 @@ using namespace DirectX;
 
 //z0 - radians
 //gives 90 degree FOV
-DirectX::SimpleMath::Matrix BananaProjectionMatrix(double z0)
+Matrix BananaProjectionMatrix(double z0)
 {
 	return Matrix(1.f, 0.f, 0.f, 0.f,
 		0.f, 1.f, 0.f, 0.f,

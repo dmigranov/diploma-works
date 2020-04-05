@@ -1,6 +1,8 @@
 #pragma once
 #include "Camera.h"
 #include "SphericalMath.h"
+#include "EllipticalMath.h"
+
 class SphericalCamera :
 	public Camera
 {
@@ -11,6 +13,8 @@ public:
 	const XMMATRIX& GetProj() override;
 	const XMMATRIX& GetFrontProj();
 	const XMMATRIX& GetBackProj();
+	const XMMATRIX& GetEllipticalProj();
+
 	Vector4 GetPosition() override;
 	void Move(Vector4 v) override;
 

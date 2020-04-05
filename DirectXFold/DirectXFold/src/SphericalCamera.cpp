@@ -45,6 +45,12 @@ const XMMATRIX& SphericalCamera::GetBackProj()
 	return back;
 }
 
+const XMMATRIX& SphericalCamera::GetEllipticalProj()
+{
+	static Matrix ell = EllipticalBananaProjectionMatrix(m_nearPlane);
+	return ell;
+}
+
 Vector4 SphericalCamera::GetPosition()
 {
 	return XMVector4Transform(spherePos, m_view);

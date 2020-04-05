@@ -50,16 +50,15 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 
 	matrix viewWorld = mul(viewMatrix, worldMatrix);
 	float4 cameraSpacePosition = mul(viewWorld, IN.position);
+	float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
+	float distance = 2 * asin(chordLength / 2.);
+	
+	if (cameraSpacePosition.z < 0)
+		cameraSpacePosition *= (-1);
 	
 	OUT.color = IN.color;
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	
-	/*if (cameraSpacePosition.z < 0)
-		cameraSpacePosition = -cameraSpacePosition;*/
-	float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
-	float distance = 2 * asin(chordLength / 2.);
-	/*if (instanceID == 1)
-		distance += PI;*/
 	OUT.fogFactor = saturate(exp(-density * distance));
 	
 	return OUT;
