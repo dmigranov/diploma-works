@@ -542,6 +542,11 @@ bool Game::LoadContent()
         mesh1 = new SphericalOctahedron(.99f, SphericalRotationXZ(XM_PIDIV4), arrOct);
         meshes.push_back(mesh1);
         
+
+        XMFLOAT4 arrOct2[] = { XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 1.f, 0.5f, 1.f), XMFLOAT4(0.f, 0.f, 0.5f, 1.f), XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.f), XMFLOAT4(0.f, 0.5f, 0.5f, 1.f) };
+        mesh2 = new SphericalOctahedron(.99f, SphericalRotationXW(XM_PIDIV4), arrOct2);
+        meshes.push_back(mesh2);
+
         /*
         XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
         mesh2 = new SphericalCube(.99f, SphericalRotationXW(XM_PIDIV4), arrСube);
