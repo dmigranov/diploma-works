@@ -259,9 +259,9 @@ public class GeoWireFoldFrame extends MainFrame {
         swField = new JTextField();
         shField = new JTextField();
         znField = new JTextField();
-        clippingPanel.add(new LabelTextField("sw: ", swField, new FloatTextFieldKeyListener()));
-        clippingPanel.add(new LabelTextField("sh: ", shField, new FloatTextFieldKeyListener()));
-        clippingPanel.add(new LabelTextField("Znear: ", znField, new FloatTextFieldKeyListener()));
+        clippingPanel.add(new LabelTextField("Width: ", swField, new FloatTextFieldKeyListener()));
+        clippingPanel.add(new LabelTextField("Height: ", shField, new FloatTextFieldKeyListener()));
+        clippingPanel.add(new LabelTextField("Near clipping plane: ", znField, new FloatTextFieldKeyListener()));
 
         TiField = new JTextField();
         TjField = new JTextField();
