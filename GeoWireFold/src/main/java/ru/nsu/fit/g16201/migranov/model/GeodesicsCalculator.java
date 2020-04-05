@@ -25,9 +25,12 @@ public class GeodesicsCalculator {
     private final static double step = 0.05;
 
     private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, epsilon);
+    private ClassicalRungeKuttaIntegrator integrator = new ClassicalRungeKuttaIntegrator(1.0e-8);   //Это число ни на что не влияет, т.к. использую singleStep
+
 
     private Function<double[], double[][]> metricTensorFunction = values -> calculateMetricTensor(values[0], values[1]);
     private ManifoldFunction manifoldFunction;
+
 
     private double[][] calculateMetricTensor(double u0, double v0)   //это функция, её тоже можно продифференцировать
     {
@@ -142,7 +145,7 @@ public class GeodesicsCalculator {
         return retArray;
     }
 
-    private double[][][] calculateChristoffelSymbol(double u0, double v0)
+    private double[][][] calculateChristoffelSymbols(double u0, double v0)
     {
 
         double[][][] Cs = new double[2][2][2];  //C[i][k][l] = Г ^i  kl
@@ -173,10 +176,9 @@ public class GeodesicsCalculator {
     {
         //кривая на двумерой поверхности задаётся одним парамаетром t
         //по сути внутри просто интегрируем, используя разные разностные операторы
-        double[][][] Cs = calculateChristoffelSymbol(state[2], state[3]);
-        ClassicalRungeKuttaIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-8);   //Это число ни на что не влияет, т.к. использую singleStep
-        FirstOrderDifferentialEquations ode = new GeodesicsEquations(Cs);
-        return rg.singleStep(ode, 0, state, step);
+        double[][][] symbols = calculateChristoffelSymbols(state[2], state[3]);
+        FirstOrderDifferentialEquations ode = new GeodesicsEquations(symbols);
+        return integrator.singleStep(ode, 0, state, step);
         //return rg.singleStep(ode, t0, state, t0 + step);
     }
 
@@ -184,7 +186,7 @@ public class GeodesicsCalculator {
     {
         List<Point3D> points = new ArrayList<>();
         double[] state = new double[] {uDir, vDir, uStart, vStart};
-        double eps = 4*epsilon;
+        double eps = 4 * epsilon;
         double u, v;
         while(true)
         {
