@@ -10,6 +10,8 @@
 #include "SphExpVertexShader.h"
 #include "SphExp2VertexShader.h"
 
+#include "EllExpVertexShader.h"
+
 #include "GeometryShader.h"
 
 #include "PixelShader.h"

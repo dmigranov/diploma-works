@@ -15,6 +15,7 @@ cbuffer PerObject : register(b2)
 {
 	matrix worldMatrix;
 }
+static float PI = 3.14159265;
 
 //POSITION and COLOR are semantics that are used to link vs variables to ps variables
 struct VertexShaderInput
@@ -53,10 +54,12 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	OUT.color = IN.color;
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
 	
+	if (cameraSpacePosition.z < 0)
+		cameraSpacePosition = -cameraSpacePosition;
 	float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
 	float distance = 2 * asin(chordLength / 2.);
 	if (instanceID == 1)
-		distance += 3.14159265;
+		distance += PI/2;
 	OUT.fogFactor = saturate(exp(-density * distance));
 	
 	return OUT;

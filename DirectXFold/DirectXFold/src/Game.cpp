@@ -462,7 +462,7 @@ bool Game::LoadContent()
     }
 
     //loading shaders from global variables 
-    hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dVertexShader);
+    hr = g_d3dDevice->CreateVertexShader(g_ellexpvs, sizeof(g_ellexpvs), nullptr, &g_d3dVertexShader);
     if (FAILED(hr))
     {
         return false;
