@@ -28,6 +28,12 @@
     <Filter Include="Файлы заголовков\Meshes">
       <UniqueIdentifier>{5feba0ce-febe-44e2-8841-7d90a911b80f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data\Shaders\Spherical">
+      <UniqueIdentifier>{d58f2fc3-742e-4dd2-9187-6852ce300c41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Shaders\Elliptical">
+      <UniqueIdentifier>{6a0c3b28-243b-4135-a316-e74236d95f35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -148,15 +154,16 @@
     <FxCompile Include="GeometryShader.hlsl">
       <Filter>Data\Shaders</Filter>
     </FxCompile>
-    <FxCompile Include="VertexSphericalLinearFogShader.hlsl">
-      <Filter>Data\Shaders</Filter>
-    </FxCompile>
     <FxCompile Include="VertexSphericalExpFogShader.hlsl">
-      <Filter>Data\Shaders</Filter>
+      <Filter>Data\Shaders\Spherical</Filter>
     </FxCompile>
     <FxCompile Include="VertexSphericalExpSqFogShader.hlsl">
-      <Filter>Data\Shaders</Filter>
+      <Filter>Data\Shaders\Spherical</Filter>
     </FxCompile>
+    <FxCompile Include="VertexSphericalLinearFogShader.hlsl">
+      <Filter>Data\Shaders\Spherical</Filter>
+    </FxCompile>
+    <FxCompile Include="Data\Shaders\VertexEllipticalExpFogShader.hlsl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
