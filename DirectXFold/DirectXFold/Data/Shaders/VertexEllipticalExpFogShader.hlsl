@@ -53,8 +53,8 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
 	float distance = 2 * asin(chordLength / 2.);
 	
-	if (cameraSpacePosition.z < 0)
-		cameraSpacePosition *= (-1);
+	/*if (cameraSpacePosition.z < 0)
+		cameraSpacePosition *= (-1);*/
 	
 	OUT.color = IN.color;
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);

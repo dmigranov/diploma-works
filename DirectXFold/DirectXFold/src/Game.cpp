@@ -511,8 +511,8 @@ bool Game::LoadContent()
     {
         //auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
         //auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
-        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
-        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
+        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
+        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
         perApplicationVSConstantBuffer = {front, back, 0.25f};
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
     }
