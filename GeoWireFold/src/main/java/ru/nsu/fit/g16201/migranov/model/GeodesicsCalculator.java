@@ -21,7 +21,9 @@ public class GeodesicsCalculator {
         this.manifoldFunction = manifoldFunction;
     }
 
-    private double epsilon = 0.01;
+    private final static double epsilon = 0.01;
+    private final static double step = 0.05;
+
     private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, epsilon);
 
     private Function<double[], double[][]> metricTensorFunction = values -> calculateMetricTensor(values[0], values[1]);
@@ -167,25 +169,24 @@ public class GeodesicsCalculator {
     }
 
     //u0_s и v0_s - это вектор из точки u0 v0
-    private double[] geodesicEquationStep(double[] state, double t0, double step)
+    private double[] geodesicEquationStep(double[] state)
     {
         //кривая на двумерой поверхности задаётся одним парамаетром t
         //по сути внутри просто интегрируем, используя разные разностные операторы
         double[][][] Cs = calculateChristoffelSymbol(state[2], state[3]);
         ClassicalRungeKuttaIntegrator rg = new ClassicalRungeKuttaIntegrator(1.0e-8);   //Это число ни на что не влияет, т.к. использую singleStep
         FirstOrderDifferentialEquations ode = new GeodesicsEquations(Cs);
-        return rg.singleStep(ode, t0, state, t0 + step);
+        return rg.singleStep(ode, 0, state, step);
+        //return rg.singleStep(ode, t0, state, t0 + step);
     }
 
     private Point3D[] calculateGeodesic(double uStart, double vStart, double uDir, double vDir)
     {
-        //Point3D[] points = new Point3D[30];
         List<Point3D> points = new ArrayList<>();
-        double[] state = new double[] {uDir, vDir, uStart, vStart}, newState;
-        double t = 0, step = 0.05;
+        double[] state = new double[] {uDir, vDir, uStart, vStart};
         double eps = 4*epsilon;
-        double u = 0, v = 0;
-        while(true) //todo или по превышении числа итераций..
+        double u, v;
+        while(true)
         {
             u = state[2];
             v = state[3];
@@ -197,8 +198,8 @@ public class GeodesicsCalculator {
             Point3D p = new Point3D(pArr[0], pArr[1], pArr[2]);
 
             points.add(p);
-            t += step;
-            state = geodesicEquationStep(state, t, step);
+
+            state = geodesicEquationStep(state);
         }
 
         return points.toArray(new Point3D[0]);

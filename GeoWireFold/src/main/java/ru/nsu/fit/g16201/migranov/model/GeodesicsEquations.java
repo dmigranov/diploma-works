@@ -21,7 +21,7 @@ public class GeodesicsEquations implements FirstOrderDifferentialEquations {
     @Override
     public void computeDerivatives(double t, double[] y, double[] yDot) throws MaxCountExceededException, DimensionMismatchException {
         //0 - dx1', 1 - dx2', 2 - dx1, 3 - dx2
-
+        //не зависит от времени!
         for(int j = 0; j < 2; j++)
         {
             yDot[j] = -Cs[j][0][0]*y[0]*y[0] - 2 * Cs[j][0][1]*y[0]*y[1] - Cs[j][1][1]*y[1]*y[1];
