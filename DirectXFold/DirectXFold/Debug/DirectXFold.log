@@ -1,4 +1,18 @@
-﻿  Game.cpp
+﻿  SphericalMath.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(14,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(22,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(30,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Camera.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(27,18): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(28,18): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(29,22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(30,22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(60,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(60,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(60,23): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(79,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Camera.cpp(79,52): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(238,1): warning C4305: '-=': truncation from 'double' to 'float'
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(243,1): warning C4305: '+=': truncation from 'double' to 'float'
@@ -15,8 +29,15 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
               _Ty=SphericalCamera
           ]
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : see reference to function template instantiation 'std::shared_ptr<SphericalCamera> std::make_shared<SphericalCamera,>(void)' being compiled
+  HyperbolicMath.cpp
   HyperbolicMesh.cpp
   Mesh.cpp
+  SimpleInputHandler.cpp
+  SphericalCamera.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(18,140): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(18,169): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(56,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(56,91): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   SphericalCube.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(35,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(35,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -261,4 +282,9 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(284,
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(283,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   main.cpp
   Generating Code...
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(26): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(39): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(45): warning C4172: returning address of local variable or temporary
+  LINK : bin\DirectXFoldd.exe not found or not built by the last incremental link; performing full link
+     Creating library bin\DirectXFoldd.lib and object bin\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe
