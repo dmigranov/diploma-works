@@ -1,5 +1,6 @@
 #pragma once
 #include "SphericalMesh.h"
+
 class SphericalOctahedron :
 	public SphericalMesh
 {
