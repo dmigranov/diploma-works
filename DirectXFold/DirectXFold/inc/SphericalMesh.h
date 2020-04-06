@@ -11,8 +11,6 @@ public:
     SphericalMesh();
     SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices);
     SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, DirectX::XMMATRIX world);
-    //void SetEllipticalMode(bool isSpherical);
-
 
     //можно рисовать один и тот же меш используя разные матрицы
     //std::list<XMMATRIX> list = { ..., ... }; cube->Render(list); 
@@ -21,5 +19,4 @@ public:
     virtual void Render(DirectX::XMMATRIX matrix) override;
 
 private:
-    bool isElliptical = false;
 };

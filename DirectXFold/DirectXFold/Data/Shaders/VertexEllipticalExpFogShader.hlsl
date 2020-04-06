@@ -38,12 +38,17 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
  
 	matrix viewMatrix, projectionMatrix;
 
-	projectionMatrix = projectionMatrixFront;
 
 	if (instanceID % 2 == 0)
+	{
+		projectionMatrix = projectionMatrixFront;
 		viewMatrix = viewMatrixFront;
+	}
 	else if (instanceID % 2 == 1)
+	{
+		projectionMatrix = projectionMatrixBack;
 		viewMatrix = viewMatrixBack;
+	}
 
 	matrix viewWorld;
 	viewWorld = mul(viewMatrix, worldMatrix);
