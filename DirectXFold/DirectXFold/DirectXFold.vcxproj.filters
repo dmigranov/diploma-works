@@ -46,12 +46,6 @@
     <Filter Include="Исходные файлы\Meshes\Spherical">
       <UniqueIdentifier>{ba669908-5fd2-497e-be17-d82fcb051298}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\Meshes\Elliptical">
-      <UniqueIdentifier>{dfe3f979-9282-4773-9323-04356fa4fc3b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\Meshes\Elliptical">
-      <UniqueIdentifier>{d21dcf3e-c690-475f-b90e-70de2c8c46a0}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -108,9 +102,6 @@
     <ClCompile Include="src\SphericalOctahedron.cpp">
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
-    <ClCompile Include="src\EllipticalMesh.cpp">
-      <Filter>Исходные файлы\Meshes\Elliptical</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -166,9 +157,6 @@
     </ClInclude>
     <ClInclude Include="inc\SphericalOctahedron.h">
       <Filter>Файлы заголовков\Meshes\Spherical</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\EllipticalMesh.h">
-      <Filter>Файлы заголовков\Meshes\Elliptical</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

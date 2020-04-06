@@ -22,7 +22,6 @@
     <ClCompile Include="EllipticalMath.cpp" />
     <ClCompile Include="SphericalMath.cpp" />
     <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\EllipticalMesh.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\HyperbolicMath.cpp" />
     <ClCompile Include="src\HyperbolicMesh.cpp" />
@@ -47,7 +46,6 @@
   <ItemGroup>
     <ClInclude Include="inc\EllipticalMath.h" />
     <ClInclude Include="inc\Camera.h" />
-    <ClInclude Include="inc\EllipticalMesh.h" />
     <ClInclude Include="inc\Game.h" />
     <ClInclude Include="inc\HyperbolicMath.h" />
     <ClInclude Include="inc\HyperbolicMesh.h" />
