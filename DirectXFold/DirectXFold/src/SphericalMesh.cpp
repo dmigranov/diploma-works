@@ -37,7 +37,8 @@ void SphericalMesh::Render()
     if (!isElliptical)
         deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
     else
-        ;
+        deviceContext->DrawIndexedInstanced(indicesCount, 4, 0, 0, 0);
+
 }
 
 void SphericalMesh::Render(XMMATRIX matrix)
@@ -58,7 +59,7 @@ void SphericalMesh::Render(XMMATRIX matrix)
     if (!isElliptical)
         deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
     else
-        ;
+        deviceContext->DrawIndexedInstanced(indicesCount, 4, 0, 0, 0);
 }
 
 
@@ -86,7 +87,7 @@ void SphericalMesh::Render(std::list<XMMATRIX> matrices)
         if (!isElliptical)
             deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
         else
-            ;
+            deviceContext->DrawIndexedInstanced(indicesCount, 4, 0, 0, 0);
     }
 }
 
