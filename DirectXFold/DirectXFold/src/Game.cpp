@@ -3,7 +3,7 @@
 
 Game::Game() noexcept :
     m_hwnd(nullptr),
-    m_outputWidth(800),
+    m_outputWidth(600),
     m_outputHeight(600)
 {
     m_camera = std::make_shared<SphericalCamera>();
