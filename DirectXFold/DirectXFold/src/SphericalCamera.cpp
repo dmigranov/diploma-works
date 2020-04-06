@@ -33,13 +33,29 @@ const XMMATRIX& SphericalCamera::GetProj()
 
 const XMMATRIX& SphericalCamera::GetFrontProj()
 {
-	static Matrix front = BananaProjectionMatrixFrontHalf(m_nearPlane);
+	double sw = m_outputWidth;
+	double sh = m_outputHeight;
+
+	double vw = m_viewport.w;
+	double vh = m_viewport.h;
+
+	float aspect = (float)((sw * vw) / (sh * vh));
+	static Matrix front = BananaProjectionMatrixFrontHalf(m_fovY, aspect, m_nearPlane);
+	//static Matrix front = BananaProjectionMatrixFrontHalf(m_nearPlane);
 	return front;
 }
 
 const XMMATRIX& SphericalCamera::GetBackProj()
 {
-	static Matrix back = BananaProjectionMatrixBackHalf(m_nearPlane);
+	double sw = m_outputWidth;
+	double sh = m_outputHeight;
+
+	double vw = m_viewport.w;
+	double vh = m_viewport.h;
+
+	float aspect = (float)((sw * vw) / (sh * vh));
+	static Matrix back = BananaProjectionMatrixBackHalf(m_fovY, aspect, m_nearPlane);
+	//static Matrix back = BananaProjectionMatrixBackHalf(m_nearPlane);
 	return back;
 }
 
