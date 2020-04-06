@@ -14,9 +14,6 @@ EllipticalMesh::EllipticalMesh(int nv, VertexPosColor* vertices, int ni, WORD* i
 {
 }
 
-void EllipticalMesh::Render(std::list<DirectX::XMMATRIX> matrices)
-{
-}
 
 void EllipticalMesh::Render()
 {
@@ -38,4 +35,39 @@ void EllipticalMesh::Render()
 
 void EllipticalMesh::Render(DirectX::XMMATRIX matrix)
 {
+    // Input Assembler Stage - unique for every mesh
+    const UINT vertexStride = sizeof(VertexPosColor);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
+    const UINT offset = 0;
+    deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+    deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
+    deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+
+    MeshConstantBuffer constantBufferTemp = { matrix };
+    if (parentMesh != nullptr)
+        constantBufferTemp.m_world = constantBufferTemp.m_world * parentMesh->GetWorldMatrix();
+    deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
+
+    //DRAW
+    deviceContext->DrawIndexedInstanced(indicesCount, 4, 0, 0, 0);
+}
+
+void EllipticalMesh::Render(std::list<DirectX::XMMATRIX> matrices)
+{
+    // Input Assembler Stage - unique for every mesh
+    const UINT vertexStride = sizeof(VertexPosColor);   //Each stride is the size (in bytes) of the elements that are to be used from that vertex buffer.
+    const UINT offset = 0;
+    deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+    deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
+    deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+
+    for (auto matrix : matrices)
+    {
+        MeshConstantBuffer constantBufferTemp = { matrix };
+        if (parentMesh != nullptr)
+            constantBufferTemp.m_world = constantBufferTemp.m_world * parentMesh->GetWorldMatrix();
+        deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
+
+        //DRAW
+        deviceContext->DrawIndexedInstanced(indicesCount, 4, 0, 0, 0);
+    }
 }
