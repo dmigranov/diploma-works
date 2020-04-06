@@ -37,18 +37,21 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	VertexShaderOutput OUT;
  
 	matrix viewMatrix, projectionMatrix;
-	if (instanceID == 0)
+	if (instanceID % 2 == 0)
 	{
 		projectionMatrix = projectionMatrixFront;
 		viewMatrix = viewMatrixFront;
 	}
-	else if (instanceID == 1)
+	else if (instanceID % 2 == 1)
 	{
 		projectionMatrix = projectionMatrixBack;
 		viewMatrix = viewMatrixBack;
 	}
-
-	matrix viewWorld = mul(viewMatrix, worldMatrix);
+	matrix viewWorld;
+	if (instanceID == 2 || instanceID == 3)
+		viewWorld = mul(viewMatrix, -worldMatrix);
+	else
+		viewWorld = mul(viewMatrix, worldMatrix);
 	float4 cameraSpacePosition = mul(viewWorld, IN.position);
 	float chordLength = distance(float4(0, 0, 0, 1), cameraSpacePosition); //длина хорды
 	float distance = 2 * asin(chordLength / 2.);

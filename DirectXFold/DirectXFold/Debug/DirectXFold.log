@@ -1,4 +1,9 @@
-﻿  Game.cpp
+﻿D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\EllExpVertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\VertexEllipticalExpFogShader_d.cso
+  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(238,1): warning C4305: '-=': truncation from 'double' to 'float'
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(243,1): warning C4305: '+=': truncation from 'double' to 'float'
@@ -107,6 +112,7 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(41
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(42,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(42,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalDodecahedron.cpp(42,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  SphericalMesh.cpp
   SphericalOctahedron.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(31,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(31,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
