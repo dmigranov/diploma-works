@@ -1,17 +1,11 @@
 #pragma once
 #include "SphericalMesh.h"
-#include "EllipticalMesh.h"
 
 class SphericalOctahedron :
 	public SphericalMesh
 {
 public:
-	enum class FixedCoordinate {
-		FC_X,
-		FC_Y,
-		FC_Z,
-		FC_W
-	};
+
 	SphericalOctahedron(double wSec, DirectX::XMMATRIX world);
 	SphericalOctahedron(double wSec);
 	SphericalOctahedron(double wSec, DirectX::XMMATRIX world, DirectX::XMFLOAT4* colors);
@@ -20,15 +14,17 @@ public:
 	void SetSectionHeight(double newSectionHeight);
 	double GetSectionHeight();
 private:
-	SphericalOctahedron(FixedCoordinate coord, double section, DirectX::XMMATRIX world);
-	SphericalOctahedron(FixedCoordinate coord, double section);
-	SphericalOctahedron(FixedCoordinate coord, double section, DirectX::XMMATRIX world, DirectX::XMFLOAT4 * colors);
-
-
-
-
-private:
+	enum class FixedCoordinate {
+		FC_X,
+		FC_Y,
+		FC_Z,
+		FC_W
+	};
 	FixedCoordinate fc;
 	double sectionHeight;
+
+	SphericalOctahedron(FixedCoordinate coord, double section, DirectX::XMMATRIX world);
+	SphericalOctahedron(FixedCoordinate coord, double section);
+	SphericalOctahedron(FixedCoordinate coord, double section, DirectX::XMMATRIX world, DirectX::XMFLOAT4* colors);
 };
 
