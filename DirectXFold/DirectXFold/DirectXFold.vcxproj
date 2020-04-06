@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EllipticalMath.cpp" />
     <ClCompile Include="SphericalMath.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Game.cpp" />
@@ -44,7 +43,6 @@
     <ClCompile Include="src\TextDrawer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="inc\EllipticalMath.h" />
     <ClInclude Include="inc\Camera.h" />
     <ClInclude Include="inc\Game.h" />
     <ClInclude Include="inc\HyperbolicMath.h" />

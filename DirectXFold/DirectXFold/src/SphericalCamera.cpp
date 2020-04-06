@@ -46,7 +46,7 @@ const XMMATRIX& SphericalCamera::GetBackProj()
 
 const XMMATRIX& SphericalCamera::GetEllipticalProj()
 {
-	static Matrix ell = EllipticalBananaProjectionMatrix(m_nearPlane);
+	static Matrix ell = BananaProjectionMatrix(m_nearPlane);
 	return ell;
 }
 

@@ -1,7 +1,6 @@
 #pragma once
 #include "Camera.h"
 #include "SphericalMath.h"
-#include "EllipticalMath.h"
 
 class SphericalCamera :
 	public Camera
