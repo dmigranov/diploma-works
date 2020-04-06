@@ -111,6 +111,9 @@
     <ClCompile Include="src\EllipticalMesh.cpp">
       <Filter>Исходные файлы\Meshes\Elliptical</Filter>
     </ClCompile>
+    <ClCompile Include="src\EllipticalOctahedron.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -169,6 +172,9 @@
     </ClInclude>
     <ClInclude Include="inc\EllipticalMesh.h">
       <Filter>Файлы заголовков\Meshes\Elliptical</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\EllipticalOctahedron.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
