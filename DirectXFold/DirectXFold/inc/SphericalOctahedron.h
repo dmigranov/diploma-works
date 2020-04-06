@@ -5,11 +5,10 @@ class SphericalOctahedron :
 	public SphericalMesh
 {
 public:
-
-	SphericalOctahedron(double wSec, DirectX::XMMATRIX world);
 	SphericalOctahedron(double wSec);
-	SphericalOctahedron(double wSec, DirectX::XMMATRIX world, DirectX::XMFLOAT4* colors);
 	SphericalOctahedron(double wSec, DirectX::XMFLOAT4* colors);
+	SphericalOctahedron(double wSec, DirectX::XMMATRIX world);
+	SphericalOctahedron(double wSec, DirectX::XMMATRIX world, DirectX::XMFLOAT4* colors);
 
 	void SetSectionHeight(double newSectionHeight);
 	double GetSectionHeight();
