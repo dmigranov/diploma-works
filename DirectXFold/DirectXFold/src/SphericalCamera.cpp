@@ -6,7 +6,6 @@
 SphericalCamera::SphericalCamera()
 {
 	m_view = Matrix::Identity;
-	m_view_const = Matrix::Identity;
 
 }
 const XMMATRIX& SphericalCamera::GetView()

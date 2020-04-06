@@ -24,7 +24,6 @@ public:
 	void SetLookAt(Vector3 v);
 
 	virtual void Move(Vector4 v);
-	virtual void Move(Matrix m);
 	virtual Vector4 GetPosition();
 
 	virtual void ChangePitchYaw(double pitch, double yaw);
@@ -86,7 +85,6 @@ protected:
 
 	XMMATRIX m_proj;
 	XMMATRIX m_view;
-	XMMATRIX m_view_const;
 
 	bool m_viewDirty;
 

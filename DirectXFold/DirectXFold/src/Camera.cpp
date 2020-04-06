@@ -82,12 +82,6 @@ void Camera::Move(Vector4 v4)
 	m_viewDirty = true;
 }
 
-void Camera::Move(Matrix m)
-{
-	//m_view_const = m * (Matrix)m_view_const; //todo: проверить
-	m_view_const = (Matrix)m_view_const * m;
-}
-
 Vector4 Camera::GetPosition()
 {
 	return Vector4(m_position.x, m_position.y, m_position.z, 1);

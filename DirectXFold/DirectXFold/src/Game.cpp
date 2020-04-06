@@ -565,7 +565,6 @@ bool Game::LoadContent()
         mesh2 = new SphericalCube(.99f, SphericalRotationXW(XM_PIDIV4), arrСube);
         meshes.push_back(mesh2);
         
-        
 
         //mesh2 = new SphericalMesh(_countof(vertices), vertices, (indices), indices, SphericalRotationXW(0.6f));
         //meshes.push_back(mesh2);
