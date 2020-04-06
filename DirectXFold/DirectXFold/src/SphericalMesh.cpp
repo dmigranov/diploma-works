@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "SphericalMesh.h"
-//#include "Game.h"
 
 using namespace DirectX;
 

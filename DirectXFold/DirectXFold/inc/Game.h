@@ -77,7 +77,6 @@ private:
     XMFLOAT3 GetSphericalFromCartesian(float x1, float x2, float x3, float x4);
 
 
-
     // Device resources.
     HWND                                            m_hwnd;				//дескриптор окна игры
     int                                             m_outputWidth;
