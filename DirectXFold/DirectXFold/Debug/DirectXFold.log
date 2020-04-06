@@ -1,5 +1,4 @@
-﻿D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
-D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+﻿D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(46,30): warning X4000: use of potentially uninitialized variable (viewMatrix)
   
   compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\EllExpVertexShader.h
   compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\VertexEllipticalExpFogShader_d.cso

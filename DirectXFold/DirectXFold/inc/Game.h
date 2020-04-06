@@ -27,8 +27,6 @@
 
 #include "HyperbolicMesh.h"
 
-#include "EllipticalMesh.h"
-
 
 #include "SimpleInputHandler.h"
 #include "SphericalCamera.h"

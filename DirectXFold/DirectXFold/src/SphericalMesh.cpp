@@ -14,10 +14,10 @@ SphericalMesh::SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* ind
 {
 }
 
-void SphericalMesh::SetEllipticalMode(bool isEllitptical)
+/*void SphericalMesh::SetEllipticalMode(bool isEllitptical)
 {
     this->isElliptical = isEllitptical;
-}
+}*/
 
 void SphericalMesh::Render()
 {

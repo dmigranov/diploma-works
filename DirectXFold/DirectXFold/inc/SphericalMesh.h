@@ -11,7 +11,7 @@ public:
     SphericalMesh();
     SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices);
     SphericalMesh(int nv, VertexPosColor* vertices, int ni, WORD* indices, DirectX::XMMATRIX world);
-    void SetEllipticalMode(bool isSpherical);
+    //void SetEllipticalMode(bool isSpherical);
 
 
     //можно рисовать один и тот же меш используя разные матрицы
