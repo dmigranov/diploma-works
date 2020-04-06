@@ -92,3 +92,14 @@ void Mesh::Update(float deltaTime)
 		constantBuffer.m_world = updater(constantBuffer.m_world, deltaTime);
 	}
 }
+
+Mesh::MeshUpdater::MeshUpdater(std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix, float delta)> func)
+{
+    m_func = func;
+}
+
+DirectX::SimpleMath::Matrix Mesh::MeshUpdater::operator()(DirectX::SimpleMath::Matrix in, float delta)
+{
+    return m_func(in, delta);
+}
+

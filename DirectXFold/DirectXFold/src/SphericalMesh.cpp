@@ -76,12 +76,3 @@ void SphericalMesh::Render(std::list<XMMATRIX> matrices)
     }
 }
 
-SphericalMesh::MeshUpdater::MeshUpdater(std::function<DirectX::SimpleMath::Matrix(DirectX::SimpleMath::Matrix, float delta)> func)
-{
-    m_func = func;
-}
-
-DirectX::SimpleMath::Matrix SphericalMesh::MeshUpdater::operator()(DirectX::SimpleMath::Matrix in, float delta)
-{
-    return m_func(in, delta);
-}

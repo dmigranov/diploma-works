@@ -541,7 +541,7 @@ bool Game::LoadContent()
     
     {
         XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
-        mesh1 = new SphericalOctahedron(.99f, SphericalRotationXZ(XM_PIDIV4), arrOct);
+        mesh1 = new SphericalOctahedron(.99f/*, SphericalRotationXZ(XM_PIDIV4)*/, arrOct);
         meshes.push_back(mesh1);
         
 
@@ -561,9 +561,9 @@ bool Game::LoadContent()
         //meshes.push_back(mesh2);
         //mesh2->SetParent(mesh1);
 
-        /*mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
+        mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
             return SphericalRotationZW(delta/3.f) * in;
-        }));*/
+        }));
     }
 
     return true;
