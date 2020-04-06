@@ -510,6 +510,8 @@ bool Game::LoadContent()
     m_camera->SetNearPlane(0.001f);
     m_camera->SetFarPlane(100.f);
 
+    //todo: реализовать смену на лету
+
     //elliptical
     /*{
         auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();

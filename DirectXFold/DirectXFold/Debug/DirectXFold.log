@@ -7,9 +7,9 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(268,1): warning C43
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(379,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(385,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(385,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(544,40): warning C4316: 'SphericalMesh': object allocated on the heap may not be aligned 16
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(554,90): warning C4316: 'SphericalOctahedron': object allocated on the heap may not be aligned 16
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(558,87): warning C4316: 'SphericalOctahedron': object allocated on the heap may not be aligned 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(546,40): warning C4316: 'SphericalMesh': object allocated on the heap may not be aligned 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(556,90): warning C4316: 'SphericalOctahedron': object allocated on the heap may not be aligned 16
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(560,87): warning C4316: 'SphericalOctahedron': object allocated on the heap may not be aligned 16
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.25.28610\include\memory(1583,59): warning C4316: 'std::_Ref_count_obj2<_Ty>': object allocated on the heap may not be aligned 16
           with
           [
