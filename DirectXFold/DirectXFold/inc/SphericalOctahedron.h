@@ -1,5 +1,6 @@
 #pragma once
 #include "SphericalMesh.h"
+#include "EllipticalMesh.h"
 
 class SphericalOctahedron :
 	public SphericalMesh
