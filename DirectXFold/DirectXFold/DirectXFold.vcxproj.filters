@@ -40,6 +40,12 @@
     <Filter Include="Исходные файлы\Math">
       <UniqueIdentifier>{0bcbe090-06ce-4838-8120-90fafd889f3b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\Meshes\Spherical">
+      <UniqueIdentifier>{c2c10979-b0ac-4dc7-b6ef-bbb5eeafe61c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Meshes\Spherical">
+      <UniqueIdentifier>{ba669908-5fd2-497e-be17-d82fcb051298}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -69,18 +75,6 @@
     <ClCompile Include="src\SphericalMeshLoader.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\SphericalDodecahedron.cpp">
-      <Filter>Исходные файлы\Meshes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SphericalOctahedron.cpp">
-      <Filter>Исходные файлы\Meshes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SphericalCube.cpp">
-      <Filter>Исходные файлы\Meshes</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SphericalMesh.cpp">
-      <Filter>Исходные файлы\Meshes</Filter>
-    </ClCompile>
     <ClCompile Include="src\Mesh.cpp">
       <Filter>Исходные файлы\Meshes</Filter>
     </ClCompile>
@@ -97,7 +91,19 @@
       <Filter>Исходные файлы\Math</Filter>
     </ClCompile>
     <ClCompile Include="src\EllipticalMesh.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Meshes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalCube.cpp">
+      <Filter>Исходные файлы\Meshes\Spherical</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalDodecahedron.cpp">
+      <Filter>Исходные файлы\Meshes\Spherical</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalMesh.cpp">
+      <Filter>Исходные файлы\Meshes\Spherical</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SphericalOctahedron.cpp">
+      <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,18 +134,6 @@
     <ClInclude Include="inc\SphericalMeshLoader.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="inc\SphericalDodecahedron.h">
-      <Filter>Файлы заголовков\Meshes</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\SphericalOctahedron.h">
-      <Filter>Файлы заголовков\Meshes</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\SphericalCube.h">
-      <Filter>Файлы заголовков\Meshes</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\SphericalMesh.h">
-      <Filter>Файлы заголовков\Meshes</Filter>
-    </ClInclude>
     <ClInclude Include="inc\Mesh.h">
       <Filter>Файлы заголовков\Meshes</Filter>
     </ClInclude>
@@ -155,8 +149,20 @@
     <ClInclude Include="inc\EllipticalMath.h">
       <Filter>Файлы заголовков\Math</Filter>
     </ClInclude>
+    <ClInclude Include="inc\SphericalCube.h">
+      <Filter>Файлы заголовков\Meshes\Spherical</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalDodecahedron.h">
+      <Filter>Файлы заголовков\Meshes\Spherical</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalMesh.h">
+      <Filter>Файлы заголовков\Meshes\Spherical</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalOctahedron.h">
+      <Filter>Файлы заголовков\Meshes\Spherical</Filter>
+    </ClInclude>
     <ClInclude Include="inc\EllipticalMesh.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Meshes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
