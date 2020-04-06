@@ -1,6 +1,7 @@
 #pragma once
 
 DirectX::SimpleMath::Matrix BananaProjectionMatrix(double z0);
+DirectX::SimpleMath::Matrix BananaProjectionMatrix(double fovY, double aspect, double z0);
 DirectX::SimpleMath::Matrix BananaProjectionMatrixFrontHalf(double z0);
 DirectX::SimpleMath::Matrix BananaProjectionMatrixBackHalf(double z0);
 
