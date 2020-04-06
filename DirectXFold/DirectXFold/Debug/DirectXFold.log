@@ -1,4 +1,10 @@
-﻿  Game.cpp
+﻿  SphericalMath.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(14,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(19,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(24,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(32,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(40,17): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(238,1): warning C4305: '-=': truncation from 'double' to 'float'
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(243,1): warning C4305: '+=': truncation from 'double' to 'float'
@@ -16,4 +22,5 @@ C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
               _Ty=SphericalCamera
           ]
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(9): message : see reference to function template instantiation 'std::shared_ptr<SphericalCamera> std::make_shared<SphericalCamera,>(void)' being compiled
+  Generating Code...
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin\DirectXFoldd.exe

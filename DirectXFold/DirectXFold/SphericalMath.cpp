@@ -16,6 +16,8 @@ Matrix BananaProjectionMatrix(double z0)
 
 Matrix BananaProjectionMatrix(double fovY, double aspect, double z0)
 {
+	double height = tanf(XM_PIDIV2 - fovY/2);
+	double width = aspect * height;
 	return Matrix(1.f, 0.f, 0.f, 0.f,
 		0.f, 1.f, 0.f, 0.f,
 		0.f, 0.f, 0.5f, 1.f,
