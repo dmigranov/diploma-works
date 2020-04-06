@@ -2,17 +2,14 @@
 #include "EllipticalOctahedron.h"
 #include "Game.h"
 
-EllipticalOctahedron::EllipticalOctahedron(double wSec)
-{
-}
+EllipticalOctahedron::EllipticalOctahedron(double wSec) : EllipticalOctahedron(wSec, Matrix::Identity)
+{}
 
-EllipticalOctahedron::EllipticalOctahedron(double wSec, DirectX::XMFLOAT4* colors)
-{
-}
+EllipticalOctahedron::EllipticalOctahedron(double wSec, DirectX::XMFLOAT4* colors) : EllipticalOctahedron(wSec, Matrix::Identity, colors)
+{}
 
-EllipticalOctahedron::EllipticalOctahedron(double wSec, DirectX::XMMATRIX world)
-{
-}
+EllipticalOctahedron::EllipticalOctahedron(double wSec, DirectX::XMMATRIX world) : EllipticalOctahedron(wSec, Matrix::Identity, nullptr)
+{}
 
 EllipticalOctahedron::EllipticalOctahedron(double wSec, DirectX::XMMATRIX world, DirectX::XMFLOAT4* colors)
 {
