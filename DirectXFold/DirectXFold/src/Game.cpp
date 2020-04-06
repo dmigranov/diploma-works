@@ -505,7 +505,7 @@ bool Game::LoadContent()
     float clientHeight = static_cast<float>(clientRect.bottom - clientRect.top);
 
     m_camera->SetPosition(0, 0, 0);
-    m_camera->SetFovY(XM_PI / 4.f);
+    m_camera->SetFovY(XM_PI / 2.f);
     m_camera->SetOutputSize(clientWidth, clientHeight);
     m_camera->SetNearPlane(0.001f);
     m_camera->SetFarPlane(100.f);

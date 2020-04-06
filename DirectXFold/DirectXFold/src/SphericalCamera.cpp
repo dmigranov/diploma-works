@@ -53,6 +53,7 @@ const XMMATRIX& SphericalCamera::GetEllipticalProj()
 
 	float aspect = (float)((sw * vw) / (sh * vh));
 	static Matrix ell = BananaProjectionMatrix(m_fovY, aspect, m_nearPlane);
+	//static Matrix ell = BananaProjectionMatrix(m_nearPlane);
 	return ell;
 }
 
