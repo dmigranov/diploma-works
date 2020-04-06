@@ -27,6 +27,10 @@
 
 #include "HyperbolicMesh.h"
 
+#include "EllipticalMesh.h"
+#include "EllipticalOctahedron.h"
+
+
 #include "SimpleInputHandler.h"
 #include "SphericalCamera.h"
 #include "TextDrawer.h"
@@ -54,10 +58,14 @@ public:
 
 private:
     friend class Mesh;
+
     friend class SphericalMesh;
     friend class SphericalOctahedron;
     friend class SphericalDodecahedron;
     friend class SphericalCube;
+
+    friend class EllipticalOctahedron;
+
 
 
     Game() noexcept;
