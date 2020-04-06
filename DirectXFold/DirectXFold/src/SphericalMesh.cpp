@@ -34,7 +34,10 @@ void SphericalMesh::Render()
     deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
     
     //DRAW
-    deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
+    if (!isElliptical)
+        deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
+    else
+        ;
 }
 
 void SphericalMesh::Render(XMMATRIX matrix)
@@ -52,7 +55,10 @@ void SphericalMesh::Render(XMMATRIX matrix)
     deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
     //DRAW
-    deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
+    if (!isElliptical)
+        deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
+    else
+        ;
 }
 
 
@@ -77,7 +83,10 @@ void SphericalMesh::Render(std::list<XMMATRIX> matrices)
         deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
 
         //DRAW
-        deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
+        if (!isElliptical)
+            deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
+        else
+            ;
     }
 }
 

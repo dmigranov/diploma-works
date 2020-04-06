@@ -28,7 +28,6 @@
 #include "HyperbolicMesh.h"
 
 #include "EllipticalMesh.h"
-#include "EllipticalOctahedron.h"
 
 
 #include "SimpleInputHandler.h"
@@ -63,10 +62,6 @@ private:
     friend class SphericalOctahedron;
     friend class SphericalDodecahedron;
     friend class SphericalCube;
-
-    friend class EllipticalOctahedron;
-
-
 
     Game() noexcept;
     Game(Game const&) = delete;
