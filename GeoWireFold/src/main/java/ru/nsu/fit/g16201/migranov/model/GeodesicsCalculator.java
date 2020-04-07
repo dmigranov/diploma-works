@@ -36,8 +36,8 @@ public class GeodesicsCalculator {
         double xu, xv, yu, yv, zu, zv;
 
         double[] values = new double[] {u0, v0};
-        double[] drdu = differentiatePolivariateVectorFunction(manifoldFunction, 0, values);
-        double[] drdv = differentiatePolivariateVectorFunction(manifoldFunction, 1, values);
+        double[] drdu = differentiateMultivariateVectorFunction(manifoldFunction, 0, values);
+        double[] drdv = differentiateMultivariateVectorFunction(manifoldFunction, 1, values);
 
         xu = drdu[0]; yu = drdu[1]; zu = drdu[2];
         xv = drdv[0]; yv = drdv[1]; zv = drdv[2];
@@ -78,7 +78,7 @@ public class GeodesicsCalculator {
     }
 
     //double[] -> double[]
-    private double[] differentiatePolivariateVectorFunction(Function<double[], double[]> fPoli, int diffArgNumber, double[] values)
+    private double[] differentiateMultivariateVectorFunction(Function<double[], double[]> fPoli, int diffArgNumber, double[] values)
     {
         //todo: добавить все необходимые проверки на аргументы
         UnivariateVectorFunction f = new UnivariateVectorFunction() {
@@ -114,8 +114,8 @@ public class GeodesicsCalculator {
         return retArray;
     }
 
-    //double[] -> dobnle[][]
-    private double[][] differentiatePolivariateMatrixFunction(Function<double[], double[][]> fPoli, int diffArgNumber, double[] values)
+    //double[] -> double[][]
+    private double[][] differentiateMultivariateMatrixFunction(Function<double[], double[][]> fPoli, int diffArgNumber, double[] values)
     {
         //todo: добавить все необходимые проверки на аргументы
         UnivariateMatrixFunction f = new UnivariateMatrixFunction() {
@@ -149,7 +149,7 @@ public class GeodesicsCalculator {
         double[] values = {u0, v0};
         double[][][] gDiff = new double[2][][];
         double[][] gContra = calculateContravariantMetricTensor(u0, v0);
-        Arrays.setAll(gDiff, i -> differentiatePolivariateMatrixFunction(metricTensorFunction, i, values));
+        Arrays.setAll(gDiff, i -> differentiateMultivariateMatrixFunction(metricTensorFunction, i, values));
         //gDiff[i][j][k] = d gjk / dxi; в данном случае у нас x1 = u, x2 = v - внутренние координаты поверхности
 
         for(int i = 0; i < 2; i++) {
