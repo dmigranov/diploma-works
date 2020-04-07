@@ -1,5 +1,6 @@
 package ru.nsu.fit.g16201.migranov.model;
 
+//http://commons.apache.org/proper/commons-math/javadocs/api-3.6/org/apache/commons/math3/analysis/interpolation/SplineInterpolator.html
 
 public class SplineCalculator {
     private int Ni, Nj, Ti, Tj;
