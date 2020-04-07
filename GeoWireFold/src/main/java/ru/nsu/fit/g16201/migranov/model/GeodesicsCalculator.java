@@ -145,7 +145,6 @@ public class GeodesicsCalculator {
 
     private double[][][] calculateChristoffelSymbols(double u0, double v0)
     {
-        //todo: оптимизировать
         double[][][] Cs = new double[2][2][2];  //C[i][k][l] = Г ^i  kl
         double[] values = {u0, v0};
         double[][][] gDiff = new double[2][][];
@@ -156,12 +155,16 @@ public class GeodesicsCalculator {
         for(int i = 0; i < 2; i++) {
             for (int j = 0; j < 2; j++) {
                 for (int k = 0; k < 2; k++) {
-                    double sum = 0;
-                    for(int m = 0; m < 2; m++)
-                    {
-                        sum += gContra[i][m] * (gDiff[k][m][j] + gDiff[j][m][k] - gDiff[m][j][k]);
+                    if(j > k)
+                        Cs[i][j][k] = Cs[i][k][j];
+                    else {
+                        double sum = 0;
+                        for(int m = 0; m < 2; m++)
+                        {
+                            sum += gContra[i][m] * (gDiff[k][m][j] + gDiff[j][m][k] - gDiff[m][j][k]);
+                        }
+                        Cs[i][j][k] = sum/2;
                     }
-                    Cs[i][j][k] = sum/2;
                 }
             }
         }
