@@ -73,8 +73,8 @@ private:
     void Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil);
     void Present();
 
-
     bool LoadContent();
+    void UpdateContent();
     void UnloadContent();
 
     XMFLOAT4 GetCartesianFromSpherical(float a3, float a2, float a1);

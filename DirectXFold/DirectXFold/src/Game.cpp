@@ -392,8 +392,6 @@ void Game::Render()
     }
 
 
-    
-
     Present();
 }
 
@@ -501,39 +499,16 @@ bool Game::LoadContent()
         return false;
     }
 
-    // Setup the projection matrix.
-    RECT clientRect;
-    GetClientRect(m_hwnd, &clientRect);
 
-    // Compute the exact client dimensions.
-    // This is required for a correct projection matrix.
-    float clientWidth = static_cast<float>(clientRect.right - clientRect.left);
-    float clientHeight = static_cast<float>(clientRect.bottom - clientRect.top);
+
 
     m_camera->SetPosition(0, 0, 0);
     m_camera->SetFovY(XM_PI / 2);
-    m_camera->SetOutputSize(clientWidth, clientHeight);
     m_camera->SetNearPlane(0.001f);
     m_camera->SetFarPlane(100.f);
     m_camera->Move(Vector4(0, 0, -XM_PI/4, 1));
     //todo: реализовать смену на лету
-
-    //elliptical
-    /*{
-        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
-        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
-        perApplicationVSConstantBuffer = {front, back, 0.25f};
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-    }*/
-
-    //spherical
-    
-    {
-        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
-        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
-        perApplicationVSConstantBuffer = { front, back, 0.25f };
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-    }
+    UpdateContent();
     
     {
         float height = 0.5f;
@@ -588,6 +563,36 @@ bool Game::LoadContent()
     }
 
     return true;
+}
+
+void Game::UpdateContent()
+{
+    // Setup the projection matrix.
+    RECT clientRect;
+    GetClientRect(m_hwnd, &clientRect);
+
+    // Compute the exact client dimensions.
+    // This is required for a correct projection matrix.
+    float clientWidth = static_cast<float>(clientRect.right - clientRect.left);
+    float clientHeight = static_cast<float>(clientRect.bottom - clientRect.top);
+    m_camera->SetOutputSize(clientWidth, clientHeight);
+
+    //elliptical
+    /*{
+        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
+        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
+        perApplicationVSConstantBuffer = {front, back, 0.25f};
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
+    }*/
+
+    //spherical
+
+    {
+        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
+        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
+        perApplicationVSConstantBuffer = { front, back, 0.25f };
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
+    }
 }
 
 
