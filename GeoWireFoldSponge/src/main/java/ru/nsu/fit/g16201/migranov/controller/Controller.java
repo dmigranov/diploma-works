@@ -261,7 +261,7 @@ public class Controller {
                     int x = (int) ((np.x / w + 1) / 2 * wireframePanel.getCanvasWidth());
                     int y = (int) ((np.y / w + 1) / 2 * wireframePanel.getCanvasHeight());
                     if (prev != null)
-                        wireframePanel.drawLine(prev.x, prev.y, x, y, geoColor);
+                        wireframePanel.drawLine(prev.x, prev.y, x, y, geoColor, 3);
                     prev = new Point(x, y);
                 }
             }
