@@ -1,8 +1,10 @@
-﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\PixelShader.h
-  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\BasicPixelShader_d.cso
-  Microsoft (R) Direct3D Shader Compiler 10.1
-  Copyright (C) 2013 Microsoft. All rights reserved.
-  
-D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\BasicVertexShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
-D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\BasicVertexShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
-  
+﻿  Game.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(238,1): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(243,1): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(261,1): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(268,1): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(379,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(385,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(385,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFoldd.exe
