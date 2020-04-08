@@ -1,4 +1,36 @@
-﻿  pch.cpp
+﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\PixelShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\BasicPixelShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\BasicVertexShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\BasicVertexShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\VertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\BasicVertexShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\MorphingVertexShader.hlsl(36,9-24): warning X3206: implicit truncation of vector type
+  
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\MorphingVertexShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(51,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(51,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\EllExpVertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexEllipticalExpFogShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpFogShader.hlsl(48,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpFogShader.hlsl(48,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\SphExpVertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexSphericalExpFogShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpSqFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpSqFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\SphExp2VertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexSphericalExpSqFogShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalLinearFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalLinearFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\SphLinVertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexSphericalLinearFogShader.cso
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\GeometryShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\GeometryShader.cso
+  pch.cpp
   SphericalMath.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(14,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalMath.cpp(19,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -290,6 +322,6 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(45,9
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(24): warning C4172: returning address of local variable or temporary
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(45): warning C4172: returning address of local variable or temporary
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(59): warning C4172: returning address of local variable or temporary
-  All 685 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 682 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFold.exe
