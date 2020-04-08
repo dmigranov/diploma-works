@@ -5,7 +5,8 @@ using namespace DirectX::SimpleMath;
 Camera::Camera() : m_viewport(0.0f, 0.0f, 1.0f, 1.0f),
 m_pitch(0), m_yaw(0),
 m_lookAt(Vector3(0, 0, 0)),
-m_viewDirty(true)
+m_viewDirty(true),
+m_fovY(XM_PIDIV2)
 {}
 //todo: добавитт false
 
@@ -80,12 +81,6 @@ void Camera::Move(Vector4 v4)
 	Vector3 move = Vector3::Transform(v, q);
 	m_position += move;
 	m_viewDirty = true;
-}
-
-void Camera::Move(Matrix m)
-{
-	//m_view_const = m * (Matrix)m_view_const; //todo: проверить
-	m_view_const = (Matrix)m_view_const * m;
 }
 
 Vector4 Camera::GetPosition()

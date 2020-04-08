@@ -202,6 +202,8 @@ int Game::Initialize(HWND window, int width, int height)
     g_Viewport.MinDepth = 0.0f;
     g_Viewport.MaxDepth = 1.0f;
 
+    isInitialized = true;
+
     if (!LoadContent())
     {
         return -1;
@@ -280,6 +282,7 @@ int Game::Initialize(HWND window, int width, int height)
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
 
+
     return 0;
 }
 
@@ -303,6 +306,114 @@ void Game::GetDefaultSize(int& width, int& height)
     // TODO: Change to desired default window size (note minimum size is 320x200).
     width = m_outputWidth;
     height = m_outputHeight;
+}
+
+void Game::OnWindowSizeChanged(int width, int height)
+{
+    m_outputWidth = std::max<int>(width, 1);
+    m_outputHeight = std::max<int>(height, 1);
+    CreateResources();
+}
+
+void Game::CreateResources()
+{
+    if (!isInitialized)
+        return;
+
+    // https://docs.microsoft.com/en-us/windows/win32/direct3dgetstarted/work-with-dxgi
+// Clear the previous window size specific context.
+// A render-target-view interface identifies the render-target subresources that can be accessed during rendering.
+    ID3D11RenderTargetView* nullViews[] = { nullptr };
+
+    // Bind one or more render targets atomically and the depth - stencil buffer to the output - merger stage.
+    // To bind a render-target view to the pipeline, call ID3D11DeviceContext::OMSetRenderTargets.
+    g_d3dDeviceContext->OMSetRenderTargets(_countof(nullViews), nullViews, nullptr);
+    //g_d3dDepthStencilBuffer = nullptr;
+    //g_d3dDepthStencilView = nullptr;
+    //g_d3dDepthStencilState = nullptr;
+    g_d3dDeviceContext->Flush();
+
+    UINT backBufferWidth = static_cast<UINT>(m_outputWidth);
+    UINT backBufferHeight = static_cast<UINT>(m_outputHeight);
+
+
+    DXGI_FORMAT backBufferFormat = DXGI_FORMAT_B8G8R8A8_UNORM;
+    DXGI_FORMAT depthBufferFormat = DXGI_FORMAT_D24_UNORM_S8_UINT;
+    UINT backBufferCount = 1;
+
+    SafeRelease(g_d3dRenderTargetView);
+    // If the swap chain already exists, resize it
+    if (g_d3dSwapChain)	//!= null
+    {
+        HRESULT hr = g_d3dSwapChain->ResizeBuffers(backBufferCount, backBufferWidth, backBufferHeight, backBufferFormat, 0);
+        DX::ThrowIfFailed(hr);
+    }
+    
+    ID3D11Texture2D* backBuffer;
+    HRESULT hr = g_d3dSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&backBuffer);
+    DX::ThrowIfFailed(hr);
+
+    hr = g_d3dDevice->CreateRenderTargetView(backBuffer, nullptr, &g_d3dRenderTargetView);
+    DX::ThrowIfFailed(hr);
+
+    SafeRelease(backBuffer);
+
+
+    D3D11_TEXTURE2D_DESC depthStencilBufferDesc;
+    ZeroMemory(&depthStencilBufferDesc, sizeof(D3D11_TEXTURE2D_DESC));
+
+    depthStencilBufferDesc.ArraySize = 1;
+    depthStencilBufferDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+    depthStencilBufferDesc.CPUAccessFlags = 0; // No CPU access required.
+    depthStencilBufferDesc.Format = DXGI_FORMAT_D32_FLOAT;
+    depthStencilBufferDesc.Width = backBufferWidth;
+    depthStencilBufferDesc.Height = backBufferHeight;
+    depthStencilBufferDesc.MipLevels = 1;
+    depthStencilBufferDesc.SampleDesc.Count = 1;
+    depthStencilBufferDesc.SampleDesc.Quality = 0;
+    depthStencilBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+
+    hr = g_d3dDevice->CreateTexture2D(&depthStencilBufferDesc, nullptr, &g_d3dDepthStencilBuffer);
+    DX::ThrowIfFailed(hr);
+    //we must create a ID3D11DepthStencilView before we can use this depth buffer for rendering
+    hr = g_d3dDevice->CreateDepthStencilView(g_d3dDepthStencilBuffer, nullptr, &g_d3dDepthStencilView);
+    DX::ThrowIfFailed(hr);
+
+
+    // Setup depth/stencil state.
+    D3D11_DEPTH_STENCIL_DESC depthStencilStateDesc;
+    ZeroMemory(&depthStencilStateDesc, sizeof(D3D11_DEPTH_STENCIL_DESC));
+
+    depthStencilStateDesc.DepthEnable = TRUE;       //тест глубины проводится
+    depthStencilStateDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+    depthStencilStateDesc.DepthFunc = D3D11_COMPARISON_LESS;
+    depthStencilStateDesc.StencilEnable = FALSE;    //ТЕСТ трафарета НЕ ПРОВОДИТСЯ!
+
+    hr = g_d3dDevice->CreateDepthStencilState(&depthStencilStateDesc, &g_d3dDepthStencilState);
+    DX::ThrowIfFailed(hr);
+
+    g_Viewport.Width = static_cast<float>(backBufferWidth);
+    g_Viewport.Height = static_cast<float>(backBufferHeight);
+
+    // Setup the projection matrix.
+
+    m_camera->SetOutputSize(backBufferWidth, backBufferHeight);
+
+    //elliptical
+    /*{
+        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
+        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
+        perApplicationVSConstantBuffer = {front, back, 0.25f};
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
+    }*/
+
+    //spherical
+    {
+        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
+        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
+        perApplicationVSConstantBuffer = { front, back, 0.25f };
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
+    }
 }
 
 void Game::Update(float deltaTime)
@@ -386,8 +497,6 @@ void Game::Render()
     }
 
 
-    
-
     Present();
 }
 
@@ -463,7 +572,7 @@ bool Game::LoadContent()
 
     //loading shaders from global variables 
     //hr = g_d3dDevice->CreateVertexShader(g_sphexpvs, sizeof(g_sphexpvs), nullptr, &g_d3dVertexShader);
-    hr = g_d3dDevice->CreateVertexShader(g_ellexpvs, sizeof(g_ellexpvs), nullptr, &g_d3dVertexShader);
+    hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dVertexShader);
 
     if (FAILED(hr))
     {
@@ -495,56 +604,31 @@ bool Game::LoadContent()
         return false;
     }
 
-    // Setup the projection matrix.
-    RECT clientRect;
-    GetClientRect(m_hwnd, &clientRect);
-
-    // Compute the exact client dimensions.
-    // This is required for a correct projection matrix.
-    float clientWidth = static_cast<float>(clientRect.right - clientRect.left);
-    float clientHeight = static_cast<float>(clientRect.bottom - clientRect.top);
 
     m_camera->SetPosition(0, 0, 0);
-    m_camera->SetFovY(XM_PI / 4.f);
-    m_camera->SetOutputSize(clientWidth, clientHeight);
+    m_camera->SetFovY(XM_PI / 2);
     m_camera->SetNearPlane(0.001f);
     m_camera->SetFarPlane(100.f);
-
+    m_camera->Move(Vector4(0, 0, -XM_PI/4, 1));
     //todo: реализовать смену на лету
-
-    //elliptical
-    {
-        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
-        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
-        perApplicationVSConstantBuffer = {front, back, 0.25f};
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-    }
-
-    //spherical
-    
-    /*{
-        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
-        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
-        perApplicationVSConstantBuffer = { front, back, 0.25f };
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-    }*/
+    CreateResources();
     
     {
         float height = 0.5f;
         float s = sqrtf(1 - height * height);
         Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(s, 0.f, 0.f, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
-        { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
-        { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
+        { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 1
+        { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 2
         };
 
         WORD indices[] = {
             0, 1, 2, 2, 1, 0
         };
 
-        mesh2 = new SphericalMesh(_countof(vertices), vertices,
-            _countof(indices), indices);
-        //meshes.push_back(mesh2);
+        Mesh* mesh = new SphericalMesh(_countof(vertices), vertices,
+            _countof(indices), indices, SphericalRotationYW(XM_PI/12));
+        //meshes.push_back(mesh);
 
     }
 
@@ -553,19 +637,23 @@ bool Game::LoadContent()
     
     {
         XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
-        mesh1 = new SphericalOctahedron(.99f/*, SphericalRotationXZ(XM_PIDIV4)*/, arrOct);
+        mesh1 = new SphericalOctahedron(.99f, arrOct);
         meshes.push_back(mesh1);
 
-        XMFLOAT4 arrOct2[] = { XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 1.f, 0.5f, 1.f), XMFLOAT4(0.f, 0.f, 0.5f, 1.f), XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.f), XMFLOAT4(0.f, 0.5f, 0.5f, 1.f) };
+        /*XMFLOAT4 arrOct2[] = { XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 1.f, 0.5f, 1.f), XMFLOAT4(0.f, 0.f, 0.5f, 1.f), XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.f), XMFLOAT4(0.f, 0.5f, 0.5f, 1.f) };
         mesh2 = new SphericalOctahedron(.99f, SphericalRotationXW(XM_PIDIV4), arrOct2);
-        meshes.push_back(mesh2);
+        meshes.push_back(mesh2);*/
 
-        /*
-        XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
+        for(int i = 0; i < 4; i++)
+            meshes.push_back(new SphericalOctahedron(.99f, SphericalRotationXW(i * XM_2PI/8)));
+
+        /*for (int i = 0; i < 4; i++)
+            meshes.push_back(new SphericalOctahedron(.99f, SphericalRotationYW(i * XM_2PI / 8)));
+*/
+
+        /*XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
         mesh2 = new SphericalCube(.99f, SphericalRotationXW(XM_PIDIV4), arrСube);
-        mesh2->SetParent(mesh1);
-        meshes.push_back(mesh2);
-        */
+        meshes.push_back(mesh2);*/
         
 
         //mesh2 = new SphericalMesh(_countof(vertices), vertices, (indices), indices, SphericalRotationXW(0.6f));
@@ -579,6 +667,8 @@ bool Game::LoadContent()
 
     return true;
 }
+
+
 
 
 void Game::UnloadContent()

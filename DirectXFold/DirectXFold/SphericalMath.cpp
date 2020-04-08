@@ -14,6 +14,16 @@ Matrix BananaProjectionMatrix(double z0)
 		0.f, 0.f, -z0/2.f, 0);
 }
 
+Matrix BananaProjectionMatrix(double fovY, double aspect, double z0)
+{
+	float height = 1.f / tanf(fovY/2);
+	float width = height / aspect;
+	return Matrix(width, 0.f, 0.f, 0.f,
+		0.f, height, 0.f, 0.f,
+		0.f, 0.f, 0.5f, 1.f,
+		0.f, 0.f, -z0 / 2.f, 0);
+}
+
 Matrix BananaProjectionMatrixFrontHalf(double z0)
 {
 	return Matrix(1.f, 0.f, 0.f, 0.f,
@@ -22,10 +32,30 @@ Matrix BananaProjectionMatrixFrontHalf(double z0)
 		0.f, 0.f, -z0 / 4.f, 0);
 }
 
+Matrix BananaProjectionMatrixFrontHalf(double fovY, double aspect, double z0)
+{
+	float height = 1.f / tanf(fovY / 2);
+	float width = height / aspect;
+	return Matrix(width, 0.f, 0.f, 0.f,
+		0.f, height, 0.f, 0.f,
+		0.f, 0.f, 0.25f, 1.f,
+		0.f, 0.f, -z0 / 4.f, 0);
+}
+
 Matrix BananaProjectionMatrixBackHalf(double z0)
 {
 	return Matrix(1.f, 0.f, 0.f, 0.f,
 		0.f, 1.f, 0.f, 0.f,
+		0.f, 0.f, 0.75f, 1.f,
+		0.f, 0.f, -z0 / 4.f, 0);
+}
+
+DirectX::SimpleMath::Matrix BananaProjectionMatrixBackHalf(double fovY, double aspect, double z0)
+{
+	float height = 1.f / tanf(fovY / 2);
+	float width = height / aspect;
+	return Matrix(width, 0.f, 0.f, 0.f,
+		0.f, height, 0.f, 0.f,
 		0.f, 0.f, 0.75f, 1.f,
 		0.f, 0.f, -z0 / 4.f, 0);
 }

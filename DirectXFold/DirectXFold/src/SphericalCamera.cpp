@@ -3,11 +3,9 @@
 
 //todo: сделать такую навигацию, чтобы можно было подойти к икосаэдру СБОКУ!
 
-SphericalCamera::SphericalCamera()
+SphericalCamera::SphericalCamera() 
 {
 	m_view = Matrix::Identity;
-	m_view_const = Matrix::Identity;
-
 }
 const XMMATRIX& SphericalCamera::GetView()
 {
@@ -35,19 +33,43 @@ const XMMATRIX& SphericalCamera::GetProj()
 
 const XMMATRIX& SphericalCamera::GetFrontProj()
 {
-	static Matrix front = BananaProjectionMatrixFrontHalf(m_nearPlane);
+	double sw = m_outputWidth;
+	double sh = m_outputHeight;
+
+	double vw = m_viewport.w;
+	double vh = m_viewport.h;
+
+	float aspect = (float)((sw * vw) / (sh * vh));
+	Matrix front = BananaProjectionMatrixFrontHalf(m_fovY, aspect, m_nearPlane);
+	//static Matrix front = BananaProjectionMatrixFrontHalf(m_nearPlane);
 	return front;
 }
 
 const XMMATRIX& SphericalCamera::GetBackProj()
 {
-	static Matrix back = BananaProjectionMatrixBackHalf(m_nearPlane);
+	double sw = m_outputWidth;
+	double sh = m_outputHeight;
+
+	double vw = m_viewport.w;
+	double vh = m_viewport.h;
+
+	float aspect = (float)((sw * vw) / (sh * vh));
+	Matrix back = BananaProjectionMatrixBackHalf(m_fovY, aspect, m_nearPlane);
+	//static Matrix back = BananaProjectionMatrixBackHalf(m_nearPlane);
 	return back;
 }
 
 const XMMATRIX& SphericalCamera::GetEllipticalProj()
 {
-	static Matrix ell = EllipticalBananaProjectionMatrix(m_nearPlane);
+	double sw = m_outputWidth;
+	double sh = m_outputHeight;
+
+	double vw = m_viewport.w;
+	double vh = m_viewport.h;
+
+	float aspect = (float)((sw * vw) / (sh * vh));
+	Matrix ell = BananaProjectionMatrix(m_fovY, aspect, m_nearPlane);
+	//static Matrix ell = BananaProjectionMatrix(m_nearPlane);
 	return ell;
 }
 

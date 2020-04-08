@@ -52,6 +52,9 @@ public:
     // Properties
     void GetDefaultSize(int& width, int& height);
 
+    // Messages
+    void OnWindowSizeChanged(int width, int height);
+
 
 private:
     friend class Mesh;
@@ -65,11 +68,12 @@ private:
     Game(Game const&) = delete;
     Game& operator=(Game const&) = delete;
 
+    void CreateResources();
+
     void Update(float deltaTime);
     void Render();
     void Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil);
     void Present();
-
 
     bool LoadContent();
     void UnloadContent();
@@ -116,7 +120,11 @@ private:
 
     // Shader data
     ID3D11VertexShader* g_d3dVertexShader = nullptr;
+    ID3D11VertexShader* g_d3dSphericalVertexShader = nullptr;
+    ID3D11VertexShader* g_d3dEllipticalVertexShader = nullptr;
+
     ID3D11GeometryShader* g_d3dGeometryShader = nullptr;
+
     ID3D11PixelShader* g_d3dPixelShader = nullptr;
 
     // Shader resources
@@ -169,10 +177,13 @@ private:
     struct PerApplicationPSConstantBuffer
     {
         XMVECTORF32 mistColor = Colors::CadetBlue;
-        float m_edgeThickness = 0.01f;
+        float m_edgeThickness = 0.00f;
     };
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
 
 
     double xAngleProtractor = 0;
+
+
+    bool isInitialized = false;
 };
