@@ -337,7 +337,7 @@ void Game::CreateResources()
 
     DXGI_FORMAT backBufferFormat = DXGI_FORMAT_B8G8R8A8_UNORM;
     DXGI_FORMAT depthBufferFormat = DXGI_FORMAT_D24_UNORM_S8_UINT;
-    UINT backBufferCount = 2;
+    UINT backBufferCount = 1;
 
     // If the swap chain already exists, resize it
     if (g_d3dSwapChain)	//!= null
@@ -345,31 +345,43 @@ void Game::CreateResources()
         HRESULT hr = g_d3dSwapChain->ResizeBuffers(backBufferCount, backBufferWidth, backBufferHeight, backBufferFormat, 0);
     }
 
-    // Obtain the backbuffer for this window which will be the final 3D rendertarget.
-    /*ComPtr<ID3D11Texture2D> backBuffer;
-    DX::ThrowIfFailed(m_swapChain->GetBuffer(0, IID_PPV_ARGS(backBuffer.GetAddressOf())));
+    D3D11_TEXTURE2D_DESC depthStencilBufferDesc;
+    ZeroMemory(&depthStencilBufferDesc, sizeof(D3D11_TEXTURE2D_DESC));
 
-    // Create a view interface on the rendertarget to use on bind.
-    DX::ThrowIfFailed(m_d3dDevice->CreateRenderTargetView(backBuffer.Get(), nullptr, m_renderTargetView.ReleaseAndGetAddressOf()));
+    depthStencilBufferDesc.ArraySize = 1;
+    depthStencilBufferDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+    depthStencilBufferDesc.CPUAccessFlags = 0; // No CPU access required.
+    depthStencilBufferDesc.Format = DXGI_FORMAT_D32_FLOAT;
+    depthStencilBufferDesc.Width = backBufferWidth;
+    depthStencilBufferDesc.Height = backBufferHeight;
+    depthStencilBufferDesc.MipLevels = 1;
+    depthStencilBufferDesc.SampleDesc.Count = 1;
+    depthStencilBufferDesc.SampleDesc.Quality = 0;
+    depthStencilBufferDesc.Usage = D3D11_USAGE_DEFAULT;
 
-    // Allocate a 2-D surface as the depth/stencil buffer and
-    // create a DepthStencil view on this surface to use on bind.
-    CD3D11_TEXTURE2D_DESC depthStencilDesc(depthBufferFormat, backBufferWidth, backBufferHeight, 1, 1, D3D11_BIND_DEPTH_STENCIL, D3D11_USAGE_DEFAULT, 0, 4, 0);
-    DX::ThrowIfFailed(m_d3dDevice->CreateTexture2D(&depthStencilDesc, nullptr, &g_d3dDepthStencilBuffer));
+    HRESULT hr = g_d3dDevice->CreateTexture2D(&depthStencilBufferDesc, nullptr, &g_d3dDepthStencilBuffer);
+    DX::ThrowIfFailed(hr);
+    //we must create a ID3D11DepthStencilView before we can use this depth buffer for rendering
+    hr = g_d3dDevice->CreateDepthStencilView(g_d3dDepthStencilBuffer, nullptr, &g_d3dDepthStencilView);
+    DX::ThrowIfFailed(hr);
 
-    CD3D11_DEPTH_STENCIL_VIEW_DESC depthStencilViewDesc(D3D11_DSV_DIMENSION_TEXTURE2DMS);
-    DX::ThrowIfFailed(m_d3dDevice->CreateDepthStencilView(depthStencil.Get(), &depthStencilViewDesc, m_depthStencilView.ReleaseAndGetAddressOf()));
-    */
+
+    // Setup depth/stencil state.
+    D3D11_DEPTH_STENCIL_DESC depthStencilStateDesc;
+    ZeroMemory(&depthStencilStateDesc, sizeof(D3D11_DEPTH_STENCIL_DESC));
+
+    depthStencilStateDesc.DepthEnable = TRUE;       //тест глубины проводится
+    depthStencilStateDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+    depthStencilStateDesc.DepthFunc = D3D11_COMPARISON_LESS;
+    depthStencilStateDesc.StencilEnable = FALSE;    //ТЕСТ трафарета НЕ ПРОВОДИТСЯ!
+
+    hr = g_d3dDevice->CreateDepthStencilState(&depthStencilStateDesc, &g_d3dDepthStencilState);
+    DX::ThrowIfFailed(hr);
+
 
     // Setup the projection matrix.
-    RECT clientRect;
-    GetClientRect(m_hwnd, &clientRect);
 
-    // Compute the exact client dimensions.
-    // This is required for a correct projection matrix.
-    float clientWidth = static_cast<float>(clientRect.right - clientRect.left);
-    float clientHeight = static_cast<float>(clientRect.bottom - clientRect.top);
-    m_camera->SetOutputSize(clientWidth, clientHeight);
+    m_camera->SetOutputSize(backBufferWidth, backBufferHeight);
 
     //elliptical
     /*{
