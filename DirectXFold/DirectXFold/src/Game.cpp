@@ -202,6 +202,8 @@ int Game::Initialize(HWND window, int width, int height)
     g_Viewport.MinDepth = 0.0f;
     g_Viewport.MaxDepth = 1.0f;
 
+    isInitialized = true;
+
     if (!LoadContent())
     {
         return -1;
@@ -280,6 +282,7 @@ int Game::Initialize(HWND window, int width, int height)
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
 
+
     return 0;
 }
 
@@ -309,6 +312,7 @@ void Game::OnWindowSizeChanged(int width, int height)
 {
     m_outputWidth = std::max<int>(width, 1);
     m_outputHeight = std::max<int>(height, 1);
+    UpdateContent();
 }
 
 void Game::Update(float deltaTime)
@@ -567,6 +571,9 @@ bool Game::LoadContent()
 
 void Game::UpdateContent()
 {
+    if (!isInitialized)
+        return;
+
     // Setup the projection matrix.
     RECT clientRect;
     GetClientRect(m_hwnd, &clientRect);

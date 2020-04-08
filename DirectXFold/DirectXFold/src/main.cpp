@@ -152,6 +152,40 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         g_game.OnWindowSizeChanged(rc.right - rc.left, rc.bottom - rc.top);
        
         break;
+    case WM_SIZE:
+        if (wParam == SIZE_MINIMIZED)
+        {
+            if (!s_minimized)
+            {
+                s_minimized = true;
+                /*if (!s_in_suspend)
+                    game.OnSuspending();*/
+                s_in_suspend = true;
+
+                //нужно чтобы ограничить потребление процессора, когда свернута
+                //как следствие, когда игра свернута, все процессы приостанавливаются
+                {
+                    MSG newLoopMessage = {};
+                    while (s_minimized == true && GetMessage(&newLoopMessage, nullptr, 0, 0) != 0)
+                    {
+                        TranslateMessage(&newLoopMessage);
+                        DispatchMessage(&newLoopMessage);	//dispatch передает сообщение winproc!!!
+                    }
+                }
+            }
+        }
+        /*else if (s_minimized)
+        {
+            s_minimized = false;
+            if (s_in_suspend && game)
+                game->OnResuming();
+            s_in_suspend = false;
+        }*/
+        else if (!s_in_sizemove)
+        {
+            g_game.OnWindowSizeChanged(LOWORD(lParam), HIWORD(lParam));
+        }
+        break;
     case WM_INPUT:
     case WM_MOUSEMOVE:
     case WM_LBUTTONDOWN:

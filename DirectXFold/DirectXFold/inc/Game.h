@@ -182,4 +182,7 @@ private:
 
 
     double xAngleProtractor = 0;
+
+
+    bool isInitialized = false;
 };
