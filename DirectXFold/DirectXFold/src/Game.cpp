@@ -644,8 +644,10 @@ bool Game::LoadContent()
         mesh2 = new SphericalOctahedron(.99f, SphericalRotationXW(XM_PIDIV4), arrOct2);
         meshes.push_back(mesh2);*/
 
-        for(int i = 0; i < 4; i++)
+        for(int i = 1; i < 4; i++)
             meshes.push_back(new SphericalOctahedron(.99f, SphericalRotationXW(i * XM_2PI/8)));
+        for (int i = 1; i < 4; i++)
+            meshes.push_back(new SphericalOctahedron(.99f, SphericalRotationZW(i * XM_2PI / 8)));
 
         /*for (int i = 0; i < 4; i++)
             meshes.push_back(new SphericalOctahedron(.99f, SphericalRotationYW(i * XM_2PI / 8)));
