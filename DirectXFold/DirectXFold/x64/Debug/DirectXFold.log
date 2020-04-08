@@ -1,1 +1,8 @@
-﻿
+﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\PixelShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\BasicPixelShader_d.cso
+  Microsoft (R) Direct3D Shader Compiler 10.1
+  Copyright (C) 2013 Microsoft. All rights reserved.
+  
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\BasicVertexShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\BasicVertexShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
