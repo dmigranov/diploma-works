@@ -544,7 +544,7 @@ bool Game::LoadContent()
 
         Mesh* mesh = new SphericalMesh(_countof(vertices), vertices,
             _countof(indices), indices, SphericalRotationYW(XM_PI/12));
-        meshes.push_back(mesh);
+        //meshes.push_back(mesh);
 
     }
 
@@ -553,17 +553,23 @@ bool Game::LoadContent()
     
     {
         XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
-        mesh1 = new SphericalCube(.99f);
+        mesh1 = new SphericalOctahedron(.99f, arrOct);
         meshes.push_back(mesh1);
 
         /*XMFLOAT4 arrOct2[] = { XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 1.f, 0.5f, 1.f), XMFLOAT4(0.f, 0.f, 0.5f, 1.f), XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.f), XMFLOAT4(0.f, 0.5f, 0.5f, 1.f) };
         mesh2 = new SphericalOctahedron(.99f, SphericalRotationXW(XM_PIDIV4), arrOct2);
         meshes.push_back(mesh2);*/
 
-        
-        XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
+        for(int i = 0; i < 4; i++)
+            meshes.push_back(new SphericalOctahedron(.99f, SphericalRotationXW(i * XM_2PI/8)));
+
+        for (int i = 0; i < 4; i++)
+            meshes.push_back(new SphericalOctahedron(.99f, SphericalRotationYW(i * XM_2PI / 8)));
+
+
+        /*XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
         mesh2 = new SphericalCube(.99f, SphericalRotationXW(XM_PIDIV4), arrСube);
-        meshes.push_back(mesh2);
+        meshes.push_back(mesh2);*/
         
 
         //mesh2 = new SphericalMesh(_countof(vertices), vertices, (indices), indices, SphericalRotationXW(0.6f));
