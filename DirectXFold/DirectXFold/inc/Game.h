@@ -169,7 +169,7 @@ private:
     struct PerApplicationPSConstantBuffer
     {
         XMVECTORF32 mistColor = Colors::CadetBlue;
-        float m_edgeThickness = 0.01f;
+        float m_edgeThickness = 0.00f;
     };
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
 

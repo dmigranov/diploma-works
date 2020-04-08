@@ -509,7 +509,7 @@ bool Game::LoadContent()
     m_camera->SetOutputSize(clientWidth, clientHeight);
     m_camera->SetNearPlane(0.001f);
     m_camera->SetFarPlane(100.f);
-
+    m_camera->Move(Vector4(0, 0, -XM_PI/4, 1));
     //todo: реализовать смену на лету
 
     //elliptical
@@ -534,17 +534,17 @@ bool Game::LoadContent()
         float s = sqrtf(1 - height * height);
         Mesh::VertexPosColor vertices[] = {
         { XMFLOAT4(s, 0.f, 0.f, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
-        { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(0.0f, 0.0f, 1.0f, 1.f) }, // 1
-        { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(0.0f, 1.0f, 0.0f, 1.f) }, // 2
+        { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 1
+        { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 2
         };
 
         WORD indices[] = {
             0, 1, 2, 2, 1, 0
         };
 
-        mesh2 = new SphericalMesh(_countof(vertices), vertices,
-            _countof(indices), indices);
-        //meshes.push_back(mesh2);
+        Mesh* mesh = new SphericalMesh(_countof(vertices), vertices,
+            _countof(indices), indices, SphericalRotationYW(XM_PI/12));
+        meshes.push_back(mesh);
 
     }
 
@@ -553,7 +553,7 @@ bool Game::LoadContent()
     
     {
         XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
-        mesh1 = new SphericalOctahedron(.99f, SphericalRotationZW(-XM_PIDIV4), arrOct);
+        mesh1 = new SphericalOctahedron(.99f, arrOct);
         meshes.push_back(mesh1);
 
         /*XMFLOAT4 arrOct2[] = { XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 1.f, 0.5f, 1.f), XMFLOAT4(0.f, 0.f, 0.5f, 1.f), XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.f), XMFLOAT4(0.f, 0.5f, 0.5f, 1.f) };
