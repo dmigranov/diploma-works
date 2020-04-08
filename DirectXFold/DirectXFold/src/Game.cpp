@@ -463,7 +463,7 @@ bool Game::LoadContent()
 
     //loading shaders from global variables 
     //hr = g_d3dDevice->CreateVertexShader(g_sphexpvs, sizeof(g_sphexpvs), nullptr, &g_d3dVertexShader);
-    hr = g_d3dDevice->CreateVertexShader(g_ellexpvs, sizeof(g_ellexpvs), nullptr, &g_d3dVertexShader);
+    hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dVertexShader);
 
     if (FAILED(hr))
     {
@@ -513,21 +513,21 @@ bool Game::LoadContent()
     //todo: реализовать смену на лету
 
     //elliptical
-    {
+    /*{
         auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
         auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
         perApplicationVSConstantBuffer = {front, back, 0.25f};
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-    }
+    }*/
 
     //spherical
     
-    /*{
+    {
         auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
         auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
         perApplicationVSConstantBuffer = { front, back, 0.25f };
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-    }*/
+    }
     
     {
         float height = 0.5f;
