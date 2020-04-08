@@ -52,6 +52,9 @@ public:
     // Properties
     void GetDefaultSize(int& width, int& height);
 
+    // Messages
+    void OnWindowSizeChanged(int width, int height);
+
 
 private:
     friend class Mesh;
@@ -116,7 +119,11 @@ private:
 
     // Shader data
     ID3D11VertexShader* g_d3dVertexShader = nullptr;
+    ID3D11VertexShader* g_d3dSphericalVertexShader = nullptr;
+    ID3D11VertexShader* g_d3dEllipticalVertexShader = nullptr;
+
     ID3D11GeometryShader* g_d3dGeometryShader = nullptr;
+
     ID3D11PixelShader* g_d3dPixelShader = nullptr;
 
     // Shader resources

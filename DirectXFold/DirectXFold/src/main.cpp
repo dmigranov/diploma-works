@@ -139,6 +139,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         Keyboard::ProcessMessage(message, wParam, lParam);
         Mouse::ProcessMessage(message, wParam, lParam);
         break;
+    case WM_ENTERSIZEMOVE:
+        s_in_sizemove = true;
+        break;
+
+    case WM_EXITSIZEMOVE:
+        s_in_sizemove = false;
+
+        RECT rc;
+        GetClientRect(hWnd, &rc);
+
+        g_game.OnWindowSizeChanged(rc.right - rc.left, rc.bottom - rc.top);
+       
+        break;
     case WM_INPUT:
     case WM_MOUSEMOVE:
     case WM_LBUTTONDOWN:

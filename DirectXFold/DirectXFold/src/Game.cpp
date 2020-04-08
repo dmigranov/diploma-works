@@ -305,6 +305,12 @@ void Game::GetDefaultSize(int& width, int& height)
     height = m_outputHeight;
 }
 
+void Game::OnWindowSizeChanged(int width, int height)
+{
+    m_outputWidth = std::max<int>(width, 1);
+    m_outputHeight = std::max<int>(height, 1);
+}
+
 void Game::Update(float deltaTime)
 {
     m_inputHandler->HandleInput();
