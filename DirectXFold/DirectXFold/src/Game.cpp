@@ -341,6 +341,7 @@ void Game::CreateResources()
     DXGI_FORMAT depthBufferFormat = DXGI_FORMAT_D24_UNORM_S8_UINT;
     UINT backBufferCount = 1;
 
+    SafeRelease(g_d3dRenderTargetView);
     // If the swap chain already exists, resize it
     if (g_d3dSwapChain)	//!= null
     {
