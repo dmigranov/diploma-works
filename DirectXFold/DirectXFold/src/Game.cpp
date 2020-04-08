@@ -328,9 +328,9 @@ void Game::CreateResources()
     // Bind one or more render targets atomically and the depth - stencil buffer to the output - merger stage.
     // To bind a render-target view to the pipeline, call ID3D11DeviceContext::OMSetRenderTargets.
     g_d3dDeviceContext->OMSetRenderTargets(_countof(nullViews), nullViews, nullptr);
-    g_d3dDepthStencilBuffer = nullptr;
-    g_d3dDepthStencilView = nullptr;
-    g_d3dDepthStencilState = nullptr;
+    //g_d3dDepthStencilBuffer = nullptr;
+    //g_d3dDepthStencilView = nullptr;
+    //g_d3dDepthStencilState = nullptr;
     g_d3dDeviceContext->Flush();
 
     UINT backBufferWidth = static_cast<UINT>(m_outputWidth);
@@ -346,17 +346,18 @@ void Game::CreateResources()
     if (g_d3dSwapChain)	//!= null
     {
         HRESULT hr = g_d3dSwapChain->ResizeBuffers(backBufferCount, backBufferWidth, backBufferHeight, backBufferFormat, 0);
+        DX::ThrowIfFailed(hr);
     }
     
     ID3D11Texture2D* backBuffer;
     HRESULT hr = g_d3dSwapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&backBuffer);
     DX::ThrowIfFailed(hr);
 
-
     hr = g_d3dDevice->CreateRenderTargetView(backBuffer, nullptr, &g_d3dRenderTargetView);
     DX::ThrowIfFailed(hr);
 
     SafeRelease(backBuffer);
+
 
     D3D11_TEXTURE2D_DESC depthStencilBufferDesc;
     ZeroMemory(&depthStencilBufferDesc, sizeof(D3D11_TEXTURE2D_DESC));
