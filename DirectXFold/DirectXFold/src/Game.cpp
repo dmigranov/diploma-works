@@ -391,6 +391,8 @@ void Game::CreateResources()
     hr = g_d3dDevice->CreateDepthStencilState(&depthStencilStateDesc, &g_d3dDepthStencilState);
     DX::ThrowIfFailed(hr);
 
+    g_Viewport.Width = static_cast<float>(backBufferWidth);
+    g_Viewport.Height = static_cast<float>(backBufferHeight);
 
     // Setup the projection matrix.
 
