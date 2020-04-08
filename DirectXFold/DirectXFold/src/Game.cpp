@@ -320,6 +320,47 @@ void Game::CreateResources()
     if (!isInitialized)
         return;
 
+    // https://docs.microsoft.com/en-us/windows/win32/direct3dgetstarted/work-with-dxgi
+// Clear the previous window size specific context.
+// A render-target-view interface identifies the render-target subresources that can be accessed during rendering.
+    ID3D11RenderTargetView* nullViews[] = { nullptr };
+
+    // Bind one or more render targets atomically and the depth - stencil buffer to the output - merger stage.
+    // To bind a render-target view to the pipeline, call ID3D11DeviceContext::OMSetRenderTargets.
+    g_d3dDeviceContext->OMSetRenderTargets(_countof(nullViews), nullViews, nullptr);
+
+    g_d3dDeviceContext->Flush();
+
+    UINT backBufferWidth = static_cast<UINT>(m_outputWidth);
+    UINT backBufferHeight = static_cast<UINT>(m_outputHeight);
+
+
+    DXGI_FORMAT backBufferFormat = DXGI_FORMAT_B8G8R8A8_UNORM;
+    DXGI_FORMAT depthBufferFormat = DXGI_FORMAT_D24_UNORM_S8_UINT;
+    UINT backBufferCount = 2;
+
+    // If the swap chain already exists, resize it
+    if (g_d3dSwapChain)	//!= null
+    {
+        HRESULT hr = g_d3dSwapChain->ResizeBuffers(backBufferCount, backBufferWidth, backBufferHeight, backBufferFormat, 0);
+    }
+
+    // Obtain the backbuffer for this window which will be the final 3D rendertarget.
+    /*ComPtr<ID3D11Texture2D> backBuffer;
+    DX::ThrowIfFailed(m_swapChain->GetBuffer(0, IID_PPV_ARGS(backBuffer.GetAddressOf())));
+
+    // Create a view interface on the rendertarget to use on bind.
+    DX::ThrowIfFailed(m_d3dDevice->CreateRenderTargetView(backBuffer.Get(), nullptr, m_renderTargetView.ReleaseAndGetAddressOf()));
+
+    // Allocate a 2-D surface as the depth/stencil buffer and
+    // create a DepthStencil view on this surface to use on bind.
+    CD3D11_TEXTURE2D_DESC depthStencilDesc(depthBufferFormat, backBufferWidth, backBufferHeight, 1, 1, D3D11_BIND_DEPTH_STENCIL, D3D11_USAGE_DEFAULT, 0, 4, 0);
+    DX::ThrowIfFailed(m_d3dDevice->CreateTexture2D(&depthStencilDesc, nullptr, &g_d3dDepthStencilBuffer));
+
+    CD3D11_DEPTH_STENCIL_VIEW_DESC depthStencilViewDesc(D3D11_DSV_DIMENSION_TEXTURE2DMS);
+    DX::ThrowIfFailed(m_d3dDevice->CreateDepthStencilView(depthStencil.Get(), &depthStencilViewDesc, m_depthStencilView.ReleaseAndGetAddressOf()));
+    */
+
     // Setup the projection matrix.
     RECT clientRect;
     GetClientRect(m_hwnd, &clientRect);
