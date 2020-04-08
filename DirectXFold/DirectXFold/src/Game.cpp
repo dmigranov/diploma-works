@@ -312,7 +312,40 @@ void Game::OnWindowSizeChanged(int width, int height)
 {
     m_outputWidth = std::max<int>(width, 1);
     m_outputHeight = std::max<int>(height, 1);
-    UpdateContent();
+    CreateResources();
+}
+
+void Game::CreateResources()
+{
+    if (!isInitialized)
+        return;
+
+    // Setup the projection matrix.
+    RECT clientRect;
+    GetClientRect(m_hwnd, &clientRect);
+
+    // Compute the exact client dimensions.
+    // This is required for a correct projection matrix.
+    float clientWidth = static_cast<float>(clientRect.right - clientRect.left);
+    float clientHeight = static_cast<float>(clientRect.bottom - clientRect.top);
+    m_camera->SetOutputSize(clientWidth, clientHeight);
+
+    //elliptical
+    /*{
+        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
+        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
+        perApplicationVSConstantBuffer = {front, back, 0.25f};
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
+    }*/
+
+    //spherical
+
+    {
+        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
+        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
+        perApplicationVSConstantBuffer = { front, back, 0.25f };
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
+    }
 }
 
 void Game::Update(float deltaTime)
@@ -512,7 +545,7 @@ bool Game::LoadContent()
     m_camera->SetFarPlane(100.f);
     m_camera->Move(Vector4(0, 0, -XM_PI/4, 1));
     //todo: реализовать смену на лету
-    UpdateContent();
+    CreateResources();
     
     {
         float height = 0.5f;
@@ -569,38 +602,7 @@ bool Game::LoadContent()
     return true;
 }
 
-void Game::UpdateContent()
-{
-    if (!isInitialized)
-        return;
 
-    // Setup the projection matrix.
-    RECT clientRect;
-    GetClientRect(m_hwnd, &clientRect);
-
-    // Compute the exact client dimensions.
-    // This is required for a correct projection matrix.
-    float clientWidth = static_cast<float>(clientRect.right - clientRect.left);
-    float clientHeight = static_cast<float>(clientRect.bottom - clientRect.top);
-    m_camera->SetOutputSize(clientWidth, clientHeight);
-
-    //elliptical
-    /*{
-        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
-        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
-        perApplicationVSConstantBuffer = {front, back, 0.25f};
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-    }*/
-
-    //spherical
-
-    {
-        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
-        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
-        perApplicationVSConstantBuffer = { front, back, 0.25f };
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-    }
-}
 
 
 void Game::UnloadContent()
