@@ -225,13 +225,9 @@ int Game::Initialize(HWND window, int width, int height)
         if (ks.I)
             this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(gain)));
         if (ks.Z)
-        { 
             static_cast<SphericalOctahedron*>(this->mesh1)->SetSectionHeight(static_cast<SphericalOctahedron*>(this->mesh1)->GetSectionHeight() + .0001);
-        }
         if (ks.X)
-        {
             static_cast<SphericalOctahedron*>(this->mesh1)->SetSectionHeight(static_cast<SphericalOctahedron*>(this->mesh1)->GetSectionHeight() - .0001);
-        }
         if(ks.N)
         {
             if(perApplicationPSConstantBuffer.m_edgeThickness >= 0)
@@ -269,6 +265,15 @@ int Game::Initialize(HWND window, int width, int height)
                 g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
             }
         }
+        if (ks.D1)
+        {
+            std::cout << "RED";
+        }
+
+        if (ks.D2)
+        {
+            std::cout << "GREEN";
+        }
 
         if (ks.IsKeyUp(Keyboard::Keys::LeftShift))
             xAngleProtractor = 0;
@@ -279,7 +284,6 @@ int Game::Initialize(HWND window, int width, int height)
     g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
-
 
     return 0;
 }
@@ -407,9 +411,10 @@ void Game::CreateResources()
 
     //spherical
     {
-        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
-        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
-        perApplicationVSConstantBuffer = { front, back, 0.25f };
+        auto frontProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
+        auto backProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
+        auto density = perApplicationVSConstantBuffer.density;
+        perApplicationVSConstantBuffer = { frontProjectionMatrix, backProjectionMatrix, density };
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
     }
 }
