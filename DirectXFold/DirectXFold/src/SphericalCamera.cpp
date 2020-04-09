@@ -78,9 +78,10 @@ Vector4 SphericalCamera::GetPosition()
 	return XMVector4Transform(spherePos, m_view);
 }
 
-//v = dx dy dz dw
-void SphericalCamera::Move(Vector4 v)
+//v = dx dy dz (градусы)
+void SphericalCamera::Move(Vector3 v3)
 {
+	Vector4 v(v3.x, v3.y, v3.z, 1.);
 	Vector4 move = XMVector4Transform(v, SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw));
 	Vector3 moveTemp = Vector3(move.x, move.y, move.z);
 

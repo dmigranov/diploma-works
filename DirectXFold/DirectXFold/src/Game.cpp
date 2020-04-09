@@ -609,7 +609,7 @@ bool Game::LoadContent()
     m_camera->SetFovY(XM_PI / 2);
     m_camera->SetNearPlane(0.001f);
     m_camera->SetFarPlane(100.f);
-    m_camera->Move(Vector4(0, 0, -XM_PI/4, 1));
+    m_camera->Move(Vector3(0, 0, -XM_PI/4));
     //todo: реализовать смену на лету
     CreateResources();
     

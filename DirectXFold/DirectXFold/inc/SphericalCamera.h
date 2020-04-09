@@ -15,7 +15,7 @@ public:
 	const XMMATRIX& GetEllipticalProj();
 
 	Vector4 GetPosition() override;
-	void Move(Vector4 v) override;
+	void Move(Vector3 v) override;
 
 private:
 	Vector4 spherePos = Vector4(0, 0, 0, 1);

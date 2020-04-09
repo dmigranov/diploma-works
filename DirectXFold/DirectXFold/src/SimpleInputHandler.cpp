@@ -32,7 +32,7 @@ void SimpleInputHandler::HandleKeyboard()
         //ExitGame();
     }
 
-    Vector4 move = Vector4::Zero;
+    Vector3 move = Vector3::Zero;
 
     if (kb.Up || kb.W)
         move.z += 1.f;
@@ -54,7 +54,7 @@ void SimpleInputHandler::HandleKeyboard()
 
 
     move *= MOVEMENT_GAIN;
-    if(move != Vector4::Zero)
+    if(move != Vector3::Zero)
         m_camera->Move(move);
 
     func();
