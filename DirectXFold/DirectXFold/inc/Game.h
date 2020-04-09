@@ -188,4 +188,6 @@ private:
 
 
     bool isInitialized = false;
+
+    XMMATRIX frontProjectionMatrix, backProjectionMatrix, commonProjectionMatrix;
 };

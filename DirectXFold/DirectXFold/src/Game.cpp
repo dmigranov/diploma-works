@@ -403,7 +403,7 @@ void Game::CreateResources()
 
     //elliptical
     /*{
-        auto commonProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
+        commonProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
         auto density = perApplicationVSConstantBuffer.density;
         perApplicationVSConstantBuffer = { commonProjectionMatrix, commonProjectionMatrix, density};
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
@@ -411,8 +411,8 @@ void Game::CreateResources()
 
     //spherical
     {
-        auto frontProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
-        auto backProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
+        frontProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
+        backProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
         auto density = perApplicationVSConstantBuffer.density;
         perApplicationVSConstantBuffer = { frontProjectionMatrix, backProjectionMatrix, density };
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
