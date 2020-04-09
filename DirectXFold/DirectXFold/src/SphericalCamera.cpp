@@ -13,6 +13,10 @@ const XMMATRIX& SphericalCamera::GetView()
 	//todo: умножить на XZ и YZ! в зависимости от мыши
 	if (m_viewDirty)
 	{
+		pitchTotal += m_pitch;
+		pitchTotal = std::max<double>(-pitchLimit, pitchTotal);
+		pitchTotal = std::min<double>(+pitchLimit, pitchTotal);
+
 		m_view = (Matrix)m_view * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch)/* * SphericalRotationXY(m_roll)*/;
 		//первые три члена - аналог трансл€ции. —начала перемещаем камеру в (0 0 0 1)
 		m_position = Vector3::Zero;
