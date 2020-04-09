@@ -20,9 +20,6 @@ public:
 private:
 	Vector4 spherePos = Vector4(0, 0, 0, 1);
 	double pitchTotal = 0;
-
 	const float pitchLimit = DirectX::XM_PI / 2.0f - 0.01f;
-
-
 };
 
