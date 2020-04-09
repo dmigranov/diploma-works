@@ -267,12 +267,22 @@ int Game::Initialize(HWND window, int width, int height)
         }
         if (ks.D1)
         {
-            std::cout << "RED";
+            //spherical
+            isSpherical = true;
+            g_d3dVertexShader = g_d3dSphericalVertexShader;
+            auto density = perApplicationVSConstantBuffer.density;
+            perApplicationVSConstantBuffer = { frontProjectionMatrix, backProjectionMatrix, density };
+            g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
         }
 
         if (ks.D2)
         {
-            std::cout << "GREEN";
+            //elliptical 
+            isSpherical = false;
+            g_d3dVertexShader = g_d3dEllipticalVertexShader;
+            auto density = perApplicationVSConstantBuffer.density;
+            perApplicationVSConstantBuffer = { commonProjectionMatrix, commonProjectionMatrix, density };
+            g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
         }
 
         if (ks.IsKeyUp(Keyboard::Keys::LeftShift))
@@ -403,15 +413,16 @@ void Game::CreateResources()
 
     RecalculateProjectionMatrices();
 
-    //elliptical
-    {
-        //todo: if..
-    }
 
-    //spherical
+    auto density = perApplicationVSConstantBuffer.density;
+    if(isSpherical)
     {
-        auto density = perApplicationVSConstantBuffer.density;
         perApplicationVSConstantBuffer = { frontProjectionMatrix, backProjectionMatrix, density };
+        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
+    }
+    else
+    {
+        perApplicationVSConstantBuffer = { commonProjectionMatrix, commonProjectionMatrix, density };
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
     }
 }

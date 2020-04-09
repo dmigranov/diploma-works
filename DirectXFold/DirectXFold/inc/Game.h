@@ -187,8 +187,8 @@ private:
 
     double xAngleProtractor = 0;
 
-
     bool isInitialized = false;
+    bool isSpherical = true;
 
     XMMATRIX frontProjectionMatrix, backProjectionMatrix, commonProjectionMatrix;
 };
