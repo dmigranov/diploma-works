@@ -71,6 +71,7 @@ private:
     Game& operator=(Game const&) = delete;
 
     void CreateResources();
+    void RecalculateProjectionMatrices();
 
     void Update(float deltaTime);
     void Render();

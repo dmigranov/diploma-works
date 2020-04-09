@@ -401,22 +401,26 @@ void Game::CreateResources()
 
     m_camera->SetOutputSize(backBufferWidth, backBufferHeight);
 
+    RecalculateProjectionMatrices();
+
     //elliptical
-    /*{
-        commonProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
-        auto density = perApplicationVSConstantBuffer.density;
-        perApplicationVSConstantBuffer = { commonProjectionMatrix, commonProjectionMatrix, density};
-        g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
-    }*/
+    {
+        //todo: if..
+    }
 
     //spherical
     {
-        frontProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
-        backProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
         auto density = perApplicationVSConstantBuffer.density;
         perApplicationVSConstantBuffer = { frontProjectionMatrix, backProjectionMatrix, density };
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
     }
+}
+
+void Game::RecalculateProjectionMatrices()
+{
+    commonProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
+    frontProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetFrontProj();
+    backProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
 }
 
 void Game::Update(float deltaTime)
