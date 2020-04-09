@@ -13,7 +13,7 @@ const XMMATRIX& SphericalCamera::GetView()
 	//todo: умножить на XZ и YZ! в зависимости от мыши
 	if (m_viewDirty)
 	{
-		m_view = (Matrix)m_view * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
+		m_view = (Matrix)m_view * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch)/* * SphericalRotationXY(m_roll)*/;
 		//первые три члена - аналог трансляции. Сначала перемещаем камеру в (0 0 0 1)
 		m_position = Vector3::Zero;
 		m_pitch = 0;
@@ -21,6 +21,10 @@ const XMMATRIX& SphericalCamera::GetView()
 	}
 	return m_view;
 }
+
+//todo: 
+//1. сделать так чтобы нельзя было переворачивать голову
+//2. перемещатаься в одной плоскости (проецирование)
 
 const XMMATRIX& SphericalCamera::GetAntipodalView()
 {
