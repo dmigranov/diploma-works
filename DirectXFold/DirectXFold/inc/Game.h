@@ -6,6 +6,7 @@
 
 #include "VertexShader.h"
 #include "MorphingVertexShader.h"
+
 #include "SphLinVertexShader.h"
 #include "SphExpVertexShader.h"
 #include "SphExp2VertexShader.h"

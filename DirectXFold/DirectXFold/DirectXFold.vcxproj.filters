@@ -178,6 +178,9 @@
     <FxCompile Include="Data\Shaders\VertexEllipticalExpFogShader.hlsl">
       <Filter>Data\Shaders\Elliptical</Filter>
     </FxCompile>
+    <FxCompile Include="VertexEllipticalExpSqFogShader.hlsl">
+      <Filter>Data\Shaders\Elliptical</Filter>
+    </FxCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
