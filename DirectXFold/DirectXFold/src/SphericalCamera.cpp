@@ -16,6 +16,9 @@ const XMMATRIX& SphericalCamera::GetView()
 		pitchTotal += m_pitch;
 		pitchTotal = std::max<double>(-pitchLimit, pitchTotal);
 		pitchTotal = std::min<double>(+pitchLimit, pitchTotal);
+		if (pitchTotal == pitchLimit || pitchTotal == -pitchLimit)
+			m_pitch = 0;
+		//todo: разобратьс€ с пор€дком. не должен ли он быть оьратынм?
 		m_view = (Matrix)m_view * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch)/* * SphericalRotationXY(m_roll)*/;
 		//первые три члена - аналог трансл€ции. —начала перемещаем камеру в (0 0 0 1)
 		m_position = Vector3::Zero;
@@ -26,7 +29,6 @@ const XMMATRIX& SphericalCamera::GetView()
 }
 
 //todo: 
-//1. сделать так чтобы нельз€ было переворачивать голову
 //2. перемещатаьс€ в одной плоскости (проецирование)
 
 const XMMATRIX& SphericalCamera::GetAntipodalView()
@@ -91,11 +93,6 @@ Vector4 SphericalCamera::GetPosition()
 //v = dx dy dz (градусы)
 void SphericalCamera::Move(Vector3 v3)
 {
-	/*Vector4 v(v3.x, v3.y, v3.z, 1.);
-	Vector4 move = XMVector4Transform(v, SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw));
-	Vector3 moveTemp = Vector3(move.x, move.y, move.z);
-
-	m_position += moveTemp;*/
 	m_position = v3;
 
 	m_viewDirty = true;

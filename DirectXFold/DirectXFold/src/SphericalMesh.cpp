@@ -25,7 +25,7 @@ void SphericalMesh::Render()
 
     MeshConstantBuffer constantBufferTemp = { constantBuffer.m_world };
     if (parentMesh != nullptr)
-        constantBufferTemp.m_world = constantBufferTemp.m_world * parentMesh->GetWorldMatrix();
+        constantBufferTemp.m_world = constantBufferTemp.m_world * parentMesh->GetWorldMatrix(); //это правильный порядок
     deviceContext->UpdateSubresource(d3dConstantBuffer, 0, nullptr, &constantBufferTemp, 0, 0);
     
     //DRAW
