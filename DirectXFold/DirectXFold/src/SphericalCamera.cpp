@@ -16,6 +16,8 @@ const XMMATRIX& SphericalCamera::GetView()
 		m_view = (Matrix)m_view * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 		//первые три члена - аналог трансл€ции. —начала перемещаем камеру в (0 0 0 1)
 		m_position = Vector3::Zero;
+		m_pitch = 0;
+		m_yaw = 0;
 	}
 	return m_view;
 }
