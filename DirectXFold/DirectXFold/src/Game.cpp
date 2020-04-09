@@ -403,9 +403,9 @@ void Game::CreateResources()
 
     //elliptical
     /*{
-        auto front = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
-        auto back = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
-        perApplicationVSConstantBuffer = {front, back, 0.25f};
+        auto commonProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetEllipticalProj();
+        auto density = perApplicationVSConstantBuffer.density;
+        perApplicationVSConstantBuffer = { commonProjectionMatrix, commonProjectionMatrix, density};
         g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
     }*/
 
