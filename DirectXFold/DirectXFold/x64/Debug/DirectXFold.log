@@ -1,10 +1,8 @@
 ﻿  SphericalCamera.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(16,140): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(16,169): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(85,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(85,91): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(24): warning C4172: returning address of local variable or temporary
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(45): warning C4172: returning address of local variable or temporary
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(59): warning C4172: returning address of local variable or temporary
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(73): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(16,157): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(16,186): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(25): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(46): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(74): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(60): warning C4172: returning address of local variable or temporary
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFoldd.exe

@@ -13,8 +13,9 @@ const XMMATRIX& SphericalCamera::GetView()
 	//todo: умножить на XZ и YZ! в зависимости от мыши
 	if (m_viewDirty)
 	{
-		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
+		m_view = (Matrix)m_view * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 		//первые три члена - аналог трансляции. Сначала перемещаем камеру в (0 0 0 1)
+		m_position = Vector3::Zero;
 	}
 	return m_view;
 }
@@ -81,11 +82,12 @@ Vector4 SphericalCamera::GetPosition()
 //v = dx dy dz (градусы)
 void SphericalCamera::Move(Vector3 v3)
 {
-	Vector4 v(v3.x, v3.y, v3.z, 1.);
+	/*Vector4 v(v3.x, v3.y, v3.z, 1.);
 	Vector4 move = XMVector4Transform(v, SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw));
 	Vector3 moveTemp = Vector3(move.x, move.y, move.z);
 
-	m_position += moveTemp;
+	m_position += moveTemp;*/
+	m_position = v3;
 
 	m_viewDirty = true;
 }
