@@ -12,7 +12,7 @@
 #include "SphExp2VertexShader.h"
 
 #include "EllExpVertexShader.h"
-//#include "Ell2ExpVertexShader.h"
+#include "EllExp2VertexShader.h"
 
 #include "GeometryShader.h"
 

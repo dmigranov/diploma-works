@@ -572,12 +572,21 @@ bool Game::LoadContent()
 
     //loading shaders from global variables 
     //hr = g_d3dDevice->CreateVertexShader(g_sphexpvs, sizeof(g_sphexpvs), nullptr, &g_d3dVertexShader);
-    hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dVertexShader);
+    //hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dVertexShader);
 
+    hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dSphericalVertexShader);
     if (FAILED(hr))
     {
         return false;
     }
+
+    hr = g_d3dDevice->CreateVertexShader(g_ellexp2vs, sizeof(g_ellexp2vs), nullptr, &g_d3dEllipticalVertexShader);
+    if (FAILED(hr))
+    {
+        return false;
+    }
+    g_d3dVertexShader = g_d3dSphericalVertexShader;
+
 
     hr = g_d3dDevice->CreateGeometryShader(g_gs, sizeof(g_gs), nullptr, &g_d3dGeometryShader);
     if (FAILED(hr))
