@@ -210,12 +210,10 @@ int Game::Initialize(HWND window, int width, int height)
     }
     m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, [this]() { 
         auto ks = Keyboard::Get().GetState();
-        Keyboard::KeyboardStateTracker tracker;
-        tracker.Update(ks);
+
         float gain = 0.045f;
         if (ks.U)
-            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(-gain))); //так всегда вверх! //todo: поразмыслить над тем же для камеры!
-            //this->mesh1->SetWorldMatrix(XMMatrixMultiply(SphericalRotationYW(-gain), mesh1->GetWorldMatrix())); //а так - направление меняется с движение тетраэдра!
+            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(-gain))); //так всегда вверх!
         if (ks.J)
             this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(gain)));
         if (ks.H)
@@ -585,8 +583,8 @@ bool Game::LoadContent()
     {
         return false;
     }
-    g_d3dVertexShader = g_d3dSphericalVertexShader;
 
+    g_d3dVertexShader = g_d3dSphericalVertexShader;
 
     hr = g_d3dDevice->CreateGeometryShader(g_gs, sizeof(g_gs), nullptr, &g_d3dGeometryShader);
     if (FAILED(hr))
