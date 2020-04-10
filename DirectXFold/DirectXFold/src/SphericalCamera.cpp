@@ -17,12 +17,11 @@ const XMMATRIX& SphericalCamera::GetView()
 		if (pitchTotal == pitchLimit || pitchTotal == -pitchLimit)
 			m_pitch = 0;*/
 
-
-
-		//этот вариант хорошо упавляет мышкой (без перемещения...) работает
-		m_view = /*(Matrix)m_view **/SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) *  SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch)
-			  ;
+		//m_view = (Matrix)m_view * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch)
+		//	* SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) ;
 	
+		//этот вариант хорошо упавляет мышкой (без перемещения...) работает
+		m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 		
 		//первые три члена - аналог трансляции. Сначала перемещаем камеру в (0 0 0 1)
 		/*m_position = Vector3::Zero;
@@ -107,7 +106,7 @@ Vector4 SphericalCamera::GetPosition()
 //v = dx dy dz (градусы)
 void SphericalCamera::Move(Vector3 v3)
 {
-	m_position = v3;
+	m_position = v3;	//+= - если полное создание матрицы
 
 	/*Vector4 pos = XMVector4Transform(spherePos, (Matrix)m_view * SphericalRotationXW(v3.x) * SphericalRotationYW(v3.y) * SphericalRotationZW(v3.z));
 	m_position = GetSphericalFromCartesian(pos.x, pos.y, pos.z, pos.w);*/
