@@ -9,8 +9,6 @@ SphericalCamera::SphericalCamera()
 }
 const XMMATRIX& SphericalCamera::GetView()
 {
-	//todo: возможно, стоит подумать над юзабилити, чтобы вращение всегда было одинаково
-	//todo: умножить на XZ и YZ! в зависимости от мыши
 	if (m_viewDirty)
 	{
 		pitchTotal += m_pitch;
@@ -21,7 +19,7 @@ const XMMATRIX& SphericalCamera::GetView()
 
 		//todo: разобратьс€ с пор€дком. не должен ли он быть оьратынм?
 		//m_view точно должна сто€ть на первом месте!
-		m_view = (Matrix)m_view * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch)/* * SphericalRotationXY(m_roll)*/;
+		m_view = (Matrix)m_view * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) /* SphericalRotationXY(-m_yaw)*/;
 		//первые три члена - аналог трансл€ции. —начала перемещаем камеру в (0 0 0 1)
 		m_position = Vector3::Zero;
 		m_pitch = 0;

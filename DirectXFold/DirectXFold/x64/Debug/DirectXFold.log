@@ -1,8 +1,5 @@
-﻿D:\������\MY CODE\DirectXFold\DirectXFold\VertexEllipticalExpSqFogShader.hlsl(51,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
-D:\������\MY CODE\DirectXFold\DirectXFold\VertexEllipticalExpSqFogShader.hlsl(51,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
-  
-  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\EllExp2VertexShader.h
-  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexEllipticalExpSqFogShader_d.cso
+﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\GeometryShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\GeometryShader.cso
   Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(30,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(234,1): warning C4305: '-=': truncation from 'double' to 'float'
@@ -13,6 +10,9 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(508,78): warning C4
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(514,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(514,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Mesh.cpp
+  SphericalCamera.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(22,157): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(22,186): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   SphericalCube.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(35,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(35,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -218,4 +218,8 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(284,
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(283,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   main.cpp
   Generating Code...
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(36): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(85): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(57): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(71): warning C4172: returning address of local variable or temporary
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFoldd.exe
