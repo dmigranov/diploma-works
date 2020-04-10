@@ -66,7 +66,6 @@ const XMMATRIX& SphericalCamera::GetFrontProj()
 
 	float aspect = (float)((sw * vw) / (sh * vh));
 	Matrix front = BananaProjectionMatrixFrontHalf(m_fovY, aspect, m_nearPlane);
-	//static Matrix front = BananaProjectionMatrixFrontHalf(m_nearPlane);
 	return front;
 }
 
@@ -80,7 +79,6 @@ const XMMATRIX& SphericalCamera::GetBackProj()
 
 	float aspect = (float)((sw * vw) / (sh * vh));
 	Matrix back = BananaProjectionMatrixBackHalf(m_fovY, aspect, m_nearPlane);
-	//static Matrix back = BananaProjectionMatrixBackHalf(m_nearPlane);
 	return back;
 }
 
@@ -94,7 +92,6 @@ const XMMATRIX& SphericalCamera::GetEllipticalProj()
 
 	float aspect = (float)((sw * vw) / (sh * vh));
 	Matrix ell = BananaProjectionMatrix(m_fovY, aspect, m_nearPlane);
-	//static Matrix ell = BananaProjectionMatrix(m_nearPlane);
 	return ell;
 }
 
