@@ -11,21 +11,23 @@ const XMMATRIX& SphericalCamera::GetView()
 {
 	if (m_viewDirty)
 	{
-		pitchTotal += m_pitch;
+		/*pitchTotal += m_pitch;
 		pitchTotal = std::max<double>(-pitchLimit, pitchTotal);
 		pitchTotal = std::min<double>(+pitchLimit, pitchTotal);
 		if (pitchTotal == pitchLimit || pitchTotal == -pitchLimit)
-			m_pitch = 0;
+			m_pitch = 0;*/
 
 
-		m_view = (Matrix)m_view * SphericalRotationXZ(m_yaw) *SphericalRotationYZ(m_pitch)  *
-					SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) ;
+
+		//этот вариант хорошо упавляет мышкой (без перемещения...) работает
+		m_view = /*(Matrix)m_view **/SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) *  SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch)
+			  ;
 	
 		
 		//первые три члена - аналог трансляции. Сначала перемещаем камеру в (0 0 0 1)
-		m_position = Vector3::Zero;
+		/*m_position = Vector3::Zero;
 		m_pitch = 0;
-		m_yaw = 0;
+		m_yaw = 0;*/
 
 
 
