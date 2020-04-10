@@ -1,8 +1,8 @@
 ﻿  SphericalCamera.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(27,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(27,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(46): warning C4172: returning address of local variable or temporary
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(95): warning C4172: returning address of local variable or temporary
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(67): warning C4172: returning address of local variable or temporary
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(81): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(21,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(21,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(48): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(97): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(83): warning C4172: returning address of local variable or temporary
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(69): warning C4172: returning address of local variable or temporary
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFoldd.exe

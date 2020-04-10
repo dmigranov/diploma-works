@@ -17,25 +17,25 @@ const XMMATRIX& SphericalCamera::GetView()
 		if (pitchTotal == pitchLimit || pitchTotal == -pitchLimit)
 			m_pitch = 0;
 
-		//todo: разобратьс€ с пор€дком. не должен ли он быть оьратынм?
-		//m_view точно должна сто€ть на первом месте!
-		/*Matrix temp = (1 - abs(pitchTotal / pitchLimit)) * SphericalRotationXZ(m_yaw) + abs(pitchTotal / pitchLimit) * SphericalRotationXY(-m_yaw);
-		m_view = (Matrix)m_view * SphericalRotationYZ(m_pitch) * temp *
-			SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
-			*/
-		
+
 		m_view = (Matrix)m_view * SphericalRotationXZ(m_yaw) *SphericalRotationYZ(m_pitch)  *
 					SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) ;
-		
-
-
-
-		
+	
 		
 		//первые три члена - аналог трансл€ции. —начала перемещаем камеру в (0 0 0 1)
 		m_position = Vector3::Zero;
 		m_pitch = 0;
 		m_yaw = 0;
+
+
+
+		//todo: разобратьс€ с пор€дком. не должен ли он быть оьратынм?
+//m_view точно должна сто€ть на первом месте!
+/*Matrix temp = (1 - abs(pitchTotal / pitchLimit)) * SphericalRotationXZ(m_yaw) + abs(pitchTotal / pitchLimit) * SphericalRotationXY(-m_yaw);
+m_view = (Matrix)m_view * SphericalRotationYZ(m_pitch) * temp *
+	SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
+	*/
+
 	}
 	return m_view;
 }
@@ -107,11 +107,41 @@ void SphericalCamera::Move(Vector3 v3)
 {
 	m_position = v3;
 
-	Vector4 pos = XMVector4Transform(spherePos, m_view);
+	/*Vector4 pos = XMVector4Transform(spherePos, (Matrix)m_view * SphericalRotationXW(v3.x) * SphericalRotationYW(v3.y) * SphericalRotationZW(v3.z));
+	m_position = GetSphericalFromCartesian(pos.x, pos.y, pos.z, pos.w);*/
 
 	m_viewDirty = true;
 }
 
 
+//xyzw
+XMFLOAT3 SphericalCamera::GetSphericalFromCartesian(float x4, float x3, float x2, float x1)
+{
+	float x42 = x4 * x4;
+	float x22 = x2 * x2;
+	float x32 = x3 * x3;
+
+	float a1 = acosf(x1);
+	if (x2 == 0 && x3 == 0 && x4 == 0)
+		if (x1 > 0)
+			return Vector3(a1, 0, 0);
+		else
+			return Vector3(a1, XM_PI, XM_PI);
+
+	float a2 = acosf(x2 / sqrtf(x22 + x32 + x42));
+	if (x3 == 0 && x4 == 0)
+		if (x2 > 0)
+			return Vector3(a1, a2, 0);
+		else
+			return Vector3(a1, a2, XM_PI);
+
+	float a3;
+	if (x4 >= 0)
+		a3 = acosf(x3 / sqrtf(x32 + x42));
+	else
+		a3 = XM_2PI - acosf(x3 / sqrtf(x32 + x42));
+
+	return XMFLOAT3(a1, a2, a3);
+}
 
 
