@@ -109,7 +109,7 @@ void SphericalCamera::Move(Vector3 v3)
 {
 	//m_position = v3;	//+= - если полное создание матрицы
 
-	Vector4 pos = XMVector4Transform(Vector4(0.f, 0.f, 1.f, 0.f), SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXW(v3.x) * SphericalRotationYW(v3.y) * SphericalRotationZW(v3.z));
+	Vector4 pos = XMVector4Transform(Vector4(1.f, 0.f, 0.f, 0.f), SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXW(v3.x));
 	m_position += GetSphericalFromCartesian(pos.x, pos.y, pos.z, pos.w)/100;
 
 	m_viewDirty = true;
