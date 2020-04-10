@@ -110,6 +110,11 @@ void Camera::ChangePitchYaw(double deltaPitch, double deltaYaw)
 	m_viewDirty = true;
 }
 
+void Camera::ChangeRoll(double roll)
+{
+
+}
+
 void Camera::SetFovY(float fovY)
 {
 	/*if (fovY < 1.0f)

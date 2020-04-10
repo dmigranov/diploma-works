@@ -285,6 +285,16 @@ int Game::Initialize(HWND window, int width, int height)
             g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Application], 0, nullptr, &perApplicationVSConstantBuffer, 0, 0);
         }
 
+        if (ks.PageUp)
+        {
+            m_camera->ChangeRoll(mouseLikeGain);
+        }
+        if (ks.Home)
+        {
+            m_camera->ChangeRoll(-mouseLikeGain);
+        }
+
+
         if (ks.IsKeyUp(Keyboard::Keys::LeftShift))
             xAngleProtractor = 0;
 
