@@ -27,11 +27,12 @@ const XMMATRIX& SphericalCamera::GetView()
 		//для нахождения камера трансформ сначала pitch, потом yaw. то есть там pitch левее
 		//но для view питч будет правее
 
-		m_view = (Matrix)m_view *
+		m_view = (Matrix)m_view * 
 			SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * 
-			SphericalRotationXZ(yawDelta) * SphericalRotationYZ(pitchDelta) * SphericalRotationXY(m_roll) ;
+			SphericalRotationXZ(yawDelta) * SphericalRotationYZ(pitchDelta);
+			//* SphericalRotationXY(m_roll) ;
 
-		m_position = Vector3::Zero;
+		//m_position = Vector3::Zero;
 		pitchDelta = 0;
 		yawDelta = 0;
 		m_roll = 0;
