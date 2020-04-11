@@ -27,14 +27,14 @@ const XMMATRIX& SphericalCamera::GetView()
 		//для нахождения камера трансформ сначала pitch, потом yaw. то есть там pitch левее
 		//но для view питч будет правее
 
-		m_view = //(Matrix)m_view *
+		m_view = (Matrix)m_view *
 			SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * 
-			SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll) ;	
+			SphericalRotationXZ(yawDelta) * SphericalRotationYZ(pitchDelta) * SphericalRotationXY(m_roll) ;
 
-		/*m_position = Vector3::Zero;
+		m_position = Vector3::Zero;
 		pitchDelta = 0;
 		yawDelta = 0;
-		m_roll = 0;*/
+		m_roll = 0;
 
 		//этот вариант хорошо упавляет мышкой (без перемещения...) работает
 		//m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
@@ -117,17 +117,12 @@ Vector4 SphericalCamera::GetPosition()
 //v = dx dy dz (градусы)
 void SphericalCamera::Move(Vector3 v3)
 {
-	//m_position = v3;	//+= - если полное создание матрицы
-
-	Vector4 xDir = Vector4(v3.x, 0, 0, 0);
-	xDir = XMVector4Transform(xDir, SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw));
-	m_position = m_position + xDir;
+	m_position = v3;
 
 
-	Vector4 zDir = Vector4(0, 0, v3.z, 0);
+	/*Vector4 zDir = Vector4(0, 0, v3.z, 0);
 	zDir = XMVector4Transform(zDir, SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw) );	
-	m_position = m_position + zDir;
-
+	m_position = m_position + zDir;*/
 
 	//Vector4 pos = XMVector4Transform(Vector4(1.f, 0.f, 0.f, 0.f), SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXW(v3.x));
 	//m_position += GetSphericalFromCartesian(pos.x, pos.y, pos.z, pos.w)/100;
