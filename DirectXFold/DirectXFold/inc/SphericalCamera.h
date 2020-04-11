@@ -26,7 +26,9 @@ private:
 
 	double m_roll = 0;
 
-	Matrix viewTemp = Matrix::Identity;
+	Matrix T = Matrix::Identity;
+	Matrix R = Matrix::Identity;
+	Matrix cameraTransform = Matrix::Identity;
 
 	XMFLOAT3 GetSphericalFromCartesian(float x4, float x3, float x2, float x1);
 };
