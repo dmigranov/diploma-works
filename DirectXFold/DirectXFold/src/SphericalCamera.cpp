@@ -15,7 +15,6 @@ const XMMATRIX& SphericalCamera::GetView()
 		//todo: разобраться с порядком. не должен ли он быть оьратынм?
 		//m_view точно должна стоять на первом месте!
 
-
 		pitchTotal += m_pitch;
 		pitchTotal = std::max<double>(-pitchLimit, pitchTotal);
 		pitchTotal = std::min<double>(+pitchLimit, pitchTotal);
@@ -23,16 +22,10 @@ const XMMATRIX& SphericalCamera::GetView()
 			m_pitch = 0;
 
 		
-		/*
 		m_view = (Matrix)m_view
 			* SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z)
 			* SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll) ;
-		*/
-
-		R = SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
-		T = SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x) * R * T;
-		cameraTransform = R.Invert() * T;
-		m_view = cameraTransform.Invert();
+		
 
 		m_position = Vector3::Zero;
 		m_pitch = 0;
