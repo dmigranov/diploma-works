@@ -33,9 +33,14 @@ const XMMATRIX& SphericalCamera::GetView()
 		m_roll = 0;
 		*/
 
+
+
+
 		T = SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x);
-		R =  SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
+		R = SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
 		cameraTransform = R * T;
+		spherePos = XMVector4Transform(Vector4(0,0,0,1), cameraTransform);
+
 		m_view = cameraTransform.Invert();
 
 		//этот вариант хорошо упавляет мышкой (без перемещения...) работает
@@ -108,7 +113,8 @@ const XMMATRIX& SphericalCamera::GetEllipticalProj()
 
 Vector4 SphericalCamera::GetPosition()
 {
-	return XMVector4Transform(spherePos, m_view);
+	//return XMVector4Transform(spherePos, m_view);
+	return spherePos;
 }
 
 //v = dx dy dz (градусы)
@@ -118,6 +124,9 @@ void SphericalCamera::Move(Vector3 v3)
 
 	//Vector4 pos = XMVector4Transform(Vector4(1.f, 0.f, 0.f, 0.f), SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXW(v3.x));
 	//m_position += GetSphericalFromCartesian(pos.x, pos.y, pos.z, pos.w)/100;
+
+	Vector4 newCameraPos = XMVector4Transform(spherePos, SphericalRotationZW(-v3.z) * SphericalRotationYW(-v3.y) * SphericalRotationXW(-v3.x));
+	m_position = GetSphericalFromCartesian(newCameraPos.x, newCameraPos.y, newCameraPos.z, newCameraPos.w);
 
 	m_viewDirty = true;
 }
@@ -148,7 +157,7 @@ XMFLOAT3 SphericalCamera::GetSphericalFromCartesian(float x4, float x3, float x2
 			return Vector3(a1, a2, 0);
 		else
 			return Vector3(a1, a2, XM_PI);
-
+			
 	float a3;
 	if (x4 >= 0)
 		a3 = acosf(x3 / sqrtf(x32 + x42));
