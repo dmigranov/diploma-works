@@ -122,7 +122,7 @@ const XMMATRIX& SphericalCamera::GetEllipticalProj()
 
 Vector4 SphericalCamera::GetPosition()
 {
-	//return XMVector4Transform(spherePos, m_view);
+	return XMVector4Transform(spherePos, ((Matrix)m_view).Invert());
 	return spherePos;
 }
 
