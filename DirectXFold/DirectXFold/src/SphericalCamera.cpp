@@ -33,15 +33,24 @@ const XMMATRIX& SphericalCamera::GetView()
 		m_roll = 0;
 		*/
 
+		pitchTotal += m_pitch;
+		pitchTotal = std::max<double>(-pitchLimit, pitchTotal);
+		pitchTotal = std::min<double>(+pitchLimit, pitchTotal);
+		if (pitchTotal == pitchLimit || pitchTotal == -pitchLimit)
+			m_pitch = 0;
 
 
-
-		T = SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x);
-		R = SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
+		T = SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x) * T;
+		R = R * SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
 		cameraTransform = R * T;
 		spherePos = XMVector4Transform(Vector4(0,0,0,1), cameraTransform);
 
 		m_view = cameraTransform.Invert();
+
+		m_position = Vector3::Zero;
+		m_pitch = 0;
+		m_yaw = 0;
+		m_roll = 0;
 
 		//этот вариант хорошо упавляет мышкой (без перемещения...) работает
 		//m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
@@ -125,8 +134,8 @@ void SphericalCamera::Move(Vector3 v3)
 	//Vector4 pos = XMVector4Transform(Vector4(1.f, 0.f, 0.f, 0.f), SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXW(v3.x));
 	//m_position += GetSphericalFromCartesian(pos.x, pos.y, pos.z, pos.w)/100;
 
-	Vector4 newCameraPos = XMVector4Transform(spherePos, SphericalRotationZW(-v3.z) * SphericalRotationYW(-v3.y) * SphericalRotationXW(-v3.x));
-	m_position = GetSphericalFromCartesian(newCameraPos.x, newCameraPos.y, newCameraPos.z, newCameraPos.w);
+	//Vector4 newCameraPos = XMVector4Transform(spherePos, SphericalRotationZW(v3.z) * SphericalRotationYW(v3.y) * SphericalRotationXW(v3.x));
+	//m_position += Vector3(newCameraPos.x, newCameraPos.y, newCameraPos.z);
 
 	m_viewDirty = true;
 }
