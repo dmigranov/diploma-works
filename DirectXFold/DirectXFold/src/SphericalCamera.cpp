@@ -15,23 +15,6 @@ const XMMATRIX& SphericalCamera::GetView()
 		//todo: разобратьс€ с пор€дком. не должен ли он быть оьратынм?
 		//m_view точно должна сто€ть на первом месте!
 
-		/*
-		pitchTotal += m_pitch;
-		pitchTotal = std::max<double>(-pitchLimit, pitchTotal);
-		pitchTotal = std::min<double>(+pitchLimit, pitchTotal);
-		if (pitchTotal == pitchLimit || pitchTotal == -pitchLimit)
-			m_pitch = 0;
-
-		m_view = (Matrix)m_view 
-			* SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) 
-			* SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll);		
-
-		//первые три члена - аналог трансл€ции. —начала перемещаем камеру в (0 0 0 1)
-		m_position = Vector3::Zero;
-		m_pitch = 0;
-		m_yaw = 0;
-		m_roll = 0;
-		*/
 
 		pitchTotal += m_pitch;
 		pitchTotal = std::max<double>(-pitchLimit, pitchTotal);
@@ -39,13 +22,10 @@ const XMMATRIX& SphericalCamera::GetView()
 		if (pitchTotal == pitchLimit || pitchTotal == -pitchLimit)
 			m_pitch = 0;
 
+		m_view = (Matrix)m_view
+			* SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z)
+			* SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll);
 
-		T = SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x) * T;
-		R = R * SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
-		cameraTransform = R * T;
-		spherePos = XMVector4Transform(Vector4(0,0,0,1), cameraTransform);
-
-		m_view = cameraTransform.Invert();
 
 		m_position = Vector3::Zero;
 		m_pitch = 0;
@@ -55,6 +35,12 @@ const XMMATRIX& SphericalCamera::GetView()
 		//этот вариант хорошо упавл€ет мышкой (без перемещени€...) работает
 		//m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 
+
+
+		/*T = SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x) * T;
+		R = R * SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
+		cameraTransform = R * T;
+		spherePos = XMVector4Transform(Vector4(0, 0, 0, 1), cameraTransform);*/
 
 		
 /*Matrix temp = (1 - abs(pitchTotal / pitchLimit)) * SphericalRotationXZ(m_yaw) + abs(pitchTotal / pitchLimit) * SphericalRotationXY(-m_yaw);
