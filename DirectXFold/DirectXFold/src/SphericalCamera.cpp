@@ -18,6 +18,11 @@ const XMMATRIX& SphericalCamera::GetView()
 		if (m_pitch == pitchLimit || m_pitch == -pitchLimit)
 			pitchDelta = 0;
 		
+		//view - это обратная к cameraTransform.
+		//чтобы найти камераТрансформ, сначала поворачиваем камеру (слева), потом перемещаем (справа)
+		//но (ABC)-1 = C-1 B-1 A-1
+		//поэтому при нахождении view вращения камеры СПРАВА
+
 		m_view = //(Matrix)m_view *
 			SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * 
 			SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll) ;	
