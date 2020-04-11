@@ -17,13 +17,14 @@ public:
 	Vector4 GetPosition() override;
 	void Move(Vector3 v) override;
 	void ChangeRoll(double roll) override;
+	void ChangePitchYaw(double deltaPitch, double deltaYaw) override;
 
 
 private:
 	Vector4 spherePos = Vector4(0, 0, 0, 1);
-	double pitchTotal = 0;
-	const float pitchLimit = DirectX::XM_PI / 2.0f - 0.01f;
 
+	double pitchDelta = 0, yawDelta = 0;
+	double pitchLimit = DirectX::XM_PI / 2.0f - 0.01f;
 	double m_roll = 0;
 
 	Matrix T = Matrix::Identity; // represents the translation of the camera in world space

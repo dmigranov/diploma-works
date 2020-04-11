@@ -15,21 +15,16 @@ const XMMATRIX& SphericalCamera::GetView()
 		//todo: разобраться с порядком. не должен ли он быть оьратынм?
 		//m_view точно должна стоять на первом месте!
 
-		pitchTotal += m_pitch;
-		pitchTotal = std::max<double>(-pitchLimit, pitchTotal);
-		pitchTotal = std::min<double>(+pitchLimit, pitchTotal);
-		if (pitchTotal == pitchLimit || pitchTotal == -pitchLimit)
-			m_pitch = 0;
-
+		if (m_pitch == pitchLimit || m_pitch == -pitchLimit)
+			pitchDelta = 0;
 		
 		m_view = (Matrix)m_view
 			* SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z)
-			* SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll) ;
-		
+			* SphericalRotationXZ(yawDelta) * SphericalRotationYZ(pitchDelta) * SphericalRotationXY(m_roll) ;	
 
 		m_position = Vector3::Zero;
-		m_pitch = 0;
-		m_yaw = 0;
+		pitchDelta = 0;
+		yawDelta = 0;
 		m_roll = 0;
 
 		//этот вариант хорошо упавляет мышкой (без перемещения...) работает
@@ -127,6 +122,13 @@ void SphericalCamera::Move(Vector3 v3)
 void SphericalCamera::ChangeRoll(double roll)
 {
 	m_roll = roll;
+}
+
+void SphericalCamera::ChangePitchYaw(double deltaPitch, double deltaYaw)
+{
+	Camera::ChangePitchYaw(deltaPitch, deltaYaw);
+	pitchDelta = deltaPitch;
+	yawDelta = deltaYaw;
 }
 
 
