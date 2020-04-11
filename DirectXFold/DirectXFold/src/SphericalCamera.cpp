@@ -114,7 +114,7 @@ void SphericalCamera::Move(Vector3 v3)
 	Vector4 zDir = Vector4(0, 0, z, 0);
 
 	zDir = XMVector4Transform(zDir, SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw) );
-	zDir = XMVector4Transform(zDir, SphericalRotationXZ(-m_yaw) * SphericalRotationYZ(-m_pitch));
+	Vector4 zDir2 = XMVector4Transform(zDir, SphericalRotationXZ(-m_yaw) * SphericalRotationYZ(-m_pitch));
 
 
 	m_position = m_position + zDir;
