@@ -22,10 +22,16 @@ const XMMATRIX& SphericalCamera::GetView()
 		if (pitchTotal == pitchLimit || pitchTotal == -pitchLimit)
 			m_pitch = 0;
 
+		
+		/*
 		m_view = (Matrix)m_view
 			* SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z)
-			* SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll);
+			* SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll) ;
+		*/
 
+		cameraTransform = SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw)
+			* SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x) * cameraTransform;
+		m_view = cameraTransform.Invert();
 
 		m_position = Vector3::Zero;
 		m_pitch = 0;
@@ -34,8 +40,6 @@ const XMMATRIX& SphericalCamera::GetView()
 
 		//этот вариант хорошо упавляет мышкой (без перемещения...) работает
 		//m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
-
-
 
 		/*T = SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x) * T;
 		R = R * SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
