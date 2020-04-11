@@ -32,7 +32,7 @@ const XMMATRIX& SphericalCamera::GetView()
 			SphericalRotationXZ(yawDelta) * SphericalRotationYZ(pitchDelta);
 			//* SphericalRotationXY(m_roll) ;
 
-		//m_position = Vector3::Zero;
+		m_position = Vector3::Zero;
 		pitchDelta = 0;
 		yawDelta = 0;
 		m_roll = 0;
@@ -122,7 +122,7 @@ void SphericalCamera::Move(Vector3 v3)
 
 
 	/*Vector4 zDir = Vector4(0, 0, v3.z, 0);
-	zDir = XMVector4Transform(zDir, SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw) );	
+	zDir = XMVector4Transform(zDir, SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw) * SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x));
 	m_position = m_position + zDir;*/
 
 	//Vector4 pos = XMVector4Transform(Vector4(1.f, 0.f, 0.f, 0.f), SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXW(v3.x));
