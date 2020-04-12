@@ -29,9 +29,13 @@ const XMMATRIX& SphericalCamera::GetView()
 
 		Matrix ROld = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 
-		T = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
-		R = SphericalRotationXZ(yawDelta) * SphericalRotationYZ(pitchDelta) /**SphericalRotationXY(m_roll)*/;
-		m_view = (Matrix)m_view * (ROld.Invert() * T * R * ROld);
+		//T = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
+		//R = SphericalRotationXZ(yawDelta) * SphericalRotationYZ(pitchDelta) /**SphericalRotationXY(m_roll)*/;
+		//m_view = (Matrix)m_view * T * R ;
+
+		T = T * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
+		R = R * SphericalRotationXZ(yawDelta) * SphericalRotationYZ(pitchDelta) /**SphericalRotationXY(m_roll)*/;
+		m_view = T * R ;
 
 		m_position = Vector3::Zero;
 		pitchDelta = 0;
