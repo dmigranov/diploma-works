@@ -28,7 +28,7 @@ private:
 	double m_roll = 0;
 
 	Matrix T = Matrix::Identity; // represents the translation of the camera in world space
-	Matrix R = Matrix::Identity; // represents camera orientation
+	Matrix R = Matrix::Identity, RYaw = Matrix::Identity, RPitch = Matrix::Identity; // represents camera orientation
 	Matrix cameraTransform = Matrix::Identity;
 
 	XMFLOAT3 GetSphericalFromCartesian(float x4, float x3, float x2, float x1);
