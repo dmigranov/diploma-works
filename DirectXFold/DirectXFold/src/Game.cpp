@@ -672,18 +672,18 @@ bool Game::LoadContent()
     //mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, .99f, SphericalRotationXZ(XM_PIDIV4), arr);
     
     {
-        /*XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
+        XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
         mesh1 = new SphericalOctahedron(.99f, arrOct);
-        meshes.push_back(mesh1);*/
-
-        XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
-        mesh1 = new SphericalCube(.99f, arrСube);
         meshes.push_back(mesh1);
 
-        /*XMFLOAT4 arrOct2[] = { XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 1.f, 0.5f, 1.f), XMFLOAT4(0.f, 0.f, 0.5f, 1.f), XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.f), XMFLOAT4(0.f, 0.5f, 0.5f, 1.f) };
+        /*XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
+        mesh1 = new SphericalCube(.99f, arrСube);
+        meshes.push_back(mesh1);*/
+
+        XMFLOAT4 arrOct2[] = { XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 1.f, 0.5f, 1.f), XMFLOAT4(0.f, 0.f, 0.5f, 1.f), XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.f), XMFLOAT4(0.f, 0.5f, 0.5f, 1.f) };
         mesh2 = new SphericalOctahedron(.99f, SphericalRotationYW(XM_PIDIV2), arrOct2);
         meshes.push_back(mesh2);
-        mesh2->SetParent(mesh1);*/
+        mesh2->SetParent(mesh1);
 
         /*for(int i = 1; i < 4; i++)
             meshes.push_back(new SphericalOctahedron(.99f, SphericalRotationXW(i * XM_2PI/8)));
