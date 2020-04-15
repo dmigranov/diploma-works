@@ -39,9 +39,11 @@ const XMMATRIX& SphericalCamera::GetView()
 
 		//Matrix ROld = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 		//T = T * R * SphericalRotationZW(m_position.z) * SphericalRotationYW(m_position.y) * SphericalRotationXW(m_position.x) * R.Invert();
-		//T = T * SphericalRotationZW(m_position.z) * SphericalRotationYW(m_position.y) * SphericalRotationXW(m_position.x) ;		T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * R.Invert();
+		//T = T * SphericalRotationZW(m_position.z) * SphericalRotationYW(m_position.y) * SphericalRotationXW(m_position.x) ;		
+		//T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * RInv;
 
 		T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * RInv;
+
 		m_view = T * R ;
 
 		/*Matrix camera;
@@ -142,18 +144,20 @@ void SphericalCamera::Move(Vector3 v3)
 
 void SphericalCamera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, double deltaRoll)
 {
-	Camera::ChangePitchYawRoll(deltaPitch, deltaYaw, deltaRoll);
+	Camera::ChangePitchYawRoll(deltaPitch, pitchDelta, deltaRoll);
 	pitchDelta = deltaPitch;
 	yawDelta = deltaYaw;
 	//RYaw = SphericalRotationXZ(m_yaw);
 	//RPitch = SphericalRotationYZ(m_pitch);
 
-	RInv = SphericalRotationXY(-m_roll) * SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
-	R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll);
+	//RInv = SphericalRotationXY(-m_roll) * SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
+	//R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll);
 	//R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 
-
-
+	auto RQuat = XMQuaternionRotationRollPitchYaw(deltaPitch, -deltaYaw, deltaRoll);
+	Matrix RQuatM = XMMatrixRotationQuaternion(RQuat);
+	R *= RQuatM;
+	RInv = R.Invert();
 	m_viewDirty = true;
 
 }
