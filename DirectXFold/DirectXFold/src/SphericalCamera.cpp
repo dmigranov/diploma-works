@@ -27,21 +27,18 @@ const XMMATRIX& SphericalCamera::GetView()
 		//для нахождения камера трансформ сначала pitch, потом yaw. то есть там pitch левее
 		//но для view питч будет правее
 
-		Matrix ROld = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 
 		//T = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
 		//R = SphericalRotationXZ(yawDelta) * SphericalRotationYZ(pitchDelta) /**SphericalRotationXY(m_roll)*/;
 		//m_view = (Matrix)m_view * T * R ;
 
-		//todo: перенести в setyawpitch
 		//todo: поразмыслить над интерпретацией и может ещё исправить
 		//todo: roll
 
-		RYaw = RYaw * SphericalRotationXZ(yawDelta);
-		RPitch = RPitch * SphericalRotationYZ(pitchDelta);
-		R = RYaw * RPitch;
+
 		/**SphericalRotationXY(m_roll)*/
 
+		//Matrix ROld = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 		T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * R.Invert();
 		m_view = T * R ;
 
@@ -147,6 +144,10 @@ void SphericalCamera::ChangePitchYaw(double deltaPitch, double deltaYaw)
 	Camera::ChangePitchYaw(deltaPitch, deltaYaw);
 	pitchDelta = deltaPitch;
 	yawDelta = deltaYaw;
+
+	RYaw = SphericalRotationXZ(m_yaw);
+	RPitch = SphericalRotationYZ(m_pitch);
+	R = RYaw * RPitch;
 
 	m_viewDirty = true;
 
