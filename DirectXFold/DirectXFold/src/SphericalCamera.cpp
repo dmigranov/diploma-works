@@ -144,14 +144,15 @@ void SphericalCamera::Move(Vector3 v3)
 
 void SphericalCamera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, double deltaRoll)
 {
-	Camera::ChangePitchYawRoll(deltaPitch, pitchDelta, deltaRoll);
+	Camera::ChangePitchYawRoll(deltaPitch, deltaYaw, deltaRoll);
 	pitchDelta = deltaPitch;
 	yawDelta = deltaYaw;
-	RYaw = SphericalRotationXZ(m_yaw);
-	RPitch = SphericalRotationYZ(m_pitch);
 
-	RInv = SphericalRotationXY(-m_roll) * SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
-	R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll);
+	//RYaw = SphericalRotationXZ(m_yaw);
+	//RPitch = SphericalRotationYZ(m_pitch);
+
+	RInv =/* SphericalRotationXY(-m_roll) * */SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
+	R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch)/* * SphericalRotationXY(m_roll)*/;
 	//R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 
 	/*auto RQuat = XMQuaternionRotationRollPitchYaw(deltaPitch, -deltaYaw, deltaRoll);
