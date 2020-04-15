@@ -242,13 +242,13 @@ int Game::Initialize(HWND window, int width, int height)
         float mouseLikeGain = 0.02f;
         if (ks.Q)
         {
-            m_camera->ChangePitchYaw(0, -mouseLikeGain);
+            m_camera->ChangePitchYawRoll(0, -mouseLikeGain);
             if (ks.LeftShift)
                 xAngleProtractor -= mouseLikeGain;
         }
         if (ks.E)
         {
-            m_camera->ChangePitchYaw(0, mouseLikeGain);
+            m_camera->ChangePitchYawRoll(0, mouseLikeGain);
             if (ks.LeftShift)
                 xAngleProtractor += mouseLikeGain;
         }

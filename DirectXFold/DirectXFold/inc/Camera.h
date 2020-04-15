@@ -16,8 +16,6 @@ public:
 
 	Camera();
 
-	void SetBackgroundColor(float r, float g, float b);
-
 	void SetPosition(double x, double y, double z);
 	void SetPosition(Vector3 v);
 
@@ -26,8 +24,7 @@ public:
 	virtual void Move(Vector3 v);
 	virtual Vector4 GetPosition();
 
-	virtual void ChangePitchYaw(double pitch, double yaw);
-	virtual void ChangeRoll(double roll);
+	virtual void ChangePitchYawRoll(double pitch, double yaw, double roll);
 
 	// Установка вертикального угла обзора (в градусах)
 	void SetFovY(float fovY);
@@ -42,25 +39,11 @@ public:
 	*/
 	//todo: исправить Rectangle, там long!
 	void SetViewport(Rect rect = Rect(0.0f, 0.0f, 1.0f, 1.0f));
-	Rect GetViewport();
-
 	void SetOutputSize(double outputWidth, double outputHeight);
 
 
 	virtual const XMMATRIX& GetView();
 	virtual const XMMATRIX& GetProj();
-
-	/**
-	* @brief Returns a ray going from camera through a screen point.
-	* @param [in] position Screen point position in pixels (top-left corner is (0,0)).
-	*/
-	Ray ScreenPointToRay(const Vector3& position) const;
-
-	/**
-	* @brief Transforms position from world space into screen space.
-	* @param [in] position Point position in world space.
-	*/
-	Vector3 WorldToScreenPoint(const Vector3& position);
 
 
 protected:
@@ -70,6 +53,8 @@ protected:
 	Vector3 m_position;
 	double m_pitch;
 	double m_yaw;
+	double m_rollw;
+
 
 	Vector3 m_lookAt;
 

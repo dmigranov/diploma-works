@@ -3,7 +3,7 @@
 using namespace DirectX::SimpleMath;
 
 Camera::Camera() : m_viewport(0.0f, 0.0f, 1.0f, 1.0f),
-m_pitch(0), m_yaw(0),
+m_pitch(0.f), m_yaw(0.f), m_roll(0.f),
 m_lookAt(Vector3(0, 0, 0)),
 m_viewDirty(true),
 m_fovY(XM_PIDIV2)
@@ -87,7 +87,7 @@ Vector4 Camera::GetPosition()
 	return Vector4(m_position.x, m_position.y, m_position.z, 1);
 }
 
-void Camera::ChangePitchYaw(double deltaPitch, double deltaYaw)
+void Camera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, double deltaRoll)
 {
 	m_pitch += deltaPitch;
 	m_yaw += deltaYaw;

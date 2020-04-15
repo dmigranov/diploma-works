@@ -16,8 +16,7 @@ public:
 
 	Vector4 GetPosition() override;
 	void Move(Vector3 v) override;
-	void ChangeRoll(double roll) override;
-	void ChangePitchYaw(double deltaPitch, double deltaYaw) override;
+	void ChangePitchYawRoll(double deltaPitch, double deltaYaw, double deltaRoll) override;
 
 
 private:
