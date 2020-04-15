@@ -36,7 +36,6 @@ const XMMATRIX& SphericalCamera::GetView()
 		//todo: roll
 
 
-		/**SphericalRotationXY(m_roll)*/
 
 		//Matrix ROld = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 		//T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * R.Invert();
@@ -141,10 +140,10 @@ void SphericalCamera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, dou
 	Camera::ChangePitchYawRoll(deltaPitch, deltaYaw, deltaRoll);
 	pitchDelta = deltaPitch;
 	yawDelta = deltaYaw;
+	//RYaw = SphericalRotationXZ(m_yaw);
+	//RPitch = SphericalRotationYZ(m_pitch);
 
-	RYaw = SphericalRotationXZ(m_yaw);
-	RPitch = SphericalRotationYZ(m_pitch);
-	R = RYaw * RPitch;
+	R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll);
 
 	m_viewDirty = true;
 
