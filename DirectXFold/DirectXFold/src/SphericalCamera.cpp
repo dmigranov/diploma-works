@@ -46,12 +46,13 @@ const XMMATRIX& SphericalCamera::GetView()
 		T = T * R * dT * RInv;
 		m_view = T * R ;*/
 
-		T = RInv * SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x) * R * T;
+		T = SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x)  T;
 		R = SphericalRotationXZ(-m_yaw);
 		bodyWorld = R * T;
 
 		headLocal = SphericalRotationYZ(-m_pitch);
 		headWorld = headLocal * bodyWorld;
+
 		m_view = headWorld.Invert();
 
 		m_position = Vector3::Zero;
