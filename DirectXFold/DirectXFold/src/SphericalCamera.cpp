@@ -42,7 +42,9 @@ const XMMATRIX& SphericalCamera::GetView()
 		//T = T * SphericalRotationZW(m_position.z) * SphericalRotationYW(m_position.y) * SphericalRotationXW(m_position.x) ;		
 		//T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * RInv;
 
-		T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * RInv;
+		//T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * RInv;
+
+		T = T * RPitch *SphericalRotationXW(m_position.x) * RYaw * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * RInv;
 
 		m_view = T * R ;
 
@@ -148,12 +150,16 @@ void SphericalCamera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, dou
 	pitchDelta = deltaPitch;
 	yawDelta = deltaYaw;
 
-	//RYaw = SphericalRotationXZ(m_yaw);
-	//RPitch = SphericalRotationYZ(m_pitch);
+	RYaw = SphericalRotationXZ(m_yaw);
+	RPitch = SphericalRotationYZ(m_pitch);
 
-	RInv =/* SphericalRotationXY(-m_roll) * */SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
-	R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch)/* * SphericalRotationXY(m_roll)*/;
-	//R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
+	//RInv = SphericalRotationXY(-m_roll) * SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
+	//R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll);
+
+
+	R = RYaw * RPitch;
+
+	RInv = R.Invert();
 
 	/*auto RQuat = XMQuaternionRotationRollPitchYaw(deltaPitch, -deltaYaw, deltaRoll);
 	Matrix RQuatM = XMMatrixRotationQuaternion(RQuat);
