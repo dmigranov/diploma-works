@@ -40,13 +40,14 @@ const XMMATRIX& SphericalCamera::GetView()
 		//Matrix ROld = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 		//T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * R.Invert();
 		T = T * R * SphericalRotationZW(m_position.z) * SphericalRotationYW(m_position.y) * SphericalRotationXW(m_position.x) * R.Invert();
+		//T = T * SphericalRotationZW(m_position.z) * SphericalRotationYW(m_position.y) * SphericalRotationXW(m_position.x) ;
+
 		m_view = T * R ;
 
 
 		m_position = Vector3::Zero;
 		pitchDelta = 0;
 		yawDelta = 0;
-		m_roll = 0;
 
 		//этот вариант хорошо упавляет мышкой (без перемещения...) работает
 		//m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
@@ -143,7 +144,7 @@ void SphericalCamera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, dou
 	//RYaw = SphericalRotationXZ(m_yaw);
 	//RPitch = SphericalRotationYZ(m_pitch);
 
-	R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll);
+	R = SphericalRotationXY(m_roll) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 
 	m_viewDirty = true;
 

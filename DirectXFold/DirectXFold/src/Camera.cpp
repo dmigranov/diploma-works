@@ -91,6 +91,7 @@ void Camera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, double delta
 {
 	m_pitch += deltaPitch;
 	m_yaw += deltaYaw;
+	m_roll += deltaRoll;
 
 	// limit pitch to straight up or straight down
 	// with a little fudge-factor to avoid gimbal lock

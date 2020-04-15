@@ -24,7 +24,6 @@ private:
 
 	double pitchDelta = 0, yawDelta = 0;
 	double pitchLimit = DirectX::XM_PI / 2.0f - 0.01f;
-	double m_roll = 0;
 
 	Matrix T = Matrix::Identity; // represents the translation of the camera in world space
 	Matrix R = Matrix::Identity, RYaw = Matrix::Identity, RPitch = Matrix::Identity; // represents camera orientation
