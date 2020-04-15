@@ -138,7 +138,7 @@ void SphericalCamera::Move(Vector3 v3)
 
 void SphericalCamera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, double deltaRoll)
 {
-	Camera::ChangePitchYawRoll(deltaPitch, deltaYaw);
+	Camera::ChangePitchYawRoll(deltaPitch, deltaYaw, deltaRoll);
 	pitchDelta = deltaPitch;
 	yawDelta = deltaYaw;
 

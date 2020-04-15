@@ -53,7 +53,7 @@ protected:
 	Vector3 m_position;
 	double m_pitch;
 	double m_yaw;
-	double m_rollw;
+	double m_roll;
 
 
 	Vector3 m_lookAt;
