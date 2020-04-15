@@ -69,7 +69,7 @@ void SimpleInputHandler::HandleMouse()
         Vector3 delta = Vector3(float(mouse.x), float(mouse.y), 0.f)
             * ROTATION_GAIN;
 
-        m_camera->ChangePitchYawRoll(-delta.y, delta.x);
+        m_camera->ChangePitchYawRoll(-delta.y, delta.x, 0.);
     }
 
     m_mouse->SetMode(mouse.leftButton ? Mouse::MODE_RELATIVE : Mouse::MODE_ABSOLUTE);
