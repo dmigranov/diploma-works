@@ -40,18 +40,14 @@ const XMMATRIX& SphericalCamera::GetView()
 		//Matrix ROld = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 		//T = T * R * SphericalRotationZW(m_position.z) * SphericalRotationYW(m_position.y) * SphericalRotationXW(m_position.x) * R.Invert();
 		//T = T * SphericalRotationZW(m_position.z) * SphericalRotationYW(m_position.y) * SphericalRotationXW(m_position.x) ;		
-		//T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * RInv;
-
-		//T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * RInv;
-
-		T = T * RPitch *SphericalRotationXW(m_position.x) * RYaw * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * RInv;
-
+		
+		Matrix dT = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
+		T = T * R * dT * RInv;
 		m_view = T * R ;
 
-		/*Matrix camera;
-		T = SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x);
-		R = SphericalRotationYZ(-pitchDelta) * SphericalRotationXZ(-yawDelta);
-		m_view = ((Matrix)m_view).Invert() * T * R;*/
+
+		headWorld = headLocal * bodyWorld; //это правильный порядок
+
 
 		m_position = Vector3::Zero;
 		pitchDelta = 0;

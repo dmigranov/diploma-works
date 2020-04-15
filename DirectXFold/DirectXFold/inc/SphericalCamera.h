@@ -29,6 +29,8 @@ private:
 	Matrix R = Matrix::Identity, RInv = Matrix::Identity, RYaw = Matrix::Identity, RPitch = Matrix::Identity; // represents camera orientation
 	Matrix cameraTransform = Matrix::Identity;
 
+	Matrix headWorld = Matrix::Identity, headLocal = Matrix::Identity, bodyWorld = Matrix::Identity;
+
 	XMFLOAT3 GetSphericalFromCartesian(float x4, float x3, float x2, float x1);
 };
 
