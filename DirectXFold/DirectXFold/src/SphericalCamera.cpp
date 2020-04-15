@@ -148,10 +148,10 @@ void SphericalCamera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, dou
 	//RYaw = SphericalRotationXZ(m_yaw);
 	//RPitch = SphericalRotationYZ(m_pitch);
 
-	RInv = SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
-	R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
+	RInv = SphericalRotationXY(-m_roll) * SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
+	R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll);
+	//R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 
-	//R =  SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXY(m_roll);
 
 
 	m_viewDirty = true;
