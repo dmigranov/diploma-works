@@ -44,10 +44,10 @@ const XMMATRIX& SphericalCamera::GetView()
 		T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * R.Invert();
 		//m_view = T * R ;
 
-		T = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
-		Matrix Rinv = R.Invert();
-		R = SphericalRotationXZ(yawDelta) * SphericalRotationYZ(pitchDelta);
-		m_view = Rinv* (Matrix)m_view * T * R;
+		T = SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x);
+		R = SphericalRotationXZ(-yawDelta) * SphericalRotationYZ(-pitchDelta);
+		cameraTransform = R * T * cameraTransform;
+		m_view = cameraTransform.Invert();
 
 		/*T = T * R * SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
 		m_view = T;*/
