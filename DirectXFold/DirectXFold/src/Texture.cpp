@@ -3,9 +3,8 @@
 #include "DDSTextureLoader.h"
 
 
-Texture::Texture()
+Texture::Texture() : m_texture(nullptr), m_resource(nullptr)
 {
-	m_texture = nullptr;
 }
 
 Texture::Texture(const Texture&)
