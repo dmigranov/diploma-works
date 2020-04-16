@@ -525,6 +525,9 @@ void Game::Render()
         m_textDrawer->DrawTextDownRightAlign(ss.str().c_str(), m_outputWidth - 20, m_outputHeight - 20);
     }
 
+    m_drawer2D->DrawLine(Vector2(0.05f, 0.f), Vector2(-0.05f, 0.f), Colors::Black);
+    m_drawer2D->DrawLine(Vector2(0.f, 0.05f), Vector2(0.f, -0.05f), Colors::Black);
+
 
     Present();
 }
