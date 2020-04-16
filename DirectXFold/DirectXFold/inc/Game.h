@@ -32,6 +32,7 @@
 #include "SimpleInputHandler.h"
 #include "SphericalCamera.h"
 #include "TextDrawer.h"
+#include "Drawer2D.h"
 
 
 using namespace DirectX;

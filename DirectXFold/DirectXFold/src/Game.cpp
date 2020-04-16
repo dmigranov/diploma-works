@@ -1,6 +1,7 @@
 ﻿#include <pch.h>
 #include "Game.h"
 
+
 Game::Game() noexcept :
     m_hwnd(nullptr),
     m_outputWidth(800),
