@@ -526,11 +526,8 @@ void Game::Render()
     }
 
     float sizeHori = 0.05f, sizeVert = 0.05f * m_outputWidth/m_outputHeight;
-    /*float sizeHori, sizeVert;
-    if (m_outputWidth < m_outputHeight)
-        ;
-    else
-        ;*/
+    //float sizeHori, sizeVert;
+        
     m_drawer2D->DrawLine(Vector2(sizeHori, 0.f), Vector2(-sizeHori, 0.f), Colors::Black);
     m_drawer2D->DrawLine(Vector2(0.f, sizeVert), Vector2(0.f, -sizeVert), Colors::Black);
 
