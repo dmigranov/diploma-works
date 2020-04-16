@@ -1,4 +1,8 @@
 //static const float thickness = 0.01;
+//todo: deviceContext->PSSetShaderResources(0, 1, &texture);
+
+Texture2D shaderTexture;
+SamplerState SampleType;
 
 cbuffer PerApplication : register(b0)
 {

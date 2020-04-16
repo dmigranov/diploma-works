@@ -126,6 +126,8 @@ private:
 
     ID3D11PixelShader* g_d3dPixelShader = nullptr;
 
+    ID3D11SamplerState* g_d3dSamplerState = nullptr;
+
     // Shader resources
     enum ConstantBuffer
     {
