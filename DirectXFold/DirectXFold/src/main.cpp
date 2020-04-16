@@ -132,8 +132,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
     case WM_PAINT:
-        hdc = BeginPaint(hWnd, &ps);
-        EndPaint(hWnd, &ps);
+        if (s_in_sizemove)
+        {
+
+            {   //добавлено мной для динамического изменения картинки при изменении размера
+                RECT rc;
+                GetClientRect(hWnd, &rc);
+
+                g_game.OnWindowSizeChanged(rc.right - rc.left, rc.bottom - rc.top);
+            }
+            g_game.Tick();
+        }
+        else
+        {
+            hdc = BeginPaint(hWnd, &ps);
+            EndPaint(hWnd, &ps);
+        }
         break;
     case WM_ACTIVATEAPP:
         Keyboard::ProcessMessage(message, wParam, lParam);
