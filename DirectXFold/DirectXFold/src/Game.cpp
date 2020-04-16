@@ -496,15 +496,12 @@ void Game::Render()
     g_d3dDeviceContext->OMSetDepthStencilState(g_d3dDepthStencilState, 1); //1 is Reference value to perform against when doing a depth-stencil test.
     g_d3dDeviceContext->OMSetBlendState(g_d3dBlendState, 0, 0xffffffff);
 
-
-
     auto viewFront = m_camera->GetView();
     auto viewBack = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetAntipodalView();
     PerFrameVSConstantBuffer buf = { viewFront , viewBack };
     g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &buf, 0, 0);
     for (auto mesh : meshes)
         mesh->Render();
-
 
     g_d3dDeviceContext->GSSetShader(nullptr, nullptr, 0);
 
@@ -524,14 +521,10 @@ void Game::Render()
         ss << xAngleProtractor / XM_PI * 180;
         m_textDrawer->DrawTextDownRightAlign(ss.str().c_str(), m_outputWidth - 20, m_outputHeight - 20);
     }
-
     
-    float sizeHori = 20.f / m_outputWidth, sizeVert = 20.f / m_outputHeight;
-    //float sizeHori, sizeVert;
-        
+    float sizeHori = float(aimSize) / m_outputWidth, sizeVert = float(aimSize) / m_outputHeight;
     m_drawer2D->DrawLine(Vector2(sizeHori, 0.f), Vector2(-sizeHori, 0.f), Colors::Black);
     m_drawer2D->DrawLine(Vector2(0.f, sizeVert), Vector2(0.f, -sizeVert), Colors::Black);
-
 
     Present();
 }

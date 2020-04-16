@@ -83,13 +83,10 @@ private:
     XMFLOAT4 GetCartesianFromSpherical(float a3, float a2, float a1);
     XMFLOAT3 GetSphericalFromCartesian(float x1, float x2, float x3, float x4);
 
-
     // Device resources.
     HWND                                            m_hwnd;				//дескриптор окна игры
     int                                             m_outputWidth;
     int                                             m_outputHeight;
-    //float                                           m_aspect;
-
 
     // Direct3D device and swap chain.
     ID3D11Device* g_d3dDevice = nullptr;                                    //used for allocating GPU resources such as buffers, textures, shaders, and state objects
@@ -111,9 +108,7 @@ private:
     ID3D11BlendState* g_d3dBlendState = nullptr;
     //ID3D11BlendState* g_d3dBlendStateOff = nullptr;
 
-    
     D3D11_VIEWPORT g_Viewport = { 0 };                                      //The g_Viewport variable defines the size of the viewport rectangle. The viewport rectangle is also used by the rasterizer stage to determine the renderable area on screen.
-
 
     // Vertex buffer data
     ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
@@ -161,7 +156,7 @@ private:
 
     TextDrawer *                          m_textDrawer;
     Drawer2D *                            m_drawer2D;
-
+    int                                   aimSize = 20;
 
 
     struct PerApplicationVSConstantBuffer
