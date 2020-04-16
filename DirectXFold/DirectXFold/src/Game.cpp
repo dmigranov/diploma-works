@@ -561,6 +561,9 @@ bool Game::LoadContent()
     assert(g_d3dDevice);
     HRESULT hr;
     
+    if (!texture.Initialize(g_d3dDevice, L"cat.dds"))
+        return false;
+
     // Create the constant buffers for the variables defined in the vertex shader.
     D3D11_BUFFER_DESC constantBufferDesc;
     ZeroMemory(&constantBufferDesc, sizeof(D3D11_BUFFER_DESC));

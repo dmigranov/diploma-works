@@ -15,7 +15,7 @@ Texture::~Texture()
 {
 }
 
-bool Texture::Initialize(ID3D11Device* device, WCHAR* name)
+bool Texture::Initialize(ID3D11Device* device, const WCHAR* name)
 {
 
 	HRESULT result = DirectX::CreateDDSTextureFromFile(device, name, &m_resource, &m_texture); 

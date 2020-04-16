@@ -33,6 +33,7 @@
 #include "SphericalCamera.h"
 #include "TextDrawer.h"
 #include "Drawer2D.h"
+#include "Texture.h"
 
 
 using namespace DirectX;
@@ -158,6 +159,7 @@ private:
     Drawer2D *                            m_drawer2D;
     int                                   aimSize = 20;
 
+    Texture                               texture;
 
     struct PerApplicationVSConstantBuffer
     {
