@@ -664,7 +664,7 @@ bool Game::LoadContent()
 
         Mesh* mesh = new SphericalMesh(_countof(vertices), vertices,
             _countof(indices), indices, SphericalRotationYW(XM_PI/12));
-        //meshes.push_back(mesh);
+        meshes.push_back(mesh);
 
     }
 
