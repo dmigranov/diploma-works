@@ -174,13 +174,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 }
             }
         }
-        /*else if (s_minimized)
+        else if (s_minimized)
         {
             s_minimized = false;
-            if (s_in_suspend && game)
-                game->OnResuming();
+            /*if (s_in_suspend)
+                g_game.OnResuming();*/
             s_in_suspend = false;
-        }*/
+        }
         else if (!s_in_sizemove)
         {
             g_game.OnWindowSizeChanged(LOWORD(lParam), HIWORD(lParam));
