@@ -22,12 +22,14 @@ struct VertexShaderInput
 {
 	float4 position : POSITION;
 	float4 color : COLOR;
+	float2 tex : TEXCOORD0;
 };
 
 struct VertexShaderOutput
 {
 	float4 position : SV_POSITION;
 	float4 color : COLOR;
+	float2 tex : TEXCOORD0;
 	float fogFactor : FOG_FACTOR;
 };
 
