@@ -88,6 +88,7 @@ private:
     HWND                                            m_hwnd;				//дескриптор окна игры
     int                                             m_outputWidth;
     int                                             m_outputHeight;
+    //float                                           m_aspect;
 
 
     // Direct3D device and swap chain.

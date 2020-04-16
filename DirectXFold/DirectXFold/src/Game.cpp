@@ -525,8 +525,10 @@ void Game::Render()
         m_textDrawer->DrawTextDownRightAlign(ss.str().c_str(), m_outputWidth - 20, m_outputHeight - 20);
     }
 
-    m_drawer2D->DrawLine(Vector2(0.05f, 0.f), Vector2(-0.05f, 0.f), Colors::Black);
-    m_drawer2D->DrawLine(Vector2(0.f, 0.05f), Vector2(0.f, -0.05f), Colors::Black);
+    float size = 0.05f, sizeAspect = size * m_outputWidth / m_outputHeight;
+
+    m_drawer2D->DrawLine(Vector2(size, 0.f), Vector2(-size, 0.f), Colors::Black);
+    m_drawer2D->DrawLine(Vector2(0.f, sizeAspect), Vector2(0.f, -sizeAspect), Colors::Black);
 
 
     Present();
