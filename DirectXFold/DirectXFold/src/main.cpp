@@ -172,8 +172,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             if (!s_minimized)
             {
                 s_minimized = true;
-                /*if (!s_in_suspend)
-                    game.OnSuspending();*/
                 s_in_suspend = true;
 
                 //нужно чтобы ограничить потребление процессора, когда свернута
@@ -191,8 +189,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         else if (s_minimized)
         {
             s_minimized = false;
-            /*if (s_in_suspend)
-                g_game.OnResuming();*/
             s_in_suspend = false;
         }
         else if (!s_in_sizemove)
