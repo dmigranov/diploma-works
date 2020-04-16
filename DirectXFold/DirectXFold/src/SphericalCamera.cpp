@@ -40,16 +40,13 @@ const XMMATRIX& SphericalCamera::GetView()
 		//T = T * SphericalRotationZW(m_position.z) * SphericalRotationYW(m_position.y) * SphericalRotationXW(m_position.x) ;		
 		
 
-
-		//последняя работаюзщая версия
+		//последняя работающая версия
 		Matrix dT = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
 		
-		//T = T * R * dT * RInv();	//свободное движение с шутерной камерой
+		//T = T * R * dT * RInv;	//свободное движение с шутерной камерой
 		T = T * RYaw * dT * RYaw.Invert();	//движение в одной плоскости
 		
-		
 		m_view = T * R ;
-
 
 		m_position = Vector3::Zero;
 		pitchDelta = 0;
@@ -57,7 +54,6 @@ const XMMATRIX& SphericalCamera::GetView()
 
 		//этот вариант хорошо упавляет мышкой (без перемещения...) работает
 		//m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
-
 	}
 	return m_view;
 }
