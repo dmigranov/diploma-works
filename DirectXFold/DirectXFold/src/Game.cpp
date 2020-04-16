@@ -666,8 +666,11 @@ bool Game::LoadContent()
             _countof(indices), indices, SphericalRotationYW(XM_PI/6));
         meshes.push_back(mesh);
 
+        mesh = new SphericalMesh(_countof(vertices), vertices,
+            _countof(indices), indices, SphericalRotationXY(XM_PI) * SphericalRotationYW(XM_PI / 6) );
+        meshes.push_back(mesh);
 
-        Mesh::VertexPosColor vertices2[] = {
+        /*Mesh::VertexPosColor vertices2[] = {
             { XMFLOAT4(-s, 0.f, 0.f, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
             { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 1
             { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 2
@@ -679,7 +682,7 @@ bool Game::LoadContent()
 
         mesh = new SphericalMesh(_countof(vertices2), vertices2,
             _countof(indices2), indices2, SphericalRotationYW(XM_PI / 6));
-        meshes.push_back(mesh);
+        meshes.push_back(mesh);*/
 
     }
 
