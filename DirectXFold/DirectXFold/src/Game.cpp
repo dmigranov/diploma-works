@@ -525,7 +525,7 @@ void Game::Render()
         m_textDrawer->DrawTextDownRightAlign(ss.str().c_str(), m_outputWidth - 20, m_outputHeight - 20);
     }
 
-    float sizeHori = 0.05f, sizeVert = 0.05f * m_outputWidth/m_outputHeight;
+    float sizeHori = 20.f / m_outputWidth, sizeVert = sizeHori * m_outputWidth/m_outputHeight;
     //float sizeHori, sizeVert;
         
     m_drawer2D->DrawLine(Vector2(sizeHori, 0.f), Vector2(-sizeHori, 0.f), Colors::Black);
