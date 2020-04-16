@@ -305,7 +305,7 @@ int Game::Initialize(HWND window, int width, int height)
     g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
 
     m_textDrawer = new TextDrawer(g_d3dDevice, g_d3dDeviceContext, L"myfile.spritefont");
-
+    m_drawer2D = new Drawer2D(g_d3dDevice, g_d3dDeviceContext);
     return 0;
 }
 
@@ -734,6 +734,7 @@ void Game::UnloadContent()
     delete mesh1;
     delete mesh2;
     delete m_textDrawer;
+    delete m_drawer2D;
 }
 
 

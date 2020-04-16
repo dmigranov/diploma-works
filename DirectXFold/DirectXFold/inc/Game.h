@@ -158,7 +158,10 @@ private:
     // Camera
     std::shared_ptr<Camera>               m_camera;
 
-    TextDrawer                            *m_textDrawer;
+    TextDrawer *                          m_textDrawer;
+    Drawer2D *                            m_drawer2D;
+
+
 
     struct PerApplicationVSConstantBuffer
     {
