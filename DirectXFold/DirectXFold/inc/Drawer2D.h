@@ -10,7 +10,7 @@ class Drawer2D
 {
 public:
 	Drawer2D(ID3D11Device* device, ID3D11DeviceContext* context);
-	void DrawLine();
+	void DrawLine(DirectX::SimpleMath::Vector2 start, DirectX::SimpleMath::Vector2 end, XMVECTORF32 color);
 private:
 	ID3D11DeviceContext* m_context;
 	std::unique_ptr<DirectX::CommonStates> m_states;

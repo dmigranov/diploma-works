@@ -25,3 +25,7 @@ Drawer2D::Drawer2D(ID3D11Device* device, ID3D11DeviceContext* context)
 
     m_batch = std::make_unique<PrimitiveBatch<VertexPositionColor>>(context);
 }
+
+void Drawer2D::DrawLine(DirectX::SimpleMath::Vector2 start, DirectX::SimpleMath::Vector2 end, XMVECTORF32 color)
+{
+}
