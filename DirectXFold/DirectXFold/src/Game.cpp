@@ -514,6 +514,7 @@ void Game::Render()
     //Pixel Shader Stage
     g_d3dDeviceContext->PSSetShader(g_d3dPixelShader, nullptr, 0);
     g_d3dDeviceContext->PSSetConstantBuffers(0, 1, &g_d3dPSConstantBuffer);
+    g_d3dDeviceContext->PSSetSamplers(0, 1, &g_d3dSamplerState);
 
     //Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
@@ -575,6 +576,7 @@ void Game::Cleanup()
     SafeRelease(g_d3dDepthStencilBuffer);
     SafeRelease(g_d3dDepthStencilState);
     SafeRelease(g_d3dRasterizerState);
+    SafeRelease(g_d3dSamplerState);
     SafeRelease(g_d3dSwapChain);
     SafeRelease(g_d3dDeviceContext);
     SafeRelease(g_d3dDevice);
@@ -765,8 +767,6 @@ void Game::UnloadContent()
     SafeRelease(g_d3dGeometryShader);
 
     SafeRelease(g_d3dPixelShader);
-
-    SafeRelease(g_d3dSamplerState);
 
     delete mesh1;
     delete mesh2;
