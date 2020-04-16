@@ -44,8 +44,8 @@ void Drawer2D::DrawLine(Vector2 start, Vector2 end, XMVECTORF32 color)
 
     m_batch->Begin();
 
-    VertexPositionColor v1(Vector3(-1.f, -1.0f, 0.5f), Colors::Yellow);
-    VertexPositionColor v2(Vector3(1.0f, 1.0f, 0.5f), Colors::Yellow);
+    VertexPositionColor v1(Vector3(start.x, start.y, 0.f), color);
+    VertexPositionColor v2(Vector3(end.x, end.y, 0.f), color);
 
     m_batch->DrawLine(v1, v2);
 
