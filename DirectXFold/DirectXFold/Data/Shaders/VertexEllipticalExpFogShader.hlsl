@@ -61,7 +61,8 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	
 	OUT.color = IN.color;
 	OUT.position = mul(projectionMatrix, cameraSpacePosition);
-	
+	OUT.tex = IN.tex;
+
 	OUT.fogFactor = saturate(exp(-density * distance));
 	
 	return OUT;

@@ -60,6 +60,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	if (instanceID == 1)
 		distance += 3.14159265;
 	OUT.fogFactor = saturate((fogEnd - distance) / (fogEnd - fogStart));
-	
+	OUT.tex = IN.tex;
+
 	return OUT;
 }

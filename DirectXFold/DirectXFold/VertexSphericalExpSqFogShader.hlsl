@@ -58,6 +58,7 @@ VertexShaderOutput main(VertexShaderInput IN, uint instanceID : SV_InstanceID)
 	if (instanceID == 1)
 		distance += 3.14159265; //это работает потому что для instanceID = 1 камера из антиподальной точки
 	OUT.fogFactor = saturate(exp(-pow(density * distance, 2)));
-	
+	OUT.tex = IN.tex;
+
 	return OUT;
 }

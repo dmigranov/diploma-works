@@ -1,22 +1,18 @@
-﻿D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(37,23-78): warning X3578: Output value 'main' is not completely initialized
-D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+﻿D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
 D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
   
   compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\EllExpVertexShader.h
   compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexEllipticalExpFogShader_d.cso
-D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpFogShader.hlsl(35,23-78): warning X3578: Output value 'main' is not completely initialized
 D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
 D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
   
   compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\SphExpVertexShader.h
   compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexSphericalExpFogShader_d.cso
-D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpSqFogShader.hlsl(35,23-78): warning X3578: Output value 'main' is not completely initialized
 D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpSqFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
 D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpSqFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
   
   compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\SphExp2VertexShader.h
   compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexSphericalExpSqFogShader_d.cso
-D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalLinearFogShader.hlsl(36,23-78): warning X3578: Output value 'main' is not completely initialized
 D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalLinearFogShader.hlsl(50,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
 D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalLinearFogShader.hlsl(50,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
   
@@ -180,5 +176,4 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(284,
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(283,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   main.cpp
   Generating Code...
-     Creating library bin64\DirectXFoldd.lib and object bin64\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFoldd.exe
