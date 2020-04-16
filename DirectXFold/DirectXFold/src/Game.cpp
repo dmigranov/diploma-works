@@ -227,7 +227,6 @@ int Game::Initialize(HWND window, int width, int height)
         return -1;
     }
 
-
     isInitialized = true;
 
     if (!LoadContent())
@@ -756,10 +755,19 @@ void Game::UnloadContent()
     SafeRelease(g_d3dVSConstantBuffers[CB_Frame]);
     SafeRelease(g_d3dVSConstantBuffers[CB_Object]);
     SafeRelease(g_d3dPSConstantBuffer);
+
     SafeRelease(g_d3dInputLayout);
+
     SafeRelease(g_d3dVertexShader);
+    SafeRelease(g_d3dEllipticalVertexShader);
+    SafeRelease(g_d3dSphericalVertexShader);
+
     SafeRelease(g_d3dGeometryShader);
+
     SafeRelease(g_d3dPixelShader);
+
+    SafeRelease(g_d3dSamplerState);
+
     delete mesh1;
     delete mesh2;
     delete m_textDrawer;
