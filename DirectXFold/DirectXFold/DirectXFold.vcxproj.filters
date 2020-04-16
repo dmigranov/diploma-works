@@ -90,9 +90,6 @@
     <ClCompile Include="src\SphericalCube.cpp">
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
-    <ClCompile Include="src\SphericalDodecahedron.cpp">
-      <Filter>Исходные файлы\Meshes\Spherical</Filter>
-    </ClCompile>
     <ClCompile Include="src\SphericalMesh.cpp">
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
@@ -141,9 +138,6 @@
       <Filter>Файлы заголовков\Math</Filter>
     </ClInclude>
     <ClInclude Include="inc\SphericalCube.h">
-      <Filter>Файлы заголовков\Meshes\Spherical</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\SphericalDodecahedron.h">
       <Filter>Файлы заголовков\Meshes\Spherical</Filter>
     </ClInclude>
     <ClInclude Include="inc\SphericalMesh.h">

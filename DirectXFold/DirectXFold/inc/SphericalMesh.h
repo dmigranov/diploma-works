@@ -4,7 +4,6 @@
 class SphericalMesh : public Mesh
 {
     friend class SphericalOctahedron;
-    friend class SphericalDodecahedron;
     friend class SphericalCube;
 
 public:

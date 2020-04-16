@@ -39,7 +39,6 @@
     <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\SimpleInputHandler.cpp" />
     <ClCompile Include="src\SphericalCamera.cpp" />
-    <ClCompile Include="src\SphericalDodecahedron.cpp" />
     <ClCompile Include="src\SphericalMeshLoader.cpp" />
     <ClCompile Include="src\TextDrawer.cpp" />
   </ItemGroup>
@@ -57,7 +56,6 @@
     <ClInclude Include="inc\Shader.h" />
     <ClInclude Include="inc\SimpleInputHandler.h" />
     <ClInclude Include="inc\SphericalCamera.h" />
-    <ClInclude Include="inc\SphericalDodecahedron.h" />
     <ClInclude Include="inc\SphericalMath.h" />
     <ClInclude Include="inc\SphericalMeshLoader.h" />
     <ClInclude Include="inc\TextDrawer.h" />
@@ -157,7 +155,7 @@
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutDir)%(Filename)_d.cso</ObjectFileOutput>
       <DisableOptimizations Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DisableOptimizations>
     </FxCompile>
-	<FxCompile Include="VertexEllipticalExpSqFogShader.hlsl">
+    <FxCompile Include="VertexEllipticalExpSqFogShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
