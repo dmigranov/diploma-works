@@ -12,6 +12,7 @@ struct PixelShaderInput
 	float4 color : COLOR;
 	noperspective float3 edgeDistance : EDGEDISTANCE;
 	float fogFactor : FOG_FACTOR;
+	float2 tex : TEXCOORD0;
 };
 
 //static const float4 fogColor = float4(0.5f, 0.5f, 0.5f, 1.0f);

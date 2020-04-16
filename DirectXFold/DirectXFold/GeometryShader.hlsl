@@ -11,6 +11,7 @@ struct VertexOutput
     float4 color : COLOR;
 	noperspective float3 edgeDistance : EDGEDISTANCE;
 	float fogFactor : FOG_FACTOR;
+	float2 tex : TEXCOORD0;
 	float4 position : SV_POSITION; //стандартный System-Value для вертекса, который требуется на RS
 };
 
@@ -37,11 +38,11 @@ void SimpleGeometryShader(triangle VertexInput input[3], inout TriangleStream<Ve
 	
 	float4 color = (input[0].color + input[1].color + input[2].color) / 3.f;	//
 	
-	VertexOutput v1 = { color, float3(ha, 0, 0), input[0].fogFactor, input[0].position };
+	VertexOutput v1 = { color, float3(ha, 0, 0), input[0].fogFactor, input[0].tex, input[0].position };
 	stream.Append(v1); // добавление вертекса
-	VertexOutput v2 = { color, float3(0, hb, 0), input[1].fogFactor, input[1].position };
+	VertexOutput v2 = { color, float3(0, hb, 0), input[1].fogFactor, input[1].tex, input[1].position };
 	stream.Append(v2); // добавление вертекса
-	VertexOutput v3 = { color, float3(0, 0, hc), input[2].fogFactor, input[2].position };
+	VertexOutput v3 = { color, float3(0, 0, hc), input[2].fogFactor, input[2].tex, input[2].position };
 	stream.Append(v3); // добавление вертекса
 	
 	stream.RestartStrip(); // создаем примитив 
