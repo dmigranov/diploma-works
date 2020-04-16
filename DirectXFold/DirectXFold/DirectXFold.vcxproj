@@ -42,11 +42,13 @@
     <ClCompile Include="src\SphericalCamera.cpp" />
     <ClCompile Include="src\SphericalMeshLoader.cpp" />
     <ClCompile Include="src\TextDrawer.cpp" />
+    <ClCompile Include="src\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Camera.h" />
     <ClInclude Include="inc\Drawer2D.h" />
     <ClInclude Include="inc\Game.h" />
+    <ClInclude Include="inc\GeometryShader.h" />
     <ClInclude Include="inc\HyperbolicMath.h" />
     <ClInclude Include="inc\HyperbolicMesh.h" />
     <ClInclude Include="inc\Mesh.h" />
@@ -61,6 +63,7 @@
     <ClInclude Include="inc\SphericalMath.h" />
     <ClInclude Include="inc\SphericalMeshLoader.h" />
     <ClInclude Include="inc\TextDrawer.h" />
+    <ClInclude Include="inc\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">
