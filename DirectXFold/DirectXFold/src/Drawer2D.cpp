@@ -5,6 +5,8 @@ using namespace DirectX;
 
 Drawer2D::Drawer2D(ID3D11Device* device, ID3D11DeviceContext* context)
 {
+    m_context = context;
+
     m_states = std::make_unique<CommonStates>(device);
     m_effect = std::make_unique<BasicEffect>(device);
 
