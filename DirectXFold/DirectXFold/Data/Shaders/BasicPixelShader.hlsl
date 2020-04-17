@@ -22,7 +22,7 @@ float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
 	float distance = min(edgeDistance.x, min(edgeDistance.y, edgeDistance.z));
 	
 	float4 preFogColor;
-	float4 sourceColor = shaderTexture.Sample(SampleType, IN.tex);;
+	float4 sourceColor = ((IN.tex.x == 0.f && IN.tex.y == 0.f) ? IN.color : shaderTexture.Sample(SampleType, IN.tex));
 	
 	if (thickness > 0 && distance < thickness)
 		preFogColor = 0.7 * float4(0, 0, 0, 1) + 0.3 * sourceColor; //draw fragment if close to edge

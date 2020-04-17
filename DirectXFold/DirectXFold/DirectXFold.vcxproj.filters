@@ -202,9 +202,15 @@
     <CopyFileToFolders Include="res\mesh1.sph">
       <Filter>Файлы ресурсов</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="cat.DDS">
+      <Filter>Файлы ресурсов</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="cat.DDS">
+    <Image Include="fabric.DDS">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="asphalt.DDS">
       <Filter>Файлы ресурсов</Filter>
     </Image>
   </ItemGroup>

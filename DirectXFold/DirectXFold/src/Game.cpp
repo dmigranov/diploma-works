@@ -589,7 +589,7 @@ bool Game::LoadContent()
     assert(g_d3dDevice);
     HRESULT hr;
     
-    if (!texture.Initialize(g_d3dDevice, L"cat.dds"))
+    if (!texture.Initialize(g_d3dDevice, L"asphalt.dds"))
         return false;
 
     // Create the constant buffers for the variables defined in the vertex shader.
@@ -631,7 +631,7 @@ bool Game::LoadContent()
     }
 
     //loading shaders from global variables 
-    //hr = g_d3dDevice->CreateVertexShader(g_sphexpvs, sizeof(g_sphexpvs), nullptr, &g_d3dVertexShader);
+    //hr = g_d3dDevice->CreateVertexShader(gfa_sphexpvs, sizeof(g_sphexpvs), nullptr, &g_d3dVertexShader);
     //hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dVertexShader);
 
     hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dSphericalVertexShader);
