@@ -15,8 +15,6 @@ struct PixelShaderInput
 	float fogFactor : FOG_FACTOR;
 	float2 tex : TEXCOORD0;
 };
-
-//static const float4 fogColor = float4(0.5f, 0.5f, 0.5f, 1.0f);
  
 float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
 {
@@ -25,7 +23,6 @@ float4 SimplePixelShader(PixelShaderInput IN) : SV_TARGET
 	
 	float4 preFogColor;
 	float4 sourceColor = shaderTexture.Sample(SampleType, IN.tex);;
-
 	
 	if (thickness > 0 && distance < thickness)
 		preFogColor = 0.7 * float4(0, 0, 0, 1) + 0.3 * sourceColor; //draw fragment if close to edge
