@@ -23,7 +23,7 @@ public:
     {
         DirectX::XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве
         DirectX::XMFLOAT4 Color;
-        DirectX::XMFLOAT4 TexCoord;
+        DirectX::XMFLOAT2 TexCoord;
     };
 
     Mesh();
