@@ -515,6 +515,8 @@ void Game::Render()
     g_d3dDeviceContext->PSSetShader(g_d3dPixelShader, nullptr, 0);
     g_d3dDeviceContext->PSSetConstantBuffers(0, 1, &g_d3dPSConstantBuffer);
     g_d3dDeviceContext->PSSetSamplers(0, 1, &g_d3dSamplerState);
+    auto shaderResource = texture.GetTexture();
+    g_d3dDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
 
     //Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);

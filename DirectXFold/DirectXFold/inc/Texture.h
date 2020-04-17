@@ -14,6 +14,5 @@ public:
 private:
 	ID3D11ShaderResourceView* m_texture;
 	ID3D11Resource* m_resource;
-
 };
 
