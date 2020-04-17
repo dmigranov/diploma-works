@@ -8,7 +8,6 @@ cbuffer PerApplication : register(b0)
 	float thickness;
 }
 
-
 struct PixelShaderInput
 {
 	float4 color : COLOR;

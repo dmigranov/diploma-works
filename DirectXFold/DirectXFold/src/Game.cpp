@@ -686,9 +686,9 @@ bool Game::LoadContent()
         float height = 0.5f;
         float s = sqrtf(1 - height * height);
         Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(s, 0.f, 0.f, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 0
-        { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 1
-        { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f) }, // 2
+        { XMFLOAT4(s, 0.f, 0.f, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(0.f, 0.f) }, // 0
+        { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(0.5f, 1.f) }, // 1
+        { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(1.f, 0.f) }, // 2
         };
 
         WORD indices[] = {
