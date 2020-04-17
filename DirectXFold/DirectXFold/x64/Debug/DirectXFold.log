@@ -1,4 +1,6 @@
-﻿  Game.cpp
+﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\PixelShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\BasicPixelShader_d.cso
+  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(31,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(259,1): warning C4305: '-=': truncation from 'double' to 'float'
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(264,1): warning C4305: '+=': truncation from 'double' to 'float'
@@ -155,6 +157,6 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(285,
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(284,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(283,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   main.cpp
-  Texture.cpp
   Generating Code...
+     Creating library bin64\DirectXFoldd.lib and object bin64\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFoldd.exe
