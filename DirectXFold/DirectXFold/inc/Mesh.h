@@ -18,7 +18,7 @@ public:
     };
 
 
-    // Vertex data for a colored cube.
+    // Vertex data
     struct VertexPosColor
     {
         DirectX::XMFLOAT4 Position;  //координаты точки в четырехмерном пространстве

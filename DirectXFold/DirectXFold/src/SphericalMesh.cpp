@@ -30,8 +30,6 @@ void SphericalMesh::Render()
     
     //DRAW
     deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
-
-
 }
 
 void SphericalMesh::Render(XMMATRIX matrix)
@@ -50,7 +48,6 @@ void SphericalMesh::Render(XMMATRIX matrix)
 
     //DRAW
     deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
-
 }
 
 
@@ -76,7 +73,5 @@ void SphericalMesh::Render(std::list<XMMATRIX> matrices)
 
         //DRAW
         deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
-
     }
 }
-
