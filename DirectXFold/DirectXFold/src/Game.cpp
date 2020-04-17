@@ -631,9 +631,6 @@ bool Game::LoadContent()
     }
 
     //loading shaders from global variables 
-    //hr = g_d3dDevice->CreateVertexShader(gfa_sphexpvs, sizeof(g_sphexpvs), nullptr, &g_d3dVertexShader);
-    //hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dVertexShader);
-
     hr = g_d3dDevice->CreateVertexShader(g_sphexp2vs, sizeof(g_sphexp2vs), nullptr, &g_d3dSphericalVertexShader);
     if (FAILED(hr))
     {
@@ -674,7 +671,6 @@ bool Game::LoadContent()
         return false;
     }
 
-
     m_camera->SetPosition(0, 0, 0);
     m_camera->SetFovY(XM_PI / 2);
     m_camera->SetNearPlane(0.001f);
@@ -711,16 +707,14 @@ bool Game::LoadContent()
     //mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, .99f, SphericalRotationXZ(XM_PIDIV4), arr);
     
     {
-
-
-        /*XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
+        XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
         mesh1 = new SphericalOctahedron(.99f, arrOct);
         meshes.push_back(mesh1);
 
 
         for(int i = 1; i < 6; i++)
             meshes.push_back(new SphericalOctahedron(.99f, SphericalRotationXW(i * XM_2PI/(6 * 2))));
-        */
+        
 
         /*XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
         mesh1 = new SphericalCube(.99f, arrСube);
