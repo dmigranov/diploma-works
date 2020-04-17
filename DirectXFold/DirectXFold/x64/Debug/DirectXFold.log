@@ -12,7 +12,6 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(289,1): warning C43
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(543,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(549,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(549,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  HyperbolicMesh.cpp
   Mesh.cpp
   SphericalCube.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(35,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -47,44 +46,6 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(42,54): wa
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(42,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(42,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(42,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  SphericalMesh.cpp
-  SphericalMeshLoader.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(32,75): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(32,64): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(32,53): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(32,42): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(32,118): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(32,107): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(32,96): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(45,98): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   SphericalOctahedron.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(31,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(31,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data

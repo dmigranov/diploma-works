@@ -664,8 +664,8 @@ bool Game::LoadContent()
     D3D11_INPUT_ELEMENT_DESC vertexLayoutDesc[] =
     {
         { "POSITION", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Position), D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, offsetof(Mesh::VertexPosColor, Color), D3D11_INPUT_PER_VERTEX_DATA, 0 },
-        { "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 }
+        { "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+        { "ABC", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
     };
 
     hr = g_d3dDevice->CreateInputLayout(vertexLayoutDesc, _countof(vertexLayoutDesc), g_vs, sizeof(g_vs), &g_d3dInputLayout);
@@ -686,9 +686,9 @@ bool Game::LoadContent()
         float height = 0.5f;
         float s = sqrtf(1 - height * height);
         Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(s, 0.f, 0.f, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(0.f, 0.f) }, // 0
-        { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(0.5f, 1.f) }, // 1
-        { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(1.f, 0.f) }, // 2
+        { XMFLOAT4(s, 0.f, 0.f, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT4() }, // 0
+        { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT4() }, // 1
+        { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT4() }, // 2
         };
 
         WORD indices[] = {
