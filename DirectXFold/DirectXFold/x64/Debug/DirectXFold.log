@@ -1,4 +1,5 @@
-﻿D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpSqFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+﻿D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpSqFogShader.hlsl(61,2-17): warning X3206: implicit truncation of vector type
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpSqFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
 D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpSqFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
   
   compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\SphExp2VertexShader.h
