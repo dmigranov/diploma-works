@@ -1,15 +1,11 @@
 package ru.nsu.fit.g16201.migranov.view;
 
-import ru.nsu.fit.g16201.migranov.controller.Controller;
-import ru.nsu.fit.g16201.migranov.model.Geodesic;
+import ru.nsu.fit.g16201.migranov.presenter.Presenter;
 import ru.nsu.fit.g16201.migranov.view.frametemplate.MainFrame;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.EmptyBorder;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import java.awt.*;
 import java.awt.event.*;
@@ -25,7 +21,7 @@ public class GeoWireFoldFrame extends MainFrame {
     private List<AbstractButton> deactivatedButtons = new ArrayList<>();
     private boolean fileIsLoaded = false;
 
-    private Controller controller;
+    private Presenter presenter;
     private WireframePanel wireframePanel;
 
 
@@ -54,7 +50,7 @@ public class GeoWireFoldFrame extends MainFrame {
             return;
         int width = mainPanel.getWidth();
         int height = mainPanel.getHeight();
-        double sw = controller.getSw(), sh = controller.getSh();
+        double sw = presenter.getSw(), sh = presenter.getSh();
 
         double nwidth, nheight;
         if(width < height) {
@@ -77,7 +73,7 @@ public class GeoWireFoldFrame extends MainFrame {
             }
         }
         wireframePanel.setPreferredSize(new Dimension((int)Math.round(nwidth) - 20, (int)Math.round(nheight) - 20));
-        controller.drawFigure();
+        presenter.drawFigure();
         mainPanel.revalidate();
     }
 
@@ -93,7 +89,7 @@ public class GeoWireFoldFrame extends MainFrame {
         });
         wireframePanel = new WireframePanel();
         mainPanel.add(wireframePanel);
-        controller = new Controller(wireframePanel);
+        presenter = new Presenter(wireframePanel);
         addMenus();
         createCommonConfigurationPanel();
         createGeodesicsConfigurationPanel();
@@ -138,7 +134,7 @@ public class GeoWireFoldFrame extends MainFrame {
                 if (!p.getDisplayName().equals("RGB"))
                     geodesicColorChooser.removeChooserPanel(p);
             geodesicColorChooser.setPreviewPanel(new JPanel());
-            geodesicColorChooser.setColor(controller.getBackgroundColor());
+            geodesicColorChooser.setColor(presenter.getBackgroundColor());
         }
 
         uvPanel.add(new LabelTextField("u0: ", uStartField, new FloatTextFieldKeyListener()));
@@ -165,7 +161,7 @@ public class GeoWireFoldFrame extends MainFrame {
         });
 
         addGeodesicButton.addActionListener(e -> {
-            controller.addGeodesic();
+            presenter.addGeodesic();
             updateFields();
         });
 
@@ -173,7 +169,7 @@ public class GeoWireFoldFrame extends MainFrame {
             int index = geoList.getSelectedIndex();
             if(index == -1)
                 return;
-            controller.removeGeodesic(index);
+            presenter.removeGeodesic(index);
             updateFields();
         });
 
@@ -191,7 +187,7 @@ public class GeoWireFoldFrame extends MainFrame {
                 uDir = Double.parseDouble(uDirField.getText());
                 vDir = Double.parseDouble(vDirField.getText());
 
-                controller.changeGeodesic(index, uStart, vStart, uDir, vDir, geodesicColorChooser.getColor());
+                presenter.changeGeodesic(index, uStart, vStart, uDir, vDir, geodesicColorChooser.getColor());
 
                 updateGeodesicFields(index);
             }
@@ -216,7 +212,7 @@ public class GeoWireFoldFrame extends MainFrame {
         else {
             removeGeodesicButton.setEnabled(true);
             saveGeodesicButton.setEnabled(true);
-            var geodesic = controller.getGeodesic(index);
+            var geodesic = presenter.getGeodesic(index);
             uStartField.setText(String.format("%.3f", geodesic.getuStart()));
             uDirField.setText(String.format("%.3f", geodesic.getuDir()));
             vStartField.setText(String.format("%.3f", geodesic.getvStart()));
@@ -276,7 +272,7 @@ public class GeoWireFoldFrame extends MainFrame {
                 if (!p.getDisplayName().equals("RGB"))
                     backgroundColorChooser.removeChooserPanel(p);
             backgroundColorChooser.setPreviewPanel(new JPanel());
-            backgroundColorChooser.setColor(controller.getBackgroundColor());
+            backgroundColorChooser.setColor(presenter.getBackgroundColor());
         }
         {
             AbstractColorChooserPanel[] panels = figureColorChooser.getChooserPanels();
@@ -284,7 +280,7 @@ public class GeoWireFoldFrame extends MainFrame {
                 if (!p.getDisplayName().equals("RGB"))
                     figureColorChooser.removeChooserPanel(p);
             figureColorChooser.setPreviewPanel(new JPanel());
-            figureColorChooser.setColor(controller.getBackgroundColor());
+            figureColorChooser.setColor(presenter.getBackgroundColor());
         }
         commonPanel.add(Box.createVerticalStrut(20));
         commonPanel.add(clippingPanel);
@@ -314,12 +310,12 @@ public class GeoWireFoldFrame extends MainFrame {
                 m = Integer.parseInt(mField.getText());
                 Ti = Integer.parseInt(TiField.getText());
                 Tj = Integer.parseInt(TjField.getText());
-                if(1 > Ti || 1 > Tj || Ti > controller.getNi() || Tj > controller.getNj())
+                if(1 > Ti || 1 > Tj || Ti > presenter.getNi() || Tj > presenter.getNj())
                     throw new NumberFormatException("Wrong Ti or Tj, 1 <= Ti <= Ni");
                 if(m <= 0 || n <= 0 || k <= 0)
                     throw new NumberFormatException("Wrong m, n, or k");
 
-                controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj);
+                presenter.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj);
 
                 resize();
 
@@ -392,19 +388,19 @@ public class GeoWireFoldFrame extends MainFrame {
 
     private void updateFields() {
 
-        nField.setText(controller.getN() + "");
-        mField.setText(controller.getM() + "");
-        kField.setText(controller.getK() + "");
-        znField.setText(controller.getZn() + "");
-        shField.setText(controller.getSh() + "");
-        swField.setText(controller.getSw() + "");
-        TiField.setText(controller.getTi() + "");
-        TjField.setText(controller.getTj() + "");
-        backgroundColorChooser.setColor(controller.getBackgroundColor());
-        figureColorChooser.setColor(controller.getFigureColor());
+        nField.setText(presenter.getN() + "");
+        mField.setText(presenter.getM() + "");
+        kField.setText(presenter.getK() + "");
+        znField.setText(presenter.getZn() + "");
+        shField.setText(presenter.getSh() + "");
+        swField.setText(presenter.getSw() + "");
+        TiField.setText(presenter.getTi() + "");
+        TjField.setText(presenter.getTj() + "");
+        backgroundColorChooser.setColor(presenter.getBackgroundColor());
+        figureColorChooser.setColor(presenter.getFigureColor());
 
         geoListModel.clear();
-        int geoCount = controller.getGeodesicsCount();
+        int geoCount = presenter.getGeodesicsCount();
         for(int i = 1; i < geoCount + 1; i++)
             geoListModel.addElement("Geodesic " + i);
     }
@@ -421,7 +417,7 @@ public class GeoWireFoldFrame extends MainFrame {
     {
         if(file != null) {
             setTitle(file.getName() + " | Denis Migranov, 16201");
-            int r = controller.load3DFile(file);
+            int r = presenter.load3DFile(file);
             if(r == 0)
             {
                 for (AbstractButton b : deactivatedButtons)
@@ -446,7 +442,7 @@ public class GeoWireFoldFrame extends MainFrame {
     {
         File file = getSaveFileName("png", "A PNG file");
         if (file != null) {
-            controller.saveFile(file);
+            presenter.saveFile(file);
         }
     }
 

@@ -1,4 +1,4 @@
-package ru.nsu.fit.g16201.migranov.controller;
+package ru.nsu.fit.g16201.migranov.presenter;
 
 import ru.nsu.fit.g16201.migranov.model.*;
 import ru.nsu.fit.g16201.migranov.view.WireframePanel;
@@ -9,7 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Controller {
+public class Presenter {
     private WireframePanel wireframePanel;
 
     private Point3D eye = new Point3D(-10, 0, 0);
@@ -48,7 +48,7 @@ public class Controller {
     private SplineCalculator splineCalculator;
     private GeodesicsCalculator geodesicsCalculator;
 
-    public Controller(WireframePanel wireframePanel) {
+    public Presenter(WireframePanel wireframePanel) {
         this.wireframePanel = wireframePanel;
 
         cameraMatrix = Matrix.getViewMatrixNew(eye, ref, up);  //c 153
