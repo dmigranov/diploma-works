@@ -160,7 +160,7 @@ void SphericalCamera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, dou
 	RotationQuaternion = XMQuaternionMultiply(RotationQuaternion, XMQuaternionRotationRollPitchYaw(deltaPitch, 0.f, -deltaRoll));
 
 	// performing rotation of y-axis (yaw) round world axis
-	XMMATRIX MRotation = XMMatrixMultiply(XMMatrixRotationQuaternion(RotationQuaternion), XMMatrixRotationRollPitchYaw(0.f, -deltaYaw, 0.f));
+	XMMATRIX MRotation = XMMatrixMultiply(XMMatrixRotationQuaternion(RotationQuaternion), XMMatrixRotationRollPitchYaw(0.f, -m_yaw, 0.f));
 
 	// keep track of rotation round y-axis because it is rotated round world axis
 	//DeltaAngles = { 0.f, DeltaAngles.y, 0.f };
