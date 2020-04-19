@@ -145,27 +145,14 @@ void SphericalCamera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, dou
 	RInv = SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
 	R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 
+	RRoll = XMMatrixRotationQuaternion(XMQuaternionRotationAxis(XMVector4Transform(Vector4(0, 0, 1, 0), R), m_roll));
+	R = RRoll * RYaw * RPitch;
 
 	/*auto RQuat = XMQuaternionRotationRollPitchYaw(m_pitch, -m_yaw, m_roll);
 	Matrix RQuatM = XMMatrixRotationQuaternion(RQuat);
 	R = RQuatM;
 	RInv = R.Invert();
 	m_viewDirty = true;*/
-
-	static const XMFLOAT3 OriginalAt = { 1.f, 0.f, 0.f };
-	static const XMFLOAT3 OriginalUp = { 0.f, 1.f, 0.f };
-	static const XMFLOAT3 OriginalRight = { 0.f, 0.f, 1.f };
-
-	// performing rotation of x-axis (here roll) und z-axis (here pitch) round camera axis using quaternion
-	RotationQuaternion = XMQuaternionMultiply(RotationQuaternion, XMQuaternionRotationRollPitchYaw(deltaPitch, 0.f, -deltaRoll));
-
-	// performing rotation of y-axis (yaw) round world axis
-	XMMATRIX MRotation = XMMatrixMultiply(XMMatrixRotationQuaternion(RotationQuaternion), XMMatrixRotationRollPitchYaw(0.f, -m_yaw, 0.f));
-
-	// keep track of rotation round y-axis because it is rotated round world axis
-	//DeltaAngles = { 0.f, DeltaAngles.y, 0.f };
-
-	R = MRotation;
 
 
 }

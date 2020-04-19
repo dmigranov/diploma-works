@@ -26,7 +26,7 @@ private:
 	double pitchLimit = DirectX::XM_PI / 2.0f - 0.01f;
 
 	Matrix T = Matrix::Identity; // represents the translation of the camera in world space
-	Matrix R = Matrix::Identity, RInv = Matrix::Identity, RYaw = Matrix::Identity, RPitch = Matrix::Identity; // represents camera orientation
+	Matrix R = Matrix::Identity, RInv = Matrix::Identity, RYaw = Matrix::Identity, RPitch = Matrix::Identity, RRoll = Matrix::Identity; // represents camera orientation
 	Quaternion RotationQuaternion;
 	XMFLOAT3 GetSphericalFromCartesian(float x4, float x3, float x2, float x1);
 };
