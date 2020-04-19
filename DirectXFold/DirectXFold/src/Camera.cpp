@@ -96,8 +96,8 @@ void Camera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, double delta
 	// limit pitch to straight up or straight down
 	// with a little fudge-factor to avoid gimbal lock
 	double limit = DirectX::XM_PI / 2.0f - 0.01f;
-	m_pitch = std::max<double>(-limit, m_pitch);
-	m_pitch = std::min<double>(+limit, m_pitch);
+	//m_pitch = std::max<double>(-limit, m_pitch);
+	//m_pitch = std::min<double>(+limit, m_pitch);
 
 	// keep longitude in sane range by wrapping
 	if (m_yaw > DirectX::XM_PI)

@@ -143,10 +143,7 @@ void SphericalCamera::ChangePitchYawRoll(double deltaPitch, double deltaYaw, dou
 	RPitch = SphericalRotationYZ(m_pitch);
 
 	RInv = SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw);
-	R = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
-
-	RRoll = XMMatrixRotationQuaternion(XMQuaternionRotationAxis(XMVector4Transform(Vector4(0, 0, 1, 0), R), m_roll));
-	R = RRoll * RYaw * RPitch;
+	R = RYaw * RPitch;
 
 	/*auto RQuat = XMQuaternionRotationRollPitchYaw(m_pitch, -m_yaw, m_roll);
 	Matrix RQuatM = XMMatrixRotationQuaternion(RQuat);
