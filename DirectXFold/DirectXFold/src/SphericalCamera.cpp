@@ -39,9 +39,6 @@ const XMMATRIX& SphericalCamera::GetView()
 		m_view = T * R ;
 
 		dV = Vector3::Zero;
-
-		//этот вариант хорошо упавляет мышкой (без перемещения...) работает
-		//m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 	}
 	return m_view;
 }
