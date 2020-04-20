@@ -28,7 +28,6 @@ public class Presenter {
     private Matrix boxMatrix;
 
     private Color backgroundColor;
-    private Matrix sceneRotateMatrix;
     private Matrix cameraMatrix;
     private Matrix projectionMatrix;
 
@@ -212,9 +211,8 @@ public class Presenter {
 
         Matrix projView = Matrix.multiply(projectionMatrix, cameraMatrix);
         Matrix projViewBox = Matrix.multiply(projView, boxMatrix);
-        Matrix projViewBoxRot = Matrix.multiply(projViewBox, sceneRotateMatrix);
 
-        Matrix resultMatrix = Matrix.multiply(projViewBoxRot, figureRotateMatrix);
+        Matrix resultMatrix = Matrix.multiply(projViewBox, figureRotateMatrix);
 
         Color color = figureColor;
         Point[] uPrev = new Point[m * k + 1];   //m*k
@@ -396,7 +394,7 @@ public class Presenter {
                 throw new IOException("Wrong clipping");
             projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
 
-            sceneRotateMatrix = read3x3MatrixByRow(br);
+            //sceneRotateMatrix = read3x3MatrixByRow(br);
 
             substrings = readLineAndSplit(br);
             backgroundColor = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
