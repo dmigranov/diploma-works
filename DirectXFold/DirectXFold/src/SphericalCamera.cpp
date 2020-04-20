@@ -11,26 +11,20 @@ const XMMATRIX& SphericalCamera::GetView()
 {
 	if (m_viewDirty)
 	{
-
 		//view - это обратная к cameraTransform.
 		//чтобы найти камераТрансформ, сначала поворачиваем камеру (слева), потом перемещаем (справа)
 		//но (ABC)-1 = C-1 B-1 A-1
 		//поэтому при нахождении view вращения камеры СПРАВА
-		
+		//А обратная матрица - равна транспонированной!
+
 		//пич йоу:
 		//для нахождения камера трансформ сначала pitch, потом yaw. то есть там pitch левее
 		//но для view питч будет правее
-
-		//todo: поразмыслить над интерпретацией и может ещё исправить
-		//todo: roll
 
 		//Matrix ROld = SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
 		//T = T * R * SphericalRotationZW(m_position.z) * SphericalRotationYW(m_position.y) * SphericalRotationXW(m_position.x) * R.Invert();
 		//T = T * SphericalRotationZW(m_position.z) * SphericalRotationYW(m_position.y) * SphericalRotationXW(m_position.x) ;		
 		
-		//А обратная матрица - равна транспонированной!
-
-		//последняя работающая версия
 		Matrix dT = SphericalRotationXW(dV.x) * SphericalRotationYW(dV.y) * SphericalRotationZW(dV.z);
 		
 		//T = T * R * dT * RInv;	//свободное движение с шутерной камерой
@@ -42,9 +36,6 @@ const XMMATRIX& SphericalCamera::GetView()
 	}
 	return m_view;
 }
-
-//todo: 
-//2. перемещатаься в одной плоскости (проецирование)
 
 const XMMATRIX& SphericalCamera::GetAntipodalView()
 {
@@ -106,17 +97,6 @@ Vector4 SphericalCamera::GetPosition()
 void SphericalCamera::Move(Vector3 v3)
 {
 	dV = v3;
-
-
-	/*Vector4 zDir = Vector4(0, 0, v3.z, 0);
-	zDir = XMVector4Transform(zDir, SphericalRotationYZ(-m_pitch) * SphericalRotationXZ(-m_yaw) * SphericalRotationZW(-m_position.z) * SphericalRotationYW(-m_position.y) * SphericalRotationXW(-m_position.x));
-	m_position = m_position + zDir;*/
-
-	//Vector4 pos = XMVector4Transform(Vector4(1.f, 0.f, 0.f, 0.f), SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch) * SphericalRotationXW(v3.x));
-	//m_position += GetSphericalFromCartesian(pos.x, pos.y, pos.z, pos.w)/100;
-
-	//Vector4 newCameraPos = XMVector4Transform(spherePos, SphericalRotationZW(v3.z) * SphericalRotationYW(v3.y) * SphericalRotationXW(v3.x));
-	//m_position += Vector3(newCameraPos.x, newCameraPos.y, newCameraPos.z);
 
 	m_viewDirty = true;
 }
