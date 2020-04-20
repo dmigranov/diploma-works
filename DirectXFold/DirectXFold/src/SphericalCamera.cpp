@@ -12,12 +12,6 @@ const XMMATRIX& SphericalCamera::GetView()
 	if (m_viewDirty)
 	{
 
-		//todo: разобраться с порядком. не должен ли он быть оьратынм?
-		//m_view точно должна стоять на первом месте!
-
-		if (m_pitch == pitchLimit || m_pitch == -pitchLimit)
-			pitchDelta = 0;
-		
 		//view - это обратная к cameraTransform.
 		//чтобы найти камераТрансформ, сначала поворачиваем камеру (слева), потом перемещаем (справа)
 		//но (ABC)-1 = C-1 B-1 A-1
@@ -37,16 +31,14 @@ const XMMATRIX& SphericalCamera::GetView()
 		//А обратная матрица - равна транспонированной!
 
 		//последняя работающая версия
-		Matrix dT = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z);
+		Matrix dT = SphericalRotationXW(dV.x) * SphericalRotationYW(dV.y) * SphericalRotationZW(dV.z);
 		
 		//T = T * R * dT * RInv;	//свободное движение с шутерной камерой
 		T = T * RYaw * dT * RYaw.Transpose();	//движение в одной плоскости
 		
 		m_view = T * R ;
 
-		m_position = Vector3::Zero;
-		pitchDelta = 0;
-		yawDelta = 0;
+		dV = Vector3::Zero;
 
 		//этот вариант хорошо упавляет мышкой (без перемещения...) работает
 		//m_view = SphericalRotationXW(m_position.x) * SphericalRotationYW(m_position.y) * SphericalRotationZW(m_position.z) * SphericalRotationXZ(m_yaw) * SphericalRotationYZ(m_pitch);
@@ -111,13 +103,12 @@ const XMMATRIX& SphericalCamera::GetEllipticalProj()
 Vector4 SphericalCamera::GetPosition()
 {
 	return XMVector4Transform(spherePos, ((Matrix)m_view).Invert());
-	return spherePos;
 }
 
 //v = dx dy dz (градусы)
 void SphericalCamera::Move(Vector3 v3)
 {
-	m_position = v3;
+	dV = v3;
 
 
 	/*Vector4 zDir = Vector4(0, 0, v3.z, 0);

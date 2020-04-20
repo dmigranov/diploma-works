@@ -21,7 +21,7 @@ public:
 
 private:
 	Vector4 spherePos = Vector4(0, 0, 0, 1);
-
+	Vector3 dV = Vector3(0, 0, 0);
 	double pitchDelta = 0, yawDelta = 0;
 	double pitchLimit = DirectX::XM_PI / 2.0f - 0.01f;
 
