@@ -78,7 +78,7 @@ public class GeoWireFoldFrame extends MainFrame {
     }
 
     private GeoWireFoldFrame() throws Exception {
-        super(800, 600, "Untitled | Denis Migranov, 16201");
+        super(800, 600, "Untitled | GeoWireFold");
 
         mainPanel = new JPanel(new GridBagLayout());
         mainPanel.addComponentListener(new ComponentAdapter() {
@@ -416,7 +416,7 @@ public class GeoWireFoldFrame extends MainFrame {
     private void load3DFile(File file)
     {
         if(file != null) {
-            setTitle(file.getName() + " | Denis Migranov, 16201");
+            setTitle(file.getName() + " | GeoWireFold");
             int r = presenter.load3DFile(file);
             if(r == 0)
             {
