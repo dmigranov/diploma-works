@@ -26,8 +26,10 @@ const XMMATRIX& SphericalCamera::GetView()
 		//T = T * SphericalRotationZW(m_position.z) * SphericalRotationYW(m_position.y) * SphericalRotationXW(m_position.x) ;		
 		
 		Matrix dT = SphericalRotationXW(dV.x) * SphericalRotationYW(dV.y) * SphericalRotationZW(dV.z);
+		//Matrix dT = SphericalRotationYW(dV.y) *  SphericalRotationXW(dV.x)  * SphericalRotationZW(dV.z);
+
 		
-		//T = T * R * dT * RInv;	//свободное движение с шутерной камерой
+		//T = T * R * dT * R.Transpose();	//свободное движение с шутерной камерой
 		T = T * RYaw * dT * RYaw.Transpose();	//движение в одной плоскости
 		
 		m_view = T * R ;
