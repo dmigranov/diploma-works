@@ -36,8 +36,6 @@ SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCou
                 height
             );
 
-
-
             Vector4 posTransformed = XMVector4Transform((Vector4)pos, SphericalRotationXW(dist(engine)));
             pos = posTransformed;
 
