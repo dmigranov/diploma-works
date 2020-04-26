@@ -589,7 +589,7 @@ bool Game::LoadContent()
     assert(g_d3dDevice);
     HRESULT hr;
     
-    if (!texture.Initialize(g_d3dDevice, L"asphalt.dds"))
+    if (!texture.Initialize(g_d3dDevice, L"earth.dds"))
         return false;
 
     // Create the constant buffers for the variables defined in the vertex shader.

@@ -211,7 +211,16 @@
     <CopyFileToFolders Include="cat.DDS">
       <Filter>Файлы ресурсов</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="fabric.DDS" />
-    <CopyFileToFolders Include="asphalt.DDS" />
+    <CopyFileToFolders Include="asphalt.DDS">
+      <Filter>Файлы ресурсов</Filter>
+    </CopyFileToFolders>
+    <CopyFileToFolders Include="fabric.DDS">
+      <Filter>Файлы ресурсов</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="earth.DDS">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
   </ItemGroup>
 </Project>
