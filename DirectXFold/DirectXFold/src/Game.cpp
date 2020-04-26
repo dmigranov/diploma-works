@@ -517,8 +517,8 @@ void Game::Render()
     g_d3dDeviceContext->PSSetShader(g_d3dPixelShader, nullptr, 0);
     g_d3dDeviceContext->PSSetConstantBuffers(0, 1, &g_d3dPSConstantBuffer);
     g_d3dDeviceContext->PSSetSamplers(0, 1, &g_d3dSamplerState);
-    auto shaderResource = texture.GetTexture();
-    g_d3dDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
+    //auto shaderResource = texture.GetTexture();
+    //g_d3dDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
 
     //Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
@@ -729,7 +729,7 @@ bool Game::LoadContent()
             meshes.push_back(new SphericalOctahedron(.9999f, SphericalRotationYW(i * XM_2PI / (32 * 2))));
         */
 
-        mesh1 = new SphericalAsteroid(0.01f, 0.1f, 20, 20, new Texture());
+        mesh1 = new SphericalAsteroid(0.01f, 0.1f, 20, 20, earthTexture);
         mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
             return SphericalRotationYZ(delta / 3.f) * SphericalRotationXY(delta / 2.f) * in * SphericalRotationYW(-delta / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
         }));
@@ -737,7 +737,7 @@ bool Game::LoadContent()
 
         for (int i = 1; i < 8; i++)
         {
-            Mesh* mesh = new SphericalAsteroid(0.01f, 0.1f, 20, 20, XMFLOAT4(1.f, 0.f, 0.f, 1.f), SphericalRotationZW(i * XM_2PI / 8));
+            Mesh* mesh = new SphericalAsteroid(0.01f, 0.1f, 20, 20, asteroidTexture, SphericalRotationZW(i * XM_2PI / 8));
             mesh->AddUpdater(SphericalMesh::MeshUpdater([i](Matrix in, float delta) {
                 return SphericalRotationYZ(delta / i / 3.f) * SphericalRotationXY(delta / i / 2.f) * in * SphericalRotationYW(-delta / i / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
             }));
