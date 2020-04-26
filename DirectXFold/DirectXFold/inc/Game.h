@@ -161,7 +161,7 @@ private:
     Drawer2D *                            m_drawer2D;
     int                                   aimSize = 20;
 
-    Texture                               texture;
+    Texture                               *asteroidTexture, *earthTexture;
 
     struct PerApplicationVSConstantBuffer
     {

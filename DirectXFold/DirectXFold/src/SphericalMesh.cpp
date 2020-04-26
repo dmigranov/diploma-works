@@ -46,6 +46,12 @@ void SphericalMesh::Render(XMMATRIX matrix)
     deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
     deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
     deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+    
+    if (m_texture != nullptr)
+    {     //Pixel Shader Stafe - unique 4 every stage
+        auto shaderResource = m_texture->GetTexture();
+        deviceContext->PSSetShaderResources(0, 1, &shaderResource);
+    }
 
     MeshConstantBuffer constantBufferTemp = { matrix };
     if (parentMesh != nullptr)
@@ -69,6 +75,13 @@ void SphericalMesh::Render(std::list<XMMATRIX> matrices)
     deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
     deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
     deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
+
+    if (m_texture != nullptr)
+    {     //Pixel Shader Stafe - unique 4 every stage
+        auto shaderResource = m_texture->GetTexture();
+        deviceContext->PSSetShaderResources(0, 1, &shaderResource);
+    }
+
 
     for (auto matrix : matrices)
     {
