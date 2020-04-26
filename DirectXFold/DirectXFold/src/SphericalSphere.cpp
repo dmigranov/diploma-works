@@ -13,7 +13,7 @@ SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, D
 
 	float height = 1.f - radius * radius;
 
-	vertices.push_back({ XMFLOAT4(0.f, radius, 0.f, height), color, XMFLOAT2(0.f ,0.f) });
+	vertices.push_back({ XMFLOAT4(0.f, radius, 0.f, height), color, XMFLOAT2(0.f, 0.f) });
 
     for (int i = 1; i <= stackCount - 1; i++) {
         auto phi = i * phiStep;
@@ -24,12 +24,12 @@ SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, D
                 (radius * cosf(phi)),
                 (radius * sinf(phi) * sinf(theta)),
                 height
-                )
-            ;
+                );
 
-            
             auto uv = XMFLOAT2(theta / XM_2PI, phi / XM_PI);
             vertices.push_back({pos, color, uv });
         }
+
+        vertices.push_back({ XMFLOAT4(0.f, -radius, 0.f, height), color, XMFLOAT2(0.f, 1.f) });
     }
 }
