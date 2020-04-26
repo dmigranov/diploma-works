@@ -100,7 +100,6 @@ SphericalOctahedron::SphericalOctahedron(FixedCoordinate coord, double section, 
     deviceContext = game.g_d3dDeviceContext;
     d3dConstantBuffer = game.g_d3dVSConstantBuffers[2];
     g_Indices = indices;
-
     indicesCount = _countof(indices);
 
     // Create and initialize the vertex buffer.
