@@ -9,6 +9,5 @@ public:
 
 	SphericalSphere(float radius, int sliceCount, int stackCount, Texture *texture);
 	SphericalSphere(float radius, int sliceCount, int stackCount, Texture *texture, DirectX::XMMATRIX world);
-
 };
 
