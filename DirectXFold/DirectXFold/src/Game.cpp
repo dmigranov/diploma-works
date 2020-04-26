@@ -731,6 +731,16 @@ bool Game::LoadContent()
         }));
         meshes.push_back(mesh1);
 
+        for (int i = 1; i < 8; i++)
+        {
+            Mesh* mesh = new SphericalAsteroid(0.01f, 0.1f, 20, 20, XMFLOAT4(1.f, 0.f, 0.f, 1.f), SphericalRotationZW(i * XM_2PI / 8));
+            mesh->AddUpdater(SphericalMesh::MeshUpdater([i](Matrix in, float delta) {
+                return SphericalRotationYZ(delta / i / 3.f) * SphericalRotationXY(delta / i / 2.f) * in * SphericalRotationYW(-delta / i / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
+            }));
+            meshes.push_back(mesh);
+        }
+
+
         /*XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
         mesh1 = new SphericalCube(.99f, arrСube);
         meshes.push_back(mesh1);*/
