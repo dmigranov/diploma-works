@@ -693,11 +693,11 @@ bool Game::LoadContent()
 
         Mesh* mesh = new SphericalMesh(_countof(vertices), vertices,
             _countof(indices), indices, SphericalRotationYW(XM_PI/6));
-        meshes.push_back(mesh);
+        //meshes.push_back(mesh);
 
         mesh = new SphericalMesh(_countof(vertices), vertices,
             _countof(indices), indices, SphericalRotationXY(XM_PI) * SphericalRotationYW(XM_PI / 6) );
-        meshes.push_back(mesh);
+        //meshes.push_back(mesh);
 
 
 
@@ -708,14 +708,17 @@ bool Game::LoadContent()
     
     {
         XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
-        mesh1 = new SphericalOctahedron(.99f, arrOct);
+        mesh1 = new SphericalOctahedron(.9999f, arrOct);
         meshes.push_back(mesh1);
 
 
-        for(int i = 1; i < 6; i++)
-            meshes.push_back(new SphericalOctahedron(.99f, SphericalRotationXW(i * XM_2PI/(6 * 2))));
+        for(int i = 1; i < 32; i++)
+            meshes.push_back(new SphericalOctahedron(.9999f, SphericalRotationXW(i * XM_2PI/(32 * 2))));
         
+        for (int i = 1; i < 32; i++)
+            meshes.push_back(new SphericalOctahedron(.9999f, SphericalRotationYW(i * XM_2PI / (32 * 2))));
 
+        
         /*XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
         mesh1 = new SphericalCube(.99f, arrСube);
         meshes.push_back(mesh1);*/
@@ -727,12 +730,12 @@ bool Game::LoadContent()
         
         
         /*for (int i = 1; i < 4; i++)
-            meshes.push_back(new SphericalOctahedron(.99f, SphericalRotationZW(i * XM_2PI / 8)));
+            meshes.push_back(new SphericalOctahedron(.999f, SphericalRotationZW(i * XM_2PI / 8)));
+        
+        for (int i = 0; i < 4; i++)
+            meshes.push_back(new SphericalOctahedron(.999f, SphericalRotationYW(i * XM_2PI / 8)));
+        
         */
-        /*for (int i = 0; i < 4; i++)
-            meshes.push_back(new SphericalOctahedron(.99f, SphericalRotationYW(i * XM_2PI / 8)));
-        */
-
 
 
         /*XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
