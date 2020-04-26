@@ -64,7 +64,7 @@ protected:
     Mesh* parentMesh = nullptr;
     MeshConstantBuffer constantBuffer;
 
-    Texture m_texture;
+    Texture* m_texture;
 
 };
 

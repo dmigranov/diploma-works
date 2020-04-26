@@ -111,7 +111,7 @@ SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, D
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 }
 
-SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, Texture texture, DirectX::XMMATRIX world)
+SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, Texture *texture, DirectX::XMMATRIX world)
     : SphericalSphere(radius, sliceCount, stackCount, XMFLOAT4(0.f, 0.f, 0.f, 1.f), world)
 {
     m_texture = texture;
