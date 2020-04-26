@@ -105,6 +105,9 @@
     <ClCompile Include="src\SphericalSphere.cpp">
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
+    <ClCompile Include="src\SphericalAsteroid.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -166,6 +169,9 @@
     </ClInclude>
     <ClInclude Include="inc\SphericalSphere.h">
       <Filter>Файлы заголовков\Meshes\Spherical</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\SphericalAsteroid.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
