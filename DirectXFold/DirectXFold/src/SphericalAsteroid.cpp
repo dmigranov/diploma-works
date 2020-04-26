@@ -30,6 +30,8 @@ SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCou
 
     for (int i = 1; i <= stackCount - 1; i++) {
         auto phi = i * phiStep;
+        Vector4 posSaved;
+
         for (int j = 0; j <= sliceCount; j++) {
             auto theta = j * thetaStep;
             XMFLOAT4 pos(
@@ -42,6 +44,10 @@ SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCou
             int transformChoice = rand() % 3;
             Vector4 posTransformed = XMVector4Transform((Vector4)pos, transformChoice == 0 ? SphericalRotationXW(dist(engine)) : transformChoice == 1 ? SphericalRotationYW(dist(engine)) : SphericalRotationZW(dist(engine)));
             pos = posTransformed;
+            if (j == 0)
+                posSaved = pos;
+            else if (j == sliceCount)
+                pos = posSaved;
 
             auto uv = XMFLOAT2(theta / XM_2PI, phi / XM_PI);
             vertices.push_back({ pos, color, uv });
@@ -61,7 +67,7 @@ SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCou
     WORD baseIndex = 1;
     WORD ringVertexCount = sliceCount + 1;
     for (int i = 0; i < stackCount - 2; i++) {
-        for (int j = 0; j <= sliceCount; j++) {
+        for (int j = 0; j < sliceCount; j++) {
             indices.push_back(baseIndex + i * ringVertexCount + j);
             indices.push_back(baseIndex + i * ringVertexCount + j + 1);
             indices.push_back(baseIndex + (i + 1) * ringVertexCount + j);

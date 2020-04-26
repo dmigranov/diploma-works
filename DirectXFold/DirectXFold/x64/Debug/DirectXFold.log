@@ -1,10 +1,9 @@
-﻿  Game.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(33,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(261,1): warning C4305: '-=': truncation from 'double' to 'float'
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(266,1): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(284,1): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(291,1): warning C4305: '-=': truncation from 'double' to 'float'
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(545,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(551,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(551,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  SphericalAsteroid.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(16,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(45,118): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(45,177): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(45,213): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(82,46): warning C4267: 'initializing': conversion from 'size_t' to 'WORD', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(92,36): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(95,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFoldd.exe

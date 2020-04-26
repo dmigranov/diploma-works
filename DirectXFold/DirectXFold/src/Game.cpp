@@ -591,7 +591,7 @@ bool Game::LoadContent()
     assert(g_d3dDevice);
     HRESULT hr;
     
-    if (!texture.Initialize(g_d3dDevice, L"asteroid.dds"))
+    if (!texture.Initialize(g_d3dDevice, L"asteroid2.dds"))
         return false;
 
     // Create the constant buffers for the variables defined in the vertex shader.
