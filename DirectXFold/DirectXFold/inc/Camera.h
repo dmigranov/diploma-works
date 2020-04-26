@@ -1,6 +1,4 @@
 #pragma once
-using namespace DirectX::SimpleMath;
-using namespace DirectX;
 
 class Camera
 {
@@ -17,12 +15,12 @@ public:
 	Camera();
 
 	void SetPosition(double x, double y, double z);
-	void SetPosition(Vector3 v);
+	void SetPosition(DirectX::SimpleMath::Vector3 v);
 
-	void SetLookAt(Vector3 v);
+	void SetLookAt(DirectX::SimpleMath::Vector3 v);
 
-	virtual void Move(Vector3 v);
-	virtual Vector4 GetPosition();
+	virtual void Move(DirectX::SimpleMath::Vector3 v);
+	virtual DirectX::SimpleMath::Vector4 GetPosition();
 
 	virtual void ChangePitchYawRoll(double pitch, double yaw, double roll);
 
@@ -42,21 +40,21 @@ public:
 	void SetOutputSize(double outputWidth, double outputHeight);
 
 
-	virtual const XMMATRIX& GetView();
-	virtual const XMMATRIX& GetProj();
+	virtual const DirectX::XMMATRIX& GetView();
+	virtual const DirectX::XMMATRIX& GetProj();
 
 
 protected:
 
 	void RecalculateMatrixProj();
 
-	Vector3 m_position;
+	DirectX::SimpleMath::Vector3 m_position;
 	double m_pitch;
 	double m_yaw;
 	double m_roll;
 
 
-	Vector3 m_lookAt;
+	DirectX::SimpleMath::Vector3 m_lookAt;
 
 	// Background color
 	float m_r, m_g, m_b;
@@ -69,8 +67,8 @@ protected:
 	float m_nearPlane;
 	float m_farPlane;
 
-	XMMATRIX m_proj;
-	XMMATRIX m_view;
+	DirectX::XMMATRIX m_proj;
+	DirectX::XMMATRIX m_view;
 
 	bool m_viewDirty;
 

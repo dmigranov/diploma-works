@@ -2,6 +2,9 @@
 #include "SphericalOctahedron.h"
 #include "Game.h"
 
+using namespace DirectX;
+using namespace DirectX::SimpleMath;
+
 XMFLOAT4 GenerateRandomColor()
 {
     return XMFLOAT4(float(rand())/float(RAND_MAX), float(rand()) / float(RAND_MAX), float(rand()) / float(RAND_MAX), 1.f);

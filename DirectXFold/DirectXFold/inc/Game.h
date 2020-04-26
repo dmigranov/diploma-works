@@ -38,14 +38,10 @@
 #include "Texture.h"
 
 
-using namespace DirectX;
-using namespace DirectX::SimpleMath;
-
 class Game
 {
 public:
     static Game& GetInstance();
-
 
     // Initialization and management
     int Initialize(HWND window, int width, int height);
@@ -85,8 +81,8 @@ private:
     bool LoadContent();
     void UnloadContent();
 
-    XMFLOAT4 GetCartesianFromSpherical(float a3, float a2, float a1);
-    XMFLOAT3 GetSphericalFromCartesian(float x1, float x2, float x3, float x4);
+    DirectX::XMFLOAT4 GetCartesianFromSpherical(float a3, float a2, float a1);
+    DirectX::XMFLOAT3 GetSphericalFromCartesian(float x1, float x2, float x3, float x4);
 
     // Device resources.
     HWND                                            m_hwnd;				//дескриптор окна игры
@@ -147,9 +143,9 @@ private:
 
     ID3D11Buffer* g_d3dPSConstantBuffer;
 
-    XMMATRIX m_morph;
-    XMMATRIX m_view;
-    XMMATRIX m_proj;
+    DirectX::XMMATRIX m_morph;
+    DirectX::XMMATRIX m_view;
+    DirectX::XMMATRIX m_proj;
 
     // Timer
     DWORD                                           previousTime = timeGetTime();
@@ -169,8 +165,8 @@ private:
 
     struct PerApplicationVSConstantBuffer
     {
-        XMMATRIX proj;
-        XMMATRIX proj_anti;
+        DirectX::XMMATRIX proj;
+        DirectX::XMMATRIX proj_anti;
         float density;
         //float fogStart;
         //float fogEnd;
@@ -179,13 +175,13 @@ private:
 
     struct PerFrameVSConstantBuffer
     {
-        XMMATRIX view;
-        XMMATRIX view_anti;
+        DirectX::XMMATRIX view;
+        DirectX::XMMATRIX view_anti;
     };
 
     struct PerApplicationPSConstantBuffer
     {
-        XMVECTORF32 mistColor = Colors::CadetBlue;
+        DirectX::XMVECTORF32 mistColor = DirectX::Colors::CadetBlue;
         float m_edgeThickness = 0.00f;
     };
     PerApplicationPSConstantBuffer perApplicationPSConstantBuffer;
@@ -196,5 +192,5 @@ private:
     bool isInitialized = false;
     bool isSpherical = true;
 
-    XMMATRIX frontProjectionMatrix, backProjectionMatrix, commonProjectionMatrix;
+    DirectX::XMMATRIX frontProjectionMatrix, backProjectionMatrix, commonProjectionMatrix;
 };

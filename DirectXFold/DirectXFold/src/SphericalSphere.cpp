@@ -3,6 +3,7 @@
 #include "Game.h"
 
 using namespace DirectX;
+using namespace DirectX::SimpleMath;
 
 SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, DirectX::XMFLOAT4 color) : SphericalSphere(radius, sliceCount, stackCount, color, Matrix::Identity)
 {}

@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "SphericalCamera.h"
 
-//todo: сделать такую навигацию, чтобы можно было подойти к икосаэдру СБОКУ!
+using namespace DirectX;
+using namespace DirectX::SimpleMath;
 
 SphericalCamera::SphericalCamera() 
 {

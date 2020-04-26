@@ -7,27 +7,27 @@ class SphericalCamera :
 {
 public:
 	SphericalCamera();
-	const XMMATRIX& GetView() override;
-	const XMMATRIX& GetAntipodalView();
-	const XMMATRIX& GetProj() override;
-	const XMMATRIX& GetFrontProj();
-	const XMMATRIX& GetBackProj();
-	const XMMATRIX& GetEllipticalProj();
+	const DirectX::XMMATRIX& GetView() override;
+	const DirectX::XMMATRIX& GetAntipodalView();
+	const DirectX::XMMATRIX& GetProj() override;
+	const DirectX::XMMATRIX& GetFrontProj();
+	const DirectX::XMMATRIX& GetBackProj();
+	const DirectX::XMMATRIX& GetEllipticalProj();
 
-	Vector4 GetPosition() override;
-	void Move(Vector3 v) override;
+	DirectX::SimpleMath::Vector4 GetPosition() override;
+	void Move(DirectX::SimpleMath::Vector3 v) override;
 	void ChangePitchYawRoll(double deltaPitch, double deltaYaw, double deltaRoll) override;
 
 
 private:
-	Vector4 spherePos = Vector4(0, 0, 0, 1);
-	Vector3 dV = Vector3(0, 0, 0);
+	DirectX::SimpleMath::Vector4 spherePos = DirectX::SimpleMath::Vector4(0, 0, 0, 1);
+	DirectX::SimpleMath::Vector3 dV = DirectX::SimpleMath::Vector3(0, 0, 0);
 	double pitchDelta = 0, yawDelta = 0;
 	double pitchLimit = DirectX::XM_PI / 2.0f - 0.01f;
 
-	Matrix T = Matrix::Identity; // represents the translation of the camera in world space
-	Matrix R = Matrix::Identity, RInv = Matrix::Identity, RYaw = Matrix::Identity, RPitch = Matrix::Identity, RRoll = Matrix::Identity; // represents camera orientation
-	Quaternion RotationQuaternion;
-	XMFLOAT3 GetSphericalFromCartesian(float x4, float x3, float x2, float x1);
+	DirectX::SimpleMath::Matrix T = DirectX::SimpleMath::Matrix::Identity; // represents the translation of the camera in world space
+	DirectX::SimpleMath::Matrix R = DirectX::SimpleMath::Matrix::Identity, RInv = DirectX::SimpleMath::Matrix::Identity, RYaw = DirectX::SimpleMath::Matrix::Identity, RPitch = DirectX::SimpleMath::Matrix::Identity, RRoll = DirectX::SimpleMath::Matrix::Identity; // represents camera orientation
+	DirectX::SimpleMath::Quaternion RotationQuaternion;
+	DirectX::XMFLOAT3 GetSphericalFromCartesian(float x4, float x3, float x2, float x1);
 };
 

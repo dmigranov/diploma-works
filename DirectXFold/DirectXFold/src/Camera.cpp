@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Camera.h"
 using namespace DirectX::SimpleMath;
+using namespace DirectX;
 
 Camera::Camera() : m_viewport(0.0f, 0.0f, 1.0f, 1.0f),
 m_pitch(0.f), m_yaw(0.f), m_roll(0.f),
