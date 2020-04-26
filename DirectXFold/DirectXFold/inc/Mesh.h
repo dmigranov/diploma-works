@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Texture.h"
+
 class Mesh
 {
 public:
@@ -61,6 +63,8 @@ protected:
 
     Mesh* parentMesh = nullptr;
     MeshConstantBuffer constantBuffer;
+
+    Texture m_texture;
 
 };
 
