@@ -1,11 +1,20 @@
 #include "pch.h"
+
+
 #include "SphericalAsteroid.h"
 #include "Game.h"
 
 using namespace DirectX;
+using namespace DirectX::SimpleMath;
+
+SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCount, int stackCount, DirectX::XMFLOAT4 color)
+    : SphericalAsteroid(amplitude, radius, sliceCount, stackCount, color, Matrix::Identity)
+{}
 
 SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCount, int stackCount, DirectX::XMFLOAT4 color, DirectX::XMMATRIX world)
 {
+    dist = std::uniform_real_distribution<>(-amplitude, amplitude);
+
     auto phiStep = XM_PI / stackCount;
     auto thetaStep = XM_2PI / sliceCount;
 
@@ -26,6 +35,11 @@ SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCou
                 (radius * sinf(phi) * sinf(theta)),
                 height
             );
+
+
+
+            Vector4 posTransformed = XMVector4Transform((Vector4)pos, SphericalRotationXW(dist(engine)));
+            pos = posTransformed;
 
             auto uv = XMFLOAT2(theta / XM_2PI, phi / XM_PI);
             vertices.push_back({ pos, color, uv });
@@ -106,3 +120,4 @@ SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCou
 
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 }
+
