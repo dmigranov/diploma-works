@@ -228,5 +228,11 @@
     <Image Include="earth.DDS">
       <Filter>Файлы ресурсов</Filter>
     </Image>
+    <Image Include="asteroid.DDS">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="asteroid2.DDS">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
   </ItemGroup>
 </Project>

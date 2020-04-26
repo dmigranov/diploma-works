@@ -13,5 +13,6 @@ private:
 	std::random_device rd;
 	std::mt19937 engine = std::mt19937(rd());
 	std::uniform_real_distribution<> dist;
+
 };
 

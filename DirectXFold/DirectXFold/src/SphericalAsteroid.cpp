@@ -13,6 +13,9 @@ SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCou
 
 SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCount, int stackCount, DirectX::XMFLOAT4 color, DirectX::XMMATRIX world)
 {
+    srand(time(NULL));
+
+
     dist = std::uniform_real_distribution<>(-amplitude, amplitude);
 
     auto phiStep = XM_PI / stackCount;
@@ -36,7 +39,8 @@ SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCou
                 height
             );
 
-            Vector4 posTransformed = XMVector4Transform((Vector4)pos, SphericalRotationZW(dist(engine)));
+            int transformChoice = rand() % 3;
+            Vector4 posTransformed = XMVector4Transform((Vector4)pos, transformChoice == 0 ? SphericalRotationXW(dist(engine)) : transformChoice == 1 ? SphericalRotationYW(dist(engine)) : SphericalRotationZW(dist(engine)));
             pos = posTransformed;
 
             auto uv = XMFLOAT2(theta / XM_2PI, phi / XM_PI);

@@ -591,7 +591,7 @@ bool Game::LoadContent()
     assert(g_d3dDevice);
     HRESULT hr;
     
-    if (!texture.Initialize(g_d3dDevice, L"earth.dds"))
+    if (!texture.Initialize(g_d3dDevice, L"asteroid.dds"))
         return false;
 
     // Create the constant buffers for the variables defined in the vertex shader.
@@ -721,7 +721,7 @@ bool Game::LoadContent()
             meshes.push_back(new SphericalOctahedron(.9999f, SphericalRotationYW(i * XM_2PI / (32 * 2))));
 */
 
-        mesh1 = new SphericalAsteroid(0.05f, 0.1f, 20, 20, XMFLOAT4(1.f, 0.f, 0.f, 1.f));
+        mesh1 = new SphericalAsteroid(0.01f, 0.1f, 20, 20, XMFLOAT4(1.f, 0.f, 0.f, 1.f));
         //mesh1 = new SphericalSphere(0.1f, 20, 20, XMFLOAT4(1.f, 0.f, 0.f, 1.f));
 
         meshes.push_back(mesh1);
