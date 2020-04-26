@@ -102,6 +102,9 @@
     <ClCompile Include="src\Texture.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="src\SphericalSphere.cpp">
+      <Filter>Исходные файлы\Meshes\Spherical</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -161,6 +164,9 @@
     <ClInclude Include="inc\Texture.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="inc\SphericalSphere.h">
+      <Filter>Файлы заголовков\Meshes\Spherical</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">
@@ -205,13 +211,7 @@
     <CopyFileToFolders Include="cat.DDS">
       <Filter>Файлы ресурсов</Filter>
     </CopyFileToFolders>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="fabric.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </Image>
-    <Image Include="asphalt.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </Image>
+    <CopyFileToFolders Include="fabric.DDS" />
+    <CopyFileToFolders Include="asphalt.DDS" />
   </ItemGroup>
 </Project>

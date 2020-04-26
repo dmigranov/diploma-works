@@ -25,6 +25,7 @@
 #include "SphericalOctahedron.h"
 #include "SphericalMeshLoader.h"
 #include "SphericalCube.h"
+#include "SphericalSphere.h"
 
 #include "HyperbolicMesh.h"
 
@@ -65,6 +66,7 @@ private:
     friend class SphericalMesh;
     friend class SphericalOctahedron;
     friend class SphericalCube;
+    friend class SphericalSphere;
 
     Game() noexcept;
     Game(Game const&) = delete;
