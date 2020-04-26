@@ -709,7 +709,11 @@ bool Game::LoadContent()
     //mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, .99f, SphericalRotationXZ(XM_PIDIV4), arr);
     
     {
-        /*XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
+
+        //mesh1 = new SphericalSphere(0.1f, 20, 20, XMFLOAT4(1.f, 0.f, 0.f, 1.f));
+
+        /*
+        XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
         mesh1 = new SphericalOctahedron(.9999f, arrOct);
         meshes.push_back(mesh1);
 
@@ -719,11 +723,12 @@ bool Game::LoadContent()
         
         for (int i = 1; i < 32; i++)
             meshes.push_back(new SphericalOctahedron(.9999f, SphericalRotationYW(i * XM_2PI / (32 * 2))));
-*/
+        */
 
         mesh1 = new SphericalAsteroid(0.01f, 0.1f, 20, 20, XMFLOAT4(1.f, 0.f, 0.f, 1.f));
-        //mesh1 = new SphericalSphere(0.1f, 20, 20, XMFLOAT4(1.f, 0.f, 0.f, 1.f));
-
+        mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
+            return SphericalRotationYZ(delta / 3.f) * SphericalRotationXY(delta / 2.f) * in * SphericalRotationYW(-delta / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
+        }));
         meshes.push_back(mesh1);
 
         /*XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
