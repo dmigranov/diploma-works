@@ -4,7 +4,10 @@
 
 using namespace DirectX;
 
-SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, DirectX::XMFLOAT4 color)
+SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, DirectX::XMFLOAT4 color) : SphericalSphere(radius, sliceCount, stackCount, color, Matrix::Identity)
+{}
+
+SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, DirectX::XMFLOAT4 color, XMMATRIX world)
 {
 	auto phiStep = XM_PI / stackCount;
 	auto thetaStep = XM_2PI / sliceCount;
@@ -102,7 +105,7 @@ SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, D
     indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
     resourceData.pSysMem = g_Indices;
 
-    constantBuffer.m_world = Matrix::Identity; //todo
+    constantBuffer.m_world = world;
 
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 }
