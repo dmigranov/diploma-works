@@ -36,7 +36,7 @@ SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCou
                 height
             );
 
-            Vector4 posTransformed = XMVector4Transform((Vector4)pos, SphericalRotationXW(dist(engine)));
+            Vector4 posTransformed = XMVector4Transform((Vector4)pos, SphericalRotationZW(dist(engine)));
             pos = posTransformed;
 
             auto uv = XMFLOAT2(theta / XM_2PI, phi / XM_PI);
@@ -57,7 +57,7 @@ SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCou
     WORD baseIndex = 1;
     WORD ringVertexCount = sliceCount + 1;
     for (int i = 0; i < stackCount - 2; i++) {
-        for (int j = 0; j < sliceCount; j++) {
+        for (int j = 0; j <= sliceCount; j++) {
             indices.push_back(baseIndex + i * ringVertexCount + j);
             indices.push_back(baseIndex + i * ringVertexCount + j + 1);
             indices.push_back(baseIndex + (i + 1) * ringVertexCount + j);
