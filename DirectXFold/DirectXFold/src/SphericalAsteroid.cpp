@@ -129,3 +129,13 @@ SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCou
     device->CreateBuffer(&indexBufferDesc, &resourceData, &g_d3dIndexBuffer);
 }
 
+SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCount, int stackCount, Texture* texture)
+    : SphericalAsteroid(amplitude, radius, sliceCount, stackCount, texture, Matrix::Identity)
+{}
+
+SphericalAsteroid::SphericalAsteroid(float amplitude, float radius, int sliceCount, int stackCount, Texture* texture, DirectX::XMMATRIX world)
+    : SphericalAsteroid(amplitude, radius, sliceCount, stackCount, XMFLOAT4(0.f, 0.f, 0.f, 1.f), world)
+{
+    m_texture = texture;
+}
+
