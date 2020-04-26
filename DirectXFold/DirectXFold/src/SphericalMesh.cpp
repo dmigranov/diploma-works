@@ -23,6 +23,12 @@ void SphericalMesh::Render()
     deviceContext->IASetVertexBuffers(0, 1, &g_d3dVertexBuffer, &vertexStride, &offset);
     deviceContext->IASetIndexBuffer(g_d3dIndexBuffer, DXGI_FORMAT_R16_UINT, 0);
 
+    // Pixel Shader Stafe - unique 4 every stage
+    /*
+    auto shaderResource = texture.GetTexture();
+    g_d3dDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
+    */
+
     MeshConstantBuffer constantBufferTemp = { constantBuffer.m_world };
     if (parentMesh != nullptr)
         constantBufferTemp.m_world = constantBufferTemp.m_world * parentMesh->GetWorldMatrix(); //это правильный порядок
