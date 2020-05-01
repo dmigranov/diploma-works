@@ -119,8 +119,6 @@ private:
     std::list<Mesh *> meshes;
     std::list<Texture *> textures;
 
-    Mesh * mesh1, *mesh2;
-
     // Shader data
     ID3D11VertexShader* g_d3dVertexShader = nullptr;
     ID3D11VertexShader* g_d3dSphericalVertexShader = nullptr;
