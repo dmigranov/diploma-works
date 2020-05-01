@@ -240,22 +240,11 @@ int Game::Initialize(HWND window, int width, int height)
         auto ks = Keyboard::Get().GetState();
 
         float gain = 0.045f;
-        if (ks.U)
-            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(-gain))); //так всегда вверх!
-        if (ks.J)
-            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(gain)));
-        if (ks.H)
-            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXW(-gain)));
-        if (ks.K)
-            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXW(gain)));
-        if (ks.Y)
-            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(-gain)));
-        if (ks.I)
-            this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(gain)));
-        if (ks.Z)
+        /*if (ks.Z)
             static_cast<SphericalOctahedron*>(this->mesh1)->SetSectionHeight(static_cast<SphericalOctahedron*>(this->mesh1)->GetSectionHeight() + .0001);
         if (ks.X)
             static_cast<SphericalOctahedron*>(this->mesh1)->SetSectionHeight(static_cast<SphericalOctahedron*>(this->mesh1)->GetSectionHeight() - .0001);
+        */
         if(ks.N)
         {
             if(perApplicationPSConstantBuffer.m_edgeThickness >= 0)
@@ -524,8 +513,18 @@ bool Game::InitializeScene()
 
             float gain = 0.045f;
             if (ks.U)
-                std::cout << "fu";
-            
+                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(-gain))); //так всегда вверх!
+            if (ks.J)
+                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(gain)));
+            if (ks.H)
+                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXW(-gain)));
+            if (ks.K)
+                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXW(gain)));
+            if (ks.Y)
+                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(-gain)));
+            if (ks.I)
+                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(gain)));
+
             return SphericalRotationXZ(5 * delta) * in;
         }));
         meshes.push_back(mesh1);
