@@ -153,7 +153,7 @@ XMFLOAT3 SphericalCamera::GetSphericalFromCartesian(float x4, float x3, float x2
 		a3 = acosf(x3 / sqrtf(x32 + x42));
 	else
 		a3 = XM_2PI - acosf(x3 / sqrtf(x32 + x42));
-
+	
 	return XMFLOAT3(a1, a2, a3);
 }
 
