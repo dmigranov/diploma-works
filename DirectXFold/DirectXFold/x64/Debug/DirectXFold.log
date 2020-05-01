@@ -1,9 +1,9 @@
 ﻿  Game.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(33,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(262,1): warning C4305: '-=': truncation from 'double' to 'float'
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(267,1): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(285,1): warning C4305: '+=': truncation from 'double' to 'float'
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(292,1): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(251,1): warning C4305: '-=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(256,1): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(274,1): warning C4305: '+=': truncation from 'double' to 'float'
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(281,1): warning C4305: '-=': truncation from 'double' to 'float'
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(617,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(623,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(623,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data

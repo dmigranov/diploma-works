@@ -512,11 +512,12 @@ bool Game::InitializeScene()
             auto ks = Keyboard::Get().GetState();
 
             float gain = 0.045f;
+            Matrix m = Matrix::Identity;
             if (ks.U)
-                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(-gain))); //так всегда вверх!
+                m = SphericalRotationYW(-gain); //так всегда вверх!
             if (ks.J)
-                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(gain)));
-            if (ks.H)
+                m = SphericalRotationYW(gain);
+            /*if (ks.H)
                 this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXW(-gain)));
             if (ks.K)
                 this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXW(gain)));
@@ -524,8 +525,8 @@ bool Game::InitializeScene()
                 this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(-gain)));
             if (ks.I)
                 this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(gain)));
-
-            return SphericalRotationXZ(5 * delta) * in;
+*/
+            return in * m;
         }));
         meshes.push_back(mesh1);
 
