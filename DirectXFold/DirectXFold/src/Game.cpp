@@ -520,6 +520,14 @@ bool Game::InitializeScene()
             return SphericalRotationYZ(delta / 3.f) * SphericalRotationXY(delta / 2.f) * in * SphericalRotationYW(-delta / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
         }));
         mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
+            auto ks = Keyboard::Get().GetState();
+
+            /*float gain = 0.045f;
+            if (ks.U)
+                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(-gain))); //так всегда вверх!
+            if (ks.J)
+                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(gain)));
+*/
             return SphericalRotationXZ(5 * delta) * in;
         }));
         meshes.push_back(mesh1);
