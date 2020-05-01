@@ -505,9 +505,7 @@ bool Game::InitializeScene()
 
 
         mesh1 = new SphericalSphere(0.2f, 20, 20, earthTexture);
-        mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
-            return SphericalRotationYZ(delta / 3.f) * SphericalRotationXY(delta / 2.f) * in * SphericalRotationYW(-delta / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
-        }));
+
         mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
             auto ks = Keyboard::Get().GetState();
 
