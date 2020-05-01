@@ -515,17 +515,14 @@ bool Game::InitializeScene()
                 m = SphericalRotationYW(-gain); //так всегда вверх!
             if (ks.J)
                 m = SphericalRotationYW(gain);
-            /*if (ks.H)
-                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXW(-gain)));
+            if (ks.H)
+                m = SphericalRotationXW(gain);
             if (ks.K)
-                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXW(gain)));
-            if (ks.Y)
-                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(-gain)));
-            if (ks.I)
-                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationXZ(gain)));
-*/
+                m = SphericalRotationXW(-gain);
+            
             return in * m;
         }));
+
         meshes.push_back(mesh1);
 
         for (int i = 1; i < 8; i++)
