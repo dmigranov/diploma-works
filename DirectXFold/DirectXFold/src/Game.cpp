@@ -473,7 +473,7 @@ void Game::RecalculateProjectionMatrices()
 
 void Game::InitializeScene()
 {
-    //Натсройка камеры
+    //Настройка камеры
     {
         m_camera->SetPosition(0, 0, 0);
         m_camera->SetFovY(XM_PI / 2);
