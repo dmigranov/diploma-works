@@ -106,7 +106,7 @@
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
     <ClCompile Include="src\SphericalAsteroid.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -171,7 +171,7 @@
       <Filter>Файлы заголовков\Meshes\Spherical</Filter>
     </ClInclude>
     <ClInclude Include="inc\SphericalAsteroid.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Meshes\Spherical</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
