@@ -45,11 +45,6 @@ SphericalMesh* SphericalMeshLoader::LoadMesh(const char* filepath)
 	return new SphericalMesh(vertices.size(), &vertices[0], vertexIndices.size(), &vertexIndices[0]);
 }
 
-SphericalMesh* SphericalMeshLoader::LoadMeshSphericalCoordinates(const char* filepath)
-{
-	return new SphericalMesh();
-}
-
 std::vector<std::string> SphericalMeshLoader::parseString(std::string str, char delimiter)
 {
 	std::vector<std::string> vec;

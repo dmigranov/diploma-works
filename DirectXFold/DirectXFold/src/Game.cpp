@@ -482,26 +482,27 @@ bool Game::InitializeScene()
     textures.push_back(asteroidTexture);
 
     {
-        float height = 0.5f;
-        float s = sqrtf(1 - height * height);
-        Mesh::VertexPosColor vertices[] = {
-        { XMFLOAT4(s, 0.f, 0.f, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(0.f, 0.f) }, // 0
-        { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(0.f, 1.f) }, // 1
-        { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(1.f, 0.f) }, // 2
-        };
+        {
+            float height = 0.5f;
+            float s = sqrtf(1 - height * height);
+            Mesh::VertexPosColor vertices[] = {
+            { XMFLOAT4(s, 0.f, 0.f, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(0.f, 0.f) }, // 0
+            { XMFLOAT4(0.f,  0.f, s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(0.f, 1.f) }, // 1
+            { XMFLOAT4(0.f,  0.f, -s, height), XMFLOAT4(1.0f, 0.0f, 0.0f, 1.f), XMFLOAT2(1.f, 0.f) }, // 2
+            };
 
-        WORD indices[] = {
-            0, 1, 2, 2, 1, 0
-        };
+            WORD indices[] = {
+                0, 1, 2, 2, 1, 0
+            };
 
-        Mesh* mesh = new SphericalMesh(_countof(vertices), vertices,
-            _countof(indices), indices, SphericalRotationYW(XM_PI / 6));
-        //meshes.push_back(mesh);
+            Mesh* mesh = new SphericalMesh(_countof(vertices), vertices,
+                _countof(indices), indices, SphericalRotationYW(XM_PI / 6));
+            //meshes.push_back(mesh);
 
-        mesh = new SphericalMesh(_countof(vertices), vertices,
-            _countof(indices), indices, SphericalRotationXY(XM_PI) * SphericalRotationYW(XM_PI / 6));
-        //meshes.push_back(mesh);
-
+            mesh = new SphericalMesh(_countof(vertices), vertices,
+                _countof(indices), indices, SphericalRotationXY(XM_PI) * SphericalRotationYW(XM_PI / 6));
+            //meshes.push_back(mesh);
+        }
 
 
         auto mesh1 = new SphericalSphere(0.2f, 20, 20, earthTexture);

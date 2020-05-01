@@ -5,7 +5,6 @@ class SphericalMeshLoader
 {
 public:
 	static SphericalMesh* LoadMesh(const char* filepath);
-	static SphericalMesh* LoadMeshSphericalCoordinates(const char* filepath);
 private:
 	static std::vector<std::string> parseString(std::string str, char delimiter);
 	static std::vector<double> getDoubleValues(std::vector<std::string> strings);
