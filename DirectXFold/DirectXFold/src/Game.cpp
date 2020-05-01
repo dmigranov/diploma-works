@@ -235,6 +235,7 @@ int Game::Initialize(HWND window, int width, int height)
     {
         return -1;
     }
+
     m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, [this]() { 
         auto ks = Keyboard::Get().GetState();
 
@@ -471,7 +472,7 @@ void Game::RecalculateProjectionMatrices()
     backProjectionMatrix = (std::static_pointer_cast<SphericalCamera>(m_camera))->GetBackProj();
 }
 
-void Game::InitializeScene()
+bool Game::InitializeScene()
 {
     //Настройка камеры
     {
@@ -481,6 +482,13 @@ void Game::InitializeScene()
         m_camera->SetFarPlane(100.f);
         m_camera->Move(Vector3(0, 0, -XM_PI / 4));
     }
+
+    earthTexture = new Texture();
+    if (!earthTexture->Initialize(g_d3dDevice, L"earth.dds"))
+        return false;
+    asteroidTexture = new Texture();
+    if (!asteroidTexture->Initialize(g_d3dDevice, L"asteroid2.dds"))
+        return false;
 
     {
         float height = 0.5f;
@@ -530,6 +538,8 @@ void Game::InitializeScene()
         }));
         meshes.push_back(mesh2);
     }
+
+    return true;
 }
 
 void Game::Update(float deltaTime)
@@ -547,7 +557,6 @@ void Game::Update(float deltaTime)
     {
         mesh->Update(deltaTime);
     }
-
 }
 
 void Game::Render()
@@ -651,13 +660,6 @@ bool Game::LoadContent()
 {
     assert(g_d3dDevice);
     HRESULT hr;
-    
-    earthTexture = new Texture();
-    if (!earthTexture->Initialize(g_d3dDevice, L"earth.dds"))
-        return false;
-    asteroidTexture = new Texture();
-    if (!asteroidTexture->Initialize(g_d3dDevice, L"asteroid2.dds"))
-        return false;
 
     // Create the constant buffers for the variables defined in the vertex shader.
     D3D11_BUFFER_DESC constantBufferDesc;
@@ -738,7 +740,8 @@ bool Game::LoadContent()
         return false;
     }
 
-    InitializeScene();
+    if (!InitializeScene())
+        return false;
 
     CreateResources();
 

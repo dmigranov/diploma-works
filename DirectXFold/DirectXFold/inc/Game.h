@@ -72,7 +72,7 @@ private:
 
     void CreateResources();
     void RecalculateProjectionMatrices();
-    void InitializeScene();
+    bool InitializeScene();
 
     void Update(float deltaTime);
     void Render();
