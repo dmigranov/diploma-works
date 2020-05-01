@@ -522,12 +522,10 @@ bool Game::InitializeScene()
         mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
             auto ks = Keyboard::Get().GetState();
 
-            /*float gain = 0.045f;
+            float gain = 0.045f;
             if (ks.U)
-                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(-gain))); //так всегда вверх!
-            if (ks.J)
-                this->mesh1->SetWorldMatrix(XMMatrixMultiply(mesh1->GetWorldMatrix(), SphericalRotationYW(gain)));
-*/
+                std::cout << "fu";
+            
             return SphericalRotationXZ(5 * delta) * in;
         }));
         meshes.push_back(mesh1);
