@@ -223,16 +223,8 @@
     <CopyFileToFolders Include="fabric.DDS">
       <Filter>Файлы ресурсов</Filter>
     </CopyFileToFolders>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="earth.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </Image>
-    <Image Include="asteroid.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </Image>
-    <Image Include="asteroid2.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </Image>
+    <CopyFileToFolders Include="earth.DDS" />
+    <CopyFileToFolders Include="asteroid.DDS" />
+    <CopyFileToFolders Include="asteroid2.DDS" />
   </ItemGroup>
 </Project>

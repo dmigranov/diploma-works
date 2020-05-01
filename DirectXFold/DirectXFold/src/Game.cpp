@@ -483,12 +483,14 @@ bool Game::InitializeScene()
         m_camera->Move(Vector3(0, 0, -XM_PI / 4));
     }
 
-    earthTexture = new Texture();
+    auto earthTexture = new Texture();
     if (!earthTexture->Initialize(g_d3dDevice, L"earth.dds"))
         return false;
-    asteroidTexture = new Texture();
+    textures.push_back(earthTexture);
+    auto asteroidTexture = new Texture();
     if (!asteroidTexture->Initialize(g_d3dDevice, L"asteroid2.dds"))
         return false;
+    textures.push_back(asteroidTexture);
 
     {
         float height = 0.5f;
@@ -545,10 +547,6 @@ bool Game::InitializeScene()
 void Game::Update(float deltaTime)
 {
     m_inputHandler->HandleInput();
-
-    /*m_view = m_camera->GetView();
-    g_d3dDeviceContext->UpdateSubresource(g_d3dVSConstantBuffers[CB_Frame], 0, nullptr, &m_view, 0, 0);
-    */
     DWORD t = timeGetTime();
     //m_morph = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.4*cos(t/100.0));
     //mesh1->SetConstants(mesh1->GetWorldMatrix(), m_morph);
@@ -587,8 +585,6 @@ void Game::Render()
     g_d3dDeviceContext->PSSetShader(g_d3dPixelShader, nullptr, 0);
     g_d3dDeviceContext->PSSetConstantBuffers(0, 1, &g_d3dPSConstantBuffer);
     g_d3dDeviceContext->PSSetSamplers(0, 1, &g_d3dSamplerState);
-    //auto shaderResource = texture.GetTexture();
-    //g_d3dDeviceContext->PSSetShaderResources(0, 1, &shaderResource);
 
     //Output Merger Stage (merges the output from the pixel shader onto the color and depth buffers)
     g_d3dDeviceContext->OMSetRenderTargets(1, &g_d3dRenderTargetView, g_d3dDepthStencilView);
@@ -768,8 +764,9 @@ void Game::UnloadContent()
 
     SafeRelease(g_d3dPixelShader);
 
-    delete mesh1;
-    delete mesh2;
+    while (!meshes.empty()) delete meshes.front(), meshes.pop_front();
+    while (!textures.empty()) delete textures.front(), textures.pop_front();
+
     delete m_textDrawer;
     delete m_drawer2D;
 }

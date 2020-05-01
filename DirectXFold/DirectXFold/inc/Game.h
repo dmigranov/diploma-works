@@ -117,6 +117,8 @@ private:
     ID3D11InputLayout * g_d3dInputLayout = nullptr;                         //used to describe the order and type of data that is expected by the vertex shader.
     
     std::list<Mesh *> meshes;
+    std::list<Texture *> textures;
+
     Mesh * mesh1, *mesh2;
 
     // Shader data
@@ -161,9 +163,7 @@ private:
 
     TextDrawer *                          m_textDrawer;
     Drawer2D *                            m_drawer2D;
-    int                                   aimSize = 20;
-
-    Texture                               *asteroidTexture, *earthTexture;
+    const int                             aimSize = 20;
 
     struct PerApplicationVSConstantBuffer
     {
