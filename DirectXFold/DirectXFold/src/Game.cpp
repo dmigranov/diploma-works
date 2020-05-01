@@ -370,8 +370,8 @@ void Game::CreateResources()
         return;
 
     // https://docs.microsoft.com/en-us/windows/win32/direct3dgetstarted/work-with-dxgi
-// Clear the previous window size specific context.
-// A render-target-view interface identifies the render-target subresources that can be accessed during rendering.
+    // Clear the previous window size specific context.
+    // A render-target-view interface identifies the render-target subresources that can be accessed during rendering.
     ID3D11RenderTargetView* nullViews[] = { nullptr };
 
     // Bind one or more render targets atomically and the depth - stencil buffer to the output - merger stage.
@@ -473,12 +473,14 @@ void Game::RecalculateProjectionMatrices()
 
 void Game::InitializeScene()
 {
-    m_camera->SetPosition(0, 0, 0);
-    m_camera->SetFovY(XM_PI / 2);
-    m_camera->SetNearPlane(0.001f);
-    m_camera->SetFarPlane(100.f);
-    m_camera->Move(Vector3(0, 0, -XM_PI / 4));
-    CreateResources();
+    //Натсройка камеры
+    {
+        m_camera->SetPosition(0, 0, 0);
+        m_camera->SetFovY(XM_PI / 2);
+        m_camera->SetNearPlane(0.001f);
+        m_camera->SetFarPlane(100.f);
+        m_camera->Move(Vector3(0, 0, -XM_PI / 4));
+    }
 
     {
         float height = 0.5f;
@@ -791,9 +793,9 @@ bool Game::LoadContent()
         return false;
     }
 
-
     InitializeScene();
-    
+
+    CreateResources();
 
     return true;
 }
