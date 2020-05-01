@@ -4,7 +4,7 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(261,1): warning C43
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(266,1): warning C4305: '+=': truncation from 'double' to 'float'
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(284,1): warning C4305: '+=': truncation from 'double' to 'float'
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(291,1): warning C4305: '-=': truncation from 'double' to 'float'
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(661,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(667,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(667,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(606,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(612,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(612,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFoldd.exe

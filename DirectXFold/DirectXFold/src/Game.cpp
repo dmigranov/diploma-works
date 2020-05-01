@@ -505,28 +505,6 @@ void Game::InitializeScene()
 
 
 
-    }
-
-    //m_camera->Move(SphericalRotationZW(XM_PI-0.3f));
-    //mesh1 = new SphericalOctahedron(SphericalOctahedron::FixedCoordinate::FC_W, .99f, SphericalRotationXZ(XM_PIDIV4), arr);
-
-    {
-
-        //mesh1 = new SphericalSphere(0.1f, 20, 20, XMFLOAT4(1.f, 0.f, 0.f, 1.f));
-
-        /*
-        XMFLOAT4 arrOct[] = { XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f) };
-        mesh1 = new SphericalOctahedron(.9999f, arrOct);
-        meshes.push_back(mesh1);
-
-
-        for(int i = 1; i < 32; i++)
-            meshes.push_back(new SphericalOctahedron(.9999f, SphericalRotationXW(i * XM_2PI/(32 * 2))));
-
-        for (int i = 1; i < 32; i++)
-            meshes.push_back(new SphericalOctahedron(.9999f, SphericalRotationYW(i * XM_2PI / (32 * 2))));
-        */
-
         mesh1 = new SphericalSphere(0.2f, 20, 20, earthTexture);
         mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
             return SphericalRotationYZ(delta / 3.f) * SphericalRotationXY(delta / 2.f) * in * SphericalRotationYW(-delta / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
@@ -551,39 +529,6 @@ void Game::InitializeScene()
             return SphericalRotationYZ(delta / 3.f) * SphericalRotationXY(delta / 2.f) * in * SphericalRotationYW(-delta / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
         }));
         meshes.push_back(mesh2);
-
-
-        /*XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
-        mesh1 = new SphericalCube(.99f, arrСube);
-        meshes.push_back(mesh1);*/
-
-        /*XMFLOAT4 arrOct2[] = { XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 1.f, 0.5f, 1.f), XMFLOAT4(0.f, 0.f, 0.5f, 1.f), XMFLOAT4(1.f, 0.5f, 0.f, 1.f), XMFLOAT4(0.5f, 0.5f, 0.5f, 1.f), XMFLOAT4(0.f, 0.5f, 0.5f, 1.f) };
-        mesh2 = new SphericalOctahedron(.99f, SphericalRotationYW(XM_PIDIV2), arrOct2);
-        meshes.push_back(mesh2);
-        mesh2->SetParent(mesh1);*/
-
-
-        /*for (int i = 1; i < 4; i++)
-            meshes.push_back(new SphericalOctahedron(.999f, SphericalRotationZW(i * XM_2PI / 8)));
-
-        for (int i = 0; i < 4; i++)
-            meshes.push_back(new SphericalOctahedron(.999f, SphericalRotationYW(i * XM_2PI / 8)));
-
-        */
-
-
-        /*XMFLOAT4 arrСube[] = { XMFLOAT4(1.f, 0.f, 0.f, 1.f), XMFLOAT4(0.f, 1.f, 0.f, 1.f), XMFLOAT4(0.f, 0.f, 1.f, 1.f), XMFLOAT4(1.f, 1.f, 0.f, 1.f), XMFLOAT4(1.f, 0.f, 1.f, 1.f), XMFLOAT4(0.f, 1.f, 1.f, 1.f),  XMFLOAT4(0.5f, 1.f, 0.f, 0.f), XMFLOAT4(0.f, 0.5f, 0.f, 1.f) };
-        mesh2 = new SphericalCube(.99f, SphericalRotationXW(XM_PIDIV4), arrСube);
-        meshes.push_back(mesh2);*/
-
-
-        //mesh2 = new SphericalMesh(_countof(vertices), vertices, (indices), indices, SphericalRotationXW(0.6f));
-        //meshes.push_back(mesh2);
-        //mesh2->SetParent(mesh1);
-
-        /*mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
-            return SphericalRotationZW(delta/3.f) * in;
-        }));*/
     }
 }
 
