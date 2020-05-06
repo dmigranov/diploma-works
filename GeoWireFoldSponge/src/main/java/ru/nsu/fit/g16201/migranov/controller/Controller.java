@@ -49,8 +49,8 @@ public class Controller {
     private GeodesicsCalculator geodesicsCalculator;
 
     //private ManifoldFunction spongeFunction = new SpongeFunction(1);
-    private ManifoldFunction spongeFunction = new BumpFunction(10);
-
+    //private ManifoldFunction spongeFunction = new BumpFunction(10);
+    private ManifoldFunction spongeFunction = new FlammParaboloidFunction();
 
     public Controller(WireframePanel wireframePanel) {
         this.wireframePanel = wireframePanel;

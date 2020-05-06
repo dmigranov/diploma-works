@@ -74,7 +74,7 @@ public class WireframeFrame extends MainFrame {
     }
 
     private WireframeFrame() throws Exception {
-        super(800, 600, "Untitled | Denis Migranov, 16201");
+        super(800, 600, "Untitled | Denis Migranov");
 
         mainPanel = new JPanel(new GridBagLayout());
         mainPanel.addComponentListener(new ComponentAdapter() {

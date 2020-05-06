@@ -7,4 +7,5 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(281,1): warning C43
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(613,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(619,99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(619,78): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+     Creating library bin64\DirectXFoldd.lib and object bin64\DirectXFoldd.exp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFoldd.exe
