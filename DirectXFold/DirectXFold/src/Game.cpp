@@ -476,10 +476,16 @@ bool Game::InitializeScene()
     if (!earthTexture->Initialize(g_d3dDevice, L"earth.dds"))
         return false;
     textures.push_back(earthTexture);
+
     auto asteroidTexture = new Texture();
     if (!asteroidTexture->Initialize(g_d3dDevice, L"asteroid2.dds"))
         return false;
     textures.push_back(asteroidTexture);
+
+    auto fabricTexture = new Texture();
+    if (!fabricTexture->Initialize(g_d3dDevice, L"fabric.dds"))
+        return false;
+    textures.push_back(fabricTexture);
 
     {
         {
@@ -543,7 +549,8 @@ bool Game::InitializeScene()
         meshes.push_back(mesh2);
 
 
-        auto mesh3 = SphericalMeshLoader::LoadMesh("mesh1.sph");
+        auto mesh3 = SphericalMeshLoader::LoadMesh("mesh2.sph");
+        mesh3->SetTexture(fabricTexture);
         meshes.push_back(mesh3);
 
     }

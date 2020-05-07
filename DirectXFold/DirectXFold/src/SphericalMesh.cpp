@@ -36,6 +36,7 @@ void SphericalMesh::Render()
     
     //DRAW
     deviceContext->DrawIndexedInstanced(indicesCount, 2, 0, 0, 0);
+
 }
 
 void SphericalMesh::Render(XMMATRIX matrix)

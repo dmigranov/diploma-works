@@ -75,6 +75,11 @@ void Mesh::SetConstants(MeshConstantBuffer constantBuffer)
 	this->constantBuffer = constantBuffer;
 }
 
+void Mesh::SetTexture(Texture* texture)
+{
+    this->m_texture = texture;
+}
+
 void Mesh::SetParent(Mesh* parent)
 {
 	parentMesh = parent;

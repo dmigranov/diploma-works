@@ -37,6 +37,7 @@ public:
     DirectX::XMMATRIX GetWorldMatrix();
     void SetWorldMatrix(DirectX::XMMATRIX world);
     void SetConstants(MeshConstantBuffer constantBuffer);
+    void SetTexture(Texture* texture);
 
     void SetParent(Mesh* parent);
 
