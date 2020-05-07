@@ -535,7 +535,7 @@ bool Game::InitializeScene()
         int sect = 8;
         for (int i = 1; i < 8; i++)
         {
-            Mesh* mesh = new SphericalAsteroid(0.01f, 0.1f, 20, 20, asteroidTexture, SphericalRotationZW(i * XM_2PI / 8));
+            Mesh* mesh = new SphericalAsteroid(0.01f, 0.1f, 20, 20, earthTexture, SphericalRotationZW(i * XM_2PI / 8));
             /*mesh->AddUpdater(SphericalMesh::MeshUpdater([i](Matrix in, float delta) {
                 return SphericalRotationYZ(delta / i / 3.f) * SphericalRotationXY(delta / i / 2.f) * in * SphericalRotationYW(-delta / i / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
             }));*/
