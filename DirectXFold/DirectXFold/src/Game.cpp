@@ -541,6 +541,11 @@ bool Game::InitializeScene()
             return SphericalRotationYZ(delta / 3.f) * SphericalRotationXY(delta / 2.f) * in * SphericalRotationYW(-delta / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
         }));
         meshes.push_back(mesh2);
+
+
+        auto mesh3 = SphericalMeshLoader::LoadMesh("mesh1.sph");
+        meshes.push_back(mesh3);
+
     }
 
     return true;

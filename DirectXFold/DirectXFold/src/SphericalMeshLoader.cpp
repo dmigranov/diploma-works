@@ -20,7 +20,7 @@ SphericalMesh* SphericalMeshLoader::LoadMesh(const char* filepath)
 	std::vector<Mesh::VertexPosColor> vertices;
 	std::vector<WORD> vertexIndices;
 	
-	std::vector<Vector3> positions;
+	std::vector<Vector4> positions;
 	std::vector<int> positionIndices;
 	std::vector<Vector2> uv0;
 	std::vector<int> textureIndices;
@@ -28,14 +28,14 @@ SphericalMesh* SphericalMeshLoader::LoadMesh(const char* filepath)
 
 	while (std::getline(infile, str))
 	{
-		if (str[0] == 'v')
+		/*if (str[0] == 'v')
 		{
 			if (str[1] == ' ') //v -0.5 0.5 -0.5 1
 			{
 				str = str.substr(2);
 				std::vector<std::string> parsedStrings = parseString(str, ' ');
 				std::vector<double> values = getDoubleValues(parsedStrings);
-				positions.push_back(Vector3(values[0], values[1], values[2]));
+				positions.push_back(Vector4(values[0], values[1], values[2], values[3]));
 			}
 			else if (str[1] == 't') //vt 0 0
 			{
@@ -58,9 +58,10 @@ SphericalMesh* SphericalMeshLoader::LoadMesh(const char* filepath)
 				textureIndices.push_back(indices[1] - 1);
 			}
 		}
+		*/
 
 
-		/*if (str.length() > 1 && str[0] == 'v' && str[1] == ' ') //v -0.5 0.5 -0.5
+		if (str.length() > 1 && str[0] == 'v' && str[1] == ' ') //v -0.5 0.5 -0.5
 		{
 
 			str = str.substr(2);
@@ -76,10 +77,23 @@ SphericalMesh* SphericalMeshLoader::LoadMesh(const char* filepath)
 			std::vector<std::string> strIndices = parseString(str, ' ');
 			std::vector<int> triangleIndices = getIntValues(strIndices);			
 			vertexIndices.insert(std::end(vertexIndices), std::begin(triangleIndices), std::end(triangleIndices));
-		}*/
+		}
 	}
 
 	//todo form Vertices and VertexIndices
+
+	/*for (int i = 0; i < positionIndices.size(); i++)
+	{
+		auto posIndex = positionIndices[i];
+		auto texIndex = textureIndices[i];
+
+		positions[posIndex];
+		uv0[texIndex];
+
+		Mesh::VertexPosColor vpc = { positions[posIndex], XMFLOAT4(1.f, 1.f, 1.f, 1.f), uv0[texIndex] };
+		vertices.push_back(vpc);
+		vertexIndices.push_back(posIndex);
+	}*/
 
 	return new SphericalMesh(vertices.size(), &vertices[0], vertexIndices.size(), &vertexIndices[0]);
 }
