@@ -511,7 +511,7 @@ bool Game::InitializeScene()
         }
 
 
-        /*auto mesh1 = new SphericalSphere(0.2f, 20, 20, earthTexture);
+        auto mesh1 = new SphericalSphere(0.2f, 20, 20, earthTexture);
 
         mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
             auto ks = Keyboard::Get().GetState();
@@ -532,33 +532,30 @@ bool Game::InitializeScene()
 
         meshes.push_back(mesh1);
 
+        int sect = 8;
         for (int i = 1; i < 8; i++)
         {
             Mesh* mesh = new SphericalAsteroid(0.01f, 0.1f, 20, 20, asteroidTexture, SphericalRotationZW(i * XM_2PI / 8));
-            mesh->AddUpdater(SphericalMesh::MeshUpdater([i](Matrix in, float delta) {
+            /*mesh->AddUpdater(SphericalMesh::MeshUpdater([i](Matrix in, float delta) {
                 return SphericalRotationYZ(delta / i / 3.f) * SphericalRotationXY(delta / i / 2.f) * in * SphericalRotationYW(-delta / i / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
-            }));
+            }));*/
             meshes.push_back(mesh);
         }
 
 
-        auto mesh2 = new SphericalSphere(0.2f, 20, 20, earthTexture, SphericalRotationXW(XM_PIDIV4));
+        /*auto mesh2 = new SphericalSphere(0.2f, 20, 20, earthTexture, SphericalRotationXW(XM_PIDIV4));
         mesh2->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
             return SphericalRotationYZ(delta / 3.f) * SphericalRotationXY(delta / 2.f) * in * SphericalRotationYW(-delta / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
         }));
-        meshes.push_back(mesh2);
+        meshes.push_back(mesh2);*/
 
 
         auto mesh3 = SphericalMeshLoader::LoadMesh("mesh2.sph");
         mesh3->SetTexture(fabricTexture);
-        meshes.push_back(mesh3);*/
+        mesh3->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationYW(0.05f));
 
-        for (int i = 1; i < 8; i++)
-        {
-            Mesh* mesh = new SphericalSphere(0.1f, 20, 20, earthTexture, SphericalRotationXW(i * XM_2PI / 16));
+        meshes.push_back(mesh3);
 
-            meshes.push_back(mesh);
-        }
 
 
     }
