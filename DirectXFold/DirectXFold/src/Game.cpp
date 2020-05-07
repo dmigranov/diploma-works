@@ -511,7 +511,7 @@ bool Game::InitializeScene()
         }
 
 
-        auto mesh1 = new SphericalSphere(0.2f, 20, 20, earthTexture);
+        /*auto mesh1 = new SphericalSphere(0.2f, 20, 20, earthTexture);
 
         mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
             auto ks = Keyboard::Get().GetState();
@@ -551,7 +551,15 @@ bool Game::InitializeScene()
 
         auto mesh3 = SphericalMeshLoader::LoadMesh("mesh2.sph");
         mesh3->SetTexture(fabricTexture);
-        meshes.push_back(mesh3);
+        meshes.push_back(mesh3);*/
+
+        for (int i = 1; i < 8; i++)
+        {
+            Mesh* mesh = new SphericalSphere(0.1f, 20, 20, earthTexture, SphericalRotationXW(i * XM_2PI / 16));
+
+            meshes.push_back(mesh);
+        }
+
 
     }
 
