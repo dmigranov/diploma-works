@@ -1,7 +1,7 @@
 package ru.nsu.fit.g16201.migranov.presenter;
 
 import ru.nsu.fit.g16201.migranov.model.*;
-import ru.nsu.fit.g16201.migranov.view.WireframePanel;
+import ru.nsu.fit.g16201.migranov.view.DrawingPanel;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Presenter {
-    private WireframePanel wireframePanel;
+    private DrawingPanel drawingPanel;
 
     private Point3D eye = new Point3D(-10, 0, 0);
     private Point3D ref = new Point3D(10, 0, 0);
@@ -47,12 +47,12 @@ public class Presenter {
     private SplineCalculator splineCalculator;
     private GeodesicsCalculator geodesicsCalculator;
 
-    public Presenter(WireframePanel wireframePanel) {
-        this.wireframePanel = wireframePanel;
+    public Presenter(DrawingPanel drawingPanel) {
+        this.drawingPanel = drawingPanel;
 
         cameraMatrix = Matrix.getViewMatrixNew(eye, ref, up);  //c 153
 
-        wireframePanel.addMouseWheelListener(e -> {
+        drawingPanel.addMouseWheelListener(e -> {
             int count = e.getWheelRotation();
 
             if(e.isControlDown())
@@ -81,8 +81,8 @@ public class Presenter {
             }
         });
 
-        wireframePanel.setFocusable(true);
-        wireframePanel.addKeyListener(new KeyAdapter() {
+        drawingPanel.setFocusable(true);
+        drawingPanel.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
                 super.keyPressed(e);
@@ -135,7 +135,7 @@ public class Presenter {
             }
         });
 
-        wireframePanel.addMouseMotionListener(new MouseMotionAdapter() {
+        drawingPanel.addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             public void mouseDragged(MouseEvent e) {
                 super.mouseDragged(e);
@@ -160,7 +160,7 @@ public class Presenter {
             }
         });
 
-        wireframePanel.addMouseListener(new MouseAdapter() {
+        drawingPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
@@ -172,7 +172,7 @@ public class Presenter {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                wireframePanel.requestFocusInWindow();
+                drawingPanel.requestFocusInWindow();
             }
         });
 
@@ -181,7 +181,7 @@ public class Presenter {
     private double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
 
     public void drawFigure() {
-        wireframePanel.clear();
+        drawingPanel.clear();
 
         /* Step size along the curve */
         //n*k и m*k - это фактически разрешение
@@ -226,16 +226,16 @@ public class Presenter {
                 Point3D np = new Point3D(nmp.get(0, 0), nmp.get(1, 0), nmp.get(2, 0));
                 double w = nmp.get(3, 0);
                 {
-                    int x = (int) ((np.x / w + 1) / 2 * wireframePanel.getCanvasWidth());
-                    int y = (int) ((np.y / w + 1) / 2 * wireframePanel.getCanvasHeight());
+                    int x = (int) ((np.x / w + 1) / 2 * drawingPanel.getCanvasWidth());
+                    int y = (int) ((np.y / w + 1) / 2 * drawingPanel.getCanvasHeight());
 
                     if (vPrev != null && i % k == 0) {
-                        wireframePanel.drawLine(vPrev.x, vPrev.y, x, y, color);
+                        drawingPanel.drawLine(vPrev.x, vPrev.y, x, y, color);
                     }
                     vPrev = new Point(x, y);
 
                     if (uPrev[j] != null && j % k == 0) {
-                        wireframePanel.drawLine(uPrev[j].x, uPrev[j].y, x, y, color);
+                        drawingPanel.drawLine(uPrev[j].x, uPrev[j].y, x, y, color);
                     }
                     uPrev[j] = new Point(x, y);
                 }
@@ -252,16 +252,16 @@ public class Presenter {
                     Matrix nmp = Matrix.multiply(resultMatrix, mp);
                     Point3D np = new Point3D(nmp.get(0, 0), nmp.get(1, 0), nmp.get(2, 0));
                     double w = nmp.get(3, 0);
-                    int x = (int) ((np.x / w + 1) / 2 * wireframePanel.getCanvasWidth());
-                    int y = (int) ((np.y / w + 1) / 2 * wireframePanel.getCanvasHeight());
+                    int x = (int) ((np.x / w + 1) / 2 * drawingPanel.getCanvasWidth());
+                    int y = (int) ((np.y / w + 1) / 2 * drawingPanel.getCanvasHeight());
                     if (prev != null)
-                        wireframePanel.drawLine(prev.x, prev.y, x, y, geoColor, 3);
+                        drawingPanel.drawLine(prev.x, prev.y, x, y, geoColor, 3);
                     prev = new Point(x, y);
                 }
             }
         }
 
-        wireframePanel.repaint();
+        drawingPanel.repaint();
     }
 
 
@@ -398,7 +398,7 @@ public class Presenter {
 
             substrings = readLineAndSplit(br);
             backgroundColor = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
-            wireframePanel.setBackgroundColor(backgroundColor);
+            drawingPanel.setBackgroundColor(backgroundColor);
 
             substrings = readLineAndSplit(br);
             figureColor = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));
@@ -473,7 +473,7 @@ public class Presenter {
         this.projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
         this.backgroundColor = backgroundColor;
         this.figureColor = figureColor;
-        wireframePanel.setBackgroundColor(backgroundColor);
+        drawingPanel.setBackgroundColor(backgroundColor);
 
         splineCalculator.setDegrees(ti, tj);
         needsToBeRedrawn = true;
