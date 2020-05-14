@@ -10,9 +10,18 @@ FPSCounter::FPSCounter()
 
 void FPSCounter::Update()
 {
+	m_count++;
+
+	if (timeGetTime() >= (m_startTime + 1000))
+	{
+		m_fps = m_count;
+		m_count = 0;
+
+		m_startTime = timeGetTime();
+	}
 }
 
 int FPSCounter::GetFPS()
 {
-	return 0;
+	return m_fps;
 }

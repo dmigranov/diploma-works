@@ -532,7 +532,7 @@ bool Game::InitializeScene()
 
         meshes.push_back(mesh1);
 
-        /*int sect = 8;
+        int sect = 8;
         for (int i = 1; i < 8; i++)
         {
             Mesh* mesh = new SphericalAsteroid(0.01f, 0.1f, 20, 20, earthTexture, SphericalRotationZW(i * XM_2PI / 8));
@@ -540,7 +540,7 @@ bool Game::InitializeScene()
                 return SphericalRotationYZ(delta / i / 3.f) * SphericalRotationXY(delta / i / 2.f) * in * SphericalRotationYW(-delta / i / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
             }));
             meshes.push_back(mesh);
-        }*/
+        }
 
 
         auto mesh2 = new SphericalSphere(0.2f, 20, 20, earthTexture, SphericalRotationXW(XM_PIDIV4));
@@ -550,11 +550,11 @@ bool Game::InitializeScene()
         meshes.push_back(mesh2);
 
 
-        auto mesh3 = SphericalMeshLoader::LoadMesh("mesh2.sph");
+        /*auto mesh3 = SphericalMeshLoader::LoadMesh("mesh2.sph");
         mesh3->SetTexture(fabricTexture);
         mesh3->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationYW(0.05f));
 
-        meshes.push_back(mesh3);
+        meshes.push_back(mesh3*/
 
 
 
@@ -565,8 +565,8 @@ bool Game::InitializeScene()
 
 void Game::Update(float deltaTime)
 {
+    fpsCounter.Update();
     m_inputHandler->HandleInput();
-    DWORD t = timeGetTime();
     //m_morph = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.4*cos(t/100.0));
     //mesh1->SetConstants(mesh1->GetWorldMatrix(), m_morph);
 
@@ -636,6 +636,8 @@ void Game::Render()
         m_textDrawer->DrawTextDownRightAlign(ss.str().c_str(), m_outputWidth - 20, m_outputHeight - 20);
     }
     
+    m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFPS()).c_str(), m_outputWidth - 20, 20);
+
     float sizeHori = float(aimSize) / m_outputWidth, sizeVert = float(aimSize) / m_outputHeight;
     m_drawer2D->DrawLine(Vector2(sizeHori, 0.f), Vector2(-sizeHori, 0.f), Colors::Black);
     m_drawer2D->DrawLine(Vector2(0.f, sizeVert), Vector2(0.f, -sizeVert), Colors::Black);
@@ -651,8 +653,8 @@ void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil
 
 void Game::Present()
 {
-    g_d3dSwapChain->Present(1, 0);    //60 гц
-    //g_d3dSwapChain->Present(0, 0);    //для тестирования производительности
+    //g_d3dSwapChain->Present(1, 0);    //60 гц
+    g_d3dSwapChain->Present(0, 0);    //для тестирования производительности
     //с vsync?
 }
 

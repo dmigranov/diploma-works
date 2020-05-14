@@ -37,6 +37,7 @@
 #include "Drawer2D.h"
 #include "Texture.h"
 
+#include "FPSCounter.h"
 
 class Game
 {
@@ -162,6 +163,8 @@ private:
     TextDrawer *                          m_textDrawer;
     Drawer2D *                            m_drawer2D;
     const int                             aimSize = 20;
+
+    FPSCounter                            fpsCounter;
 
     struct PerApplicationVSConstantBuffer
     {
