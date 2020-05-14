@@ -2,9 +2,11 @@
 class FPSCounter
 {
 public: 
-	;
+	FPSCounter();
+	void Update();	//called each frame
+	int GetFPS();
 private:
-	int m_fps, m_count;
-	unsigned long m_startTime;
+	unsigned int m_fps, m_count;
+	DWORD m_startTime;
 };
 
