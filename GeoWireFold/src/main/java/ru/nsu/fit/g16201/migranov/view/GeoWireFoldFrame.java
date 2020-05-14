@@ -22,7 +22,7 @@ public class GeoWireFoldFrame extends MainFrame {
     private boolean fileIsLoaded = false;
 
     private Presenter presenter;
-    private WireframePanel wireframePanel;
+    private DrawingPanel drawingPanel;
 
 
     private JPanel mainPanel;
@@ -72,7 +72,7 @@ public class GeoWireFoldFrame extends MainFrame {
                 nheight = height;
             }
         }
-        wireframePanel.setPreferredSize(new Dimension((int)Math.round(nwidth) - 20, (int)Math.round(nheight) - 20));
+        drawingPanel.setPreferredSize(new Dimension((int)Math.round(nwidth) - 20, (int)Math.round(nheight) - 20));
         presenter.drawFigure();
         mainPanel.revalidate();
     }
@@ -87,9 +87,9 @@ public class GeoWireFoldFrame extends MainFrame {
                 resize();
             }
         });
-        wireframePanel = new WireframePanel();
-        mainPanel.add(wireframePanel);
-        presenter = new Presenter(wireframePanel);
+        drawingPanel = new DrawingPanel();
+        mainPanel.add(drawingPanel);
+        presenter = new Presenter(drawingPanel);
         addMenus();
         createCommonConfigurationPanel();
         createGeodesicsConfigurationPanel();
@@ -239,7 +239,7 @@ public class GeoWireFoldFrame extends MainFrame {
         tabbedPane.add("Common", commonPanel);
 
         JPanel spline3DConfigurationPanel = new JPanel();
-        tabbedPane.add("3D Spline Config Panel", spline3DConfigurationPanel);
+        tabbedPane.add("Surface Config", spline3DConfigurationPanel);
 
         commonPanel.setLayout(new BoxLayout(commonPanel, BoxLayout.Y_AXIS));
         spline3DConfigurationPanel.setLayout(new BoxLayout(spline3DConfigurationPanel, BoxLayout.Y_AXIS));
@@ -248,8 +248,8 @@ public class GeoWireFoldFrame extends MainFrame {
         nField = new JTextField();
         mField = new JTextField();
         kField = new JTextField();
-        mnkPanel.add(new LabelTextField("n: ", nField, new IntegerTextFieldKeyListener()));
-        mnkPanel.add(new LabelTextField("m: ", mField, new IntegerTextFieldKeyListener()));
+        mnkPanel.add(new LabelTextField("u segments: ", nField, new IntegerTextFieldKeyListener()));
+        mnkPanel.add(new LabelTextField("v segments: ", mField, new IntegerTextFieldKeyListener()));
         mnkPanel.add(new LabelTextField("k: ", kField, new IntegerTextFieldKeyListener()));
 
         swField = new JTextField();
@@ -261,8 +261,8 @@ public class GeoWireFoldFrame extends MainFrame {
 
         TiField = new JTextField();
         TjField = new JTextField();
-        TijPanel.add(new LabelTextField("Ti: ", TiField, new IntegerTextFieldKeyListener()));
-        TijPanel.add(new LabelTextField("Tj: ", TjField, new IntegerTextFieldKeyListener()));
+        TijPanel.add(new LabelTextField("u degree: ", TiField, new IntegerTextFieldKeyListener()));
+        TijPanel.add(new LabelTextField("v degree: ", TjField, new IntegerTextFieldKeyListener()));
 
         backgroundColorChooser = new JColorChooser();
         figureColorChooser = new JColorChooser();
@@ -288,7 +288,7 @@ public class GeoWireFoldFrame extends MainFrame {
 
         spline3DConfigurationPanel.add(mnkPanel);
         spline3DConfigurationPanel.add(TijPanel);
-        //spline3DConfigurationPanel.add(new JLabel("Ti & Tj are orders of spline basis functions; the smoothness of surface depends on Ni, Ti, Nj, Tj (dependency is given by knot points)"));
+        //spline3DConfigurationPanel.add(new JLabel("Ti & Tj are orders of spline basis functions for ; the smoothness of surface depends on Ni, Ti, Nj, Tj (dependency is given by knot points)"));
         spline3DConfigurationPanel.add(figureColorChooser);
 
         confirmButton = new JButton("Confirm");
@@ -425,12 +425,12 @@ public class GeoWireFoldFrame extends MainFrame {
                     b.setEnabled(true);
                 }
                 fileIsLoaded = true;
-                wireframePanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+                drawingPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
                 resize();
             }
             else
             {
-                wireframePanel.setBorder(BorderFactory.createEmptyBorder());
+                drawingPanel.setBorder(BorderFactory.createEmptyBorder());
 
                 fileIsLoaded = false;
                 JOptionPane.showMessageDialog(this, "Wrong file format.", "Error", JOptionPane.ERROR_MESSAGE);

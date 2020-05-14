@@ -180,7 +180,13 @@ public class Presenter {
 
     private double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
 
+    int frameCount = 0;
+    long cumulative = 0;
+
     public void drawFigure() {
+        long startTime = System.nanoTime();
+        boolean wasToBeRedrawn = needsToBeRedrawn;
+
         drawingPanel.clear();
 
         /* Step size along the curve */
@@ -262,6 +268,15 @@ public class Presenter {
         }
 
         drawingPanel.repaint();
+
+        long endTime = System.nanoTime();
+        if(!wasToBeRedrawn) {
+            cumulative += (endTime - startTime);
+            frameCount++;
+            System.out.println(cumulative/1000000./frameCount);
+            System.out.println((endTime - startTime)/1000000.);
+            //System.out.println((endTime - startTime) / 1000000.f);
+        }
     }
 
 

@@ -4,14 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class WireframePanel extends JPanel {
+public class DrawingPanel extends JPanel {
     private int width, height;
     private BufferedImage canvas;
     private Graphics2D canvasGraphics;
 
     private Color backgroundColor;
 
-    public WireframePanel() {
+    public DrawingPanel() {
         super();
         width = 1;
         height = 1;

@@ -22,7 +22,7 @@ public class GeodesicsCalculator {
     }
 
     private final static double epsilon = 0.01;
-    private final static double step = 0.05;
+    private final static double step = 0.1;
 
     private FiniteDifferencesDifferentiator differentiator =  new FiniteDifferencesDifferentiator(5, epsilon);
     private ClassicalRungeKuttaIntegrator integrator = new ClassicalRungeKuttaIntegrator(1.0e-8);   //Это число ни на что не влияет, т.к. использую singleStep
