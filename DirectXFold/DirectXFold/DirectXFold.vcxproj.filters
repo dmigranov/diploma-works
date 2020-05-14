@@ -108,6 +108,9 @@
     <ClCompile Include="src\SphericalAsteroid.cpp">
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
+    <ClCompile Include="src\FPSCounter.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
@@ -173,6 +176,9 @@
     <ClInclude Include="inc\SphericalAsteroid.h">
       <Filter>Файлы заголовков\Meshes\Spherical</Filter>
     </ClInclude>
+    <ClInclude Include="inc\FPSCounter.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">
@@ -205,9 +211,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="res\mesh2.sph">
-      <Filter>Файлы ресурсов</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="meshes.txt" />
@@ -235,5 +238,6 @@
     <CopyFileToFolders Include="earth.DDS">
       <Filter>Файлы ресурсов</Filter>
     </CopyFileToFolders>
+    <CopyFileToFolders Include="res\mesh2.sph" />
   </ItemGroup>
 </Project>
