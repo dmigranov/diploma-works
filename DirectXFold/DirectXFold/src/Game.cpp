@@ -236,10 +236,10 @@ int Game::Initialize(HWND window, int width, int height)
         return -1;
     }
 
-    m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, [this]() { 
+    m_inputHandler = std::make_unique<SimpleInputHandler>(m_camera, [this](float deltaTime) { 
         auto ks = Keyboard::Get().GetState();
 
-        float gain = 0.045f;
+        float gain = 0.45f * deltaTime;
         /*if (ks.Z)
             static_cast<SphericalOctahedron*>(this->mesh1)->SetSectionHeight(static_cast<SphericalOctahedron*>(this->mesh1)->GetSectionHeight() + .0001);
         if (ks.X)
@@ -256,7 +256,7 @@ int Game::Initialize(HWND window, int width, int height)
             perApplicationPSConstantBuffer.m_edgeThickness += 0.002;
             g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
         }
-        float mouseLikeGain = 0.02f;
+        float mouseLikeGain = 1.f * deltaTime;
         if (ks.Q)
         {
             m_camera->ChangePitchYawRoll(0, -mouseLikeGain, 0);
