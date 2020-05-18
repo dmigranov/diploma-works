@@ -6,8 +6,8 @@ using namespace DirectX::SimpleMath;
 
 //extern void ExitGame();
 
-const float MOVEMENT_GAIN = 0.3f;
-const float ROTATION_GAIN = 0.012f;
+const float MOVEMENT_GAIN = 0.7f;
+const float ROTATION_GAIN = 1.3f;
 
 SimpleInputHandler::SimpleInputHandler(std::shared_ptr<Camera> camera, std::function<void()> func, HWND window)
 {
@@ -66,7 +66,7 @@ void SimpleInputHandler::HandleMouse(float deltaTime)
 
     if (mouse.positionMode == Mouse::MODE_RELATIVE)
     {
-        Vector3 delta = Vector3(float(mouse.x), float(mouse.y), 0.f)
+        Vector3 delta = Vector3(float(mouse.x) * deltaTime, float(mouse.y) * deltaTime, 0.f)
             * ROTATION_GAIN;
 
         m_camera->ChangePitchYawRoll(-delta.y, delta.x, 0.);
