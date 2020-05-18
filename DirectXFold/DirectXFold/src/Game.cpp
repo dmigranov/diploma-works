@@ -511,7 +511,7 @@ bool Game::InitializeScene()
         }
 
 
-        auto mesh1 = new SphericalSphere(0.2f, 20, 20, earthTexture);
+        auto mesh1 = new SphericalSphere(0.15f, 20, 20, earthTexture);
 
         mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
             auto ks = Keyboard::Get().GetState();
@@ -532,22 +532,22 @@ bool Game::InitializeScene()
 
         meshes.push_back(mesh1);
 
-        int sect = 8;
-        for (int i = 1; i < 8; i++)
+        int sect = 9;
+        for (int i = 1; i < sect; i++)
         {
-            Mesh* mesh = new SphericalAsteroid(0.01f, 0.1f, 20, 20, earthTexture, SphericalRotationZW(i * XM_2PI / 8));
-            mesh->AddUpdater(SphericalMesh::MeshUpdater([i](Matrix in, float delta) {
+            Mesh* mesh = new SphericalSphere(0.15f, 20, 20, earthTexture, SphericalRotationZW(i * XM_PI / sect));
+            /*mesh->AddUpdater(SphericalMesh::MeshUpdater([i](Matrix in, float delta) {
                 return SphericalRotationYZ(delta / i / 3.f) * SphericalRotationXY(delta / i / 2.f) * in * SphericalRotationYW(-delta / i / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
-            }));
+            }));*/
             meshes.push_back(mesh);
         }
 
 
-        auto mesh2 = new SphericalSphere(0.2f, 20, 20, earthTexture, SphericalRotationXW(XM_PIDIV4));
+        /*auto mesh2 = new SphericalSphere(0.2f, 20, 20, earthTexture, SphericalRotationXW(XM_PIDIV4));
         mesh2->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
             return SphericalRotationYZ(delta / 3.f) * SphericalRotationXY(delta / 2.f) * in * SphericalRotationYW(-delta / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
         }));
-        meshes.push_back(mesh2);
+        meshes.push_back(mesh2);*/
 
 
         /*auto mesh3 = SphericalMeshLoader::LoadMesh("mesh2.sph");
@@ -566,7 +566,7 @@ bool Game::InitializeScene()
 void Game::Update(float deltaTime)
 {
     fpsCounter.Update();
-    m_inputHandler->HandleInput();
+    m_inputHandler->HandleInput(deltaTime);
     //m_morph = XMMatrixRotationAxis(XMVectorSet(0, 1, 0, 0), 0.4*cos(t/100.0));
     //mesh1->SetConstants(mesh1->GetWorldMatrix(), m_morph);
 
@@ -620,7 +620,9 @@ void Game::Render()
     g_d3dDeviceContext->GSSetShader(nullptr, nullptr, 0);
 
     std::stringstream ss;
-    Vector4 pos = m_camera->GetPosition();
+    Vector4 pos = m_camera->GetPosition(); 
+    if (pos.y < 0 && pos.y >= -0.001)
+        pos.y = 0;
     Vector3 sphPos = GetSphericalFromCartesian(pos.x, pos.y, pos.z, pos.w);
     ss << std::fixed << std::setprecision(2);
     ss << "X: " << pos.x << (pos.x < 0 ? "" : " ") << " A1: " << sphPos.x << std::endl;
@@ -636,7 +638,15 @@ void Game::Render()
         m_textDrawer->DrawTextDownRightAlign(ss.str().c_str(), m_outputWidth - 20, m_outputHeight - 20);
     }
     
+    auto fps = fpsCounter.GetFPS();
+    static unsigned int fpsSum = 0;
+    static unsigned int fpsCount = 0;
+    fpsSum += fps;
+    fpsCount++;
+
     m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFPS()).c_str(), m_outputWidth - 20, 20);
+    //m_textDrawer->DrawTextUpRightAlign(std::to_string((float)fpsSum / fpsCount).c_str(), m_outputWidth - 20, 20);
+
 
     float sizeHori = float(aimSize) / m_outputWidth, sizeVert = float(aimSize) / m_outputHeight;
     m_drawer2D->DrawLine(Vector2(sizeHori, 0.f), Vector2(-sizeHori, 0.f), Colors::Black);
@@ -653,9 +663,8 @@ void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil
 
 void Game::Present()
 {
-    //g_d3dSwapChain->Present(1, 0);    //60 гц
-    g_d3dSwapChain->Present(0, 0);    //для тестирования производительности
-    //с vsync?
+    g_d3dSwapChain->Present(1, 0);    //60 гц
+    //g_d3dSwapChain->Present(0, 0);    //для тестирования производительности
 }
 
 void Game::Cleanup()

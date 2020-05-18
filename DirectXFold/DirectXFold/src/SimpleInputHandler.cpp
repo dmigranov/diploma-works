@@ -6,7 +6,7 @@ using namespace DirectX::SimpleMath;
 
 //extern void ExitGame();
 
-const float MOVEMENT_GAIN = 0.0075f;
+const float MOVEMENT_GAIN = 0.003f;
 const float ROTATION_GAIN = 0.012f;
 
 SimpleInputHandler::SimpleInputHandler(std::shared_ptr<Camera> camera, std::function<void()> func, HWND window)
@@ -18,13 +18,13 @@ SimpleInputHandler::SimpleInputHandler(std::shared_ptr<Camera> camera, std::func
     this->func = func;
 }
 
-void SimpleInputHandler::HandleInput()
+void SimpleInputHandler::HandleInput(float deltaTime)
 {
-	HandleKeyboard();
-	HandleMouse();
+	HandleKeyboard(deltaTime);
+	HandleMouse(deltaTime);
 }
 
-void SimpleInputHandler::HandleKeyboard()
+void SimpleInputHandler::HandleKeyboard(float deltaTime)
 {
     auto kb = m_keyboard->GetState();
     if (kb.Escape)
@@ -60,7 +60,7 @@ void SimpleInputHandler::HandleKeyboard()
     func();
 }
 
-void SimpleInputHandler::HandleMouse()
+void SimpleInputHandler::HandleMouse(float deltaTime)
 {
     auto mouse = m_mouse->GetState();
 

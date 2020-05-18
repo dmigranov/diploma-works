@@ -5,10 +5,10 @@ class SimpleInputHandler :
 {
 public:
 	SimpleInputHandler(std::shared_ptr<Camera> camera, std::function<void()> func, HWND window);
-	void HandleInput();
+	void HandleInput(float deltaTime) override;
 protected:
-	void HandleKeyboard();
-	void HandleMouse();
+	void HandleKeyboard(float deltaTime);
+	void HandleMouse(float deltaTime);
 private:
 	std::function<void()> func;
 };

@@ -3,7 +3,7 @@
 class InputHandler
 {
 public:
-	virtual void HandleInput() = 0;
+	virtual void HandleInput(float deltaTime) = 0;
 
 protected:
 	std::unique_ptr<DirectX::Keyboard>  m_keyboard;

@@ -10,6 +10,8 @@ SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, D
 
 SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, DirectX::XMFLOAT4 color, XMMATRIX world)
 {
+    int triCount = 0;
+
 	auto phiStep = XM_PI / stackCount;
 	auto thetaStep = XM_2PI / sliceCount;
 
@@ -44,6 +46,7 @@ SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, D
         indices.push_back(northPoleIndex);
         indices.push_back(i + 1);
         indices.push_back(i);
+        triCount++;
     }
 
     WORD baseIndex = 1;
@@ -53,10 +56,13 @@ SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, D
             indices.push_back(baseIndex + i * ringVertexCount + j);
             indices.push_back(baseIndex + i * ringVertexCount + j + 1);
             indices.push_back(baseIndex + (i + 1) * ringVertexCount + j);
+            triCount++;
 
             indices.push_back(baseIndex + (i + 1) * ringVertexCount + j);
             indices.push_back(baseIndex + i * ringVertexCount + j + 1);
             indices.push_back(baseIndex + (i + 1) * ringVertexCount + j + 1);
+            triCount++;
+
         }
     }
 
@@ -66,8 +72,8 @@ SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, D
         indices.push_back(southPoleIndex);
         indices.push_back(baseIndex + i);
         indices.push_back(baseIndex + i + 1);
+        triCount++;
     }
-
 
     g_Vertices = &vertices[0];
     verticesCount = vertices.size();
