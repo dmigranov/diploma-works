@@ -46,7 +46,8 @@ public:
 
     int StartGame(HINSTANCE hInstance, int nCmdShow);
 
-    Texture * AddTexture(const WCHAR * name);
+    Texture * CreateTexture(const WCHAR * name);
+    void AddMesh(Mesh * mesh);
 
     // Basic game loop
     void Tick();

@@ -700,13 +700,18 @@ void Game::UnloadContent()
     delete m_drawer2D;
 }
 
-Texture * Game::AddTexture(const WCHAR * name)
+Texture * Game::CreateTexture(const WCHAR * name)
 {
     auto texture = new Texture();
     if (!texture->Initialize(g_d3dDevice, name))
         return nullptr;
     textures.push_back(texture);
     return texture;
+}
+
+void Game::AddMesh(Mesh* mesh)
+{
+    meshes.push_back(mesh);
 }
 
 
