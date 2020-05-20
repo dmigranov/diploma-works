@@ -9,13 +9,12 @@
 // Entry point
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
-    Game& g_game = Game::GetInstance();
+    Game& game = Game::GetInstance();
+
+    auto earthTexture = game.AddTexture(L"earth.dds");
+    auto asteroidTexture = game.AddTexture(L"asteroid2.dds");
+    auto fabricTexture = game.AddTexture(L"fabric.dds");
 
 
-
-    return g_game.StartGame(hInstance, nCmdShow, []() {
-        
-
-        return false;
-    });
+    return game.StartGame(hInstance, nCmdShow);
 }

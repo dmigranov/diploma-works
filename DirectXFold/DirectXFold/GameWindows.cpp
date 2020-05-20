@@ -12,9 +12,8 @@ extern "C"
     __declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
 }
 
-int Game::StartGame(HINSTANCE hInstance, int nCmdShow, std::function<bool()> initScene)
+int Game::StartGame(HINSTANCE hInstance, int nCmdShow)
 {
-    m_initializeSceneFunction = initScene;
     if (!XMVerifyCPUSupport())
         return 1;
 
@@ -104,6 +103,7 @@ int Game::StartGame(HINSTANCE hInstance, int nCmdShow, std::function<bool()> ini
 
     return (int)msg.wParam;
 }
+
 
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)

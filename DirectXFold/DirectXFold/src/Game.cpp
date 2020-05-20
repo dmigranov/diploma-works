@@ -665,7 +665,7 @@ bool Game::LoadContent()
         return false;
     }
 
-    if (!m_initializeSceneFunction())
+    if (!InitializeScene())
         return false;
 
     CreateResources();
@@ -698,6 +698,15 @@ void Game::UnloadContent()
 
     delete m_textDrawer;
     delete m_drawer2D;
+}
+
+Texture * Game::AddTexture(const WCHAR * name)
+{
+    auto texture = new Texture();
+    if (!texture->Initialize(g_d3dDevice, name))
+        return nullptr;
+    textures.push_back(texture);
+    return texture;
 }
 
 

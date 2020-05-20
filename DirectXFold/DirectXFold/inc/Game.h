@@ -44,7 +44,9 @@ class Game
 public:
     static Game& GetInstance();
 
-    int StartGame(HINSTANCE hInstance, int nCmdShow, std::function<bool()> initScene);
+    int StartGame(HINSTANCE hInstance, int nCmdShow);
+
+    Texture * AddTexture(const WCHAR * name);
 
     // Basic game loop
     void Tick();
@@ -59,8 +61,6 @@ private:
     Game() noexcept;
     Game(Game const&) = delete;
     Game& operator=(Game const&) = delete;
-
-    std::function<bool()> m_initializeSceneFunction;
 
     // Initialization and management
     int Initialize(HWND window, int width, int height);
