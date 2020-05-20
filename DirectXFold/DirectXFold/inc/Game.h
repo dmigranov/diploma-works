@@ -44,11 +44,15 @@ class Game
 public:
     static Game& GetInstance();
 
-    virtual bool InitializeScene() = 0;
-
     int StartGame(HINSTANCE hInstance, int nCmdShow);
 
 private:
+    Game(const std::function<void()> &func) noexcept;
+    Game(Game const&) = delete;
+    Game& operator=(Game const&) = delete;
+
+    std::function<void()> InitializeScene();
+
     // Initialization and management
     int Initialize(HWND window, int width, int height);
     void Cleanup();
@@ -70,9 +74,7 @@ private:
     friend class SphericalSphere;
     friend class SphericalAsteroid;
 
-    Game() noexcept;
-    Game(Game const&) = delete;
-    Game& operator=(Game const&) = delete;
+
 
     void CreateResources();
     void RecalculateProjectionMatrices();

@@ -4,12 +4,13 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-Game::Game() noexcept :
+Game::Game(const std::function<void()> &initializeScene) noexcept :
     m_hwnd(nullptr),
     m_outputWidth(800),
     m_outputHeight(600)
 {
     m_camera = std::make_shared<SphericalCamera>();
+    InitializeScene(std::move(initializeScene));
 }
 
 Game& Game::GetInstance()
