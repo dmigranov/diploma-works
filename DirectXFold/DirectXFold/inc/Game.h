@@ -39,6 +39,8 @@
 
 #include "FPSCounter.h"
 
+LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
+
 class Game
 {
 public:
@@ -49,14 +51,6 @@ public:
     Texture * CreateTexture(const WCHAR * name);
     void AddMesh(Mesh * mesh);
 
-
-    // Basic game loop
-    void Tick();
-    // Properties
-    void GetDefaultSize(int& width, int& height);
-    // Messages
-    void OnWindowSizeChanged(int width, int height);
-
 private:
     Game(unsigned int width, unsigned int height) noexcept;
     Game(Game const&) = delete;
@@ -66,6 +60,13 @@ private:
     int Initialize(HWND window, int width, int height);
     void Cleanup();
 
+    // Basic game loop
+    void Tick();
+    // Properties
+    void GetDefaultSize(int& width, int& height);
+    // Messages
+    void OnWindowSizeChanged(int width, int height);
+
     friend class Mesh;
 
     friend class SphericalMesh;
@@ -73,6 +74,7 @@ private:
     friend class SphericalCube;
     friend class SphericalSphere;
     friend class SphericalAsteroid;
+    friend LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
     void CreateResources();
     void RecalculateProjectionMatrices();

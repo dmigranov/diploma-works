@@ -3,8 +3,6 @@
 
 using namespace DirectX;
 
-LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
-
 // Indicates to hybrid graphics systems to prefer the discrete part by default
 extern "C"
 {
