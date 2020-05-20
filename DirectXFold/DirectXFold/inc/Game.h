@@ -44,10 +44,15 @@ class Game
 public:
     static Game& GetInstance();
 
+    virtual bool InitializeScene() = 0;
+
+    int StartGame(HINSTANCE hInstance, int nCmdShow);
+
+private:
     // Initialization and management
     int Initialize(HWND window, int width, int height);
     void Cleanup();
-    int StartGameLoop(HINSTANCE hInstance, int nCmdShow);
+
     // Basic game loop
     void Tick();
 
@@ -57,8 +62,6 @@ public:
     // Messages
     void OnWindowSizeChanged(int width, int height);
 
-
-private:
     friend class Mesh;
 
     friend class SphericalMesh;
@@ -73,7 +76,6 @@ private:
 
     void CreateResources();
     void RecalculateProjectionMatrices();
-    bool InitializeScene();
 
     void Update(float deltaTime);
     void Render();
