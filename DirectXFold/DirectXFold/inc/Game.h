@@ -44,7 +44,7 @@ class Game
 public:
     static Game& GetInstance();
 
-    int StartGame(HINSTANCE hInstance, int nCmdShow, std::function<void()> initScene);
+    int StartGame(HINSTANCE hInstance, int nCmdShow, std::function<bool()> initScene);
 
     // Basic game loop
     void Tick();
@@ -54,12 +54,13 @@ public:
 
     // Messages
     void OnWindowSizeChanged(int width, int height);
+
 private:
     Game() noexcept;
     Game(Game const&) = delete;
     Game& operator=(Game const&) = delete;
 
-    std::function<void()> m_initializeSceneFunction;
+    std::function<bool()> m_initializeSceneFunction;
 
     // Initialization and management
     int Initialize(HWND window, int width, int height);

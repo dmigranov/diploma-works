@@ -665,7 +665,7 @@ bool Game::LoadContent()
         return false;
     }
 
-    if (!InitializeScene())
+    if (!m_initializeSceneFunction())
         return false;
 
     CreateResources();
