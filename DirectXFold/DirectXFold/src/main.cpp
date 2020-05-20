@@ -21,6 +21,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     auto asteroidTexture = game.CreateTexture(L"asteroid2.dds");
     auto fabricTexture = game.CreateTexture(L"fabric.dds");
 
+    game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
+    game.SetCameraFovY(XM_PI / 2);
     auto mesh1 = new SphericalSphere(0.15f, 20, 20, earthTexture);
     mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
         auto ks = Keyboard::Get().GetState();

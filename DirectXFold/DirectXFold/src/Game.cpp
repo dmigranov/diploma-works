@@ -665,23 +665,12 @@ bool Game::LoadContent()
         return false;
     }
 
-    //Настройка камеры
-    {
-        m_camera->SetPosition(0, 0, 0);
-        m_camera->SetFovY(XM_PI / 2);
-        m_camera->SetNearPlane(0.001f);
-        m_camera->SetFarPlane(100.f);
-        m_camera->Move(Vector3(0, 0, -XM_PI / 4));
-    }
-
+    m_camera->SetNearPlane(0.001f);
 
     CreateResources();
 
     return true;
 }
-
-
-
 
 void Game::UnloadContent()
 {
@@ -721,6 +710,15 @@ void Game::AddMesh(Mesh* mesh)
     meshes.push_back(mesh);
 }
 
+void Game::MoveCamera(DirectX::SimpleMath::Vector3 v)
+{
+    m_camera->Move(v);
+}
+
+void Game::SetCameraFovY(float fovY)
+{
+    m_camera->SetFovY(fovY);
+}
 
 XMFLOAT4 Game::GetCartesianFromSpherical(float a1, float a2, float a3)
 {

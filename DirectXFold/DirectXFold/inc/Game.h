@@ -50,6 +50,8 @@ public:
 
     Texture * CreateTexture(const WCHAR * name);
     void AddMesh(Mesh * mesh);
+    void MoveCamera(DirectX::SimpleMath::Vector3);
+    void SetCameraFovY(float fovY);
 
 private:
     Game(unsigned int width, unsigned int height) noexcept;
