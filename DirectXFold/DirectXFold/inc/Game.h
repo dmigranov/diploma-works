@@ -47,7 +47,7 @@ public:
     // Initialization and management
     int Initialize(HWND window, int width, int height);
     void Cleanup();
-
+    int StartGameLoop(HINSTANCE hInstance, int nCmdShow);
     // Basic game loop
     void Tick();
 

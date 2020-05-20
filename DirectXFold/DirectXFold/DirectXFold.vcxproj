@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GameWindows.cpp" />
     <ClCompile Include="SphericalMath.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Drawer2D.cpp" />
