@@ -12,7 +12,7 @@ extern "C"
     __declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
 }
 
-int Game::StartGame(HINSTANCE hInstance, int nCmdShow)
+int Game::StartGame(HINSTANCE hInstance, int nCmdShow, std::function<void()> initScene)
 {
     if (!XMVerifyCPUSupport())
         return 1;

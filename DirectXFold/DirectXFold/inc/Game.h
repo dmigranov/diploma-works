@@ -44,14 +44,22 @@ class Game
 public:
     static Game& GetInstance();
 
-    int StartGame(HINSTANCE hInstance, int nCmdShow);
+    int StartGame(HINSTANCE hInstance, int nCmdShow, std::function<void()> initScene);
 
+    // Basic game loop
+    void Tick();
+
+    // Properties
+    void GetDefaultSize(int& width, int& height);
+
+    // Messages
+    void OnWindowSizeChanged(int width, int height);
 private:
-    Game(const std::function<void()> &func) noexcept;
+    Game() noexcept;
     Game(Game const&) = delete;
     Game& operator=(Game const&) = delete;
 
-    std::function<void()> InitializeScene();
+    std::function<void()> m_initializeSceneFunction;
 
     // Initialization and management
     int Initialize(HWND window, int width, int height);
