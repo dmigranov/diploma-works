@@ -14,6 +14,8 @@ using namespace DirectX::SimpleMath;
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
     Game& game = Game::GetInstance();
+    game.InitializeWindow(hInstance, nCmdShow);
+
 
     auto earthTexture = game.CreateTexture(L"earth.dds");
     auto asteroidTexture = game.CreateTexture(L"asteroid2.dds");

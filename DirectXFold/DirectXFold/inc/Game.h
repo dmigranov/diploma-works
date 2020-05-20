@@ -43,38 +43,28 @@ class Game
 {
 public:
     static Game& GetInstance();
-
+    int InitializeWindow(HINSTANCE hInstance, int nCmdShow);
     int StartGame(HINSTANCE hInstance, int nCmdShow);
 
     Texture * CreateTexture(const WCHAR * name);
     void AddMesh(Mesh * mesh);
 
+
     // Basic game loop
     void Tick();
-
     // Properties
     void GetDefaultSize(int& width, int& height);
-
     // Messages
     void OnWindowSizeChanged(int width, int height);
 
 private:
-    Game() noexcept;
+    Game(unsigned int width, unsigned int height) noexcept;
     Game(Game const&) = delete;
     Game& operator=(Game const&) = delete;
 
     // Initialization and management
     int Initialize(HWND window, int width, int height);
     void Cleanup();
-
-    // Basic game loop
-    void Tick();
-
-    // Properties
-    void GetDefaultSize(int& width, int& height);
-
-    // Messages
-    void OnWindowSizeChanged(int width, int height);
 
     friend class Mesh;
 
@@ -83,8 +73,6 @@ private:
     friend class SphericalCube;
     friend class SphericalSphere;
     friend class SphericalAsteroid;
-
-
 
     void CreateResources();
     void RecalculateProjectionMatrices();

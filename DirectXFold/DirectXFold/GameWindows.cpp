@@ -14,6 +14,37 @@ extern "C"
 
 int Game::StartGame(HINSTANCE hInstance, int nCmdShow)
 {
+    // Main message loop
+    // it runs indefinitely, and then check for messages inside the while loop
+    // the loop will keep running forever unless something interrupts the loop and causes it to exit
+    // то есть даже если не рендерим, всё равно апдейтим
+    // поэтмоу жрёт столько когда свёрнута
+
+    MSG msg = {};
+    while (WM_QUIT != msg.message)
+    {
+        //Peek: возвращает true, если сообщение есть, если нет - то false (но мы все равно рисуем)
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE) != 0)	//remove: message are removed from the queue after pick
+        {
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);	//dispatch передает сообщение winproc!!!
+        }
+        else
+        {
+            Tick();	//update & render
+        }
+    }
+
+    Cleanup();
+
+    CoUninitialize();
+
+    return (int)msg.wParam;
+}
+
+
+int Game::InitializeWindow(HINSTANCE hInstance, int nCmdShow)
+{
     if (!XMVerifyCPUSupport())
         return 1;
 
@@ -75,35 +106,8 @@ int Game::StartGame(HINSTANCE hInstance, int nCmdShow)
             return -1;
         }
     }
-
-    // Main message loop
-    // it runs indefinitely, and then check for messages inside the while loop
-    // the loop will keep running forever unless something interrupts the loop and causes it to exit
-    // то есть даже если не рендерим, всё равно апдейтим
-    // поэтмоу жрёт столько когда свёрнута
-
-    MSG msg = {};
-    while (WM_QUIT != msg.message)
-    {
-        //Peek: возвращает true, если сообщение есть, если нет - то false (но мы все равно рисуем)
-        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE) != 0)	//remove: message are removed from the queue after pick
-        {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);	//dispatch передает сообщение winproc!!!
-        }
-        else
-        {
-            Tick();	//update & render
-        }
-    }
-
-    Cleanup();
-
-    CoUninitialize();
-
-    return (int)msg.wParam;
+    return 0;
 }
-
 
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)

@@ -4,17 +4,17 @@
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
 
-Game::Game() noexcept :
+Game::Game(unsigned int width, unsigned int height) noexcept :
     m_hwnd(nullptr),
-    m_outputWidth(800),
-    m_outputHeight(600)
+    m_outputWidth(width),
+    m_outputHeight(height)
 {
     m_camera = std::make_shared<SphericalCamera>();
 }
 
 Game& Game::GetInstance()
 {
-    static Game game;
+    static Game game(800, 600);
     return game;
 }
 
@@ -665,8 +665,15 @@ bool Game::LoadContent()
         return false;
     }
 
-    if (!InitializeScene())
-        return false;
+    //Настройка камеры
+    {
+        m_camera->SetPosition(0, 0, 0);
+        m_camera->SetFovY(XM_PI / 2);
+        m_camera->SetNearPlane(0.001f);
+        m_camera->SetFarPlane(100.f);
+        m_camera->Move(Vector3(0, 0, -XM_PI / 4));
+    }
+
 
     CreateResources();
 
