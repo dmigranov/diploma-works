@@ -60,6 +60,7 @@
     <ClInclude Include="inc\Mesh.h" />
     <ClInclude Include="inc\SphericalAsteroid.h" />
     <ClInclude Include="inc\SphericalCube.h" />
+    <ClInclude Include="inc\SphericalEllipsoid.h" />
     <ClInclude Include="inc\SphericalOctahedron.h" />
     <ClInclude Include="inc\InputHandler.h" />
     <ClInclude Include="inc\SphericalMesh.h" />
@@ -72,7 +73,6 @@
     <ClInclude Include="inc\SphericalSphere.h" />
     <ClInclude Include="inc\TextDrawer.h" />
     <ClInclude Include="inc\Texture.h" />
-    <ClInclude Include="SphericalEllipsoid.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">

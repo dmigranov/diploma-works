@@ -185,7 +185,7 @@
     <ClInclude Include="inc\FPSCounter.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="SphericalEllipsoid.h">
+    <ClInclude Include="inc\SphericalEllipsoid.h">
       <Filter>Файлы заголовков\Meshes\Spherical</Filter>
     </ClInclude>
   </ItemGroup>
