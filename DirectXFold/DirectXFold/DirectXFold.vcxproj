@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWindows.cpp" />
+    <ClCompile Include="SphericalEllipsoid.cpp" />
     <ClCompile Include="SphericalMath.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Drawer2D.cpp" />
@@ -71,6 +72,7 @@
     <ClInclude Include="inc\SphericalSphere.h" />
     <ClInclude Include="inc\TextDrawer.h" />
     <ClInclude Include="inc\Texture.h" />
+    <ClInclude Include="SphericalEllipsoid.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Data\Shaders\BasicPixelShader.hlsl">
