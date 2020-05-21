@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "SphericalEllipsoid.h"
+#include "Game.h"
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;

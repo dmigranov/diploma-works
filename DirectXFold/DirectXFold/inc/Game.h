@@ -27,6 +27,7 @@
 #include "SphericalCube.h"
 #include "SphericalSphere.h"
 #include "SphericalAsteroid.h"
+#include "SphericalEllipsoid.h"
 
 #include "HyperbolicMesh.h"
 
@@ -76,6 +77,8 @@ private:
     friend class SphericalCube;
     friend class SphericalSphere;
     friend class SphericalAsteroid;
+    friend class SphericalEllipsoid;
+
     friend LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
 
     void CreateResources();
