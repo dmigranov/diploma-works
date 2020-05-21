@@ -248,4 +248,12 @@
       <Filter>Файлы ресурсов</Filter>
     </CopyFileToFolders>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="sviborg.DDS">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="fire.DDS">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

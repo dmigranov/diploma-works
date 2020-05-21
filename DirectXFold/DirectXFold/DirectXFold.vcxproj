@@ -366,6 +366,12 @@
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
     </CopyFileToFolders>
   </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="sviborg.DDS" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="fire.DDS" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{802A2142-3802-46EF-946B-42BFD9754DCA}</ProjectGuid>
