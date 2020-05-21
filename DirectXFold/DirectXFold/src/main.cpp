@@ -25,8 +25,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
         game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
         game.SetCameraFovY(XM_PI / 2);
-        /*auto mesh1 = new SphericalSphere(0.15f, 20, 20, earthTexture);
-        mesh1->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
+
+        auto mesh1 = new SphericalSphere(0.15f, 20, 20, earthTexture);
+        mesh1->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
             auto ks = Keyboard::Get().GetState();
 
             float gain = 0.045f;
@@ -42,19 +43,25 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 
             return in * m;
         }));
-        game.AddMesh(mesh1);*/
+        game.AddMesh(mesh1);
 
+        auto mesh3 = new SphericalSphere(0.05f, 20, 20, asteroidTexture,  SphericalRotationZW(-0.26f));
+        mesh3->SetParent(mesh1);
+        mesh3->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
+            return in * SphericalRotationXZ(delta);
+        }));
+        game.AddMesh(mesh3);
 
 
         auto head = new SphericalSphere(0.08f, 20, 20, sviborgTexture);
-        head->AddUpdater(SphericalMesh::MeshUpdater([](Matrix in, float delta) {
+        head->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
             auto ks = Keyboard::Get().GetState();
 
             static double time = 0;
             if (!ks.Space)
                 time += delta;
 
-            return SphericalRotationYW(-0.15f) * SphericalRotationXZ(XM_PI / 2) * SphericalRotationYW(0.1 * sin(time)) * SphericalRotationZW(time/5.);
+            return SphericalRotationYW(-0.15f) * SphericalRotationXZ(XM_PI / 2) *  SphericalRotationZW(time/5.) * SphericalRotationYW(0.1 * sin(time));
 
         }));
         game.AddMesh(head);
@@ -75,9 +82,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         mesh2->SetTexture(fabricTexture);
         mesh2->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationYW(0.09f));
         game.AddMesh(mesh2);
-
-
-
     }
 
     return game.StartGame(hInstance, nCmdShow);
