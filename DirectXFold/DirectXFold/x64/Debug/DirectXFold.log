@@ -1,2 +1,4 @@
 ﻿  main.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\main.cpp(57,107): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\main.cpp(57,146): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFoldd.exe
