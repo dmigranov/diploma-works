@@ -76,6 +76,8 @@ SphericalEllipsoid::SphericalEllipsoid(float a, float b, float c, int sliceCount
         indices.push_back(baseIndex + i + 1);
     }
 
+    m_texture = texture;
+
     g_Vertices = &vertices[0];
     verticesCount = vertices.size();
 
