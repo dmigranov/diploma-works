@@ -22,6 +22,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto fabricTexture = game.CreateTexture(L"fabric.dds");
         auto sviborgTexture = game.CreateTexture(L"sviborg.dds");
         auto fireTexture = game.CreateTexture(L"fire.dds");
+        auto moonTexture = game.CreateTexture(L"moon.dds");
+
 
         game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
         game.SetCameraFovY(XM_PI / 2);
@@ -45,12 +47,20 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         }));
         game.AddMesh(mesh1);
 
-        auto mesh3 = new SphericalSphere(0.05f, 20, 20, asteroidTexture,  SphericalRotationZW(-0.26f));
-        mesh3->SetParent(mesh1);
-        mesh3->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
+        auto moon = new SphericalSphere(0.05f, 20, 20, moonTexture, SphericalRotationZW(-0.26f));
+        moon->SetParent(mesh1);
+        moon->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
             return in * SphericalRotationXZ(delta);
         }));
-        game.AddMesh(mesh3);
+        game.AddMesh(moon);
+
+
+        auto asteroid = new SphericalSphere(0.02f, 20, 20, asteroidTexture, SphericalRotationZW(-0.1f));
+        asteroid->SetParent(moon);
+        asteroid->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
+            return in * SphericalRotationXZ(delta);
+        }));
+        game.AddMesh(asteroid);
 
 
         auto head = new SphericalSphere(0.08f, 20, 20, sviborgTexture);

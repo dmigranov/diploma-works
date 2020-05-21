@@ -255,5 +255,8 @@
     <Image Include="fire.DDS">
       <Filter>Файлы ресурсов</Filter>
     </Image>
+    <Image Include="moon.DDS">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
   </ItemGroup>
 </Project>

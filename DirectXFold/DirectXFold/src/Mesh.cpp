@@ -62,7 +62,10 @@ Mesh::~Mesh()
 
 XMMATRIX Mesh::GetWorldMatrix()
 {
-	return constantBuffer.m_world;
+    if (parentMesh == nullptr)
+        return constantBuffer.m_world;
+    else
+        return constantBuffer.m_world * parentMesh->GetWorldMatrix();
 }
 
 void Mesh::SetWorldMatrix(XMMATRIX world)

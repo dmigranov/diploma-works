@@ -1,9 +1,7 @@
-﻿  main.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\main.cpp(64,108): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\main.cpp(64,139): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+﻿  Mesh.cpp
      Creating library bin64\DirectXFold.lib and object bin64\DirectXFold.exp
   Generating code
-  1 of 1318 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  4 of 1338 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
