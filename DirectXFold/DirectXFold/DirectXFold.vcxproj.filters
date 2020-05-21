@@ -115,7 +115,7 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="SphericalEllipsoid.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -186,7 +186,7 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="SphericalEllipsoid.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\Meshes\Spherical</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

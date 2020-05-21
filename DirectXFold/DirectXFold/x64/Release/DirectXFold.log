@@ -1,8 +1,8 @@
-﻿  Mesh.cpp
+﻿  SphericalEllipsoid.cpp
      Creating library bin64\DirectXFold.lib and object bin64\DirectXFold.exp
   Generating code
-  4 of 1338 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  162 of 1338 functions (12.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    146 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFold.exe
