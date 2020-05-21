@@ -53,17 +53,20 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             game.AddMesh(mesh);
         }*/
 
-        auto mesh2 = SphericalMeshLoader::LoadMesh("mesh2.sph");
+        /*auto mesh2 = SphericalMeshLoader::LoadMesh("mesh2.sph");
         mesh2->SetTexture(fabricTexture);
         mesh2->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationYW(0.05f));
         game.AddMesh(mesh2);
 
         auto mesh3 = SphericalMeshLoader::LoadMesh("mesh2.sph");
         mesh3->SetTexture(fabricTexture);
-        mesh3->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationZW(XM_PIDIV2) * SphericalRotationYW(0.05f));
+        mesh3->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationXW(XM_PIDIV4) * SphericalRotationXZ(XM_PIDIV4) * SphericalRotationYW(0.05f));
+        game.AddMesh(mesh3);*/
+        
+        auto mesh3 = SphericalMeshLoader::LoadMesh("mesh3.sph");
+        mesh3->SetTexture(fabricTexture);
+        mesh3->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationYW(0.09f));
         game.AddMesh(mesh3);
-
-
     }
 
     return game.StartGame(hInstance, nCmdShow);
