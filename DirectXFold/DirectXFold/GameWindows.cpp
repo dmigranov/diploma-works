@@ -29,7 +29,7 @@ int Game::StartGame(HINSTANCE hInstance, int nCmdShow)
         }
         else
         {
-            Tick();	//update & render
+            this->Tick();	//update & render
         }
     }
 
@@ -41,7 +41,7 @@ int Game::StartGame(HINSTANCE hInstance, int nCmdShow)
 }
 
 
-int Game::InitializeWindow(HINSTANCE hInstance, int nCmdShow)
+int Game::InitializeGame(HINSTANCE hInstance, int nCmdShow)
 {
     if (!XMVerifyCPUSupport())
         return 1;

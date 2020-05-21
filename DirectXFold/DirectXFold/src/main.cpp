@@ -14,7 +14,7 @@ using namespace DirectX::SimpleMath;
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
     Game& game = Game::GetInstance();
-    game.InitializeWindow(hInstance, nCmdShow);
+    game.InitializeGame(hInstance, nCmdShow);
 
     {
         auto earthTexture = game.CreateTexture(L"earth.dds");
@@ -43,15 +43,27 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         game.AddMesh(mesh1);
 
 
-        int sect = 9;
+        /*int sect = 9;
         for (int i = 1; i < sect; i++)
         {
             Mesh* mesh = new SphericalSphere(0.15f, 20, 20, earthTexture, SphericalRotationZW(i * XM_PI / sect));
-            /*mesh->AddUpdater(SphericalMesh::MeshUpdater([i](Matrix in, float delta) {
+            mesh->AddUpdater(SphericalMesh::MeshUpdater([i](Matrix in, float delta) {
                 return SphericalRotationYZ(delta / i / 3.f) * SphericalRotationXY(delta / i / 2.f) * in * SphericalRotationYW(-delta / i / 6.f) * SphericalRotationZW(delta / 3.f) * SphericalRotationXW(delta / 12.f);
-            }));*/
+            }));
             game.AddMesh(mesh);
-        }
+        }*/
+
+        auto mesh2 = SphericalMeshLoader::LoadMesh("mesh2.sph");
+        mesh2->SetTexture(fabricTexture);
+        mesh2->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationYW(0.05f));
+        game.AddMesh(mesh2);
+
+        auto mesh3 = SphericalMeshLoader::LoadMesh("mesh2.sph");
+        mesh3->SetTexture(fabricTexture);
+        mesh3->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationZW(XM_PIDIV2) * SphericalRotationYW(0.05f));
+        game.AddMesh(mesh3);
+
+
     }
 
     return game.StartGame(hInstance, nCmdShow);

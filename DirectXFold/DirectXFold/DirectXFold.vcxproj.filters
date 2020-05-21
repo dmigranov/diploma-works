@@ -214,6 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="res\mesh3.sph">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="meshes.txt" />
@@ -241,6 +244,8 @@
     <CopyFileToFolders Include="earth.DDS">
       <Filter>Файлы ресурсов</Filter>
     </CopyFileToFolders>
-    <CopyFileToFolders Include="res\mesh2.sph" />
+    <CopyFileToFolders Include="res\mesh2.sph">
+      <Filter>Файлы ресурсов</Filter>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>
