@@ -723,6 +723,7 @@ void Game::SetCameraFovY(float fovY)
 void Game::SetBackgroundColor(DirectX::XMVECTORF32 color)
 {
     perApplicationPSConstantBuffer.mistColor = color;
+    g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
 }
 
 XMFLOAT4 Game::GetCartesianFromSpherical(float a1, float a2, float a3)

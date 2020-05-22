@@ -19,7 +19,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         game.SetCameraFovY(XM_PI / 2);
         game.SetBackgroundColor(DirectX::Colors::PowderBlue);
 
-
         auto earthTexture = game.CreateTexture(L"earth.dds");
         auto asteroidTexture = game.CreateTexture(L"asteroid2.dds");
         auto fabricTexture = game.CreateTexture(L"fabric.dds");

@@ -1,9 +1,6 @@
-﻿  main.cpp
-D:\Диплом\MY CODE\DirectXFold\GameExample\main.cpp(80,108): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\GameExample\main.cpp(80,140): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     Creating library bin64\GameExample.lib and object bin64\GameExample.exp
+﻿     Creating library bin64\GameExample.lib and object bin64\GameExample.exp
   Generating code
-  1 of 1339 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  2 of 1339 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
