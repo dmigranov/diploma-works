@@ -23,8 +23,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto sviborgTexture = game.CreateTexture(L"sviborg.dds");
         auto fireTexture = game.CreateTexture(L"fire.dds");
         auto moonTexture = game.CreateTexture(L"moon.dds");
-
-
+        if (!earthTexture || !moonTexture || !asteroidTexture || !fireTexture || !sviborgTexture || !fabricTexture)
+        {
+            MessageBox(nullptr, TEXT("Failed to load textures."), TEXT("Error"), MB_OK);
+            return 1;
+        }
         game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
         game.SetCameraFovY(XM_PI / 2);
 

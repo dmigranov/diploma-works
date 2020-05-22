@@ -1,1 +1,23 @@
-﻿  GameExample.vcxproj -> D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\GameExample.exe
+﻿  main.cpp
+D:\Диплом\MY CODE\DirectXFold\GameExample\main.cpp(79,108): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\GameExample\main.cpp(79,140): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     Creating library bin64\GameExample.lib and object bin64\GameExample.exp
+  Generating code
+  1 of 1338 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+DirectXFold.lib(VertexTypes.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(VertexTypes.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+DirectXFold.lib(SpriteFont.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(SpriteFont.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+DirectXFold.lib(PrimitiveBatch.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(PrimitiveBatch.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+DirectXFold.lib(SpriteBatch.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(SpriteBatch.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+DirectXFold.lib(SimpleMath.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(SimpleMath.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+DirectXFold.lib(pch.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(pch.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+DirectXFold.lib(Mouse.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(Mouse.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+DirectXFold.lib(Keyboard.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(Keyboard.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+DirectXFold.lib(EffectCommon.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(EffectCommon.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+DirectXFold.lib(BinaryReader.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(BinaryReader.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+DirectXFold.lib(DDSTextureLoader.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(DDSTextureLoader.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+DirectXFold.lib(CommonStates.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(CommonStates.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+DirectXFold.lib(BasicEffect.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(BasicEffect.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
+  GameExample.vcxproj -> D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\GameExample.exe

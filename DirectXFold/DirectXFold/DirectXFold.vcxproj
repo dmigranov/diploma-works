@@ -32,7 +32,6 @@
     <ClCompile Include="src\SphericalAsteroid.cpp" />
     <ClCompile Include="src\SphericalCube.cpp" />
     <ClCompile Include="src\SphericalOctahedron.cpp" />
-    <ClCompile Include="src\main.cppW" />
     <ClCompile Include="src\SphericalMesh.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

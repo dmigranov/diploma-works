@@ -114,9 +114,6 @@
     <ClCompile Include="SphericalEllipsoid.cpp">
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
     </ClCompile>
-    <ClCompile Include="src\main.cppW">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Game.h">
