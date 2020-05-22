@@ -34,21 +34,20 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         //auto mesh1 = new SphericalEllipsoid(0.15f, 0.15f, 0.15f, 20, 20, earthTexture);
         auto mesh1 = new SphericalSphere(0.15f, 20, 20, earthTexture);
 
-        mesh1->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
+        mesh1->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
             auto ks = Keyboard::Get().GetState();
-
+            //static Game game = Game::GetInstance();
             float gain = 0.045f;
             Matrix m = Matrix::Identity;
             if (ks.U)
-                m = SphericalRotationYW(-gain); //так всегда вверх!
+                m = SphericalRotationYW(-gain);
             if (ks.J)
                 m = SphericalRotationYW(gain);
             if (ks.H)
                 m = SphericalRotationXW(gain);
             if (ks.K)
                 m = SphericalRotationXW(-gain);
-
-            return in * m;
+            return  in *  m;  //так всегда вверх!
         }));
         game.AddMesh(mesh1);
 

@@ -44,6 +44,12 @@ const XMMATRIX& Camera::GetProj()
 	return m_proj;
 }
 
+const DirectX::XMMATRIX& Camera::GetCameraTransform()
+{
+	//todo
+	return Matrix();
+}
+
 void Camera::RecalculateMatrixProj()
 {
 	double sw = m_outputWidth;

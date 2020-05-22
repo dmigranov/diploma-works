@@ -726,6 +726,11 @@ void Game::SetBackgroundColor(DirectX::XMVECTORF32 color)
     g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
 }
 
+DirectX::SimpleMath::Matrix Game::GetCameraTransformMatrix()
+{
+    return m_camera->GetCameraTransform();
+}
+
 XMFLOAT4 Game::GetCartesianFromSpherical(float a1, float a2, float a3)
 {
     float sin3 = sinf(a3), cos3 = cosf(a3);

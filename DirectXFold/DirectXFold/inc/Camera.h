@@ -42,6 +42,7 @@ public:
 
 	virtual const DirectX::XMMATRIX& GetView();
 	virtual const DirectX::XMMATRIX& GetProj();
+	virtual const DirectX::XMMATRIX& GetCameraTransform();
 
 
 protected:

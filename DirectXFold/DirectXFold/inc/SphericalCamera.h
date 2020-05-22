@@ -13,6 +13,8 @@ public:
 	const DirectX::XMMATRIX& GetFrontProj();
 	const DirectX::XMMATRIX& GetBackProj();
 	const DirectX::XMMATRIX& GetEllipticalProj();
+	const DirectX::XMMATRIX& GetCameraTransform() override;
+
 
 	DirectX::SimpleMath::Vector4 GetPosition() override;
 	void Move(DirectX::SimpleMath::Vector3 v) override;

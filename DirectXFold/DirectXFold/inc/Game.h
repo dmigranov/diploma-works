@@ -18,7 +18,6 @@
 
 #include "PixelShader.h"
 
-
 #include "Mesh.h"
 
 #include "SphericalMesh.h"
@@ -30,7 +29,6 @@
 #include "SphericalEllipsoid.h"
 
 #include "HyperbolicMesh.h"
-
 
 #include "SimpleInputHandler.h"
 #include "SphericalCamera.h"
@@ -54,6 +52,7 @@ public:
     void MoveCamera(DirectX::SimpleMath::Vector3);
     void SetCameraFovY(float fovY);
     void SetBackgroundColor(DirectX::XMVECTORF32);
+    DirectX::SimpleMath::Matrix GetCameraTransformMatrix();
 
 private:
     Game(unsigned int width, unsigned int height) noexcept;

@@ -91,9 +91,14 @@ const XMMATRIX& SphericalCamera::GetEllipticalProj()
 	return ell;
 }
 
+const DirectX::XMMATRIX& SphericalCamera::GetCameraTransform()
+{
+	return ((Matrix)m_view).Transpose();
+}
+
 Vector4 SphericalCamera::GetPosition()
 {
-	return XMVector4Transform(spherePos, ((Matrix)m_view).Invert());
+	return XMVector4Transform(spherePos, ((Matrix)m_view).Transpose());
 }
 
 //v = dx dy dz (градусы)
