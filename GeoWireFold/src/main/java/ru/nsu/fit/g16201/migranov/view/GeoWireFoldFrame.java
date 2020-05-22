@@ -21,16 +21,13 @@ public class GeoWireFoldFrame extends MainFrame {
     private Presenter presenter;
     private DrawingPanel drawingPanel;
 
-
     private JPanel mainPanel;
     private JTabbedPane tabbedPane;
     private JPanel geodesicsPanel;
 
-
     private JTextField nField, mField, kField, swField, shField, znField, TiField, TjField;
     private JColorChooser backgroundColorChooser, figureColorChooser, geodesicColorChooser;
     private JButton confirmButton;
-
 
     private JTextField uStartField, vStartField, uDirField, vDirField;
     private JList geoList;

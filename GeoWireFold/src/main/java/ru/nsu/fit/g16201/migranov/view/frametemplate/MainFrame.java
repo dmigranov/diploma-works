@@ -20,7 +20,6 @@ import javax.swing.event.MenuDragMouseListener;
 
 
 public class MainFrame extends JFrame {
-	private static final long serialVersionUID = 1L;
 	private JMenuBar menuBar;
 	private JToolBar toolBar;
 	protected List<AbstractButton> deactivatedButtons = new ArrayList<>();
