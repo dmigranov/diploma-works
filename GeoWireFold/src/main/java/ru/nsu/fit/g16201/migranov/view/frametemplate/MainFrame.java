@@ -178,30 +178,6 @@ public class MainFrame extends JFrame {
 		return element;
 	}
 
-	public JButton createToolBarButton(JMenuItem item)
-	{
-		JButton button = new JButton(item.getIcon());
-		for(ActionListener listener: item.getActionListeners())
-			button.addActionListener(listener);
-		button.setToolTipText(item.getToolTipText());
-		return button;
-	}
-
-	public JButton createToolBarButton(String menuPath)
-	{
-		JMenuItem item = (JMenuItem)getMenuElement(menuPath);
-		if(item == null) 
-			throw new InvalidParameterException("Menu path not found: "+menuPath);
-		return createToolBarButton(item);
-	}
-
-	public void addToolBarButton(String menuPath, JLabel label)
-	{
-		JButton button = createToolBarButton(menuPath);
-		if(label != null)
-			button.addMouseListener(new StatusTitleListener(label));
-		toolBar.add(button);
-	}
 
 	public File getSaveFileName(String extension, String description)
 	{
