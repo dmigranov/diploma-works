@@ -24,7 +24,7 @@ public class MainFrame extends JFrame {
 	private JToolBar toolBar;
 	protected List<AbstractButton> deactivatedButtons = new ArrayList<>();
 
-	private JLabel statusLabel = new JLabel("");
+	private JLabel statusLabel;
 
 	public MainFrame()
 	{
@@ -35,6 +35,9 @@ public class MainFrame extends JFrame {
 		catch(Exception e)
 		{
 		}
+
+		statusLabel = new JLabel("");
+
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
