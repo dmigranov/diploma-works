@@ -125,7 +125,7 @@ public class MainFrame extends JFrame {
 			return menuBar;
 	}
 
-	public MenuElement getMenuElement(String menuPath)
+	private MenuElement getMenuElement(String menuPath)
 	{
 		MenuElement element = menuBar;
 		for(String pathElement: menuPath.split("/"))

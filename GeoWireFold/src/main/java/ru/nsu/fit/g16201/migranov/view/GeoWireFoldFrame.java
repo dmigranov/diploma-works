@@ -405,13 +405,11 @@ public class GeoWireFoldFrame extends MainFrame {
             geoListModel.addElement("Geodesic " + i);
     }
 
-    public void onOpen3D() throws NoSuchMethodException
+    public void onOpen3D()
     {
         File file = getOpenFileName("txt", "A 3D Spline description file");
         load3DFile(file);
     }
-
-
 
     private void load3DFile(File file)
     {
