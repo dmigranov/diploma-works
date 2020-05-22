@@ -30,9 +30,9 @@ public class GeoWireFoldFrame extends MainFrame {
     private JButton confirmButton;
 
     private JTextField uStartField, vStartField, uDirField, vDirField;
+    private JButton addGeodesicButton, removeGeodesicButton, saveGeodesicButton;
     private JList geoList;
     private DefaultListModel<String> geoListModel;
-    private JButton addGeodesicButton, removeGeodesicButton, saveGeodesicButton;
 
 
     public static void main(String[] args) throws Exception {
@@ -100,8 +100,8 @@ public class GeoWireFoldFrame extends MainFrame {
     private void createGeodesicsConfigurationPanel() {
         geodesicsPanel = new JPanel();
 
-        geoListModel = new DefaultListModel<String>();
-        geoList = new JList(geoListModel);
+        geoListModel = new DefaultListModel<>();
+        geoList = new JList<>(geoListModel);
 
         geoList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         geoList.setLayoutOrientation(JList.VERTICAL);
@@ -330,8 +330,6 @@ public class GeoWireFoldFrame extends MainFrame {
         addSubMenu("Help", KeyEvent.VK_H);
         addMenuAndToolBarButton("Help/About", "Shows program version and copyright information", KeyEvent.VK_A, "book.png", "onAbout", false);
     }
-
-
 
     private void updateFields() {
 

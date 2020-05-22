@@ -26,14 +26,12 @@ public class MainFrame extends JFrame {
 
 	private JLabel statusLabel;
 
-	public MainFrame()
+	private MainFrame()
 	{
-		try
-		{
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-		}
-		catch(Exception e)
-		{
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
 		}
 
 		statusLabel = new JLabel("");
@@ -62,7 +60,7 @@ public class MainFrame extends JFrame {
 		setTitle(title);
 	}
 
-	public JMenuItem createMenuItem(String title, String tooltip, int mnemonic, String icon, String actionMethod) throws SecurityException, NoSuchMethodException
+	private JMenuItem createMenuItem(String title, String tooltip, int mnemonic, String icon, String actionMethod) throws SecurityException, NoSuchMethodException
 	{
 		JMenuItem item = new JMenuItem(title);
 		item.setMnemonic(mnemonic);
@@ -91,7 +89,7 @@ public class MainFrame extends JFrame {
 		return menu;
 	}
 
-	public void addSubMenu(String title, int mnemonic)
+	protected void addSubMenu(String title, int mnemonic)
 	{
 		MenuElement element = getParentMenuElement(title);
 		if(element == null)
@@ -107,24 +105,7 @@ public class MainFrame extends JFrame {
 			throw new InvalidParameterException("Invalid menu path: "+title);
 	}
 
-	public void addMenuItem(String title, String tooltip, int mnemonic, String icon, String actionMethod, JLabel label) throws SecurityException, NoSuchMethodException
-	{
-		MenuElement element = getParentMenuElement(title);
-		if(element == null)
-			throw new InvalidParameterException("Menu path not found: "+title);
-		JMenuItem item = createMenuItem(getMenuPathName(title), tooltip, mnemonic, icon, actionMethod);
-		if(label != null) {
-			item.addMouseListener(new StatusTitleListener(label));
-		}
-		if(element instanceof JMenu)
-			((JMenu)element).add(item);
-		else if(element instanceof JPopupMenu)
-			((JPopupMenu)element).add(item);
-		else 
-			throw new InvalidParameterException("Invalid menu path: "+title);
-	}
-
-	public void addMenuAndToolBarButton(String path, String tooltip, int mnemonic, String icon, String actionMethod, boolean isDeactivated) throws NoSuchMethodException
+	protected void addMenuAndToolBarButton(String path, String tooltip, int mnemonic, String icon, String actionMethod, boolean isDeactivated) throws NoSuchMethodException
 	{
 		MenuElement element = getParentMenuElement(path);
 		if(element == null)
@@ -167,7 +148,7 @@ public class MainFrame extends JFrame {
 		}
 	}
 
-	protected String getMenuPathName(String menuPath) {
+	private String getMenuPathName(String menuPath) {
 		int pos = menuPath.lastIndexOf('/');
 		if (pos > 0)
 			return menuPath.substring(pos + 1);
@@ -175,7 +156,7 @@ public class MainFrame extends JFrame {
 			return menuPath;
 	}
 
-	protected MenuElement getParentMenuElement(String menuPath)
+	private MenuElement getParentMenuElement(String menuPath)
 	{
 		int pos = menuPath.lastIndexOf('/');
 		if(pos > 0)
