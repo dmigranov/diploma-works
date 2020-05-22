@@ -16,9 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GeoWireFoldFrame extends MainFrame {
-    private JLabel statusLabel = new JLabel("");
-
-    private List<AbstractButton> deactivatedButtons = new ArrayList<>();
     private boolean fileIsLoaded = false;
 
     private Presenter presenter;
@@ -96,13 +93,7 @@ public class GeoWireFoldFrame extends MainFrame {
 
         add(mainPanel);
 
-        JPanel statusPanel = new JPanel();
-        statusPanel.setBorder(new BevelBorder(BevelBorder.LOWERED));
-        statusPanel.setPreferredSize(new Dimension(getWidth(), 16));
-        statusLabel.setHorizontalAlignment(SwingConstants.LEFT);
-        statusPanel.setLayout(new BoxLayout(statusPanel, BoxLayout.X_AXIS));
-        statusPanel.add(statusLabel);
-        add(statusPanel, BorderLayout.SOUTH);
+
 
         setMinimumSize(new Dimension(800, 600));
         setLocationRelativeTo(null);
@@ -343,48 +334,7 @@ public class GeoWireFoldFrame extends MainFrame {
         addMenuAndToolBarButton("Help/About", "Shows program version and copyright information", KeyEvent.VK_A, "book.png", "onAbout", false);
     }
 
-    private void addMenuAndToolBarButton(String path, String tooltip, int mnemonic, String icon, String actionMethod, boolean isDeactivated) throws NoSuchMethodException
-    {
-        MenuElement element = getParentMenuElement(path);
-        if(element == null)
-            throw new InvalidParameterException("Menu path not found: " + path);
-        String title = getMenuPathName(path);
-        JMenuItem item = new JMenuItem(title);
-        item.setMnemonic(mnemonic);
-        item.setToolTipText(tooltip);
-        item.addMouseListener(new StatusTitleListener(statusLabel));
-        final Method method = getClass().getMethod(actionMethod);
-        item.addActionListener(evt -> {
-            try {
-                method.invoke(GeoWireFoldFrame.this);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        });
 
-        if(element instanceof JMenu)
-            ((JMenu)element).add(item);
-        else if(element instanceof JPopupMenu)
-            ((JPopupMenu)element).add(item);
-        else
-            throw new InvalidParameterException("Invalid menu path: " + path);
-
-        JButton button = new JButton();
-        if(icon != null)
-            button.setIcon(new ImageIcon(getClass().getResource("/"+icon), title));
-        for(ActionListener listener: item.getActionListeners())
-            button.addActionListener(listener);
-        button.setToolTipText(tooltip);
-        button.addMouseListener(new StatusTitleListener(statusLabel));
-        toolBar.add(button);
-        if(isDeactivated)
-        {
-            item.setEnabled(false);
-            button.setEnabled(false);
-            deactivatedButtons.add(item);
-            deactivatedButtons.add(button);
-        }
-    }
 
     private void updateFields() {
 
