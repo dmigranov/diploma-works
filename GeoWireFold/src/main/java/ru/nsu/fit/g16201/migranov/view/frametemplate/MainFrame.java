@@ -68,18 +68,7 @@ public class MainFrame extends JFrame {
 		return item;
 	}
 
-	public JMenuItem createMenuItem(String title, String tooltip, int mnemonic, String actionMethod) throws SecurityException, NoSuchMethodException
-	{
-		return createMenuItem(title, tooltip, mnemonic, null, actionMethod);
-	}
-
-	/**
-	 * Creates submenu and returns it
-	 * @param title - submenu title
-	 * @param mnemonic - mnemonic key to activate submenu via keyboard
-	 * @return created submenu
-	 */
-	public JMenu createSubMenu(String title, int mnemonic)
+	private JMenu createSubMenu(String title, int mnemonic)
 	{
 		JMenu menu = new JMenu(title);
 		menu.setMnemonic(mnemonic);
@@ -98,7 +87,7 @@ public class MainFrame extends JFrame {
 			((JMenu)element).add(subMenu);
 		else if(element instanceof JPopupMenu)
 			((JPopupMenu)element).add(subMenu);
-		else 
+		else
 			throw new InvalidParameterException("Invalid menu path: "+title);
 	}
 
@@ -116,24 +105,6 @@ public class MainFrame extends JFrame {
 		else if(element instanceof JPopupMenu)
 			((JPopupMenu)element).add(item);
 		else 
-			throw new InvalidParameterException("Invalid menu path: "+title);
-	}
-
-	public void addMenuItem(String title, String tooltip, int mnemonic, String actionMethod, JLabel label) throws SecurityException, NoSuchMethodException
-	{
-		addMenuItem(title, tooltip, mnemonic, null, actionMethod, label);
-	}
-
-	public void addMenuSeparator(String title)
-	{
-		MenuElement element = getMenuElement(title);
-		if(element == null)
-			throw new InvalidParameterException("Menu path not found: "+title);
-		if(element instanceof JMenu)
-			((JMenu)element).addSeparator();
-		else if(element instanceof JPopupMenu)
-			((JPopupMenu)element).addSeparator();
-		else
 			throw new InvalidParameterException("Invalid menu path: "+title);
 	}
 
