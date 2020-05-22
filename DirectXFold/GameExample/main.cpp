@@ -15,6 +15,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     game.InitializeGame(hInstance, nCmdShow, true);
 
     {
+        game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
+        game.SetCameraFovY(XM_PI / 2);
+        game.SetBackgroundColor(DirectX::Colors::PowderBlue);
+
+
         auto earthTexture = game.CreateTexture(L"earth.dds");
         auto asteroidTexture = game.CreateTexture(L"asteroid2.dds");
         auto fabricTexture = game.CreateTexture(L"fabric.dds");
@@ -26,8 +31,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             MessageBox(nullptr, TEXT("Failed to load textures."), TEXT("Error"), MB_OK);
             return 1;
         }
-        game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
-        game.SetCameraFovY(XM_PI / 2);
 
         //auto mesh1 = new SphericalEllipsoid(0.15f, 0.15f, 0.15f, 20, 20, earthTexture);
         auto mesh1 = new SphericalSphere(0.15f, 20, 20, earthTexture);
@@ -61,7 +64,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         auto asteroid = new SphericalSphere(0.02f, 20, 20, asteroidTexture, SphericalRotationZW(-0.1f));
         asteroid->SetParent(moon);
         asteroid->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
-            return in * SphericalRotationXZ(delta);
+            return in * SphericalRotationXZ(7 * delta);
         }));
         game.AddMesh(asteroid);
 

@@ -53,6 +53,7 @@ public:
     void AddMesh(Mesh * mesh);
     void MoveCamera(DirectX::SimpleMath::Vector3);
     void SetCameraFovY(float fovY);
+    void SetBackgroundColor(DirectX::XMVECTORF32);
 
 private:
     Game(unsigned int width, unsigned int height) noexcept;
@@ -88,7 +89,6 @@ private:
     void Render();
     void Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil);
     void Present();
-
 
     bool LoadContent();
     void UnloadContent();

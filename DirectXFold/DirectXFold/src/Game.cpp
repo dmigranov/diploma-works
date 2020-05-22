@@ -720,6 +720,11 @@ void Game::SetCameraFovY(float fovY)
     m_camera->SetFovY(fovY);
 }
 
+void Game::SetBackgroundColor(DirectX::XMVECTORF32 color)
+{
+    perApplicationPSConstantBuffer.mistColor = color;
+}
+
 XMFLOAT4 Game::GetCartesianFromSpherical(float a1, float a2, float a3)
 {
     float sin3 = sinf(a3), cos3 = cosf(a3);
