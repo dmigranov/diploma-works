@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectXFold", "DirectXFold.vcxproj", "{802A2142-3802-46EF-946B-42BFD9754DCA}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExampleGame", "..\ExampleGame\ExampleGame.vcxproj", "{7D754925-6FCC-4EC3-8F3D-D303FAEF7205}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{802A2142-3802-46EF-946B-42BFD9754DCA}.Release|x64.Build.0 = Release|x64
 		{802A2142-3802-46EF-946B-42BFD9754DCA}.Release|x86.ActiveCfg = Release|Win32
 		{802A2142-3802-46EF-946B-42BFD9754DCA}.Release|x86.Build.0 = Release|Win32
+		{7D754925-6FCC-4EC3-8F3D-D303FAEF7205}.Debug|x64.ActiveCfg = Debug|x64
+		{7D754925-6FCC-4EC3-8F3D-D303FAEF7205}.Debug|x64.Build.0 = Debug|x64
+		{7D754925-6FCC-4EC3-8F3D-D303FAEF7205}.Debug|x86.ActiveCfg = Debug|Win32
+		{7D754925-6FCC-4EC3-8F3D-D303FAEF7205}.Debug|x86.Build.0 = Debug|Win32
+		{7D754925-6FCC-4EC3-8F3D-D303FAEF7205}.Release|x64.ActiveCfg = Release|x64
+		{7D754925-6FCC-4EC3-8F3D-D303FAEF7205}.Release|x64.Build.0 = Release|x64
+		{7D754925-6FCC-4EC3-8F3D-D303FAEF7205}.Release|x86.ActiveCfg = Release|Win32
+		{7D754925-6FCC-4EC3-8F3D-D303FAEF7205}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
