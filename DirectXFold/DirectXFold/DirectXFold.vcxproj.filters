@@ -48,9 +48,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="src\Game.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -116,6 +113,9 @@
     </ClCompile>
     <ClCompile Include="SphericalEllipsoid.cpp">
       <Filter>Исходные файлы\Meshes\Spherical</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cppW">
+      <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -224,37 +224,5 @@
   <ItemGroup>
     <Text Include="meshes.txt" />
     <Text Include="WARNING.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <CopyFileToFolders Include="res\mesh1.sph">
-      <Filter>Файлы ресурсов</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="cat.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="asphalt.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="fabric.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="asteroid.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="asteroid2.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="earth.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="res\mesh2.sph">
-      <Filter>Файлы ресурсов</Filter>
-    </CopyFileToFolders>
-    <CopyFileToFolders Include="res\mesh3.sph" />
-    <CopyFileToFolders Include="sviborg.DDS" />
-    <CopyFileToFolders Include="moon.DDS" />
-    <CopyFileToFolders Include="fire.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </CopyFileToFolders>
   </ItemGroup>
 </Project>

@@ -73,18 +73,28 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>D:\Диплом\MY CODE\DirectXFold\DirectXFold\packages\directxtk_desktop_2015.2019.12.17.1\include;D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Диплом\MY CODE\DirectXFold\DirectXFold\packages\directxtk_desktop_2015.2019.12.17.1\lib\x64\Release;D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64;$(LibraryPath)</LibraryPath>
+    <OutDir>bin64\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>D:\Диплом\MY CODE\DirectXFold\DirectXFold\packages\directxtk_desktop_2015.2019.12.17.1\include;D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin;$(LibraryPath)</LibraryPath>
+    <OutDir>bin</OutDir>
+    <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>D:\Диплом\MY CODE\DirectXFold\DirectXFold\packages\directxtk_desktop_2015.2019.12.17.1\include;D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Диплом\MY CODE\DirectXFold\DirectXFold\packages\directxtk_desktop_2015.2019.12.17.1\lib\x64\Debug;D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64;$(LibraryPath)</LibraryPath>
+    <OutDir>bin64\</OutDir>
+    <TargetName>$(ProjectName)d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>D:\Диплом\MY CODE\DirectXFold\DirectXFold\packages\directxtk_desktop_2015.2019.12.17.1\include;D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Диплом\MY CODE\DirectXFold\DirectXFold\packages\directxtk_desktop_2015.2019.12.17.1\lib\Win32\Release;D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin;$(LibraryPath)</LibraryPath>
+    <OutDir>bin</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -102,6 +112,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>DirectXFold.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -116,6 +127,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>DirectXFoldd.lib;%(AdditionalDependencies);DirectXTK.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -130,6 +142,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>DirectXFoldd.lib;DirectXTK.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -148,14 +161,87 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>DirectXFold.lib;%(AdditionalDependencies);DirectXTK.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="GameExample.ico" />
-    <Image Include="small.ico" />
+    <CopyFileToFolders Include="..\DirectXFold\asphalt.DDS">
+      <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\DirectXFold\asteroid.DDS">
+      <DeploymentContent>true</DeploymentContent>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\DirectXFold\asteroid2.DDS">
+      <DeploymentContent>true</DeploymentContent>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\DirectXFold\cat.DDS">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <DeploymentContent>true</DeploymentContent>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\DirectXFold\earth.DDS">
+      <DeploymentContent>true</DeploymentContent>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\DirectXFold\fabric.DDS">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <DeploymentContent>true</DeploymentContent>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\DirectXFold\fire.DDS" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\DirectXFold\res\mesh1.sph">
+      <FileType>Text</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <DeploymentContent>true</DeploymentContent>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\DirectXFold\res\mesh2.sph">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\DirectXFold\moon.DDS" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\DirectXFold\sviborg.DDS" />
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\DirectXFold\myfile.spritefont">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="..\DirectXFold\res\mesh3.sph">
+      <FileType>Document</FileType>
+    </CopyFileToFolders>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

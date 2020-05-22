@@ -1,4 +1,41 @@
-﻿  pch.cpp
+﻿  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\PixelShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\BasicPixelShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\BasicVertexShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\BasicVertexShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\VertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\BasicVertexShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\MorphingVertexShader.hlsl(36,9-24): warning X3206: implicit truncation of vector type
+  
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\MorphingVertexShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\Data\Shaders\VertexEllipticalExpFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\EllExpVertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexEllipticalExpFogShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexEllipticalExpSqFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexEllipticalExpSqFogShader.hlsl(53,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\EllExp2VertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexEllipticalExpSqFogShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\SphExpVertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexSphericalExpFogShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpSqFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalExpSqFogShader.hlsl(49,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\SphExp2VertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexSphericalExpSqFogShader.cso
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalLinearFogShader.hlsl(50,2): warning X4000: use of potentially uninitialized variable (viewMatrix)
+D:\������\MY CODE\DirectXFold\DirectXFold\VertexSphericalLinearFogShader.hlsl(50,2): warning X4000: use of potentially uninitialized variable (projectionMatrix)
+  
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\SphLinVertexShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\VertexSphericalLinearFogShader.cso
+  compilation header save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc\GeometryShader.h
+  compilation object save succeeded; see D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\GeometryShader.cso
+  pch.cpp
   GameWindows.cpp
   SphericalEllipsoid.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\SphericalEllipsoid.cpp(71,46): warning C4267: 'initializing': conversion from 'size_t' to 'WORD', possible loss of data
@@ -42,8 +79,6 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\Game.cpp(546,99): warning C4
   HyperbolicMath.cpp
   HyperbolicMesh.cpp
   Mesh.cpp
-  Shader.cpp
-  SimpleInputHandler.cpp
   SphericalAsteroid.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(16,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(45,118): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -52,11 +87,6 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(45,213
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(81,46): warning C4267: 'initializing': conversion from 'size_t' to 'WORD', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(91,36): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalAsteroid.cpp(94,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  SphericalCamera.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(114,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(115,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(117,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(117,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   SphericalCube.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(38,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(38,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -90,39 +120,6 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(45,54): wa
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(45,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(45,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCube.cpp(45,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  SphericalMesh.cpp
-  SphericalMeshLoader.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(38,74): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(38,63): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(38,52): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(38,41): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(45,46): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(45,35): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
-          with
-          [
-              _Ty=double
-          ]
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(93,98): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   SphericalOctahedron.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(34,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(34,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
@@ -236,20 +233,54 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(288,
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(287,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(286,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(285,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  main.cppW
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\main.cppW(76,108): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\main.cppW(76,139): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  SphericalMesh.cpp
+  Shader.cpp
+  SimpleInputHandler.cpp
+  SphericalCamera.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(114,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(115,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(117,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalCamera.cpp(117,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  SphericalMeshLoader.cpp
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(38,74): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(38,63): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(38,52): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(38,41): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(45,46): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(45,35): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(93,98): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   SphericalSphere.cpp
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalSphere.cpp(69,46): warning C4267: 'initializing': conversion from 'size_t' to 'WORD', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalSphere.cpp(79,36): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalSphere.cpp(82,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  TextDrawer.cpp
   Compiling...
+  TextDrawer.cpp
   Texture.cpp
-  main.cpp
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\main.cpp(76,108): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\main.cpp(76,139): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     Creating library bin64\DirectXFold.lib and object bin64\DirectXFold.exp
-  Generating code
-  0 of 1338 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFold.exe
+  DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFold.lib
