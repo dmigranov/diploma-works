@@ -220,9 +220,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="res\mesh3.sph">
-      <Filter>Файлы ресурсов</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="meshes.txt" />
@@ -253,16 +250,11 @@
     <CopyFileToFolders Include="res\mesh2.sph">
       <Filter>Файлы ресурсов</Filter>
     </CopyFileToFolders>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="sviborg.DDS">
+    <CopyFileToFolders Include="res\mesh3.sph" />
+    <CopyFileToFolders Include="sviborg.DDS" />
+    <CopyFileToFolders Include="moon.DDS" />
+    <CopyFileToFolders Include="fire.DDS">
       <Filter>Файлы ресурсов</Filter>
-    </Image>
-    <Image Include="fire.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </Image>
-    <Image Include="moon.DDS">
-      <Filter>Файлы ресурсов</Filter>
-    </Image>
+    </CopyFileToFolders>
   </ItemGroup>
 </Project>

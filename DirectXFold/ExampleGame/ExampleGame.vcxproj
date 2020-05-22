@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{7D754925-6FCC-4EC3-8F3D-D303FAEF7205}</ProjectGuid>
@@ -71,15 +74,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc;D:\Диплом\MY CODE\DirectXFold\DirectXFold\packages\directxtk_desktop_2015.2019.12.17.1\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc;D:\Диплом\MY CODE\DirectXFold\DirectXFold\packages\directxtk_desktop_2015.2019.12.17.1\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc;D:\Диплом\MY CODE\DirectXFold\DirectXFold\packages\directxtk_desktop_2015.2019.12.17.1\include</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\Диплом\MY CODE\DirectXFold\DirectXFold\inc;D:\Диплом\MY CODE\DirectXFold\DirectXFold\packages\directxtk_desktop_2015.2019.12.17.1\include</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -137,8 +144,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
