@@ -4,12 +4,13 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.nio.charset.Charset;
+import java.util.Objects;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.filechooser.FileFilter;
 
-public class FileUtils {
+class FileUtils {
 	private static File dataDirectory = null;
 
 	private static File getDataDirectory()
@@ -26,7 +27,7 @@ public class FileUtils {
 				dataDirectory = new File(".");
 			}
 			if(dataDirectory == null || !dataDirectory.exists()) dataDirectory = new File(".");
-			for(File f: dataDirectory.listFiles())
+			for(File f: Objects.requireNonNull(dataDirectory.listFiles()))
 			{
 				if(f.isDirectory() && f.getName().endsWith("_Data"))
 				{
