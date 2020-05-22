@@ -11,11 +11,8 @@ import javax.swing.filechooser.FileFilter;
 
 public class FileUtils {
 	private static File dataDirectory = null;
-	/**
-	 * Returns File pointing to Data controller of current project. If Data controller is not found, returns project controller.
-	 * @return File object. 
-	 */
-	public static File getDataDirectory()
+
+	private static File getDataDirectory()
 	{
 		if(dataDirectory == null)
 		{
@@ -41,15 +38,8 @@ public class FileUtils {
 		return dataDirectory;
 	}
 
-	/**
-	 * Prompts user for file name to save and returns it
-	 * @param parent - parent frame for file selection dialog
-	 * @param extension - preferred file extension (example: "txt") 
-	 * @param description - description of specified file type (example: "Text files")
-	 * @return File specified by user or null if user canceled operation
-	 * @see MainFrame.getOpenFileName
-	 */
-	public static File getSaveFileName(JFrame parent, String extension, String description)
+
+	static File getSaveFileName(JFrame parent, String extension, String description)
 	{
 		JFileChooser fileChooser = new JFileChooser();
 		FileFilter filter = new ExtensionFileFilter(extension, description);
@@ -64,16 +54,8 @@ public class FileUtils {
 		}
 		return null;
 	}
-	
-	/**
-	 * Prompts user for file name to open and returns it
-	 * @param parent - parent frame for file selection dialog
-	 * @param extension - preferred file extension (example: "txt") 
-	 * @param description - description of specified file type (example: "Text files")
-	 * @return File specified by user or null if user canceled operation
-	 * @see MainFrame.getSaveFileName
-	 */
-	public static File getOpenFileName(JFrame parent, String extension, String description)
+
+	static File getOpenFileName(JFrame parent, String extension, String description)
 	{
 		JFileChooser fileChooser = new JFileChooser();
 		FileFilter filter = new ExtensionFileFilter(extension, description);
@@ -89,16 +71,4 @@ public class FileUtils {
 		return null;
 	}
 
-	public static File getOpenFileName(JFrame parent)
-	{
-		JFileChooser fileChooser = new JFileChooser();
-		fileChooser.setCurrentDirectory(getDataDirectory());
-		if(fileChooser.showOpenDialog(parent) == JFileChooser.APPROVE_OPTION)
-		{
-			File f = fileChooser.getSelectedFile();
-
-			return f;
-		}
-		return null;
-	}
 }
