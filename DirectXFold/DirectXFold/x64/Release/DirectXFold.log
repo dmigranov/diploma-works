@@ -233,9 +233,6 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(288,
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(287,19): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(286,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalOctahedron.cpp(285,41): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  main.cppW
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\main.cppW(76,108): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\main.cppW(76,139): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   SphericalMesh.cpp
   Shader.cpp
   SimpleInputHandler.cpp
@@ -280,7 +277,7 @@ D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalMeshLoader.cpp(93,9
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalSphere.cpp(69,46): warning C4267: 'initializing': conversion from 'size_t' to 'WORD', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalSphere.cpp(79,36): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
 D:\Диплом\MY CODE\DirectXFold\DirectXFold\src\SphericalSphere.cpp(82,34): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  Compiling...
   TextDrawer.cpp
+  Compiling...
   Texture.cpp
   DirectXFold.vcxproj -> D:\Диплом\MY CODE\DirectXFold\DirectXFold\bin64\DirectXFold.lib

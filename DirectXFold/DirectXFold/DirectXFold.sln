@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DirectXFold", "DirectXFold.vcxproj", "{802A2142-3802-46EF-946B-42BFD9754DCA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameExample", "..\GameExample\GameExample.vcxproj", "{040C97A7-C5D3-471B-8306-AE97DE1744BE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{802A2142-3802-46EF-946B-42BFD9754DCA} = {802A2142-3802-46EF-946B-42BFD9754DCA}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

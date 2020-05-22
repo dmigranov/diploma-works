@@ -5,16 +5,14 @@
 #include <pch.h>
 #include "Game.h"
 
-
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
-
 
 // Entry point
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
     Game& game = Game::GetInstance();
-    game.InitializeGame(hInstance, nCmdShow);
+    game.InitializeGame(hInstance, nCmdShow, true);
 
     {
         auto earthTexture = game.CreateTexture(L"earth.dds");
@@ -91,7 +89,6 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             mesh->SetParent(head);
             game.AddMesh(mesh);
         }
-
 
         auto mesh2 = SphericalMeshLoader::LoadMesh("mesh3.sph");
         mesh2->SetTexture(fabricTexture);

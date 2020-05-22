@@ -46,7 +46,7 @@ class Game
 {
 public:
     static Game& GetInstance();
-    int InitializeGame(HINSTANCE hInstance, int nCmdShow);
+    int InitializeGame(HINSTANCE hInstance, int nCmdShow, boolean isConsoleEnabled = false);
     int StartGame(HINSTANCE hInstance, int nCmdShow);
 
     Texture * CreateTexture(const WCHAR * name);
