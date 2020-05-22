@@ -281,6 +281,7 @@
       <EnableDebuggingInformation Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</EnableDebuggingInformation>
       <DisableOptimizations Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DisableOptimizations>
     </FxCompile>
+    <CopyFileToFolders Include="myfile.spritefont" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
