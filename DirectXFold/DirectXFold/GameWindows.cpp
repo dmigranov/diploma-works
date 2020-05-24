@@ -100,7 +100,7 @@ int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, boolean isConsoleE
         //тут, перед message loop, передаётся управление методу Init
         if (Initialize(hwnd, rc.right - rc.left, rc.bottom - rc.top) != 0)
         {
-            MessageBox(nullptr, TEXT("Failed to initialize DirectX device and swap chain."), TEXT("Error"), MB_OK);
+            MessageBox(nullptr, TEXT("Failed to initialize Direct3D pipeline."), TEXT("Error"), MB_OK);
             return -1;
         }
     }

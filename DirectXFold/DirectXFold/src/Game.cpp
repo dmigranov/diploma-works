@@ -248,12 +248,12 @@ int Game::Initialize(HWND window, int width, int height)
         if(ks.N)
         {
             if(perApplicationPSConstantBuffer.m_edgeThickness >= 0)
-                perApplicationPSConstantBuffer.m_edgeThickness -= 0.002;
+                perApplicationPSConstantBuffer.m_edgeThickness -= 0.0002;
             g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
         }
         if (ks.M)
         {
-            perApplicationPSConstantBuffer.m_edgeThickness += 0.002;
+            perApplicationPSConstantBuffer.m_edgeThickness += 0.0002;
             g_d3dDeviceContext->UpdateSubresource(g_d3dPSConstantBuffer, 0, nullptr, &perApplicationPSConstantBuffer, 0, 0);
         }
         float mouseLikeGain = 1.f * deltaTime;
