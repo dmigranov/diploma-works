@@ -41,7 +41,7 @@ int Game::StartGame(HINSTANCE hInstance, int nCmdShow)
 }
 
 
-int Game::InitializeGame(HINSTANCE hInstance, int nCmdShow, boolean isConsoleEnabled)
+int Game::InitializeEngine(HINSTANCE hInstance, int nCmdShow, boolean isConsoleEnabled)
 {
     if (!XMVerifyCPUSupport())
         return 1;

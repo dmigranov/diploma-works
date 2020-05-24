@@ -12,7 +12,7 @@ using namespace DirectX::SimpleMath;
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
     Game& game = Game::GetInstance();
-    game.InitializeGame(hInstance, nCmdShow, true);
+    game.InitializeEngine(hInstance, nCmdShow, true);
 
     {
         game.MoveCamera(Vector3(0, 0, -XM_PI / 4));

@@ -55,7 +55,7 @@ public class Presenter {
         drawingPanel.addMouseWheelListener(e -> {
             int count = e.getWheelRotation();
 
-            if(e.isControlDown())
+            if(!e.isControlDown())
             {
                 double dz = -count * 0.5;
                 Point3D forward = Point3D.add(ref, Point3D.getNegative(eye));

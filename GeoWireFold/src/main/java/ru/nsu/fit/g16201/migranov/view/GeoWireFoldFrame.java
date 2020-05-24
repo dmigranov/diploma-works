@@ -319,7 +319,7 @@ public class GeoWireFoldFrame extends MainFrame {
 
     private void addMenus() throws NoSuchMethodException {
         addSubMenu("File", KeyEvent.VK_F);
-        addMenuAndToolBarButton("File/Open 3D Spline file", "Open a 3D Spline file", KeyEvent.VK_T, "upload-1.png", "onOpen3D", false);
+        addMenuAndToolBarButton("File/Open surface description", "Open a surface description file", KeyEvent.VK_T, "upload-1.png", "onOpen3D", false);
         //addMenuAndToolBarButton("File/Save as", "Save figures as", KeyEvent.VK_S, "download.png", "onSave", true);
 
         addSubMenu("Options", KeyEvent.VK_O);
