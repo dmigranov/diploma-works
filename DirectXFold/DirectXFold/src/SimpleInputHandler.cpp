@@ -6,7 +6,7 @@ using namespace DirectX::SimpleMath;
 
 //extern void ExitGame();
 
-const float MOVEMENT_GAIN = 0.7f;
+const float MOVEMENT_GAIN = 0.1f;
 const float ROTATION_GAIN = 1.3f;
 
 SimpleInputHandler::SimpleInputHandler(std::shared_ptr<Camera> camera, std::function<void(float deltaTime)> func, HWND window)
