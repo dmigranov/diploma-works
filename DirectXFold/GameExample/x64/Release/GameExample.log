@@ -1,8 +1,9 @@
-﻿     Creating library bin64\GameExample.lib and object bin64\GameExample.exp
+﻿  main.cpp
+     Creating library bin64\GameExample.lib and object bin64\GameExample.exp
   Generating code
-  1 of 1339 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  1 of 915 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 DirectXFold.lib(VertexTypes.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(VertexTypes.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
 DirectXFold.lib(SpriteFont.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(SpriteFont.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info

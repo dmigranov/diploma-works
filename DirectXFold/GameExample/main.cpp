@@ -32,7 +32,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         }
 
         //auto mesh1 = new SphericalEllipsoid(0.15f, 0.15f, 0.15f, 20, 20, earthTexture);
-        auto mesh1 = new SphericalSphere(0.15f, 20, 20, earthTexture);
+        auto mesh1 = new SphericalEllipsoid(0.99f, 0.55f, 0.15f, 20, 20, earthTexture);
 
         mesh1->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
             auto ks = Keyboard::Get().GetState();
@@ -51,7 +51,15 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         }));
         game.AddMesh(mesh1);
 
-        auto moon = new SphericalSphere(0.05f, 20, 20, moonTexture, SphericalRotationZW(-0.26f));
+
+        /*for (int i = 1; i < 8; i++)
+        {
+            Mesh* mesh = new SphericalSphere(0.15f, 20, 20, earthTexture, SphericalRotationZW(i * XM_PI / 8));
+            game.AddMesh(mesh);
+        }*/
+
+/*
+        auto moon = new SphericalSphere(0.05f, 20, 20, moonTexture, SphericalRotationZW(-0.66f));
         moon->SetParent(mesh1);
         moon->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
             return in * SphericalRotationXZ(delta);
@@ -65,9 +73,9 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             return in * SphericalRotationXZ(7 * delta);
         }));
         game.AddMesh(asteroid);
-
-
-        auto head = new SphericalSphere(0.08f, 20, 20, sviborgTexture);
+        */
+        
+        /*auto head = new SphericalSphere(0.08f, 20, 20, sviborgTexture);
         head->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
             auto ks = Keyboard::Get().GetState();
 
@@ -95,6 +103,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         mesh2->SetTexture(fabricTexture);
         mesh2->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationYW(0.09f));
         game.AddMesh(mesh2);
+        */
     }
 
     return game.StartGame(hInstance, nCmdShow);
