@@ -37,9 +37,11 @@ public class SplineCalculator {
                     knotsI[i] = i - Ti;
                 else //i > n
                     knotsI[i] = Ni - Ti + 1;
+                System.out.println(knotsI[i]);
+
             }
             uMin = knotsI[0];
-            uMax = knotsI[Ni + Ti];
+            uMax = knotsI[Ni + Ti + 1];
 
             for (int j = 0; j < knotsJ.length; j++) {
                 if (j <= Tj)
@@ -51,7 +53,7 @@ public class SplineCalculator {
 
             }
             vMin = knotsJ[0];
-            vMax = knotsJ[Nj + Tj];
+            vMax = knotsJ[Nj + Tj + 1];
 
     }
 

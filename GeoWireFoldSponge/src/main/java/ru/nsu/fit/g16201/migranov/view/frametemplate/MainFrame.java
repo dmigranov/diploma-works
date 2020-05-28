@@ -15,19 +15,12 @@ import javax.swing.*;
 import javax.swing.event.MenuDragMouseEvent;
 import javax.swing.event.MenuDragMouseListener;
 
-/**
- * MainFrame - main application frame
- * Application should subclass it to create its own implementation 
- * @author Tagir F. Valeev
- */
+
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	protected JMenuBar menuBar;
 	protected JToolBar toolBar;
 
-	/**
-	 * Default constructor which sets up L&F and creates tool-bar and menu-bar 
-	 */
 	public MainFrame()
 	{
 		try
@@ -45,12 +38,6 @@ public class MainFrame extends JFrame {
 		add(toolBar, BorderLayout.PAGE_START);
 	}
 
-	/**
-	 * Constructor where you can specify window size and title
-	 * @param x - horizontal size of newly created window
-	 * @param y - vertical size of newly created window
-	 * @param title - window title
-	 */
 	public MainFrame(int x, int y, String title)
 	{
 		this();
@@ -59,18 +46,6 @@ public class MainFrame extends JFrame {
 		setTitle(title);
 	}
 
-	/**
-	 * Shortcut method to create menu item
-	 * Note that you have to insert it into proper place by yourself
-	 * @param title - menu item title
-	 * @param tooltip - floating tooltip describing menu item
-	 * @param mnemonic - mnemonic key to activate item via keyboard
-	 * @param icon - file name containing icon (must be located in 'resources' subpackage relative to your implementation of MainFrame), can be null
-	 * @param actionMethod - String containing method name which will be called when menu item is activated (method should not take any parameters)
-	 * @return created menu item
-	 * @throws NoSuchMethodException - when actionMethod method not found
-	 * @throws SecurityException - when actionMethod method is inaccessible
-	 */
 	public JMenuItem createMenuItem(String title, String tooltip, int mnemonic, String icon, String actionMethod) throws SecurityException, NoSuchMethodException
 	{
 		JMenuItem item = new JMenuItem(title);
@@ -92,42 +67,19 @@ public class MainFrame extends JFrame {
 		});
 		return item;
 	}
-	
-	/**
-	 * Shortcut method to create menu item (without icon)
-	 * Note that you have to insert it into proper place by yourself
-	 * @param title - menu item title
-	 * @param tooltip - floating tooltip describing menu item
-	 * @param mnemonic - mnemonic key to activate item via keyboard
-	 * @param actionMethod - String containing method name which will be called when menu item is activated (method should not take any parameters)
-	 * @return created menu item
-	 * @throws NoSuchMethodException - when actionMethod method not found
-	 * @throws SecurityException - when actionMethod method is inaccessible
-	 */
+
 	public JMenuItem createMenuItem(String title, String tooltip, int mnemonic, String actionMethod) throws SecurityException, NoSuchMethodException
 	{
 		return createMenuItem(title, tooltip, mnemonic, null, actionMethod);
 	}
 
-	/**
-	 * Creates submenu and returns it
-	 * @param title - submenu title
-	 * @param mnemonic - mnemonic key to activate submenu via keyboard
-	 * @return created submenu
-	 */
 	public JMenu createSubMenu(String title, int mnemonic)
 	{
 		JMenu menu = new JMenu(title);
 		menu.setMnemonic(mnemonic);
 		return menu;
 	}
-	
-	/**
-	 * Creates submenu and inserts it to the specified location 
-	 * @param title - submenu title with full path (just submenu title for top-level submenus)
-	 * example: "File/New" - will create submenu "New" under menu "File" (provided that menu "File" was previously created)
-	 * @param mnemonic - mnemonic key to activate submenu via keyboard
-	 */
+
 	public void addSubMenu(String title, int mnemonic)
 	{
 		MenuElement element = getParentMenuElement(title);
@@ -143,18 +95,7 @@ public class MainFrame extends JFrame {
 		else 
 			throw new InvalidParameterException("Invalid menu path: "+title);
 	}
-	
-	/**
-	 * Creates menu item and adds it to the specified menu location
-	 * @param title - menu item title with full path
-	 * @param tooltip - floating tooltip describing menu item
-	 * @param mnemonic - mnemonic key to activate item via keyboard
-	 * @param icon - file name containing icon (must be located in 'resources' subpackage relative to your implementation of MainFrame), can be null
-	 * @param actionMethod - String containing method name which will be called when menu item is activated (method should not take any parameters)
-	 * @throws NoSuchMethodException - when actionMethod method not found
-	 * @throws SecurityException - when actionMethod method is inaccessible
-	 * @throws InvalidParameterException - when specified menu location not found
-	 */
+
 	public void addMenuItem(String title, String tooltip, int mnemonic, String icon, String actionMethod, JLabel label) throws SecurityException, NoSuchMethodException
 	{
 		MenuElement element = getParentMenuElement(title);
@@ -171,27 +112,12 @@ public class MainFrame extends JFrame {
 		else 
 			throw new InvalidParameterException("Invalid menu path: "+title);
 	}
-	
-	/**
-	 * Creates menu item (without icon) and adds it to the specified menu location
-	 * @param title - menu item title with full path
-	 * @param tooltip - floating tooltip describing menu item
-	 * @param mnemonic - mnemonic key to activate item via keyboard
-	 * @param actionMethod - String containing method name which will be called when menu item is activated (method should not take any parameters)
-	 * @throws NoSuchMethodException - when actionMethod method not found
-	 * @throws SecurityException - when actionMethod method is inaccessible
-	 * @throws InvalidParameterException - when specified menu location not found
-	 */
+
 	public void addMenuItem(String title, String tooltip, int mnemonic, String actionMethod, JLabel label) throws SecurityException, NoSuchMethodException
 	{
 		addMenuItem(title, tooltip, mnemonic, null, actionMethod, label);
 	}
-	
-	/**
-	 * Adds menu separator in specified menu location
-	 * @param title - menu location
-	 * @throws InvalidParameterException - when specified menu location not found
-	 */
+
 	public void addMenuSeparator(String title)
 	{
 		MenuElement element = getMenuElement(title);
@@ -214,11 +140,6 @@ public class MainFrame extends JFrame {
 			return menuPath;
 	}
 
-	/**
-	 * Looks for menu element by menu path ignoring last path component
-	 * @param menuPath - '/'-separated path to menu item (example: "Help/About...") 
-	 * @return found menu item or null if no such item found
-	 */
 	protected MenuElement getParentMenuElement(String menuPath)
 	{
 		int pos = menuPath.lastIndexOf('/');
@@ -228,11 +149,6 @@ public class MainFrame extends JFrame {
 			return menuBar;
 	}
 
-	/**
-	 * Looks for menu element by menu path
-	 * @param menuPath - '/'-separated path to menu item (example: "Help/About...") 
-	 * @return found menu item or null if no such item found
-	 */
 	public MenuElement getMenuElement(String menuPath)
 	{
 		MenuElement element = menuBar;
@@ -257,11 +173,6 @@ public class MainFrame extends JFrame {
 		return element;
 	}
 
-	/**
-	 * Creates toolbar button which will behave exactly like specified menuitem
-	 * @param item - menuitem to create toolbar button from
-	 * @return created toolbar button
-	 */
 	public JButton createToolBarButton(JMenuItem item)
 	{
 		JButton button = new JButton(item.getIcon());
@@ -270,13 +181,7 @@ public class MainFrame extends JFrame {
 		button.setToolTipText(item.getToolTipText());
 		return button;
 	}
-	
-	/**
-	 * Creates toolbar button which will behave exactly like specified menuitem
-	 * @param menuPath - path to menu item to create toolbar button from
-	 * @return created toolbar button
-	 * @see MainFrame.getMenuItem
-	 */
+
 	public JButton createToolBarButton(String menuPath)
 	{
 		JMenuItem item = (JMenuItem)getMenuElement(menuPath);
@@ -285,10 +190,6 @@ public class MainFrame extends JFrame {
 		return createToolBarButton(item);
 	}
 
-	/**
-	 * Creates toolbar button which will behave exactly like specified menuitem and adds it to the toolbar
-	 * @param menuPath - path to menu item to create toolbar button from
-	 */
 	public void addToolBarButton(String menuPath, JLabel label)
 	{
 		JButton button = createToolBarButton(menuPath);
@@ -297,33 +198,12 @@ public class MainFrame extends JFrame {
 		toolBar.add(button);
 	}
 
-	/**
-	 * Adds separator to the toolbar
-	 */
-	public void addToolBarSeparator()
-	{
-		toolBar.addSeparator();
-	}
 
-	/**
-	 * Prompts user for file name to save and returns it
-	 * @param extension - preferred file extension (example: "txt") 
-	 * @param description - description of specified file type (example: "Text files")
-	 * @return File specified by user or null if user canceled operation
-	 * @see MainFrame.getOpenFileName
-	 */
 	public File getSaveFileName(String extension, String description)
 	{
 		return FileUtils.getSaveFileName(this, extension, description);
 	}
-	
-	/**
-	 * Prompts user for file name to open and returns it
-	 * @param extension - preferred file extension (example: "txt") 
-	 * @param description - description of specified file type (example: "Text files")
-	 * @return File specified by user or null if user canceled operation
-	 * @see MainFrame.getSaveFileName
-	 */
+
 	public File getOpenFileName(String extension, String description)
 	{
 		return FileUtils.getOpenFileName(this, extension, description);

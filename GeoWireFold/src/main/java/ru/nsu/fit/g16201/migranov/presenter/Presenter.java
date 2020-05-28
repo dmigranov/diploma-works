@@ -180,12 +180,9 @@ public class Presenter {
 
     private double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
 
-    private int frameCount = 0, geoFrameCount = 0;
-    private long cumulative = 0, geoCumulative = 0;
 
     public void drawFigure() {
-        long startTime = System.nanoTime();
-        boolean wasToBeRedrawn = needsToBeRedrawn;
+
 
         drawingPanel.clear();
 
@@ -194,15 +191,9 @@ public class Presenter {
         if (needsToBeRedrawn) {
             findModelPoints();
             for(Geodesic geodesic : geodesics ) {
-                long geoStartTime = System.nanoTime();
+                //long geoStartTime = System.nanoTime();
 
                 geodesicsCalculator.calculateGeodesic(geodesic);
-
-                long geoEndTime = System.nanoTime();
-
-                geoCumulative += (geoEndTime - geoStartTime);
-                geoFrameCount++;
-                System.out.println(geoCumulative/1000000./geoFrameCount);
 
             }
             //короче, там при i = n*k j = m*k возникают проблемы с вычислением базисной функции, тк там надо N(k+1)!
@@ -278,13 +269,6 @@ public class Presenter {
 
         drawingPanel.repaint();
 
-        long endTime = System.nanoTime();
-        if(!wasToBeRedrawn) {
-            cumulative += (endTime - startTime);
-            frameCount++;
-            //System.out.println(cumulative/1000000./frameCount);
-            //System.out.println((endTime - startTime)/1000000.);
-        }
     }
 
 
@@ -562,7 +546,7 @@ public class Presenter {
         double uMin = splineCalculator.getUMin(), uMax = splineCalculator.getUMax();
         double vMin = splineCalculator.getVMin(), vMax = splineCalculator.getVMax();
 
-        geodesics.add(new Geodesic((uMax - uMin)/2, (vMax - vMin)/2, (uMax-uMin)/10, (vMax-vMin)/10, Color.BLACK));
+        geodesics.add(new Geodesic((uMax - uMin)/2 , (vMax - vMin)/2 , (uMax-uMin)/10, (vMax-vMin)/10, Color.BLACK));
 
         needsToBeRedrawn = true;
 
