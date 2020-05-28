@@ -13,7 +13,7 @@ public class SplineFunction extends ManifoldFunction {
         uMax = splineCalculator.getUMax();
         vMin = splineCalculator.getVMin();
         vMax = splineCalculator.getVMax();
-
+        //todo: ОБНОВЛЯТЬ В СЛУЧАЕ ИЗМЕНЕНИЯ!!! БЛИН БЛИНСКИЙ
     }
 
 
@@ -23,5 +23,12 @@ public class SplineFunction extends ManifoldFunction {
         Point3D p = splineCalculator.calculateSplineFunction(u, v);
         if(p == null) return null;
         return new double[]{p.x, p.y, p.z};
+    }
+
+    public void updateLimits()
+    {
+        //todo: ОБНОВЛЯТЬ В СЛУЧАЕ ИЗМЕНЕНИЯ!!! БЛИН БЛИНСКИЙ
+
+        ;
     }
 }
