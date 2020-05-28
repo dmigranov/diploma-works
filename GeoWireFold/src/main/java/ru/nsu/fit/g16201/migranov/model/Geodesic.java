@@ -11,7 +11,7 @@ public class Geodesic {
 
     private Point3D[] points;
 
-    private boolean needsToBeRedrawn = true;
+    private boolean needsToBeRecalculated = true;
 
     public Geodesic(double uStart, double vStart, double uDir, double vDir, Color color) {
         this.uStart = uStart;
@@ -70,13 +70,13 @@ public class Geodesic {
         this.color = color;
     }
 
-    public boolean needsToBeRedrawn()
+    public boolean needsToBeRecalculated()
     {
-        return needsToBeRedrawn;
+        return needsToBeRecalculated;
     }
 
-    public void setNeedsToBeRedrawn(boolean b)
+    public void setNeedsToBeRecalculated(boolean b)
     {
-        needsToBeRedrawn = b;
+        needsToBeRecalculated = b;
     }
 }

@@ -193,7 +193,8 @@ public class Presenter {
             findModelPoints();
             for(Geodesic geodesic : geodesics ) {
                 //long geoStartTime = System.nanoTime();
-
+                if(!geodesic.needsToBeRecalculated())
+                    continue;;
                 geodesicsCalculator.calculateGeodesic(geodesic);
 
             }
@@ -252,6 +253,7 @@ public class Presenter {
         //drawGeodesic
         {
             for(Geodesic geodesic : geodesics) {
+
                 Point prev = null;
                 Color geoColor = geodesic.getColor();
                 for (Point3D p : geodesic.getPoints()) {
@@ -265,6 +267,7 @@ public class Presenter {
                         drawingPanel.drawLine(prev.x, prev.y, x, y, geoColor, 3);
                     prev = new Point(x, y);
                 }
+                geodesic.setNeedsToBeRecalculated(false);
             }
         }
 
@@ -568,8 +571,9 @@ public class Presenter {
         geodesic.setuDir(uDir);
         geodesic.setvDir(vDir);
         geodesic.setColor(color);
-
+        geodesic.setNeedsToBeRecalculated(true);
         needsToBeRedrawn = true;
+
         drawFigure();
     }
 }
