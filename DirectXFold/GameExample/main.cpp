@@ -31,12 +31,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             return 1;
         }
 
-        //auto mesh1 = new SphericalEllipsoid(0.15f, 0.15f, 0.15f, 20, 20, earthTexture);
-        auto mesh1 = new SphericalEllipsoid(0.99f, 0.55f, 0.15f, 20, 20, earthTexture);
+        auto mesh1 = new SphericalSphere(0.15f, 20, 20, earthTexture);
+        //auto mesh1 = new SphericalEllipsoid(0.9999f, 0.55f, 0.45f, 40, 40, asteroidTexture);
 
         mesh1->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
             auto ks = Keyboard::Get().GetState();
-            //static Game game = Game::GetInstance();
             float gain = 0.045f;
             Matrix m = Matrix::Identity;
             if (ks.U)
@@ -58,8 +57,8 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             game.AddMesh(mesh);
         }*/
 
-/*
-        auto moon = new SphericalSphere(0.05f, 20, 20, moonTexture, SphericalRotationZW(-0.66f));
+
+        auto moon = new SphericalSphere(0.05f, 20, 20, moonTexture, SphericalRotationZW(-0.39f));
         moon->SetParent(mesh1);
         moon->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
             return in * SphericalRotationXZ(delta);
@@ -73,7 +72,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             return in * SphericalRotationXZ(7 * delta);
         }));
         game.AddMesh(asteroid);
-        */
+        
         
         /*auto head = new SphericalSphere(0.08f, 20, 20, sviborgTexture);
         head->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
@@ -98,12 +97,13 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             mesh->SetParent(head);
             game.AddMesh(mesh);
         }
+        */
 
         auto mesh2 = SphericalMeshLoader::LoadMesh("mesh3.sph");
         mesh2->SetTexture(fabricTexture);
         mesh2->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationYW(0.09f));
         game.AddMesh(mesh2);
-        */
+        
     }
 
     return game.StartGame(hInstance, nCmdShow);
