@@ -45,6 +45,7 @@ public class Presenter {
     private List<Geodesic> geodesics;
 
     private SplineCalculator splineCalculator;
+    private SplineFunction splineFunction;
     private GeodesicsCalculator geodesicsCalculator;
 
     public Presenter(DrawingPanel drawingPanel) {
@@ -435,7 +436,8 @@ public class Presenter {
             }
 
             splineCalculator = new SplineCalculator(Ni, Nj, Ti, Tj, splinePoints);
-            geodesicsCalculator = new GeodesicsCalculator(new SplineFunction(splineCalculator));
+            splineFunction = new SplineFunction(splineCalculator);
+            geodesicsCalculator = new GeodesicsCalculator(splineFunction);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
             geodesics = new ArrayList<>();
             geodesics.add(new Geodesic(0.4, 0.1, 0, 0.2, Color.BLACK));
@@ -483,6 +485,7 @@ public class Presenter {
         drawingPanel.setBackgroundColor(backgroundColor);
 
         splineCalculator.setDegrees(ti, tj);
+        splineFunction.updateLimits();
         needsToBeRedrawn = true;
         drawFigure();
     }
