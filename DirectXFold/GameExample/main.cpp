@@ -1,6 +1,5 @@
 ﻿//inspired by:
 //https://www.3dgep.com/introduction-to-directx-11/#Initialize_DirectX
-//DirectXTK template by Chuck Walbourne
 
 #include <pch.h>
 #include "Game.h"
@@ -13,8 +12,19 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
 {
     Game& game = Game::GetInstance();
     game.InitializeEngine(hInstance, nCmdShow, true);
-
-    {
+    game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
+    game.SetCameraFovY(XM_PI / 2);
+    game.SetBackgroundColor(DirectX::Colors::PowderBlue);
+    auto earthTexture = game.CreateTexture(L"earth.dds");
+    auto mesh = new SphericalSphere(0.15f, 20, 20, earthTexture);
+    mesh->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
+        return in * SphericalRotationZW(-delta);
+    }));
+    game.AddMesh(mesh);
+    return game.StartGame(hInstance, nCmdShow);
+}
+    
+    /*{
         game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
         game.SetCameraFovY(XM_PI / 2);
         game.SetBackgroundColor(DirectX::Colors::PowderBlue);
@@ -51,11 +61,11 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         game.AddMesh(mesh1);
 
 
-        /*for (int i = 1; i < 8; i++)
+        for (int i = 1; i < 8; i++)
         {
             Mesh* mesh = new SphericalSphere(0.15f, 20, 20, earthTexture, SphericalRotationZW(i * XM_PI / 8));
             game.AddMesh(mesh);
-        }*/
+        }
 
 
         auto moon = new SphericalSphere(0.05f, 20, 20, moonTexture, SphericalRotationZW(-0.39f));
@@ -74,7 +84,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         game.AddMesh(asteroid);
         
         
-        /*auto head = new SphericalSphere(0.08f, 20, 20, sviborgTexture);
+        auto head = new SphericalSphere(0.08f, 20, 20, sviborgTexture);
         head->AddUpdater(Mesh::MeshUpdater([](Matrix in, float delta) {
             auto ks = Keyboard::Get().GetState();
 
@@ -97,14 +107,12 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
             mesh->SetParent(head);
             game.AddMesh(mesh);
         }
-        */
+        
 
         auto mesh2 = SphericalMeshLoader::LoadMesh("mesh3.sph");
         mesh2->SetTexture(fabricTexture);
         mesh2->SetWorldMatrix(SphericalRotationYZ(XM_PIDIV2) * SphericalRotationYW(0.09f));
         game.AddMesh(mesh2);
         
-    }
+    }*/
 
-    return game.StartGame(hInstance, nCmdShow);
-}

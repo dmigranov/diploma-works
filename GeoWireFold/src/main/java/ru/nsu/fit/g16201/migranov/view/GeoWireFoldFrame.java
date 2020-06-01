@@ -4,16 +4,11 @@ import ru.nsu.fit.g16201.migranov.presenter.Presenter;
 import ru.nsu.fit.g16201.migranov.view.frametemplate.MainFrame;
 
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
 import javax.swing.colorchooser.AbstractColorChooserPanel;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
-import java.lang.reflect.Method;
-import java.security.InvalidParameterException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GeoWireFoldFrame extends MainFrame {
     private boolean fileIsLoaded = false;
@@ -200,12 +195,11 @@ public class GeoWireFoldFrame extends MainFrame {
         else {
             removeGeodesicButton.setEnabled(true);
             saveGeodesicButton.setEnabled(true);
-            var geodesic = presenter.getGeodesic(index);
-            uStartField.setText(String.format("%.3f", geodesic.getuStart()));
-            uDirField.setText(String.format("%.3f", geodesic.getuDir()));
-            vStartField.setText(String.format("%.3f", geodesic.getvStart()));
-            vDirField.setText(String.format("%.3f", geodesic.getvDir()));
-            geodesicColorChooser.setColor(geodesic.getColor());
+            uStartField.setText(String.format("%.3f", presenter.getGeodesic(index).getuStart()));
+            uDirField.setText(String.format("%.3f", presenter.getGeodesic(index).getuDir()));
+            vStartField.setText(String.format("%.3f", presenter.getGeodesic(index).getvStart()));
+            vDirField.setText(String.format("%.3f", presenter.getGeodesic(index).getvDir()));
+            geodesicColorChooser.setColor(presenter.getGeodesic(index).getColor());
         }
     }
 
