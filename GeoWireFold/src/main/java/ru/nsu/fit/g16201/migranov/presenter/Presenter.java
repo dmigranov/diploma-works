@@ -450,6 +450,12 @@ public class Presenter {
         {
             return -1;
         }
+        minX = Double.MAX_VALUE;
+        maxX = -Double.MAX_VALUE;
+        minY = Double.MAX_VALUE;
+        maxY = -Double.MAX_VALUE;
+        minZ = Double.MAX_VALUE;
+        maxZ = -Double.MAX_VALUE;
 
         drawFigure();
 
@@ -472,6 +478,7 @@ public class Presenter {
     }
 
     public void setConstants(int n, int m, int k, double sw, double sh, double zn, double zf, Color backgroundColor, Color figureColor, int ti, int tj) {
+
         this.n = n;
         this.m = m;
         this.k = k;
@@ -489,6 +496,8 @@ public class Presenter {
 
         splineCalculator.setDegrees(ti, tj);
         splineFunction.updateLimits();
+        for(Geodesic geo : geodesics)
+            geo.setNeedsToBeRecalculated(true);
         needsToBeRedrawn = true;
         drawFigure();
     }

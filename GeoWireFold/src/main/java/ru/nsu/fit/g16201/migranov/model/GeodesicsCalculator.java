@@ -189,7 +189,7 @@ public class GeodesicsCalculator {
         double[] state = new double[] {uDir, vDir, uStart, vStart};
         double eps = 4 * epsilon;
         double u, v;
-        for(int iter = 0; iter < 1000; iter++)
+        for(int iter = 0; iter < 10000; iter++)
         {
             u = state[2];
             v = state[3];

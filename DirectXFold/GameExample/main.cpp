@@ -11,7 +11,7 @@ using namespace DirectX::SimpleMath;
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
     Game& game = Game::GetInstance();
-    game.InitializeEngine(hInstance, nCmdShow, true);
+    game.InitializeEngine(hInstance, nCmdShow);
     game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
     game.SetCameraFovY(XM_PI / 2);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);

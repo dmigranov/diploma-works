@@ -44,7 +44,7 @@ class Game
 {
 public:
     static Game& GetInstance();
-    int InitializeEngine(HINSTANCE hInstance, int nCmdShow, boolean isConsoleEnabled = false);
+    int InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windowName = L"Spherical & Elliptical Spaces Visualizer", boolean isConsoleEnabled = false);
     int StartGame(HINSTANCE hInstance, int nCmdShow);
 
     Texture * CreateTexture(const WCHAR * name);
