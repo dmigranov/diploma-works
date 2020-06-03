@@ -295,10 +295,16 @@ public class GeoWireFoldFrame extends MainFrame {
                 Ti = Integer.parseInt(TiField.getText());
                 Tj = Integer.parseInt(TjField.getText());
                 if(1 > Ti || 1 > Tj || Ti > presenter.getNi() || Tj > presenter.getNj())
-                    throw new NumberFormatException("Wrong u or v degrees, 1 <= Ti <= " + presenter.getNi() + ",   1 <= Tj <= " + presenter.getNj());
+                {
+                    JOptionPane.showMessageDialog(GeoWireFoldFrame.this, "Wrong u or v degrees, 1 <= Ti <= " + presenter.getNi() + ",   1 <= Tj <= " + presenter.getNj(), "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
 
                 if(m <= 0 || n <= 0 || k <= 0)
-                    throw new NumberFormatException("Wrong wireframe parameters");
+                {
+                    JOptionPane.showMessageDialog(GeoWireFoldFrame.this, "Wrong wireframe parameters", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
 
                 presenter.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj);
 
