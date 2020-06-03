@@ -284,17 +284,19 @@ public class GeoWireFoldFrame extends MainFrame {
                 zn = Double.parseDouble(znField.getText());
 
                 if(!(zn > 0 && sw > 0 && sh > 0))
-                    throw new NumberFormatException("Wrong clipping");
-
+                {
+                    JOptionPane.showMessageDialog(GeoWireFoldFrame.this, "Wrong clipping", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 int n, m, k, Ti, Tj;
                 n = Integer.parseInt(nField.getText());
                 k = Integer.parseInt(kField.getText());
                 m = Integer.parseInt(mField.getText());
                 Ti = Integer.parseInt(TiField.getText());
                 Tj = Integer.parseInt(TjField.getText());
-                /*if(1 > Ti || 1 > Tj || Ti > presenter.getNi() || Tj > presenter.getNj())
+                if(1 > Ti || 1 > Tj || Ti > presenter.getNi() || Tj > presenter.getNj())
                     throw new NumberFormatException("Wrong u or v degrees, 1 <= Ti <= " + presenter.getNi() + ",   1 <= Tj <= " + presenter.getNj());
-                */
+
                 if(m <= 0 || n <= 0 || k <= 0)
                     throw new NumberFormatException("Wrong wireframe parameters");
 
@@ -306,7 +308,7 @@ public class GeoWireFoldFrame extends MainFrame {
             }
             catch (NumberFormatException n)
             {
-                JOptionPane.showMessageDialog(GeoWireFoldFrame.this, n.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(GeoWireFoldFrame.this, "Can't parse decimal", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
         confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
