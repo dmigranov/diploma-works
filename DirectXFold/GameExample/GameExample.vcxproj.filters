@@ -56,10 +56,6 @@
     <CopyFileToFolders Include="..\DirectXFold\res\mesh3.sph">
       <Filter>Resource Files</Filter>
     </CopyFileToFolders>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\DirectXFold\myfile.spritefont">
-      <Filter>Resource Files</Filter>
-    </None>
+    <CopyFileToFolders Include="..\DirectXFold\myfile.spritefont" />
   </ItemGroup>
 </Project>
