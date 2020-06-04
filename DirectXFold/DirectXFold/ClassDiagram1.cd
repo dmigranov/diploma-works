@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Camera" Collapsed="true">
+    <Position X="5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQGECAAIKAAoAggAoAAAAAB4AAAChAkAAABABAIAAA=</HashCode>
+      <FileName>inc\Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Drawer2D" Collapsed="true">
+    <Position X="7.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAACAAAAgAAAEAAAAAAACAAAAEAAAAAQBAA=</HashCode>
+      <FileName>inc\Drawer2D.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FPSCounter" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAQAgAAAAAAAAAAACAAAAAAAAAAAABAAAAQAAAA=</HashCode>
+      <FileName>inc\FPSCounter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game" Collapsed="true">
+    <Position X="0.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAwA+ISeIMAAg9BQAiACyAAhBAoAAAA2ghQiMnBCSL0=</HashCode>
+      <FileName>inc\Game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputHandler" Collapsed="true">
+    <Position X="2.75" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAIAAAAABAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>inc\InputHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimpleInputHandler" Collapsed="true">
+    <Position X="2.75" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAIAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAEQA=</HashCode>
+      <FileName>inc\SimpleInputHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalCamera" Collapsed="true">
+    <Position X="5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAECCAAAKEIgABAAAgAYAAAAABBCAIQAgABAAAEEQA=</HashCode>
+      <FileName>inc\SphericalCamera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalMeshLoader" Collapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAABAAgAAAAAAAAEAAAA=</HashCode>
+      <FileName>inc\SphericalMeshLoader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextDrawer" Collapsed="true">
+    <Position X="7.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAIAAABABAAAAAAAIAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>inc\TextDrawer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Texture" Collapsed="true">
+    <Position X="9.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAQACAAAAgQAAAAAAAQAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>inc\Texture.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mesh" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAQIBEAEAAAgAEhCAAAEAAKAAAQAAAVAAAAAEARA=</HashCode>
+      <FileName>inc\Mesh.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalAsteroid" Collapsed="true">
+    <Position X="0.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAQAABA=</HashCode>
+      <FileName>inc\SphericalAsteroid.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalCube" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>inc\SphericalCube.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalEllipsoid" Collapsed="true">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>inc\SphericalEllipsoid.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalOctahedron" Collapsed="true">
+    <Position X="9.5" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACgAAAAAAggAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>inc\SphericalOctahedron.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalMesh" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAABAAAAAAAAA=</HashCode>
+      <FileName>inc\SphericalMesh.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SphericalSphere" Collapsed="true">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>inc\SphericalSphere.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
