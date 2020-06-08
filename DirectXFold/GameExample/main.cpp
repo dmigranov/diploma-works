@@ -11,17 +11,24 @@ using namespace DirectX::SimpleMath;
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
     Game& game = Game::GetInstance();
-    game.InitializeEngine(hInstance, nCmdShow);
+    game.InitializeEngine(hInstance, nCmdShow, L"Spherical & Elliptical Spaces Visalizer", false, false);
     game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
     game.SetCameraFovY(XM_PI / 2);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);
     auto earthTexture = game.CreateTexture(L"earth.dds");
-    auto mesh = new SphericalSphere(0.15f, 20, 20, earthTexture);
-    mesh->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
-        return in * SphericalRotationZW(-delta);
-    }));
-    game.AddMesh(mesh);
+
+    int bodyCount = 100;
+    for (int i = 0; i < bodyCount; i++)
+    {
+        auto mesh = new SphericalSphere(0.15f, 20, 20, earthTexture, SphericalRotationXW(i*XM_PI/ bodyCount));
+        mesh->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
+            return in * SphericalRotationXW(-delta);
+        }));
+        game.AddMesh(mesh);
+    }
+
     return game.StartGame(hInstance, nCmdShow);
+
 }
     
     /*{

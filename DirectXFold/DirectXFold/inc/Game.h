@@ -44,7 +44,7 @@ class Game
 {
 public:
     static Game& GetInstance();
-    int InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windowName = L"Spherical & Elliptical Spaces Visualizer", boolean isConsoleEnabled = false);
+    int InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windowName = L"Spherical & Elliptical Spaces Visualizer", bool isConsoleEnabled = false, bool isVSyncEnabled = true);
     int StartGame(HINSTANCE hInstance, int nCmdShow);
 
     Texture * CreateTexture(const WCHAR * name);
@@ -99,6 +99,7 @@ private:
     HWND                                            m_hwnd;				//дескриптор окна игры
     int                                             m_outputWidth;
     int                                             m_outputHeight;
+    bool                                            m_isVSyncEnabled = true;
 
     // Direct3D device and swap chain.
     ID3D11Device* g_d3dDevice = nullptr;                                    //used for allocating GPU resources such as buffers, textures, shaders, and state objects

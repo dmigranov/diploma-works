@@ -74,7 +74,6 @@ SphericalSphere::SphericalSphere(float radius, int sliceCount, int stackCount, D
         indices.push_back(baseIndex + i + 1);
         triCount++;
     }
-
     g_Vertices = &vertices[0];
     verticesCount = vertices.size();
 

@@ -543,8 +543,8 @@ void Game::Render()
     fpsSum += fps;
     fpsCount++;
 
-    m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFPS()).c_str(), m_outputWidth - 20, 20);
-    //m_textDrawer->DrawTextUpRightAlign(std::to_string((float)fpsSum / fpsCount).c_str(), m_outputWidth - 20, 20);
+    //m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFPS()).c_str(), m_outputWidth - 20, 20);
+    m_textDrawer->DrawTextUpRightAlign(std::to_string((float)fpsSum / fpsCount).c_str(), m_outputWidth - 20, 20);
 
 
     float sizeHori = float(aimSize) / m_outputWidth, sizeVert = float(aimSize) / m_outputHeight;
@@ -562,8 +562,10 @@ void Game::Clear(const float clearColor[4], float clearDepth, UINT8 clearStencil
 
 void Game::Present()
 {
-    g_d3dSwapChain->Present(1, 0);    //60 гц
-    //g_d3dSwapChain->Present(0, 0);    //для тестирования производительности
+    if(m_isVSyncEnabled)
+        g_d3dSwapChain->Present(1, 0);    //60 гц: VSync on
+    else
+        g_d3dSwapChain->Present(0, 0);    //Vsync off; для тестирования производительности
 }
 
 void Game::Cleanup()
