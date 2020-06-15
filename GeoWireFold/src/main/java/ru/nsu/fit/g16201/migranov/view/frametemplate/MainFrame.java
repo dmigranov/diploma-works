@@ -18,7 +18,6 @@ import javax.swing.border.BevelBorder;
 import javax.swing.event.MenuDragMouseEvent;
 import javax.swing.event.MenuDragMouseListener;
 
-
 public class MainFrame extends JFrame {
 	private JMenuBar menuBar;
 	private JToolBar toolBar;
@@ -58,28 +57,6 @@ public class MainFrame extends JFrame {
 		setSize(x, y);
 		setLocationByPlatform(true);
 		setTitle(title);
-	}
-
-	private JMenuItem createMenuItem(String title, String tooltip, int mnemonic, String icon, String actionMethod) throws SecurityException, NoSuchMethodException
-	{
-		JMenuItem item = new JMenuItem(title);
-		item.setMnemonic(mnemonic);
-		item.setToolTipText(tooltip);
-		if(icon != null)
-			item.setIcon(new ImageIcon(getClass().getResource("resources/"+icon), title));
-		final Method method = getClass().getMethod(actionMethod);
-		item.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent evt) {
-				try {
-					method.invoke(MainFrame.this);
-				} catch (Exception e) {
-					throw new RuntimeException(e);
-				}
-			}
-		});
-		return item;
 	}
 
 	private JMenu createSubMenu(String title, int mnemonic)
@@ -189,13 +166,7 @@ public class MainFrame extends JFrame {
 		return element;
 	}
 
-
-	public File getSaveFileName(String extension, String description)
-	{
-		return FileUtils.getSaveFileName(this, extension, description);
-	}
-
-	public File getOpenFileName(String extension, String description)
+	protected File getOpenFileName(String extension, String description)
 	{
 		return FileUtils.getOpenFileName(this, extension, description);
 	}
