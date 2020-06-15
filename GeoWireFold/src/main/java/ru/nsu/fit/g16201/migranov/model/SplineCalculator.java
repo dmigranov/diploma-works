@@ -37,7 +37,6 @@ public class SplineCalculator {
                     knotsI[i] = i - Ti;
                 else //i > n
                     knotsI[i] = Ni - Ti + 1;
-                System.out.println(knotsI[i]);
 
             }
             uMin = knotsI[0];

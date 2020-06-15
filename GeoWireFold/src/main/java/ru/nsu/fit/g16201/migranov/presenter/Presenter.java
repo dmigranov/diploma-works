@@ -333,55 +333,6 @@ public class Presenter {
         return matrix;
     }
 
-    public void saveFile(File file) {  //todo
-        /*try(PrintWriter pw = new PrintWriter(file)) {
-            pw.println(n + " " + m + " " + k + " " + a + " " + b + " " + c + " " + d);
-            pw.println(zn + " " + zf + " " + sw + " " + sh);
-
-            write3x3MatrixByRow(pw, sceneRotateMatrix);
-
-            pw.println(backgroundColor.getRed() + " " + backgroundColor.getGreen() + " " + backgroundColor.getBlue());
-            pw.println(figures.size());
-
-            for(Figure figure : figures)
-            {
-                Color color = figure.getColor();
-                pw.println(color.getRed() + " " + color.getGreen() + " " + color.getBlue());
-
-                Point3D center = figure.getCenter();
-                pw.println(center.x + " " + center.y + " " + center.z);
-
-                write3x3MatrixByRow(pw, figure.getRotateMatrix());
-
-                Point3D[][] splinePoints = figure.getSplinePoints();
-                pw.println(splinePoints.length + " " + splinePoints[0].length + "0 0");
-
-                for(Point2D p : splinePoints)
-                {
-                    pw.println(p.x + " " + p.y);
-                }
-            }
-        }
-        catch(IOException e)
-        {
-        }
-
-        */
-    }
-
-    //4 строку и столбец - выбрасываем
-    private void write3x3MatrixByRow(PrintWriter pw, Matrix matrix) {
-        for(int i = 0; i < 3; i++)
-        {
-            String s;
-            //s = String.format("%f %f %f", matrix.get(i, 0), matrix.get(i, 1), matrix.get(i, 2));
-            s = matrix.get(i, 0) + " " + matrix.get(i, 1) + " " +  matrix.get(i, 2);
-            pw.println(s);
-        }
-    }
-
-
-
     public int load3DFile(File file) {
         needsToBeRedrawn = true;
         isDrawingFirstTime = true;
@@ -404,8 +355,6 @@ public class Presenter {
             if(!(zn > 0 && zf > zn && sw > 0 && sh > 0))
                 throw new IOException("Wrong clipping");
             projectionMatrix = Matrix.getProjectionMatrix(sw, sh, zf, zn);
-
-            //sceneRotateMatrix = read3x3MatrixByRow(br);
 
             substrings = readLineAndSplit(br);
             backgroundColor = new Color(Integer.parseInt(substrings[0]), Integer.parseInt(substrings[1]), Integer.parseInt(substrings[2]));

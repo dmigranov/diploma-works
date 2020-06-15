@@ -323,7 +323,6 @@ public class GeoWireFoldFrame extends MainFrame {
     private void addMenus() throws NoSuchMethodException {
         addSubMenu("File", KeyEvent.VK_F);
         addMenuAndToolBarButton("File/Open surface description", "Open a surface description file", KeyEvent.VK_T, "upload-1.png", "onOpen3D", false);
-        //addMenuAndToolBarButton("File/Save as", "Save figures as", KeyEvent.VK_S, "download.png", "onSave", true);
 
         addSubMenu("Options", KeyEvent.VK_O);
         addMenuAndToolBarButton("Options/Configuration", "Configure splines and viewing properties", KeyEvent.VK_S, "settings.png", "onConfigure", true);
@@ -381,14 +380,6 @@ public class GeoWireFoldFrame extends MainFrame {
                 fileIsLoaded = false;
                 JOptionPane.showMessageDialog(this, "Wrong file format.", "Error", JOptionPane.ERROR_MESSAGE);
             }
-        }
-    }
-
-    public void onSave()
-    {
-        File file = getSaveFileName("png", "A PNG file");
-        if (file != null) {
-            presenter.saveFile(file);
         }
     }
 
