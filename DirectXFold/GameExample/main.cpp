@@ -17,13 +17,13 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);
     auto earthTexture = game.CreateTexture(L"earth.dds");
 
-    int bodyCount = 100;
+    int bodyCount = 1;
     for (int i = 0; i < bodyCount; i++)
     {
         auto mesh = new SphericalSphere(0.15f, 20, 20, earthTexture, SphericalRotationXW(i*XM_PI/ bodyCount));
-        mesh->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
-            return in * SphericalRotationXW(-delta);
-        }));
+        /*mesh->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
+            return in * SphericalRotationXW(-delta/5);
+        }));*/
         game.AddMesh(mesh);
     }
 
