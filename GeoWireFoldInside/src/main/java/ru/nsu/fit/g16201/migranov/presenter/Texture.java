@@ -1,6 +1,5 @@
-package ru.nsu.fit.g16201.migranov.controller;
+package ru.nsu.fit.g16201.migranov.presenter;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 

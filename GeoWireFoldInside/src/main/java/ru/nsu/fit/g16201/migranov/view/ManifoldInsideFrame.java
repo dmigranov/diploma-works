@@ -1,6 +1,6 @@
 package ru.nsu.fit.g16201.migranov.view;
 
-import ru.nsu.fit.g16201.migranov.controller.Controller;
+import ru.nsu.fit.g16201.migranov.presenter.Presenter;
 import ru.nsu.fit.g16201.migranov.view.frametemplate.MainFrame;
 
 import javax.swing.*;
@@ -21,7 +21,7 @@ public class ManifoldInsideFrame extends MainFrame {
     private List<AbstractButton> deactivatedButtons = new ArrayList<>();
     private boolean fileIsLoaded = false;
 
-    private Controller controller;
+    private Presenter presenter;
 
     private ManifoldOutsidePanel manifoldOutsidePanel;
     private ManifoldInsidePanel manifoldInsidePanel;
@@ -44,7 +44,7 @@ public class ManifoldInsideFrame extends MainFrame {
             return;
         int width = mainPanel.getWidth();
         int height = mainPanel.getHeight();
-        double sw = controller.getSw(), sh = controller.getSh();
+        double sw = presenter.getSw(), sh = presenter.getSh();
 
         double nwidth, nheight;
         if(width < height) {
@@ -69,7 +69,7 @@ public class ManifoldInsideFrame extends MainFrame {
         manifoldOutsidePanel.setPreferredSize(new Dimension((int)Math.round(nwidth)/2 - 20, (int)Math.round(nheight)/2 - 20));
         manifoldInsidePanel.setPreferredSize(new Dimension((int)Math.round(nwidth)/2 - 20, (int)Math.round(nheight)/2 - 20));
 
-        controller.drawAll();
+        presenter.drawAll();
         mainPanel.revalidate();
     }
 
@@ -93,7 +93,7 @@ public class ManifoldInsideFrame extends MainFrame {
 
         manifoldInsidePanel = new ManifoldInsidePanel();
         mainPanel.add(manifoldInsidePanel, constraints);
-        controller = new Controller(manifoldOutsidePanel, manifoldInsidePanel);
+        presenter = new Presenter(manifoldOutsidePanel, manifoldInsidePanel);
         addMenus();
         createCommonConfigurationPanel();
 
@@ -162,7 +162,7 @@ public class ManifoldInsideFrame extends MainFrame {
                 if (!p.getDisplayName().equals("RGB"))
                     backgroundColorChooser.removeChooserPanel(p);
             backgroundColorChooser.setPreviewPanel(new JPanel());
-            backgroundColorChooser.setColor(controller.getBackgroundColor());
+            backgroundColorChooser.setColor(presenter.getBackgroundColor());
         }
         {
             AbstractColorChooserPanel[] panels = figureColorChooser.getChooserPanels();
@@ -170,7 +170,7 @@ public class ManifoldInsideFrame extends MainFrame {
                 if (!p.getDisplayName().equals("RGB"))
                     figureColorChooser.removeChooserPanel(p);
             figureColorChooser.setPreviewPanel(new JPanel());
-            figureColorChooser.setColor(controller.getBackgroundColor());
+            figureColorChooser.setColor(presenter.getBackgroundColor());
         }
         commonPanel.add(Box.createVerticalStrut(20));
         commonPanel.add(clippingPanel);
@@ -200,12 +200,12 @@ public class ManifoldInsideFrame extends MainFrame {
                 m = Integer.parseInt(mField.getText());
                 Ti = Integer.parseInt(TiField.getText());
                 Tj = Integer.parseInt(TjField.getText());
-                if(1 > Ti || 1 > Tj || Ti > controller.getNi() || Tj > controller.getNj())
+                if(1 > Ti || 1 > Tj || Ti > presenter.getNi() || Tj > presenter.getNj())
                     throw new NumberFormatException("Wrong Ti or Tj, 1 <= Ti <= Ni");
                 if(m <= 0 || n <= 0 || k <= 0)
                     throw new NumberFormatException("Wrong m, n, or k");
 
-                controller.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj);
+                presenter.setConstants(n, m, k, sw, sh, zn, zn + 100, backgroundColorChooser.getColor(), figureColorChooser.getColor(), Ti, Tj);
 
                 resize();
 
@@ -274,16 +274,16 @@ public class ManifoldInsideFrame extends MainFrame {
     }
 
     private void updateFields() {
-        nField.setText(controller.getN() + "");
-        mField.setText(controller.getM() + "");
-        kField.setText(controller.getK() + "");
-        znField.setText(controller.getZn() + "");
-        shField.setText(controller.getSh() + "");
-        swField.setText(controller.getSw() + "");
-        TiField.setText(controller.getTi() + "");
-        TjField.setText(controller.getTj() + "");
-        backgroundColorChooser.setColor(controller.getBackgroundColor());
-        figureColorChooser.setColor(controller.getFigureColor());
+        nField.setText(presenter.getN() + "");
+        mField.setText(presenter.getM() + "");
+        kField.setText(presenter.getK() + "");
+        znField.setText(presenter.getZn() + "");
+        shField.setText(presenter.getSh() + "");
+        swField.setText(presenter.getSw() + "");
+        TiField.setText(presenter.getTi() + "");
+        TjField.setText(presenter.getTj() + "");
+        backgroundColorChooser.setColor(presenter.getBackgroundColor());
+        figureColorChooser.setColor(presenter.getFigureColor());
 
     }
 
@@ -298,7 +298,7 @@ public class ManifoldInsideFrame extends MainFrame {
     {
         if(file != null) {
             setTitle(file.getName() + " | Denis Migranov, 16201");
-            int r = controller.load3DFile(file);
+            int r = presenter.load3DFile(file);
             if(r == 0)
             {
                 for (AbstractButton b : deactivatedButtons)

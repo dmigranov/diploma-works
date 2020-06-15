@@ -1,13 +1,10 @@
-package ru.nsu.fit.g16201.migranov.controller;
+package ru.nsu.fit.g16201.migranov.presenter;
 
 import ru.nsu.fit.g16201.migranov.model.GeodesicsCalculator;
 import ru.nsu.fit.g16201.migranov.model.ManifoldFunction;
 import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
 
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.util.Arrays;
-import java.util.Random;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;

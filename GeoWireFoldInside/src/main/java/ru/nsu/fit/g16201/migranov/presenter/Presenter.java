@@ -1,4 +1,4 @@
-package ru.nsu.fit.g16201.migranov.controller;
+package ru.nsu.fit.g16201.migranov.presenter;
 
 import ru.nsu.fit.g16201.migranov.model.*;
 import ru.nsu.fit.g16201.migranov.view.ManifoldInsidePanel;
@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
-public class Controller {
+public class Presenter {
     private ManifoldOutsidePanel manifoldOutsidePanel;
     private ManifoldInsidePanel manifoldInsidePanel;
 
@@ -50,7 +50,7 @@ public class Controller {
     private ManifoldRenderer renderer;
 
 
-    public Controller(ManifoldOutsidePanel manifoldOutsidePanel, ManifoldInsidePanel manifoldInsidePanel) {
+    public Presenter(ManifoldOutsidePanel manifoldOutsidePanel, ManifoldInsidePanel manifoldInsidePanel) {
         this.manifoldOutsidePanel = manifoldOutsidePanel;
         this.manifoldInsidePanel = manifoldInsidePanel;
 
