@@ -17,11 +17,10 @@ import javax.swing.event.MenuDragMouseListener;
 
 
 public class MainFrame extends JFrame {
-	private static final long serialVersionUID = 1L;
-	protected JMenuBar menuBar;
+	private JMenuBar menuBar;
 	protected JToolBar toolBar;
 
-	public MainFrame()
+	private MainFrame()
 	{
 		try
 		{
@@ -46,7 +45,7 @@ public class MainFrame extends JFrame {
 		setTitle(title);
 	}
 
-	public JMenuItem createMenuItem(String title, String tooltip, int mnemonic, String icon, String actionMethod) throws SecurityException, NoSuchMethodException
+	private JMenuItem createMenuItem(String title, String tooltip, int mnemonic, String icon, String actionMethod) throws SecurityException, NoSuchMethodException
 	{
 		JMenuItem item = new JMenuItem(title);
 		item.setMnemonic(mnemonic);
@@ -54,33 +53,24 @@ public class MainFrame extends JFrame {
 		if(icon != null)
 			item.setIcon(new ImageIcon(getClass().getResource("resources/"+icon), title));
 		final Method method = getClass().getMethod(actionMethod);
-		item.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent evt) {
-				try {
-					method.invoke(MainFrame.this);
-				} catch (Exception e) {
-					throw new RuntimeException(e);
-				}
+		item.addActionListener(evt -> {
+			try {
+				method.invoke(MainFrame.this);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		});
 		return item;
 	}
 
-	public JMenuItem createMenuItem(String title, String tooltip, int mnemonic, String actionMethod) throws SecurityException, NoSuchMethodException
-	{
-		return createMenuItem(title, tooltip, mnemonic, null, actionMethod);
-	}
-
-	public JMenu createSubMenu(String title, int mnemonic)
+	private JMenu createSubMenu(String title, int mnemonic)
 	{
 		JMenu menu = new JMenu(title);
 		menu.setMnemonic(mnemonic);
 		return menu;
 	}
 
-	public void addSubMenu(String title, int mnemonic)
+	protected void addSubMenu(String title, int mnemonic)
 	{
 		MenuElement element = getParentMenuElement(title);
 		if(element == null)
@@ -96,7 +86,7 @@ public class MainFrame extends JFrame {
 			throw new InvalidParameterException("Invalid menu path: "+title);
 	}
 
-	public void addMenuItem(String title, String tooltip, int mnemonic, String icon, String actionMethod, JLabel label) throws SecurityException, NoSuchMethodException
+	private void addMenuItem(String title, String tooltip, int mnemonic, String icon, String actionMethod, JLabel label) throws SecurityException, NoSuchMethodException
 	{
 		MenuElement element = getParentMenuElement(title);
 		if(element == null)
@@ -109,24 +99,6 @@ public class MainFrame extends JFrame {
 			((JMenu)element).add(item);
 		else if(element instanceof JPopupMenu)
 			((JPopupMenu)element).add(item);
-		else 
-			throw new InvalidParameterException("Invalid menu path: "+title);
-	}
-
-	public void addMenuItem(String title, String tooltip, int mnemonic, String actionMethod, JLabel label) throws SecurityException, NoSuchMethodException
-	{
-		addMenuItem(title, tooltip, mnemonic, null, actionMethod, label);
-	}
-
-	public void addMenuSeparator(String title)
-	{
-		MenuElement element = getMenuElement(title);
-		if(element == null)
-			throw new InvalidParameterException("Menu path not found: "+title);
-		if(element instanceof JMenu)
-			((JMenu)element).addSeparator();
-		else if(element instanceof JPopupMenu)
-			((JPopupMenu)element).addSeparator();
 		else 
 			throw new InvalidParameterException("Invalid menu path: "+title);
 	}
@@ -149,7 +121,7 @@ public class MainFrame extends JFrame {
 			return menuBar;
 	}
 
-	public MenuElement getMenuElement(String menuPath)
+	private MenuElement getMenuElement(String menuPath)
 	{
 		MenuElement element = menuBar;
 		for(String pathElement: menuPath.split("/"))
@@ -173,38 +145,13 @@ public class MainFrame extends JFrame {
 		return element;
 	}
 
-	public JButton createToolBarButton(JMenuItem item)
-	{
-		JButton button = new JButton(item.getIcon());
-		for(ActionListener listener: item.getActionListeners())
-			button.addActionListener(listener);
-		button.setToolTipText(item.getToolTipText());
-		return button;
-	}
 
-	public JButton createToolBarButton(String menuPath)
-	{
-		JMenuItem item = (JMenuItem)getMenuElement(menuPath);
-		if(item == null) 
-			throw new InvalidParameterException("Menu path not found: "+menuPath);
-		return createToolBarButton(item);
-	}
-
-	public void addToolBarButton(String menuPath, JLabel label)
-	{
-		JButton button = createToolBarButton(menuPath);
-		if(label != null)
-			button.addMouseListener(new StatusTitleListener(label));
-		toolBar.add(button);
-	}
-
-
-	public File getSaveFileName(String extension, String description)
+	protected File getSaveFileName(String extension, String description)
 	{
 		return FileUtils.getSaveFileName(this, extension, description);
 	}
 
-	public File getOpenFileName(String extension, String description)
+	protected File getOpenFileName(String extension, String description)
 	{
 		return FileUtils.getOpenFileName(this, extension, description);
 	}

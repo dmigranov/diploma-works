@@ -7,9 +7,9 @@ import javax.swing.filechooser.FileFilter;
 
 public class ExtensionFileFilter extends FileFilter
 {
-	String extension, description;
+	private String extension, description;
 
-	public ExtensionFileFilter(String extension, String description)
+	ExtensionFileFilter(String extension, String description)
 	{
 		this.extension = extension;
 		this.description = description;
