@@ -10,7 +10,7 @@ extern "C"
     __declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
 }
 
-int Game::StartGame(HINSTANCE hInstance, int nCmdShow)
+int Game::StartGame()
 {
     // Main message loop
     // it runs indefinitely, and then check for messages inside the while loop

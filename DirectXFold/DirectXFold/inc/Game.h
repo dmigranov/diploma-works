@@ -45,7 +45,7 @@ class Game
 public:
     static Game& GetInstance();
     int InitializeEngine(HINSTANCE hInstance, int nCmdShow, const WCHAR* windowName = L"Spherical & Elliptical Spaces Visualizer", bool isConsoleEnabled = false, bool isVSyncEnabled = true);
-    int StartGame(HINSTANCE hInstance, int nCmdShow);
+    int StartGame();
 
     Texture * CreateTexture(const WCHAR * name);
     void AddMesh(Mesh * mesh);

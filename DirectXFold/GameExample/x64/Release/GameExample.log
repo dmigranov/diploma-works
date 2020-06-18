@@ -1,10 +1,10 @@
 ﻿  main.cpp
      Creating library bin64\DXSphEll.lib and object bin64\DXSphEll.exp
   Generating code
+  275 of 916 functions (30.0%) were compiled, the rest were copied from previous compilation.
+    22 functions were new in current compilation
+    79 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  1 of 868 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
 DirectXFold.lib(VertexTypes.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(VertexTypes.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
 DirectXFold.lib(SpriteFont.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(SpriteFont.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
 DirectXFold.lib(PrimitiveBatch.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFold.lib(PrimitiveBatch.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
