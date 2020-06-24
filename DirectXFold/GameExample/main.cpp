@@ -11,21 +11,20 @@ using namespace DirectX::SimpleMath;
 int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _In_ int nCmdShow)
 {
     Game& game = Game::GetInstance();
-    game.InitializeEngine(hInstance, nCmdShow, L"Spherical & Elliptical Spaces Visalizer", false, false);
+    game.InitializeEngine(hInstance, nCmdShow, L"Сф. и Элл. Пространства", false, false);
     game.MoveCamera(Vector3(0, 0, -XM_PI / 4));
     game.SetCameraFovY(XM_PI / 2);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);
     Texture * earthTexture = game.CreateTexture(L"earth.dds");
-    SphericalMesh * mesh = new SphericalSphere(0.15f, 20, 20, earthTexture);
+    /*SphericalMesh * mesh = new SphericalSphere(0.15f, 20, 20, earthTexture);
     mesh->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
         return in * SphericalRotationXW(-delta / 5);
     }));
-    game.AddMesh(mesh);
-    return game.StartGame();
+    game.AddMesh(mesh);*/
 
 
-    /*
-    int bodyCount = 1;
+    
+    int bodyCount = 500;
     for (int i = 0; i < bodyCount; i++)
     {
         auto mesh = new SphericalSphere(0.15f, 20, 20, earthTexture, SphericalRotationXW(i * XM_PI / bodyCount));
@@ -34,7 +33,10 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         }));
         game.AddMesh(mesh);
     }
-    */
+    
+
+    return game.StartGame();
+
 }
     
     /*{

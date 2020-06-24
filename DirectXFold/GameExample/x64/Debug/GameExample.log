@@ -1,4 +1,5 @@
-﻿     Creating library bin64\GameExampled.lib and object bin64\GameExampled.exp
+﻿  main.cpp
+     Creating library bin64\GameExampled.lib and object bin64\GameExampled.exp
 DirectXFoldd.lib(VertexTypes.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFoldd.lib(VertexTypes.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
 DirectXFoldd.lib(SpriteFont.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFoldd.lib(SpriteFont.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
 DirectXFoldd.lib(PrimitiveBatch.obj) : warning LNK4099: PDB 'DirectXTK.pdb' was not found with 'DirectXFoldd.lib(PrimitiveBatch.obj)' or at 'D:\Диплом\MY CODE\DirectXFold\GameExample\bin64\DirectXTK.pdb'; linking object as if no debug info
