@@ -6,7 +6,7 @@ public class FlammParaboloidFunction extends ManifoldFunction {
     {
         uMin = 0;
         uMax = 2*Math.PI;
-        vMin =  1.0001;
+        vMin = 1.0001;
         vMax = 10;
     }
 

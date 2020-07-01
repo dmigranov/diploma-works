@@ -182,8 +182,12 @@ public class Presenter {
     private double minX = Double.MAX_VALUE, maxX = -Double.MAX_VALUE, minY = Double.MAX_VALUE, maxY = -Double.MAX_VALUE, minZ = Double.MAX_VALUE, maxZ = -Double.MAX_VALUE;      //куда??!
 
 
+
+
     public void drawFigure() {
 
+        boolean wasToBeRedrawn = needsToBeRedrawn;
+        long start = System.nanoTime();
 
         drawingPanel.clear();
 
@@ -273,6 +277,17 @@ public class Presenter {
 
         drawingPanel.repaint();
 
+        /*long end = System.nanoTime();
+        if(!wasToBeRedrawn) {
+            frameCount++;
+            long diff = (end - start);
+            frameSum += diff;
+            if(frameCount == 500) {
+                System.out.println((double) frameSum / frameCount / 1000000);
+                frameCount = 0;
+                frameSum = 0;
+            }
+        }*/
     }
 
 
@@ -408,6 +423,9 @@ public class Presenter {
 
         drawFigure();
 
+        frameSum = 0;
+        frameCount = 0;
+
         return 0;
     }
 
@@ -448,6 +466,10 @@ public class Presenter {
         for(Geodesic geo : geodesics)
             geo.setNeedsToBeRecalculated(true);
         needsToBeRedrawn = true;
+
+        frameSum = 0;
+        frameCount = 0;
+
         drawFigure();
     }
 
@@ -510,15 +532,23 @@ public class Presenter {
         double uMin = splineCalculator.getUMin(), uMax = splineCalculator.getUMax();
         double vMin = splineCalculator.getVMin(), vMax = splineCalculator.getVMax();
 
-        geodesics.add(new Geodesic((uMax - uMin)/2 , (vMax - vMin)/2 , (uMax-uMin)/10, (vMax-vMin)/10, Color.BLACK));
+        //geodesics.add(new Geodesic((uMax - uMin)/2 , (vMax - vMin)/2 , (uMax-uMin)/10, (vMax-vMin)/10, Color.BLACK));
+        geodesics.add(new Geodesic(uMin + 0.1 , vMin+0.1  , 0.5, 0.5, Color.BLACK));
 
         needsToBeRedrawn = true;
+
+        frameSum = 0;
+        frameCount = 0;
 
         drawFigure();
     }
 
     public void removeGeodesic(int index) {
         geodesics.remove(index);
+
+        frameSum = 0;
+        frameCount = 0;
+
         drawFigure();
     }
 
@@ -531,6 +561,9 @@ public class Presenter {
         geodesic.setColor(color);
         geodesic.setNeedsToBeRecalculated(true);
         needsToBeRedrawn = true;
+
+        frameSum = 0;
+        frameCount = 0;
 
         drawFigure();
     }

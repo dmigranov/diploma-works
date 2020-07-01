@@ -456,8 +456,24 @@ public class Presenter {
             geodesicsCalculator = new GeodesicsCalculator(spongeFunction);
             modelPoints = new Point3D[n*k + 1][m*k + 1];
             geodesics = new ArrayList<>();
-            geodesics.add(new Geodesic(spongeFunction.getUMin() + 0.1, spongeFunction.getVMin() + 0.1, 0, 0.2, Color.RED));
-            geodesics.add(new Geodesic(spongeFunction.getUMax() - 0.1, spongeFunction.getVMin() + 0.1, 0, 0.2, Color.BLACK));
+            /*
+            geodesics.add(new Geodesic(0.1, spongeFunction.getVMin() + 0.05, 0, 0.2, Color.RED));
+            geodesics.add(new Geodesic(0.2, spongeFunction.getVMin() + 0.05, 0, 0.2, Color.GREEN));
+            geodesics.add(new Geodesic(0.3, spongeFunction.getVMin() + 0.05, 0, 0.2, Color.BLUE));
+            geodesics.add(new Geodesic(0.4, spongeFunction.getVMin() + 0.05, 0, 0.2, Color.RED));
+            geodesics.add(new Geodesic(0.5, spongeFunction.getVMin() + 0.05, 0, 0.2, Color.GREEN));
+            geodesics.add(new Geodesic(0.6, spongeFunction.getVMin() + 0.05, 0, 0.2, Color.BLUE));
+            geodesics.add(new Geodesic(0.7, spongeFunction.getVMin() + 0.05, 0, 0.2, Color.RED));
+            geodesics.add(new Geodesic(0.8, spongeFunction.getVMin() + 0.05, 0, 0.2, Color.GREEN));
+            geodesics.add(new Geodesic(0.9, spongeFunction.getVMin() + 0.05, 0, 0.2, Color.BLUE));
+            */
+            geodesics.add(new Geodesic(0.1, spongeFunction.getVMax() - 0.5, 0.006, -0.5, Color.YELLOW));
+            geodesics.add(new Geodesic(0.15, spongeFunction.getVMax() - 0.5, 0.006, -0.5, Color.GREEN));
+            geodesics.add(new Geodesic(0.2, spongeFunction.getVMax() - 0.5, 0.006, -0.5, Color.RED));
+            geodesics.add(new Geodesic(0.25, spongeFunction.getVMax() - 0.5, 0.006, -0.5, Color.BLUE));
+
+            //geodesics.add(new Geodesic(0.1, spongeFunction.getVMax() - 0.6, -0.6, -0.1, Color.GREEN));
+            //geodesics.add(new Geodesic(0.1, spongeFunction.getVMax() - 0.7, -0.6, -0.1, Color.BLUE));
         }
         catch (IOException | ArrayIndexOutOfBoundsException | IllegalArgumentException e)
         {

@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 
-public class GeoWireFoldFrame extends MainFrame {
+public class GeodesicsFrame extends MainFrame {
     private boolean fileIsLoaded = false;
 
     private Presenter presenter;
@@ -31,7 +31,7 @@ public class GeoWireFoldFrame extends MainFrame {
 
 
     public static void main(String[] args) throws Exception {
-        new GeoWireFoldFrame();
+        new GeodesicsFrame();
     }
 
     private void resize() {
@@ -66,7 +66,7 @@ public class GeoWireFoldFrame extends MainFrame {
         mainPanel.revalidate();
     }
 
-    private GeoWireFoldFrame() throws Exception {
+    private GeodesicsFrame() throws Exception {
         super(800, 600, "Untitled | GeoWireFold");
 
         mainPanel = new JPanel(new GridBagLayout());
@@ -176,7 +176,7 @@ public class GeoWireFoldFrame extends MainFrame {
             }
             catch (NumberFormatException n)
             {
-                JOptionPane.showMessageDialog(GeoWireFoldFrame.this, n.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(GeodesicsFrame.this, n.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
     }
@@ -285,7 +285,7 @@ public class GeoWireFoldFrame extends MainFrame {
 
                 if(!(zn > 0 && sw > 0 && sh > 0))
                 {
-                    JOptionPane.showMessageDialog(GeoWireFoldFrame.this, "Wrong clipping", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(GeodesicsFrame.this, "Wrong clipping", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
                 int n, m, k, Ti, Tj;
@@ -296,13 +296,13 @@ public class GeoWireFoldFrame extends MainFrame {
                 Tj = Integer.parseInt(TjField.getText());
                 if(1 > Ti || 1 > Tj || Ti > presenter.getNi() || Tj > presenter.getNj())
                 {
-                    JOptionPane.showMessageDialog(GeoWireFoldFrame.this, "Wrong u or v degrees, 1 <= Ti <= " + presenter.getNi() + ",   1 <= Tj <= " + presenter.getNj(), "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(GeodesicsFrame.this, "Wrong u or v degrees, 1 <= Ti <= " + presenter.getNi() + ",   1 <= Tj <= " + presenter.getNj(), "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
                 if(m <= 0 || n <= 0 || k <= 0)
                 {
-                    JOptionPane.showMessageDialog(GeoWireFoldFrame.this, "Wrong wireframe parameters", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(GeodesicsFrame.this, "Wrong wireframe parameters", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
@@ -314,7 +314,7 @@ public class GeoWireFoldFrame extends MainFrame {
             }
             catch (NumberFormatException n)
             {
-                JOptionPane.showMessageDialog(GeoWireFoldFrame.this, "Can't parse decimal", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(GeodesicsFrame.this, "Can't parse decimal", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
         confirmButton.setAlignmentX(Component.CENTER_ALIGNMENT);

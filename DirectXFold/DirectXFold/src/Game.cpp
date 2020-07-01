@@ -537,14 +537,16 @@ void Game::Render()
         m_textDrawer->DrawTextDownRightAlign(ss.str().c_str(), m_outputWidth - 20, m_outputHeight - 20);
     }
     
-    /*auto fps = fpsCounter.GetFPS();
-    static unsigned int fpsSum = 0;
-    static unsigned int fpsCount = 0;
-    fpsSum += fps;
-    fpsCount++;*/
+    auto frameTime = fpsCounter.GetFrameTime();
+    static double ftSum = 0;
+    static double ftCount = 0;
+    ftSum += frameTime;
+    ftCount++;
 
     m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFPS()).c_str(), m_outputWidth - 20, 20);
     //m_textDrawer->DrawTextUpRightAlign(std::to_string((float)fpsSum / fpsCount).c_str(), m_outputWidth - 20, 20);
+    //m_textDrawer->DrawTextUpRightAlign(std::to_string(fpsCounter.GetFrameTime()).c_str(), m_outputWidth - 20, 60);
+    m_textDrawer->DrawTextUpRightAlign(std::to_string((float)ftSum / ftCount).c_str(), m_outputWidth - 20, 60);
 
 
     float sizeHori = float(aimSize) / m_outputWidth, sizeVert = float(aimSize) / m_outputHeight;

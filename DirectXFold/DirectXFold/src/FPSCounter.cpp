@@ -11,9 +11,10 @@ FPSCounter::FPSCounter()
 void FPSCounter::Update()
 {
 	m_count++;
-
-	if (timeGetTime() >= (m_startTime + 1000))
+	DWORD endTime;
+	if ((endTime = timeGetTime()) >= (m_startTime + 1000))
 	{
+		m_frameTime = (double)(endTime - m_startTime) / m_count;
 		m_fps = m_count;
 		m_count = 0;
 
@@ -24,4 +25,9 @@ void FPSCounter::Update()
 unsigned int FPSCounter::GetFPS()
 {
 	return m_fps;
+}
+
+double FPSCounter::GetFrameTime()
+{
+	return m_frameTime;
 }

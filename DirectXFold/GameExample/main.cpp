@@ -16,15 +16,20 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
     game.SetCameraFovY(XM_PI / 2);
     game.SetBackgroundColor(DirectX::Colors::PowderBlue);
     Texture * earthTexture = game.CreateTexture(L"earth.dds");
-    /*SphericalMesh * mesh = new SphericalSphere(0.15f, 20, 20, earthTexture);
-    mesh->AddUpdater(Mesh::MeshUpdater([&game](Matrix in, float delta) {
-        return in * SphericalRotationXW(-delta / 5);
-    }));
-    game.AddMesh(mesh);*/
-
-
     
+
     int bodyCount = 500;
+    for (int i = 0; i < bodyCount; i++)
+    {
+        auto mesh = new SphericalSphere(0.03f, 19, 20, earthTexture, SphericalRotationXW(i * XM_PI / 2 /bodyCount));
+        mesh->AddUpdater(Mesh::MeshUpdater([&game, i](Matrix in, float delta) {
+            return SphericalRotationYW(0.001*sin(delta * i / 500)) * in;
+        }));
+        game.AddMesh(mesh);
+    }
+
+    /*
+    int bodyCount = 8;
     for (int i = 0; i < bodyCount; i++)
     {
         auto mesh = new SphericalSphere(0.15f, 20, 20, earthTexture, SphericalRotationXW(i * XM_PI / bodyCount));
@@ -33,6 +38,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE, _In_ LPWSTR, _
         }));
         game.AddMesh(mesh);
     }
+    */
     
 
     return game.StartGame();
